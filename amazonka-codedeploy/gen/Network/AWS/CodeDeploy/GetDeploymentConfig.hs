@@ -44,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a get deployment configuration operation.
+-- | Represents the input of a GetDeploymentConfig operation.
 --
 --
 --
@@ -109,7 +109,7 @@ instance ToPath GetDeploymentConfig where
 instance ToQuery GetDeploymentConfig where
         toQuery = const mempty
 
--- | Represents the output of a get deployment configuration operation.
+-- | Represents the output of a GetDeploymentConfig operation.
 --
 --
 --

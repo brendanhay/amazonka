@@ -44,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a batch get applications operation.
+-- | Represents the input of a BatchGetApplications operation.
 --
 --
 --
@@ -106,7 +106,7 @@ instance ToPath BatchGetApplications where
 instance ToQuery BatchGetApplications where
         toQuery = const mempty
 
--- | Represents the output of a batch get applications operation.
+-- | Represents the output of a BatchGetApplications operation.
 --
 --
 --

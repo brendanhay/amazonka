@@ -47,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a batch get application revisions operation.
+-- | Represents the input of a BatchGetApplicationRevisions operation.
 --
 --
 --
@@ -122,7 +122,7 @@ instance ToPath BatchGetApplicationRevisions where
 instance ToQuery BatchGetApplicationRevisions where
         toQuery = const mempty
 
--- | Represents the output of a batch get application revisions operation.
+-- | Represents the output of a BatchGetApplicationRevisions operation.
 --
 --
 --

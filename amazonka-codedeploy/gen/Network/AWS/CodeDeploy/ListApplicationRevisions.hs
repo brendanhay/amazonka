@@ -54,7 +54,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a list application revisions operation.
+-- | Represents the input of a ListApplicationRevisions operation.
 --
 --
 --
@@ -179,7 +179,7 @@ instance ToPath ListApplicationRevisions where
 instance ToQuery ListApplicationRevisions where
         toQuery = const mempty
 
--- | Represents the output of a list application revisions operation.
+-- | Represents the output of a ListApplicationRevisions operation.
 --
 --
 --

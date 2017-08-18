@@ -29,10 +29,10 @@ module Network.AWS.CodeDeploy.ListDeploymentInstances
       listDeploymentInstances
     , ListDeploymentInstances
     -- * Request Lenses
-    , ldiInstanceStatusFilter
-    , ldiNextToken
-    , ldiInstanceTypeFilter
-    , ldiDeploymentId
+    , lInstanceStatusFilter
+    , lNextToken
+    , lInstanceTypeFilter
+    , lDeploymentId
 
     -- * Destructuring the Response
     , listDeploymentInstancesResponse
@@ -51,62 +51,62 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a list deployment instances operation.
+-- | Represents the input of a ListDeploymentInstances operation.
 --
 --
 --
 -- /See:/ 'listDeploymentInstances' smart constructor.
 data ListDeploymentInstances = ListDeploymentInstances'
-    { _ldiInstanceStatusFilter :: !(Maybe [InstanceStatus])
-    , _ldiNextToken            :: !(Maybe Text)
-    , _ldiInstanceTypeFilter   :: !(Maybe [InstanceType])
-    , _ldiDeploymentId         :: !Text
+    { _lInstanceStatusFilter :: !(Maybe [InstanceStatus])
+    , _lNextToken            :: !(Maybe Text)
+    , _lInstanceTypeFilter   :: !(Maybe [InstanceType])
+    , _lDeploymentId         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListDeploymentInstances' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldiInstanceStatusFilter' - A subset of instances to list by status:     * Pending: Include those instance with pending deployments.     * InProgress: Include those instance where deployments are still in progress.     * Succeeded: Include those instances with successful deployments.     * Failed: Include those instance with failed deployments.     * Skipped: Include those instance with skipped deployments.     * Unknown: Include those instance with deployments in an unknown state.
+-- * 'lInstanceStatusFilter' - A subset of instances to list by status:     * Pending: Include those instance with pending deployments.     * InProgress: Include those instance where deployments are still in progress.     * Succeeded: Include those instances with successful deployments.     * Failed: Include those instance with failed deployments.     * Skipped: Include those instance with skipped deployments.     * Unknown: Include those instance with deployments in an unknown state.
 --
--- * 'ldiNextToken' - An identifier returned from the previous list deployment instances call. It can be used to return the next set of deployment instances in the list.
+-- * 'lNextToken' - An identifier returned from the previous list deployment instances call. It can be used to return the next set of deployment instances in the list.
 --
--- * 'ldiInstanceTypeFilter' - The set of instances in a blue/green deployment, either those in the original environment ("BLUE") or those in the replacement environment ("GREEN"), for which you want to view instance information.
+-- * 'lInstanceTypeFilter' - The set of instances in a blue/green deployment, either those in the original environment ("BLUE") or those in the replacement environment ("GREEN"), for which you want to view instance information.
 --
--- * 'ldiDeploymentId' - The unique ID of a deployment.
+-- * 'lDeploymentId' - The unique ID of a deployment.
 listDeploymentInstances
-    :: Text -- ^ 'ldiDeploymentId'
+    :: Text -- ^ 'lDeploymentId'
     -> ListDeploymentInstances
 listDeploymentInstances pDeploymentId_ =
     ListDeploymentInstances'
-    { _ldiInstanceStatusFilter = Nothing
-    , _ldiNextToken = Nothing
-    , _ldiInstanceTypeFilter = Nothing
-    , _ldiDeploymentId = pDeploymentId_
+    { _lInstanceStatusFilter = Nothing
+    , _lNextToken = Nothing
+    , _lInstanceTypeFilter = Nothing
+    , _lDeploymentId = pDeploymentId_
     }
 
 -- | A subset of instances to list by status:     * Pending: Include those instance with pending deployments.     * InProgress: Include those instance where deployments are still in progress.     * Succeeded: Include those instances with successful deployments.     * Failed: Include those instance with failed deployments.     * Skipped: Include those instance with skipped deployments.     * Unknown: Include those instance with deployments in an unknown state.
-ldiInstanceStatusFilter :: Lens' ListDeploymentInstances [InstanceStatus]
-ldiInstanceStatusFilter = lens _ldiInstanceStatusFilter (\ s a -> s{_ldiInstanceStatusFilter = a}) . _Default . _Coerce;
+lInstanceStatusFilter :: Lens' ListDeploymentInstances [InstanceStatus]
+lInstanceStatusFilter = lens _lInstanceStatusFilter (\ s a -> s{_lInstanceStatusFilter = a}) . _Default . _Coerce;
 
 -- | An identifier returned from the previous list deployment instances call. It can be used to return the next set of deployment instances in the list.
-ldiNextToken :: Lens' ListDeploymentInstances (Maybe Text)
-ldiNextToken = lens _ldiNextToken (\ s a -> s{_ldiNextToken = a});
+lNextToken :: Lens' ListDeploymentInstances (Maybe Text)
+lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a});
 
 -- | The set of instances in a blue/green deployment, either those in the original environment ("BLUE") or those in the replacement environment ("GREEN"), for which you want to view instance information.
-ldiInstanceTypeFilter :: Lens' ListDeploymentInstances [InstanceType]
-ldiInstanceTypeFilter = lens _ldiInstanceTypeFilter (\ s a -> s{_ldiInstanceTypeFilter = a}) . _Default . _Coerce;
+lInstanceTypeFilter :: Lens' ListDeploymentInstances [InstanceType]
+lInstanceTypeFilter = lens _lInstanceTypeFilter (\ s a -> s{_lInstanceTypeFilter = a}) . _Default . _Coerce;
 
 -- | The unique ID of a deployment.
-ldiDeploymentId :: Lens' ListDeploymentInstances Text
-ldiDeploymentId = lens _ldiDeploymentId (\ s a -> s{_ldiDeploymentId = a});
+lDeploymentId :: Lens' ListDeploymentInstances Text
+lDeploymentId = lens _lDeploymentId (\ s a -> s{_lDeploymentId = a});
 
 instance AWSPager ListDeploymentInstances where
         page rq rs
           | stop (rs ^. ldirsNextToken) = Nothing
           | stop (rs ^. ldirsInstancesList) = Nothing
           | otherwise =
-            Just $ rq & ldiNextToken .~ rs ^. ldirsNextToken
+            Just $ rq & lNextToken .~ rs ^. ldirsNextToken
 
 instance AWSRequest ListDeploymentInstances where
         type Rs ListDeploymentInstances =
@@ -139,10 +139,10 @@ instance ToJSON ListDeploymentInstances where
           = object
               (catMaybes
                  [("instanceStatusFilter" .=) <$>
-                    _ldiInstanceStatusFilter,
-                  ("nextToken" .=) <$> _ldiNextToken,
-                  ("instanceTypeFilter" .=) <$> _ldiInstanceTypeFilter,
-                  Just ("deploymentId" .= _ldiDeploymentId)])
+                    _lInstanceStatusFilter,
+                  ("nextToken" .=) <$> _lNextToken,
+                  ("instanceTypeFilter" .=) <$> _lInstanceTypeFilter,
+                  Just ("deploymentId" .= _lDeploymentId)])
 
 instance ToPath ListDeploymentInstances where
         toPath = const "/"
@@ -150,7 +150,7 @@ instance ToPath ListDeploymentInstances where
 instance ToQuery ListDeploymentInstances where
         toQuery = const mempty
 
--- | Represents the output of a list deployment instances operation.
+-- | Represents the output of a ListDeploymentInstances operation.
 --
 --
 --

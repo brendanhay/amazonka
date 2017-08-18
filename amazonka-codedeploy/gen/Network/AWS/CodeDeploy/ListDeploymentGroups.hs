@@ -50,7 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a list deployment groups operation.
+-- | Represents the input of a ListDeploymentGroups operation.
 --
 --
 --
@@ -130,7 +130,7 @@ instance ToPath ListDeploymentGroups where
 instance ToQuery ListDeploymentGroups where
         toQuery = const mempty
 
--- | Represents the output of a list deployment groups operation.
+-- | Represents the output of a ListDeploymentGroups operation.
 --
 --
 --

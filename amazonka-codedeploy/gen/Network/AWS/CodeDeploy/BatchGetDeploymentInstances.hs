@@ -46,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a batch get deployment instances operation.
+-- | Represents the input of a BatchGetDeploymentInstances operation.
 --
 --
 --
@@ -119,7 +119,7 @@ instance ToPath BatchGetDeploymentInstances where
 instance ToQuery BatchGetDeploymentInstances where
         toQuery = const mempty
 
--- | Represents the output of a batch get deployment instance operation.
+-- | Represents the output of a BatchGetDeploymentInstances operation.
 --
 --
 --

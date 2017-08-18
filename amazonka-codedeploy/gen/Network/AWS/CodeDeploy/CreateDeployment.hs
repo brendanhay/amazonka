@@ -28,6 +28,7 @@ module Network.AWS.CodeDeploy.CreateDeployment
     , CreateDeployment
     -- * Request Lenses
     , cdDeploymentConfigName
+    , cdFileExistsBehavior
     , cdTargetInstances
     , cdRevision
     , cdDescription
@@ -52,13 +53,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a create deployment operation.
+-- | Represents the input of a CreateDeployment operation.
 --
 --
 --
 -- /See:/ 'createDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
     { _cdDeploymentConfigName          :: !(Maybe Text)
+    , _cdFileExistsBehavior            :: !(Maybe FileExistsBehavior)
     , _cdTargetInstances               :: !(Maybe TargetInstances)
     , _cdRevision                      :: !(Maybe RevisionLocation)
     , _cdDescription                   :: !(Maybe Text)
@@ -74,6 +76,8 @@ data CreateDeployment = CreateDeployment'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdDeploymentConfigName' - The name of a deployment configuration associated with the applicable IAM user or AWS account. If not specified, the value configured in the deployment group will be used as the default. If the deployment group does not have a deployment configuration associated with it, then CodeDeployDefault.OneAtATime will be used by default.
+--
+-- * 'cdFileExistsBehavior' - Information about how AWS CodeDeploy handles files that already exist in a deployment target location but weren't part of the previous successful deployment. The fileExistsBehavior parameter takes any of the following values:     * DISALLOW: The deployment fails. This is also the default behavior if no option is specified.     * OVERWRITE: The version of the file from the application revision currently being deployed replaces the version already on the instance.     * RETAIN: The version of the file already on the instance is kept and used as part of the new deployment.
 --
 -- * 'cdTargetInstances' - Information about the instances that will belong to the replacement environment in a blue/green deployment.
 --
@@ -96,6 +100,7 @@ createDeployment
 createDeployment pApplicationName_ =
     CreateDeployment'
     { _cdDeploymentConfigName = Nothing
+    , _cdFileExistsBehavior = Nothing
     , _cdTargetInstances = Nothing
     , _cdRevision = Nothing
     , _cdDescription = Nothing
@@ -109,6 +114,10 @@ createDeployment pApplicationName_ =
 -- | The name of a deployment configuration associated with the applicable IAM user or AWS account. If not specified, the value configured in the deployment group will be used as the default. If the deployment group does not have a deployment configuration associated with it, then CodeDeployDefault.OneAtATime will be used by default.
 cdDeploymentConfigName :: Lens' CreateDeployment (Maybe Text)
 cdDeploymentConfigName = lens _cdDeploymentConfigName (\ s a -> s{_cdDeploymentConfigName = a});
+
+-- | Information about how AWS CodeDeploy handles files that already exist in a deployment target location but weren't part of the previous successful deployment. The fileExistsBehavior parameter takes any of the following values:     * DISALLOW: The deployment fails. This is also the default behavior if no option is specified.     * OVERWRITE: The version of the file from the application revision currently being deployed replaces the version already on the instance.     * RETAIN: The version of the file already on the instance is kept and used as part of the new deployment.
+cdFileExistsBehavior :: Lens' CreateDeployment (Maybe FileExistsBehavior)
+cdFileExistsBehavior = lens _cdFileExistsBehavior (\ s a -> s{_cdFileExistsBehavior = a});
 
 -- | Information about the instances that will belong to the replacement environment in a blue/green deployment.
 cdTargetInstances :: Lens' CreateDeployment (Maybe TargetInstances)
@@ -171,6 +180,7 @@ instance ToJSON CreateDeployment where
               (catMaybes
                  [("deploymentConfigName" .=) <$>
                     _cdDeploymentConfigName,
+                  ("fileExistsBehavior" .=) <$> _cdFileExistsBehavior,
                   ("targetInstances" .=) <$> _cdTargetInstances,
                   ("revision" .=) <$> _cdRevision,
                   ("description" .=) <$> _cdDescription,
@@ -190,7 +200,7 @@ instance ToPath CreateDeployment where
 instance ToQuery CreateDeployment where
         toQuery = const mempty
 
--- | Represents the output of a create deployment operation.
+-- | Represents the output of a CreateDeployment operation.
 --
 --
 --

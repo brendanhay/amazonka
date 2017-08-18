@@ -48,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a list applications operation.
+-- | Represents the input of a ListApplications operation.
 --
 --
 --
@@ -116,7 +116,7 @@ instance ToPath ListApplications where
 instance ToQuery ListApplications where
         toQuery = const mempty
 
--- | Represents the output of a list applications operation.
+-- | Represents the output of a ListApplications operation.
 --
 --
 --

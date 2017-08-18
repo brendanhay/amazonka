@@ -42,7 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a remove tags from on-premises instances operation.
+-- | Represents the input of a RemoveTagsFromOnPremisesInstances operation.
 --
 --
 --

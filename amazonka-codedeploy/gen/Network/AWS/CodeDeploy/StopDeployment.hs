@@ -46,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a stop deployment operation.
+-- | Represents the input of a StopDeployment operation.
 --
 --
 --
@@ -117,7 +117,7 @@ instance ToPath StopDeployment where
 instance ToQuery StopDeployment where
         toQuery = const mempty
 
--- | Represents the output of a stop deployment operation.
+-- | Represents the output of a StopDeployment operation.
 --
 --
 --

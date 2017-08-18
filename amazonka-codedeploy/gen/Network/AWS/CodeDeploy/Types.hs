@@ -19,6 +19,7 @@ module Network.AWS.CodeDeploy.Types
     , _LifecycleHookLimitExceededException
     , _InvalidTimeRangeException
     , _InvalidTagException
+    , _InvalidFileExistsBehaviorException
     , _InvalidAlarmConfigException
     , _InstanceNameAlreadyRegisteredException
     , _IAMUserARNRequiredException
@@ -27,6 +28,7 @@ module Network.AWS.CodeDeploy.Types
     , _IAMSessionARNAlreadyRegisteredException
     , _DescriptionTooLongException
     , _InvalidIAMUserARNException
+    , _InvalidOnPremisesTagCombinationException
     , _DeploymentNotStartedException
     , _DeploymentConfigLimitExceededException
     , _RoleRequiredException
@@ -43,9 +45,12 @@ module Network.AWS.CodeDeploy.Types
     , _InvalidDeployedStateFilterException
     , _InvalidAutoScalingGroupException
     , _InvalidApplicationNameException
+    , _GitHubAccountTokenDoesNotExistException
     , _ApplicationDoesNotExistException
     , _InvalidMinimumHealthyHostValueException
     , _UnsupportedActionForDeploymentTypeException
+    , _ResourceValidationException
+    , _InvalidEC2TagCombinationException
     , _AlarmsLimitExceededException
     , _InvalidTagFilterException
     , _InvalidTriggerConfigException
@@ -88,7 +93,9 @@ module Network.AWS.CodeDeploy.Types
     , _InvalidInstanceStatusException
     , _TagLimitExceededException
     , _ApplicationLimitExceededException
+    , _TagSetListLimitExceededException
     , _InvalidOperationException
+    , _InvalidDeploymentInstanceTypeException
     , _IAMARNRequiredException
     , _InvalidKeyPrefixFilterException
 
@@ -121,6 +128,9 @@ module Network.AWS.CodeDeploy.Types
 
     -- * EC2TagFilterType
     , EC2TagFilterType (..)
+
+    -- * FileExistsBehavior
+    , FileExistsBehavior (..)
 
     -- * GreenFleetProvisioningAction
     , GreenFleetProvisioningAction (..)
@@ -182,6 +192,7 @@ module Network.AWS.CodeDeploy.Types
     , aiLinkedToGitHub
     , aiApplicationId
     , aiApplicationName
+    , aiGitHubAccountName
     , aiCreateTime
 
     -- * AutoRollbackConfiguration
@@ -221,12 +232,16 @@ module Network.AWS.CodeDeploy.Types
     , DeploymentGroupInfo
     , deploymentGroupInfo
     , dgiServiceRoleARN
+    , dgiEc2TagSet
     , dgiDeploymentConfigName
+    , dgiLastAttemptedDeployment
+    , dgiOnPremisesTagSet
     , dgiTargetRevision
     , dgiEc2TagFilters
     , dgiBlueGreenDeploymentConfiguration
     , dgiLoadBalancerInfo
     , dgiOnPremisesInstanceTagFilters
+    , dgiLastSuccessfulDeployment
     , dgiApplicationName
     , dgiAlarmConfiguration
     , dgiTriggerConfigurations
@@ -243,6 +258,7 @@ module Network.AWS.CodeDeploy.Types
     , diStatus
     , diDeploymentId
     , diDeploymentConfigName
+    , diPreviousRevision
     , diInstanceTerminationWaitTimeStarted
     , diStartTime
     , diCompleteTime
@@ -251,6 +267,7 @@ module Network.AWS.CodeDeploy.Types
     , diLoadBalancerInfo
     , diAdditionalDeploymentStatusInfo
     , diDeploymentOverview
+    , diFileExistsBehavior
     , diApplicationName
     , diRollbackInfo
     , diTargetInstances
@@ -299,6 +316,11 @@ module Network.AWS.CodeDeploy.Types
     , etfValue
     , etfKey
     , etfType
+
+    -- * EC2TagSet
+    , EC2TagSet
+    , ec2TagSet
+    , etsEc2TagSetList
 
     -- * ELBInfo
     , ELBInfo
@@ -352,6 +374,14 @@ module Network.AWS.CodeDeploy.Types
     , isLifecycleEvents
     , isInstanceType
 
+    -- * LastDeploymentInfo
+    , LastDeploymentInfo
+    , lastDeploymentInfo
+    , ldiStatus
+    , ldiDeploymentId
+    , ldiEndTime
+    , ldiCreateTime
+
     -- * LifecycleEvent
     , LifecycleEvent
     , lifecycleEvent
@@ -365,12 +395,18 @@ module Network.AWS.CodeDeploy.Types
     , LoadBalancerInfo
     , loadBalancerInfo
     , lbiElbInfoList
+    , lbiTargetGroupInfoList
 
     -- * MinimumHealthyHosts
     , MinimumHealthyHosts
     , minimumHealthyHosts
     , mhhValue
     , mhhType
+
+    -- * OnPremisesTagSet
+    , OnPremisesTagSet
+    , onPremisesTagSet
+    , optsOnPremisesTagSetList
 
     -- * RevisionInfo
     , RevisionInfo
@@ -414,9 +450,15 @@ module Network.AWS.CodeDeploy.Types
     , tfKey
     , tfType
 
+    -- * TargetGroupInfo
+    , TargetGroupInfo
+    , targetGroupInfo
+    , tgiName
+
     -- * TargetInstances
     , TargetInstances
     , targetInstances
+    , tiEc2TagSet
     , tiTagFilters
     , tiAutoScalingGroups
 
@@ -463,6 +505,8 @@ codeDeploy =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -493,6 +537,13 @@ _InvalidTimeRangeException =
 --
 _InvalidTagException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTagException = _MatchServiceError codeDeploy "InvalidTagException"
+
+-- | An invalid fileExistsBehavior option was specified to determine how AWS CodeDeploy handles files or directories that already exist in a deployment target location but weren't part of the previous successful deployment. Valid values include "DISALLOW", "OVERWRITE", and "RETAIN".
+--
+--
+_InvalidFileExistsBehaviorException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidFileExistsBehaviorException =
+    _MatchServiceError codeDeploy "InvalidFileExistsBehaviorException"
 
 -- | The format of the alarm configuration is invalid. Possible causes include:
 --
@@ -561,6 +612,13 @@ _DescriptionTooLongException =
 _InvalidIAMUserARNException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidIAMUserARNException =
     _MatchServiceError codeDeploy "InvalidIamUserArnException"
+
+-- | A call was submitted that specified both OnPremisesTagFilters and OnPremisesTagSet, but only one of these data types can be used in a single call.
+--
+--
+_InvalidOnPremisesTagCombinationException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidOnPremisesTagCombinationException =
+    _MatchServiceError codeDeploy "InvalidOnPremisesTagCombinationException"
 
 -- | The specified deployment has not started.
 --
@@ -656,7 +714,7 @@ _InstanceLimitExceededException :: AsError a => Getting (First ServiceError) a S
 _InstanceLimitExceededException =
     _MatchServiceError codeDeploy "InstanceLimitExceededException"
 
--- | An invalid deployment style was specified. Valid deployment types include "IN_PLACE" and "BLUE_GREEN". Valid deployment options for blue/green deployments include "WITH_TRAFFIC_CONTROL" and "WITHOUT_TRAFFIC_CONTROL".
+-- | An invalid deployment style was specified. Valid deployment types include "IN_PLACE" and "BLUE_GREEN". Valid deployment options include "WITH_TRAFFIC_CONTROL" and "WITHOUT_TRAFFIC_CONTROL".
 --
 --
 _InvalidDeploymentStyleException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -684,6 +742,13 @@ _InvalidApplicationNameException :: AsError a => Getting (First ServiceError) a 
 _InvalidApplicationNameException =
     _MatchServiceError codeDeploy "InvalidApplicationNameException"
 
+-- | No GitHub account connection exists with the named specified in the call.
+--
+--
+_GitHubAccountTokenDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
+_GitHubAccountTokenDoesNotExistException =
+    _MatchServiceError codeDeploy "GitHubAccountTokenDoesNotExistException"
+
 -- | The application does not exist with the applicable IAM user or AWS account.
 --
 --
@@ -704,6 +769,20 @@ _InvalidMinimumHealthyHostValueException =
 _UnsupportedActionForDeploymentTypeException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedActionForDeploymentTypeException =
     _MatchServiceError codeDeploy "UnsupportedActionForDeploymentTypeException"
+
+-- | The specified resource could not be validated.
+--
+--
+_ResourceValidationException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceValidationException =
+    _MatchServiceError codeDeploy "ResourceValidationException"
+
+-- | A call was submitted that specified both Ec2TagFilters and Ec2TagSet, but only one of these data types can be used in a single call.
+--
+--
+_InvalidEC2TagCombinationException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidEC2TagCombinationException =
+    _MatchServiceError codeDeploy "InvalidEC2TagCombinationException"
 
 -- | The maximum number of alarms for a deployment group (10) was exceeded.
 --
@@ -998,12 +1077,26 @@ _ApplicationLimitExceededException :: AsError a => Getting (First ServiceError) 
 _ApplicationLimitExceededException =
     _MatchServiceError codeDeploy "ApplicationLimitExceededException"
 
+-- | The number of tag groups included in the tag set list exceeded the maximum allowed limit of 3.
+--
+--
+_TagSetListLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_TagSetListLimitExceededException =
+    _MatchServiceError codeDeploy "TagSetListLimitExceededException"
+
 -- | An invalid operation was detected.
 --
 --
 _InvalidOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidOperationException =
     _MatchServiceError codeDeploy "InvalidOperationException"
+
+-- | An instance type was specified for an in-place deployment. Instance types are supported for blue/green deployments only.
+--
+--
+_InvalidDeploymentInstanceTypeException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidDeploymentInstanceTypeException =
+    _MatchServiceError codeDeploy "InvalidDeploymentInstanceTypeException"
 
 -- | No IAM ARN was included in the request. You must use an IAM session ARN or IAM user ARN in the request.
 --

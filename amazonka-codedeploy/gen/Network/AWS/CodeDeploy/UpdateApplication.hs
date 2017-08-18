@@ -42,7 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of an update application operation.
+-- | Represents the input of an UpdateApplication operation.
 --
 --
 --

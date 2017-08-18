@@ -47,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a get application revision operation.
+-- | Represents the input of a GetApplicationRevision operation.
 --
 --
 --
@@ -121,7 +121,7 @@ instance ToPath GetApplicationRevision where
 instance ToQuery GetApplicationRevision where
         toQuery = const mempty
 
--- | Represents the output of a get application revision operation.
+-- | Represents the output of a GetApplicationRevision operation.
 --
 --
 --

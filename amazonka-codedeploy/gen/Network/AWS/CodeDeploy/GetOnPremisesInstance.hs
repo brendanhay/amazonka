@@ -44,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a get on-premises instance operation.
+-- | Represents the input of a GetOnPremisesInstance operation.
 --
 --
 --
@@ -106,7 +106,7 @@ instance ToPath GetOnPremisesInstance where
 instance ToQuery GetOnPremisesInstance where
         toQuery = const mempty
 
--- | Represents the output of a get on-premises instance operation.
+-- | Represents the output of a GetOnPremisesInstance operation.
 --
 --
 --

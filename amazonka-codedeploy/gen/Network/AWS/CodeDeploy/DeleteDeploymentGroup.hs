@@ -45,7 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a delete deployment group operation.
+-- | Represents the input of a DeleteDeploymentGroup operation.
 --
 --
 --
@@ -119,7 +119,7 @@ instance ToPath DeleteDeploymentGroup where
 instance ToQuery DeleteDeploymentGroup where
         toQuery = const mempty
 
--- | Represents the output of a delete deployment group operation.
+-- | Represents the output of a DeleteDeploymentGroup operation.
 --
 --
 --

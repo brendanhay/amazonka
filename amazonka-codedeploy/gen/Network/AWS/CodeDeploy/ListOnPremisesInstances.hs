@@ -49,7 +49,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a list on-premises instances operation.
+-- | Represents the input of a ListOnPremisesInstances operation.
 --
 --
 --

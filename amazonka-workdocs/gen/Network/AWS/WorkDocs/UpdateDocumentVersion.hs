@@ -29,6 +29,7 @@ module Network.AWS.WorkDocs.UpdateDocumentVersion
       updateDocumentVersion
     , UpdateDocumentVersion
     -- * Request Lenses
+    , udvAuthenticationToken
     , udvVersionStatus
     , udvDocumentId
     , udvVersionId
@@ -47,14 +48,17 @@ import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'updateDocumentVersion' smart constructor.
 data UpdateDocumentVersion = UpdateDocumentVersion'
-    { _udvVersionStatus :: !(Maybe DocumentVersionStatus)
-    , _udvDocumentId    :: !Text
-    , _udvVersionId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    { _udvAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _udvVersionStatus       :: !(Maybe DocumentVersionStatus)
+    , _udvDocumentId          :: !Text
+    , _udvVersionId           :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateDocumentVersion' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'udvAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'udvVersionStatus' - The status of the version.
 --
@@ -67,10 +71,15 @@ updateDocumentVersion
     -> UpdateDocumentVersion
 updateDocumentVersion pDocumentId_ pVersionId_ =
     UpdateDocumentVersion'
-    { _udvVersionStatus = Nothing
+    { _udvAuthenticationToken = Nothing
+    , _udvVersionStatus = Nothing
     , _udvDocumentId = pDocumentId_
     , _udvVersionId = pVersionId_
     }
+
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+udvAuthenticationToken :: Lens' UpdateDocumentVersion (Maybe Text)
+udvAuthenticationToken = lens _udvAuthenticationToken (\ s a -> s{_udvAuthenticationToken = a}) . mapping _Sensitive;
 
 -- | The status of the version.
 udvVersionStatus :: Lens' UpdateDocumentVersion (Maybe DocumentVersionStatus)
@@ -95,11 +104,11 @@ instance Hashable UpdateDocumentVersion
 instance NFData UpdateDocumentVersion
 
 instance ToHeaders UpdateDocumentVersion where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders UpdateDocumentVersion'{..}
+          = mconcat
+              ["Authentication" =# _udvAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToJSON UpdateDocumentVersion where
         toJSON UpdateDocumentVersion'{..}

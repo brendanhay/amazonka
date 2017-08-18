@@ -32,6 +32,7 @@ module Network.AWS.WorkDocs.DescribeDocumentVersions
     , DescribeDocumentVersions
     -- * Request Lenses
     , ddvInclude
+    , ddvAuthenticationToken
     , ddvMarker
     , ddvLimit
     , ddvFields
@@ -56,18 +57,21 @@ import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'describeDocumentVersions' smart constructor.
 data DescribeDocumentVersions = DescribeDocumentVersions'
-    { _ddvInclude    :: !(Maybe Text)
-    , _ddvMarker     :: !(Maybe Text)
-    , _ddvLimit      :: !(Maybe Nat)
-    , _ddvFields     :: !(Maybe Text)
-    , _ddvDocumentId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    { _ddvInclude             :: !(Maybe Text)
+    , _ddvAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _ddvMarker              :: !(Maybe Text)
+    , _ddvLimit               :: !(Maybe Nat)
+    , _ddvFields              :: !(Maybe Text)
+    , _ddvDocumentId          :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDocumentVersions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ddvInclude' - A comma-separated list of values. Specify "INITIALIZED" to include incomplete versions.
+--
+-- * 'ddvAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'ddvMarker' - The marker for the next set of results. (You received this marker from a previous call.)
 --
@@ -82,6 +86,7 @@ describeDocumentVersions
 describeDocumentVersions pDocumentId_ =
     DescribeDocumentVersions'
     { _ddvInclude = Nothing
+    , _ddvAuthenticationToken = Nothing
     , _ddvMarker = Nothing
     , _ddvLimit = Nothing
     , _ddvFields = Nothing
@@ -91,6 +96,10 @@ describeDocumentVersions pDocumentId_ =
 -- | A comma-separated list of values. Specify "INITIALIZED" to include incomplete versions.
 ddvInclude :: Lens' DescribeDocumentVersions (Maybe Text)
 ddvInclude = lens _ddvInclude (\ s a -> s{_ddvInclude = a});
+
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+ddvAuthenticationToken :: Lens' DescribeDocumentVersions (Maybe Text)
+ddvAuthenticationToken = lens _ddvAuthenticationToken (\ s a -> s{_ddvAuthenticationToken = a}) . mapping _Sensitive;
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
 ddvMarker :: Lens' DescribeDocumentVersions (Maybe Text)
@@ -132,11 +141,11 @@ instance Hashable DescribeDocumentVersions
 instance NFData DescribeDocumentVersions
 
 instance ToHeaders DescribeDocumentVersions where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders DescribeDocumentVersions'{..}
+          = mconcat
+              ["Authentication" =# _ddvAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToPath DescribeDocumentVersions where
         toPath DescribeDocumentVersions'{..}

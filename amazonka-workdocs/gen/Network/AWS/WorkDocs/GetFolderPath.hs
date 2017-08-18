@@ -29,6 +29,7 @@ module Network.AWS.WorkDocs.GetFolderPath
       getFolderPath
     , GetFolderPath
     -- * Request Lenses
+    , gfpAuthenticationToken
     , gfpMarker
     , gfpLimit
     , gfpFields
@@ -51,15 +52,18 @@ import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'getFolderPath' smart constructor.
 data GetFolderPath = GetFolderPath'
-    { _gfpMarker   :: !(Maybe Text)
-    , _gfpLimit    :: !(Maybe Nat)
-    , _gfpFields   :: !(Maybe Text)
-    , _gfpFolderId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    { _gfpAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _gfpMarker              :: !(Maybe Text)
+    , _gfpLimit               :: !(Maybe Nat)
+    , _gfpFields              :: !(Maybe Text)
+    , _gfpFolderId            :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetFolderPath' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gfpAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'gfpMarker' - This value is not supported.
 --
@@ -73,11 +77,16 @@ getFolderPath
     -> GetFolderPath
 getFolderPath pFolderId_ =
     GetFolderPath'
-    { _gfpMarker = Nothing
+    { _gfpAuthenticationToken = Nothing
+    , _gfpMarker = Nothing
     , _gfpLimit = Nothing
     , _gfpFields = Nothing
     , _gfpFolderId = pFolderId_
     }
+
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+gfpAuthenticationToken :: Lens' GetFolderPath (Maybe Text)
+gfpAuthenticationToken = lens _gfpAuthenticationToken (\ s a -> s{_gfpAuthenticationToken = a}) . mapping _Sensitive;
 
 -- | This value is not supported.
 gfpMarker :: Lens' GetFolderPath (Maybe Text)
@@ -109,11 +118,11 @@ instance Hashable GetFolderPath
 instance NFData GetFolderPath
 
 instance ToHeaders GetFolderPath where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders GetFolderPath'{..}
+          = mconcat
+              ["Authentication" =# _gfpAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToPath GetFolderPath where
         toPath GetFolderPath'{..}

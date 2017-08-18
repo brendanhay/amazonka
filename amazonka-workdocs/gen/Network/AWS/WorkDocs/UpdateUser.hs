@@ -29,6 +29,7 @@ module Network.AWS.WorkDocs.UpdateUser
     -- * Request Lenses
     , uuGivenName
     , uuLocale
+    , uuAuthenticationToken
     , uuStorageRule
     , uuType
     , uuSurname
@@ -52,14 +53,15 @@ import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'updateUser' smart constructor.
 data UpdateUser = UpdateUser'
-    { _uuGivenName   :: !(Maybe Text)
-    , _uuLocale      :: !(Maybe LocaleType)
-    , _uuStorageRule :: !(Maybe StorageRuleType)
-    , _uuType        :: !(Maybe UserType)
-    , _uuSurname     :: !(Maybe Text)
-    , _uuTimeZoneId  :: !(Maybe Text)
-    , _uuUserId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    { _uuGivenName           :: !(Maybe Text)
+    , _uuLocale              :: !(Maybe LocaleType)
+    , _uuAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _uuStorageRule         :: !(Maybe StorageRuleType)
+    , _uuType                :: !(Maybe UserType)
+    , _uuSurname             :: !(Maybe Text)
+    , _uuTimeZoneId          :: !(Maybe Text)
+    , _uuUserId              :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateUser' with the minimum fields required to make a request.
 --
@@ -68,6 +70,8 @@ data UpdateUser = UpdateUser'
 -- * 'uuGivenName' - The given name of the user.
 --
 -- * 'uuLocale' - The locale of the user.
+--
+-- * 'uuAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'uuStorageRule' - The amount of storage for the user.
 --
@@ -85,6 +89,7 @@ updateUser pUserId_ =
     UpdateUser'
     { _uuGivenName = Nothing
     , _uuLocale = Nothing
+    , _uuAuthenticationToken = Nothing
     , _uuStorageRule = Nothing
     , _uuType = Nothing
     , _uuSurname = Nothing
@@ -99,6 +104,10 @@ uuGivenName = lens _uuGivenName (\ s a -> s{_uuGivenName = a});
 -- | The locale of the user.
 uuLocale :: Lens' UpdateUser (Maybe LocaleType)
 uuLocale = lens _uuLocale (\ s a -> s{_uuLocale = a});
+
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+uuAuthenticationToken :: Lens' UpdateUser (Maybe Text)
+uuAuthenticationToken = lens _uuAuthenticationToken (\ s a -> s{_uuAuthenticationToken = a}) . mapping _Sensitive;
 
 -- | The amount of storage for the user.
 uuStorageRule :: Lens' UpdateUser (Maybe StorageRuleType)
@@ -134,11 +143,11 @@ instance Hashable UpdateUser
 instance NFData UpdateUser
 
 instance ToHeaders UpdateUser where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders UpdateUser'{..}
+          = mconcat
+              ["Authentication" =# _uuAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToJSON UpdateUser where
         toJSON UpdateUser'{..}

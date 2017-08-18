@@ -27,6 +27,7 @@ module Network.AWS.WorkDocs.DescribeResourcePermissions
       describeResourcePermissions
     , DescribeResourcePermissions
     -- * Request Lenses
+    , drpAuthenticationToken
     , drpMarker
     , drpLimit
     , drpResourceId
@@ -49,14 +50,17 @@ import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'describeResourcePermissions' smart constructor.
 data DescribeResourcePermissions = DescribeResourcePermissions'
-    { _drpMarker     :: !(Maybe Text)
-    , _drpLimit      :: !(Maybe Nat)
-    , _drpResourceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    { _drpAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _drpMarker              :: !(Maybe Text)
+    , _drpLimit               :: !(Maybe Nat)
+    , _drpResourceId          :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeResourcePermissions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drpAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'drpMarker' - The marker for the next set of results. (You received this marker from a previous call)
 --
@@ -68,10 +72,15 @@ describeResourcePermissions
     -> DescribeResourcePermissions
 describeResourcePermissions pResourceId_ =
     DescribeResourcePermissions'
-    { _drpMarker = Nothing
+    { _drpAuthenticationToken = Nothing
+    , _drpMarker = Nothing
     , _drpLimit = Nothing
     , _drpResourceId = pResourceId_
     }
+
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+drpAuthenticationToken :: Lens' DescribeResourcePermissions (Maybe Text)
+drpAuthenticationToken = lens _drpAuthenticationToken (\ s a -> s{_drpAuthenticationToken = a}) . mapping _Sensitive;
 
 -- | The marker for the next set of results. (You received this marker from a previous call)
 drpMarker :: Lens' DescribeResourcePermissions (Maybe Text)
@@ -101,11 +110,11 @@ instance Hashable DescribeResourcePermissions
 instance NFData DescribeResourcePermissions
 
 instance ToHeaders DescribeResourcePermissions where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders DescribeResourcePermissions'{..}
+          = mconcat
+              ["Authentication" =# _drpAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToPath DescribeResourcePermissions where
         toPath DescribeResourcePermissions'{..}

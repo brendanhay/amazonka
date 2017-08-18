@@ -43,20 +43,30 @@ library
         , Network.AWS.WorkDocs.AbortDocumentVersionUpload
         , Network.AWS.WorkDocs.ActivateUser
         , Network.AWS.WorkDocs.AddResourcePermissions
+        , Network.AWS.WorkDocs.CreateComment
+        , Network.AWS.WorkDocs.CreateCustomMetadata
         , Network.AWS.WorkDocs.CreateFolder
+        , Network.AWS.WorkDocs.CreateLabels
         , Network.AWS.WorkDocs.CreateNotificationSubscription
         , Network.AWS.WorkDocs.CreateUser
         , Network.AWS.WorkDocs.DeactivateUser
+        , Network.AWS.WorkDocs.DeleteComment
+        , Network.AWS.WorkDocs.DeleteCustomMetadata
         , Network.AWS.WorkDocs.DeleteDocument
         , Network.AWS.WorkDocs.DeleteFolder
         , Network.AWS.WorkDocs.DeleteFolderContents
+        , Network.AWS.WorkDocs.DeleteLabels
         , Network.AWS.WorkDocs.DeleteNotificationSubscription
         , Network.AWS.WorkDocs.DeleteUser
+        , Network.AWS.WorkDocs.DescribeActivities
+        , Network.AWS.WorkDocs.DescribeComments
         , Network.AWS.WorkDocs.DescribeDocumentVersions
         , Network.AWS.WorkDocs.DescribeFolderContents
         , Network.AWS.WorkDocs.DescribeNotificationSubscriptions
         , Network.AWS.WorkDocs.DescribeResourcePermissions
+        , Network.AWS.WorkDocs.DescribeRootFolders
         , Network.AWS.WorkDocs.DescribeUsers
+        , Network.AWS.WorkDocs.GetCurrentUser
         , Network.AWS.WorkDocs.GetDocument
         , Network.AWS.WorkDocs.GetDocumentPath
         , Network.AWS.WorkDocs.GetDocumentVersion

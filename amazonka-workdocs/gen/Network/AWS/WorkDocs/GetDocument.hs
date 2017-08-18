@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the specified document object.
+-- Retrieves details of a document.
 --
 --
 module Network.AWS.WorkDocs.GetDocument
@@ -27,12 +27,15 @@ module Network.AWS.WorkDocs.GetDocument
       getDocument
     , GetDocument
     -- * Request Lenses
+    , gdAuthenticationToken
+    , gdIncludeCustomMetadata
     , gdDocumentId
 
     -- * Destructuring the Response
     , getDocumentResponse
     , GetDocumentResponse
     -- * Response Lenses
+    , gdrsCustomMetadata
     , gdrsMetadata
     , gdrsResponseStatus
     ) where
@@ -45,24 +48,40 @@ import           Network.AWS.WorkDocs.Types
 import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'getDocument' smart constructor.
-newtype GetDocument = GetDocument'
-    { _gdDocumentId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+data GetDocument = GetDocument'
+    { _gdAuthenticationToken   :: !(Maybe (Sensitive Text))
+    , _gdIncludeCustomMetadata :: !(Maybe Bool)
+    , _gdDocumentId            :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetDocument' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdDocumentId' - The ID of the document object.
+-- * 'gdAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+--
+-- * 'gdIncludeCustomMetadata' - Set this to @TRUE@ to include custom metadata in the response.
+--
+-- * 'gdDocumentId' - The ID of the document.
 getDocument
     :: Text -- ^ 'gdDocumentId'
     -> GetDocument
 getDocument pDocumentId_ =
     GetDocument'
-    { _gdDocumentId = pDocumentId_
+    { _gdAuthenticationToken = Nothing
+    , _gdIncludeCustomMetadata = Nothing
+    , _gdDocumentId = pDocumentId_
     }
 
--- | The ID of the document object.
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+gdAuthenticationToken :: Lens' GetDocument (Maybe Text)
+gdAuthenticationToken = lens _gdAuthenticationToken (\ s a -> s{_gdAuthenticationToken = a}) . mapping _Sensitive;
+
+-- | Set this to @TRUE@ to include custom metadata in the response.
+gdIncludeCustomMetadata :: Lens' GetDocument (Maybe Bool)
+gdIncludeCustomMetadata = lens _gdIncludeCustomMetadata (\ s a -> s{_gdIncludeCustomMetadata = a});
+
+-- | The ID of the document.
 gdDocumentId :: Lens' GetDocument Text
 gdDocumentId = lens _gdDocumentId (\ s a -> s{_gdDocumentId = a});
 
@@ -73,29 +92,34 @@ instance AWSRequest GetDocument where
           = receiveJSON
               (\ s h x ->
                  GetDocumentResponse' <$>
-                   (x .?> "Metadata") <*> (pure (fromEnum s)))
+                   (x .?> "CustomMetadata" .!@ mempty) <*>
+                     (x .?> "Metadata")
+                     <*> (pure (fromEnum s)))
 
 instance Hashable GetDocument
 
 instance NFData GetDocument
 
 instance ToHeaders GetDocument where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders GetDocument'{..}
+          = mconcat
+              ["Authentication" =# _gdAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToPath GetDocument where
         toPath GetDocument'{..}
           = mconcat ["/api/v1/documents/", toBS _gdDocumentId]
 
 instance ToQuery GetDocument where
-        toQuery = const mempty
+        toQuery GetDocument'{..}
+          = mconcat
+              ["includeCustomMetadata" =: _gdIncludeCustomMetadata]
 
 -- | /See:/ 'getDocumentResponse' smart constructor.
 data GetDocumentResponse = GetDocumentResponse'
-    { _gdrsMetadata       :: !(Maybe DocumentMetadata)
+    { _gdrsCustomMetadata :: !(Maybe (Map Text Text))
+    , _gdrsMetadata       :: !(Maybe DocumentMetadata)
     , _gdrsResponseStatus :: !Int
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -103,7 +127,9 @@ data GetDocumentResponse = GetDocumentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdrsMetadata' - The document object.
+-- * 'gdrsCustomMetadata' - The custom metadata on the document.
+--
+-- * 'gdrsMetadata' - The metadata details of the document.
 --
 -- * 'gdrsResponseStatus' - -- | The response status code.
 getDocumentResponse
@@ -111,11 +137,16 @@ getDocumentResponse
     -> GetDocumentResponse
 getDocumentResponse pResponseStatus_ =
     GetDocumentResponse'
-    { _gdrsMetadata = Nothing
+    { _gdrsCustomMetadata = Nothing
+    , _gdrsMetadata = Nothing
     , _gdrsResponseStatus = pResponseStatus_
     }
 
--- | The document object.
+-- | The custom metadata on the document.
+gdrsCustomMetadata :: Lens' GetDocumentResponse (HashMap Text Text)
+gdrsCustomMetadata = lens _gdrsCustomMetadata (\ s a -> s{_gdrsCustomMetadata = a}) . _Default . _Map;
+
+-- | The metadata details of the document.
 gdrsMetadata :: Lens' GetDocumentResponse (Maybe DocumentMetadata)
 gdrsMetadata = lens _gdrsMetadata (\ s a -> s{_gdrsMetadata = a});
 

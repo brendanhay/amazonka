@@ -27,7 +27,9 @@ module Network.AWS.WorkDocs.CreateUser
       createUser
     , CreateUser
     -- * Request Lenses
+    , cuAuthenticationToken
     , cuStorageRule
+    , cuEmailAddress
     , cuTimeZoneId
     , cuOrganizationId
     , cuUsername
@@ -52,20 +54,26 @@ import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'createUser' smart constructor.
 data CreateUser = CreateUser'
-    { _cuStorageRule    :: !(Maybe StorageRuleType)
-    , _cuTimeZoneId     :: !(Maybe Text)
-    , _cuOrganizationId :: !(Maybe Text)
-    , _cuUsername       :: !Text
-    , _cuGivenName      :: !Text
-    , _cuSurname        :: !Text
-    , _cuPassword       :: !(Sensitive Text)
+    { _cuAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _cuStorageRule         :: !(Maybe StorageRuleType)
+    , _cuEmailAddress        :: !(Maybe Text)
+    , _cuTimeZoneId          :: !(Maybe Text)
+    , _cuOrganizationId      :: !(Maybe Text)
+    , _cuUsername            :: !Text
+    , _cuGivenName           :: !Text
+    , _cuSurname             :: !Text
+    , _cuPassword            :: !(Sensitive Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateUser' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'cuAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+--
 -- * 'cuStorageRule' - The amount of storage for the user.
+--
+-- * 'cuEmailAddress' - The email address of the user.
 --
 -- * 'cuTimeZoneId' - The time zone ID of the user.
 --
@@ -86,7 +94,9 @@ createUser
     -> CreateUser
 createUser pUsername_ pGivenName_ pSurname_ pPassword_ =
     CreateUser'
-    { _cuStorageRule = Nothing
+    { _cuAuthenticationToken = Nothing
+    , _cuStorageRule = Nothing
+    , _cuEmailAddress = Nothing
     , _cuTimeZoneId = Nothing
     , _cuOrganizationId = Nothing
     , _cuUsername = pUsername_
@@ -95,9 +105,17 @@ createUser pUsername_ pGivenName_ pSurname_ pPassword_ =
     , _cuPassword = _Sensitive # pPassword_
     }
 
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+cuAuthenticationToken :: Lens' CreateUser (Maybe Text)
+cuAuthenticationToken = lens _cuAuthenticationToken (\ s a -> s{_cuAuthenticationToken = a}) . mapping _Sensitive;
+
 -- | The amount of storage for the user.
 cuStorageRule :: Lens' CreateUser (Maybe StorageRuleType)
 cuStorageRule = lens _cuStorageRule (\ s a -> s{_cuStorageRule = a});
+
+-- | The email address of the user.
+cuEmailAddress :: Lens' CreateUser (Maybe Text)
+cuEmailAddress = lens _cuEmailAddress (\ s a -> s{_cuEmailAddress = a});
 
 -- | The time zone ID of the user.
 cuTimeZoneId :: Lens' CreateUser (Maybe Text)
@@ -137,17 +155,18 @@ instance Hashable CreateUser
 instance NFData CreateUser
 
 instance ToHeaders CreateUser where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders CreateUser'{..}
+          = mconcat
+              ["Authentication" =# _cuAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToJSON CreateUser where
         toJSON CreateUser'{..}
           = object
               (catMaybes
                  [("StorageRule" .=) <$> _cuStorageRule,
+                  ("EmailAddress" .=) <$> _cuEmailAddress,
                   ("TimeZoneId" .=) <$> _cuTimeZoneId,
                   ("OrganizationId" .=) <$> _cuOrganizationId,
                   Just ("Username" .= _cuUsername),

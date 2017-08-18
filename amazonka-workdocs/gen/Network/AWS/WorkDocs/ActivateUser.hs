@@ -27,6 +27,7 @@ module Network.AWS.WorkDocs.ActivateUser
       activateUser
     , ActivateUser
     -- * Request Lenses
+    , auAuthenticationToken
     , auUserId
 
     -- * Destructuring the Response
@@ -45,13 +46,16 @@ import           Network.AWS.WorkDocs.Types
 import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'activateUser' smart constructor.
-newtype ActivateUser = ActivateUser'
-    { _auUserId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+data ActivateUser = ActivateUser'
+    { _auAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _auUserId              :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ActivateUser' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'auAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'auUserId' - The ID of the user.
 activateUser
@@ -59,8 +63,13 @@ activateUser
     -> ActivateUser
 activateUser pUserId_ =
     ActivateUser'
-    { _auUserId = pUserId_
+    { _auAuthenticationToken = Nothing
+    , _auUserId = pUserId_
     }
+
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+auAuthenticationToken :: Lens' ActivateUser (Maybe Text)
+auAuthenticationToken = lens _auAuthenticationToken (\ s a -> s{_auAuthenticationToken = a}) . mapping _Sensitive;
 
 -- | The ID of the user.
 auUserId :: Lens' ActivateUser Text
@@ -80,11 +89,11 @@ instance Hashable ActivateUser
 instance NFData ActivateUser
 
 instance ToHeaders ActivateUser where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders ActivateUser'{..}
+          = mconcat
+              ["Authentication" =# _auAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToJSON ActivateUser where
         toJSON = const (Object mempty)

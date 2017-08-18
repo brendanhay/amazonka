@@ -28,11 +28,17 @@ import Test.AWS.WorkDocs.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestAbortDocumentVersionUpload $
+--         [ requestDeleteLabels $
+--             deleteLabels
+--
+--         , requestAbortDocumentVersionUpload $
 --             abortDocumentVersionUpload
 --
 --         , requestGetDocumentPath $
 --             getDocumentPath
+--
+--         , requestCreateComment $
+--             createComment
 --
 --         , requestDescribeUsers $
 --             describeUsers
@@ -42,6 +48,9 @@ import Test.AWS.WorkDocs.Internal
 --
 --         , requestUpdateFolder $
 --             updateFolder
+--
+--         , requestDeleteCustomMetadata $
+--             deleteCustomMetadata
 --
 --         , requestDescribeResourcePermissions $
 --             describeResourcePermissions
@@ -55,8 +64,14 @@ import Test.AWS.WorkDocs.Internal
 --         , requestCreateNotificationSubscription $
 --             createNotificationSubscription
 --
+--         , requestCreateCustomMetadata $
+--             createCustomMetadata
+--
 --         , requestGetFolderPath $
 --             getFolderPath
+--
+--         , requestDescribeComments $
+--             describeComments
 --
 --         , requestDeleteFolderContents $
 --             deleteFolderContents
@@ -79,6 +94,15 @@ import Test.AWS.WorkDocs.Internal
 --         , requestGetDocumentVersion $
 --             getDocumentVersion
 --
+--         , requestDescribeActivities $
+--             describeActivities
+--
+--         , requestDescribeRootFolders $
+--             describeRootFolders
+--
+--         , requestGetCurrentUser $
+--             getCurrentUser
+--
 --         , requestDeactivateUser $
 --             deactivateUser
 --
@@ -88,11 +112,17 @@ import Test.AWS.WorkDocs.Internal
 --         , requestDescribeFolderContents $
 --             describeFolderContents
 --
+--         , requestCreateLabels $
+--             createLabels
+--
 --         , requestUpdateDocumentVersion $
 --             updateDocumentVersion
 --
 --         , requestRemoveResourcePermission $
 --             removeResourcePermission
+--
+--         , requestDeleteComment $
+--             deleteComment
 --
 --         , requestInitiateDocumentVersionUpload $
 --             initiateDocumentVersionUpload
@@ -118,11 +148,17 @@ import Test.AWS.WorkDocs.Internal
 --           ]
 
 --     , testGroup "response"
---         [ responseAbortDocumentVersionUpload $
+--         [ responseDeleteLabels $
+--             deleteLabelsResponse
+--
+--         , responseAbortDocumentVersionUpload $
 --             abortDocumentVersionUploadResponse
 --
 --         , responseGetDocumentPath $
 --             getDocumentPathResponse
+--
+--         , responseCreateComment $
+--             createCommentResponse
 --
 --         , responseDescribeUsers $
 --             describeUsersResponse
@@ -132,6 +168,9 @@ import Test.AWS.WorkDocs.Internal
 --
 --         , responseUpdateFolder $
 --             updateFolderResponse
+--
+--         , responseDeleteCustomMetadata $
+--             deleteCustomMetadataResponse
 --
 --         , responseDescribeResourcePermissions $
 --             describeResourcePermissionsResponse
@@ -145,8 +184,14 @@ import Test.AWS.WorkDocs.Internal
 --         , responseCreateNotificationSubscription $
 --             createNotificationSubscriptionResponse
 --
+--         , responseCreateCustomMetadata $
+--             createCustomMetadataResponse
+--
 --         , responseGetFolderPath $
 --             getFolderPathResponse
+--
+--         , responseDescribeComments $
+--             describeCommentsResponse
 --
 --         , responseDeleteFolderContents $
 --             deleteFolderContentsResponse
@@ -169,6 +214,15 @@ import Test.AWS.WorkDocs.Internal
 --         , responseGetDocumentVersion $
 --             getDocumentVersionResponse
 --
+--         , responseDescribeActivities $
+--             describeActivitiesResponse
+--
+--         , responseDescribeRootFolders $
+--             describeRootFoldersResponse
+--
+--         , responseGetCurrentUser $
+--             getCurrentUserResponse
+--
 --         , responseDeactivateUser $
 --             deactivateUserResponse
 --
@@ -178,11 +232,17 @@ import Test.AWS.WorkDocs.Internal
 --         , responseDescribeFolderContents $
 --             describeFolderContentsResponse
 --
+--         , responseCreateLabels $
+--             createLabelsResponse
+--
 --         , responseUpdateDocumentVersion $
 --             updateDocumentVersionResponse
 --
 --         , responseRemoveResourcePermission $
 --             removeResourcePermissionResponse
+--
+--         , responseDeleteComment $
+--             deleteCommentResponse
 --
 --         , responseInitiateDocumentVersionUpload $
 --             initiateDocumentVersionUploadResponse
@@ -210,6 +270,11 @@ import Test.AWS.WorkDocs.Internal
 
 -- Requests
 
+requestDeleteLabels :: DeleteLabels -> TestTree
+requestDeleteLabels = req
+    "DeleteLabels"
+    "fixture/DeleteLabels.yaml"
+
 requestAbortDocumentVersionUpload :: AbortDocumentVersionUpload -> TestTree
 requestAbortDocumentVersionUpload = req
     "AbortDocumentVersionUpload"
@@ -219,6 +284,11 @@ requestGetDocumentPath :: GetDocumentPath -> TestTree
 requestGetDocumentPath = req
     "GetDocumentPath"
     "fixture/GetDocumentPath.yaml"
+
+requestCreateComment :: CreateComment -> TestTree
+requestCreateComment = req
+    "CreateComment"
+    "fixture/CreateComment.yaml"
 
 requestDescribeUsers :: DescribeUsers -> TestTree
 requestDescribeUsers = req
@@ -234,6 +304,11 @@ requestUpdateFolder :: UpdateFolder -> TestTree
 requestUpdateFolder = req
     "UpdateFolder"
     "fixture/UpdateFolder.yaml"
+
+requestDeleteCustomMetadata :: DeleteCustomMetadata -> TestTree
+requestDeleteCustomMetadata = req
+    "DeleteCustomMetadata"
+    "fixture/DeleteCustomMetadata.yaml"
 
 requestDescribeResourcePermissions :: DescribeResourcePermissions -> TestTree
 requestDescribeResourcePermissions = req
@@ -255,10 +330,20 @@ requestCreateNotificationSubscription = req
     "CreateNotificationSubscription"
     "fixture/CreateNotificationSubscription.yaml"
 
+requestCreateCustomMetadata :: CreateCustomMetadata -> TestTree
+requestCreateCustomMetadata = req
+    "CreateCustomMetadata"
+    "fixture/CreateCustomMetadata.yaml"
+
 requestGetFolderPath :: GetFolderPath -> TestTree
 requestGetFolderPath = req
     "GetFolderPath"
     "fixture/GetFolderPath.yaml"
+
+requestDescribeComments :: DescribeComments -> TestTree
+requestDescribeComments = req
+    "DescribeComments"
+    "fixture/DescribeComments.yaml"
 
 requestDeleteFolderContents :: DeleteFolderContents -> TestTree
 requestDeleteFolderContents = req
@@ -295,6 +380,21 @@ requestGetDocumentVersion = req
     "GetDocumentVersion"
     "fixture/GetDocumentVersion.yaml"
 
+requestDescribeActivities :: DescribeActivities -> TestTree
+requestDescribeActivities = req
+    "DescribeActivities"
+    "fixture/DescribeActivities.yaml"
+
+requestDescribeRootFolders :: DescribeRootFolders -> TestTree
+requestDescribeRootFolders = req
+    "DescribeRootFolders"
+    "fixture/DescribeRootFolders.yaml"
+
+requestGetCurrentUser :: GetCurrentUser -> TestTree
+requestGetCurrentUser = req
+    "GetCurrentUser"
+    "fixture/GetCurrentUser.yaml"
+
 requestDeactivateUser :: DeactivateUser -> TestTree
 requestDeactivateUser = req
     "DeactivateUser"
@@ -310,6 +410,11 @@ requestDescribeFolderContents = req
     "DescribeFolderContents"
     "fixture/DescribeFolderContents.yaml"
 
+requestCreateLabels :: CreateLabels -> TestTree
+requestCreateLabels = req
+    "CreateLabels"
+    "fixture/CreateLabels.yaml"
+
 requestUpdateDocumentVersion :: UpdateDocumentVersion -> TestTree
 requestUpdateDocumentVersion = req
     "UpdateDocumentVersion"
@@ -319,6 +424,11 @@ requestRemoveResourcePermission :: RemoveResourcePermission -> TestTree
 requestRemoveResourcePermission = req
     "RemoveResourcePermission"
     "fixture/RemoveResourcePermission.yaml"
+
+requestDeleteComment :: DeleteComment -> TestTree
+requestDeleteComment = req
+    "DeleteComment"
+    "fixture/DeleteComment.yaml"
 
 requestInitiateDocumentVersionUpload :: InitiateDocumentVersionUpload -> TestTree
 requestInitiateDocumentVersionUpload = req
@@ -357,6 +467,13 @@ requestDeleteDocument = req
 
 -- Responses
 
+responseDeleteLabels :: DeleteLabelsResponse -> TestTree
+responseDeleteLabels = res
+    "DeleteLabelsResponse"
+    "fixture/DeleteLabelsResponse.proto"
+    workDocs
+    (Proxy :: Proxy DeleteLabels)
+
 responseAbortDocumentVersionUpload :: AbortDocumentVersionUploadResponse -> TestTree
 responseAbortDocumentVersionUpload = res
     "AbortDocumentVersionUploadResponse"
@@ -370,6 +487,13 @@ responseGetDocumentPath = res
     "fixture/GetDocumentPathResponse.proto"
     workDocs
     (Proxy :: Proxy GetDocumentPath)
+
+responseCreateComment :: CreateCommentResponse -> TestTree
+responseCreateComment = res
+    "CreateCommentResponse"
+    "fixture/CreateCommentResponse.proto"
+    workDocs
+    (Proxy :: Proxy CreateComment)
 
 responseDescribeUsers :: DescribeUsersResponse -> TestTree
 responseDescribeUsers = res
@@ -391,6 +515,13 @@ responseUpdateFolder = res
     "fixture/UpdateFolderResponse.proto"
     workDocs
     (Proxy :: Proxy UpdateFolder)
+
+responseDeleteCustomMetadata :: DeleteCustomMetadataResponse -> TestTree
+responseDeleteCustomMetadata = res
+    "DeleteCustomMetadataResponse"
+    "fixture/DeleteCustomMetadataResponse.proto"
+    workDocs
+    (Proxy :: Proxy DeleteCustomMetadata)
 
 responseDescribeResourcePermissions :: DescribeResourcePermissionsResponse -> TestTree
 responseDescribeResourcePermissions = res
@@ -420,12 +551,26 @@ responseCreateNotificationSubscription = res
     workDocs
     (Proxy :: Proxy CreateNotificationSubscription)
 
+responseCreateCustomMetadata :: CreateCustomMetadataResponse -> TestTree
+responseCreateCustomMetadata = res
+    "CreateCustomMetadataResponse"
+    "fixture/CreateCustomMetadataResponse.proto"
+    workDocs
+    (Proxy :: Proxy CreateCustomMetadata)
+
 responseGetFolderPath :: GetFolderPathResponse -> TestTree
 responseGetFolderPath = res
     "GetFolderPathResponse"
     "fixture/GetFolderPathResponse.proto"
     workDocs
     (Proxy :: Proxy GetFolderPath)
+
+responseDescribeComments :: DescribeCommentsResponse -> TestTree
+responseDescribeComments = res
+    "DescribeCommentsResponse"
+    "fixture/DescribeCommentsResponse.proto"
+    workDocs
+    (Proxy :: Proxy DescribeComments)
 
 responseDeleteFolderContents :: DeleteFolderContentsResponse -> TestTree
 responseDeleteFolderContents = res
@@ -476,6 +621,27 @@ responseGetDocumentVersion = res
     workDocs
     (Proxy :: Proxy GetDocumentVersion)
 
+responseDescribeActivities :: DescribeActivitiesResponse -> TestTree
+responseDescribeActivities = res
+    "DescribeActivitiesResponse"
+    "fixture/DescribeActivitiesResponse.proto"
+    workDocs
+    (Proxy :: Proxy DescribeActivities)
+
+responseDescribeRootFolders :: DescribeRootFoldersResponse -> TestTree
+responseDescribeRootFolders = res
+    "DescribeRootFoldersResponse"
+    "fixture/DescribeRootFoldersResponse.proto"
+    workDocs
+    (Proxy :: Proxy DescribeRootFolders)
+
+responseGetCurrentUser :: GetCurrentUserResponse -> TestTree
+responseGetCurrentUser = res
+    "GetCurrentUserResponse"
+    "fixture/GetCurrentUserResponse.proto"
+    workDocs
+    (Proxy :: Proxy GetCurrentUser)
+
 responseDeactivateUser :: DeactivateUserResponse -> TestTree
 responseDeactivateUser = res
     "DeactivateUserResponse"
@@ -497,6 +663,13 @@ responseDescribeFolderContents = res
     workDocs
     (Proxy :: Proxy DescribeFolderContents)
 
+responseCreateLabels :: CreateLabelsResponse -> TestTree
+responseCreateLabels = res
+    "CreateLabelsResponse"
+    "fixture/CreateLabelsResponse.proto"
+    workDocs
+    (Proxy :: Proxy CreateLabels)
+
 responseUpdateDocumentVersion :: UpdateDocumentVersionResponse -> TestTree
 responseUpdateDocumentVersion = res
     "UpdateDocumentVersionResponse"
@@ -510,6 +683,13 @@ responseRemoveResourcePermission = res
     "fixture/RemoveResourcePermissionResponse.proto"
     workDocs
     (Proxy :: Proxy RemoveResourcePermission)
+
+responseDeleteComment :: DeleteCommentResponse -> TestTree
+responseDeleteComment = res
+    "DeleteCommentResponse"
+    "fixture/DeleteCommentResponse.proto"
+    workDocs
+    (Proxy :: Proxy DeleteComment)
 
 responseInitiateDocumentVersionUpload :: InitiateDocumentVersionUploadResponse -> TestTree
 responseInitiateDocumentVersionUpload = res

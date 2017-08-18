@@ -16,12 +16,16 @@ module Network.AWS.WorkDocs.Types
       workDocs
 
     -- * Errors
+    , _CustomMetadataLimitExceededException
     , _EntityAlreadyExistsException
+    , _ResourceAlreadyCheckedOutException
     , _ProhibitedStateException
+    , _TooManyLabelsException
     , _InvalidArgumentException
     , _UnauthorizedResourceAccessException
     , _TooManySubscriptionsException
     , _FailedDependencyException
+    , _DocumentLockedForCommentsException
     , _EntityNotExistsException
     , _DeactivatingLastSystemUserException
     , _IllegalUserStateException
@@ -31,7 +35,17 @@ module Network.AWS.WorkDocs.Types
     , _ServiceUnavailableException
     , _InvalidOperationException
     , _UnauthorizedOperationException
+    , _DraftUploadOutOfSyncException
     , _LimitExceededException
+
+    -- * ActivityType
+    , ActivityType (..)
+
+    -- * CommentStatusType
+    , CommentStatusType (..)
+
+    -- * CommentVisibilityType
+    , CommentVisibilityType (..)
 
     -- * DocumentSourceType
     , DocumentSourceType (..)
@@ -63,6 +77,9 @@ module Network.AWS.WorkDocs.Types
     -- * ResourceStateType
     , ResourceStateType (..)
 
+    -- * ResourceType
+    , ResourceType (..)
+
     -- * RolePermissionType
     , RolePermissionType (..)
 
@@ -93,6 +110,40 @@ module Network.AWS.WorkDocs.Types
     -- * UserType
     , UserType (..)
 
+    -- * Activity
+    , Activity
+    , activity
+    , aResourceMetadata
+    , aInitiator
+    , aParticipants
+    , aOriginalParent
+    , aType
+    , aCommentMetadata
+    , aTimeStamp
+    , aOrganizationId
+
+    -- * Comment
+    , Comment
+    , comment
+    , cStatus
+    , cText
+    , cVisibility
+    , cThreadId
+    , cContributor
+    , cCreatedTimestamp
+    , cRecipientId
+    , cParentId
+    , cCommentId
+
+    -- * CommentMetadata
+    , CommentMetadata
+    , commentMetadata
+    , cmCommentStatus
+    , cmContributor
+    , cmCommentId
+    , cmCreatedTimestamp
+    , cmRecipientId
+
     -- * DocumentMetadata
     , DocumentMetadata
     , documentMetadata
@@ -100,6 +151,7 @@ module Network.AWS.WorkDocs.Types
     , dmParentFolderId
     , dmModifiedTimestamp
     , dmId
+    , dmLabels
     , dmResourceState
     , dmCreatedTimestamp
     , dmCreatorId
@@ -126,12 +178,27 @@ module Network.AWS.WorkDocs.Types
     , folderMetadata
     , fmSignature
     , fmParentFolderId
+    , fmSize
+    , fmLatestVersionSize
     , fmName
     , fmModifiedTimestamp
     , fmId
+    , fmLabels
     , fmResourceState
     , fmCreatedTimestamp
     , fmCreatorId
+
+    -- * GroupMetadata
+    , GroupMetadata
+    , groupMetadata
+    , gmName
+    , gmId
+
+    -- * Participants
+    , Participants
+    , participants
+    , pGroups
+    , pUsers
 
     -- * PermissionInfo
     , PermissionInfo
@@ -145,6 +212,17 @@ module Network.AWS.WorkDocs.Types
     , pRoles
     , pId
     , pType
+
+    -- * ResourceMetadata
+    , ResourceMetadata
+    , resourceMetadata
+    , rmVersionId
+    , rmOwner
+    , rmName
+    , rmId
+    , rmType
+    , rmOriginalName
+    , rmParentId
 
     -- * ResourcePath
     , ResourcePath
@@ -211,6 +289,15 @@ module Network.AWS.WorkDocs.Types
     , uOrganizationId
     , uRecycleBinFolderId
 
+    -- * UserMetadata
+    , UserMetadata
+    , userMetadata
+    , umGivenName
+    , umUsername
+    , umEmailAddress
+    , umId
+    , umSurname
+
     -- * UserStorageMetadata
     , UserStorageMetadata
     , userStorageMetadata
@@ -247,6 +334,8 @@ workDocs =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -258,6 +347,14 @@ workDocs =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+-- | The limit has been reached on the number of custom properties for the specified resource.
+--
+--
+_CustomMetadataLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_CustomMetadataLimitExceededException =
+    _MatchServiceError workDocs "CustomMetadataLimitExceededException" .
+    hasStatus 429
+
 -- | The resource already exists.
 --
 --
@@ -265,12 +362,27 @@ _EntityAlreadyExistsException :: AsError a => Getting (First ServiceError) a Ser
 _EntityAlreadyExistsException =
     _MatchServiceError workDocs "EntityAlreadyExistsException" . hasStatus 409
 
+-- | The resource is already checked out.
+--
+--
+_ResourceAlreadyCheckedOutException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceAlreadyCheckedOutException =
+    _MatchServiceError workDocs "ResourceAlreadyCheckedOutException" .
+    hasStatus 409
+
 -- | The specified document version is not in the INITIALIZED state.
 --
 --
 _ProhibitedStateException :: AsError a => Getting (First ServiceError) a ServiceError
 _ProhibitedStateException =
     _MatchServiceError workDocs "ProhibitedStateException" . hasStatus 409
+
+-- | The limit has been reached on the number of labels for the specified resource.
+--
+--
+_TooManyLabelsException :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyLabelsException =
+    _MatchServiceError workDocs "TooManyLabelsException" . hasStatus 429
 
 -- | The pagination marker and/or limit fields are not valid.
 --
@@ -300,6 +412,14 @@ _TooManySubscriptionsException =
 _FailedDependencyException :: AsError a => Getting (First ServiceError) a ServiceError
 _FailedDependencyException =
     _MatchServiceError workDocs "FailedDependencyException" . hasStatus 424
+
+-- | This exception is thrown when the document is locked for comments and user tries to create or delete a comment on that document.
+--
+--
+_DocumentLockedForCommentsException :: AsError a => Getting (First ServiceError) a ServiceError
+_DocumentLockedForCommentsException =
+    _MatchServiceError workDocs "DocumentLockedForCommentsException" .
+    hasStatus 409
 
 -- | The resource does not exist.
 --
@@ -368,7 +488,14 @@ _UnauthorizedOperationException =
     _MatchServiceError workDocs "UnauthorizedOperationException" .
     hasStatus 403
 
--- | You've exceeded the maximum of 100,000 folders under the parent folder.
+-- | This exception is thrown when a valid checkout ID is not presented on document version upload calls for a document that has been checked out from Web client.
+--
+--
+_DraftUploadOutOfSyncException :: AsError a => Getting (First ServiceError) a ServiceError
+_DraftUploadOutOfSyncException =
+    _MatchServiceError workDocs "DraftUploadOutOfSyncException" . hasStatus 409
+
+-- | The maximum of 100,000 folders under the parent folder has been exceeded.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the specified attributes of the specified document. The user must have access to both the document and its parent folder, if applicable.
+-- Updates the specified attributes of a document. The user must have access to both the document and its parent folder, if applicable.
 --
 --
 module Network.AWS.WorkDocs.UpdateDocument
@@ -28,6 +28,7 @@ module Network.AWS.WorkDocs.UpdateDocument
     , UpdateDocument
     -- * Request Lenses
     , udParentFolderId
+    , udAuthenticationToken
     , udName
     , udResourceState
     , udDocumentId
@@ -46,17 +47,20 @@ import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'updateDocument' smart constructor.
 data UpdateDocument = UpdateDocument'
-    { _udParentFolderId :: !(Maybe Text)
-    , _udName           :: !(Maybe Text)
-    , _udResourceState  :: !(Maybe ResourceStateType)
-    , _udDocumentId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    { _udParentFolderId      :: !(Maybe Text)
+    , _udAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _udName                :: !(Maybe Text)
+    , _udResourceState       :: !(Maybe ResourceStateType)
+    , _udDocumentId          :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateDocument' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'udParentFolderId' - The ID of the parent folder.
+--
+-- * 'udAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'udName' - The name of the document.
 --
@@ -69,6 +73,7 @@ updateDocument
 updateDocument pDocumentId_ =
     UpdateDocument'
     { _udParentFolderId = Nothing
+    , _udAuthenticationToken = Nothing
     , _udName = Nothing
     , _udResourceState = Nothing
     , _udDocumentId = pDocumentId_
@@ -77,6 +82,10 @@ updateDocument pDocumentId_ =
 -- | The ID of the parent folder.
 udParentFolderId :: Lens' UpdateDocument (Maybe Text)
 udParentFolderId = lens _udParentFolderId (\ s a -> s{_udParentFolderId = a});
+
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+udAuthenticationToken :: Lens' UpdateDocument (Maybe Text)
+udAuthenticationToken = lens _udAuthenticationToken (\ s a -> s{_udAuthenticationToken = a}) . mapping _Sensitive;
 
 -- | The name of the document.
 udName :: Lens' UpdateDocument (Maybe Text)
@@ -100,11 +109,11 @@ instance Hashable UpdateDocument
 instance NFData UpdateDocument
 
 instance ToHeaders UpdateDocument where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders UpdateDocument'{..}
+          = mconcat
+              ["Authentication" =# _udAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToJSON UpdateDocument where
         toJSON UpdateDocument'{..}

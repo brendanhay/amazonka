@@ -28,6 +28,7 @@ module Network.AWS.WorkDocs.UpdateFolder
     , UpdateFolder
     -- * Request Lenses
     , ufParentFolderId
+    , ufAuthenticationToken
     , ufName
     , ufResourceState
     , ufFolderId
@@ -46,17 +47,20 @@ import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'updateFolder' smart constructor.
 data UpdateFolder = UpdateFolder'
-    { _ufParentFolderId :: !(Maybe Text)
-    , _ufName           :: !(Maybe Text)
-    , _ufResourceState  :: !(Maybe ResourceStateType)
-    , _ufFolderId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    { _ufParentFolderId      :: !(Maybe Text)
+    , _ufAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _ufName                :: !(Maybe Text)
+    , _ufResourceState       :: !(Maybe ResourceStateType)
+    , _ufFolderId            :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateFolder' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ufParentFolderId' - The ID of the parent folder.
+--
+-- * 'ufAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'ufName' - The name of the folder.
 --
@@ -69,6 +73,7 @@ updateFolder
 updateFolder pFolderId_ =
     UpdateFolder'
     { _ufParentFolderId = Nothing
+    , _ufAuthenticationToken = Nothing
     , _ufName = Nothing
     , _ufResourceState = Nothing
     , _ufFolderId = pFolderId_
@@ -77,6 +82,10 @@ updateFolder pFolderId_ =
 -- | The ID of the parent folder.
 ufParentFolderId :: Lens' UpdateFolder (Maybe Text)
 ufParentFolderId = lens _ufParentFolderId (\ s a -> s{_ufParentFolderId = a});
+
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+ufAuthenticationToken :: Lens' UpdateFolder (Maybe Text)
+ufAuthenticationToken = lens _ufAuthenticationToken (\ s a -> s{_ufAuthenticationToken = a}) . mapping _Sensitive;
 
 -- | The name of the folder.
 ufName :: Lens' UpdateFolder (Maybe Text)
@@ -100,11 +109,11 @@ instance Hashable UpdateFolder
 instance NFData UpdateFolder
 
 instance ToHeaders UpdateFolder where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders UpdateFolder'{..}
+          = mconcat
+              ["Authentication" =# _ufAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToJSON UpdateFolder where
         toJSON UpdateFolder'{..}

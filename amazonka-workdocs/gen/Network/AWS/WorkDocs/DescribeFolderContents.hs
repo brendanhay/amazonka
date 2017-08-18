@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the contents of the specified folder, including its documents and sub-folders.
+-- Describes the contents of the specified folder, including its documents and subfolders.
 --
 --
 -- By default, Amazon WorkDocs returns the first 100 active document and folder metadata items. If there are more results, the response includes a marker that you can use to request the next set of results. You can also request initialized documents.
@@ -32,6 +32,7 @@ module Network.AWS.WorkDocs.DescribeFolderContents
     , DescribeFolderContents
     -- * Request Lenses
     , dfcsInclude
+    , dfcsAuthenticationToken
     , dfcsSort
     , dfcsMarker
     , dfcsLimit
@@ -59,14 +60,15 @@ import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'describeFolderContents' smart constructor.
 data DescribeFolderContents = DescribeFolderContents'
-    { _dfcsInclude  :: !(Maybe Text)
-    , _dfcsSort     :: !(Maybe ResourceSortType)
-    , _dfcsMarker   :: !(Maybe Text)
-    , _dfcsLimit    :: !(Maybe Nat)
-    , _dfcsType     :: !(Maybe FolderContentType)
-    , _dfcsOrder    :: !(Maybe OrderType)
-    , _dfcsFolderId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    { _dfcsInclude             :: !(Maybe Text)
+    , _dfcsAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _dfcsSort                :: !(Maybe ResourceSortType)
+    , _dfcsMarker              :: !(Maybe Text)
+    , _dfcsLimit               :: !(Maybe Nat)
+    , _dfcsType                :: !(Maybe FolderContentType)
+    , _dfcsOrder               :: !(Maybe OrderType)
+    , _dfcsFolderId            :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeFolderContents' with the minimum fields required to make a request.
 --
@@ -74,9 +76,11 @@ data DescribeFolderContents = DescribeFolderContents'
 --
 -- * 'dfcsInclude' - The contents to include. Specify "INITIALIZED" to include initialized documents.
 --
+-- * 'dfcsAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+--
 -- * 'dfcsSort' - The sorting criteria.
 --
--- * 'dfcsMarker' - The marker for the next set of results. (You received this marker from a previous call.)
+-- * 'dfcsMarker' - The marker for the next set of results. This marker was received from a previous call.
 --
 -- * 'dfcsLimit' - The maximum number of items to return with this call.
 --
@@ -91,6 +95,7 @@ describeFolderContents
 describeFolderContents pFolderId_ =
     DescribeFolderContents'
     { _dfcsInclude = Nothing
+    , _dfcsAuthenticationToken = Nothing
     , _dfcsSort = Nothing
     , _dfcsMarker = Nothing
     , _dfcsLimit = Nothing
@@ -103,11 +108,15 @@ describeFolderContents pFolderId_ =
 dfcsInclude :: Lens' DescribeFolderContents (Maybe Text)
 dfcsInclude = lens _dfcsInclude (\ s a -> s{_dfcsInclude = a});
 
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+dfcsAuthenticationToken :: Lens' DescribeFolderContents (Maybe Text)
+dfcsAuthenticationToken = lens _dfcsAuthenticationToken (\ s a -> s{_dfcsAuthenticationToken = a}) . mapping _Sensitive;
+
 -- | The sorting criteria.
 dfcsSort :: Lens' DescribeFolderContents (Maybe ResourceSortType)
 dfcsSort = lens _dfcsSort (\ s a -> s{_dfcsSort = a});
 
--- | The marker for the next set of results. (You received this marker from a previous call.)
+-- | The marker for the next set of results. This marker was received from a previous call.
 dfcsMarker :: Lens' DescribeFolderContents (Maybe Text)
 dfcsMarker = lens _dfcsMarker (\ s a -> s{_dfcsMarker = a});
 
@@ -153,11 +162,11 @@ instance Hashable DescribeFolderContents
 instance NFData DescribeFolderContents
 
 instance ToHeaders DescribeFolderContents where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders DescribeFolderContents'{..}
+          = mconcat
+              ["Authentication" =# _dfcsAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToPath DescribeFolderContents where
         toPath DescribeFolderContents'{..}
@@ -183,7 +192,7 @@ data DescribeFolderContentsResponse = DescribeFolderContentsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfcrsFolders' - The sub-folders in the specified folder.
+-- * 'dfcrsFolders' - The subfolders in the specified folder.
 --
 -- * 'dfcrsDocuments' - The documents in the specified folder.
 --
@@ -201,7 +210,7 @@ describeFolderContentsResponse pResponseStatus_ =
     , _dfcrsResponseStatus = pResponseStatus_
     }
 
--- | The sub-folders in the specified folder.
+-- | The subfolders in the specified folder.
 dfcrsFolders :: Lens' DescribeFolderContentsResponse [FolderMetadata]
 dfcrsFolders = lens _dfcrsFolders (\ s a -> s{_dfcrsFolders = a}) . _Default . _Coerce;
 

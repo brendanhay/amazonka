@@ -29,7 +29,8 @@ import           Network.AWS.WAFRegional.Types.Sum
 --
 -- /See:/ 'activatedRule' smart constructor.
 data ActivatedRule = ActivatedRule'
-    { _arPriority :: !Int
+    { _arType     :: !(Maybe WafRuleType)
+    , _arPriority :: !Int
     , _arRuleId   :: !Text
     , _arAction   :: !WafAction
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -37,6 +38,8 @@ data ActivatedRule = ActivatedRule'
 -- | Creates a value of 'ActivatedRule' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'arType' - The rule type, either @REGULAR@ , as defined by 'Rule' , or @RATE_BASED@ , as defined by 'RateBasedRule' . The default is REGULAR. Although this field is optional, be aware that if you try to add a RATE_BASED rule to a web ACL without setting the type, the 'UpdateWebACL' request will fail because the request tries to add a REGULAR rule with the specified ID, which does not exist.
 --
 -- * 'arPriority' - Specifies the order in which the @Rules@ in a @WebACL@ are evaluated. Rules with a lower value for @Priority@ are evaluated before @Rules@ with a higher value. The value must be a unique integer. If you add multiple @Rules@ to a @WebACL@ , the values don't need to be consecutive.
 --
@@ -50,10 +53,15 @@ activatedRule
     -> ActivatedRule
 activatedRule pPriority_ pRuleId_ pAction_ =
     ActivatedRule'
-    { _arPriority = pPriority_
+    { _arType = Nothing
+    , _arPriority = pPriority_
     , _arRuleId = pRuleId_
     , _arAction = pAction_
     }
+
+-- | The rule type, either @REGULAR@ , as defined by 'Rule' , or @RATE_BASED@ , as defined by 'RateBasedRule' . The default is REGULAR. Although this field is optional, be aware that if you try to add a RATE_BASED rule to a web ACL without setting the type, the 'UpdateWebACL' request will fail because the request tries to add a REGULAR rule with the specified ID, which does not exist.
+arType :: Lens' ActivatedRule (Maybe WafRuleType)
+arType = lens _arType (\ s a -> s{_arType = a});
 
 -- | Specifies the order in which the @Rules@ in a @WebACL@ are evaluated. Rules with a lower value for @Priority@ are evaluated before @Rules@ with a higher value. The value must be a unique integer. If you add multiple @Rules@ to a @WebACL@ , the values don't need to be consecutive.
 arPriority :: Lens' ActivatedRule Int
@@ -72,8 +80,9 @@ instance FromJSON ActivatedRule where
           = withObject "ActivatedRule"
               (\ x ->
                  ActivatedRule' <$>
-                   (x .: "Priority") <*> (x .: "RuleId") <*>
-                     (x .: "Action"))
+                   (x .:? "Type") <*> (x .: "Priority") <*>
+                     (x .: "RuleId")
+                     <*> (x .: "Action"))
 
 instance Hashable ActivatedRule
 
@@ -83,7 +92,8 @@ instance ToJSON ActivatedRule where
         toJSON ActivatedRule'{..}
           = object
               (catMaybes
-                 [Just ("Priority" .= _arPriority),
+                 [("Type" .=) <$> _arType,
+                  Just ("Priority" .= _arPriority),
                   Just ("RuleId" .= _arRuleId),
                   Just ("Action" .= _arAction)])
 
@@ -508,7 +518,7 @@ data IPSet = IPSet'
 --
 -- * 'isIPSetId' - The @IPSetId@ for an @IPSet@ . You use @IPSetId@ to get information about an @IPSet@ (see 'GetIPSet' ), update an @IPSet@ (see 'UpdateIPSet' ), insert an @IPSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete an @IPSet@ from AWS WAF (see 'DeleteIPSet' ). @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
 --
--- * 'isIPSetDescriptors' - The IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR notation) that web requests originate from. If the @WebACL@ is associated with a CloudFront distribution, this is the value of one of the following fields in CloudFront access logs:     * @c-ip@ , if the viewer did not use an HTTP proxy or a load balancer to send the request     * @x-forwarded-for@ , if the viewer did use an HTTP proxy or a load balancer to send the request
+-- * 'isIPSetDescriptors' - The IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR notation) that web requests originate from. If the @WebACL@ is associated with a CloudFront distribution and the viewer did not use an HTTP proxy or a load balancer to send the request, this is the value of the c-ip field in the CloudFront access logs.
 ipSet
     :: Text -- ^ 'isIPSetId'
     -> IPSet
@@ -527,7 +537,7 @@ isName = lens _isName (\ s a -> s{_isName = a});
 isIPSetId :: Lens' IPSet Text
 isIPSetId = lens _isIPSetId (\ s a -> s{_isIPSetId = a});
 
--- | The IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR notation) that web requests originate from. If the @WebACL@ is associated with a CloudFront distribution, this is the value of one of the following fields in CloudFront access logs:     * @c-ip@ , if the viewer did not use an HTTP proxy or a load balancer to send the request     * @x-forwarded-for@ , if the viewer did use an HTTP proxy or a load balancer to send the request
+-- | The IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR notation) that web requests originate from. If the @WebACL@ is associated with a CloudFront distribution and the viewer did not use an HTTP proxy or a load balancer to send the request, this is the value of the c-ip field in the CloudFront access logs.
 isIPSetDescriptors :: Lens' IPSet [IPSetDescriptor]
 isIPSetDescriptors = lens _isIPSetDescriptors (\ s a -> s{_isIPSetDescriptors = a}) . _Coerce;
 
@@ -750,6 +760,99 @@ instance ToJSON Predicate where
                  [Just ("Negated" .= _pNegated),
                   Just ("Type" .= _pType),
                   Just ("DataId" .= _pDataId)])
+
+-- | A @RateBasedRule@ is identical to a regular 'Rule' , with one addition: a @RateBasedRule@ counts the number of requests that arrive from a specified IP address every five minutes. For example, based on recent requests that you've seen from an attacker, you might create a @RateBasedRule@ that includes the following conditions:
+--
+--
+--     * The requests come from 192.0.2.44.
+--
+--     * They contain the value @BadBot@ in the @User-Agent@ header.
+--
+--
+--
+-- In the rule, you also define the rate limit as 15,000.
+--
+-- Requests that meet both of these conditions and exceed 15,000 requests every five minutes trigger the rule's action (block or count), which is defined in the web ACL.
+--
+--
+-- /See:/ 'rateBasedRule' smart constructor.
+data RateBasedRule = RateBasedRule'
+    { _rbrMetricName      :: !(Maybe Text)
+    , _rbrName            :: !(Maybe Text)
+    , _rbrRuleId          :: !Text
+    , _rbrMatchPredicates :: ![Predicate]
+    , _rbrRateKey         :: !RateKey
+    , _rbrRateLimit       :: !Nat
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RateBasedRule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rbrMetricName' - A friendly name or description for the metrics for a @RateBasedRule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change the name of the metric after you create the @RateBasedRule@ .
+--
+-- * 'rbrName' - A friendly name or description for a @RateBasedRule@ . You can't change the name of a @RateBasedRule@ after you create it.
+--
+-- * 'rbrRuleId' - A unique identifier for a @RateBasedRule@ . You use @RuleId@ to get more information about a @RateBasedRule@ (see 'GetRateBasedRule' ), update a @RateBasedRule@ (see 'UpdateRateBasedRule' ), insert a @RateBasedRule@ into a @WebACL@ or delete one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @RateBasedRule@ from AWS WAF (see 'DeleteRateBasedRule' ).
+--
+-- * 'rbrMatchPredicates' - The @Predicates@ object contains one @Predicate@ element for each 'ByteMatchSet' , 'IPSet' , or 'SqlInjectionMatchSet' object that you want to include in a @RateBasedRule@ .
+--
+-- * 'rbrRateKey' - The field that AWS WAF uses to determine if requests are likely arriving from single source and thus subject to rate monitoring. The only valid value for @RateKey@ is @IP@ . @IP@ indicates that requests arriving from the same IP address are subject to the @RateLimit@ that is specified in the @RateBasedRule@ .
+--
+-- * 'rbrRateLimit' - The maximum number of requests, which have an identical value in the field specified by the @RateKey@ , allowed in a five-minute period. If the number of requests exceeds the @RateLimit@ and the other predicates specified in the rule are also met, AWS WAF triggers the action that is specified for this rule.
+rateBasedRule
+    :: Text -- ^ 'rbrRuleId'
+    -> RateKey -- ^ 'rbrRateKey'
+    -> Natural -- ^ 'rbrRateLimit'
+    -> RateBasedRule
+rateBasedRule pRuleId_ pRateKey_ pRateLimit_ =
+    RateBasedRule'
+    { _rbrMetricName = Nothing
+    , _rbrName = Nothing
+    , _rbrRuleId = pRuleId_
+    , _rbrMatchPredicates = mempty
+    , _rbrRateKey = pRateKey_
+    , _rbrRateLimit = _Nat # pRateLimit_
+    }
+
+-- | A friendly name or description for the metrics for a @RateBasedRule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change the name of the metric after you create the @RateBasedRule@ .
+rbrMetricName :: Lens' RateBasedRule (Maybe Text)
+rbrMetricName = lens _rbrMetricName (\ s a -> s{_rbrMetricName = a});
+
+-- | A friendly name or description for a @RateBasedRule@ . You can't change the name of a @RateBasedRule@ after you create it.
+rbrName :: Lens' RateBasedRule (Maybe Text)
+rbrName = lens _rbrName (\ s a -> s{_rbrName = a});
+
+-- | A unique identifier for a @RateBasedRule@ . You use @RuleId@ to get more information about a @RateBasedRule@ (see 'GetRateBasedRule' ), update a @RateBasedRule@ (see 'UpdateRateBasedRule' ), insert a @RateBasedRule@ into a @WebACL@ or delete one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @RateBasedRule@ from AWS WAF (see 'DeleteRateBasedRule' ).
+rbrRuleId :: Lens' RateBasedRule Text
+rbrRuleId = lens _rbrRuleId (\ s a -> s{_rbrRuleId = a});
+
+-- | The @Predicates@ object contains one @Predicate@ element for each 'ByteMatchSet' , 'IPSet' , or 'SqlInjectionMatchSet' object that you want to include in a @RateBasedRule@ .
+rbrMatchPredicates :: Lens' RateBasedRule [Predicate]
+rbrMatchPredicates = lens _rbrMatchPredicates (\ s a -> s{_rbrMatchPredicates = a}) . _Coerce;
+
+-- | The field that AWS WAF uses to determine if requests are likely arriving from single source and thus subject to rate monitoring. The only valid value for @RateKey@ is @IP@ . @IP@ indicates that requests arriving from the same IP address are subject to the @RateLimit@ that is specified in the @RateBasedRule@ .
+rbrRateKey :: Lens' RateBasedRule RateKey
+rbrRateKey = lens _rbrRateKey (\ s a -> s{_rbrRateKey = a});
+
+-- | The maximum number of requests, which have an identical value in the field specified by the @RateKey@ , allowed in a five-minute period. If the number of requests exceeds the @RateLimit@ and the other predicates specified in the rule are also met, AWS WAF triggers the action that is specified for this rule.
+rbrRateLimit :: Lens' RateBasedRule Natural
+rbrRateLimit = lens _rbrRateLimit (\ s a -> s{_rbrRateLimit = a}) . _Nat;
+
+instance FromJSON RateBasedRule where
+        parseJSON
+          = withObject "RateBasedRule"
+              (\ x ->
+                 RateBasedRule' <$>
+                   (x .:? "MetricName") <*> (x .:? "Name") <*>
+                     (x .: "RuleId")
+                     <*> (x .:? "MatchPredicates" .!= mempty)
+                     <*> (x .: "RateKey")
+                     <*> (x .: "RateLimit"))
+
+instance Hashable RateBasedRule
+
+instance NFData RateBasedRule
 
 -- | A combination of 'ByteMatchSet' , 'IPSet' , and/or 'SqlInjectionMatchSet' objects that identify the web requests that you want to allow, block, or count. For example, you might create a @Rule@ that includes the following predicates:
 --

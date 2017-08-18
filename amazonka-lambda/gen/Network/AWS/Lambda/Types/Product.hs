@@ -39,7 +39,7 @@ data AccountLimit = AccountLimit'
 --
 -- * 'alConcurrentExecutions' - Number of simultaneous executions of your function per region. For more information or to request a limit increase for concurrent executions, see <http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html Lambda Function Concurrent Executions> . The default limit is 100.
 --
--- * 'alTotalCodeSize' - Maximum size, in megabytes, of a code package you can upload per region. The default size is 75 GB.
+-- * 'alTotalCodeSize' - Maximum size, in bytes, of a code package you can upload per region. The default size is 75 GB.
 --
 -- * 'alCodeSizeUnzipped' - Size, in bytes, of code/dependencies that you can zip into a deployment package (uncompressed zip/jar size) for uploading. The default limit is 250 MB.
 --
@@ -58,7 +58,7 @@ accountLimit =
 alConcurrentExecutions :: Lens' AccountLimit (Maybe Int)
 alConcurrentExecutions = lens _alConcurrentExecutions (\ s a -> s{_alConcurrentExecutions = a});
 
--- | Maximum size, in megabytes, of a code package you can upload per region. The default size is 75 GB.
+-- | Maximum size, in bytes, of a code package you can upload per region. The default size is 75 GB.
 alTotalCodeSize :: Lens' AccountLimit (Maybe Integer)
 alTotalCodeSize = lens _alTotalCodeSize (\ s a -> s{_alTotalCodeSize = a});
 
@@ -190,7 +190,7 @@ instance Hashable AliasConfiguration
 
 instance NFData AliasConfiguration
 
--- | The parent object that contains the target Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
+-- | The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
 --
 --
 --
@@ -242,7 +242,7 @@ newtype Environment = Environment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eVariables' - The key-value pairs that represent your environment's configuration settings. The value you specify cannot contain a ",".
+-- * 'eVariables' - The key-value pairs that represent your environment's configuration settings.
 environment
     :: Environment
 environment =
@@ -250,7 +250,7 @@ environment =
     { _eVariables = Nothing
     }
 
--- | The key-value pairs that represent your environment's configuration settings. The value you specify cannot contain a ",".
+-- | The key-value pairs that represent your environment's configuration settings.
 eVariables :: Lens' Environment (Maybe (HashMap Text Text))
 eVariables = lens _eVariables (\ s a -> s{_eVariables = a}) . mapping (_Sensitive . _Map);
 
@@ -577,7 +577,9 @@ data FunctionConfiguration = FunctionConfiguration'
     , _fcTimeout          :: !(Maybe Nat)
     , _fcLastModified     :: !(Maybe Text)
     , _fcCodeSha256       :: !(Maybe Text)
+    , _fcTracingConfig    :: !(Maybe TracingConfigResponse)
     , _fcDescription      :: !(Maybe Text)
+    , _fcMasterARN        :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FunctionConfiguration' with the minimum fields required to make a request.
@@ -586,7 +588,7 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- * 'fcMemorySize' - The memory size, in MB, you configured for the function. Must be a multiple of 64 MB.
 --
--- * 'fcRuntime' - The runtime environment for the Lambda function. To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier runtime (v0.10.42), set the value to "nodejs".
+-- * 'fcRuntime' - The runtime environment for the Lambda function.
 --
 -- * 'fcFunctionARN' - The Amazon Resource Name (ARN) assigned to the function.
 --
@@ -594,7 +596,7 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- * 'fcEnvironment' - The parent object that contains your environment's configuration settings.
 --
--- * 'fcDeadLetterConfig' - The parent object that contains the target Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
+-- * 'fcDeadLetterConfig' - The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
 --
 -- * 'fcRole' - The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources.
 --
@@ -602,7 +604,7 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- * 'fcVersion' - The version of the Lambda function.
 --
--- * 'fcFunctionName' - The name of the function.
+-- * 'fcFunctionName' - The name of the function. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
 -- * 'fcCodeSize' - The size, in bytes, of the function .zip file you uploaded.
 --
@@ -610,11 +612,15 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- * 'fcTimeout' - The function execution time at which Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.
 --
--- * 'fcLastModified' - The time stamp of the last time you updated the function.
+-- * 'fcLastModified' - The time stamp of the last time you updated the function. The time stamp is conveyed as a string complying with ISO-8601 in this way YYYY-MM-DDThh:mm:ssTZD (e.g., 1997-07-16T19:20:30+01:00). For more information, see <https://www.w3.org/TR/NOTE-datetime Date and Time Formats> .
 --
 -- * 'fcCodeSha256' - It is the SHA256 hash of your function deployment package.
 --
+-- * 'fcTracingConfig' - The parent object that contains your function's tracing settings.
+--
 -- * 'fcDescription' - The user-provided description.
+--
+-- * 'fcMasterARN' - Returns the ARN (Amazon Resource Name) of the master function.
 functionConfiguration
     :: FunctionConfiguration
 functionConfiguration =
@@ -634,14 +640,16 @@ functionConfiguration =
     , _fcTimeout = Nothing
     , _fcLastModified = Nothing
     , _fcCodeSha256 = Nothing
+    , _fcTracingConfig = Nothing
     , _fcDescription = Nothing
+    , _fcMasterARN = Nothing
     }
 
 -- | The memory size, in MB, you configured for the function. Must be a multiple of 64 MB.
 fcMemorySize :: Lens' FunctionConfiguration (Maybe Natural)
 fcMemorySize = lens _fcMemorySize (\ s a -> s{_fcMemorySize = a}) . mapping _Nat;
 
--- | The runtime environment for the Lambda function. To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier runtime (v0.10.42), set the value to "nodejs".
+-- | The runtime environment for the Lambda function.
 fcRuntime :: Lens' FunctionConfiguration (Maybe Runtime)
 fcRuntime = lens _fcRuntime (\ s a -> s{_fcRuntime = a});
 
@@ -657,7 +665,7 @@ fcKMSKeyARN = lens _fcKMSKeyARN (\ s a -> s{_fcKMSKeyARN = a});
 fcEnvironment :: Lens' FunctionConfiguration (Maybe EnvironmentResponse)
 fcEnvironment = lens _fcEnvironment (\ s a -> s{_fcEnvironment = a});
 
--- | The parent object that contains the target Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
+-- | The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
 fcDeadLetterConfig :: Lens' FunctionConfiguration (Maybe DeadLetterConfig)
 fcDeadLetterConfig = lens _fcDeadLetterConfig (\ s a -> s{_fcDeadLetterConfig = a});
 
@@ -673,7 +681,7 @@ fcVPCConfig = lens _fcVPCConfig (\ s a -> s{_fcVPCConfig = a});
 fcVersion :: Lens' FunctionConfiguration (Maybe Text)
 fcVersion = lens _fcVersion (\ s a -> s{_fcVersion = a});
 
--- | The name of the function.
+-- | The name of the function. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 fcFunctionName :: Lens' FunctionConfiguration (Maybe Text)
 fcFunctionName = lens _fcFunctionName (\ s a -> s{_fcFunctionName = a});
 
@@ -689,7 +697,7 @@ fcHandler = lens _fcHandler (\ s a -> s{_fcHandler = a});
 fcTimeout :: Lens' FunctionConfiguration (Maybe Natural)
 fcTimeout = lens _fcTimeout (\ s a -> s{_fcTimeout = a}) . mapping _Nat;
 
--- | The time stamp of the last time you updated the function.
+-- | The time stamp of the last time you updated the function. The time stamp is conveyed as a string complying with ISO-8601 in this way YYYY-MM-DDThh:mm:ssTZD (e.g., 1997-07-16T19:20:30+01:00). For more information, see <https://www.w3.org/TR/NOTE-datetime Date and Time Formats> .
 fcLastModified :: Lens' FunctionConfiguration (Maybe Text)
 fcLastModified = lens _fcLastModified (\ s a -> s{_fcLastModified = a});
 
@@ -697,9 +705,17 @@ fcLastModified = lens _fcLastModified (\ s a -> s{_fcLastModified = a});
 fcCodeSha256 :: Lens' FunctionConfiguration (Maybe Text)
 fcCodeSha256 = lens _fcCodeSha256 (\ s a -> s{_fcCodeSha256 = a});
 
+-- | The parent object that contains your function's tracing settings.
+fcTracingConfig :: Lens' FunctionConfiguration (Maybe TracingConfigResponse)
+fcTracingConfig = lens _fcTracingConfig (\ s a -> s{_fcTracingConfig = a});
+
 -- | The user-provided description.
 fcDescription :: Lens' FunctionConfiguration (Maybe Text)
 fcDescription = lens _fcDescription (\ s a -> s{_fcDescription = a});
+
+-- | Returns the ARN (Amazon Resource Name) of the master function.
+fcMasterARN :: Lens' FunctionConfiguration (Maybe Text)
+fcMasterARN = lens _fcMasterARN (\ s a -> s{_fcMasterARN = a});
 
 instance FromJSON FunctionConfiguration where
         parseJSON
@@ -720,11 +736,80 @@ instance FromJSON FunctionConfiguration where
                      <*> (x .:? "Timeout")
                      <*> (x .:? "LastModified")
                      <*> (x .:? "CodeSha256")
-                     <*> (x .:? "Description"))
+                     <*> (x .:? "TracingConfig")
+                     <*> (x .:? "Description")
+                     <*> (x .:? "MasterArn"))
 
 instance Hashable FunctionConfiguration
 
 instance NFData FunctionConfiguration
+
+-- | The parent object that contains your function's tracing settings.
+--
+--
+--
+-- /See:/ 'tracingConfig' smart constructor.
+newtype TracingConfig = TracingConfig'
+    { _tMode :: Maybe TracingMode
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TracingConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tMode' - Can be either PassThrough or Active. If PassThrough, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If Active, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
+tracingConfig
+    :: TracingConfig
+tracingConfig =
+    TracingConfig'
+    { _tMode = Nothing
+    }
+
+-- | Can be either PassThrough or Active. If PassThrough, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If Active, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
+tMode :: Lens' TracingConfig (Maybe TracingMode)
+tMode = lens _tMode (\ s a -> s{_tMode = a});
+
+instance Hashable TracingConfig
+
+instance NFData TracingConfig
+
+instance ToJSON TracingConfig where
+        toJSON TracingConfig'{..}
+          = object (catMaybes [("Mode" .=) <$> _tMode])
+
+-- | Parent object of the tracing information associated with your Lambda function.
+--
+--
+--
+-- /See:/ 'tracingConfigResponse' smart constructor.
+newtype TracingConfigResponse = TracingConfigResponse'
+    { _tcMode :: Maybe TracingMode
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TracingConfigResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tcMode' - The tracing mode associated with your Lambda function.
+tracingConfigResponse
+    :: TracingConfigResponse
+tracingConfigResponse =
+    TracingConfigResponse'
+    { _tcMode = Nothing
+    }
+
+-- | The tracing mode associated with your Lambda function.
+tcMode :: Lens' TracingConfigResponse (Maybe TracingMode)
+tcMode = lens _tcMode (\ s a -> s{_tcMode = a});
+
+instance FromJSON TracingConfigResponse where
+        parseJSON
+          = withObject "TracingConfigResponse"
+              (\ x -> TracingConfigResponse' <$> (x .:? "Mode"))
+
+instance Hashable TracingConfigResponse
+
+instance NFData TracingConfigResponse
 
 -- | If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.
 --

@@ -68,7 +68,7 @@ data ListAliases = ListAliases'
 --
 -- * 'laFunctionVersion' - If you specify this optional parameter, the API returns only the aliases that are pointing to the specific Lambda function version, otherwise the API returns all of the aliases created for the Lambda function.
 --
--- * 'laFunctionName' - Lambda function name for which the alias is created.
+-- * 'laFunctionName' - Lambda function name for which the alias is created. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 listAliases
     :: Text -- ^ 'laFunctionName'
     -> ListAliases
@@ -92,7 +92,7 @@ laMaxItems = lens _laMaxItems (\ s a -> s{_laMaxItems = a}) . mapping _Nat;
 laFunctionVersion :: Lens' ListAliases (Maybe Text)
 laFunctionVersion = lens _laFunctionVersion (\ s a -> s{_laFunctionVersion = a});
 
--- | Lambda function name for which the alias is created.
+-- | Lambda function name for which the alias is created. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 laFunctionName :: Lens' ListAliases Text
 laFunctionName = lens _laFunctionName (\ s a -> s{_laFunctionName = a});
 

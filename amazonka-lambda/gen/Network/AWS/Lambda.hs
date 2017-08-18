@@ -31,6 +31,9 @@ module Network.AWS.Lambda
     -- ** EC2ThrottledException
     , _EC2ThrottledException
 
+    -- ** InvalidRuntimeException
+    , _InvalidRuntimeException
+
     -- ** PolicyLengthExceededException
     , _PolicyLengthExceededException
 
@@ -151,11 +154,20 @@ module Network.AWS.Lambda
     -- ** AddPermission
     , module Network.AWS.Lambda.AddPermission
 
+    -- ** TagResource
+    , module Network.AWS.Lambda.TagResource
+
     -- ** PublishVersion
     , module Network.AWS.Lambda.PublishVersion
 
+    -- ** ListTags
+    , module Network.AWS.Lambda.ListTags
+
     -- ** DeleteFunction
     , module Network.AWS.Lambda.DeleteFunction
+
+    -- ** UntagResource
+    , module Network.AWS.Lambda.UntagResource
 
     -- ** UpdateFunctionConfiguration
     , module Network.AWS.Lambda.UpdateFunctionConfiguration
@@ -174,6 +186,9 @@ module Network.AWS.Lambda
     -- ** EventSourcePosition
     , EventSourcePosition (..)
 
+    -- ** FunctionVersion
+    , FunctionVersion (..)
+
     -- ** InvocationType
     , InvocationType (..)
 
@@ -182,6 +197,9 @@ module Network.AWS.Lambda
 
     -- ** Runtime
     , Runtime (..)
+
+    -- ** TracingMode
+    , TracingMode (..)
 
     -- ** AccountLimit
     , AccountLimit
@@ -271,7 +289,19 @@ module Network.AWS.Lambda
     , fcTimeout
     , fcLastModified
     , fcCodeSha256
+    , fcTracingConfig
     , fcDescription
+    , fcMasterARN
+
+    -- ** TracingConfig
+    , TracingConfig
+    , tracingConfig
+    , tMode
+
+    -- ** TracingConfigResponse
+    , TracingConfigResponse
+    , tracingConfigResponse
+    , tcMode
 
     -- ** VPCConfig
     , VPCConfig
@@ -304,10 +334,13 @@ import           Network.AWS.Lambda.Invoke
 import           Network.AWS.Lambda.ListAliases
 import           Network.AWS.Lambda.ListEventSourceMappings
 import           Network.AWS.Lambda.ListFunctions
+import           Network.AWS.Lambda.ListTags
 import           Network.AWS.Lambda.ListVersionsByFunction
 import           Network.AWS.Lambda.PublishVersion
 import           Network.AWS.Lambda.RemovePermission
+import           Network.AWS.Lambda.TagResource
 import           Network.AWS.Lambda.Types
+import           Network.AWS.Lambda.UntagResource
 import           Network.AWS.Lambda.UpdateAlias
 import           Network.AWS.Lambda.UpdateEventSourceMapping
 import           Network.AWS.Lambda.UpdateFunctionCode

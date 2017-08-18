@@ -59,7 +59,7 @@ data GetAlias = GetAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaFunctionName' - Function name for which the alias is created. An alias is a subresource that exists only in the context of an existing Lambda function so you must specify the function name.
+-- * 'gaFunctionName' - Function name for which the alias is created. An alias is a subresource that exists only in the context of an existing Lambda function so you must specify the function name. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
 -- * 'gaName' - Name of the alias for which you want to retrieve information.
 getAlias
@@ -72,7 +72,7 @@ getAlias pFunctionName_ pName_ =
     , _gaName = pName_
     }
 
--- | Function name for which the alias is created. An alias is a subresource that exists only in the context of an existing Lambda function so you must specify the function name.
+-- | Function name for which the alias is created. An alias is a subresource that exists only in the context of an existing Lambda function so you must specify the function name. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 gaFunctionName :: Lens' GetAlias Text
 gaFunctionName = lens _gaFunctionName (\ s a -> s{_gaFunctionName = a});
 

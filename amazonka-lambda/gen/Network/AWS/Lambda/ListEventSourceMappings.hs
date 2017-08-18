@@ -79,7 +79,7 @@ data ListEventSourceMappings = ListEventSourceMappings'
 --
 -- * 'lesmMaxItems' - Optional integer. Specifies the maximum number of event sources to return in response. This value must be greater than 0.
 --
--- * 'lesmFunctionName' - The name of the Lambda function. You can specify the function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- * 'lesmFunctionName' - The name of the Lambda function. You can specify the function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 listEventSourceMappings
     :: ListEventSourceMappings
 listEventSourceMappings =
@@ -102,7 +102,7 @@ lesmMarker = lens _lesmMarker (\ s a -> s{_lesmMarker = a});
 lesmMaxItems :: Lens' ListEventSourceMappings (Maybe Natural)
 lesmMaxItems = lens _lesmMaxItems (\ s a -> s{_lesmMaxItems = a}) . mapping _Nat;
 
--- | The name of the Lambda function. You can specify the function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- | The name of the Lambda function. You can specify the function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 lesmFunctionName :: Lens' ListEventSourceMappings (Maybe Text)
 lesmFunctionName = lens _lesmFunctionName (\ s a -> s{_lesmFunctionName = a});
 

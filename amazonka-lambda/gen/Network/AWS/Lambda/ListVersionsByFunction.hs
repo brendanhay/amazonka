@@ -66,7 +66,7 @@ data ListVersionsByFunction = ListVersionsByFunction'
 --
 -- * 'lvbfMaxItems' - Optional integer. Specifies the maximum number of AWS Lambda function versions to return in response. This parameter value must be greater than 0.
 --
--- * 'lvbfFunctionName' - Function name whose versions to list. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- * 'lvbfFunctionName' - Function name whose versions to list. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 listVersionsByFunction
     :: Text -- ^ 'lvbfFunctionName'
     -> ListVersionsByFunction
@@ -85,7 +85,7 @@ lvbfMarker = lens _lvbfMarker (\ s a -> s{_lvbfMarker = a});
 lvbfMaxItems :: Lens' ListVersionsByFunction (Maybe Natural)
 lvbfMaxItems = lens _lvbfMaxItems (\ s a -> s{_lvbfMaxItems = a}) . mapping _Nat;
 
--- | Function name whose versions to list. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- | Function name whose versions to list. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 lvbfFunctionName :: Lens' ListVersionsByFunction Text
 lvbfFunctionName = lens _lvbfFunctionName (\ s a -> s{_lvbfFunctionName = a});
 

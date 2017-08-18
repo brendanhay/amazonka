@@ -82,11 +82,20 @@ import Test.AWS.Lambda.Internal
 --         , requestAddPermission $
 --             addPermission
 --
+--         , requestTagResource $
+--             tagResource
+--
 --         , requestPublishVersion $
 --             publishVersion
 --
+--         , requestListTags $
+--             listTags
+--
 --         , requestDeleteFunction $
 --             deleteFunction
+--
+--         , requestUntagResource $
+--             untagResource
 --
 --         , requestUpdateFunctionConfiguration $
 --             updateFunctionConfiguration
@@ -157,11 +166,20 @@ import Test.AWS.Lambda.Internal
 --         , responseAddPermission $
 --             addPermissionResponse
 --
+--         , responseTagResource $
+--             tagResourceResponse
+--
 --         , responsePublishVersion $
 --             functionConfiguration
 --
+--         , responseListTags $
+--             listTagsResponse
+--
 --         , responseDeleteFunction $
 --             deleteFunctionResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --         , responseUpdateFunctionConfiguration $
 --             functionConfiguration
@@ -270,15 +288,30 @@ requestAddPermission = req
     "AddPermission"
     "fixture/AddPermission.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestPublishVersion :: PublishVersion -> TestTree
 requestPublishVersion = req
     "PublishVersion"
     "fixture/PublishVersion.yaml"
 
+requestListTags :: ListTags -> TestTree
+requestListTags = req
+    "ListTags"
+    "fixture/ListTags.yaml"
+
 requestDeleteFunction :: DeleteFunction -> TestTree
 requestDeleteFunction = req
     "DeleteFunction"
     "fixture/DeleteFunction.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestUpdateFunctionConfiguration :: UpdateFunctionConfiguration -> TestTree
 requestUpdateFunctionConfiguration = req
@@ -428,6 +461,13 @@ responseAddPermission = res
     lambda
     (Proxy :: Proxy AddPermission)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    lambda
+    (Proxy :: Proxy TagResource)
+
 responsePublishVersion :: FunctionConfiguration -> TestTree
 responsePublishVersion = res
     "PublishVersionResponse"
@@ -435,12 +475,26 @@ responsePublishVersion = res
     lambda
     (Proxy :: Proxy PublishVersion)
 
+responseListTags :: ListTagsResponse -> TestTree
+responseListTags = res
+    "ListTagsResponse"
+    "fixture/ListTagsResponse.proto"
+    lambda
+    (Proxy :: Proxy ListTags)
+
 responseDeleteFunction :: DeleteFunctionResponse -> TestTree
 responseDeleteFunction = res
     "DeleteFunctionResponse"
     "fixture/DeleteFunctionResponse.proto"
     lambda
     (Proxy :: Proxy DeleteFunction)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    lambda
+    (Proxy :: Proxy UntagResource)
 
 responseUpdateFunctionConfiguration :: FunctionConfiguration -> TestTree
 responseUpdateFunctionConfiguration = res

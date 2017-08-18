@@ -67,7 +67,7 @@ data UpdateAlias = UpdateAlias'
 --
 -- * 'uaDescription' - You can change the description of the alias using this parameter.
 --
--- * 'uaFunctionName' - The function name for which the alias is created.
+-- * 'uaFunctionName' - The function name for which the alias is created. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
 -- * 'uaName' - The alias name.
 updateAlias
@@ -90,7 +90,7 @@ uaFunctionVersion = lens _uaFunctionVersion (\ s a -> s{_uaFunctionVersion = a})
 uaDescription :: Lens' UpdateAlias (Maybe Text)
 uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a});
 
--- | The function name for which the alias is created.
+-- | The function name for which the alias is created. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 uaFunctionName :: Lens' UpdateAlias Text
 uaFunctionName = lens _uaFunctionName (\ s a -> s{_uaFunctionName = a});
 

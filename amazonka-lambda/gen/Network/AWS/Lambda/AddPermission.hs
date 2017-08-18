@@ -77,15 +77,15 @@ data AddPermission = AddPermission'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'apSourceAccount' - This parameter is used for S3, SES, CloudWatch Logs and CloudWatch Rules only. The AWS account ID (without a hyphen) of the source owner. For example, if the @SourceArn@ identifies a bucket, then this is the bucket owner's account ID. You can use this additional condition to ensure the bucket you specify is owned by a specific account (it is possible the bucket owner deleted the bucket and some other AWS account created the bucket). You can also use this condition to specify all sources (that is, you don't specify the @SourceArn@ ) owned by a specific account.
+-- * 'apSourceAccount' - This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner. For example, if the @SourceArn@ identifies a bucket, then this is the bucket owner's account ID. You can use this additional condition to ensure the bucket you specify is owned by a specific account (it is possible the bucket owner deleted the bucket and some other AWS account created the bucket). You can also use this condition to specify all sources (that is, you don't specify the @SourceArn@ ) owned by a specific account.
 --
 -- * 'apEventSourceToken' - A unique token that must be supplied by the principal invoking the function. This is currently only used for Alexa Smart Home functions.
 --
--- * 'apSourceARN' - This is optional; however, when granting Amazon S3 permission to invoke your function, you should specify this field with the Amazon Resource Name (ARN) as its value. This ensures that only events generated from the specified source can invoke the function. /Important:/ If you add a permission for the Amazon S3 principal without providing the source ARN, any AWS account that creates a mapping to your function ARN can send events to invoke your Lambda function from Amazon S3.
+-- * 'apSourceARN' - This is optional; however, when granting permission to invoke your function, you should specify this field with the Amazon Resource Name (ARN) as its value. This ensures that only events generated from the specified source can invoke the function. /Important:/ If you add a permission without providing the source ARN, any AWS account that creates a mapping to your function ARN can send events to invoke your Lambda function.
 --
 -- * 'apQualifier' - You can use this optional query parameter to describe a qualified ARN using a function version or an alias name. The permission will then apply to the specific qualified ARN. For example, if you specify function version 2 as the qualifier, then permission applies only when request is made using qualified function ARN: @arn:aws:lambda:aws-region:acct-id:function:function-name:2@  If you specify an alias name, for example @PROD@ , then the permission is valid only for requests made using the alias ARN: @arn:aws:lambda:aws-region:acct-id:function:function-name:PROD@  If the qualifier is not specified, the permission is valid only when requests is made using unqualified function ARN. @arn:aws:lambda:aws-region:acct-id:function:function-name@
 --
--- * 'apFunctionName' - Name of the Lambda function whose resource policy you are updating by adding a new permission. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- * 'apFunctionName' - Name of the Lambda function whose resource policy you are updating by adding a new permission. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
 -- * 'apStatementId' - A unique statement identifier.
 --
@@ -110,7 +110,7 @@ addPermission pFunctionName_ pStatementId_ pAction_ pPrincipal_ =
     , _apPrincipal = pPrincipal_
     }
 
--- | This parameter is used for S3, SES, CloudWatch Logs and CloudWatch Rules only. The AWS account ID (without a hyphen) of the source owner. For example, if the @SourceArn@ identifies a bucket, then this is the bucket owner's account ID. You can use this additional condition to ensure the bucket you specify is owned by a specific account (it is possible the bucket owner deleted the bucket and some other AWS account created the bucket). You can also use this condition to specify all sources (that is, you don't specify the @SourceArn@ ) owned by a specific account.
+-- | This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner. For example, if the @SourceArn@ identifies a bucket, then this is the bucket owner's account ID. You can use this additional condition to ensure the bucket you specify is owned by a specific account (it is possible the bucket owner deleted the bucket and some other AWS account created the bucket). You can also use this condition to specify all sources (that is, you don't specify the @SourceArn@ ) owned by a specific account.
 apSourceAccount :: Lens' AddPermission (Maybe Text)
 apSourceAccount = lens _apSourceAccount (\ s a -> s{_apSourceAccount = a});
 
@@ -118,7 +118,7 @@ apSourceAccount = lens _apSourceAccount (\ s a -> s{_apSourceAccount = a});
 apEventSourceToken :: Lens' AddPermission (Maybe Text)
 apEventSourceToken = lens _apEventSourceToken (\ s a -> s{_apEventSourceToken = a});
 
--- | This is optional; however, when granting Amazon S3 permission to invoke your function, you should specify this field with the Amazon Resource Name (ARN) as its value. This ensures that only events generated from the specified source can invoke the function. /Important:/ If you add a permission for the Amazon S3 principal without providing the source ARN, any AWS account that creates a mapping to your function ARN can send events to invoke your Lambda function from Amazon S3.
+-- | This is optional; however, when granting permission to invoke your function, you should specify this field with the Amazon Resource Name (ARN) as its value. This ensures that only events generated from the specified source can invoke the function. /Important:/ If you add a permission without providing the source ARN, any AWS account that creates a mapping to your function ARN can send events to invoke your Lambda function.
 apSourceARN :: Lens' AddPermission (Maybe Text)
 apSourceARN = lens _apSourceARN (\ s a -> s{_apSourceARN = a});
 
@@ -126,7 +126,7 @@ apSourceARN = lens _apSourceARN (\ s a -> s{_apSourceARN = a});
 apQualifier :: Lens' AddPermission (Maybe Text)
 apQualifier = lens _apQualifier (\ s a -> s{_apQualifier = a});
 
--- | Name of the Lambda function whose resource policy you are updating by adding a new permission. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- | Name of the Lambda function whose resource policy you are updating by adding a new permission. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 apFunctionName :: Lens' AddPermission Text
 apFunctionName = lens _apFunctionName (\ s a -> s{_apFunctionName = a});
 

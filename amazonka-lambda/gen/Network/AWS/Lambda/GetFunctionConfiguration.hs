@@ -53,7 +53,9 @@ module Network.AWS.Lambda.GetFunctionConfiguration
     , fcTimeout
     , fcLastModified
     , fcCodeSha256
+    , fcTracingConfig
     , fcDescription
+    , fcMasterARN
     ) where
 
 import           Network.AWS.Lambda.Types
@@ -79,7 +81,7 @@ data GetFunctionConfiguration = GetFunctionConfiguration'
 --
 -- * 'gfcQualifier' - Using this optional parameter you can specify a function version or an alias name. If you specify function version, the API uses qualified function ARN and returns information about the specific function version. If you specify an alias name, the API uses the alias ARN and returns information about the function version to which the alias points. If you don't specify this parameter, the API uses unqualified function ARN, and returns information about the @> LATEST@ function version.
 --
--- * 'gfcFunctionName' - The name of the Lambda function for which you want to retrieve the configuration information. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- * 'gfcFunctionName' - The name of the Lambda function for which you want to retrieve the configuration information. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 getFunctionConfiguration
     :: Text -- ^ 'gfcFunctionName'
     -> GetFunctionConfiguration
@@ -93,7 +95,7 @@ getFunctionConfiguration pFunctionName_ =
 gfcQualifier :: Lens' GetFunctionConfiguration (Maybe Text)
 gfcQualifier = lens _gfcQualifier (\ s a -> s{_gfcQualifier = a});
 
--- | The name of the Lambda function for which you want to retrieve the configuration information. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- | The name of the Lambda function for which you want to retrieve the configuration information. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 gfcFunctionName :: Lens' GetFunctionConfiguration Text
 gfcFunctionName = lens _gfcFunctionName (\ s a -> s{_gfcFunctionName = a});
 

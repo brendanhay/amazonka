@@ -57,10 +57,13 @@ library
         , Network.AWS.Lambda.ListAliases
         , Network.AWS.Lambda.ListEventSourceMappings
         , Network.AWS.Lambda.ListFunctions
+        , Network.AWS.Lambda.ListTags
         , Network.AWS.Lambda.ListVersionsByFunction
         , Network.AWS.Lambda.PublishVersion
         , Network.AWS.Lambda.RemovePermission
+        , Network.AWS.Lambda.TagResource
         , Network.AWS.Lambda.Types
+        , Network.AWS.Lambda.UntagResource
         , Network.AWS.Lambda.UpdateAlias
         , Network.AWS.Lambda.UpdateEventSourceMapping
         , Network.AWS.Lambda.UpdateFunctionCode

@@ -45,6 +45,8 @@
 --
 --
 --
+-- Be aware that if you try to add a RATE_BASED rule to a web ACL without setting the rule type when first creating the rule, the 'UpdateWebACL' request will fail because the request tries to add a REGULAR rule (the default rule type) with the specified ID, which does not exist.
+--
 -- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
 --
 module Network.AWS.WAFRegional.UpdateWebACL
@@ -85,7 +87,7 @@ data UpdateWebACL = UpdateWebACL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uwaUpdates' - An array of updates to make to the 'WebACL' . An array of @WebACLUpdate@ objects that you want to insert into or delete from a 'WebACL' . For more information, see the applicable data types:     * 'WebACLUpdate' : Contains @Action@ and @ActivatedRule@      * 'ActivatedRule' : Contains @Action@ , @Priority@ , and @RuleId@      * 'WafAction' : Contains @Type@
+-- * 'uwaUpdates' - An array of updates to make to the 'WebACL' . An array of @WebACLUpdate@ objects that you want to insert into or delete from a 'WebACL' . For more information, see the applicable data types:     * 'WebACLUpdate' : Contains @Action@ and @ActivatedRule@      * 'ActivatedRule' : Contains @Action@ , @Priority@ , @RuleId@ , and @Type@      * 'WafAction' : Contains @Type@
 --
 -- * 'uwaDefaultAction' - A default action for the web ACL, either ALLOW or BLOCK. AWS WAF performs the default action if a request doesn't match the criteria in any of the rules in a web ACL.
 --
@@ -104,7 +106,7 @@ updateWebACL pWebACLId_ pChangeToken_ =
     , _uwaChangeToken = pChangeToken_
     }
 
--- | An array of updates to make to the 'WebACL' . An array of @WebACLUpdate@ objects that you want to insert into or delete from a 'WebACL' . For more information, see the applicable data types:     * 'WebACLUpdate' : Contains @Action@ and @ActivatedRule@      * 'ActivatedRule' : Contains @Action@ , @Priority@ , and @RuleId@      * 'WafAction' : Contains @Type@
+-- | An array of updates to make to the 'WebACL' . An array of @WebACLUpdate@ objects that you want to insert into or delete from a 'WebACL' . For more information, see the applicable data types:     * 'WebACLUpdate' : Contains @Action@ and @ActivatedRule@      * 'ActivatedRule' : Contains @Action@ , @Priority@ , @RuleId@ , and @Type@      * 'WafAction' : Contains @Type@
 uwaUpdates :: Lens' UpdateWebACL [WebACLUpdate]
 uwaUpdates = lens _uwaUpdates (\ s a -> s{_uwaUpdates = a}) . _Default . _Coerce;
 

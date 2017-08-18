@@ -64,8 +64,17 @@ module Network.AWS.WAFRegional
     -- * Operations
     -- $operations
 
+    -- ** ListRateBasedRules
+    , module Network.AWS.WAFRegional.ListRateBasedRules
+
     -- ** GetSizeConstraintSet
     , module Network.AWS.WAFRegional.GetSizeConstraintSet
+
+    -- ** DeleteRateBasedRule
+    , module Network.AWS.WAFRegional.DeleteRateBasedRule
+
+    -- ** UpdateRateBasedRule
+    , module Network.AWS.WAFRegional.UpdateRateBasedRule
 
     -- ** UpdateRule
     , module Network.AWS.WAFRegional.UpdateRule
@@ -154,6 +163,9 @@ module Network.AWS.WAFRegional
     -- ** DeleteByteMatchSet
     , module Network.AWS.WAFRegional.DeleteByteMatchSet
 
+    -- ** GetRateBasedRuleManagedKeys
+    , module Network.AWS.WAFRegional.GetRateBasedRuleManagedKeys
+
     -- ** AssociateWebACL
     , module Network.AWS.WAFRegional.AssociateWebACL
 
@@ -172,6 +184,9 @@ module Network.AWS.WAFRegional
     -- ** GetByteMatchSet
     , module Network.AWS.WAFRegional.GetByteMatchSet
 
+    -- ** GetRateBasedRule
+    , module Network.AWS.WAFRegional.GetRateBasedRule
+
     -- ** DeleteSizeConstraintSet
     , module Network.AWS.WAFRegional.DeleteSizeConstraintSet
 
@@ -183,6 +198,9 @@ module Network.AWS.WAFRegional
 
     -- ** ListSqlInjectionMatchSets
     , module Network.AWS.WAFRegional.ListSqlInjectionMatchSets
+
+    -- ** CreateRateBasedRule
+    , module Network.AWS.WAFRegional.CreateRateBasedRule
 
     -- ** DeleteSqlInjectionMatchSet
     , module Network.AWS.WAFRegional.DeleteSqlInjectionMatchSet
@@ -213,15 +231,22 @@ module Network.AWS.WAFRegional
     -- ** PredicateType
     , PredicateType (..)
 
+    -- ** RateKey
+    , RateKey (..)
+
     -- ** TextTransformation
     , TextTransformation (..)
 
     -- ** WafActionType
     , WafActionType (..)
 
+    -- ** WafRuleType
+    , WafRuleType (..)
+
     -- ** ActivatedRule
     , ActivatedRule
     , activatedRule
+    , arType
     , arPriority
     , arRuleId
     , arAction
@@ -306,6 +331,16 @@ module Network.AWS.WAFRegional
     , pNegated
     , pType
     , pDataId
+
+    -- ** RateBasedRule
+    , RateBasedRule
+    , rateBasedRule
+    , rbrMetricName
+    , rbrName
+    , rbrRuleId
+    , rbrMatchPredicates
+    , rbrRateKey
+    , rbrRateLimit
 
     -- ** Rule
     , Rule
@@ -448,6 +483,7 @@ module Network.AWS.WAFRegional
 import           Network.AWS.WAFRegional.AssociateWebACL
 import           Network.AWS.WAFRegional.CreateByteMatchSet
 import           Network.AWS.WAFRegional.CreateIPSet
+import           Network.AWS.WAFRegional.CreateRateBasedRule
 import           Network.AWS.WAFRegional.CreateRule
 import           Network.AWS.WAFRegional.CreateSizeConstraintSet
 import           Network.AWS.WAFRegional.CreateSqlInjectionMatchSet
@@ -455,6 +491,7 @@ import           Network.AWS.WAFRegional.CreateWebACL
 import           Network.AWS.WAFRegional.CreateXSSMatchSet
 import           Network.AWS.WAFRegional.DeleteByteMatchSet
 import           Network.AWS.WAFRegional.DeleteIPSet
+import           Network.AWS.WAFRegional.DeleteRateBasedRule
 import           Network.AWS.WAFRegional.DeleteRule
 import           Network.AWS.WAFRegional.DeleteSizeConstraintSet
 import           Network.AWS.WAFRegional.DeleteSqlInjectionMatchSet
@@ -465,6 +502,8 @@ import           Network.AWS.WAFRegional.GetByteMatchSet
 import           Network.AWS.WAFRegional.GetChangeToken
 import           Network.AWS.WAFRegional.GetChangeTokenStatus
 import           Network.AWS.WAFRegional.GetIPSet
+import           Network.AWS.WAFRegional.GetRateBasedRule
+import           Network.AWS.WAFRegional.GetRateBasedRuleManagedKeys
 import           Network.AWS.WAFRegional.GetRule
 import           Network.AWS.WAFRegional.GetSampledRequests
 import           Network.AWS.WAFRegional.GetSizeConstraintSet
@@ -474,6 +513,7 @@ import           Network.AWS.WAFRegional.GetWebACLForResource
 import           Network.AWS.WAFRegional.GetXSSMatchSet
 import           Network.AWS.WAFRegional.ListByteMatchSets
 import           Network.AWS.WAFRegional.ListIPSets
+import           Network.AWS.WAFRegional.ListRateBasedRules
 import           Network.AWS.WAFRegional.ListResourcesForWebACL
 import           Network.AWS.WAFRegional.ListRules
 import           Network.AWS.WAFRegional.ListSizeConstraintSets
@@ -483,6 +523,7 @@ import           Network.AWS.WAFRegional.ListXSSMatchSets
 import           Network.AWS.WAFRegional.Types
 import           Network.AWS.WAFRegional.UpdateByteMatchSet
 import           Network.AWS.WAFRegional.UpdateIPSet
+import           Network.AWS.WAFRegional.UpdateRateBasedRule
 import           Network.AWS.WAFRegional.UpdateRule
 import           Network.AWS.WAFRegional.UpdateSizeConstraintSet
 import           Network.AWS.WAFRegional.UpdateSqlInjectionMatchSet

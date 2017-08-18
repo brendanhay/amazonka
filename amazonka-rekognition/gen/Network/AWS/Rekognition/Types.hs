@@ -63,6 +63,15 @@ module Network.AWS.Rekognition.Types
     , bbWidth
     , bbTop
 
+    -- * Celebrity
+    , Celebrity
+    , celebrity
+    , cMatchConfidence
+    , cURLs
+    , cName
+    , cId
+    , cFace
+
     -- * CompareFacesMatch
     , CompareFacesMatch
     , compareFacesMatch
@@ -73,7 +82,10 @@ module Network.AWS.Rekognition.Types
     , ComparedFace
     , comparedFace
     , cfBoundingBox
+    , cfPose
     , cfConfidence
+    , cfQuality
+    , cfLandmarks
 
     -- * ComparedSourceImageFace
     , ComparedSourceImageFace
@@ -170,6 +182,13 @@ module Network.AWS.Rekognition.Types
     , lX
     , lY
 
+    -- * ModerationLabel
+    , ModerationLabel
+    , moderationLabel
+    , mlConfidence
+    , mlName
+    , mlParentName
+
     -- * MouthOpen
     , MouthOpen
     , mouthOpen
@@ -238,6 +257,8 @@ rekognition =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"

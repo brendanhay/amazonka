@@ -25,7 +25,7 @@
 --
 -- If you provide the optional @externalImageID@ for the input image you provided, Amazon Rekognition associates this ID with all faces that it detects. When you call the operation, the response returns the external ID. You can use this external image ID to create a client-side index to associate the faces with each image. You can then use the index to find all faces in an image.
 --
--- In response, the operation returns an array of metadata for all detected faces. This includes, the bounding box of the detected face, confidence value (indicating the bounding box contains a face), a face ID assigned by the service for each face that is detected and stored, and an image ID assigned by the service for the input image If you request all facial attributes (using the @detectionAttributes@ parameter, Amazon Rekognition returns detailed facial attributes such as facial landmarks (for example, location of eye and mount) and other facial attributes such gender. If you provide the same image, specify the same collection, and use the same external ID in the @IndexFaces@ operation, Amazon Rekognition doesn't save duplicate face metadata.
+-- In response, the operation returns an array of metadata for all detected faces. This includes, the bounding box of the detected face, confidence value (indicating the bounding box contains a face), a face ID assigned by the service for each face that is detected and stored, and an image ID assigned by the service for the input image. If you request all facial attributes (using the @detectionAttributes@ parameter, Amazon Rekognition returns detailed facial attributes such as facial landmarks (for example, location of eye and mount) and other facial attributes such gender. If you provide the same image, specify the same collection, and use the same external ID in the @IndexFaces@ operation, Amazon Rekognition doesn't save duplicate face metadata.
 --
 -- For an example, see 'example2' .
 --
@@ -72,11 +72,11 @@ data IndexFaces = IndexFaces'
 --
 -- * 'ifExternalImageId' - ID you want to assign to all the faces detected in the image.
 --
--- * 'ifDetectionAttributes' - (Optional) Returns detailed attributes of indexed faces. By default, the operation returns a subset of the facial attributes.  For example, you can specify the value as, ["ALL"] or ["DEFAULT"]. If you provide both, ["ALL", "DEFAULT"], Amazon Rekognition uses the logical AND operator to determine which attributes to return (in this case, it is all attributes). If you specify all attributes, the service performs additional detection, in addition to the default.
+-- * 'ifDetectionAttributes' - An array of facial attributes that you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for @Attributes@ or if you specify @["DEFAULT"]@ , the API returns the following subset of facial attributes: @BoundingBox@ , @Confidence@ , @Pose@ , @Quality@ and @Landmarks@ . If you provide @["ALL"]@ , all facial attributes are returned but the operation will take longer to complete. If you provide both, @["ALL", "DEFAULT"]@ , the service uses a logical AND operator to determine which attributes to return (in this case, all attributes).
 --
--- * 'ifCollectionId' - ID of an existing collection to which you want to add the faces that are detected in the input images.
+-- * 'ifCollectionId' - The ID of an existing collection to which you want to add the faces that are detected in the input images.
 --
--- * 'ifImage' - Undocumented member.
+-- * 'ifImage' - The input image as bytes or an S3 object.
 indexFaces
     :: Text -- ^ 'ifCollectionId'
     -> Image -- ^ 'ifImage'
@@ -93,15 +93,15 @@ indexFaces pCollectionId_ pImage_ =
 ifExternalImageId :: Lens' IndexFaces (Maybe Text)
 ifExternalImageId = lens _ifExternalImageId (\ s a -> s{_ifExternalImageId = a});
 
--- | (Optional) Returns detailed attributes of indexed faces. By default, the operation returns a subset of the facial attributes.  For example, you can specify the value as, ["ALL"] or ["DEFAULT"]. If you provide both, ["ALL", "DEFAULT"], Amazon Rekognition uses the logical AND operator to determine which attributes to return (in this case, it is all attributes). If you specify all attributes, the service performs additional detection, in addition to the default.
+-- | An array of facial attributes that you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for @Attributes@ or if you specify @["DEFAULT"]@ , the API returns the following subset of facial attributes: @BoundingBox@ , @Confidence@ , @Pose@ , @Quality@ and @Landmarks@ . If you provide @["ALL"]@ , all facial attributes are returned but the operation will take longer to complete. If you provide both, @["ALL", "DEFAULT"]@ , the service uses a logical AND operator to determine which attributes to return (in this case, all attributes).
 ifDetectionAttributes :: Lens' IndexFaces [Attribute]
 ifDetectionAttributes = lens _ifDetectionAttributes (\ s a -> s{_ifDetectionAttributes = a}) . _Default . _Coerce;
 
--- | ID of an existing collection to which you want to add the faces that are detected in the input images.
+-- | The ID of an existing collection to which you want to add the faces that are detected in the input images.
 ifCollectionId :: Lens' IndexFaces Text
 ifCollectionId = lens _ifCollectionId (\ s a -> s{_ifCollectionId = a});
 
--- | Undocumented member.
+-- | The input image as bytes or an S3 object.
 ifImage :: Lens' IndexFaces Image
 ifImage = lens _ifImage (\ s a -> s{_ifImage = a});
 
@@ -158,7 +158,7 @@ data IndexFacesResponse = IndexFacesResponse'
 --
 -- * 'ifrsFaceRecords' - An array of faces detected and added to the collection. For more information, see 'howitworks-index-faces' .
 --
--- * 'ifrsOrientationCorrection' - The algorithm detects the image orientation. If it detects that the image was rotated, it returns the degree of rotation. You can use this value to correct the orientation and also appropriately analyze the bounding box coordinates that are returned.
+-- * 'ifrsOrientationCorrection' - The orientation of the input image (counterclockwise direction). If your application displays the image, you can use this value to correct image orientation. The bounding box coordinates returned in @FaceRecords@ represent face locations before the image orientation is corrected.
 --
 -- * 'ifrsResponseStatus' - -- | The response status code.
 indexFacesResponse
@@ -175,7 +175,7 @@ indexFacesResponse pResponseStatus_ =
 ifrsFaceRecords :: Lens' IndexFacesResponse [FaceRecord]
 ifrsFaceRecords = lens _ifrsFaceRecords (\ s a -> s{_ifrsFaceRecords = a}) . _Default . _Coerce;
 
--- | The algorithm detects the image orientation. If it detects that the image was rotated, it returns the degree of rotation. You can use this value to correct the orientation and also appropriately analyze the bounding box coordinates that are returned.
+-- | The orientation of the input image (counterclockwise direction). If your application displays the image, you can use this value to correct image orientation. The bounding box coordinates returned in @FaceRecords@ represent face locations before the image orientation is corrected.
 ifrsOrientationCorrection :: Lens' IndexFacesResponse (Maybe OrientationCorrection)
 ifrsOrientationCorrection = lens _ifrsOrientationCorrection (\ s a -> s{_ifrsOrientationCorrection = a});
 

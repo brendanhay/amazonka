@@ -82,7 +82,7 @@ data DetectLabels = DetectLabels'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlMinConfidence' - Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value. If @minConfidence@ is not specified, the operation returns labels with a confidence values greater than or equal to 50 percent.
+-- * 'dlMinConfidence' - Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value. If @MinConfidence@ is not specified, the operation returns labels with a confidence values greater than or equal to 50 percent.
 --
 -- * 'dlMaxLabels' - Maximum number of labels you want the service to return in the response. The service returns the specified number of highest confidence labels.
 --
@@ -97,7 +97,7 @@ detectLabels pImage_ =
     , _dlImage = pImage_
     }
 
--- | Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value. If @minConfidence@ is not specified, the operation returns labels with a confidence values greater than or equal to 50 percent.
+-- | Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value. If @MinConfidence@ is not specified, the operation returns labels with a confidence values greater than or equal to 50 percent.
 dlMinConfidence :: Lens' DetectLabels (Maybe Double)
 dlMinConfidence = lens _dlMinConfidence (\ s a -> s{_dlMinConfidence = a});
 
@@ -160,7 +160,7 @@ data DetectLabelsResponse = DetectLabelsResponse'
 --
 -- * 'dlrsLabels' - An array of labels for the real-world objects detected.
 --
--- * 'dlrsOrientationCorrection' - Amazon Rekognition returns the orientation of the input image that was detected (clockwise direction). If your application displays the image, you can use this value to correct the orientation. If Amazon Rekognition detects that the input image was rotated (for example, by 90 degrees), it first corrects the orientation before detecting the labels.
+-- * 'dlrsOrientationCorrection' - The orientation of the input image (counter-clockwise direction). If your application displays the image, you can use this value to correct the orientation. If Amazon Rekognition detects that the input image was rotated (for example, by 90 degrees), it first corrects the orientation before detecting the labels.
 --
 -- * 'dlrsResponseStatus' - -- | The response status code.
 detectLabelsResponse
@@ -177,7 +177,7 @@ detectLabelsResponse pResponseStatus_ =
 dlrsLabels :: Lens' DetectLabelsResponse [Label]
 dlrsLabels = lens _dlrsLabels (\ s a -> s{_dlrsLabels = a}) . _Default . _Coerce;
 
--- | Amazon Rekognition returns the orientation of the input image that was detected (clockwise direction). If your application displays the image, you can use this value to correct the orientation. If Amazon Rekognition detects that the input image was rotated (for example, by 90 degrees), it first corrects the orientation before detecting the labels.
+-- | The orientation of the input image (counter-clockwise direction). If your application displays the image, you can use this value to correct the orientation. If Amazon Rekognition detects that the input image was rotated (for example, by 90 degrees), it first corrects the orientation before detecting the labels.
 dlrsOrientationCorrection :: Lens' DetectLabelsResponse (Maybe OrientationCorrection)
 dlrsOrientationCorrection = lens _dlrsOrientationCorrection (\ s a -> s{_dlrsOrientationCorrection = a});
 

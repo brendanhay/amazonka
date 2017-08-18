@@ -21,9 +21,7 @@
 -- Creates a delegation set (a group of four name servers) that can be reused by multiple hosted zones. If a hosted zoned ID is specified, @CreateReusableDelegationSet@ marks the delegation set associated with that zone as reusable
 --
 --
--- Send a @POST@ request to the @/2013-04-01/delegationset@ resource. The request body must include a document with a @CreateReusableDelegationSetRequest@ element.
---
--- For more information, including a procedure on how to create and configure a reusable delegation set (also known as white label name servers), see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/white-label-name-servers.html Configuring White Label Name Servers> .
+-- For information on how to use a reusable delegation set to configure white label name servers, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/white-label-name-servers.html Configuring White Label Name Servers> .
 --
 module Network.AWS.Route53.CreateReusableDelegationSet
     (

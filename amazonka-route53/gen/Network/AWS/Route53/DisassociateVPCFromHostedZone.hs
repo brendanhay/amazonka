@@ -21,8 +21,6 @@
 -- Disassociates a VPC from a Amazon Route 53 private hosted zone.
 --
 --
--- Send a @POST@ request to the @/2013-04-01/hostedzone//hosted zone ID/ /disassociatevpc@ resource. The request body must include a document with a @DisassociateVPCFromHostedZoneRequest@ element. The response includes a @DisassociateVPCFromHostedZoneResponse@ element.
---
 -- /Important:/ You can't disassociate a VPC from a private hosted zone when only one VPC is associated with the hosted zone. You also can't convert a private hosted zone into a public hosted zone.
 --
 module Network.AWS.Route53.DisassociateVPCFromHostedZone

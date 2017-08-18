@@ -21,8 +21,6 @@
 -- Deletes a traffic policy instance and all of the resource record sets that Amazon Route 53 created when you created the instance.
 --
 --
--- Send a @DELETE@ request to the @//Amazon Route 53 API version/ /trafficpolicy//traffic policy instance ID/ @ resource.
---
 module Network.AWS.Route53.DeleteTrafficPolicyInstance
     (
     -- * Creating a Request
@@ -45,7 +43,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type that contains information about the traffic policy instance that you want to delete.
+-- | A request to delete a specified traffic policy instance.
 --
 --
 --

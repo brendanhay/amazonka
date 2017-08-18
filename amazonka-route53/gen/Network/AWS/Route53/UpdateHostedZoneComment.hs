@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the hosted zone comment. Send a @POST@ request to the @/2013-04-01/hostedzone//hosted zone ID/ @ resource.
+-- Updates the comment for a specified hosted zone.
 --
 --
 module Network.AWS.Route53.UpdateHostedZoneComment
@@ -45,7 +45,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type that contains the hosted zone request information.
+-- | A request to update the comment for a hosted zone.
 --
 --
 --
@@ -61,7 +61,7 @@ data UpdateHostedZoneComment = UpdateHostedZoneComment'
 --
 -- * 'uhzcComment' - The new comment for the hosted zone. If you don't specify a value for @Comment@ , Amazon Route 53 deletes the existing value of the @Comment@ element, if any.
 --
--- * 'uhzcId' - The ID for the hosted zone for which you want to update the comment.
+-- * 'uhzcId' - The ID for the hosted zone that you want to update the comment for.
 updateHostedZoneComment
     :: ResourceId -- ^ 'uhzcId'
     -> UpdateHostedZoneComment
@@ -75,7 +75,7 @@ updateHostedZoneComment pId_ =
 uhzcComment :: Lens' UpdateHostedZoneComment (Maybe Text)
 uhzcComment = lens _uhzcComment (\ s a -> s{_uhzcComment = a});
 
--- | The ID for the hosted zone for which you want to update the comment.
+-- | The ID for the hosted zone that you want to update the comment for.
 uhzcId :: Lens' UpdateHostedZoneComment ResourceId
 uhzcId = lens _uhzcId (\ s a -> s{_uhzcId = a});
 
@@ -112,7 +112,7 @@ instance ToXML UpdateHostedZoneComment where
         toXML UpdateHostedZoneComment'{..}
           = mconcat ["Comment" @= _uhzcComment]
 
--- | A complex type that contains the response to the UpdateHostedZoneCommentRequest.
+-- | A complex type that contains the response to the @UpdateHostedZoneComment@ request.
 --
 --
 --

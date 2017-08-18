@@ -80,7 +80,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | The input for a ListResourceRecordSets request.
+-- | A request for the resource record sets that are associated with a specified hosted zone.
 --
 --
 --
@@ -97,7 +97,7 @@ data ListResourceRecordSets = ListResourceRecordSets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrrsStartRecordName' - The first name in the lexicographic ordering of domain names that you want the @ListResourceRecordSets@ request to list.
+-- * 'lrrsStartRecordName' - The first name in the lexicographic ordering of resource record sets that you want to list.
 --
 -- * 'lrrsStartRecordType' - The type of resource record set to begin the record listing from. Valid values for basic resource record sets: @A@ | @AAAA@ | @CNAME@ | @MX@ | @NAPTR@ | @NS@ | @PTR@ | @SOA@ | @SPF@ | @SRV@ | @TXT@  Values for weighted, latency, geo, and failover resource record sets: @A@ | @AAAA@ | @CNAME@ | @MX@ | @NAPTR@ | @PTR@ | @SPF@ | @SRV@ | @TXT@  Values for alias resource record sets:      * __CloudFront distribution__ : A or AAAA     * __Elastic Beanstalk environment that has a regionalized subdomain__ : A     * __ELB load balancer__ : A | AAAA     * __Amazon S3 bucket__ : A Constraint: Specifying @type@ without specifying @name@ returns an @InvalidInput@ error.
 --
@@ -105,7 +105,7 @@ data ListResourceRecordSets = ListResourceRecordSets'
 --
 -- * 'lrrsMaxItems' - (Optional) The maximum number of resource records sets to include in the response body for this request. If the response includes more than @maxitems@ resource record sets, the value of the @IsTruncated@ element in the response is @true@ , and the values of the @NextRecordName@ and @NextRecordType@ elements in the response identify the first resource record set in the next group of @maxitems@ resource record sets.
 --
--- * 'lrrsHostedZoneId' - The ID of the hosted zone that contains the resource record sets that you want to get.
+-- * 'lrrsHostedZoneId' - The ID of the hosted zone that contains the resource record sets that you want to list.
 listResourceRecordSets
     :: ResourceId -- ^ 'lrrsHostedZoneId'
     -> ListResourceRecordSets
@@ -118,7 +118,7 @@ listResourceRecordSets pHostedZoneId_ =
     , _lrrsHostedZoneId = pHostedZoneId_
     }
 
--- | The first name in the lexicographic ordering of domain names that you want the @ListResourceRecordSets@ request to list.
+-- | The first name in the lexicographic ordering of resource record sets that you want to list.
 lrrsStartRecordName :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsStartRecordName = lens _lrrsStartRecordName (\ s a -> s{_lrrsStartRecordName = a});
 
@@ -134,7 +134,7 @@ lrrsStartRecordIdentifier = lens _lrrsStartRecordIdentifier (\ s a -> s{_lrrsSta
 lrrsMaxItems :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsMaxItems = lens _lrrsMaxItems (\ s a -> s{_lrrsMaxItems = a});
 
--- | The ID of the hosted zone that contains the resource record sets that you want to get.
+-- | The ID of the hosted zone that contains the resource record sets that you want to list.
 lrrsHostedZoneId :: Lens' ListResourceRecordSets ResourceId
 lrrsHostedZoneId = lens _lrrsHostedZoneId (\ s a -> s{_lrrsHostedZoneId = a});
 

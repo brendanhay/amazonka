@@ -18,12 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a reusable delegation set. Send a @DELETE@ request to the @/2013-04-01/delegationset//delegation set ID/ @ resource.
+-- Deletes a reusable delegation set.
 --
 --
--- /Important:/ You can delete a reusable delegation set only if there are no associated hosted zones.
+-- /Important:/ You can delete a reusable delegation set only if it isn't associated with any hosted zones.
 --
--- To verify that the reusable delegation set is not associated with any hosted zones, run the 'GetReusableDelegationSet' action and specify the ID of the reusable delegation set that you want to delete.
+-- To verify that the reusable delegation set is not associated with any hosted zones, submit a 'GetReusableDelegationSet' request and specify the ID of the reusable delegation set that you want to delete.
 --
 module Network.AWS.Route53.DeleteReusableDelegationSet
     (
@@ -47,7 +47,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type containing the information for the delete request.
+-- | A request to delete a reusable delegation set.
 --
 --
 --
@@ -60,7 +60,7 @@ newtype DeleteReusableDelegationSet = DeleteReusableDelegationSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drdsId' - The ID of the reusable delegation set you want to delete.
+-- * 'drdsId' - The ID of the reusable delegation set that you want to delete.
 deleteReusableDelegationSet
     :: ResourceId -- ^ 'drdsId'
     -> DeleteReusableDelegationSet
@@ -69,7 +69,7 @@ deleteReusableDelegationSet pId_ =
     { _drdsId = pId_
     }
 
--- | The ID of the reusable delegation set you want to delete.
+-- | The ID of the reusable delegation set that you want to delete.
 drdsId :: Lens' DeleteReusableDelegationSet ResourceId
 drdsId = lens _drdsId (\ s a -> s{_drdsId = a});
 

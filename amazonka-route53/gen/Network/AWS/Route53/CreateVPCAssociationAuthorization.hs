@@ -21,8 +21,6 @@
 -- Authorizes the AWS account that created a specified VPC to submit an @AssociateVPCWithHostedZone@ request to associate the VPC with a specified hosted zone that was created by a different account. To submit a @CreateVPCAssociationAuthorization@ request, you must use the account that created the hosted zone. After you authorize the association, use the account that created the VPC to submit an @AssociateVPCWithHostedZone@ request.
 --
 --
--- Send a @POST@ request to the @/2013-04-01/hostedzone//hosted zone ID/ /authorizevpcassociation@ resource. The request body must include a document with a @CreateVPCAssociationAuthorizationRequest@ element. The response contains information about the authorization.
---
 module Network.AWS.Route53.CreateVPCAssociationAuthorization
     (
     -- * Creating a Request

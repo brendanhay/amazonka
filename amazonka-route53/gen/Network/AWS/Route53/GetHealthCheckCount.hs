@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve a count of all your health checks, send a @GET@ request to the @/2013-04-01/healthcheckcount@ resource.
+-- Retrieves the number of health checks that are associated with the current AWS account.
 --
 --
 module Network.AWS.Route53.GetHealthCheckCount
@@ -42,7 +42,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | To retrieve a count of all your health checks, send a @GET@ request to the @/2013-04-01/healthcheckcount@ resource.
+-- | A request for the number of health checks that are associated with the current AWS account.
 --
 --
 --
@@ -80,7 +80,7 @@ instance ToPath GetHealthCheckCount where
 instance ToQuery GetHealthCheckCount where
         toQuery = const mempty
 
--- | A complex type that contains the response to a @healthcheckcount@ request.
+-- | A complex type that contains the response to a @GetHealthCheckCount@ request.
 --
 --
 --

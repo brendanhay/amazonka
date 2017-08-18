@@ -66,7 +66,7 @@ data ChangeTagsForResource = ChangeTagsForResource'
 --
 -- * 'ctfrRemoveTagKeys' - A complex type that contains a list of the tags that you want to delete from the specified health check or hosted zone. You can specify up to 10 keys.
 --
--- * 'ctfrAddTags' - A complex type that contains a list of the tags that you want to add to the specified health check or hosted zone and/or the tags for which you want to edit the @Value@ element. You can add a maximum of 10 tags to a health check or a hosted zone.
+-- * 'ctfrAddTags' - A complex type that contains a list of the tags that you want to add to the specified health check or hosted zone and/or the tags that you want to edit @Value@ for. You can add a maximum of 10 tags to a health check or a hosted zone.
 --
 -- * 'ctfrResourceType' - The type of the resource.     * The resource type for health checks is @healthcheck@ .     * The resource type for hosted zones is @hostedzone@ .
 --
@@ -87,7 +87,7 @@ changeTagsForResource pResourceType_ pResourceId_ =
 ctfrRemoveTagKeys :: Lens' ChangeTagsForResource (Maybe (NonEmpty Text))
 ctfrRemoveTagKeys = lens _ctfrRemoveTagKeys (\ s a -> s{_ctfrRemoveTagKeys = a}) . mapping _List1;
 
--- | A complex type that contains a list of the tags that you want to add to the specified health check or hosted zone and/or the tags for which you want to edit the @Value@ element. You can add a maximum of 10 tags to a health check or a hosted zone.
+-- | A complex type that contains a list of the tags that you want to add to the specified health check or hosted zone and/or the tags that you want to edit @Value@ for. You can add a maximum of 10 tags to a health check or a hosted zone.
 ctfrAddTags :: Lens' ChangeTagsForResource (Maybe (NonEmpty Tag))
 ctfrAddTags = lens _ctfrAddTags (\ s a -> s{_ctfrAddTags = a}) . mapping _List1;
 

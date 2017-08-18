@@ -21,15 +21,7 @@
 -- Gets a list of the VPCs that were created by other accounts and that can be associated with a specified hosted zone because you've submitted one or more @CreateVPCAssociationAuthorization@ requests.
 --
 --
--- Send a @GET@ request to the @/2013-04-01/hostedzone//hosted zone ID/ /authorizevpcassociation@ resource. The response to this request includes a @VPCs@ element with a @VPC@ child element for each VPC that can be associated with the hosted zone.
---
--- Amazon Route 53 returns up to 50 VPCs per page. To return fewer VPCs per page, include the @MaxResults@ parameter:
---
--- @/2013-04-01/hostedzone//hosted zone ID/ /authorizevpcassociation?MaxItems=/VPCs per page/ @
---
--- If the response includes a @NextToken@ element, there are more VPCs to list. To get the next page of VPCs, submit another @ListVPCAssociationAuthorizations@ request, and include the value of the @NextToken@ element from the response in the @NextToken@ request parameter:
---
--- @/2013-04-01/hostedzone//hosted zone ID/ /authorizevpcassociation?MaxItems=/VPCs per page/ &NextToken=// @
+-- The response includes a @VPCs@ element with a @VPC@ child element for each VPC that can be associated with the hosted zone.
 --
 module Network.AWS.Route53.ListVPCAssociationAuthorizations
     (
@@ -73,9 +65,9 @@ data ListVPCAssociationAuthorizations = ListVPCAssociationAuthorizations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lvaaNextToken' - /Optional/ : If a response includes a @NextToken@ element, there are more VPCs that can be associated with the specified hosted zone. To get the next page of results, submit another request, and include the value of the @NextToken@ element in from the response in the @NextToken@ parameter in another @ListVPCAssociationAuthorizations@ request.
+-- * 'lvaaNextToken' - /Optional/ : If a response includes a @NextToken@ element, there are more VPCs that can be associated with the specified hosted zone. To get the next page of results, submit another request, and include the value of @NextToken@ from the response in the @nexttoken@ parameter in another @ListVPCAssociationAuthorizations@ request.
 --
--- * 'lvaaMaxResults' - /Optional/ : An integer that specifies the maximum number of VPCs that you want Amazon Route 53 to return.
+-- * 'lvaaMaxResults' - /Optional/ : An integer that specifies the maximum number of VPCs that you want Amazon Route 53 to return. If you don't specify a value for @MaxResults@ , Amazon Route 53 returns up to 50 VPCs per page.
 --
 -- * 'lvaaHostedZoneId' - The ID of the hosted zone for which you want a list of VPCs that can be associated with the hosted zone.
 listVPCAssociationAuthorizations
@@ -88,11 +80,11 @@ listVPCAssociationAuthorizations pHostedZoneId_ =
     , _lvaaHostedZoneId = pHostedZoneId_
     }
 
--- | /Optional/ : If a response includes a @NextToken@ element, there are more VPCs that can be associated with the specified hosted zone. To get the next page of results, submit another request, and include the value of the @NextToken@ element in from the response in the @NextToken@ parameter in another @ListVPCAssociationAuthorizations@ request.
+-- | /Optional/ : If a response includes a @NextToken@ element, there are more VPCs that can be associated with the specified hosted zone. To get the next page of results, submit another request, and include the value of @NextToken@ from the response in the @nexttoken@ parameter in another @ListVPCAssociationAuthorizations@ request.
 lvaaNextToken :: Lens' ListVPCAssociationAuthorizations (Maybe Text)
 lvaaNextToken = lens _lvaaNextToken (\ s a -> s{_lvaaNextToken = a});
 
--- | /Optional/ : An integer that specifies the maximum number of VPCs that you want Amazon Route 53 to return.
+-- | /Optional/ : An integer that specifies the maximum number of VPCs that you want Amazon Route 53 to return. If you don't specify a value for @MaxResults@ , Amazon Route 53 returns up to 50 VPCs per page.
 lvaaMaxResults :: Lens' ListVPCAssociationAuthorizations (Maybe Text)
 lvaaMaxResults = lens _lvaaMaxResults (\ s a -> s{_lvaaMaxResults = a});
 
@@ -152,7 +144,7 @@ data ListVPCAssociationAuthorizationsResponse = ListVPCAssociationAuthorizations
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lvaarsNextToken' - When the response includes a @NextToken@ element, there are more VPCs that can be associated with the specified hosted zone. To get the next page of VPCs, submit another @ListVPCAssociationAuthorizations@ request, and include the value of the @NextToken@ element from the response in the @NextToken@ request parameter: @/2013-04-01/hostedzone//hosted zone ID/ /authorizevpcassociation?MaxItems=/VPCs per page/ &NextToken=// @
+-- * 'lvaarsNextToken' - When the response includes a @NextToken@ element, there are more VPCs that can be associated with the specified hosted zone. To get the next page of VPCs, submit another @ListVPCAssociationAuthorizations@ request, and include the value of the @NextToken@ element from the response in the @nexttoken@ request parameter.
 --
 -- * 'lvaarsResponseStatus' - -- | The response status code.
 --
@@ -172,7 +164,7 @@ listVPCAssociationAuthorizationsResponse pResponseStatus_ pHostedZoneId_ pVPCs_ 
     , _lvaarsVPCs = _List1 # pVPCs_
     }
 
--- | When the response includes a @NextToken@ element, there are more VPCs that can be associated with the specified hosted zone. To get the next page of VPCs, submit another @ListVPCAssociationAuthorizations@ request, and include the value of the @NextToken@ element from the response in the @NextToken@ request parameter: @/2013-04-01/hostedzone//hosted zone ID/ /authorizevpcassociation?MaxItems=/VPCs per page/ &NextToken=// @
+-- | When the response includes a @NextToken@ element, there are more VPCs that can be associated with the specified hosted zone. To get the next page of VPCs, submit another @ListVPCAssociationAuthorizations@ request, and include the value of the @NextToken@ element from the response in the @nexttoken@ request parameter.
 lvaarsNextToken :: Lens' ListVPCAssociationAuthorizationsResponse (Maybe Text)
 lvaarsNextToken = lens _lvaarsNextToken (\ s a -> s{_lvaarsNextToken = a});
 

@@ -18,14 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new public hosted zone, used to specify how the Domain Name System (DNS) routes traffic on the Internet for a domain, such as example.com, and its subdomains.
+-- Creates a new public hosted zone, which you use to specify how the Domain Name System (DNS) routes traffic on the Internet for a domain, such as example.com, and its subdomains.
 --
 --
--- /Important:/ Public hosted zones can't be converted to a private hosted zone or vice versa. Instead, create a new hosted zone with the same name and create new resource record sets.
+-- /Important:/ You can't convert a public hosted zones to a private hosted zone or vice versa. Instead, you must create a new hosted zone with the same name and create new resource record sets.
 --
--- Send a @POST@ request to the @/2013-04-01/hostedzone@ resource. The request body must include a document with a @CreateHostedZoneRequest@ element. The response returns the @CreateHostedZoneResponse@ element containing metadata about the hosted zone.
---
--- Fore more information about charges for hosted zones, see <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing> .
+-- For more information about charges for hosted zones, see <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing> .
 --
 -- Note the following:
 --
@@ -33,13 +31,13 @@
 --
 --     * Amazon Route 53 automatically creates a default SOA record and four NS records for the zone. For more information about SOA and NS records, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html NS and SOA Records that Amazon Route 53 Creates for a Hosted Zone> in the /Amazon Route 53 Developer Guide/ .
 --
---     * If your domain is registered with a registrar other than Amazon Route 53, you must update the name servers with your registrar to make Amazon Route 53 your DNS service. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/creating-migrating.html Configuring Amazon Route 53 as your DNS Service> in the /Amazon Route 53 Developer's Guide/ .
+-- If you want to use the same name servers for multiple hosted zones, you can optionally associate a reusable delegation set with the hosted zone. See the @DelegationSetId@ element.
+--
+--     * If your domain is registered with a registrar other than Amazon Route 53, you must update the name servers with your registrar to make Amazon Route 53 your DNS service. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/creating-migrating.html Configuring Amazon Route 53 as your DNS Service> in the /Amazon Route 53 Developer Guide/ .
 --
 --
 --
--- After creating a zone, its initial status is @PENDING@ . This means that it is not yet available on all DNS servers. The status of the zone changes to @INSYNC@ when the NS and SOA records are available on all Amazon Route 53 DNS servers.
---
--- When trying to create a hosted zone using a reusable delegation set, specify an optional DelegationSetId, and Amazon Route 53 would assign those 4 NS records for the zone, instead of allotting a new one.
+-- When you submit a @CreateHostedZone@ request, the initial status of the hosted zone is @PENDING@ . This means that the NS and SOA records are not yet available on all Amazon Route 53 DNS servers. When the NS and SOA records are available, the status of the zone changes to @INSYNC@ .
 --
 module Network.AWS.Route53.CreateHostedZone
     (
@@ -72,7 +70,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type containing the hosted zone request information.
+-- | A complex type that contains information about the request to create a hosted zone.
 --
 --
 --
@@ -89,15 +87,15 @@ data CreateHostedZone = CreateHostedZone'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'chzDelegationSetId' - If you want to associate a reusable delegation set with this hosted zone, the ID that Amazon Route 53 assigned to the reusable delegation set when you created it. For more information about reusable delegation sets, see 'CreateReusableDelegationSet' .     * Type    * String     * Default    * None     * Parent    * @CreatedHostedZoneRequest@
+-- * 'chzDelegationSetId' - If you want to associate a reusable delegation set with this hosted zone, the ID that Amazon Route 53 assigned to the reusable delegation set when you created it. For more information about reusable delegation sets, see 'CreateReusableDelegationSet' .
 --
--- * 'chzVPC' - The VPC that you want your hosted zone to be associated with. By providing this parameter, your newly created hosted can't be resolved anywhere other than the given VPC.
+-- * 'chzVPC' - (Private hosted zones only) A complex type that contains information about the Amazon VPC that you're associating with this hosted zone. You can specify only one Amazon VPC when you create a private hosted zone. To associate additional Amazon VPCs with the hosted zone, use 'AssociateVPCWithHostedZone' after you create a hosted zone.
 --
--- * 'chzHostedZoneConfig' - (Optional) A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the @HostedZoneConfig@ and @Comment@ elements.
+-- * 'chzHostedZoneConfig' - (Optional) A complex type that contains the following optional values:     * For public and private hosted zones, an optional comment     * For private hosted zones, an optional @PrivateZone@ element If you don't specify a comment or the @PrivateZone@ element, omit @HostedZoneConfig@ and the other elements.
 --
--- * 'chzName' - The name of the domain. For resource record types that include a domain name, specify a fully qualified domain name, for example, /www.example.com/ . The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Amazon Route 53 treats /www.example.com/ (without a trailing dot) and /www.example.com./ (with a trailing dot) as identical. If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Amazon Route 53, change the name servers for your domain to the set of @NameServers@ that @CreateHostedZone@ returns in the DelegationSet element.
+-- * 'chzName' - The name of the domain. For resource record types that include a domain name, specify a fully qualified domain name, for example, /www.example.com/ . The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Amazon Route 53 treats /www.example.com/ (without a trailing dot) and /www.example.com./ (with a trailing dot) as identical. If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Amazon Route 53, change the name servers for your domain to the set of @NameServers@ that @CreateHostedZone@ returns in @DelegationSet@ .
 --
--- * 'chzCallerReference' - A unique string that identifies the request and that allows failed @CreateHostedZone@ requests to be retried without the risk of executing the operation twice. You must use a unique @CallerReference@ string every time you create a hosted zone. @CallerReference@ can be any unique string, for example, a date/time stamp.
+-- * 'chzCallerReference' - A unique string that identifies the request and that allows failed @CreateHostedZone@ requests to be retried without the risk of executing the operation twice. You must use a unique @CallerReference@ string every time you submit a @CreateHostedZone@ request. @CallerReference@ can be any unique string, for example, a date/time stamp.
 createHostedZone
     :: Text -- ^ 'chzName'
     -> Text -- ^ 'chzCallerReference'
@@ -111,23 +109,23 @@ createHostedZone pName_ pCallerReference_ =
     , _chzCallerReference = pCallerReference_
     }
 
--- | If you want to associate a reusable delegation set with this hosted zone, the ID that Amazon Route 53 assigned to the reusable delegation set when you created it. For more information about reusable delegation sets, see 'CreateReusableDelegationSet' .     * Type    * String     * Default    * None     * Parent    * @CreatedHostedZoneRequest@
+-- | If you want to associate a reusable delegation set with this hosted zone, the ID that Amazon Route 53 assigned to the reusable delegation set when you created it. For more information about reusable delegation sets, see 'CreateReusableDelegationSet' .
 chzDelegationSetId :: Lens' CreateHostedZone (Maybe ResourceId)
 chzDelegationSetId = lens _chzDelegationSetId (\ s a -> s{_chzDelegationSetId = a});
 
--- | The VPC that you want your hosted zone to be associated with. By providing this parameter, your newly created hosted can't be resolved anywhere other than the given VPC.
+-- | (Private hosted zones only) A complex type that contains information about the Amazon VPC that you're associating with this hosted zone. You can specify only one Amazon VPC when you create a private hosted zone. To associate additional Amazon VPCs with the hosted zone, use 'AssociateVPCWithHostedZone' after you create a hosted zone.
 chzVPC :: Lens' CreateHostedZone (Maybe VPC)
 chzVPC = lens _chzVPC (\ s a -> s{_chzVPC = a});
 
--- | (Optional) A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the @HostedZoneConfig@ and @Comment@ elements.
+-- | (Optional) A complex type that contains the following optional values:     * For public and private hosted zones, an optional comment     * For private hosted zones, an optional @PrivateZone@ element If you don't specify a comment or the @PrivateZone@ element, omit @HostedZoneConfig@ and the other elements.
 chzHostedZoneConfig :: Lens' CreateHostedZone (Maybe HostedZoneConfig)
 chzHostedZoneConfig = lens _chzHostedZoneConfig (\ s a -> s{_chzHostedZoneConfig = a});
 
--- | The name of the domain. For resource record types that include a domain name, specify a fully qualified domain name, for example, /www.example.com/ . The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Amazon Route 53 treats /www.example.com/ (without a trailing dot) and /www.example.com./ (with a trailing dot) as identical. If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Amazon Route 53, change the name servers for your domain to the set of @NameServers@ that @CreateHostedZone@ returns in the DelegationSet element.
+-- | The name of the domain. For resource record types that include a domain name, specify a fully qualified domain name, for example, /www.example.com/ . The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Amazon Route 53 treats /www.example.com/ (without a trailing dot) and /www.example.com./ (with a trailing dot) as identical. If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Amazon Route 53, change the name servers for your domain to the set of @NameServers@ that @CreateHostedZone@ returns in @DelegationSet@ .
 chzName :: Lens' CreateHostedZone Text
 chzName = lens _chzName (\ s a -> s{_chzName = a});
 
--- | A unique string that identifies the request and that allows failed @CreateHostedZone@ requests to be retried without the risk of executing the operation twice. You must use a unique @CallerReference@ string every time you create a hosted zone. @CallerReference@ can be any unique string, for example, a date/time stamp.
+-- | A unique string that identifies the request and that allows failed @CreateHostedZone@ requests to be retried without the risk of executing the operation twice. You must use a unique @CallerReference@ string every time you submit a @CreateHostedZone@ request. @CallerReference@ can be any unique string, for example, a date/time stamp.
 chzCallerReference :: Lens' CreateHostedZone Text
 chzCallerReference = lens _chzCallerReference (\ s a -> s{_chzCallerReference = a});
 
@@ -195,7 +193,7 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse'
 --
 -- * 'chzrsHostedZone' - A complex type that contains general information about the hosted zone.
 --
--- * 'chzrsChangeInfo' - A complex type that describes the changes made to your hosted zone.
+-- * 'chzrsChangeInfo' - A complex type that contains information about the @CreateHostedZone@ request.
 --
 -- * 'chzrsDelegationSet' - A complex type that describes the name servers for this hosted zone.
 --
@@ -229,7 +227,7 @@ chzrsResponseStatus = lens _chzrsResponseStatus (\ s a -> s{_chzrsResponseStatus
 chzrsHostedZone :: Lens' CreateHostedZoneResponse HostedZone
 chzrsHostedZone = lens _chzrsHostedZone (\ s a -> s{_chzrsHostedZone = a});
 
--- | A complex type that describes the changes made to your hosted zone.
+-- | A complex type that contains information about the @CreateHostedZone@ request.
 chzrsChangeInfo :: Lens' CreateHostedZoneResponse ChangeInfo
 chzrsChangeInfo = lens _chzrsChangeInfo (\ s a -> s{_chzrsChangeInfo = a});
 

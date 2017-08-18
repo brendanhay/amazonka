@@ -18,8 +18,20 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a single geo location. Send a @GET@ request to the @/2013-04-01/geolocation@ resource with one of these options: continentcode | countrycode | countrycode and subdivisioncode.
+-- Gets information about whether a specified geographic location is supported for Amazon Route 53 geolocation resource record sets.
 --
+--
+-- Use the following syntax to determine whether a continent is supported for geolocation:
+--
+-- @GET /2013-04-01/geolocation?ContinentCode=/two-letter abbreviation for a continent/ @
+--
+-- Use the following syntax to determine whether a country is supported for geolocation:
+--
+-- @GET /2013-04-01/geolocation?CountryCode=/two-character country code/ @
+--
+-- Use the following syntax to determine whether a subdivision of a country is supported for geolocation:
+--
+-- @GET /2013-04-01/geolocation?CountryCode=/two-character country code/ &SubdivisionCode=/subdivision code/ @
 --
 module Network.AWS.Route53.GetGeoLocation
     (
@@ -46,7 +58,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type that contains information about the request to get a geo location.
+-- | A request for information about whether a specified geographic location is supported for Amazon Route 53 geolocation resource record sets.
 --
 --
 --

@@ -57,22 +57,6 @@ import           Network.AWS.Route53.Types.Product
 -- | Gets the value that Amazon Route 53 returns in response to a DNS request for a specified record name and type. You can optionally specify the IP address of a DNS resolver, an EDNS0 client subnet IP address, and a subnet mask.
 --
 --
--- __Parameters__
---
---     * hostedzoneid    * The ID of the hosted zone that you want Amazon Route 53 to simulate a query for.
---
---     * recordname    * The name of the resource record set that you want Amazon Route 53 to simulate a query for.
---
---     * recordtype    * The type of the resource record set.
---
---     * resolverip (optional)    * If you want to simulate a request from a specific DNS resolver, specify the IP address for that resolver. If you omit this value, @TestDNSAnswer@ uses the IP address of a DNS resolver in the AWS US East region.
---
---     * edns0clientsubnetip (optional)    * If the resolver that you specified for @resolverip@ supports EDNS0, specify the IP address of a client in the applicable location.
---
---     * edns0clientsubnetmask (optional)    * If you specify an IP address for @edns0clientsubnetip@ , you can optionally specify the number of bits of the IP address that you want the checking tool to include in the DNS query. For example, if you specify @192.0.2.44@ for @edns0clientsubnetip@ and @24@ for @edns0clientsubnetmask@ , the checking tool will simulate a request from @192.0.2.0/24@ . The default value is 24 bits.
---
---
---
 --
 -- /See:/ 'testDNSAnswer' smart constructor.
 data TestDNSAnswer = TestDNSAnswer'
@@ -88,11 +72,11 @@ data TestDNSAnswer = TestDNSAnswer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tdaResolverIP' - If you want to simulate a request from a specific DNS resolver, specify the IP address for that resolver. If you omit this value, @TestDnsAnswer@ uses the IP address of a DNS resolver in the AWS US East region.
+-- * 'tdaResolverIP' - If you want to simulate a request from a specific DNS resolver, specify the IP address for that resolver. If you omit this value, @TestDnsAnswer@ uses the IP address of a DNS resolver in the AWS US East (N. Virginia) Region (@us-east-1@ ).
 --
--- * 'tdaEDNS0ClientSubnetIP' - If the resolver that you specified for resolverip supports EDNS0, specify the IP address of a client in the applicable location.
+-- * 'tdaEDNS0ClientSubnetIP' - If the resolver that you specified for resolverip supports EDNS0, specify the IPv4 or IPv6 address of a client in the applicable location, for example, @192.0.2.44@ or @2001:db8:85a3::8a2e:370:7334@ .
 --
--- * 'tdaEDNS0ClientSubnetMask' - If you specify an IP address for @edns0clientsubnetip@ , you can optionally specify the number of bits of the IP address that you want the checking tool to include in the DNS query. For example, if you specify @192.0.2.44@ for @edns0clientsubnetip@ and @24@ for @edns0clientsubnetmask@ , the checking tool will simulate a request from 192.0.2.0/24. The default value is 24 bits.
+-- * 'tdaEDNS0ClientSubnetMask' - If you specify an IP address for @edns0clientsubnetip@ , you can optionally specify the number of bits of the IP address that you want the checking tool to include in the DNS query. For example, if you specify @192.0.2.44@ for @edns0clientsubnetip@ and @24@ for @edns0clientsubnetmask@ , the checking tool will simulate a request from 192.0.2.0/24. The default value is 24 bits for IPv4 addresses and 64 bits for IPv6 addresses.
 --
 -- * 'tdaHostedZoneId' - The ID of the hosted zone that you want Amazon Route 53 to simulate a query for.
 --
@@ -114,15 +98,15 @@ testDNSAnswer pHostedZoneId_ pRecordName_ pRecordType_ =
     , _tdaRecordType = pRecordType_
     }
 
--- | If you want to simulate a request from a specific DNS resolver, specify the IP address for that resolver. If you omit this value, @TestDnsAnswer@ uses the IP address of a DNS resolver in the AWS US East region.
+-- | If you want to simulate a request from a specific DNS resolver, specify the IP address for that resolver. If you omit this value, @TestDnsAnswer@ uses the IP address of a DNS resolver in the AWS US East (N. Virginia) Region (@us-east-1@ ).
 tdaResolverIP :: Lens' TestDNSAnswer (Maybe Text)
 tdaResolverIP = lens _tdaResolverIP (\ s a -> s{_tdaResolverIP = a});
 
--- | If the resolver that you specified for resolverip supports EDNS0, specify the IP address of a client in the applicable location.
+-- | If the resolver that you specified for resolverip supports EDNS0, specify the IPv4 or IPv6 address of a client in the applicable location, for example, @192.0.2.44@ or @2001:db8:85a3::8a2e:370:7334@ .
 tdaEDNS0ClientSubnetIP :: Lens' TestDNSAnswer (Maybe Text)
 tdaEDNS0ClientSubnetIP = lens _tdaEDNS0ClientSubnetIP (\ s a -> s{_tdaEDNS0ClientSubnetIP = a});
 
--- | If you specify an IP address for @edns0clientsubnetip@ , you can optionally specify the number of bits of the IP address that you want the checking tool to include in the DNS query. For example, if you specify @192.0.2.44@ for @edns0clientsubnetip@ and @24@ for @edns0clientsubnetmask@ , the checking tool will simulate a request from 192.0.2.0/24. The default value is 24 bits.
+-- | If you specify an IP address for @edns0clientsubnetip@ , you can optionally specify the number of bits of the IP address that you want the checking tool to include in the DNS query. For example, if you specify @192.0.2.44@ for @edns0clientsubnetip@ and @24@ for @edns0clientsubnetmask@ , the checking tool will simulate a request from 192.0.2.0/24. The default value is 24 bits for IPv4 addresses and 64 bits for IPv6 addresses.
 tdaEDNS0ClientSubnetMask :: Lens' TestDNSAnswer (Maybe Text)
 tdaEDNS0ClientSubnetMask = lens _tdaEDNS0ClientSubnetMask (\ s a -> s{_tdaEDNS0ClientSubnetMask = a});
 

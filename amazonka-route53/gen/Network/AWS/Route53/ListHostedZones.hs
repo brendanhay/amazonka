@@ -18,22 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve a list of your public and private hosted zones, send a @GET@ request to the @/2013-04-01/hostedzone@ resource. The response to this request includes a @HostedZones@ child element for each hosted zone created by the current AWS account.
+-- Retrieves a list of the public and private hosted zones that are associated with the current AWS account. The response includes a @HostedZones@ child element for each hosted zone.
 --
 --
--- Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of hosted zones, you can use the @maxitems@ parameter to list them in groups of up to 100. The response includes four values that help navigate from one group of @maxitems@ hosted zones to the next:
---
---     * @MaxItems@ is the value specified for the @maxitems@ parameter in the request that produced the current response.
---
---     * If the value of @IsTruncated@ in the response is true, there are more hosted zones associated with the current AWS account.
---
---     * @NextMarker@ is the hosted zone ID of the next hosted zone that is associated with the current AWS account. If you want to list more hosted zones, make another call to @ListHostedZones@ , and specify the value of the @NextMarker@ element in the marker parameter.
---
--- If @IsTruncated@ is false, the @NextMarker@ element is omitted from the response.
---
---     * If you're making the second or subsequent call to @ListHostedZones@ , the @Marker@ element matches the value that you specified in the @marker@ parameter in the previous request.
---
---
+-- Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of hosted zones, you can use the @maxitems@ parameter to list them in groups of up to 100.
 --
 --
 -- This operation returns paginated results.
@@ -67,23 +55,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | To retrieve a list of your public and private hosted zones, send a @GET@ request to the @/2013-04-01/hostedzone@ resource. The response to this request includes a HostedZone child element for each hosted zone that was created by the current AWS account.
---
---
--- Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of hosted zones, you can use the maxitems parameter to list them in groups of up to 100. The response includes four values that help you navigate from one group of maxitems hosted zones to the next:
---
---     * @MaxItems@ is the value that you specified for the @maxitems@ parameter in the request that produced the current response.
---
---     * If the value of @IsTruncated@ in the response is @true@ , there are more hosted zones associated with the current AWS account.
---
--- If @IsTruncated@ is @false@ , this response includes the last hosted zone that is associated with the current account.
---
---     * @NextMarker@ is the hosted zone ID of the next hosted zone that is associated with the current AWS account. If you want to list more hosted zones, make another call to @ListHostedZones@ , and specify the value of the @NextMarker@ element in the marker parameter.
---
--- If @IsTruncated@ is @false@ , the @NextMarker@ element is omitted from the response.
---
---     * If you're making the second or subsequent call to @ListHostedZones@ , the @Marker@ element matches the value that you specified in the @marker@ parameter in the previous request.
---
+-- | A request to retrieve a list of the public and private hosted zones that are associated with the current AWS account.
 --
 --
 --
@@ -100,9 +72,9 @@ data ListHostedZones = ListHostedZones'
 --
 -- * 'lhzDelegationSetId' - If you're using reusable delegation sets and you want to list all of the hosted zones that are associated with a reusable delegation set, specify the ID of that reusable delegation set.
 --
--- * 'lhzMarker' - (Optional) If you have more hosted zones than the value of @maxitems@ , @ListHostedZones@ returns only the first @maxitems@ hosted zones. To get the next group of @maxitems@ hosted zones, submit another request to @ListHostedZones@ . For the value of marker, specify the value of the @NextMarker@ element that was returned in the previous response. Hosted zones are listed in the order in which they were created.
+-- * 'lhzMarker' - If the value of @IsTruncated@ in the previous response was @true@ , you have more hosted zones. To get more hosted zones, submit another @ListHostedZones@ request.  For the value of @marker@ , specify the value of @NextMarker@ from the previous response, which is the ID of the first hosted zone that Amazon Route 53 will return if you submit another request. If the value of @IsTruncated@ in the previous response was @false@ , there are no more hosted zones to get.
 --
--- * 'lhzMaxItems' - (Optional) The maximum number of hosted zones to be included in the response body for this request. If you have more than @maxitems@ hosted zones, the value of the @IsTruncated@ element in the response is @true@ , and the value of the @NextMarker@ element is the hosted zone ID of the first hosted zone in the next group of @maxitems@ hosted zones.
+-- * 'lhzMaxItems' - (Optional) The maximum number of hosted zones that you want Amazon Route 53 to return. If you have more than @maxitems@ hosted zones, the value of @IsTruncated@ in the response is @true@ , and the value of @NextMarker@ is the hosted zone ID of the first hosted zone that Amazon Route 53 will return if you submit another request.
 listHostedZones
     :: ListHostedZones
 listHostedZones =
@@ -116,11 +88,11 @@ listHostedZones =
 lhzDelegationSetId :: Lens' ListHostedZones (Maybe ResourceId)
 lhzDelegationSetId = lens _lhzDelegationSetId (\ s a -> s{_lhzDelegationSetId = a});
 
--- | (Optional) If you have more hosted zones than the value of @maxitems@ , @ListHostedZones@ returns only the first @maxitems@ hosted zones. To get the next group of @maxitems@ hosted zones, submit another request to @ListHostedZones@ . For the value of marker, specify the value of the @NextMarker@ element that was returned in the previous response. Hosted zones are listed in the order in which they were created.
+-- | If the value of @IsTruncated@ in the previous response was @true@ , you have more hosted zones. To get more hosted zones, submit another @ListHostedZones@ request.  For the value of @marker@ , specify the value of @NextMarker@ from the previous response, which is the ID of the first hosted zone that Amazon Route 53 will return if you submit another request. If the value of @IsTruncated@ in the previous response was @false@ , there are no more hosted zones to get.
 lhzMarker :: Lens' ListHostedZones (Maybe Text)
 lhzMarker = lens _lhzMarker (\ s a -> s{_lhzMarker = a});
 
--- | (Optional) The maximum number of hosted zones to be included in the response body for this request. If you have more than @maxitems@ hosted zones, the value of the @IsTruncated@ element in the response is @true@ , and the value of the @NextMarker@ element is the hosted zone ID of the first hosted zone in the next group of @maxitems@ hosted zones.
+-- | (Optional) The maximum number of hosted zones that you want Amazon Route 53 to return. If you have more than @maxitems@ hosted zones, the value of @IsTruncated@ in the response is @true@ , and the value of @NextMarker@ is the hosted zone ID of the first hosted zone that Amazon Route 53 will return if you submit another request.
 lhzMaxItems :: Lens' ListHostedZones (Maybe Text)
 lhzMaxItems = lens _lhzMaxItems (\ s a -> s{_lhzMaxItems = a});
 
@@ -176,15 +148,15 @@ data ListHostedZonesResponse = ListHostedZonesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lhzrsMarker' - For the second and subsequent calls to @ListHostedZones@ , @Marker@ is the value that you specified for the marker parameter in the request that produced the current response.
+-- * 'lhzrsMarker' - For the second and subsequent calls to @ListHostedZones@ , @Marker@ is the value that you specified for the @marker@ parameter in the request that produced the current response.
 --
--- * 'lhzrsNextMarker' - If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the first hosted zone in the next group of @maxitems@ hosted zones. Call @ListHostedZones@ again and specify the value of @NextMarker@ in the @marker@ parameter. This element is present only if @IsTruncated@ is @true@ .
+-- * 'lhzrsNextMarker' - If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the first hosted zone in the next group of hosted zones. Submit another @ListHostedZones@ request, and specify the value of @NextMarker@ from the response in the @marker@ parameter. This element is present only if @IsTruncated@ is @true@ .
 --
 -- * 'lhzrsResponseStatus' - -- | The response status code.
 --
 -- * 'lhzrsHostedZones' - A complex type that contains general information about the hosted zone.
 --
--- * 'lhzrsIsTruncated' - A flag indicating whether there are more hosted zones to be listed. If the response was truncated, you can get the next group of @maxitems@ hosted zones by calling @ListHostedZones@ again and specifying the value of the @NextMarker@ element in the marker parameter.
+-- * 'lhzrsIsTruncated' - A flag indicating whether there are more hosted zones to be listed. If the response was truncated, you can get more hosted zones by submitting another @ListHostedZones@ request and specifying the value of @NextMarker@ in the @marker@ parameter.
 --
 -- * 'lhzrsMaxItems' - The value that you specified for the @maxitems@ parameter in the call to @ListHostedZones@ that produced the current response.
 listHostedZonesResponse
@@ -202,11 +174,11 @@ listHostedZonesResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
     , _lhzrsMaxItems = pMaxItems_
     }
 
--- | For the second and subsequent calls to @ListHostedZones@ , @Marker@ is the value that you specified for the marker parameter in the request that produced the current response.
+-- | For the second and subsequent calls to @ListHostedZones@ , @Marker@ is the value that you specified for the @marker@ parameter in the request that produced the current response.
 lhzrsMarker :: Lens' ListHostedZonesResponse (Maybe Text)
 lhzrsMarker = lens _lhzrsMarker (\ s a -> s{_lhzrsMarker = a});
 
--- | If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the first hosted zone in the next group of @maxitems@ hosted zones. Call @ListHostedZones@ again and specify the value of @NextMarker@ in the @marker@ parameter. This element is present only if @IsTruncated@ is @true@ .
+-- | If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the first hosted zone in the next group of hosted zones. Submit another @ListHostedZones@ request, and specify the value of @NextMarker@ from the response in the @marker@ parameter. This element is present only if @IsTruncated@ is @true@ .
 lhzrsNextMarker :: Lens' ListHostedZonesResponse (Maybe Text)
 lhzrsNextMarker = lens _lhzrsNextMarker (\ s a -> s{_lhzrsNextMarker = a});
 
@@ -218,7 +190,7 @@ lhzrsResponseStatus = lens _lhzrsResponseStatus (\ s a -> s{_lhzrsResponseStatus
 lhzrsHostedZones :: Lens' ListHostedZonesResponse [HostedZone]
 lhzrsHostedZones = lens _lhzrsHostedZones (\ s a -> s{_lhzrsHostedZones = a}) . _Coerce;
 
--- | A flag indicating whether there are more hosted zones to be listed. If the response was truncated, you can get the next group of @maxitems@ hosted zones by calling @ListHostedZones@ again and specifying the value of the @NextMarker@ element in the marker parameter.
+-- | A flag indicating whether there are more hosted zones to be listed. If the response was truncated, you can get more hosted zones by submitting another @ListHostedZones@ request and specifying the value of @NextMarker@ in the @marker@ parameter.
 lhzrsIsTruncated :: Lens' ListHostedZonesResponse Bool
 lhzrsIsTruncated = lens _lhzrsIsTruncated (\ s a -> s{_lhzrsIsTruncated = a});
 

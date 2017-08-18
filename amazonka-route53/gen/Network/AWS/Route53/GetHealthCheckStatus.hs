@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets status of a specified health check. Send a @GET@ request to the @/2013-04-01/healthcheck//health check ID/ /status@ resource. You can use this call to get a health check's current status.
+-- Gets status of a specified health check.
 --
 --
 module Network.AWS.Route53.GetHealthCheckStatus
@@ -44,7 +44,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type that contains information about the request to get health check status for a health check.
+-- | A request to get the status for a health check.
 --
 --
 --
@@ -57,7 +57,7 @@ newtype GetHealthCheckStatus = GetHealthCheckStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ghcsHealthCheckId' - The ID for the health check for which you want the current status. When you created the health check, @CreateHealthCheck@ returned the ID in the response, in the @HealthCheckId@ element.
+-- * 'ghcsHealthCheckId' - The ID for the health check that you want the current status for. When you created the health check, @CreateHealthCheck@ returned the ID in the response, in the @HealthCheckId@ element.
 getHealthCheckStatus
     :: Text -- ^ 'ghcsHealthCheckId'
     -> GetHealthCheckStatus
@@ -66,7 +66,7 @@ getHealthCheckStatus pHealthCheckId_ =
     { _ghcsHealthCheckId = pHealthCheckId_
     }
 
--- | The ID for the health check for which you want the current status. When you created the health check, @CreateHealthCheck@ returned the ID in the response, in the @HealthCheckId@ element.
+-- | The ID for the health check that you want the current status for. When you created the health check, @CreateHealthCheck@ returned the ID in the response, in the @HealthCheckId@ element.
 ghcsHealthCheckId :: Lens' GetHealthCheckStatus Text
 ghcsHealthCheckId = lens _ghcsHealthCheckId (\ s a -> s{_ghcsHealthCheckId = a});
 

@@ -18,30 +18,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delivers up to ten messages to the specified queue. This is a batch version of @'SendMessage' @ . For a FIFO queue, multiple messages within a single batch are enqueued in the order they are sent.
+-- Delivers up to ten messages to the specified queue. This is a batch version of @'SendMessage' .@ For a FIFO queue, multiple messages within a single batch are enqueued in the order they are sent.
 --
 --
 -- The result of sending each message is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of @200@ .
 --
 -- The maximum allowed individual message size and the maximum total payload size (the sum of the individual lengths of all of the batched messages) are both 256 KB (262,144 bytes).
 --
--- /Important:/ The following list shows the characters (in Unicode) that are allowed in your message, according to the W3C XML specification:
+-- /Important:/ A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed:
 --
---     * @#x9@
+-- @#x9@ | @#xA@ | @#xD@ | @#x20@ to @#xD7FF@ | @#xE000@ to @#xFFFD@ | @#x10000@ to @#x10FFFF@
 --
---     * @#xA@
---
---     * @#xD@
---
---     * @#x20@ to @#xD7FF@
---
---     * @#xE000@ to @#xFFFD@
---
---     * @#x10000@ to @#x10FFFF@
---
---
---
--- For more information, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> . If you send any characters that aren't included in this list, your request is rejected.
+-- Any characters not included in this list will be rejected. For more information, see the <http://www.w3.org/TR/REC-xml/#charsets W3C specification for characters> .
 --
 -- If you don't specify the @DelaySeconds@ parameter for an entry, Amazon SQS uses the default value for the queue.
 --

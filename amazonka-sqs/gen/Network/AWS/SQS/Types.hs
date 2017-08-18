@@ -139,6 +139,8 @@ sqs =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasCode "RequestThrottled" . hasStatus 403) e =
           Just "request_limit_exceeded"
       | has (hasStatus 429) e = Just "too_many_requests"

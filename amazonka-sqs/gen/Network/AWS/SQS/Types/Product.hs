@@ -84,7 +84,7 @@ instance Hashable BatchResultErrorEntry
 
 instance NFData BatchResultErrorEntry
 
--- | Encloses a receipt handle and an entry id for each message in @'ChangeMessageVisibilityBatch' @ .
+-- | Encloses a receipt handle and an entry id for each message in @'ChangeMessageVisibilityBatch' .@
 --
 --
 -- /Important:/ All of the following list parameters must be prefixed with @ChangeMessageVisibilityBatchRequestEntry.n@ , where @n@ is an integer value starting with @1@ . For example, a parameter list for this action might look like this:
@@ -148,7 +148,7 @@ instance ToQuery
               ["VisibilityTimeout" =: _cVisibilityTimeout,
                "Id" =: _cId, "ReceiptHandle" =: _cReceiptHandle]
 
--- | Encloses the @Id@ of an entry in @'ChangeMessageVisibilityBatch' @ .
+-- | Encloses the @Id@ of an entry in @'ChangeMessageVisibilityBatch' .@
 --
 --
 --
@@ -231,7 +231,7 @@ instance ToQuery DeleteMessageBatchRequestEntry where
               ["Id" =: _dmbreId,
                "ReceiptHandle" =: _dmbreReceiptHandle]
 
--- | Encloses the @Id@ of an entry in @'DeleteMessageBatch' @ .
+-- | Encloses the @Id@ of an entry in @'DeleteMessageBatch' .@
 --
 --
 --
@@ -296,7 +296,7 @@ data Message = Message'
 --
 -- * 'mMessageId' - A unique identifier for the message. A @MessageId@ is considered unique across all AWS accounts for an extended period of time.
 --
--- * 'mMD5OfMessageAttributes' - An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information on MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
+-- * 'mMD5OfMessageAttributes' - An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
 message
     :: Message
 message =
@@ -334,7 +334,7 @@ mReceiptHandle = lens _mReceiptHandle (\ s a -> s{_mReceiptHandle = a});
 mMessageId :: Lens' Message (Maybe Text)
 mMessageId = lens _mMessageId (\ s a -> s{_mMessageId = a});
 
--- | An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information on MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
+-- | An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
 mMD5OfMessageAttributes :: Lens' Message (Maybe Text)
 mMD5OfMessageAttributes = lens _mMD5OfMessageAttributes (\ s a -> s{_mMD5OfMessageAttributes = a});
 
@@ -354,7 +354,7 @@ instance Hashable Message
 
 instance NFData Message
 
--- | The user-specified message attribute value. For string data types, the @Value@ attribute has the same restrictions on the content as the message body. For more information, see @'SendMessage' @ .
+-- | The user-specified message attribute value. For string data types, the @Value@ attribute has the same restrictions on the content as the message body. For more information, see @'SendMessage' .@
 --
 --
 -- @Name@ , @type@ , @value@ and the message body must not be empty or null. All parts of the message attribute, including @Name@ , @Type@ , and @Value@ , are part of the message size restriction (256 KB or 262,144 bytes).
@@ -465,11 +465,11 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
 --
 -- * 'sMessageAttributes' - Each message attribute consists of a @Name@ , @Type@ , and @Value@ . For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html#message-attributes-items-validation Message Attribute Items and Validation> in the /Amazon SQS Developer Guide/ .
 --
--- * 'sDelaySeconds' - The number of seconds for which a specific message is delayed. Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive @DelaySeconds@ value become available for processing after the delay period is finished. If you don't specify a value, the default value for the queue is applied.
+-- * 'sDelaySeconds' - The length of time, in seconds, for which a specific message is delayed. Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive @DelaySeconds@ value become available for processing after the delay period is finished. If you don't specify a value, the default value for the queue is applied.
 --
--- * 'sMessageDeduplicationId' - This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of messages within a 5-minute minimum deduplication interval. If a message with a particular @MessageDeduplicationId@ is sent successfully, subsequent messages with the same @MessageDeduplicationId@ are accepted successfully but aren't delivered. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing Exactly-Once Processing> in the /Amazon SQS Developer Guide/ .     * Every message must have a unique @MessageDeduplicationId@ ,     * You may provide a @MessageDeduplicationId@ explicitly.     * If you aren't able to provide a @MessageDeduplicationId@ and you enable @ContentBasedDeduplication@ for your queue, Amazon SQS uses a SHA-256 hash to generate the @MessageDeduplicationId@ using the body of the message (but not the attributes of the message).      * If you don't provide a @MessageDeduplicationId@ and the queue doesn't have @ContentBasedDeduplication@ set, the action fails with an error.     * If the queue has @ContentBasedDeduplication@ set, your @MessageDeduplicationId@ overrides the generated one.     * When @ContentBasedDeduplication@ is in effect, messages with identical content sent within the deduplication interval are treated as duplicates and only one copy of the message is delivered.     * You can also use @ContentBasedDeduplication@ for messages with identical content to be treated as duplicates.     * If you send one message with @ContentBasedDeduplication@ enabled and then another message with a @MessageDeduplicationId@ that is the same as the one generated for the first @MessageDeduplicationId@ , the two messages are treated as duplicates and only one copy of the message is delivered.  The length of @MessageDeduplicationId@ is 128 characters. @MessageDeduplicationId@ can contain alphanumeric characters (@a-z@ , @A-Z@ , @0-9@ ) and punctuation (@!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~@ ). For best practices of using @MessageDeduplicationId@ , see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queue-recommendations.html#using-messagededuplicationid-property Using the MessageDeduplicationId Property> in the /Amazon Simple Queue Service Developer Guide/ .
+-- * 'sMessageDeduplicationId' - This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of messages within a 5-minute minimum deduplication interval. If a message with a particular @MessageDeduplicationId@ is sent successfully, subsequent messages with the same @MessageDeduplicationId@ are accepted successfully but aren't delivered. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing Exactly-Once Processing> in the /Amazon SQS Developer Guide/ .     * Every message must have a unique @MessageDeduplicationId@ ,     * You may provide a @MessageDeduplicationId@ explicitly.     * If you aren't able to provide a @MessageDeduplicationId@ and you enable @ContentBasedDeduplication@ for your queue, Amazon SQS uses a SHA-256 hash to generate the @MessageDeduplicationId@ using the body of the message (but not the attributes of the message).      * If you don't provide a @MessageDeduplicationId@ and the queue doesn't have @ContentBasedDeduplication@ set, the action fails with an error.     * If the queue has @ContentBasedDeduplication@ set, your @MessageDeduplicationId@ overrides the generated one.     * When @ContentBasedDeduplication@ is in effect, messages with identical content sent within the deduplication interval are treated as duplicates and only one copy of the message is delivered.     * If you send one message with @ContentBasedDeduplication@ enabled and then another message with a @MessageDeduplicationId@ that is the same as the one generated for the first @MessageDeduplicationId@ , the two messages are treated as duplicates and only one copy of the message is delivered.  The length of @MessageDeduplicationId@ is 128 characters. @MessageDeduplicationId@ can contain alphanumeric characters (@a-z@ , @A-Z@ , @0-9@ ) and punctuation (@!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~@ ). For best practices of using @MessageDeduplicationId@ , see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queue-recommendations.html#using-messagededuplicationid-property Using the MessageDeduplicationId Property> in the /Amazon Simple Queue Service Developer Guide/ .
 --
--- * 'sMessageGroupId' - This parameter applies only to FIFO (first-in-first-out) queues. The tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). To interleave multiple ordered streams within a single queue, use @MessageGroupId@ values (for example, session data for multiple users). In this scenario, multiple readers can process the queue, but the session data of each user is processed in a FIFO fashion.     * You must associate a non-empty @MessageGroupId@ with a message. If you don't provide a @MessageGroupId@ , the action fails.     * @ReceiveMessage@ might return messages with multiple @MessageGroupId@ values. For each @MessageGroupId@ , the messages are sorted by time sent. The caller can't specify a @MessageGroupId@ . The length of @MessageGroupId@ is 128 characters. Valid values are alphanumeric characters and punctuation @(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)@ . For best practices of using @MessageGroupId@ , see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queue-recommendations.html#using-messagegroupid-property Using the MessageGroupId Property> in the /Amazon Simple Queue Service Developer Guide/ .
+-- * 'sMessageGroupId' - This parameter applies only to FIFO (first-in-first-out) queues. The tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). To interleave multiple ordered streams within a single queue, use @MessageGroupId@ values (for example, session data for multiple users). In this scenario, multiple readers can process the queue, but the session data of each user is processed in a FIFO fashion.     * You must associate a non-empty @MessageGroupId@ with a message. If you don't provide a @MessageGroupId@ , the action fails.     * @ReceiveMessage@ might return messages with multiple @MessageGroupId@ values. For each @MessageGroupId@ , the messages are sorted by time sent. The caller can't specify a @MessageGroupId@ . The length of @MessageGroupId@ is 128 characters. Valid values are alphanumeric characters and punctuation @(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)@ . For best practices of using @MessageGroupId@ , see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queue-recommendations.html#using-messagegroupid-property Using the MessageGroupId Property> in the /Amazon Simple Queue Service Developer Guide/ . /Important:/ @MessageGroupId@ is required for FIFO queues. You can't use it for Standard queues.
 --
 -- * 'sId' - An identifier for a message in this batch used to communicate the result.
 --
@@ -492,15 +492,15 @@ sendMessageBatchRequestEntry pId_ pMessageBody_ =
 sMessageAttributes :: Lens' SendMessageBatchRequestEntry (HashMap Text MessageAttributeValue)
 sMessageAttributes = lens _sMessageAttributes (\ s a -> s{_sMessageAttributes = a}) . _Default . _Map;
 
--- | The number of seconds for which a specific message is delayed. Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive @DelaySeconds@ value become available for processing after the delay period is finished. If you don't specify a value, the default value for the queue is applied.
+-- | The length of time, in seconds, for which a specific message is delayed. Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive @DelaySeconds@ value become available for processing after the delay period is finished. If you don't specify a value, the default value for the queue is applied.
 sDelaySeconds :: Lens' SendMessageBatchRequestEntry (Maybe Int)
 sDelaySeconds = lens _sDelaySeconds (\ s a -> s{_sDelaySeconds = a});
 
--- | This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of messages within a 5-minute minimum deduplication interval. If a message with a particular @MessageDeduplicationId@ is sent successfully, subsequent messages with the same @MessageDeduplicationId@ are accepted successfully but aren't delivered. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing Exactly-Once Processing> in the /Amazon SQS Developer Guide/ .     * Every message must have a unique @MessageDeduplicationId@ ,     * You may provide a @MessageDeduplicationId@ explicitly.     * If you aren't able to provide a @MessageDeduplicationId@ and you enable @ContentBasedDeduplication@ for your queue, Amazon SQS uses a SHA-256 hash to generate the @MessageDeduplicationId@ using the body of the message (but not the attributes of the message).      * If you don't provide a @MessageDeduplicationId@ and the queue doesn't have @ContentBasedDeduplication@ set, the action fails with an error.     * If the queue has @ContentBasedDeduplication@ set, your @MessageDeduplicationId@ overrides the generated one.     * When @ContentBasedDeduplication@ is in effect, messages with identical content sent within the deduplication interval are treated as duplicates and only one copy of the message is delivered.     * You can also use @ContentBasedDeduplication@ for messages with identical content to be treated as duplicates.     * If you send one message with @ContentBasedDeduplication@ enabled and then another message with a @MessageDeduplicationId@ that is the same as the one generated for the first @MessageDeduplicationId@ , the two messages are treated as duplicates and only one copy of the message is delivered.  The length of @MessageDeduplicationId@ is 128 characters. @MessageDeduplicationId@ can contain alphanumeric characters (@a-z@ , @A-Z@ , @0-9@ ) and punctuation (@!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~@ ). For best practices of using @MessageDeduplicationId@ , see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queue-recommendations.html#using-messagededuplicationid-property Using the MessageDeduplicationId Property> in the /Amazon Simple Queue Service Developer Guide/ .
+-- | This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of messages within a 5-minute minimum deduplication interval. If a message with a particular @MessageDeduplicationId@ is sent successfully, subsequent messages with the same @MessageDeduplicationId@ are accepted successfully but aren't delivered. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing Exactly-Once Processing> in the /Amazon SQS Developer Guide/ .     * Every message must have a unique @MessageDeduplicationId@ ,     * You may provide a @MessageDeduplicationId@ explicitly.     * If you aren't able to provide a @MessageDeduplicationId@ and you enable @ContentBasedDeduplication@ for your queue, Amazon SQS uses a SHA-256 hash to generate the @MessageDeduplicationId@ using the body of the message (but not the attributes of the message).      * If you don't provide a @MessageDeduplicationId@ and the queue doesn't have @ContentBasedDeduplication@ set, the action fails with an error.     * If the queue has @ContentBasedDeduplication@ set, your @MessageDeduplicationId@ overrides the generated one.     * When @ContentBasedDeduplication@ is in effect, messages with identical content sent within the deduplication interval are treated as duplicates and only one copy of the message is delivered.     * If you send one message with @ContentBasedDeduplication@ enabled and then another message with a @MessageDeduplicationId@ that is the same as the one generated for the first @MessageDeduplicationId@ , the two messages are treated as duplicates and only one copy of the message is delivered.  The length of @MessageDeduplicationId@ is 128 characters. @MessageDeduplicationId@ can contain alphanumeric characters (@a-z@ , @A-Z@ , @0-9@ ) and punctuation (@!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~@ ). For best practices of using @MessageDeduplicationId@ , see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queue-recommendations.html#using-messagededuplicationid-property Using the MessageDeduplicationId Property> in the /Amazon Simple Queue Service Developer Guide/ .
 sMessageDeduplicationId :: Lens' SendMessageBatchRequestEntry (Maybe Text)
 sMessageDeduplicationId = lens _sMessageDeduplicationId (\ s a -> s{_sMessageDeduplicationId = a});
 
--- | This parameter applies only to FIFO (first-in-first-out) queues. The tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). To interleave multiple ordered streams within a single queue, use @MessageGroupId@ values (for example, session data for multiple users). In this scenario, multiple readers can process the queue, but the session data of each user is processed in a FIFO fashion.     * You must associate a non-empty @MessageGroupId@ with a message. If you don't provide a @MessageGroupId@ , the action fails.     * @ReceiveMessage@ might return messages with multiple @MessageGroupId@ values. For each @MessageGroupId@ , the messages are sorted by time sent. The caller can't specify a @MessageGroupId@ . The length of @MessageGroupId@ is 128 characters. Valid values are alphanumeric characters and punctuation @(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)@ . For best practices of using @MessageGroupId@ , see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queue-recommendations.html#using-messagegroupid-property Using the MessageGroupId Property> in the /Amazon Simple Queue Service Developer Guide/ .
+-- | This parameter applies only to FIFO (first-in-first-out) queues. The tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). To interleave multiple ordered streams within a single queue, use @MessageGroupId@ values (for example, session data for multiple users). In this scenario, multiple readers can process the queue, but the session data of each user is processed in a FIFO fashion.     * You must associate a non-empty @MessageGroupId@ with a message. If you don't provide a @MessageGroupId@ , the action fails.     * @ReceiveMessage@ might return messages with multiple @MessageGroupId@ values. For each @MessageGroupId@ , the messages are sorted by time sent. The caller can't specify a @MessageGroupId@ . The length of @MessageGroupId@ is 128 characters. Valid values are alphanumeric characters and punctuation @(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)@ . For best practices of using @MessageGroupId@ , see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queue-recommendations.html#using-messagegroupid-property Using the MessageGroupId Property> in the /Amazon Simple Queue Service Developer Guide/ . /Important:/ @MessageGroupId@ is required for FIFO queues. You can't use it for Standard queues.
 sMessageGroupId :: Lens' SendMessageBatchRequestEntry (Maybe Text)
 sMessageGroupId = lens _sMessageGroupId (\ s a -> s{_sMessageGroupId = a});
 
@@ -527,7 +527,7 @@ instance ToQuery SendMessageBatchRequestEntry where
                "MessageGroupId" =: _sMessageGroupId, "Id" =: _sId,
                "MessageBody" =: _sMessageBody]
 
--- | Encloses a @MessageId@ for a successfully-enqueued message in a @'SendMessageBatch' @ .
+-- | Encloses a @MessageId@ for a successfully-enqueued message in a @'SendMessageBatch' .@
 --
 --
 --
@@ -544,15 +544,15 @@ data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'smbreSequenceNumber' - This parameter applies only to FIFO (first-in-first-out) queues. A large, non-consecutive number that Amazon SQS assigns to each message. The length of @SequenceNumber@ is 128 bits. As @SequenceNumber@ continues to increase for a particular @MessageGroupId@ .
+-- * 'smbreSequenceNumber' - This parameter applies only to FIFO (first-in-first-out) queues. The large, non-consecutive number that Amazon SQS assigns to each message. The length of @SequenceNumber@ is 128 bits. As @SequenceNumber@ continues to increase for a particular @MessageGroupId@ .
 --
--- * 'smbreMD5OfMessageAttributes' - An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information on MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
+-- * 'smbreMD5OfMessageAttributes' - An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
 --
 -- * 'smbreId' - An identifier for the message in this batch.
 --
 -- * 'smbreMessageId' - An identifier for the message.
 --
--- * 'smbreMD5OfMessageBody' - An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information on MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
+-- * 'smbreMD5OfMessageBody' - An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
 sendMessageBatchResultEntry
     :: Text -- ^ 'smbreId'
     -> Text -- ^ 'smbreMessageId'
@@ -567,11 +567,11 @@ sendMessageBatchResultEntry pId_ pMessageId_ pMD5OfMessageBody_ =
     , _smbreMD5OfMessageBody = pMD5OfMessageBody_
     }
 
--- | This parameter applies only to FIFO (first-in-first-out) queues. A large, non-consecutive number that Amazon SQS assigns to each message. The length of @SequenceNumber@ is 128 bits. As @SequenceNumber@ continues to increase for a particular @MessageGroupId@ .
+-- | This parameter applies only to FIFO (first-in-first-out) queues. The large, non-consecutive number that Amazon SQS assigns to each message. The length of @SequenceNumber@ is 128 bits. As @SequenceNumber@ continues to increase for a particular @MessageGroupId@ .
 smbreSequenceNumber :: Lens' SendMessageBatchResultEntry (Maybe Text)
 smbreSequenceNumber = lens _smbreSequenceNumber (\ s a -> s{_smbreSequenceNumber = a});
 
--- | An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information on MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
+-- | An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
 smbreMD5OfMessageAttributes :: Lens' SendMessageBatchResultEntry (Maybe Text)
 smbreMD5OfMessageAttributes = lens _smbreMD5OfMessageAttributes (\ s a -> s{_smbreMD5OfMessageAttributes = a});
 
@@ -583,7 +583,7 @@ smbreId = lens _smbreId (\ s a -> s{_smbreId = a});
 smbreMessageId :: Lens' SendMessageBatchResultEntry Text
 smbreMessageId = lens _smbreMessageId (\ s a -> s{_smbreMessageId = a});
 
--- | An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information on MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
+-- | An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
 smbreMD5OfMessageBody :: Lens' SendMessageBatchResultEntry Text
 smbreMD5OfMessageBody = lens _smbreMD5OfMessageBody (\ s a -> s{_smbreMD5OfMessageBody = a});
 

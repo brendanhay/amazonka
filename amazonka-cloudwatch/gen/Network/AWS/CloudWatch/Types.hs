@@ -17,8 +17,10 @@ module Network.AWS.CloudWatch.Types
 
     -- * Errors
     , _LimitExceededFault
+    , _DashboardNotFoundError
     , _InvalidNextToken
     , _InternalServiceFault
+    , _DashboardInvalidInputError
     , _InvalidParameterValueException
     , _InvalidFormatFault
     , _MissingRequiredParameterException
@@ -48,6 +50,20 @@ module Network.AWS.CloudWatch.Types
     , ahiHistoryData
     , ahiHistorySummary
     , ahiTimestamp
+
+    -- * DashboardEntry
+    , DashboardEntry
+    , dashboardEntry
+    , deSize
+    , deDashboardName
+    , deLastModified
+    , deDashboardARN
+
+    -- * DashboardValidationMessage
+    , DashboardValidationMessage
+    , dashboardValidationMessage
+    , dvmDataPath
+    , dvmMessage
 
     -- * Datapoint
     , Datapoint
@@ -85,6 +101,7 @@ module Network.AWS.CloudWatch.Types
     , metricAlarm
     , maAlarmName
     , maStateUpdatedTimestamp
+    , maTreatMissingData
     , maPeriod
     , maAlarmDescription
     , maEvaluationPeriods
@@ -92,6 +109,7 @@ module Network.AWS.CloudWatch.Types
     , maNamespace
     , maComparisonOperator
     , maOKActions
+    , maEvaluateLowSampleCountPercentile
     , maStateValue
     , maThreshold
     , maAlarmConfigurationUpdatedTimestamp
@@ -110,6 +128,7 @@ module Network.AWS.CloudWatch.Types
     , MetricDatum
     , metricDatum
     , mdValue
+    , mdStorageResolution
     , mdDimensions
     , mdUnit
     , mdTimestamp
@@ -154,6 +173,8 @@ cloudWatch =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -172,6 +193,13 @@ _LimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededFault =
     _MatchServiceError cloudWatch "LimitExceeded" . hasStatus 400
 
+-- | The specified dashboard does not exist.
+--
+--
+_DashboardNotFoundError :: AsError a => Getting (First ServiceError) a ServiceError
+_DashboardNotFoundError =
+    _MatchServiceError cloudWatch "ResourceNotFound" . hasStatus 404
+
 -- | The next token specified is invalid.
 --
 --
@@ -185,6 +213,13 @@ _InvalidNextToken =
 _InternalServiceFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServiceFault =
     _MatchServiceError cloudWatch "InternalServiceError" . hasStatus 500
+
+-- | Some part of the dashboard data is invalid.
+--
+--
+_DashboardInvalidInputError :: AsError a => Getting (First ServiceError) a ServiceError
+_DashboardInvalidInputError =
+    _MatchServiceError cloudWatch "InvalidParameterInput" . hasStatus 400
 
 -- | The value of an input parameter is bad or out-of-range.
 --
@@ -207,7 +242,7 @@ _MissingRequiredParameterException :: AsError a => Getting (First ServiceError) 
 _MissingRequiredParameterException =
     _MatchServiceError cloudWatch "MissingParameter" . hasStatus 400
 
--- | Parameters that cannot be used together were used together.
+-- | Parameters were used together that cannot be used together.
 --
 --
 _InvalidParameterCombinationException :: AsError a => Getting (First ServiceError) a ServiceError

@@ -67,7 +67,7 @@ data DescribeAlarms = DescribeAlarms'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daAlarmNamePrefix' - The alarm name prefix. You cannot specify @AlarmNames@ if this parameter is specified.
+-- * 'daAlarmNamePrefix' - The alarm name prefix. If this parameter is specified, you cannot specify @AlarmNames@ .
 --
 -- * 'daActionPrefix' - The action name prefix.
 --
@@ -90,7 +90,7 @@ describeAlarms =
     , _daMaxRecords = Nothing
     }
 
--- | The alarm name prefix. You cannot specify @AlarmNames@ if this parameter is specified.
+-- | The alarm name prefix. If this parameter is specified, you cannot specify @AlarmNames@ .
 daAlarmNamePrefix :: Lens' DescribeAlarms (Maybe Text)
 daAlarmNamePrefix = lens _daAlarmNamePrefix (\ s a -> s{_daAlarmNamePrefix = a});
 

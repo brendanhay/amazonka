@@ -90,7 +90,109 @@ instance Hashable AlarmHistoryItem
 
 instance NFData AlarmHistoryItem
 
--- | Encapsulates the statistical data that Amazon CloudWatch computes from metric data.
+-- | Represents a specific dashboard.
+--
+--
+--
+-- /See:/ 'dashboardEntry' smart constructor.
+data DashboardEntry = DashboardEntry'
+    { _deSize          :: !(Maybe Integer)
+    , _deDashboardName :: !(Maybe Text)
+    , _deLastModified  :: !(Maybe ISO8601)
+    , _deDashboardARN  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DashboardEntry' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'deSize' - The size of the dashboard, in bytes.
+--
+-- * 'deDashboardName' - The name of the dashboard.
+--
+-- * 'deLastModified' - The time stamp of when the dashboard was last modified, either by an API call or through the console. This number is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+--
+-- * 'deDashboardARN' - The Amazon Resource Name (ARN) of the dashboard.
+dashboardEntry
+    :: DashboardEntry
+dashboardEntry =
+    DashboardEntry'
+    { _deSize = Nothing
+    , _deDashboardName = Nothing
+    , _deLastModified = Nothing
+    , _deDashboardARN = Nothing
+    }
+
+-- | The size of the dashboard, in bytes.
+deSize :: Lens' DashboardEntry (Maybe Integer)
+deSize = lens _deSize (\ s a -> s{_deSize = a});
+
+-- | The name of the dashboard.
+deDashboardName :: Lens' DashboardEntry (Maybe Text)
+deDashboardName = lens _deDashboardName (\ s a -> s{_deDashboardName = a});
+
+-- | The time stamp of when the dashboard was last modified, either by an API call or through the console. This number is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+deLastModified :: Lens' DashboardEntry (Maybe UTCTime)
+deLastModified = lens _deLastModified (\ s a -> s{_deLastModified = a}) . mapping _Time;
+
+-- | The Amazon Resource Name (ARN) of the dashboard.
+deDashboardARN :: Lens' DashboardEntry (Maybe Text)
+deDashboardARN = lens _deDashboardARN (\ s a -> s{_deDashboardARN = a});
+
+instance FromXML DashboardEntry where
+        parseXML x
+          = DashboardEntry' <$>
+              (x .@? "Size") <*> (x .@? "DashboardName") <*>
+                (x .@? "LastModified")
+                <*> (x .@? "DashboardArn")
+
+instance Hashable DashboardEntry
+
+instance NFData DashboardEntry
+
+-- | An error or warning for the operation.
+--
+--
+--
+-- /See:/ 'dashboardValidationMessage' smart constructor.
+data DashboardValidationMessage = DashboardValidationMessage'
+    { _dvmDataPath :: !(Maybe Text)
+    , _dvmMessage  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DashboardValidationMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvmDataPath' - The data path related to the message.
+--
+-- * 'dvmMessage' - A message describing the error or warning.
+dashboardValidationMessage
+    :: DashboardValidationMessage
+dashboardValidationMessage =
+    DashboardValidationMessage'
+    { _dvmDataPath = Nothing
+    , _dvmMessage = Nothing
+    }
+
+-- | The data path related to the message.
+dvmDataPath :: Lens' DashboardValidationMessage (Maybe Text)
+dvmDataPath = lens _dvmDataPath (\ s a -> s{_dvmDataPath = a});
+
+-- | A message describing the error or warning.
+dvmMessage :: Lens' DashboardValidationMessage (Maybe Text)
+dvmMessage = lens _dvmMessage (\ s a -> s{_dvmMessage = a});
+
+instance FromXML DashboardValidationMessage where
+        parseXML x
+          = DashboardValidationMessage' <$>
+              (x .@? "DataPath") <*> (x .@? "Message")
+
+instance Hashable DashboardValidationMessage
+
+instance NFData DashboardValidationMessage
+
+-- | Encapsulates the statistical data that CloudWatch computes from metric data.
 --
 --
 --
@@ -337,6 +439,7 @@ instance NFData Metric
 data MetricAlarm = MetricAlarm'
     { _maAlarmName                          :: !(Maybe Text)
     , _maStateUpdatedTimestamp              :: !(Maybe ISO8601)
+    , _maTreatMissingData                   :: !(Maybe Text)
     , _maPeriod                             :: !(Maybe Nat)
     , _maAlarmDescription                   :: !(Maybe Text)
     , _maEvaluationPeriods                  :: !(Maybe Nat)
@@ -344,6 +447,7 @@ data MetricAlarm = MetricAlarm'
     , _maNamespace                          :: !(Maybe Text)
     , _maComparisonOperator                 :: !(Maybe ComparisonOperator)
     , _maOKActions                          :: !(Maybe [Text])
+    , _maEvaluateLowSampleCountPercentile   :: !(Maybe Text)
     , _maStateValue                         :: !(Maybe StateValue)
     , _maThreshold                          :: !(Maybe Double)
     , _maAlarmConfigurationUpdatedTimestamp :: !(Maybe ISO8601)
@@ -367,6 +471,8 @@ data MetricAlarm = MetricAlarm'
 --
 -- * 'maStateUpdatedTimestamp' - The time stamp of the last update to the alarm state.
 --
+-- * 'maTreatMissingData' - Sets how this alarm is to handle missing data points. If this parameter is omitted, the default behavior of @missing@ is used.
+--
 -- * 'maPeriod' - The period, in seconds, over which the statistic is applied.
 --
 -- * 'maAlarmDescription' - The description of the alarm.
@@ -380,6 +486,8 @@ data MetricAlarm = MetricAlarm'
 -- * 'maComparisonOperator' - The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
 --
 -- * 'maOKActions' - The actions to execute when this alarm transitions to the @OK@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+--
+-- * 'maEvaluateLowSampleCountPercentile' - Used only for alarms based on percentiles. If @ignore@ , the alarm state does not change during periods with too few data points to be statistically significant. If @evaluate@ or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 --
 -- * 'maStateValue' - The state value for the alarm.
 --
@@ -412,6 +520,7 @@ metricAlarm =
     MetricAlarm'
     { _maAlarmName = Nothing
     , _maStateUpdatedTimestamp = Nothing
+    , _maTreatMissingData = Nothing
     , _maPeriod = Nothing
     , _maAlarmDescription = Nothing
     , _maEvaluationPeriods = Nothing
@@ -419,6 +528,7 @@ metricAlarm =
     , _maNamespace = Nothing
     , _maComparisonOperator = Nothing
     , _maOKActions = Nothing
+    , _maEvaluateLowSampleCountPercentile = Nothing
     , _maStateValue = Nothing
     , _maThreshold = Nothing
     , _maAlarmConfigurationUpdatedTimestamp = Nothing
@@ -441,6 +551,10 @@ maAlarmName = lens _maAlarmName (\ s a -> s{_maAlarmName = a});
 -- | The time stamp of the last update to the alarm state.
 maStateUpdatedTimestamp :: Lens' MetricAlarm (Maybe UTCTime)
 maStateUpdatedTimestamp = lens _maStateUpdatedTimestamp (\ s a -> s{_maStateUpdatedTimestamp = a}) . mapping _Time;
+
+-- | Sets how this alarm is to handle missing data points. If this parameter is omitted, the default behavior of @missing@ is used.
+maTreatMissingData :: Lens' MetricAlarm (Maybe Text)
+maTreatMissingData = lens _maTreatMissingData (\ s a -> s{_maTreatMissingData = a});
 
 -- | The period, in seconds, over which the statistic is applied.
 maPeriod :: Lens' MetricAlarm (Maybe Natural)
@@ -469,6 +583,10 @@ maComparisonOperator = lens _maComparisonOperator (\ s a -> s{_maComparisonOpera
 -- | The actions to execute when this alarm transitions to the @OK@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 maOKActions :: Lens' MetricAlarm [Text]
 maOKActions = lens _maOKActions (\ s a -> s{_maOKActions = a}) . _Default . _Coerce;
+
+-- | Used only for alarms based on percentiles. If @ignore@ , the alarm state does not change during periods with too few data points to be statistically significant. If @evaluate@ or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+maEvaluateLowSampleCountPercentile :: Lens' MetricAlarm (Maybe Text)
+maEvaluateLowSampleCountPercentile = lens _maEvaluateLowSampleCountPercentile (\ s a -> s{_maEvaluateLowSampleCountPercentile = a});
 
 -- | The state value for the alarm.
 maStateValue :: Lens' MetricAlarm (Maybe StateValue)
@@ -527,6 +645,7 @@ instance FromXML MetricAlarm where
           = MetricAlarm' <$>
               (x .@? "AlarmName") <*>
                 (x .@? "StateUpdatedTimestamp")
+                <*> (x .@? "TreatMissingData")
                 <*> (x .@? "Period")
                 <*> (x .@? "AlarmDescription")
                 <*> (x .@? "EvaluationPeriods")
@@ -536,6 +655,7 @@ instance FromXML MetricAlarm where
                 <*>
                 (x .@? "OKActions" .!@ mempty >>=
                    may (parseXMLList "member"))
+                <*> (x .@? "EvaluateLowSampleCountPercentile")
                 <*> (x .@? "StateValue")
                 <*> (x .@? "Threshold")
                 <*> (x .@? "AlarmConfigurationUpdatedTimestamp")
@@ -566,19 +686,22 @@ instance NFData MetricAlarm
 --
 -- /See:/ 'metricDatum' smart constructor.
 data MetricDatum = MetricDatum'
-    { _mdValue           :: !(Maybe Double)
-    , _mdDimensions      :: !(Maybe [Dimension])
-    , _mdUnit            :: !(Maybe StandardUnit)
-    , _mdTimestamp       :: !(Maybe ISO8601)
-    , _mdStatisticValues :: !(Maybe StatisticSet)
-    , _mdMetricName      :: !Text
+    { _mdValue             :: !(Maybe Double)
+    , _mdStorageResolution :: !(Maybe Nat)
+    , _mdDimensions        :: !(Maybe [Dimension])
+    , _mdUnit              :: !(Maybe StandardUnit)
+    , _mdTimestamp         :: !(Maybe ISO8601)
+    , _mdStatisticValues   :: !(Maybe StatisticSet)
+    , _mdMetricName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MetricDatum' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mdValue' - The value for the metric. Although the parameter accepts numbers of type Double, Amazon CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported.
+-- * 'mdValue' - The value for the metric. Although the parameter accepts numbers of type Double, CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported.
+--
+-- * 'mdStorageResolution' - Valid values are 1 and 60. Setting this to 1 specifies this metric as a high-resolution metric, so that CloudWatch stores the metric with sub-minute resolution down to one second. Setting this to 60 specifies this metric as a regular-resolution metric, which CloudWatch stores at 1-minute resolution. Currently, high resolution is available only for custom metrics. For more information about high-resolution metrics, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html#high-resolution-metrics High-Resolution Metrics> in the /Amazon CloudWatch User Guide/ .  This field is optional, if you do not specify it the default of 60 is used.
 --
 -- * 'mdDimensions' - The dimensions associated with the metric.
 --
@@ -595,6 +718,7 @@ metricDatum
 metricDatum pMetricName_ =
     MetricDatum'
     { _mdValue = Nothing
+    , _mdStorageResolution = Nothing
     , _mdDimensions = Nothing
     , _mdUnit = Nothing
     , _mdTimestamp = Nothing
@@ -602,9 +726,13 @@ metricDatum pMetricName_ =
     , _mdMetricName = pMetricName_
     }
 
--- | The value for the metric. Although the parameter accepts numbers of type Double, Amazon CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported.
+-- | The value for the metric. Although the parameter accepts numbers of type Double, CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported.
 mdValue :: Lens' MetricDatum (Maybe Double)
 mdValue = lens _mdValue (\ s a -> s{_mdValue = a});
+
+-- | Valid values are 1 and 60. Setting this to 1 specifies this metric as a high-resolution metric, so that CloudWatch stores the metric with sub-minute resolution down to one second. Setting this to 60 specifies this metric as a regular-resolution metric, which CloudWatch stores at 1-minute resolution. Currently, high resolution is available only for custom metrics. For more information about high-resolution metrics, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html#high-resolution-metrics High-Resolution Metrics> in the /Amazon CloudWatch User Guide/ .  This field is optional, if you do not specify it the default of 60 is used.
+mdStorageResolution :: Lens' MetricDatum (Maybe Natural)
+mdStorageResolution = lens _mdStorageResolution (\ s a -> s{_mdStorageResolution = a}) . mapping _Nat;
 
 -- | The dimensions associated with the metric.
 mdDimensions :: Lens' MetricDatum [Dimension]
@@ -634,6 +762,7 @@ instance ToQuery MetricDatum where
         toQuery MetricDatum'{..}
           = mconcat
               ["Value" =: _mdValue,
+               "StorageResolution" =: _mdStorageResolution,
                "Dimensions" =:
                  toQuery (toQueryList "member" <$> _mdDimensions),
                "Unit" =: _mdUnit, "Timestamp" =: _mdTimestamp,

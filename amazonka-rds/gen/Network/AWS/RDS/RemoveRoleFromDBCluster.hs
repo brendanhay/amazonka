@@ -52,7 +52,7 @@ data RemoveRoleFromDBCluster = RemoveRoleFromDBCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrfdcDBClusterIdentifier' - The name of the DB cluster to disassociate the IAM role rom.
+-- * 'rrfdcDBClusterIdentifier' - The name of the DB cluster to disassociate the IAM role from.
 --
 -- * 'rrfdcRoleARN' - The Amazon Resource Name (ARN) of the IAM role to disassociate from the Aurora DB cluster, for example @arn:aws:iam::123456789012:role/AuroraAccessRole@ .
 removeRoleFromDBCluster
@@ -65,7 +65,7 @@ removeRoleFromDBCluster pDBClusterIdentifier_ pRoleARN_ =
     , _rrfdcRoleARN = pRoleARN_
     }
 
--- | The name of the DB cluster to disassociate the IAM role rom.
+-- | The name of the DB cluster to disassociate the IAM role from.
 rrfdcDBClusterIdentifier :: Lens' RemoveRoleFromDBCluster Text
 rrfdcDBClusterIdentifier = lens _rrfdcDBClusterIdentifier (\ s a -> s{_rrfdcDBClusterIdentifier = a});
 

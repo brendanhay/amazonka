@@ -21,11 +21,9 @@
 -- Adds an attribute and values to, or removes an attribute and values from, a manual DB snapshot.
 --
 --
--- To share a manual DB snapshot with other AWS accounts, specify @restore@ as the @AttributeName@ and use the @ValuesToAdd@ parameter to add a list of IDs of the AWS accounts that are authorized to restore the manual DB snapshot. Uses the value @all@ to make the manual DB snapshot public, which means it can be copied or restored by all AWS accounts. Do not add the @all@ value for any manual DB snapshots that contain private information that you don't want available to all AWS accounts.
+-- To share a manual DB snapshot with other AWS accounts, specify @restore@ as the @AttributeName@ and use the @ValuesToAdd@ parameter to add a list of IDs of the AWS accounts that are authorized to restore the manual DB snapshot. Uses the value @all@ to make the manual DB snapshot public, which means it can be copied or restored by all AWS accounts. Do not add the @all@ value for any manual DB snapshots that contain private information that you don't want available to all AWS accounts. If the manual DB snapshot is encrypted, it can be shared, but only by specifying a list of authorized AWS account IDs for the @ValuesToAdd@ parameter. You can't use @all@ as a value for that parameter in this case.
 --
 -- To view which AWS accounts have access to copy or restore a manual DB snapshot, or whether a manual DB snapshot public or private, use the 'DescribeDBSnapshotAttributes' API action.
---
--- If the manual DB snapshot is encrypted, it cannot be shared.
 --
 module Network.AWS.RDS.ModifyDBSnapshotAttribute
     (

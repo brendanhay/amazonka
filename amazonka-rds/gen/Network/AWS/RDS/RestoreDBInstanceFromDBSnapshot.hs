@@ -48,6 +48,7 @@ module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     , rdifdsDomainIAMRoleName
     , rdifdsTags
     , rdifdsPort
+    , rdifdsEnableIAMDatabaseAuthentication
     , rdifdsStorageType
     , rdifdsDBName
     , rdifdsDBInstanceIdentifier
@@ -74,27 +75,28 @@ import           Network.AWS.Response
 --
 -- /See:/ 'restoreDBInstanceFromDBSnapshot' smart constructor.
 data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
-    { _rdifdsPubliclyAccessible      :: !(Maybe Bool)
-    , _rdifdsAutoMinorVersionUpgrade :: !(Maybe Bool)
-    , _rdifdsDBSubnetGroupName       :: !(Maybe Text)
-    , _rdifdsIOPS                    :: !(Maybe Int)
-    , _rdifdsDomain                  :: !(Maybe Text)
-    , _rdifdsEngine                  :: !(Maybe Text)
-    , _rdifdsTDECredentialPassword   :: !(Maybe Text)
-    , _rdifdsDBInstanceClass         :: !(Maybe Text)
-    , _rdifdsLicenseModel            :: !(Maybe Text)
-    , _rdifdsAvailabilityZone        :: !(Maybe Text)
-    , _rdifdsMultiAZ                 :: !(Maybe Bool)
-    , _rdifdsOptionGroupName         :: !(Maybe Text)
-    , _rdifdsCopyTagsToSnapshot      :: !(Maybe Bool)
-    , _rdifdsTDECredentialARN        :: !(Maybe Text)
-    , _rdifdsDomainIAMRoleName       :: !(Maybe Text)
-    , _rdifdsTags                    :: !(Maybe [Tag])
-    , _rdifdsPort                    :: !(Maybe Int)
-    , _rdifdsStorageType             :: !(Maybe Text)
-    , _rdifdsDBName                  :: !(Maybe Text)
-    , _rdifdsDBInstanceIdentifier    :: !Text
-    , _rdifdsDBSnapshotIdentifier    :: !Text
+    { _rdifdsPubliclyAccessible              :: !(Maybe Bool)
+    , _rdifdsAutoMinorVersionUpgrade         :: !(Maybe Bool)
+    , _rdifdsDBSubnetGroupName               :: !(Maybe Text)
+    , _rdifdsIOPS                            :: !(Maybe Int)
+    , _rdifdsDomain                          :: !(Maybe Text)
+    , _rdifdsEngine                          :: !(Maybe Text)
+    , _rdifdsTDECredentialPassword           :: !(Maybe Text)
+    , _rdifdsDBInstanceClass                 :: !(Maybe Text)
+    , _rdifdsLicenseModel                    :: !(Maybe Text)
+    , _rdifdsAvailabilityZone                :: !(Maybe Text)
+    , _rdifdsMultiAZ                         :: !(Maybe Bool)
+    , _rdifdsOptionGroupName                 :: !(Maybe Text)
+    , _rdifdsCopyTagsToSnapshot              :: !(Maybe Bool)
+    , _rdifdsTDECredentialARN                :: !(Maybe Text)
+    , _rdifdsDomainIAMRoleName               :: !(Maybe Text)
+    , _rdifdsTags                            :: !(Maybe [Tag])
+    , _rdifdsPort                            :: !(Maybe Int)
+    , _rdifdsEnableIAMDatabaseAuthentication :: !(Maybe Bool)
+    , _rdifdsStorageType                     :: !(Maybe Text)
+    , _rdifdsDBName                          :: !(Maybe Text)
+    , _rdifdsDBInstanceIdentifier            :: !Text
+    , _rdifdsDBSnapshotIdentifier            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RestoreDBInstanceFromDBSnapshot' with the minimum fields required to make a request.
@@ -135,11 +137,13 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 --
 -- * 'rdifdsPort' - The port number on which the database accepts connections. Default: The same port as the original DB instance Constraints: Value must be @1150-65535@
 --
+-- * 'rdifdsEnableIAMDatabaseAuthentication' - True to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts; otherwise false. You can enable IAM database authentication for the following database engines     * For MySQL 5.6, minor version 5.6.34 or higher     * For MySQL 5.7, minor version 5.7.16 or higher     * Aurora 5.6 or higher. Default: @false@
+--
 -- * 'rdifdsStorageType' - Specifies the storage type to be associated with the DB instance. Valid values: @standard | gp2 | io1@  If you specify @io1@ , you must also include a value for the @Iops@ parameter.  Default: @io1@ if the @Iops@ parameter is specified; otherwise @standard@
 --
 -- * 'rdifdsDBName' - The database name for the restored DB instance.
 --
--- * 'rdifdsDBInstanceIdentifier' - Name of the DB instance to create from the DB snapshot. This parameter isn't case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens (1 to 15 for SQL Server)     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
+-- * 'rdifdsDBInstanceIdentifier' - Name of the DB instance to create from the DB snapshot. This parameter isn't case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
 --
 -- * 'rdifdsDBSnapshotIdentifier' - The identifier for the DB snapshot to restore from. Constraints:     * Must contain from 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens If you are restoring from a shared manual DB snapshot, the @DBSnapshotIdentifier@ must be the ARN of the shared DB snapshot.
 restoreDBInstanceFromDBSnapshot
@@ -165,6 +169,7 @@ restoreDBInstanceFromDBSnapshot pDBInstanceIdentifier_ pDBSnapshotIdentifier_ =
     , _rdifdsDomainIAMRoleName = Nothing
     , _rdifdsTags = Nothing
     , _rdifdsPort = Nothing
+    , _rdifdsEnableIAMDatabaseAuthentication = Nothing
     , _rdifdsStorageType = Nothing
     , _rdifdsDBName = Nothing
     , _rdifdsDBInstanceIdentifier = pDBInstanceIdentifier_
@@ -239,6 +244,10 @@ rdifdsTags = lens _rdifdsTags (\ s a -> s{_rdifdsTags = a}) . _Default . _Coerce
 rdifdsPort :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Int)
 rdifdsPort = lens _rdifdsPort (\ s a -> s{_rdifdsPort = a});
 
+-- | True to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts; otherwise false. You can enable IAM database authentication for the following database engines     * For MySQL 5.6, minor version 5.6.34 or higher     * For MySQL 5.7, minor version 5.7.16 or higher     * Aurora 5.6 or higher. Default: @false@
+rdifdsEnableIAMDatabaseAuthentication :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bool)
+rdifdsEnableIAMDatabaseAuthentication = lens _rdifdsEnableIAMDatabaseAuthentication (\ s a -> s{_rdifdsEnableIAMDatabaseAuthentication = a});
+
 -- | Specifies the storage type to be associated with the DB instance. Valid values: @standard | gp2 | io1@  If you specify @io1@ , you must also include a value for the @Iops@ parameter.  Default: @io1@ if the @Iops@ parameter is specified; otherwise @standard@
 rdifdsStorageType :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsStorageType = lens _rdifdsStorageType (\ s a -> s{_rdifdsStorageType = a});
@@ -247,7 +256,7 @@ rdifdsStorageType = lens _rdifdsStorageType (\ s a -> s{_rdifdsStorageType = a})
 rdifdsDBName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsDBName = lens _rdifdsDBName (\ s a -> s{_rdifdsDBName = a});
 
--- | Name of the DB instance to create from the DB snapshot. This parameter isn't case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens (1 to 15 for SQL Server)     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
+-- | Name of the DB instance to create from the DB snapshot. This parameter isn't case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
 rdifdsDBInstanceIdentifier :: Lens' RestoreDBInstanceFromDBSnapshot Text
 rdifdsDBInstanceIdentifier = lens _rdifdsDBInstanceIdentifier (\ s a -> s{_rdifdsDBInstanceIdentifier = a});
 
@@ -304,6 +313,8 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot
                "Tags" =:
                  toQuery (toQueryList "Tag" <$> _rdifdsTags),
                "Port" =: _rdifdsPort,
+               "EnableIAMDatabaseAuthentication" =:
+                 _rdifdsEnableIAMDatabaseAuthentication,
                "StorageType" =: _rdifdsStorageType,
                "DBName" =: _rdifdsDBName,
                "DBInstanceIdentifier" =:

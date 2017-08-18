@@ -48,6 +48,7 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     , rditpitDomainIAMRoleName
     , rditpitTags
     , rditpitPort
+    , rditpitEnableIAMDatabaseAuthentication
     , rditpitStorageType
     , rditpitDBName
     , rditpitSourceDBInstanceIdentifier
@@ -74,29 +75,30 @@ import           Network.AWS.Response
 --
 -- /See:/ 'restoreDBInstanceToPointInTime' smart constructor.
 data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
-    { _rditpitUseLatestRestorableTime    :: !(Maybe Bool)
-    , _rditpitPubliclyAccessible         :: !(Maybe Bool)
-    , _rditpitAutoMinorVersionUpgrade    :: !(Maybe Bool)
-    , _rditpitDBSubnetGroupName          :: !(Maybe Text)
-    , _rditpitRestoreTime                :: !(Maybe ISO8601)
-    , _rditpitIOPS                       :: !(Maybe Int)
-    , _rditpitDomain                     :: !(Maybe Text)
-    , _rditpitEngine                     :: !(Maybe Text)
-    , _rditpitTDECredentialPassword      :: !(Maybe Text)
-    , _rditpitDBInstanceClass            :: !(Maybe Text)
-    , _rditpitLicenseModel               :: !(Maybe Text)
-    , _rditpitAvailabilityZone           :: !(Maybe Text)
-    , _rditpitMultiAZ                    :: !(Maybe Bool)
-    , _rditpitOptionGroupName            :: !(Maybe Text)
-    , _rditpitCopyTagsToSnapshot         :: !(Maybe Bool)
-    , _rditpitTDECredentialARN           :: !(Maybe Text)
-    , _rditpitDomainIAMRoleName          :: !(Maybe Text)
-    , _rditpitTags                       :: !(Maybe [Tag])
-    , _rditpitPort                       :: !(Maybe Int)
-    , _rditpitStorageType                :: !(Maybe Text)
-    , _rditpitDBName                     :: !(Maybe Text)
-    , _rditpitSourceDBInstanceIdentifier :: !Text
-    , _rditpitTargetDBInstanceIdentifier :: !Text
+    { _rditpitUseLatestRestorableTime         :: !(Maybe Bool)
+    , _rditpitPubliclyAccessible              :: !(Maybe Bool)
+    , _rditpitAutoMinorVersionUpgrade         :: !(Maybe Bool)
+    , _rditpitDBSubnetGroupName               :: !(Maybe Text)
+    , _rditpitRestoreTime                     :: !(Maybe ISO8601)
+    , _rditpitIOPS                            :: !(Maybe Int)
+    , _rditpitDomain                          :: !(Maybe Text)
+    , _rditpitEngine                          :: !(Maybe Text)
+    , _rditpitTDECredentialPassword           :: !(Maybe Text)
+    , _rditpitDBInstanceClass                 :: !(Maybe Text)
+    , _rditpitLicenseModel                    :: !(Maybe Text)
+    , _rditpitAvailabilityZone                :: !(Maybe Text)
+    , _rditpitMultiAZ                         :: !(Maybe Bool)
+    , _rditpitOptionGroupName                 :: !(Maybe Text)
+    , _rditpitCopyTagsToSnapshot              :: !(Maybe Bool)
+    , _rditpitTDECredentialARN                :: !(Maybe Text)
+    , _rditpitDomainIAMRoleName               :: !(Maybe Text)
+    , _rditpitTags                            :: !(Maybe [Tag])
+    , _rditpitPort                            :: !(Maybe Int)
+    , _rditpitEnableIAMDatabaseAuthentication :: !(Maybe Bool)
+    , _rditpitStorageType                     :: !(Maybe Text)
+    , _rditpitDBName                          :: !(Maybe Text)
+    , _rditpitSourceDBInstanceIdentifier      :: !Text
+    , _rditpitTargetDBInstanceIdentifier      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RestoreDBInstanceToPointInTime' with the minimum fields required to make a request.
@@ -141,6 +143,8 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
 --
 -- * 'rditpitPort' - The port number on which the database accepts connections. Constraints: Value must be @1150-65535@  Default: The same port as the original DB instance.
 --
+-- * 'rditpitEnableIAMDatabaseAuthentication' - True to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts; otherwise false. You can enable IAM database authentication for the following database engines     * For MySQL 5.6, minor version 5.6.34 or higher     * For MySQL 5.7, minor version 5.7.16 or higher     * Aurora 5.6 or higher. Default: @false@
+--
 -- * 'rditpitStorageType' - Specifies the storage type to be associated with the DB instance. Valid values: @standard | gp2 | io1@  If you specify @io1@ , you must also include a value for the @Iops@ parameter.  Default: @io1@ if the @Iops@ parameter is specified; otherwise @standard@
 --
 -- * 'rditpitDBName' - The database name for the restored DB instance.
@@ -173,6 +177,7 @@ restoreDBInstanceToPointInTime pSourceDBInstanceIdentifier_ pTargetDBInstanceIde
     , _rditpitDomainIAMRoleName = Nothing
     , _rditpitTags = Nothing
     , _rditpitPort = Nothing
+    , _rditpitEnableIAMDatabaseAuthentication = Nothing
     , _rditpitStorageType = Nothing
     , _rditpitDBName = Nothing
     , _rditpitSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier_
@@ -255,6 +260,10 @@ rditpitTags = lens _rditpitTags (\ s a -> s{_rditpitTags = a}) . _Default . _Coe
 rditpitPort :: Lens' RestoreDBInstanceToPointInTime (Maybe Int)
 rditpitPort = lens _rditpitPort (\ s a -> s{_rditpitPort = a});
 
+-- | True to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts; otherwise false. You can enable IAM database authentication for the following database engines     * For MySQL 5.6, minor version 5.6.34 or higher     * For MySQL 5.7, minor version 5.7.16 or higher     * Aurora 5.6 or higher. Default: @false@
+rditpitEnableIAMDatabaseAuthentication :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
+rditpitEnableIAMDatabaseAuthentication = lens _rditpitEnableIAMDatabaseAuthentication (\ s a -> s{_rditpitEnableIAMDatabaseAuthentication = a});
+
 -- | Specifies the storage type to be associated with the DB instance. Valid values: @standard | gp2 | io1@  If you specify @io1@ , you must also include a value for the @Iops@ parameter.  Default: @io1@ if the @Iops@ parameter is specified; otherwise @standard@
 rditpitStorageType :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitStorageType = lens _rditpitStorageType (\ s a -> s{_rditpitStorageType = a});
@@ -322,6 +331,8 @@ instance ToQuery RestoreDBInstanceToPointInTime where
                "Tags" =:
                  toQuery (toQueryList "Tag" <$> _rditpitTags),
                "Port" =: _rditpitPort,
+               "EnableIAMDatabaseAuthentication" =:
+                 _rditpitEnableIAMDatabaseAuthentication,
                "StorageType" =: _rditpitStorageType,
                "DBName" =: _rditpitDBName,
                "SourceDBInstanceIdentifier" =:

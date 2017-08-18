@@ -37,6 +37,7 @@ module Network.AWS.RDS.ModifyDBCluster
     , mdcOptionGroupName
     , mdcNewDBClusterIdentifier
     , mdcPort
+    , mdcEnableIAMDatabaseAuthentication
     , mdcDBClusterIdentifier
 
     -- * Destructuring the Response
@@ -60,17 +61,18 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyDBCluster' smart constructor.
 data ModifyDBCluster = ModifyDBCluster'
-    { _mdcMasterUserPassword          :: !(Maybe Text)
-    , _mdcPreferredMaintenanceWindow  :: !(Maybe Text)
-    , _mdcPreferredBackupWindow       :: !(Maybe Text)
-    , _mdcBackupRetentionPeriod       :: !(Maybe Int)
-    , _mdcVPCSecurityGroupIds         :: !(Maybe [Text])
-    , _mdcDBClusterParameterGroupName :: !(Maybe Text)
-    , _mdcApplyImmediately            :: !(Maybe Bool)
-    , _mdcOptionGroupName             :: !(Maybe Text)
-    , _mdcNewDBClusterIdentifier      :: !(Maybe Text)
-    , _mdcPort                        :: !(Maybe Int)
-    , _mdcDBClusterIdentifier         :: !Text
+    { _mdcMasterUserPassword              :: !(Maybe Text)
+    , _mdcPreferredMaintenanceWindow      :: !(Maybe Text)
+    , _mdcPreferredBackupWindow           :: !(Maybe Text)
+    , _mdcBackupRetentionPeriod           :: !(Maybe Int)
+    , _mdcVPCSecurityGroupIds             :: !(Maybe [Text])
+    , _mdcDBClusterParameterGroupName     :: !(Maybe Text)
+    , _mdcApplyImmediately                :: !(Maybe Bool)
+    , _mdcOptionGroupName                 :: !(Maybe Text)
+    , _mdcNewDBClusterIdentifier          :: !(Maybe Text)
+    , _mdcPort                            :: !(Maybe Int)
+    , _mdcEnableIAMDatabaseAuthentication :: !(Maybe Bool)
+    , _mdcDBClusterIdentifier             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyDBCluster' with the minimum fields required to make a request.
@@ -79,13 +81,13 @@ data ModifyDBCluster = ModifyDBCluster'
 --
 -- * 'mdcMasterUserPassword' - The new password for the master database user. This password can contain any printable ASCII character except "/", """, or "@". Constraints: Must contain from 8 to 41 characters.
 --
--- * 'mdcPreferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun Constraints: Minimum 30-minute window.
+-- * 'mdcPreferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: A 30-minute window selected at random from an 8-hour block of time per AWS Region, occurring on a random day of the week. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun Constraints: Minimum 30-minute window.
 --
--- * 'mdcPreferredBackupWindow' - The daily time range during which automated backups are created if automated backups are enabled, using the @BackupRetentionPeriod@ parameter.  Default: A 30-minute window selected at random from an 8-hour block of time per region. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Times should be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
+-- * 'mdcPreferredBackupWindow' - The daily time range during which automated backups are created if automated backups are enabled, using the @BackupRetentionPeriod@ parameter.  Default: A 30-minute window selected at random from an 8-hour block of time per AWS Region. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Times should be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
 --
 -- * 'mdcBackupRetentionPeriod' - The number of days for which automated backups are retained. You must specify a minimum value of 1. Default: 1 Constraints:     * Must be a value from 1 to 35
 --
--- * 'mdcVPCSecurityGroupIds' - A lst of VPC security groups that the DB cluster will belong to.
+-- * 'mdcVPCSecurityGroupIds' - A list of VPC security groups that the DB cluster will belong to.
 --
 -- * 'mdcDBClusterParameterGroupName' - The name of the DB cluster parameter group to use for the DB cluster.
 --
@@ -96,6 +98,8 @@ data ModifyDBCluster = ModifyDBCluster'
 -- * 'mdcNewDBClusterIdentifier' - The new DB cluster identifier for the DB cluster when renaming a DB cluster. This value is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-cluster2@
 --
 -- * 'mdcPort' - The port number on which the DB cluster accepts connections. Constraints: Value must be @1150-65535@  Default: The same port as the original DB cluster.
+--
+-- * 'mdcEnableIAMDatabaseAuthentication' - A Boolean value that is true to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts, and otherwise false. Default: @false@
 --
 -- * 'mdcDBClusterIdentifier' - The DB cluster identifier for the cluster being modified. This parameter is not case-sensitive. Constraints:     * Must be the identifier for an existing DB cluster.     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 modifyDBCluster
@@ -113,6 +117,7 @@ modifyDBCluster pDBClusterIdentifier_ =
     , _mdcOptionGroupName = Nothing
     , _mdcNewDBClusterIdentifier = Nothing
     , _mdcPort = Nothing
+    , _mdcEnableIAMDatabaseAuthentication = Nothing
     , _mdcDBClusterIdentifier = pDBClusterIdentifier_
     }
 
@@ -120,11 +125,11 @@ modifyDBCluster pDBClusterIdentifier_ =
 mdcMasterUserPassword :: Lens' ModifyDBCluster (Maybe Text)
 mdcMasterUserPassword = lens _mdcMasterUserPassword (\ s a -> s{_mdcMasterUserPassword = a});
 
--- | The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun Constraints: Minimum 30-minute window.
+-- | The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: A 30-minute window selected at random from an 8-hour block of time per AWS Region, occurring on a random day of the week. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun Constraints: Minimum 30-minute window.
 mdcPreferredMaintenanceWindow :: Lens' ModifyDBCluster (Maybe Text)
 mdcPreferredMaintenanceWindow = lens _mdcPreferredMaintenanceWindow (\ s a -> s{_mdcPreferredMaintenanceWindow = a});
 
--- | The daily time range during which automated backups are created if automated backups are enabled, using the @BackupRetentionPeriod@ parameter.  Default: A 30-minute window selected at random from an 8-hour block of time per region. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Times should be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
+-- | The daily time range during which automated backups are created if automated backups are enabled, using the @BackupRetentionPeriod@ parameter.  Default: A 30-minute window selected at random from an 8-hour block of time per AWS Region. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Times should be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
 mdcPreferredBackupWindow :: Lens' ModifyDBCluster (Maybe Text)
 mdcPreferredBackupWindow = lens _mdcPreferredBackupWindow (\ s a -> s{_mdcPreferredBackupWindow = a});
 
@@ -132,7 +137,7 @@ mdcPreferredBackupWindow = lens _mdcPreferredBackupWindow (\ s a -> s{_mdcPrefer
 mdcBackupRetentionPeriod :: Lens' ModifyDBCluster (Maybe Int)
 mdcBackupRetentionPeriod = lens _mdcBackupRetentionPeriod (\ s a -> s{_mdcBackupRetentionPeriod = a});
 
--- | A lst of VPC security groups that the DB cluster will belong to.
+-- | A list of VPC security groups that the DB cluster will belong to.
 mdcVPCSecurityGroupIds :: Lens' ModifyDBCluster [Text]
 mdcVPCSecurityGroupIds = lens _mdcVPCSecurityGroupIds (\ s a -> s{_mdcVPCSecurityGroupIds = a}) . _Default . _Coerce;
 
@@ -155,6 +160,10 @@ mdcNewDBClusterIdentifier = lens _mdcNewDBClusterIdentifier (\ s a -> s{_mdcNewD
 -- | The port number on which the DB cluster accepts connections. Constraints: Value must be @1150-65535@  Default: The same port as the original DB cluster.
 mdcPort :: Lens' ModifyDBCluster (Maybe Int)
 mdcPort = lens _mdcPort (\ s a -> s{_mdcPort = a});
+
+-- | A Boolean value that is true to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts, and otherwise false. Default: @false@
+mdcEnableIAMDatabaseAuthentication :: Lens' ModifyDBCluster (Maybe Bool)
+mdcEnableIAMDatabaseAuthentication = lens _mdcEnableIAMDatabaseAuthentication (\ s a -> s{_mdcEnableIAMDatabaseAuthentication = a});
 
 -- | The DB cluster identifier for the cluster being modified. This parameter is not case-sensitive. Constraints:     * Must be the identifier for an existing DB cluster.     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 mdcDBClusterIdentifier :: Lens' ModifyDBCluster Text
@@ -200,6 +209,8 @@ instance ToQuery ModifyDBCluster where
                "NewDBClusterIdentifier" =:
                  _mdcNewDBClusterIdentifier,
                "Port" =: _mdcPort,
+               "EnableIAMDatabaseAuthentication" =:
+                 _mdcEnableIAMDatabaseAuthentication,
                "DBClusterIdentifier" =: _mdcDBClusterIdentifier]
 
 -- | /See:/ 'modifyDBClusterResponse' smart constructor.

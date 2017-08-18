@@ -38,6 +38,7 @@ module Network.AWS.RDS.RestoreDBClusterFromSnapshot
     , rdbcfsOptionGroupName
     , rdbcfsTags
     , rdbcfsPort
+    , rdbcfsEnableIAMDatabaseAuthentication
     , rdbcfsDBClusterIdentifier
     , rdbcfsSnapshotIdentifier
     , rdbcfsEngine
@@ -63,18 +64,19 @@ import           Network.AWS.Response
 --
 -- /See:/ 'restoreDBClusterFromSnapshot' smart constructor.
 data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
-    { _rdbcfsEngineVersion       :: !(Maybe Text)
-    , _rdbcfsDBSubnetGroupName   :: !(Maybe Text)
-    , _rdbcfsAvailabilityZones   :: !(Maybe [Text])
-    , _rdbcfsKMSKeyId            :: !(Maybe Text)
-    , _rdbcfsVPCSecurityGroupIds :: !(Maybe [Text])
-    , _rdbcfsDatabaseName        :: !(Maybe Text)
-    , _rdbcfsOptionGroupName     :: !(Maybe Text)
-    , _rdbcfsTags                :: !(Maybe [Tag])
-    , _rdbcfsPort                :: !(Maybe Int)
-    , _rdbcfsDBClusterIdentifier :: !Text
-    , _rdbcfsSnapshotIdentifier  :: !Text
-    , _rdbcfsEngine              :: !Text
+    { _rdbcfsEngineVersion                   :: !(Maybe Text)
+    , _rdbcfsDBSubnetGroupName               :: !(Maybe Text)
+    , _rdbcfsAvailabilityZones               :: !(Maybe [Text])
+    , _rdbcfsKMSKeyId                        :: !(Maybe Text)
+    , _rdbcfsVPCSecurityGroupIds             :: !(Maybe [Text])
+    , _rdbcfsDatabaseName                    :: !(Maybe Text)
+    , _rdbcfsOptionGroupName                 :: !(Maybe Text)
+    , _rdbcfsTags                            :: !(Maybe [Tag])
+    , _rdbcfsPort                            :: !(Maybe Int)
+    , _rdbcfsEnableIAMDatabaseAuthentication :: !(Maybe Bool)
+    , _rdbcfsDBClusterIdentifier             :: !Text
+    , _rdbcfsSnapshotIdentifier              :: !Text
+    , _rdbcfsEngine                          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RestoreDBClusterFromSnapshot' with the minimum fields required to make a request.
@@ -99,6 +101,8 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
 --
 -- * 'rdbcfsPort' - The port number on which the new DB cluster accepts connections. Constraints: Value must be @1150-65535@  Default: The same port as the original DB cluster.
 --
+-- * 'rdbcfsEnableIAMDatabaseAuthentication' - A Boolean value that is true to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts, and otherwise false. Default: @false@
+--
 -- * 'rdbcfsDBClusterIdentifier' - The name of the DB cluster to create from the DB cluster snapshot. This parameter isn't case-sensitive. Constraints:     * Must contain from 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
 --
 -- * 'rdbcfsSnapshotIdentifier' - The identifier for the DB cluster snapshot to restore from. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
@@ -120,6 +124,7 @@ restoreDBClusterFromSnapshot pDBClusterIdentifier_ pSnapshotIdentifier_ pEngine_
     , _rdbcfsOptionGroupName = Nothing
     , _rdbcfsTags = Nothing
     , _rdbcfsPort = Nothing
+    , _rdbcfsEnableIAMDatabaseAuthentication = Nothing
     , _rdbcfsDBClusterIdentifier = pDBClusterIdentifier_
     , _rdbcfsSnapshotIdentifier = pSnapshotIdentifier_
     , _rdbcfsEngine = pEngine_
@@ -160,6 +165,10 @@ rdbcfsTags = lens _rdbcfsTags (\ s a -> s{_rdbcfsTags = a}) . _Default . _Coerce
 -- | The port number on which the new DB cluster accepts connections. Constraints: Value must be @1150-65535@  Default: The same port as the original DB cluster.
 rdbcfsPort :: Lens' RestoreDBClusterFromSnapshot (Maybe Int)
 rdbcfsPort = lens _rdbcfsPort (\ s a -> s{_rdbcfsPort = a});
+
+-- | A Boolean value that is true to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts, and otherwise false. Default: @false@
+rdbcfsEnableIAMDatabaseAuthentication :: Lens' RestoreDBClusterFromSnapshot (Maybe Bool)
+rdbcfsEnableIAMDatabaseAuthentication = lens _rdbcfsEnableIAMDatabaseAuthentication (\ s a -> s{_rdbcfsEnableIAMDatabaseAuthentication = a});
 
 -- | The name of the DB cluster to create from the DB cluster snapshot. This parameter isn't case-sensitive. Constraints:     * Must contain from 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
 rdbcfsDBClusterIdentifier :: Lens' RestoreDBClusterFromSnapshot Text
@@ -217,6 +226,8 @@ instance ToQuery RestoreDBClusterFromSnapshot where
                "Tags" =:
                  toQuery (toQueryList "Tag" <$> _rdbcfsTags),
                "Port" =: _rdbcfsPort,
+               "EnableIAMDatabaseAuthentication" =:
+                 _rdbcfsEnableIAMDatabaseAuthentication,
                "DBClusterIdentifier" =: _rdbcfsDBClusterIdentifier,
                "SnapshotIdentifier" =: _rdbcfsSnapshotIdentifier,
                "Engine" =: _rdbcfsEngine]

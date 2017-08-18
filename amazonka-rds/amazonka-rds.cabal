@@ -127,6 +127,8 @@ library
         , Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
         , Network.AWS.RDS.RestoreDBInstanceToPointInTime
         , Network.AWS.RDS.RevokeDBSecurityGroupIngress
+        , Network.AWS.RDS.StartDBInstance
+        , Network.AWS.RDS.StopDBInstance
         , Network.AWS.RDS.Types
         , Network.AWS.RDS.Waiters
 

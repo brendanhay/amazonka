@@ -254,39 +254,41 @@ instance NFData CharacterSet
 --
 -- /See:/ 'dbCluster' smart constructor.
 data DBCluster = DBCluster'
-    { _dcEngineVersion                   :: !(Maybe Text)
-    , _dcStatus                          :: !(Maybe Text)
-    , _dcStorageEncrypted                :: !(Maybe Bool)
-    , _dcDBClusterIdentifier             :: !(Maybe Text)
-    , _dcDBClusterMembers                :: !(Maybe [DBClusterMember])
-    , _dcReadReplicaIdentifiers          :: !(Maybe [Text])
-    , _dcReplicationSourceIdentifier     :: !(Maybe Text)
-    , _dcHostedZoneId                    :: !(Maybe Text)
-    , _dcDBClusterParameterGroup         :: !(Maybe Text)
-    , _dcMasterUsername                  :: !(Maybe Text)
-    , _dcDBClusterResourceId             :: !(Maybe Text)
-    , _dcEarliestRestorableTime          :: !(Maybe ISO8601)
-    , _dcEngine                          :: !(Maybe Text)
-    , _dcDBClusterARN                    :: !(Maybe Text)
-    , _dcLatestRestorableTime            :: !(Maybe ISO8601)
-    , _dcPreferredMaintenanceWindow      :: !(Maybe Text)
-    , _dcAvailabilityZones               :: !(Maybe [Text])
-    , _dcCharacterSetName                :: !(Maybe Text)
-    , _dcKMSKeyId                        :: !(Maybe Text)
-    , _dcPreferredBackupWindow           :: !(Maybe Text)
-    , _dcAssociatedRoles                 :: !(Maybe [DBClusterRole])
-    , _dcVPCSecurityGroups               :: !(Maybe [VPCSecurityGroupMembership])
-    , _dcBackupRetentionPeriod           :: !(Maybe Int)
-    , _dcDBSubnetGroup                   :: !(Maybe Text)
-    , _dcDatabaseName                    :: !(Maybe Text)
-    , _dcMultiAZ                         :: !(Maybe Bool)
-    , _dcAllocatedStorage                :: !(Maybe Int)
-    , _dcClusterCreateTime               :: !(Maybe ISO8601)
-    , _dcEndpoint                        :: !(Maybe Text)
-    , _dcPercentProgress                 :: !(Maybe Text)
-    , _dcReaderEndpoint                  :: !(Maybe Text)
-    , _dcPort                            :: !(Maybe Int)
-    , _dcDBClusterOptionGroupMemberships :: !(Maybe [DBClusterOptionGroupStatus])
+    { _dcEngineVersion                    :: !(Maybe Text)
+    , _dcStatus                           :: !(Maybe Text)
+    , _dcStorageEncrypted                 :: !(Maybe Bool)
+    , _dcDBClusterIdentifier              :: !(Maybe Text)
+    , _dcDBClusterMembers                 :: !(Maybe [DBClusterMember])
+    , _dcReadReplicaIdentifiers           :: !(Maybe [Text])
+    , _dcReplicationSourceIdentifier      :: !(Maybe Text)
+    , _dcHostedZoneId                     :: !(Maybe Text)
+    , _dcDBClusterParameterGroup          :: !(Maybe Text)
+    , _dcMasterUsername                   :: !(Maybe Text)
+    , _dcIAMDatabaseAuthenticationEnabled :: !(Maybe Bool)
+    , _dcDBClusterResourceId              :: !(Maybe Text)
+    , _dcEarliestRestorableTime           :: !(Maybe ISO8601)
+    , _dcEngine                           :: !(Maybe Text)
+    , _dcDBClusterARN                     :: !(Maybe Text)
+    , _dcCloneGroupId                     :: !(Maybe Text)
+    , _dcLatestRestorableTime             :: !(Maybe ISO8601)
+    , _dcPreferredMaintenanceWindow       :: !(Maybe Text)
+    , _dcAvailabilityZones                :: !(Maybe [Text])
+    , _dcCharacterSetName                 :: !(Maybe Text)
+    , _dcKMSKeyId                         :: !(Maybe Text)
+    , _dcPreferredBackupWindow            :: !(Maybe Text)
+    , _dcAssociatedRoles                  :: !(Maybe [DBClusterRole])
+    , _dcVPCSecurityGroups                :: !(Maybe [VPCSecurityGroupMembership])
+    , _dcBackupRetentionPeriod            :: !(Maybe Int)
+    , _dcDBSubnetGroup                    :: !(Maybe Text)
+    , _dcDatabaseName                     :: !(Maybe Text)
+    , _dcMultiAZ                          :: !(Maybe Bool)
+    , _dcAllocatedStorage                 :: !(Maybe Int)
+    , _dcClusterCreateTime                :: !(Maybe ISO8601)
+    , _dcEndpoint                         :: !(Maybe Text)
+    , _dcPercentProgress                  :: !(Maybe Text)
+    , _dcReaderEndpoint                   :: !(Maybe Text)
+    , _dcPort                             :: !(Maybe Int)
+    , _dcDBClusterOptionGroupMemberships  :: !(Maybe [DBClusterOptionGroupStatus])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DBCluster' with the minimum fields required to make a request.
@@ -313,6 +315,8 @@ data DBCluster = DBCluster'
 --
 -- * 'dcMasterUsername' - Contains the master username for the DB cluster.
 --
+-- * 'dcIAMDatabaseAuthenticationEnabled' - True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled; otherwise false.
+--
 -- * 'dcDBClusterResourceId' - The region-unique, immutable identifier for the DB cluster. This identifier is found in AWS CloudTrail log entries whenever the KMS key for the DB cluster is accessed.
 --
 -- * 'dcEarliestRestorableTime' - Specifies the earliest time to which a database can be restored with point-in-time restore.
@@ -320,6 +324,8 @@ data DBCluster = DBCluster'
 -- * 'dcEngine' - Provides the name of the database engine to be used for this DB cluster.
 --
 -- * 'dcDBClusterARN' - The Amazon Resource Name (ARN) for the DB cluster.
+--
+-- * 'dcCloneGroupId' - Identifies the clone group to which the DB cluster is associated.
 --
 -- * 'dcLatestRestorableTime' - Specifies the latest time to which a database can be restored with point-in-time restore.
 --
@@ -345,7 +351,7 @@ data DBCluster = DBCluster'
 --
 -- * 'dcMultiAZ' - Specifies whether the DB cluster has instances in multiple Availability Zones.
 --
--- * 'dcAllocatedStorage' - Specifies the allocated storage size in gigabytes (GB).
+-- * 'dcAllocatedStorage' - For all database engines except Amazon Aurora, @AllocatedStorage@ specifies the allocated storage size in gigabytes (GB). For Aurora, @AllocatedStorage@ always returns 1, because Aurora DB cluster storage size is not fixed, but instead automatically adjusts as needed.
 --
 -- * 'dcClusterCreateTime' - Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).
 --
@@ -353,7 +359,7 @@ data DBCluster = DBCluster'
 --
 -- * 'dcPercentProgress' - Specifies the progress of the operation as a percentage.
 --
--- * 'dcReaderEndpoint' - The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.  If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection will be dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then recoonect to the reader endpoint.
+-- * 'dcReaderEndpoint' - The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.  If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection will be dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
 --
 -- * 'dcPort' - Specifies the port that the database engine is listening on.
 --
@@ -372,10 +378,12 @@ dbCluster =
     , _dcHostedZoneId = Nothing
     , _dcDBClusterParameterGroup = Nothing
     , _dcMasterUsername = Nothing
+    , _dcIAMDatabaseAuthenticationEnabled = Nothing
     , _dcDBClusterResourceId = Nothing
     , _dcEarliestRestorableTime = Nothing
     , _dcEngine = Nothing
     , _dcDBClusterARN = Nothing
+    , _dcCloneGroupId = Nothing
     , _dcLatestRestorableTime = Nothing
     , _dcPreferredMaintenanceWindow = Nothing
     , _dcAvailabilityZones = Nothing
@@ -437,6 +445,10 @@ dcDBClusterParameterGroup = lens _dcDBClusterParameterGroup (\ s a -> s{_dcDBClu
 dcMasterUsername :: Lens' DBCluster (Maybe Text)
 dcMasterUsername = lens _dcMasterUsername (\ s a -> s{_dcMasterUsername = a});
 
+-- | True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled; otherwise false.
+dcIAMDatabaseAuthenticationEnabled :: Lens' DBCluster (Maybe Bool)
+dcIAMDatabaseAuthenticationEnabled = lens _dcIAMDatabaseAuthenticationEnabled (\ s a -> s{_dcIAMDatabaseAuthenticationEnabled = a});
+
 -- | The region-unique, immutable identifier for the DB cluster. This identifier is found in AWS CloudTrail log entries whenever the KMS key for the DB cluster is accessed.
 dcDBClusterResourceId :: Lens' DBCluster (Maybe Text)
 dcDBClusterResourceId = lens _dcDBClusterResourceId (\ s a -> s{_dcDBClusterResourceId = a});
@@ -452,6 +464,10 @@ dcEngine = lens _dcEngine (\ s a -> s{_dcEngine = a});
 -- | The Amazon Resource Name (ARN) for the DB cluster.
 dcDBClusterARN :: Lens' DBCluster (Maybe Text)
 dcDBClusterARN = lens _dcDBClusterARN (\ s a -> s{_dcDBClusterARN = a});
+
+-- | Identifies the clone group to which the DB cluster is associated.
+dcCloneGroupId :: Lens' DBCluster (Maybe Text)
+dcCloneGroupId = lens _dcCloneGroupId (\ s a -> s{_dcCloneGroupId = a});
 
 -- | Specifies the latest time to which a database can be restored with point-in-time restore.
 dcLatestRestorableTime :: Lens' DBCluster (Maybe UTCTime)
@@ -501,7 +517,7 @@ dcDatabaseName = lens _dcDatabaseName (\ s a -> s{_dcDatabaseName = a});
 dcMultiAZ :: Lens' DBCluster (Maybe Bool)
 dcMultiAZ = lens _dcMultiAZ (\ s a -> s{_dcMultiAZ = a});
 
--- | Specifies the allocated storage size in gigabytes (GB).
+-- | For all database engines except Amazon Aurora, @AllocatedStorage@ specifies the allocated storage size in gigabytes (GB). For Aurora, @AllocatedStorage@ always returns 1, because Aurora DB cluster storage size is not fixed, but instead automatically adjusts as needed.
 dcAllocatedStorage :: Lens' DBCluster (Maybe Int)
 dcAllocatedStorage = lens _dcAllocatedStorage (\ s a -> s{_dcAllocatedStorage = a});
 
@@ -517,7 +533,7 @@ dcEndpoint = lens _dcEndpoint (\ s a -> s{_dcEndpoint = a});
 dcPercentProgress :: Lens' DBCluster (Maybe Text)
 dcPercentProgress = lens _dcPercentProgress (\ s a -> s{_dcPercentProgress = a});
 
--- | The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.  If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection will be dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then recoonect to the reader endpoint.
+-- | The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.  If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection will be dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
 dcReaderEndpoint :: Lens' DBCluster (Maybe Text)
 dcReaderEndpoint = lens _dcReaderEndpoint (\ s a -> s{_dcReaderEndpoint = a});
 
@@ -545,10 +561,12 @@ instance FromXML DBCluster where
                 <*> (x .@? "HostedZoneId")
                 <*> (x .@? "DBClusterParameterGroup")
                 <*> (x .@? "MasterUsername")
+                <*> (x .@? "IAMDatabaseAuthenticationEnabled")
                 <*> (x .@? "DbClusterResourceId")
                 <*> (x .@? "EarliestRestorableTime")
                 <*> (x .@? "Engine")
                 <*> (x .@? "DBClusterArn")
+                <*> (x .@? "CloneGroupId")
                 <*> (x .@? "LatestRestorableTime")
                 <*> (x .@? "PreferredMaintenanceWindow")
                 <*>
@@ -839,24 +857,26 @@ instance NFData DBClusterRole
 --
 -- /See:/ 'dbClusterSnapshot' smart constructor.
 data DBClusterSnapshot = DBClusterSnapshot'
-    { _dcsEngineVersion               :: !(Maybe Text)
-    , _dcsStatus                      :: !(Maybe Text)
-    , _dcsStorageEncrypted            :: !(Maybe Bool)
-    , _dcsDBClusterIdentifier         :: !(Maybe Text)
-    , _dcsMasterUsername              :: !(Maybe Text)
-    , _dcsDBClusterSnapshotARN        :: !(Maybe Text)
-    , _dcsVPCId                       :: !(Maybe Text)
-    , _dcsDBClusterSnapshotIdentifier :: !(Maybe Text)
-    , _dcsEngine                      :: !(Maybe Text)
-    , _dcsLicenseModel                :: !(Maybe Text)
-    , _dcsAvailabilityZones           :: !(Maybe [Text])
-    , _dcsSnapshotType                :: !(Maybe Text)
-    , _dcsKMSKeyId                    :: !(Maybe Text)
-    , _dcsSnapshotCreateTime          :: !(Maybe ISO8601)
-    , _dcsAllocatedStorage            :: !(Maybe Int)
-    , _dcsClusterCreateTime           :: !(Maybe ISO8601)
-    , _dcsPercentProgress             :: !(Maybe Int)
-    , _dcsPort                        :: !(Maybe Int)
+    { _dcsEngineVersion                    :: !(Maybe Text)
+    , _dcsStatus                           :: !(Maybe Text)
+    , _dcsStorageEncrypted                 :: !(Maybe Bool)
+    , _dcsDBClusterIdentifier              :: !(Maybe Text)
+    , _dcsMasterUsername                   :: !(Maybe Text)
+    , _dcsIAMDatabaseAuthenticationEnabled :: !(Maybe Bool)
+    , _dcsDBClusterSnapshotARN             :: !(Maybe Text)
+    , _dcsVPCId                            :: !(Maybe Text)
+    , _dcsDBClusterSnapshotIdentifier      :: !(Maybe Text)
+    , _dcsEngine                           :: !(Maybe Text)
+    , _dcsLicenseModel                     :: !(Maybe Text)
+    , _dcsAvailabilityZones                :: !(Maybe [Text])
+    , _dcsSnapshotType                     :: !(Maybe Text)
+    , _dcsKMSKeyId                         :: !(Maybe Text)
+    , _dcsSnapshotCreateTime               :: !(Maybe ISO8601)
+    , _dcsAllocatedStorage                 :: !(Maybe Int)
+    , _dcsSourceDBClusterSnapshotARN       :: !(Maybe Text)
+    , _dcsClusterCreateTime                :: !(Maybe ISO8601)
+    , _dcsPercentProgress                  :: !(Maybe Int)
+    , _dcsPort                             :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DBClusterSnapshot' with the minimum fields required to make a request.
@@ -872,6 +892,8 @@ data DBClusterSnapshot = DBClusterSnapshot'
 -- * 'dcsDBClusterIdentifier' - Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
 --
 -- * 'dcsMasterUsername' - Provides the master username for the DB cluster snapshot.
+--
+-- * 'dcsIAMDatabaseAuthenticationEnabled' - True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled; otherwise false.
 --
 -- * 'dcsDBClusterSnapshotARN' - The Amazon Resource Name (ARN) for the DB cluster snapshot.
 --
@@ -893,6 +915,8 @@ data DBClusterSnapshot = DBClusterSnapshot'
 --
 -- * 'dcsAllocatedStorage' - Specifies the allocated storage size in gigabytes (GB).
 --
+-- * 'dcsSourceDBClusterSnapshotARN' - If the DB cluster snapshot was copied from a source DB cluster snapshot, the Amazon Resource Name (ARN) for the source DB cluster snapshot; otherwise, a null value.
+--
 -- * 'dcsClusterCreateTime' - Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).
 --
 -- * 'dcsPercentProgress' - Specifies the percentage of the estimated data that has been transferred.
@@ -907,6 +931,7 @@ dbClusterSnapshot =
     , _dcsStorageEncrypted = Nothing
     , _dcsDBClusterIdentifier = Nothing
     , _dcsMasterUsername = Nothing
+    , _dcsIAMDatabaseAuthenticationEnabled = Nothing
     , _dcsDBClusterSnapshotARN = Nothing
     , _dcsVPCId = Nothing
     , _dcsDBClusterSnapshotIdentifier = Nothing
@@ -917,6 +942,7 @@ dbClusterSnapshot =
     , _dcsKMSKeyId = Nothing
     , _dcsSnapshotCreateTime = Nothing
     , _dcsAllocatedStorage = Nothing
+    , _dcsSourceDBClusterSnapshotARN = Nothing
     , _dcsClusterCreateTime = Nothing
     , _dcsPercentProgress = Nothing
     , _dcsPort = Nothing
@@ -941,6 +967,10 @@ dcsDBClusterIdentifier = lens _dcsDBClusterIdentifier (\ s a -> s{_dcsDBClusterI
 -- | Provides the master username for the DB cluster snapshot.
 dcsMasterUsername :: Lens' DBClusterSnapshot (Maybe Text)
 dcsMasterUsername = lens _dcsMasterUsername (\ s a -> s{_dcsMasterUsername = a});
+
+-- | True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled; otherwise false.
+dcsIAMDatabaseAuthenticationEnabled :: Lens' DBClusterSnapshot (Maybe Bool)
+dcsIAMDatabaseAuthenticationEnabled = lens _dcsIAMDatabaseAuthenticationEnabled (\ s a -> s{_dcsIAMDatabaseAuthenticationEnabled = a});
 
 -- | The Amazon Resource Name (ARN) for the DB cluster snapshot.
 dcsDBClusterSnapshotARN :: Lens' DBClusterSnapshot (Maybe Text)
@@ -982,6 +1012,10 @@ dcsSnapshotCreateTime = lens _dcsSnapshotCreateTime (\ s a -> s{_dcsSnapshotCrea
 dcsAllocatedStorage :: Lens' DBClusterSnapshot (Maybe Int)
 dcsAllocatedStorage = lens _dcsAllocatedStorage (\ s a -> s{_dcsAllocatedStorage = a});
 
+-- | If the DB cluster snapshot was copied from a source DB cluster snapshot, the Amazon Resource Name (ARN) for the source DB cluster snapshot; otherwise, a null value.
+dcsSourceDBClusterSnapshotARN :: Lens' DBClusterSnapshot (Maybe Text)
+dcsSourceDBClusterSnapshotARN = lens _dcsSourceDBClusterSnapshotARN (\ s a -> s{_dcsSourceDBClusterSnapshotARN = a});
+
 -- | Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).
 dcsClusterCreateTime :: Lens' DBClusterSnapshot (Maybe UTCTime)
 dcsClusterCreateTime = lens _dcsClusterCreateTime (\ s a -> s{_dcsClusterCreateTime = a}) . mapping _Time;
@@ -1001,6 +1035,7 @@ instance FromXML DBClusterSnapshot where
                 (x .@? "StorageEncrypted")
                 <*> (x .@? "DBClusterIdentifier")
                 <*> (x .@? "MasterUsername")
+                <*> (x .@? "IAMDatabaseAuthenticationEnabled")
                 <*> (x .@? "DBClusterSnapshotArn")
                 <*> (x .@? "VpcId")
                 <*> (x .@? "DBClusterSnapshotIdentifier")
@@ -1013,6 +1048,7 @@ instance FromXML DBClusterSnapshot where
                 <*> (x .@? "KmsKeyId")
                 <*> (x .@? "SnapshotCreateTime")
                 <*> (x .@? "AllocatedStorage")
+                <*> (x .@? "SourceDBClusterSnapshotArn")
                 <*> (x .@? "ClusterCreateTime")
                 <*> (x .@? "PercentProgress")
                 <*> (x .@? "Port")
@@ -1235,6 +1271,10 @@ instance NFData DBEngineVersion
 --
 --     * 'ModifyDBInstance'
 --
+--     * 'StopDBInstance'
+--
+--     * 'StartDBInstance'
+--
 --
 --
 -- This data type is used as a response element in the 'DescribeDBInstances' action.
@@ -1251,6 +1291,7 @@ data DBInstance = DBInstance'
     , _diDBInstanceARN                         :: !(Maybe Text)
     , _diMasterUsername                        :: !(Maybe Text)
     , _diReadReplicaDBInstanceIdentifiers      :: !(Maybe [Text])
+    , _diIAMDatabaseAuthenticationEnabled      :: !(Maybe Bool)
     , _diMonitoringRoleARN                     :: !(Maybe Text)
     , _diIOPS                                  :: !(Maybe Int)
     , _diInstanceCreateTime                    :: !(Maybe ISO8601)
@@ -1313,6 +1354,8 @@ data DBInstance = DBInstance'
 -- * 'diMasterUsername' - Contains the master username for the DB instance.
 --
 -- * 'diReadReplicaDBInstanceIdentifiers' - Contains one or more identifiers of the Read Replicas associated with this DB instance.
+--
+-- * 'diIAMDatabaseAuthenticationEnabled' - True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled; otherwise false. IAM database authentication can be enabled for the following database engines     * For MySQL 5.6, minor version 5.6.34 or higher     * For MySQL 5.7, minor version 5.7.16 or higher     * Aurora 5.6 or higher. To enable IAM database authentication for Aurora, see DBCluster Type.
 --
 -- * 'diMonitoringRoleARN' - The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
 --
@@ -1390,7 +1433,7 @@ data DBInstance = DBInstance'
 --
 -- * 'diDomainMemberships' - The Active Directory Domain membership records associated with the DB instance.
 --
--- * 'diDBName' - The meaning of this parameter differs according to the database engine you use. For example, this value returns MySQL, MariaDB, or PostgreSQL information when returning values from CreateDBInstanceReadReplica since Read Replicas are only supported for these engines. __MySQL, MariaDB, SQL Server, PostgreSQL, Amazon Aurora__  Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance. Type: String __Oracle__  Contains the Oracle System ID (SID) of the created DB instance. Not shown when the returned parameters do not apply to an Oracle DB instance.
+-- * 'diDBName' - The meaning of this parameter differs according to the database engine you use. For example, this value returns MySQL, MariaDB, or PostgreSQL information when returning values from CreateDBInstanceReadReplica since Read Replicas are only supported for these engines. __MySQL, MariaDB, SQL Server, PostgreSQL__  Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance. Type: String __Oracle__  Contains the Oracle System ID (SID) of the created DB instance. Not shown when the returned parameters do not apply to an Oracle DB instance.
 dbInstance
     :: DBInstance
 dbInstance =
@@ -1404,6 +1447,7 @@ dbInstance =
     , _diDBInstanceARN = Nothing
     , _diMasterUsername = Nothing
     , _diReadReplicaDBInstanceIdentifiers = Nothing
+    , _diIAMDatabaseAuthenticationEnabled = Nothing
     , _diMonitoringRoleARN = Nothing
     , _diIOPS = Nothing
     , _diInstanceCreateTime = Nothing
@@ -1480,6 +1524,10 @@ diMasterUsername = lens _diMasterUsername (\ s a -> s{_diMasterUsername = a});
 -- | Contains one or more identifiers of the Read Replicas associated with this DB instance.
 diReadReplicaDBInstanceIdentifiers :: Lens' DBInstance [Text]
 diReadReplicaDBInstanceIdentifiers = lens _diReadReplicaDBInstanceIdentifiers (\ s a -> s{_diReadReplicaDBInstanceIdentifiers = a}) . _Default . _Coerce;
+
+-- | True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled; otherwise false. IAM database authentication can be enabled for the following database engines     * For MySQL 5.6, minor version 5.6.34 or higher     * For MySQL 5.7, minor version 5.7.16 or higher     * Aurora 5.6 or higher. To enable IAM database authentication for Aurora, see DBCluster Type.
+diIAMDatabaseAuthenticationEnabled :: Lens' DBInstance (Maybe Bool)
+diIAMDatabaseAuthenticationEnabled = lens _diIAMDatabaseAuthenticationEnabled (\ s a -> s{_diIAMDatabaseAuthenticationEnabled = a});
 
 -- | The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
 diMonitoringRoleARN :: Lens' DBInstance (Maybe Text)
@@ -1633,7 +1681,7 @@ diStatusInfos = lens _diStatusInfos (\ s a -> s{_diStatusInfos = a}) . _Default 
 diDomainMemberships :: Lens' DBInstance [DomainMembership]
 diDomainMemberships = lens _diDomainMemberships (\ s a -> s{_diDomainMemberships = a}) . _Default . _Coerce;
 
--- | The meaning of this parameter differs according to the database engine you use. For example, this value returns MySQL, MariaDB, or PostgreSQL information when returning values from CreateDBInstanceReadReplica since Read Replicas are only supported for these engines. __MySQL, MariaDB, SQL Server, PostgreSQL, Amazon Aurora__  Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance. Type: String __Oracle__  Contains the Oracle System ID (SID) of the created DB instance. Not shown when the returned parameters do not apply to an Oracle DB instance.
+-- | The meaning of this parameter differs according to the database engine you use. For example, this value returns MySQL, MariaDB, or PostgreSQL information when returning values from CreateDBInstanceReadReplica since Read Replicas are only supported for these engines. __MySQL, MariaDB, SQL Server, PostgreSQL__  Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance. Type: String __Oracle__  Contains the Oracle System ID (SID) of the created DB instance. Not shown when the returned parameters do not apply to an Oracle DB instance.
 diDBName :: Lens' DBInstance (Maybe Text)
 diDBName = lens _diDBName (\ s a -> s{_diDBName = a});
 
@@ -1653,6 +1701,7 @@ instance FromXML DBInstance where
                 (x .@? "ReadReplicaDBInstanceIdentifiers" .!@ mempty
                    >>=
                    may (parseXMLList "ReadReplicaDBInstanceIdentifier"))
+                <*> (x .@? "IAMDatabaseAuthenticationEnabled")
                 <*> (x .@? "MonitoringRoleArn")
                 <*> (x .@? "Iops")
                 <*> (x .@? "InstanceCreateTime")
@@ -2095,31 +2144,32 @@ instance NFData DBSecurityGroupMembership
 --
 -- /See:/ 'dbSnapshot' smart constructor.
 data DBSnapshot = DBSnapshot'
-    { _dsEngineVersion              :: !(Maybe Text)
-    , _dsStatus                     :: !(Maybe Text)
-    , _dsDBSnapshotARN              :: !(Maybe Text)
-    , _dsMasterUsername             :: !(Maybe Text)
-    , _dsSourceRegion               :: !(Maybe Text)
-    , _dsIOPS                       :: !(Maybe Int)
-    , _dsVPCId                      :: !(Maybe Text)
-    , _dsInstanceCreateTime         :: !(Maybe ISO8601)
-    , _dsEngine                     :: !(Maybe Text)
-    , _dsEncrypted                  :: !(Maybe Bool)
-    , _dsDBSnapshotIdentifier       :: !(Maybe Text)
-    , _dsLicenseModel               :: !(Maybe Text)
-    , _dsSourceDBSnapshotIdentifier :: !(Maybe Text)
-    , _dsSnapshotType               :: !(Maybe Text)
-    , _dsDBInstanceIdentifier       :: !(Maybe Text)
-    , _dsKMSKeyId                   :: !(Maybe Text)
-    , _dsAvailabilityZone           :: !(Maybe Text)
-    , _dsSnapshotCreateTime         :: !(Maybe ISO8601)
-    , _dsAllocatedStorage           :: !(Maybe Int)
-    , _dsOptionGroupName            :: !(Maybe Text)
-    , _dsTimezone                   :: !(Maybe Text)
-    , _dsTDECredentialARN           :: !(Maybe Text)
-    , _dsPercentProgress            :: !(Maybe Int)
-    , _dsPort                       :: !(Maybe Int)
-    , _dsStorageType                :: !(Maybe Text)
+    { _dsEngineVersion                    :: !(Maybe Text)
+    , _dsStatus                           :: !(Maybe Text)
+    , _dsDBSnapshotARN                    :: !(Maybe Text)
+    , _dsMasterUsername                   :: !(Maybe Text)
+    , _dsSourceRegion                     :: !(Maybe Text)
+    , _dsIAMDatabaseAuthenticationEnabled :: !(Maybe Bool)
+    , _dsIOPS                             :: !(Maybe Int)
+    , _dsVPCId                            :: !(Maybe Text)
+    , _dsInstanceCreateTime               :: !(Maybe ISO8601)
+    , _dsEngine                           :: !(Maybe Text)
+    , _dsEncrypted                        :: !(Maybe Bool)
+    , _dsDBSnapshotIdentifier             :: !(Maybe Text)
+    , _dsLicenseModel                     :: !(Maybe Text)
+    , _dsSourceDBSnapshotIdentifier       :: !(Maybe Text)
+    , _dsSnapshotType                     :: !(Maybe Text)
+    , _dsDBInstanceIdentifier             :: !(Maybe Text)
+    , _dsKMSKeyId                         :: !(Maybe Text)
+    , _dsAvailabilityZone                 :: !(Maybe Text)
+    , _dsSnapshotCreateTime               :: !(Maybe ISO8601)
+    , _dsAllocatedStorage                 :: !(Maybe Int)
+    , _dsOptionGroupName                  :: !(Maybe Text)
+    , _dsTimezone                         :: !(Maybe Text)
+    , _dsTDECredentialARN                 :: !(Maybe Text)
+    , _dsPercentProgress                  :: !(Maybe Int)
+    , _dsPort                             :: !(Maybe Int)
+    , _dsStorageType                      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DBSnapshot' with the minimum fields required to make a request.
@@ -2134,7 +2184,9 @@ data DBSnapshot = DBSnapshot'
 --
 -- * 'dsMasterUsername' - Provides the master username for the DB snapshot.
 --
--- * 'dsSourceRegion' - The region that the DB snapshot was created in or copied from.
+-- * 'dsSourceRegion' - The AWS Region that the DB snapshot was created in or copied from.
+--
+-- * 'dsIAMDatabaseAuthenticationEnabled' - True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled; otherwise false.
 --
 -- * 'dsIOPS' - Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
 --
@@ -2150,7 +2202,7 @@ data DBSnapshot = DBSnapshot'
 --
 -- * 'dsLicenseModel' - License model information for the restored DB instance.
 --
--- * 'dsSourceDBSnapshotIdentifier' - The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
+-- * 'dsSourceDBSnapshotIdentifier' - The DB snapshot Amazon Resource Name (ARN) that the DB snapshot was copied from. It only has value in case of cross-customer or cross-region copy.
 --
 -- * 'dsSnapshotType' - Provides the type of the DB snapshot.
 --
@@ -2184,6 +2236,7 @@ dbSnapshot =
     , _dsDBSnapshotARN = Nothing
     , _dsMasterUsername = Nothing
     , _dsSourceRegion = Nothing
+    , _dsIAMDatabaseAuthenticationEnabled = Nothing
     , _dsIOPS = Nothing
     , _dsVPCId = Nothing
     , _dsInstanceCreateTime = Nothing
@@ -2222,9 +2275,13 @@ dsDBSnapshotARN = lens _dsDBSnapshotARN (\ s a -> s{_dsDBSnapshotARN = a});
 dsMasterUsername :: Lens' DBSnapshot (Maybe Text)
 dsMasterUsername = lens _dsMasterUsername (\ s a -> s{_dsMasterUsername = a});
 
--- | The region that the DB snapshot was created in or copied from.
+-- | The AWS Region that the DB snapshot was created in or copied from.
 dsSourceRegion :: Lens' DBSnapshot (Maybe Text)
 dsSourceRegion = lens _dsSourceRegion (\ s a -> s{_dsSourceRegion = a});
+
+-- | True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled; otherwise false.
+dsIAMDatabaseAuthenticationEnabled :: Lens' DBSnapshot (Maybe Bool)
+dsIAMDatabaseAuthenticationEnabled = lens _dsIAMDatabaseAuthenticationEnabled (\ s a -> s{_dsIAMDatabaseAuthenticationEnabled = a});
 
 -- | Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
 dsIOPS :: Lens' DBSnapshot (Maybe Int)
@@ -2254,7 +2311,7 @@ dsDBSnapshotIdentifier = lens _dsDBSnapshotIdentifier (\ s a -> s{_dsDBSnapshotI
 dsLicenseModel :: Lens' DBSnapshot (Maybe Text)
 dsLicenseModel = lens _dsLicenseModel (\ s a -> s{_dsLicenseModel = a});
 
--- | The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
+-- | The DB snapshot Amazon Resource Name (ARN) that the DB snapshot was copied from. It only has value in case of cross-customer or cross-region copy.
 dsSourceDBSnapshotIdentifier :: Lens' DBSnapshot (Maybe Text)
 dsSourceDBSnapshotIdentifier = lens _dsSourceDBSnapshotIdentifier (\ s a -> s{_dsSourceDBSnapshotIdentifier = a});
 
@@ -2313,6 +2370,7 @@ instance FromXML DBSnapshot where
                 (x .@? "DBSnapshotArn")
                 <*> (x .@? "MasterUsername")
                 <*> (x .@? "SourceRegion")
+                <*> (x .@? "IAMDatabaseAuthenticationEnabled")
                 <*> (x .@? "Iops")
                 <*> (x .@? "VpcId")
                 <*> (x .@? "InstanceCreateTime")
@@ -3871,18 +3929,19 @@ instance NFData OptionVersion
 --
 -- /See:/ 'orderableDBInstanceOption' smart constructor.
 data OrderableDBInstanceOption = OrderableDBInstanceOption'
-    { _odioEngineVersion              :: !(Maybe Text)
-    , _odioMultiAZCapable             :: !(Maybe Bool)
-    , _odioEngine                     :: !(Maybe Text)
-    , _odioSupportsIOPS               :: !(Maybe Bool)
-    , _odioDBInstanceClass            :: !(Maybe Text)
-    , _odioLicenseModel               :: !(Maybe Text)
-    , _odioAvailabilityZones          :: !(Maybe [AvailabilityZone])
-    , _odioSupportsStorageEncryption  :: !(Maybe Bool)
-    , _odioReadReplicaCapable         :: !(Maybe Bool)
-    , _odioVPC                        :: !(Maybe Bool)
-    , _odioSupportsEnhancedMonitoring :: !(Maybe Bool)
-    , _odioStorageType                :: !(Maybe Text)
+    { _odioEngineVersion                     :: !(Maybe Text)
+    , _odioSupportsIAMDatabaseAuthentication :: !(Maybe Bool)
+    , _odioMultiAZCapable                    :: !(Maybe Bool)
+    , _odioEngine                            :: !(Maybe Text)
+    , _odioSupportsIOPS                      :: !(Maybe Bool)
+    , _odioDBInstanceClass                   :: !(Maybe Text)
+    , _odioLicenseModel                      :: !(Maybe Text)
+    , _odioAvailabilityZones                 :: !(Maybe [AvailabilityZone])
+    , _odioSupportsStorageEncryption         :: !(Maybe Bool)
+    , _odioReadReplicaCapable                :: !(Maybe Bool)
+    , _odioVPC                               :: !(Maybe Bool)
+    , _odioSupportsEnhancedMonitoring        :: !(Maybe Bool)
+    , _odioStorageType                       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OrderableDBInstanceOption' with the minimum fields required to make a request.
@@ -3890,6 +3949,8 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'odioEngineVersion' - The engine version of the orderable DB instance.
+--
+-- * 'odioSupportsIAMDatabaseAuthentication' - Indicates whether this orderable DB instance supports IAM database authentication.
 --
 -- * 'odioMultiAZCapable' - Indicates whether this orderable DB instance is multi-AZ capable.
 --
@@ -3917,6 +3978,7 @@ orderableDBInstanceOption
 orderableDBInstanceOption =
     OrderableDBInstanceOption'
     { _odioEngineVersion = Nothing
+    , _odioSupportsIAMDatabaseAuthentication = Nothing
     , _odioMultiAZCapable = Nothing
     , _odioEngine = Nothing
     , _odioSupportsIOPS = Nothing
@@ -3933,6 +3995,10 @@ orderableDBInstanceOption =
 -- | The engine version of the orderable DB instance.
 odioEngineVersion :: Lens' OrderableDBInstanceOption (Maybe Text)
 odioEngineVersion = lens _odioEngineVersion (\ s a -> s{_odioEngineVersion = a});
+
+-- | Indicates whether this orderable DB instance supports IAM database authentication.
+odioSupportsIAMDatabaseAuthentication :: Lens' OrderableDBInstanceOption (Maybe Bool)
+odioSupportsIAMDatabaseAuthentication = lens _odioSupportsIAMDatabaseAuthentication (\ s a -> s{_odioSupportsIAMDatabaseAuthentication = a});
 
 -- | Indicates whether this orderable DB instance is multi-AZ capable.
 odioMultiAZCapable :: Lens' OrderableDBInstanceOption (Maybe Bool)
@@ -3981,7 +4047,9 @@ odioStorageType = lens _odioStorageType (\ s a -> s{_odioStorageType = a});
 instance FromXML OrderableDBInstanceOption where
         parseXML x
           = OrderableDBInstanceOption' <$>
-              (x .@? "EngineVersion") <*> (x .@? "MultiAZCapable")
+              (x .@? "EngineVersion") <*>
+                (x .@? "SupportsIAMDatabaseAuthentication")
+                <*> (x .@? "MultiAZCapable")
                 <*> (x .@? "Engine")
                 <*> (x .@? "SupportsIops")
                 <*> (x .@? "DBInstanceClass")
@@ -4730,11 +4798,11 @@ data SourceRegion = SourceRegion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srStatus' - The status of the source region.
+-- * 'srStatus' - The status of the source AWS Region.
 --
--- * 'srRegionName' - The source region name.
+-- * 'srRegionName' - The name of the source AWS Region.
 --
--- * 'srEndpoint' - The source region endpoint.
+-- * 'srEndpoint' - The endpoint for the source AWS Region endpoint.
 sourceRegion
     :: SourceRegion
 sourceRegion =
@@ -4744,15 +4812,15 @@ sourceRegion =
     , _srEndpoint = Nothing
     }
 
--- | The status of the source region.
+-- | The status of the source AWS Region.
 srStatus :: Lens' SourceRegion (Maybe Text)
 srStatus = lens _srStatus (\ s a -> s{_srStatus = a});
 
--- | The source region name.
+-- | The name of the source AWS Region.
 srRegionName :: Lens' SourceRegion (Maybe Text)
 srRegionName = lens _srRegionName (\ s a -> s{_srRegionName = a});
 
--- | The source region endpoint.
+-- | The endpoint for the source AWS Region endpoint.
 srEndpoint :: Lens' SourceRegion (Maybe Text)
 srEndpoint = lens _srEndpoint (\ s a -> s{_srEndpoint = a});
 

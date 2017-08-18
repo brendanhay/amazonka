@@ -57,6 +57,7 @@ module Network.AWS.RDS.ModifyDBInstance
     , mdiCopyTagsToSnapshot
     , mdiTDECredentialARN
     , mdiDomainIAMRoleName
+    , mdiEnableIAMDatabaseAuthentication
     , mdiStorageType
     , mdiDBInstanceIdentifier
 
@@ -81,51 +82,52 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyDBInstance' smart constructor.
 data ModifyDBInstance = ModifyDBInstance'
-    { _mdiEngineVersion              :: !(Maybe Text)
-    , _mdiDBSecurityGroups           :: !(Maybe [Text])
-    , _mdiDBPortNumber               :: !(Maybe Int)
-    , _mdiMasterUserPassword         :: !(Maybe Text)
-    , _mdiPubliclyAccessible         :: !(Maybe Bool)
-    , _mdiAutoMinorVersionUpgrade    :: !(Maybe Bool)
-    , _mdiDBSubnetGroupName          :: !(Maybe Text)
-    , _mdiMonitoringRoleARN          :: !(Maybe Text)
-    , _mdiIOPS                       :: !(Maybe Int)
-    , _mdiAllowMajorVersionUpgrade   :: !(Maybe Bool)
-    , _mdiNewDBInstanceIdentifier    :: !(Maybe Text)
-    , _mdiDomain                     :: !(Maybe Text)
-    , _mdiMonitoringInterval         :: !(Maybe Int)
-    , _mdiTDECredentialPassword      :: !(Maybe Text)
-    , _mdiDBInstanceClass            :: !(Maybe Text)
-    , _mdiPromotionTier              :: !(Maybe Int)
-    , _mdiLicenseModel               :: !(Maybe Text)
-    , _mdiPreferredMaintenanceWindow :: !(Maybe Text)
-    , _mdiCACertificateIdentifier    :: !(Maybe Text)
-    , _mdiDBParameterGroupName       :: !(Maybe Text)
-    , _mdiPreferredBackupWindow      :: !(Maybe Text)
-    , _mdiBackupRetentionPeriod      :: !(Maybe Int)
-    , _mdiVPCSecurityGroupIds        :: !(Maybe [Text])
-    , _mdiMultiAZ                    :: !(Maybe Bool)
-    , _mdiAllocatedStorage           :: !(Maybe Int)
-    , _mdiApplyImmediately           :: !(Maybe Bool)
-    , _mdiOptionGroupName            :: !(Maybe Text)
-    , _mdiCopyTagsToSnapshot         :: !(Maybe Bool)
-    , _mdiTDECredentialARN           :: !(Maybe Text)
-    , _mdiDomainIAMRoleName          :: !(Maybe Text)
-    , _mdiStorageType                :: !(Maybe Text)
-    , _mdiDBInstanceIdentifier       :: !Text
+    { _mdiEngineVersion                   :: !(Maybe Text)
+    , _mdiDBSecurityGroups                :: !(Maybe [Text])
+    , _mdiDBPortNumber                    :: !(Maybe Int)
+    , _mdiMasterUserPassword              :: !(Maybe Text)
+    , _mdiPubliclyAccessible              :: !(Maybe Bool)
+    , _mdiAutoMinorVersionUpgrade         :: !(Maybe Bool)
+    , _mdiDBSubnetGroupName               :: !(Maybe Text)
+    , _mdiMonitoringRoleARN               :: !(Maybe Text)
+    , _mdiIOPS                            :: !(Maybe Int)
+    , _mdiAllowMajorVersionUpgrade        :: !(Maybe Bool)
+    , _mdiNewDBInstanceIdentifier         :: !(Maybe Text)
+    , _mdiDomain                          :: !(Maybe Text)
+    , _mdiMonitoringInterval              :: !(Maybe Int)
+    , _mdiTDECredentialPassword           :: !(Maybe Text)
+    , _mdiDBInstanceClass                 :: !(Maybe Text)
+    , _mdiPromotionTier                   :: !(Maybe Int)
+    , _mdiLicenseModel                    :: !(Maybe Text)
+    , _mdiPreferredMaintenanceWindow      :: !(Maybe Text)
+    , _mdiCACertificateIdentifier         :: !(Maybe Text)
+    , _mdiDBParameterGroupName            :: !(Maybe Text)
+    , _mdiPreferredBackupWindow           :: !(Maybe Text)
+    , _mdiBackupRetentionPeriod           :: !(Maybe Int)
+    , _mdiVPCSecurityGroupIds             :: !(Maybe [Text])
+    , _mdiMultiAZ                         :: !(Maybe Bool)
+    , _mdiAllocatedStorage                :: !(Maybe Int)
+    , _mdiApplyImmediately                :: !(Maybe Bool)
+    , _mdiOptionGroupName                 :: !(Maybe Text)
+    , _mdiCopyTagsToSnapshot              :: !(Maybe Bool)
+    , _mdiTDECredentialARN                :: !(Maybe Text)
+    , _mdiDomainIAMRoleName               :: !(Maybe Text)
+    , _mdiEnableIAMDatabaseAuthentication :: !(Maybe Bool)
+    , _mdiStorageType                     :: !(Maybe Text)
+    , _mdiDBInstanceIdentifier            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyDBInstance' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mdiEngineVersion' - The version number of the database engine to upgrade to. Changing this parameter results in an outage and the change is applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request.  For major version upgrades, if a non-default DB parameter group is currently in use, a new DB parameter group in the DB parameter group family for the new engine version must be specified. The new DB parameter group can be the default for that DB parameter group family. For a list of valid engine versions, see 'CreateDBInstance' .
+-- * 'mdiEngineVersion' - The version number of the database engine to upgrade to. Changing this parameter results in an outage and the change is applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request.  For major version upgrades, if a nondefault DB parameter group is currently in use, a new DB parameter group in the DB parameter group family for the new engine version must be specified. The new DB parameter group can be the default for that DB parameter group family. For a list of valid engine versions, see 'CreateDBInstance' .
 --
 -- * 'mdiDBSecurityGroups' - A list of DB security groups to authorize on this DB instance. Changing this setting does not result in an outage and the change is asynchronously applied as soon as possible. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- * 'mdiDBPortNumber' - The port number on which the database accepts connections. The value of the @DBPortNumber@ parameter must not match any of the port values specified for options in the option group for the DB instance. Your database will restart when you change the @DBPortNumber@ value regardless of the value of the @ApplyImmediately@ parameter. __MySQL__  Default: @3306@  Valid Values: @1150-65535@  __MariaDB__  Default: @3306@  Valid Values: @1150-65535@  __PostgreSQL__  Default: @5432@  Valid Values: @1150-65535@  Type: Integer __Oracle__  Default: @1521@  Valid Values: @1150-65535@  __SQL Server__  Default: @1433@  Valid Values: @1150-65535@ except for @1434@ , @3389@ , @47001@ , @49152@ , and @49152@ through @49156@ .  __Amazon Aurora__  Default: @3306@  Valid Values: @1150-65535@
 --
--- * 'mdiMasterUserPassword' - The new password for the DB instance master user. Can be any printable ASCII character except "/", """, or "@". Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible. Between the time of the request and the completion of the request, the @MasterUserPassword@ element exists in the @PendingModifiedValues@ element of the operation response.  Default: Uses existing setting Constraints: Must be 8 to 41 alphanumeric characters (MySQL, MariaDB, and Amazon Aurora), 8 to 30 alphanumeric characters (Oracle), or 8 to 128 alphanumeric characters (SQL Server).
+-- * 'mdiMasterUserPassword' - The new password for the master user. Can be any printable ASCII character except "/", """, or "@". Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible. Between the time of the request and the completion of the request, the @MasterUserPassword@ element exists in the @PendingModifiedValues@ element of the operation response.  __Amazon Aurora__  Not applicable. The password for the master user is managed by the DB cluster. For more information, see 'ModifyDBCluster' . Default: Uses existing setting Constraints: Must be 8 to 41 alphanumeric characters (MySQL, MariaDB, and Amazon Aurora), 8 to 30 alphanumeric characters (Oracle), or 8 to 128 alphanumeric characters (SQL Server).
 --
 -- * 'mdiPubliclyAccessible' - Boolean value that indicates if the DB instance has a publicly resolvable DNS name. Set to @True@ to make the DB instance Internet-facing with a publicly resolvable DNS name, which resolves to a public IP address. Set to @False@ to make the DB instance internal with a DNS name that resolves to a private IP address.  @PubliclyAccessible@ only applies to DB instances in a VPC. The DB instance must be part of a public subnet and @PubliclyAccessible@ must be true in order for it to be publicly accessible.  Changes to the @PubliclyAccessible@ parameter are applied immediately regardless of the value of the @ApplyImmediately@ parameter. Default: false
 --
@@ -159,11 +161,11 @@ data ModifyDBInstance = ModifyDBInstance'
 --
 -- * 'mdiDBParameterGroupName' - The name of the DB parameter group to apply to the DB instance. Changing this setting does not result in an outage. The parameter group name itself is changed immediately, but the actual parameter changes are not applied until you reboot the instance without failover. The db instance will NOT be rebooted automatically and the parameter changes will NOT be applied during the next maintenance window. Default: Uses existing setting Constraints: The DB parameter group must be in the same DB parameter group family as this DB instance.
 --
--- * 'mdiPreferredBackupWindow' - The daily time range during which automated backups are created if automated backups are enabled, as determined by the @BackupRetentionPeriod@ parameter. Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible.  Constraints:     * Must be in the format hh24:mi-hh24:mi     * Times should be in Universal Time Coordinated (UTC)     * Must not conflict with the preferred maintenance window     * Must be at least 30 minutes
+-- * 'mdiPreferredBackupWindow' - The daily time range during which automated backups are created if automated backups are enabled, as determined by the @BackupRetentionPeriod@ parameter. Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible.  __Amazon Aurora__  Not applicable. The daily time range for creating automated backups is managed by the DB cluster. For more information, see 'ModifyDBCluster' . Constraints:     * Must be in the format hh24:mi-hh24:mi     * Times should be in Universal Time Coordinated (UTC)     * Must not conflict with the preferred maintenance window     * Must be at least 30 minutes
 --
--- * 'mdiBackupRetentionPeriod' - The number of days to retain automated backups. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups. Changing this parameter can result in an outage if you change from 0 to a non-zero value or from a non-zero value to 0. These changes are applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request. If you change the parameter from one non-zero value to another non-zero value, the change is asynchronously applied as soon as possible. Default: Uses existing setting Constraints:     * Must be a value from 0 to 35     * Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6     * Can be specified for a PostgreSQL Read Replica only if the source is running PostgreSQL 9.3.5     * Cannot be set to 0 if the DB instance is a source to Read Replicas
+-- * 'mdiBackupRetentionPeriod' - The number of days to retain automated backups. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups. Changing this parameter can result in an outage if you change from 0 to a non-zero value or from a non-zero value to 0. These changes are applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request. If you change the parameter from one non-zero value to another non-zero value, the change is asynchronously applied as soon as possible. __Amazon Aurora__  Not applicable. The retention period for automated backups is managed by the DB cluster. For more information, see 'ModifyDBCluster' . Default: Uses existing setting Constraints:     * Must be a value from 0 to 35     * Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6     * Can be specified for a PostgreSQL Read Replica only if the source is running PostgreSQL 9.3.5     * Cannot be set to 0 if the DB instance is a source to Read Replicas
 --
--- * 'mdiVPCSecurityGroupIds' - A list of EC2 VPC security groups to authorize on this DB instance. This change is asynchronously applied as soon as possible. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- * 'mdiVPCSecurityGroupIds' - A list of EC2 VPC security groups to authorize on this DB instance. This change is asynchronously applied as soon as possible. __Amazon Aurora__  Not applicable. The associated list of EC2 VPC security groups is managed by the DB cluster. For more information, see 'ModifyDBCluster' . Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- * 'mdiMultiAZ' - Specifies if the DB instance is a Multi-AZ deployment. Changing this parameter does not result in an outage and the change is applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request.  Constraints: Cannot be specified if the DB instance is a Read Replica.
 --
@@ -178,6 +180,8 @@ data ModifyDBInstance = ModifyDBInstance'
 -- * 'mdiTDECredentialARN' - The ARN from the Key Store with which to associate the instance for TDE encryption.
 --
 -- * 'mdiDomainIAMRoleName' - The name of the IAM role to use when making API calls to the Directory Service.
+--
+-- * 'mdiEnableIAMDatabaseAuthentication' - True to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts; otherwise false. You can enable IAM database authentication for the following database engines __Amazon Aurora__  Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB cluster. For more information, see 'ModifyDBCluster' . __MySQL__      * For MySQL 5.6, minor version 5.6.34 or higher     * For MySQL 5.7, minor version 5.7.16 or higher Default: @false@
 --
 -- * 'mdiStorageType' - Specifies the storage type to be associated with the DB instance. Valid values: @standard | gp2 | io1@  If you specify @io1@ , you must also include a value for the @Iops@ parameter.  Default: @io1@ if the @Iops@ parameter is specified; otherwise @standard@
 --
@@ -217,11 +221,12 @@ modifyDBInstance pDBInstanceIdentifier_ =
     , _mdiCopyTagsToSnapshot = Nothing
     , _mdiTDECredentialARN = Nothing
     , _mdiDomainIAMRoleName = Nothing
+    , _mdiEnableIAMDatabaseAuthentication = Nothing
     , _mdiStorageType = Nothing
     , _mdiDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
--- | The version number of the database engine to upgrade to. Changing this parameter results in an outage and the change is applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request.  For major version upgrades, if a non-default DB parameter group is currently in use, a new DB parameter group in the DB parameter group family for the new engine version must be specified. The new DB parameter group can be the default for that DB parameter group family. For a list of valid engine versions, see 'CreateDBInstance' .
+-- | The version number of the database engine to upgrade to. Changing this parameter results in an outage and the change is applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request.  For major version upgrades, if a nondefault DB parameter group is currently in use, a new DB parameter group in the DB parameter group family for the new engine version must be specified. The new DB parameter group can be the default for that DB parameter group family. For a list of valid engine versions, see 'CreateDBInstance' .
 mdiEngineVersion :: Lens' ModifyDBInstance (Maybe Text)
 mdiEngineVersion = lens _mdiEngineVersion (\ s a -> s{_mdiEngineVersion = a});
 
@@ -233,7 +238,7 @@ mdiDBSecurityGroups = lens _mdiDBSecurityGroups (\ s a -> s{_mdiDBSecurityGroups
 mdiDBPortNumber :: Lens' ModifyDBInstance (Maybe Int)
 mdiDBPortNumber = lens _mdiDBPortNumber (\ s a -> s{_mdiDBPortNumber = a});
 
--- | The new password for the DB instance master user. Can be any printable ASCII character except "/", """, or "@". Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible. Between the time of the request and the completion of the request, the @MasterUserPassword@ element exists in the @PendingModifiedValues@ element of the operation response.  Default: Uses existing setting Constraints: Must be 8 to 41 alphanumeric characters (MySQL, MariaDB, and Amazon Aurora), 8 to 30 alphanumeric characters (Oracle), or 8 to 128 alphanumeric characters (SQL Server).
+-- | The new password for the master user. Can be any printable ASCII character except "/", """, or "@". Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible. Between the time of the request and the completion of the request, the @MasterUserPassword@ element exists in the @PendingModifiedValues@ element of the operation response.  __Amazon Aurora__  Not applicable. The password for the master user is managed by the DB cluster. For more information, see 'ModifyDBCluster' . Default: Uses existing setting Constraints: Must be 8 to 41 alphanumeric characters (MySQL, MariaDB, and Amazon Aurora), 8 to 30 alphanumeric characters (Oracle), or 8 to 128 alphanumeric characters (SQL Server).
 mdiMasterUserPassword :: Lens' ModifyDBInstance (Maybe Text)
 mdiMasterUserPassword = lens _mdiMasterUserPassword (\ s a -> s{_mdiMasterUserPassword = a});
 
@@ -301,15 +306,15 @@ mdiCACertificateIdentifier = lens _mdiCACertificateIdentifier (\ s a -> s{_mdiCA
 mdiDBParameterGroupName :: Lens' ModifyDBInstance (Maybe Text)
 mdiDBParameterGroupName = lens _mdiDBParameterGroupName (\ s a -> s{_mdiDBParameterGroupName = a});
 
--- | The daily time range during which automated backups are created if automated backups are enabled, as determined by the @BackupRetentionPeriod@ parameter. Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible.  Constraints:     * Must be in the format hh24:mi-hh24:mi     * Times should be in Universal Time Coordinated (UTC)     * Must not conflict with the preferred maintenance window     * Must be at least 30 minutes
+-- | The daily time range during which automated backups are created if automated backups are enabled, as determined by the @BackupRetentionPeriod@ parameter. Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible.  __Amazon Aurora__  Not applicable. The daily time range for creating automated backups is managed by the DB cluster. For more information, see 'ModifyDBCluster' . Constraints:     * Must be in the format hh24:mi-hh24:mi     * Times should be in Universal Time Coordinated (UTC)     * Must not conflict with the preferred maintenance window     * Must be at least 30 minutes
 mdiPreferredBackupWindow :: Lens' ModifyDBInstance (Maybe Text)
 mdiPreferredBackupWindow = lens _mdiPreferredBackupWindow (\ s a -> s{_mdiPreferredBackupWindow = a});
 
--- | The number of days to retain automated backups. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups. Changing this parameter can result in an outage if you change from 0 to a non-zero value or from a non-zero value to 0. These changes are applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request. If you change the parameter from one non-zero value to another non-zero value, the change is asynchronously applied as soon as possible. Default: Uses existing setting Constraints:     * Must be a value from 0 to 35     * Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6     * Can be specified for a PostgreSQL Read Replica only if the source is running PostgreSQL 9.3.5     * Cannot be set to 0 if the DB instance is a source to Read Replicas
+-- | The number of days to retain automated backups. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups. Changing this parameter can result in an outage if you change from 0 to a non-zero value or from a non-zero value to 0. These changes are applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request. If you change the parameter from one non-zero value to another non-zero value, the change is asynchronously applied as soon as possible. __Amazon Aurora__  Not applicable. The retention period for automated backups is managed by the DB cluster. For more information, see 'ModifyDBCluster' . Default: Uses existing setting Constraints:     * Must be a value from 0 to 35     * Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6     * Can be specified for a PostgreSQL Read Replica only if the source is running PostgreSQL 9.3.5     * Cannot be set to 0 if the DB instance is a source to Read Replicas
 mdiBackupRetentionPeriod :: Lens' ModifyDBInstance (Maybe Int)
 mdiBackupRetentionPeriod = lens _mdiBackupRetentionPeriod (\ s a -> s{_mdiBackupRetentionPeriod = a});
 
--- | A list of EC2 VPC security groups to authorize on this DB instance. This change is asynchronously applied as soon as possible. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- | A list of EC2 VPC security groups to authorize on this DB instance. This change is asynchronously applied as soon as possible. __Amazon Aurora__  Not applicable. The associated list of EC2 VPC security groups is managed by the DB cluster. For more information, see 'ModifyDBCluster' . Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 mdiVPCSecurityGroupIds :: Lens' ModifyDBInstance [Text]
 mdiVPCSecurityGroupIds = lens _mdiVPCSecurityGroupIds (\ s a -> s{_mdiVPCSecurityGroupIds = a}) . _Default . _Coerce;
 
@@ -340,6 +345,10 @@ mdiTDECredentialARN = lens _mdiTDECredentialARN (\ s a -> s{_mdiTDECredentialARN
 -- | The name of the IAM role to use when making API calls to the Directory Service.
 mdiDomainIAMRoleName :: Lens' ModifyDBInstance (Maybe Text)
 mdiDomainIAMRoleName = lens _mdiDomainIAMRoleName (\ s a -> s{_mdiDomainIAMRoleName = a});
+
+-- | True to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts; otherwise false. You can enable IAM database authentication for the following database engines __Amazon Aurora__  Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB cluster. For more information, see 'ModifyDBCluster' . __MySQL__      * For MySQL 5.6, minor version 5.6.34 or higher     * For MySQL 5.7, minor version 5.7.16 or higher Default: @false@
+mdiEnableIAMDatabaseAuthentication :: Lens' ModifyDBInstance (Maybe Bool)
+mdiEnableIAMDatabaseAuthentication = lens _mdiEnableIAMDatabaseAuthentication (\ s a -> s{_mdiEnableIAMDatabaseAuthentication = a});
 
 -- | Specifies the storage type to be associated with the DB instance. Valid values: @standard | gp2 | io1@  If you specify @io1@ , you must also include a value for the @Iops@ parameter.  Default: @io1@ if the @Iops@ parameter is specified; otherwise @standard@
 mdiStorageType :: Lens' ModifyDBInstance (Maybe Text)
@@ -414,6 +423,8 @@ instance ToQuery ModifyDBInstance where
                "CopyTagsToSnapshot" =: _mdiCopyTagsToSnapshot,
                "TdeCredentialArn" =: _mdiTDECredentialARN,
                "DomainIAMRoleName" =: _mdiDomainIAMRoleName,
+               "EnableIAMDatabaseAuthentication" =:
+                 _mdiEnableIAMDatabaseAuthentication,
                "StorageType" =: _mdiStorageType,
                "DBInstanceIdentifier" =: _mdiDBInstanceIdentifier]
 

@@ -15,7 +15,7 @@
 --
 --
 --
--- Amazon Relational Database Service (Amazon RDS) is a web service that makes it easier to set up, operate, and scale a relational database in the cloud. It provides cost-efficient, resizeable capacity for an industry-standard relational database and manages common database administration tasks, freeing up developers to focus on what makes their applications and businesses unique.
+-- Amazon Relational Database Service (Amazon RDS) is a web service that makes it easier to set up, operate, and scale a relational database in the cloud. It provides cost-efficient, resizable capacity for an industry-standard relational database and manages common database administration tasks, freeing up developers to focus on what makes their applications and businesses unique.
 --
 -- Amazon RDS gives you access to the capabilities of a MySQL, MariaDB, PostgreSQL, Microsoft SQL Server, Oracle, or Amazon Aurora database server. These capabilities mean that the code, applications, and tools you already use today with your existing databases work with Amazon RDS without modification. Amazon RDS automatically backs up your database and maintains the database software that powers your DB instance. Amazon RDS is flexible: you can scale your database instance's compute resources and storage capacity to meet your application's demand. As with all Amazon Web Services, there are no up-front investments, and you pay only for the resources you use.
 --
@@ -301,6 +301,9 @@ module Network.AWS.RDS
     -- ** DescribeDBEngineVersions (Paginated)
     , module Network.AWS.RDS.DescribeDBEngineVersions
 
+    -- ** StopDBInstance
+    , module Network.AWS.RDS.StopDBInstance
+
     -- ** CopyDBSnapshot
     , module Network.AWS.RDS.CopyDBSnapshot
 
@@ -454,6 +457,9 @@ module Network.AWS.RDS
     -- ** DescribeEventCategories
     , module Network.AWS.RDS.DescribeEventCategories
 
+    -- ** StartDBInstance
+    , module Network.AWS.RDS.StartDBInstance
+
     -- ** ModifyDBClusterParameterGroup
     , module Network.AWS.RDS.ModifyDBClusterParameterGroup
 
@@ -602,10 +608,12 @@ module Network.AWS.RDS
     , dcHostedZoneId
     , dcDBClusterParameterGroup
     , dcMasterUsername
+    , dcIAMDatabaseAuthenticationEnabled
     , dcDBClusterResourceId
     , dcEarliestRestorableTime
     , dcEngine
     , dcDBClusterARN
+    , dcCloneGroupId
     , dcLatestRestorableTime
     , dcPreferredMaintenanceWindow
     , dcAvailabilityZones
@@ -667,6 +675,7 @@ module Network.AWS.RDS
     , dcsStorageEncrypted
     , dcsDBClusterIdentifier
     , dcsMasterUsername
+    , dcsIAMDatabaseAuthenticationEnabled
     , dcsDBClusterSnapshotARN
     , dcsVPCId
     , dcsDBClusterSnapshotIdentifier
@@ -677,6 +686,7 @@ module Network.AWS.RDS
     , dcsKMSKeyId
     , dcsSnapshotCreateTime
     , dcsAllocatedStorage
+    , dcsSourceDBClusterSnapshotARN
     , dcsClusterCreateTime
     , dcsPercentProgress
     , dcsPort
@@ -718,6 +728,7 @@ module Network.AWS.RDS
     , diDBInstanceARN
     , diMasterUsername
     , diReadReplicaDBInstanceIdentifiers
+    , diIAMDatabaseAuthenticationEnabled
     , diMonitoringRoleARN
     , diIOPS
     , diInstanceCreateTime
@@ -810,6 +821,7 @@ module Network.AWS.RDS
     , dsDBSnapshotARN
     , dsMasterUsername
     , dsSourceRegion
+    , dsIAMDatabaseAuthenticationEnabled
     , dsIOPS
     , dsVPCId
     , dsInstanceCreateTime
@@ -1023,6 +1035,7 @@ module Network.AWS.RDS
     , OrderableDBInstanceOption
     , orderableDBInstanceOption
     , odioEngineVersion
+    , odioSupportsIAMDatabaseAuthentication
     , odioMultiAZCapable
     , odioEngine
     , odioSupportsIOPS
@@ -1249,6 +1262,8 @@ import           Network.AWS.RDS.RestoreDBClusterToPointInTime
 import           Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
 import           Network.AWS.RDS.RestoreDBInstanceToPointInTime
 import           Network.AWS.RDS.RevokeDBSecurityGroupIngress
+import           Network.AWS.RDS.StartDBInstance
+import           Network.AWS.RDS.StopDBInstance
 import           Network.AWS.RDS.Types
 import           Network.AWS.RDS.Waiters
 

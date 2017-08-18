@@ -70,6 +70,7 @@ library
         , Network.AWS.DeviceFarm.ListDevices
         , Network.AWS.DeviceFarm.ListJobs
         , Network.AWS.DeviceFarm.ListNetworkProfiles
+        , Network.AWS.DeviceFarm.ListOfferingPromotions
         , Network.AWS.DeviceFarm.ListOfferingTransactions
         , Network.AWS.DeviceFarm.ListOfferings
         , Network.AWS.DeviceFarm.ListProjects

@@ -139,6 +139,9 @@ import Test.AWS.DeviceFarm.Internal
 --         , requestCreateRemoteAccessSession $
 --             createRemoteAccessSession
 --
+--         , requestListOfferingPromotions $
+--             listOfferingPromotions
+--
 --         , requestGetOfferingStatus $
 --             getOfferingStatus
 --
@@ -285,6 +288,9 @@ import Test.AWS.DeviceFarm.Internal
 --
 --         , responseCreateRemoteAccessSession $
 --             createRemoteAccessSessionResponse
+--
+--         , responseListOfferingPromotions $
+--             listOfferingPromotionsResponse
 --
 --         , responseGetOfferingStatus $
 --             getOfferingStatusResponse
@@ -508,6 +514,11 @@ requestCreateRemoteAccessSession :: CreateRemoteAccessSession -> TestTree
 requestCreateRemoteAccessSession = req
     "CreateRemoteAccessSession"
     "fixture/CreateRemoteAccessSession.yaml"
+
+requestListOfferingPromotions :: ListOfferingPromotions -> TestTree
+requestListOfferingPromotions = req
+    "ListOfferingPromotions"
+    "fixture/ListOfferingPromotions.yaml"
 
 requestGetOfferingStatus :: GetOfferingStatus -> TestTree
 requestGetOfferingStatus = req
@@ -824,6 +835,13 @@ responseCreateRemoteAccessSession = res
     "fixture/CreateRemoteAccessSessionResponse.proto"
     deviceFarm
     (Proxy :: Proxy CreateRemoteAccessSession)
+
+responseListOfferingPromotions :: ListOfferingPromotionsResponse -> TestTree
+responseListOfferingPromotions = res
+    "ListOfferingPromotionsResponse"
+    "fixture/ListOfferingPromotionsResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy ListOfferingPromotions)
 
 responseGetOfferingStatus :: GetOfferingStatusResponse -> TestTree
 responseGetOfferingStatus = res

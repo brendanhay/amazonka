@@ -39,7 +39,7 @@
 --
 -- An unsuccessfully-processed record includes @ErrorCode@ and @ErrorMessage@ values. @ErrorCode@ reflects the type of error and can be one of the following values: @ProvisionedThroughputExceededException@ or @InternalFailure@ . @ErrorMessage@ provides more detailed information about the @ProvisionedThroughputExceededException@ exception including the account ID, stream name, and shard ID of the record that was throttled. For more information about partially successful responses, see <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-add-data-to-stream.html#kinesis-using-sdk-java-putrecords Adding Multiple Records with PutRecords> in the /Amazon Kinesis Streams Developer Guide/ .
 --
--- By default, data records are accessible for only 24 hours from the time that they are added to an Amazon Kinesis stream. This retention period can be modified using the 'DecreaseStreamRetentionPeriod' and 'IncreaseStreamRetentionPeriod' operations.
+-- By default, data records are accessible for 24 hours from the time that they are added to a stream. You can use 'IncreaseStreamRetentionPeriod' or 'DecreaseStreamRetentionPeriod' to modify this retention period.
 --
 module Network.AWS.Kinesis.PutRecords
     (
@@ -54,6 +54,7 @@ module Network.AWS.Kinesis.PutRecords
     , putRecordsResponse
     , PutRecordsResponse
     -- * Response Lenses
+    , prsEncryptionType
     , prsFailedRecordCount
     , prsResponseStatus
     , prsRecords
@@ -108,7 +109,9 @@ instance AWSRequest PutRecords where
           = receiveJSON
               (\ s h x ->
                  PutRecordsResponse' <$>
-                   (x .?> "FailedRecordCount") <*> (pure (fromEnum s))
+                   (x .?> "EncryptionType") <*>
+                     (x .?> "FailedRecordCount")
+                     <*> (pure (fromEnum s))
                      <*> (x .:> "Records"))
 
 instance Hashable PutRecords
@@ -143,7 +146,8 @@ instance ToQuery PutRecords where
 --
 -- /See:/ 'putRecordsResponse' smart constructor.
 data PutRecordsResponse = PutRecordsResponse'
-    { _prsFailedRecordCount :: !(Maybe Nat)
+    { _prsEncryptionType    :: !(Maybe EncryptionType)
+    , _prsFailedRecordCount :: !(Maybe Nat)
     , _prsResponseStatus    :: !Int
     , _prsRecords           :: !(List1 PutRecordsResultEntry)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -151,6 +155,8 @@ data PutRecordsResponse = PutRecordsResponse'
 -- | Creates a value of 'PutRecordsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prsEncryptionType' - The encryption type used on the records. This parameter can be one of the following values:     * @NONE@ : Do not encrypt the records.     * @KMS@ : Use server-side encryption on the records using a customer-managed KMS key.
 --
 -- * 'prsFailedRecordCount' - The number of unsuccessfully processed records in a @PutRecords@ request.
 --
@@ -163,10 +169,15 @@ putRecordsResponse
     -> PutRecordsResponse
 putRecordsResponse pResponseStatus_ pRecords_ =
     PutRecordsResponse'
-    { _prsFailedRecordCount = Nothing
+    { _prsEncryptionType = Nothing
+    , _prsFailedRecordCount = Nothing
     , _prsResponseStatus = pResponseStatus_
     , _prsRecords = _List1 # pRecords_
     }
+
+-- | The encryption type used on the records. This parameter can be one of the following values:     * @NONE@ : Do not encrypt the records.     * @KMS@ : Use server-side encryption on the records using a customer-managed KMS key.
+prsEncryptionType :: Lens' PutRecordsResponse (Maybe EncryptionType)
+prsEncryptionType = lens _prsEncryptionType (\ s a -> s{_prsEncryptionType = a});
 
 -- | The number of unsuccessfully processed records in a @PutRecords@ request.
 prsFailedRecordCount :: Lens' PutRecordsResponse (Maybe Natural)

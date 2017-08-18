@@ -23,17 +23,35 @@ module Network.AWS.Kinesis
     -- * Errors
     -- $errors
 
+    -- ** KMSInvalidStateException
+    , _KMSInvalidStateException
+
+    -- ** KMSThrottlingException
+    , _KMSThrottlingException
+
     -- ** ExpiredIteratorException
     , _ExpiredIteratorException
 
     -- ** InvalidArgumentException
     , _InvalidArgumentException
 
+    -- ** KMSOptInRequired
+    , _KMSOptInRequired
+
     -- ** ProvisionedThroughputExceededException
     , _ProvisionedThroughputExceededException
 
+    -- ** KMSNotFoundException
+    , _KMSNotFoundException
+
+    -- ** KMSDisabledException
+    , _KMSDisabledException
+
     -- ** ResourceNotFoundException
     , _ResourceNotFoundException
+
+    -- ** KMSAccessDeniedException
+    , _KMSAccessDeniedException
 
     -- ** LimitExceededException
     , _LimitExceededException
@@ -68,6 +86,9 @@ module Network.AWS.Kinesis
     -- ** GetRecords
     , module Network.AWS.Kinesis.GetRecords
 
+    -- ** StopStreamEncryption
+    , module Network.AWS.Kinesis.StopStreamEncryption
+
     -- ** EnableEnhancedMonitoring
     , module Network.AWS.Kinesis.EnableEnhancedMonitoring
 
@@ -101,6 +122,9 @@ module Network.AWS.Kinesis
     -- ** CreateStream
     , module Network.AWS.Kinesis.CreateStream
 
+    -- ** StartStreamEncryption
+    , module Network.AWS.Kinesis.StartStreamEncryption
+
     -- ** SplitShard
     , module Network.AWS.Kinesis.SplitShard
 
@@ -111,6 +135,9 @@ module Network.AWS.Kinesis
     , module Network.AWS.Kinesis.DescribeStream
 
     -- * Types
+
+    -- ** EncryptionType
+    , EncryptionType (..)
 
     -- ** MetricsName
     , MetricsName (..)
@@ -160,6 +187,7 @@ module Network.AWS.Kinesis
     -- ** Record
     , Record
     , record
+    , rEncryptionType
     , rApproximateArrivalTimestamp
     , rSequenceNumber
     , rData
@@ -183,6 +211,8 @@ module Network.AWS.Kinesis
     -- ** StreamDescription
     , StreamDescription
     , streamDescription
+    , sdEncryptionType
+    , sdKeyId
     , sdStreamName
     , sdStreamARN
     , sdStreamStatus
@@ -217,6 +247,8 @@ import           Network.AWS.Kinesis.PutRecord
 import           Network.AWS.Kinesis.PutRecords
 import           Network.AWS.Kinesis.RemoveTagsFromStream
 import           Network.AWS.Kinesis.SplitShard
+import           Network.AWS.Kinesis.StartStreamEncryption
+import           Network.AWS.Kinesis.StopStreamEncryption
 import           Network.AWS.Kinesis.Types
 import           Network.AWS.Kinesis.UpdateShardCount
 import           Network.AWS.Kinesis.Waiters

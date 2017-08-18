@@ -58,6 +58,8 @@ library
         , Network.AWS.Kinesis.PutRecords
         , Network.AWS.Kinesis.RemoveTagsFromStream
         , Network.AWS.Kinesis.SplitShard
+        , Network.AWS.Kinesis.StartStreamEncryption
+        , Network.AWS.Kinesis.StopStreamEncryption
         , Network.AWS.Kinesis.Types
         , Network.AWS.Kinesis.UpdateShardCount
         , Network.AWS.Kinesis.Waiters

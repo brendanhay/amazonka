@@ -56,7 +56,7 @@ data DeactivateMFADevice = DeactivateMFADevice'
 --
 -- * 'dmdUserName' - The name of the user whose MFA device you want to deactivate. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'dmdSerialNumber' - The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =/:,.@-
+-- * 'dmdSerialNumber' - The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
 deactivateMFADevice
     :: Text -- ^ 'dmdUserName'
     -> Text -- ^ 'dmdSerialNumber'
@@ -71,7 +71,7 @@ deactivateMFADevice pUserName_ pSerialNumber_ =
 dmdUserName :: Lens' DeactivateMFADevice Text
 dmdUserName = lens _dmdUserName (\ s a -> s{_dmdUserName = a});
 
--- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =/:,.@-
+-- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
 dmdSerialNumber :: Lens' DeactivateMFADevice Text
 dmdSerialNumber = lens _dmdSerialNumber (\ s a -> s{_dmdSerialNumber = a});
 

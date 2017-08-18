@@ -60,7 +60,7 @@ data PutRolePolicy = PutRolePolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prpRoleName' - The name of the role to associate the policy with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'prpRoleName' - The name of the role to associate the policy with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- * 'prpPolicyName' - The name of the policy document. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
@@ -77,7 +77,7 @@ putRolePolicy pRoleName_ pPolicyName_ pPolicyDocument_ =
     , _prpPolicyDocument = pPolicyDocument_
     }
 
--- | The name of the role to associate the policy with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the role to associate the policy with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 prpRoleName :: Lens' PutRolePolicy Text
 prpRoleName = lens _prpRoleName (\ s a -> s{_prpRoleName = a});
 

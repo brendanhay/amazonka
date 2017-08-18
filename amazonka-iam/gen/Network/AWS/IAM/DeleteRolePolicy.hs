@@ -54,7 +54,7 @@ data DeleteRolePolicy = DeleteRolePolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delRoleName' - The name (friendly name, not ARN) identifying the role that the policy is embedded in. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'delRoleName' - The name (friendly name, not ARN) identifying the role that the policy is embedded in. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- * 'delPolicyName' - The name of the inline policy to delete from the specified IAM role. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 deleteRolePolicy
@@ -67,7 +67,7 @@ deleteRolePolicy pRoleName_ pPolicyName_ =
     , _delPolicyName = pPolicyName_
     }
 
--- | The name (friendly name, not ARN) identifying the role that the policy is embedded in. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name (friendly name, not ARN) identifying the role that the policy is embedded in. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 delRoleName :: Lens' DeleteRolePolicy Text
 delRoleName = lens _delRoleName (\ s a -> s{_delRoleName = a});
 

@@ -18,10 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches the specified managed policy to the specified IAM role.
+-- Attaches the specified managed policy to the specified IAM role. When you attach a managed policy to a role, the managed policy becomes part of the role's permission (access) policy.
 --
---
--- When you attach a managed policy to a role, the managed policy becomes part of the role's permission (access) policy. You cannot use a managed policy as the role's trust policy. The role's trust policy is created at the same time as the role, using 'CreateRole' . You can update a role's trust policy using 'UpdateAssumeRolePolicy' .
 --
 -- Use this API to attach a /managed/ policy to a role. To embed an inline policy in a role, use 'PutRolePolicy' . For more information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
 --
@@ -56,7 +54,7 @@ data AttachRolePolicy = AttachRolePolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'arpRoleName' - The name (friendly name, not ARN) of the role to attach the policy to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'arpRoleName' - The name (friendly name, not ARN) of the role to attach the policy to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- * 'arpPolicyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to attach. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 attachRolePolicy
@@ -69,7 +67,7 @@ attachRolePolicy pRoleName_ pPolicyARN_ =
     , _arpPolicyARN = pPolicyARN_
     }
 
--- | The name (friendly name, not ARN) of the role to attach the policy to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name (friendly name, not ARN) of the role to attach the policy to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 arpRoleName :: Lens' AttachRolePolicy Text
 arpRoleName = lens _arpRoleName (\ s a -> s{_arpRoleName = a});
 

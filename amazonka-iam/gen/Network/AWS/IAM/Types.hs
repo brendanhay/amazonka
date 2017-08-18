@@ -22,6 +22,7 @@ module Network.AWS.IAM.Types
     , _EntityAlreadyExistsException
     , _MalformedCertificateException
     , _CredentialReportExpiredException
+    , _UnmodifiableEntityException
     , _DuplicateCertificateException
     , _DeleteConflictException
     , _NoSuchEntityException
@@ -275,6 +276,7 @@ module Network.AWS.IAM.Types
     , Role
     , role'
     , rAssumeRolePolicyDocument
+    , rDescription
     , rPath
     , rRoleName
     , rRoleId
@@ -442,6 +444,8 @@ iam =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -494,6 +498,13 @@ _MalformedCertificateException =
 _CredentialReportExpiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _CredentialReportExpiredException =
     _MatchServiceError iam "ReportExpired" . hasStatus 410
+
+-- | The request was rejected because only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.
+--
+--
+_UnmodifiableEntityException :: AsError a => Getting (First ServiceError) a ServiceError
+_UnmodifiableEntityException =
+    _MatchServiceError iam "UnmodifiableEntity" . hasStatus 400
 
 -- | The request was rejected because the same certificate is associated with an IAM user in the account.
 --

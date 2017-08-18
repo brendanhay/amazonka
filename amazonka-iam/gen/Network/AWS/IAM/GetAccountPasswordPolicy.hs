@@ -97,7 +97,7 @@ data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
 --
 -- * 'gapprsResponseStatus' - -- | The response status code.
 --
--- * 'gapprsPasswordPolicy' - Contains information about the account password policy.
+-- * 'gapprsPasswordPolicy' - A structure that contains details about the account's password policy.
 getAccountPasswordPolicyResponse
     :: Int -- ^ 'gapprsResponseStatus'
     -> PasswordPolicy -- ^ 'gapprsPasswordPolicy'
@@ -112,7 +112,7 @@ getAccountPasswordPolicyResponse pResponseStatus_ pPasswordPolicy_ =
 gapprsResponseStatus :: Lens' GetAccountPasswordPolicyResponse Int
 gapprsResponseStatus = lens _gapprsResponseStatus (\ s a -> s{_gapprsResponseStatus = a});
 
--- | Contains information about the account password policy.
+-- | A structure that contains details about the account's password policy.
 gapprsPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy
 gapprsPasswordPolicy = lens _gapprsPasswordPolicy (\ s a -> s{_gapprsPasswordPolicy = a});
 

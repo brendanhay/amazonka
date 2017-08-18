@@ -227,6 +227,7 @@ data ClusterStateChangeReasonCode
     = CSCRCAllStepsCompleted
     | CSCRCBootstrapFailure
     | CSCRCInstanceFailure
+    | CSCRCInstanceFleetTimeout
     | CSCRCInternalError
     | CSCRCStepFailure
     | CSCRCUserRequest
@@ -238,18 +239,20 @@ instance FromText ClusterStateChangeReasonCode where
         "all_steps_completed" -> pure CSCRCAllStepsCompleted
         "bootstrap_failure" -> pure CSCRCBootstrapFailure
         "instance_failure" -> pure CSCRCInstanceFailure
+        "instance_fleet_timeout" -> pure CSCRCInstanceFleetTimeout
         "internal_error" -> pure CSCRCInternalError
         "step_failure" -> pure CSCRCStepFailure
         "user_request" -> pure CSCRCUserRequest
         "validation_error" -> pure CSCRCValidationError
         e -> fromTextError $ "Failure parsing ClusterStateChangeReasonCode from value: '" <> e
-           <> "'. Accepted values: all_steps_completed, bootstrap_failure, instance_failure, internal_error, step_failure, user_request, validation_error"
+           <> "'. Accepted values: all_steps_completed, bootstrap_failure, instance_failure, instance_fleet_timeout, internal_error, step_failure, user_request, validation_error"
 
 instance ToText ClusterStateChangeReasonCode where
     toText = \case
         CSCRCAllStepsCompleted -> "ALL_STEPS_COMPLETED"
         CSCRCBootstrapFailure -> "BOOTSTRAP_FAILURE"
         CSCRCInstanceFailure -> "INSTANCE_FAILURE"
+        CSCRCInstanceFleetTimeout -> "INSTANCE_FLEET_TIMEOUT"
         CSCRCInternalError -> "INTERNAL_ERROR"
         CSCRCStepFailure -> "STEP_FAILURE"
         CSCRCUserRequest -> "USER_REQUEST"
@@ -674,6 +677,35 @@ instance ToJSON MarketType where
 
 instance FromJSON MarketType where
     parseJSON = parseJSONText "MarketType"
+
+data RepoUpgradeOnBoot
+    = RUOBNone
+    | RUOBSecurity
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText RepoUpgradeOnBoot where
+    parser = takeLowerText >>= \case
+        "none" -> pure RUOBNone
+        "security" -> pure RUOBSecurity
+        e -> fromTextError $ "Failure parsing RepoUpgradeOnBoot from value: '" <> e
+           <> "'. Accepted values: none, security"
+
+instance ToText RepoUpgradeOnBoot where
+    toText = \case
+        RUOBNone -> "NONE"
+        RUOBSecurity -> "SECURITY"
+
+instance Hashable     RepoUpgradeOnBoot
+instance NFData       RepoUpgradeOnBoot
+instance ToByteString RepoUpgradeOnBoot
+instance ToQuery      RepoUpgradeOnBoot
+instance ToHeader     RepoUpgradeOnBoot
+
+instance ToJSON RepoUpgradeOnBoot where
+    toJSON = toJSONText
+
+instance FromJSON RepoUpgradeOnBoot where
+    parseJSON = parseJSONText "RepoUpgradeOnBoot"
 
 data ScaleDownBehavior
     = TerminateAtInstanceHour

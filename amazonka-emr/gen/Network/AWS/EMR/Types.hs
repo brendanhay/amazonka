@@ -77,6 +77,9 @@ module Network.AWS.EMR.Types
     -- * MarketType
     , MarketType (..)
 
+    -- * RepoUpgradeOnBoot
+    , RepoUpgradeOnBoot (..)
+
     -- * ScaleDownBehavior
     , ScaleDownBehavior (..)
 
@@ -158,14 +161,17 @@ module Network.AWS.EMR.Types
     , Cluster
     , cluster
     , cluRequestedAMIVersion
+    , cluEBSRootVolumeSize
     , cluEC2InstanceAttributes
     , cluNormalizedInstanceHours
     , cluConfigurations
+    , cluCustomAMIId
     , cluAutoScalingRole
     , cluSecurityConfiguration
     , cluScaleDownBehavior
     , cluInstanceCollectionType
     , cluReleaseLabel
+    , cluRepoUpgradeOnBoot
     , cluLogURI
     , cluRunningAMIVersion
     , cluMasterPublicDNSName
@@ -653,6 +659,8 @@ emr =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"

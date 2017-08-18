@@ -40,6 +40,7 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
     , mrgSnapshotWindow
     , mrgPrimaryClusterId
     , mrgPreferredMaintenanceWindow
+    , mrgNodeGroupId
     , mrgSnapshotRetentionLimit
     , mrgNotificationTopicStatus
     , mrgApplyImmediately
@@ -79,6 +80,7 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     , _mrgSnapshotWindow              :: !(Maybe Text)
     , _mrgPrimaryClusterId            :: !(Maybe Text)
     , _mrgPreferredMaintenanceWindow  :: !(Maybe Text)
+    , _mrgNodeGroupId                 :: !(Maybe Text)
     , _mrgSnapshotRetentionLimit      :: !(Maybe Int)
     , _mrgNotificationTopicStatus     :: !(Maybe Text)
     , _mrgApplyImmediately            :: !(Maybe Bool)
@@ -113,6 +115,8 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
 --
 -- * 'mrgPreferredMaintenanceWindow' - Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. Valid values for @ddd@ are:     * @sun@      * @mon@      * @tue@      * @wed@      * @thu@      * @fri@      * @sat@  Example: @sun:23:00-mon:01:30@
 --
+-- * 'mrgNodeGroupId' - The name of the Node Group (called shard in the console).
+--
 -- * 'mrgSnapshotRetentionLimit' - The number of days for which ElastiCache retains automatic node group (shard) snapshots before deleting them. For example, if you set @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is retained for 5 days before being deleted. __Important__ If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
 --
 -- * 'mrgNotificationTopicStatus' - The status of the Amazon SNS notification topic for the replication group. Notifications are sent only if the status is @active@ . Valid values: @active@ | @inactive@
@@ -140,6 +144,7 @@ modifyReplicationGroup pReplicationGroupId_ =
     , _mrgSnapshotWindow = Nothing
     , _mrgPrimaryClusterId = Nothing
     , _mrgPreferredMaintenanceWindow = Nothing
+    , _mrgNodeGroupId = Nothing
     , _mrgSnapshotRetentionLimit = Nothing
     , _mrgNotificationTopicStatus = Nothing
     , _mrgApplyImmediately = Nothing
@@ -191,6 +196,10 @@ mrgPrimaryClusterId = lens _mrgPrimaryClusterId (\ s a -> s{_mrgPrimaryClusterId
 -- | Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. Valid values for @ddd@ are:     * @sun@      * @mon@      * @tue@      * @wed@      * @thu@      * @fri@      * @sat@  Example: @sun:23:00-mon:01:30@
 mrgPreferredMaintenanceWindow :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgPreferredMaintenanceWindow = lens _mrgPreferredMaintenanceWindow (\ s a -> s{_mrgPreferredMaintenanceWindow = a});
+
+-- | The name of the Node Group (called shard in the console).
+mrgNodeGroupId :: Lens' ModifyReplicationGroup (Maybe Text)
+mrgNodeGroupId = lens _mrgNodeGroupId (\ s a -> s{_mrgNodeGroupId = a});
 
 -- | The number of days for which ElastiCache retains automatic node group (shard) snapshots before deleting them. For example, if you set @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is retained for 5 days before being deleted. __Important__ If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
 mrgSnapshotRetentionLimit :: Lens' ModifyReplicationGroup (Maybe Int)
@@ -261,6 +270,7 @@ instance ToQuery ModifyReplicationGroup where
                "PrimaryClusterId" =: _mrgPrimaryClusterId,
                "PreferredMaintenanceWindow" =:
                  _mrgPreferredMaintenanceWindow,
+               "NodeGroupId" =: _mrgNodeGroupId,
                "SnapshotRetentionLimit" =:
                  _mrgSnapshotRetentionLimit,
                "NotificationTopicStatus" =:

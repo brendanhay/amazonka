@@ -35,11 +35,14 @@ module Network.AWS.ElastiCache.Types
     , _TagNotFoundFault
     , _SnapshotQuotaExceededFault
     , _NodeQuotaForClusterExceededFault
+    , _APICallRateForCustomerExceededFault
+    , _NodeGroupNotFoundFault
     , _CacheParameterGroupAlreadyExistsFault
     , _ReservedCacheNodeNotFoundFault
     , _CacheSubnetGroupNotFoundFault
     , _SnapshotFeatureNotSupportedFault
     , _InvalidParameterValueException
+    , _TestFailoverNotAvailableFault
     , _InvalidReplicationGroupStateFault
     , _ReplicationGroupAlreadyExistsFault
     , _InvalidVPCNetworkStateFault
@@ -295,8 +298,10 @@ module Network.AWS.ElastiCache.Types
     , ReplicationGroup
     , replicationGroup
     , rgStatus
+    , rgCacheNodeType
     , rgNodeGroups
     , rgSnapshottingClusterId
+    , rgClusterEnabled
     , rgSnapshotWindow
     , rgConfigurationEndpoint
     , rgMemberClusters
@@ -421,6 +426,8 @@ elastiCache =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -515,7 +522,7 @@ _ReplicationGroupNotFoundFault =
 _InvalidSubnet :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSubnet = _MatchServiceError elastiCache "InvalidSubnet" . hasStatus 400
 
--- | The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 10.
+-- | The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.
 --
 --
 _TagQuotaPerResourceExceeded :: AsError a => Getting (First ServiceError) a ServiceError
@@ -574,6 +581,21 @@ _NodeQuotaForClusterExceededFault =
     _MatchServiceError elastiCache "NodeQuotaForClusterExceeded" .
     hasStatus 400
 
+-- | The customer has exceeded the allowed rate of API calls.
+--
+--
+_APICallRateForCustomerExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
+_APICallRateForCustomerExceededFault =
+    _MatchServiceError elastiCache "APICallRateForCustomerExceeded" .
+    hasStatus 400
+
+-- | The node group specified by the @NodeGroupId@ parameter could not be found. Please verify that the node group exists and that you spelled the @NodeGroupId@ value correctly.
+--
+--
+_NodeGroupNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
+_NodeGroupNotFoundFault =
+    _MatchServiceError elastiCache "NodeGroupNotFoundFault" . hasStatus 404
+
 -- | A cache parameter group with the requested name already exists.
 --
 --
@@ -619,6 +641,12 @@ _SnapshotFeatureNotSupportedFault =
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterValueException =
     _MatchServiceError elastiCache "InvalidParameterValue" . hasStatus 400
+
+-- | Prism for TestFailoverNotAvailableFault' errors.
+_TestFailoverNotAvailableFault :: AsError a => Getting (First ServiceError) a ServiceError
+_TestFailoverNotAvailableFault =
+    _MatchServiceError elastiCache "TestFailoverNotAvailableFault" .
+    hasStatus 400
 
 -- | The requested replication group is not in the @available@ state.
 --

@@ -84,6 +84,12 @@ module Network.AWS.ElastiCache
     -- ** NodeQuotaForClusterExceededFault
     , _NodeQuotaForClusterExceededFault
 
+    -- ** APICallRateForCustomerExceededFault
+    , _APICallRateForCustomerExceededFault
+
+    -- ** NodeGroupNotFoundFault
+    , _NodeGroupNotFoundFault
+
     -- ** CacheParameterGroupAlreadyExistsFault
     , _CacheParameterGroupAlreadyExistsFault
 
@@ -98,6 +104,9 @@ module Network.AWS.ElastiCache
 
     -- ** InvalidParameterValueException
     , _InvalidParameterValueException
+
+    -- ** TestFailoverNotAvailableFault
+    , _TestFailoverNotAvailableFault
 
     -- ** InvalidReplicationGroupStateFault
     , _InvalidReplicationGroupStateFault
@@ -200,6 +209,9 @@ module Network.AWS.ElastiCache
 
     -- ** ModifyCacheParameterGroup
     , module Network.AWS.ElastiCache.ModifyCacheParameterGroup
+
+    -- ** TestFailover
+    , module Network.AWS.ElastiCache.TestFailover
 
     -- ** DeleteReplicationGroup
     , module Network.AWS.ElastiCache.DeleteReplicationGroup
@@ -525,8 +537,10 @@ module Network.AWS.ElastiCache
     , ReplicationGroup
     , replicationGroup
     , rgStatus
+    , rgCacheNodeType
     , rgNodeGroups
     , rgSnapshottingClusterId
+    , rgClusterEnabled
     , rgSnapshotWindow
     , rgConfigurationEndpoint
     , rgMemberClusters
@@ -660,6 +674,7 @@ import           Network.AWS.ElastiCache.RebootCacheCluster
 import           Network.AWS.ElastiCache.RemoveTagsFromResource
 import           Network.AWS.ElastiCache.ResetCacheParameterGroup
 import           Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
+import           Network.AWS.ElastiCache.TestFailover
 import           Network.AWS.ElastiCache.Types
 import           Network.AWS.ElastiCache.Waiters
 

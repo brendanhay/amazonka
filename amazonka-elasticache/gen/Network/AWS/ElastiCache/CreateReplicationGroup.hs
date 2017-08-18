@@ -25,7 +25,7 @@
 --
 -- A Redis (cluster mode enabled) replication group is a collection of 1 to 15 node groups (shards). Each node group (shard) has one read/write primary node and up to 5 read-only replica nodes. Writes to the primary are asynchronously propagated to the replicas. Redis (cluster mode enabled) replication groups partition the data across node groups (shards).
 --
--- When a Redis (cluster mode disabled) replication group has been successfully created, you can add one or more read replicas to it, up to a total of 5 read replicas. You cannot alter a Redis (cluster mode enabled) replication group after it has been created.
+-- When a Redis (cluster mode disabled) replication group has been successfully created, you can add one or more read replicas to it, up to a total of 5 read replicas. You cannot alter a Redis (cluster mode enabled) replication group after it has been created. However, if you need to increase or decrease the number of node groups (console: shards), you can avail yourself of ElastiCache for Redis' enhanced backup and restore. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/backups-restoring.html Restoring From a Backup with Cluster Resizing> in the /ElastiCache User Guide/ .
 --
 module Network.AWS.ElastiCache.CreateReplicationGroup
     (
@@ -119,11 +119,11 @@ data CreateReplicationGroup = CreateReplicationGroup'
 --
 -- * 'crgCacheNodeType' - The compute and memory capacity of the nodes in the node group (shard). Valid node types are as follows:     * General purpose:     * Current generation: @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@ , @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@ , @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: @cache.t1.micro@ , @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized: @cache.c1.xlarge@      * Memory optimized:     * Current generation: @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis backup/restore is not supported for Redis (cluster mode disabled) T1 and T2 instances. Backup/restore is supported on Redis (cluster mode enabled) T2 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
 --
--- * 'crgNodeGroupConfiguration' - A list of node group (shard) configuration options. Each node group (shard) configuration has the following: Slots, PrimaryAvailabilityZone, ReplicaAvailabilityZones, ReplicaCount. If you're creating a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication group, you can use this parameter to configure one node group (shard) or you can omit this parameter.
+-- * 'crgNodeGroupConfiguration' - A list of node group (shard) configuration options. Each node group (shard) configuration has the following: Slots, PrimaryAvailabilityZone, ReplicaAvailabilityZones, ReplicaCount. If you're creating a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication group, you can use this parameter to individually configure each node group (shard), or you can omit this parameter.
 --
 -- * 'crgSecurityGroupIds' - One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud (Amazon VPC).
 --
--- * 'crgSnapshotARNs' - A list of Amazon Resource Names (ARN) that uniquely identify the Redis RDB snapshot files stored in Amazon S3. The snapshot files are used to populate the replication group. The Amazon S3 object name in the ARN cannot contain any commas. The list must match the number of node groups (shards) in the replication group, which means you cannot repartition. Example of an Amazon S3 ARN: @arn:aws:s3:::my_bucket/snapshot1.rdb@
+-- * 'crgSnapshotARNs' - A list of Amazon Resource Names (ARN) that uniquely identify the Redis RDB snapshot files stored in Amazon S3. The snapshot files are used to populate the new replication group. The Amazon S3 object name in the ARN cannot contain any commas. The new replication group will have the number of node groups (console: shards) specified by the parameter /NumNodeGroups/ or the number of node groups configured by /NodeGroupConfiguration/ regardless of the number of ARNs specified here. Example of an Amazon S3 ARN: @arn:aws:s3:::my_bucket/snapshot1.rdb@
 --
 -- * 'crgAutoMinorVersionUpgrade' - This parameter is currently disabled.
 --
@@ -147,7 +147,7 @@ data CreateReplicationGroup = CreateReplicationGroup'
 --
 -- * 'crgReplicasPerNodeGroup' - An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.
 --
--- * 'crgNumCacheClusters' - The number of clusters this replication group initially has. This parameter is not used if there is more than one node group (shard). You should use @ReplicasPerNodeGroup@ instead. If @Multi-AZ@ is @enabled@ , the value of this parameter must be at least 2. The maximum permitted value for @NumCacheClusters@ is 6 (primary plus 5 replicas).
+-- * 'crgNumCacheClusters' - The number of clusters this replication group initially has. This parameter is not used if there is more than one node group (shard). You should use @ReplicasPerNodeGroup@ instead. If @AutomaticFailoverEnabled@ is @true@ , the value of this parameter must be at least 2. If @AutomaticFailoverEnabled@ is @false@ you can omit this parameter (it will default to 1), or you can explicitly set it to a value between 2 and 6. The maximum permitted value for @NumCacheClusters@ is 6 (primary plus 5 replicas).
 --
 -- * 'crgPreferredCacheClusterAZs' - A list of EC2 Availability Zones in which the replication group's cache clusters are created. The order of the Availability Zones in the list is the order in which clusters are allocated. The primary cluster is created in the first AZ in the list. This parameter is not used if there is more than one node group (shard). You should use @NodeGroupConfiguration@ instead. Default: system chosen Availability Zones.
 --
@@ -210,7 +210,7 @@ crgEngineVersion = lens _crgEngineVersion (\ s a -> s{_crgEngineVersion = a});
 crgCacheNodeType :: Lens' CreateReplicationGroup (Maybe Text)
 crgCacheNodeType = lens _crgCacheNodeType (\ s a -> s{_crgCacheNodeType = a});
 
--- | A list of node group (shard) configuration options. Each node group (shard) configuration has the following: Slots, PrimaryAvailabilityZone, ReplicaAvailabilityZones, ReplicaCount. If you're creating a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication group, you can use this parameter to configure one node group (shard) or you can omit this parameter.
+-- | A list of node group (shard) configuration options. Each node group (shard) configuration has the following: Slots, PrimaryAvailabilityZone, ReplicaAvailabilityZones, ReplicaCount. If you're creating a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication group, you can use this parameter to individually configure each node group (shard), or you can omit this parameter.
 crgNodeGroupConfiguration :: Lens' CreateReplicationGroup [NodeGroupConfiguration]
 crgNodeGroupConfiguration = lens _crgNodeGroupConfiguration (\ s a -> s{_crgNodeGroupConfiguration = a}) . _Default . _Coerce;
 
@@ -218,7 +218,7 @@ crgNodeGroupConfiguration = lens _crgNodeGroupConfiguration (\ s a -> s{_crgNode
 crgSecurityGroupIds :: Lens' CreateReplicationGroup [Text]
 crgSecurityGroupIds = lens _crgSecurityGroupIds (\ s a -> s{_crgSecurityGroupIds = a}) . _Default . _Coerce;
 
--- | A list of Amazon Resource Names (ARN) that uniquely identify the Redis RDB snapshot files stored in Amazon S3. The snapshot files are used to populate the replication group. The Amazon S3 object name in the ARN cannot contain any commas. The list must match the number of node groups (shards) in the replication group, which means you cannot repartition. Example of an Amazon S3 ARN: @arn:aws:s3:::my_bucket/snapshot1.rdb@
+-- | A list of Amazon Resource Names (ARN) that uniquely identify the Redis RDB snapshot files stored in Amazon S3. The snapshot files are used to populate the new replication group. The Amazon S3 object name in the ARN cannot contain any commas. The new replication group will have the number of node groups (console: shards) specified by the parameter /NumNodeGroups/ or the number of node groups configured by /NodeGroupConfiguration/ regardless of the number of ARNs specified here. Example of an Amazon S3 ARN: @arn:aws:s3:::my_bucket/snapshot1.rdb@
 crgSnapshotARNs :: Lens' CreateReplicationGroup [Text]
 crgSnapshotARNs = lens _crgSnapshotARNs (\ s a -> s{_crgSnapshotARNs = a}) . _Default . _Coerce;
 
@@ -266,7 +266,7 @@ crgSnapshotRetentionLimit = lens _crgSnapshotRetentionLimit (\ s a -> s{_crgSnap
 crgReplicasPerNodeGroup :: Lens' CreateReplicationGroup (Maybe Int)
 crgReplicasPerNodeGroup = lens _crgReplicasPerNodeGroup (\ s a -> s{_crgReplicasPerNodeGroup = a});
 
--- | The number of clusters this replication group initially has. This parameter is not used if there is more than one node group (shard). You should use @ReplicasPerNodeGroup@ instead. If @Multi-AZ@ is @enabled@ , the value of this parameter must be at least 2. The maximum permitted value for @NumCacheClusters@ is 6 (primary plus 5 replicas).
+-- | The number of clusters this replication group initially has. This parameter is not used if there is more than one node group (shard). You should use @ReplicasPerNodeGroup@ instead. If @AutomaticFailoverEnabled@ is @true@ , the value of this parameter must be at least 2. If @AutomaticFailoverEnabled@ is @false@ you can omit this parameter (it will default to 1), or you can explicitly set it to a value between 2 and 6. The maximum permitted value for @NumCacheClusters@ is 6 (primary plus 5 replicas).
 crgNumCacheClusters :: Lens' CreateReplicationGroup (Maybe Int)
 crgNumCacheClusters = lens _crgNumCacheClusters (\ s a -> s{_crgNumCacheClusters = a});
 

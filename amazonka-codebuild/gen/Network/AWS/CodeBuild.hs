@@ -244,6 +244,7 @@ module Network.AWS.CodeBuild
     -- ** ProjectEnvironment
     , ProjectEnvironment
     , projectEnvironment
+    , pePrivilegedMode
     , peEnvironmentVariables
     , peType
     , peImage

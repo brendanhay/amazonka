@@ -221,6 +221,7 @@ data LanguageType
     = Android
     | Base
     | Docker
+    | Dotnet
     | Golang
     | Java
     | NodeJs
@@ -233,19 +234,21 @@ instance FromText LanguageType where
         "android" -> pure Android
         "base" -> pure Base
         "docker" -> pure Docker
+        "dotnet" -> pure Dotnet
         "golang" -> pure Golang
         "java" -> pure Java
         "node_js" -> pure NodeJs
         "python" -> pure Python
         "ruby" -> pure Ruby
         e -> fromTextError $ "Failure parsing LanguageType from value: '" <> e
-           <> "'. Accepted values: android, base, docker, golang, java, node_js, python, ruby"
+           <> "'. Accepted values: android, base, docker, dotnet, golang, java, node_js, python, ruby"
 
 instance ToText LanguageType where
     toText = \case
         Android -> "ANDROID"
         Base -> "BASE"
         Docker -> "DOCKER"
+        Dotnet -> "DOTNET"
         Golang -> "GOLANG"
         Java -> "JAVA"
         NodeJs -> "NODE_JS"
@@ -372,7 +375,8 @@ instance FromJSON SourceAuthType where
     parseJSON = parseJSONText "SourceAuthType"
 
 data SourceType
-    = STCodecommit
+    = STBitbucket
+    | STCodecommit
     | STCodepipeline
     | STGithub
     | STS3
@@ -380,15 +384,17 @@ data SourceType
 
 instance FromText SourceType where
     parser = takeLowerText >>= \case
+        "bitbucket" -> pure STBitbucket
         "codecommit" -> pure STCodecommit
         "codepipeline" -> pure STCodepipeline
         "github" -> pure STGithub
         "s3" -> pure STS3
         e -> fromTextError $ "Failure parsing SourceType from value: '" <> e
-           <> "'. Accepted values: codecommit, codepipeline, github, s3"
+           <> "'. Accepted values: bitbucket, codecommit, codepipeline, github, s3"
 
 instance ToText SourceType where
     toText = \case
+        STBitbucket -> "BITBUCKET"
         STCodecommit -> "CODECOMMIT"
         STCodepipeline -> "CODEPIPELINE"
         STGithub -> "GITHUB"

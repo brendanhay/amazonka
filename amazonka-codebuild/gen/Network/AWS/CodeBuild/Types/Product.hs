@@ -474,7 +474,7 @@ data EnvironmentVariable = EnvironmentVariable'
 --
 -- * 'evName' - The name or key of the environment variable.
 --
--- * 'evValue' - The value of the environment variable.
+-- * 'evValue' - The value of the environment variable. /Important:/ We strongly discourage using environment variables to store sensitive values, especially AWS secret key IDs and secret access keys. Environment variables can be displayed in plain text using tools such as the AWS CodeBuild console and the AWS Command Line Interface (AWS CLI).
 environmentVariable
     :: Text -- ^ 'evName'
     -> Text -- ^ 'evValue'
@@ -489,7 +489,7 @@ environmentVariable pName_ pValue_ =
 evName :: Lens' EnvironmentVariable Text
 evName = lens _evName (\ s a -> s{_evName = a});
 
--- | The value of the environment variable.
+-- | The value of the environment variable. /Important:/ We strongly discourage using environment variables to store sensitive values, especially AWS secret key IDs and secret access keys. Environment variables can be displayed in plain text using tools such as the AWS CodeBuild console and the AWS Command Line Interface (AWS CLI).
 evValue :: Lens' EnvironmentVariable Text
 evValue = lens _evValue (\ s a -> s{_evValue = a});
 
@@ -840,7 +840,8 @@ instance ToJSON ProjectArtifacts where
 --
 -- /See:/ 'projectEnvironment' smart constructor.
 data ProjectEnvironment = ProjectEnvironment'
-    { _peEnvironmentVariables :: !(Maybe [EnvironmentVariable])
+    { _pePrivilegedMode       :: !(Maybe Bool)
+    , _peEnvironmentVariables :: !(Maybe [EnvironmentVariable])
     , _peType                 :: !EnvironmentType
     , _peImage                :: !Text
     , _peComputeType          :: !ComputeType
@@ -849,6 +850,8 @@ data ProjectEnvironment = ProjectEnvironment'
 -- | Creates a value of 'ProjectEnvironment' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pePrivilegedMode' - If set to true, enables running the Docker daemon inside a Docker container; otherwise, false or not specified (the default). This value must be set to true only if this build project will be used to build Docker images, and the specified build environment image is not one provided by AWS CodeBuild with Docker support. Otherwise, all associated builds that attempt to interact with the Docker daemon will fail. Note that you must also start the Docker daemon so that your builds can interact with it as needed. One way to do this is to initialize the Docker daemon in the install phase of your build spec by running the following build commands. (Do not run the following build commands if the specified build environment image is provided by AWS CodeBuild with Docker support.) @- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=vfs& - timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"@
 --
 -- * 'peEnvironmentVariables' - A set of environment variables to make available to builds for this build project.
 --
@@ -864,11 +867,16 @@ projectEnvironment
     -> ProjectEnvironment
 projectEnvironment pType_ pImage_ pComputeType_ =
     ProjectEnvironment'
-    { _peEnvironmentVariables = Nothing
+    { _pePrivilegedMode = Nothing
+    , _peEnvironmentVariables = Nothing
     , _peType = pType_
     , _peImage = pImage_
     , _peComputeType = pComputeType_
     }
+
+-- | If set to true, enables running the Docker daemon inside a Docker container; otherwise, false or not specified (the default). This value must be set to true only if this build project will be used to build Docker images, and the specified build environment image is not one provided by AWS CodeBuild with Docker support. Otherwise, all associated builds that attempt to interact with the Docker daemon will fail. Note that you must also start the Docker daemon so that your builds can interact with it as needed. One way to do this is to initialize the Docker daemon in the install phase of your build spec by running the following build commands. (Do not run the following build commands if the specified build environment image is provided by AWS CodeBuild with Docker support.) @- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=vfs& - timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"@
+pePrivilegedMode :: Lens' ProjectEnvironment (Maybe Bool)
+pePrivilegedMode = lens _pePrivilegedMode (\ s a -> s{_pePrivilegedMode = a});
 
 -- | A set of environment variables to make available to builds for this build project.
 peEnvironmentVariables :: Lens' ProjectEnvironment [EnvironmentVariable]
@@ -891,8 +899,9 @@ instance FromJSON ProjectEnvironment where
           = withObject "ProjectEnvironment"
               (\ x ->
                  ProjectEnvironment' <$>
-                   (x .:? "environmentVariables" .!= mempty) <*>
-                     (x .: "type")
+                   (x .:? "privilegedMode") <*>
+                     (x .:? "environmentVariables" .!= mempty)
+                     <*> (x .: "type")
                      <*> (x .: "image")
                      <*> (x .: "computeType"))
 
@@ -904,7 +913,8 @@ instance ToJSON ProjectEnvironment where
         toJSON ProjectEnvironment'{..}
           = object
               (catMaybes
-                 [("environmentVariables" .=) <$>
+                 [("privilegedMode" .=) <$> _pePrivilegedMode,
+                  ("environmentVariables" .=) <$>
                     _peEnvironmentVariables,
                   Just ("type" .= _peType), Just ("image" .= _peImage),
                   Just ("computeType" .= _peComputeType)])
@@ -925,7 +935,7 @@ data ProjectSource = ProjectSource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'psLocation' - Information about the location of the source code to be built. Valid values include:     * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, @location@ should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value.     * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, @https://git-codecommit./region-ID/ .amazonaws.com/v1/repos//repo-name/ @ ).     * For source code in an Amazon Simple Storage Service (Amazon S3) input bucket, the path to the ZIP file that contains the source code (for example, @/bucket-name/ //path/ //to/ //object-name/ .zip@ )     * For source code in a GitHub repository, instead of specifying a value here, you connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project, and follow the on-screen instructions to complete the connection. (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the @source@ object, set the @auth@ object's @type@ value to @OAUTH@ .
+-- * 'psLocation' - Information about the location of the source code to be built. Valid values include:     * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, @location@ should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value.     * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, @https://git-codecommit./region-ID/ .amazonaws.com/v1/repos//repo-name/ @ ).     * For source code in an Amazon Simple Storage Service (Amazon S3) input bucket, the path to the ZIP file that contains the source code (for example, @/bucket-name/ //path/ //to/ //object-name/ .zip@ )     * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub __Authorize application__ page that displays, for __Organization access__ , choose __Request access__ next to each repository you want to allow AWS CodeBuild to have access to. Then choose __Authorize application__ . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the @source@ object, set the @auth@ object's @type@ value to @OAUTH@ .
 --
 -- * 'psAuth' - Information about the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source @type@ value is @GITHUB@ ).
 --
@@ -943,7 +953,7 @@ projectSource pType_ =
     , _psType = pType_
     }
 
--- | Information about the location of the source code to be built. Valid values include:     * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, @location@ should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value.     * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, @https://git-codecommit./region-ID/ .amazonaws.com/v1/repos//repo-name/ @ ).     * For source code in an Amazon Simple Storage Service (Amazon S3) input bucket, the path to the ZIP file that contains the source code (for example, @/bucket-name/ //path/ //to/ //object-name/ .zip@ )     * For source code in a GitHub repository, instead of specifying a value here, you connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project, and follow the on-screen instructions to complete the connection. (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the @source@ object, set the @auth@ object's @type@ value to @OAUTH@ .
+-- | Information about the location of the source code to be built. Valid values include:     * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, @location@ should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value.     * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, @https://git-codecommit./region-ID/ .amazonaws.com/v1/repos//repo-name/ @ ).     * For source code in an Amazon Simple Storage Service (Amazon S3) input bucket, the path to the ZIP file that contains the source code (for example, @/bucket-name/ //path/ //to/ //object-name/ .zip@ )     * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub __Authorize application__ page that displays, for __Organization access__ , choose __Request access__ next to each repository you want to allow AWS CodeBuild to have access to. Then choose __Authorize application__ . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the @source@ object, set the @auth@ object's @type@ value to @OAUTH@ .
 psLocation :: Lens' ProjectSource (Maybe Text)
 psLocation = lens _psLocation (\ s a -> s{_psLocation = a});
 

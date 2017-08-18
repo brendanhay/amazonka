@@ -99,7 +99,7 @@ instance NFData CreateStreamingDistribution
 instance ToElement CreateStreamingDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-11-25/}StreamingDistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2017-03-25/}StreamingDistributionConfig"
               .
               _csdStreamingDistributionConfig
 
@@ -107,7 +107,7 @@ instance ToHeaders CreateStreamingDistribution where
         toHeaders = const mempty
 
 instance ToPath CreateStreamingDistribution where
-        toPath = const "/2016-11-25/streaming-distribution"
+        toPath = const "/2017-03-25/streaming-distribution"
 
 instance ToQuery CreateStreamingDistribution where
         toQuery = const mempty

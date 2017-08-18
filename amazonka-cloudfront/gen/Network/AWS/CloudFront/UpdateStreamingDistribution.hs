@@ -108,7 +108,7 @@ instance NFData UpdateStreamingDistribution
 instance ToElement UpdateStreamingDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-11-25/}StreamingDistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2017-03-25/}StreamingDistributionConfig"
               .
               _usdStreamingDistributionConfig
 
@@ -119,7 +119,7 @@ instance ToHeaders UpdateStreamingDistribution where
 instance ToPath UpdateStreamingDistribution where
         toPath UpdateStreamingDistribution'{..}
           = mconcat
-              ["/2016-11-25/streaming-distribution/", toBS _usdId,
+              ["/2017-03-25/streaming-distribution/", toBS _usdId,
                "/config"]
 
 instance ToQuery UpdateStreamingDistribution where

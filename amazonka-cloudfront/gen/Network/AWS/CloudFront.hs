@@ -29,6 +29,9 @@ module Network.AWS.CloudFront
     -- ** InvalidErrorCode
     , _InvalidErrorCode
 
+    -- ** InvalidOriginReadTimeout
+    , _InvalidOriginReadTimeout
+
     -- ** TooManyCacheBehaviors
     , _TooManyCacheBehaviors
 
@@ -49,6 +52,9 @@ module Network.AWS.CloudFront
 
     -- ** InvalidArgument
     , _InvalidArgument
+
+    -- ** InvalidOriginKeepaliveTimeout
+    , _InvalidOriginKeepaliveTimeout
 
     -- ** TooManyInvalidationsInProgress
     , _TooManyInvalidationsInProgress
@@ -438,6 +444,8 @@ module Network.AWS.CloudFront
     -- ** CustomOriginConfig
     , CustomOriginConfig
     , customOriginConfig
+    , cocOriginKeepaliveTimeout
+    , cocOriginReadTimeout
     , cocOriginSSLProtocols
     , cocHTTPPort
     , cocHTTPSPort

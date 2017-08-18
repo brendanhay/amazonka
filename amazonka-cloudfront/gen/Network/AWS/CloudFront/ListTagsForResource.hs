@@ -88,7 +88,7 @@ instance ToHeaders ListTagsForResource where
         toHeaders = const mempty
 
 instance ToPath ListTagsForResource where
-        toPath = const "/2016-11-25/tagging"
+        toPath = const "/2017-03-25/tagging"
 
 instance ToQuery ListTagsForResource where
         toQuery ListTagsForResource'{..}

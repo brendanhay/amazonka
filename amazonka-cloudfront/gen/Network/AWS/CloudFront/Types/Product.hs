@@ -1023,15 +1023,21 @@ instance ToXML CustomHeaders where
 --
 -- /See:/ 'customOriginConfig' smart constructor.
 data CustomOriginConfig = CustomOriginConfig'
-    { _cocOriginSSLProtocols   :: !(Maybe OriginSSLProtocols)
-    , _cocHTTPPort             :: !Int
-    , _cocHTTPSPort            :: !Int
-    , _cocOriginProtocolPolicy :: !OriginProtocolPolicy
+    { _cocOriginKeepaliveTimeout :: !(Maybe Int)
+    , _cocOriginReadTimeout      :: !(Maybe Int)
+    , _cocOriginSSLProtocols     :: !(Maybe OriginSSLProtocols)
+    , _cocHTTPPort               :: !Int
+    , _cocHTTPSPort              :: !Int
+    , _cocOriginProtocolPolicy   :: !OriginProtocolPolicy
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CustomOriginConfig' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cocOriginKeepaliveTimeout' - You can create a custom keep-alive timeout. All timeout units are in seconds. The default keep-alive timeout is 5 seconds, but you can configure custom timeout lengths using the CloudFront API. The minimum timeout length is 1 second; the maximum is 60 seconds. If you need to increase the maximum time limit, contact the <https://console.aws.amazon.com/support/home#/ AWS Support Center> .
+--
+-- * 'cocOriginReadTimeout' - You can create a custom origin read timeout. All timeout units are in seconds. The default origin read timeout is 30 seconds, but you can configure custom timeout lengths using the CloudFront API. The minimum timeout length is 4 seconds; the maximum is 60 seconds. If you need to increase the maximum time limit, contact the <https://console.aws.amazon.com/support/home#/ AWS Support Center> .
 --
 -- * 'cocOriginSSLProtocols' - The SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
 --
@@ -1047,11 +1053,21 @@ customOriginConfig
     -> CustomOriginConfig
 customOriginConfig pHTTPPort_ pHTTPSPort_ pOriginProtocolPolicy_ =
     CustomOriginConfig'
-    { _cocOriginSSLProtocols = Nothing
+    { _cocOriginKeepaliveTimeout = Nothing
+    , _cocOriginReadTimeout = Nothing
+    , _cocOriginSSLProtocols = Nothing
     , _cocHTTPPort = pHTTPPort_
     , _cocHTTPSPort = pHTTPSPort_
     , _cocOriginProtocolPolicy = pOriginProtocolPolicy_
     }
+
+-- | You can create a custom keep-alive timeout. All timeout units are in seconds. The default keep-alive timeout is 5 seconds, but you can configure custom timeout lengths using the CloudFront API. The minimum timeout length is 1 second; the maximum is 60 seconds. If you need to increase the maximum time limit, contact the <https://console.aws.amazon.com/support/home#/ AWS Support Center> .
+cocOriginKeepaliveTimeout :: Lens' CustomOriginConfig (Maybe Int)
+cocOriginKeepaliveTimeout = lens _cocOriginKeepaliveTimeout (\ s a -> s{_cocOriginKeepaliveTimeout = a});
+
+-- | You can create a custom origin read timeout. All timeout units are in seconds. The default origin read timeout is 30 seconds, but you can configure custom timeout lengths using the CloudFront API. The minimum timeout length is 4 seconds; the maximum is 60 seconds. If you need to increase the maximum time limit, contact the <https://console.aws.amazon.com/support/home#/ AWS Support Center> .
+cocOriginReadTimeout :: Lens' CustomOriginConfig (Maybe Int)
+cocOriginReadTimeout = lens _cocOriginReadTimeout (\ s a -> s{_cocOriginReadTimeout = a});
 
 -- | The SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
 cocOriginSSLProtocols :: Lens' CustomOriginConfig (Maybe OriginSSLProtocols)
@@ -1072,7 +1088,10 @@ cocOriginProtocolPolicy = lens _cocOriginProtocolPolicy (\ s a -> s{_cocOriginPr
 instance FromXML CustomOriginConfig where
         parseXML x
           = CustomOriginConfig' <$>
-              (x .@? "OriginSslProtocols") <*> (x .@ "HTTPPort")
+              (x .@? "OriginKeepaliveTimeout") <*>
+                (x .@? "OriginReadTimeout")
+                <*> (x .@? "OriginSslProtocols")
+                <*> (x .@ "HTTPPort")
                 <*> (x .@ "HTTPSPort")
                 <*> (x .@ "OriginProtocolPolicy")
 
@@ -1083,7 +1102,10 @@ instance NFData CustomOriginConfig
 instance ToXML CustomOriginConfig where
         toXML CustomOriginConfig'{..}
           = mconcat
-              ["OriginSslProtocols" @= _cocOriginSSLProtocols,
+              ["OriginKeepaliveTimeout" @=
+                 _cocOriginKeepaliveTimeout,
+               "OriginReadTimeout" @= _cocOriginReadTimeout,
+               "OriginSslProtocols" @= _cocOriginSSLProtocols,
                "HTTPPort" @= _cocHTTPPort,
                "HTTPSPort" @= _cocHTTPSPort,
                "OriginProtocolPolicy" @= _cocOriginProtocolPolicy]
@@ -1393,7 +1415,7 @@ data DistributionConfig = DistributionConfig'
 --
 -- * 'dcComment' - Any comments you want to include about the distribution. If you don't want to specify a comment, include an empty @Comment@ element. To delete an existing comment, update the distribution configuration and include an empty @Comment@ element. To add or change a comment, update the distribution configuration and specify the new comment.
 --
--- * 'dcEnabled' - Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you do not want to enable logging when you create a distribution, or if you want to disable logging for an existing distribution, specify @false@ for @Enabled@ , and specify empty @Bucket@ and @Prefix@ elements. If you specify @false@ for @Enabled@ but you specify values for @Bucket@ and @Prefix@ , the values are automatically deleted.
+-- * 'dcEnabled' - From this field, you can enable or disable the selected distribution. If you specify @false@ for @Enabled@ but you specify values for @Bucket@ and @Prefix@ , the values are automatically deleted.
 distributionConfig
     :: Text -- ^ 'dcCallerReference'
     -> Origins -- ^ 'dcOrigins'
@@ -1481,7 +1503,7 @@ dcDefaultCacheBehavior = lens _dcDefaultCacheBehavior (\ s a -> s{_dcDefaultCach
 dcComment :: Lens' DistributionConfig Text
 dcComment = lens _dcComment (\ s a -> s{_dcComment = a});
 
--- | Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you do not want to enable logging when you create a distribution, or if you want to disable logging for an existing distribution, specify @false@ for @Enabled@ , and specify empty @Bucket@ and @Prefix@ elements. If you specify @false@ for @Enabled@ but you specify values for @Bucket@ and @Prefix@ , the values are automatically deleted.
+-- | From this field, you can enable or disable the selected distribution. If you specify @false@ for @Enabled@ but you specify values for @Bucket@ and @Prefix@ , the values are automatically deleted.
 dcEnabled :: Lens' DistributionConfig Bool
 dcEnabled = lens _dcEnabled (\ s a -> s{_dcEnabled = a});
 
@@ -2964,7 +2986,7 @@ newtype S3OriginConfig = S3OriginConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'socOriginAccessIdentity' - The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can /only/ access objects in an Amazon S3 bucket through CloudFront. The format of the value is: origin-access-identity/CloudFront//ID-of-origin-access-identity/  where @/ID-of-origin-access-identity/ @ is the value that CloudFront returned in the @ID@ element when you created the origin access identity. If you want viewers to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty @OriginAccessIdentity@ element. To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty @OriginAccessIdentity@ element. To replace the origin access identity, update the distribution configuration and specify the new origin access identity. For more information about the origin access identity, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront> in the /Amazon CloudFront Developer Guide/ .
+-- * 'socOriginAccessIdentity' - The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can /only/ access objects in an Amazon S3 bucket through CloudFront. The format of the value is: origin-access-identity/cloudfront//ID-of-origin-access-identity/  where @/ID-of-origin-access-identity/ @ is the value that CloudFront returned in the @ID@ element when you created the origin access identity. If you want viewers to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty @OriginAccessIdentity@ element. To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty @OriginAccessIdentity@ element. To replace the origin access identity, update the distribution configuration and specify the new origin access identity. For more information about the origin access identity, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront> in the /Amazon CloudFront Developer Guide/ .
 s3OriginConfig
     :: Text -- ^ 'socOriginAccessIdentity'
     -> S3OriginConfig
@@ -2973,7 +2995,7 @@ s3OriginConfig pOriginAccessIdentity_ =
     { _socOriginAccessIdentity = pOriginAccessIdentity_
     }
 
--- | The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can /only/ access objects in an Amazon S3 bucket through CloudFront. The format of the value is: origin-access-identity/CloudFront//ID-of-origin-access-identity/  where @/ID-of-origin-access-identity/ @ is the value that CloudFront returned in the @ID@ element when you created the origin access identity. If you want viewers to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty @OriginAccessIdentity@ element. To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty @OriginAccessIdentity@ element. To replace the origin access identity, update the distribution configuration and specify the new origin access identity. For more information about the origin access identity, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront> in the /Amazon CloudFront Developer Guide/ .
+-- | The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can /only/ access objects in an Amazon S3 bucket through CloudFront. The format of the value is: origin-access-identity/cloudfront//ID-of-origin-access-identity/  where @/ID-of-origin-access-identity/ @ is the value that CloudFront returned in the @ID@ element when you created the origin access identity. If you want viewers to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty @OriginAccessIdentity@ element. To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty @OriginAccessIdentity@ element. To replace the origin access identity, update the distribution configuration and specify the new origin access identity. For more information about the origin access identity, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront> in the /Amazon CloudFront Developer Guide/ .
 socOriginAccessIdentity :: Lens' S3OriginConfig Text
 socOriginAccessIdentity = lens _socOriginAccessIdentity (\ s a -> s{_socOriginAccessIdentity = a});
 
@@ -3780,7 +3802,7 @@ data ViewerCertificate = ViewerCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vcSSLSupportMethod' - If you specify a value for @ACMCertificateArn@ or for @IAMCertificateId@ , you must also specify how you want CloudFront to serve HTTPS requests: using a method that works for all clients or one that works for most clients:     * @vip@ : CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you must request permission to use this feature, and you incur additional monthly charges.     * @sni-only@ : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. If some of your users' browsers don't support SNI, we recommend that you do one of the following:     * Use the @vip@ option (dedicated IP addresses) instead of @sni-only@ .     * Use the CloudFront SSL/TLS certificate instead of a custom certificate. This requires that you use the CloudFront domain name of your distribution in the URLs for your objects, for example, @https://d111111abcdef8.cloudfront.net/logo.png@ .     * If you can control which browser your users use, upgrade the browser to one that supports SNI.     * Use HTTP instead of HTTPS. Do not specify a value for @SSLSupportMethod@ if you specified @<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>@ . For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html#CNAMEsAndHTTPS.html Using Alternate Domain Names and HTTPS> in the /Amazon CloudFront Developer Guide/ .
+-- * 'vcSSLSupportMethod' - If you specify a value for @ACMCertificateArn@ or for @IAMCertificateId@ , you must also specify how you want CloudFront to serve HTTPS requests: using a method that works for all clients or one that works for most clients:     * @vip@ : CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you will incur additional monthly charges.     * @sni-only@ : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. If some of your users' browsers don't support SNI, we recommend that you do one of the following:     * Use the @vip@ option (dedicated IP addresses) instead of @sni-only@ .     * Use the CloudFront SSL/TLS certificate instead of a custom certificate. This requires that you use the CloudFront domain name of your distribution in the URLs for your objects, for example, @https://d111111abcdef8.cloudfront.net/logo.png@ .     * If you can control which browser your users use, upgrade the browser to one that supports SNI.     * Use HTTP instead of HTTPS. Do not specify a value for @SSLSupportMethod@ if you specified @<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>@ . For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html#CNAMEsAndHTTPS.html Using Alternate Domain Names and HTTPS> in the /Amazon CloudFront Developer Guide/ .
 --
 -- * 'vcACMCertificateARN' - Undocumented member.
 --
@@ -3806,7 +3828,7 @@ viewerCertificate =
     , _vcCloudFrontDefaultCertificate = Nothing
     }
 
--- | If you specify a value for @ACMCertificateArn@ or for @IAMCertificateId@ , you must also specify how you want CloudFront to serve HTTPS requests: using a method that works for all clients or one that works for most clients:     * @vip@ : CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you must request permission to use this feature, and you incur additional monthly charges.     * @sni-only@ : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. If some of your users' browsers don't support SNI, we recommend that you do one of the following:     * Use the @vip@ option (dedicated IP addresses) instead of @sni-only@ .     * Use the CloudFront SSL/TLS certificate instead of a custom certificate. This requires that you use the CloudFront domain name of your distribution in the URLs for your objects, for example, @https://d111111abcdef8.cloudfront.net/logo.png@ .     * If you can control which browser your users use, upgrade the browser to one that supports SNI.     * Use HTTP instead of HTTPS. Do not specify a value for @SSLSupportMethod@ if you specified @<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>@ . For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html#CNAMEsAndHTTPS.html Using Alternate Domain Names and HTTPS> in the /Amazon CloudFront Developer Guide/ .
+-- | If you specify a value for @ACMCertificateArn@ or for @IAMCertificateId@ , you must also specify how you want CloudFront to serve HTTPS requests: using a method that works for all clients or one that works for most clients:     * @vip@ : CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you will incur additional monthly charges.     * @sni-only@ : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. If some of your users' browsers don't support SNI, we recommend that you do one of the following:     * Use the @vip@ option (dedicated IP addresses) instead of @sni-only@ .     * Use the CloudFront SSL/TLS certificate instead of a custom certificate. This requires that you use the CloudFront domain name of your distribution in the URLs for your objects, for example, @https://d111111abcdef8.cloudfront.net/logo.png@ .     * If you can control which browser your users use, upgrade the browser to one that supports SNI.     * Use HTTP instead of HTTPS. Do not specify a value for @SSLSupportMethod@ if you specified @<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>@ . For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html#CNAMEsAndHTTPS.html Using Alternate Domain Names and HTTPS> in the /Amazon CloudFront Developer Guide/ .
 vcSSLSupportMethod :: Lens' ViewerCertificate (Maybe SSLSupportMethod)
 vcSSLSupportMethod = lens _vcSSLSupportMethod (\ s a -> s{_vcSSLSupportMethod = a});
 

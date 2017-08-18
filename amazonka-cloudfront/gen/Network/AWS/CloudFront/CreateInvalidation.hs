@@ -99,7 +99,7 @@ instance NFData CreateInvalidation
 instance ToElement CreateInvalidation where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-11-25/}InvalidationBatch"
+              "{http://cloudfront.amazonaws.com/doc/2017-03-25/}InvalidationBatch"
               .
               _ciInvalidationBatch
 
@@ -109,7 +109,7 @@ instance ToHeaders CreateInvalidation where
 instance ToPath CreateInvalidation where
         toPath CreateInvalidation'{..}
           = mconcat
-              ["/2016-11-25/distribution/", toBS _ciDistributionId,
+              ["/2017-03-25/distribution/", toBS _ciDistributionId,
                "/invalidation"]
 
 instance ToQuery CreateInvalidation where

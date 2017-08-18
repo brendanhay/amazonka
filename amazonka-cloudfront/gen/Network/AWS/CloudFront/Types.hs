@@ -19,6 +19,7 @@ module Network.AWS.CloudFront.Types
     , _TooManyOriginCustomHeaders
     , _InvalidTagging
     , _InvalidErrorCode
+    , _InvalidOriginReadTimeout
     , _TooManyCacheBehaviors
     , _TooManyCloudFrontOriginAccessIdentities
     , _InvalidOriginAccessIdentity
@@ -26,6 +27,7 @@ module Network.AWS.CloudFront.Types
     , _NoSuchStreamingDistribution
     , _InconsistentQuantities
     , _InvalidArgument
+    , _InvalidOriginKeepaliveTimeout
     , _TooManyInvalidationsInProgress
     , _InvalidWebACLId
     , _TooManyQueryStringParameters
@@ -223,6 +225,8 @@ module Network.AWS.CloudFront.Types
     -- * CustomOriginConfig
     , CustomOriginConfig
     , customOriginConfig
+    , cocOriginKeepaliveTimeout
+    , cocOriginReadTimeout
     , cocOriginSSLProtocols
     , cocHTTPPort
     , cocHTTPSPort
@@ -555,14 +559,14 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version @2016-11-25@ of the Amazon CloudFront SDK configuration.
+-- | API version @2017-03-25@ of the Amazon CloudFront SDK configuration.
 cloudFront :: Service
 cloudFront =
     Service
     { _svcAbbrev = "CloudFront"
     , _svcSigner = v4
     , _svcPrefix = "cloudfront"
-    , _svcVersion = "2016-11-25"
+    , _svcVersion = "2017-03-25"
     , _svcEndpoint = defaultEndpoint cloudFront
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
@@ -578,6 +582,8 @@ cloudFront =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -603,6 +609,11 @@ _InvalidTagging =
 _InvalidErrorCode :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidErrorCode =
     _MatchServiceError cloudFront "InvalidErrorCode" . hasStatus 400
+
+-- | Prism for InvalidOriginReadTimeout' errors.
+_InvalidOriginReadTimeout :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidOriginReadTimeout =
+    _MatchServiceError cloudFront "InvalidOriginReadTimeout" . hasStatus 400
 
 -- | You cannot create more cache behaviors for the distribution.
 --
@@ -651,6 +662,12 @@ _InconsistentQuantities =
 _InvalidArgument :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidArgument =
     _MatchServiceError cloudFront "InvalidArgument" . hasStatus 400
+
+-- | Prism for InvalidOriginKeepaliveTimeout' errors.
+_InvalidOriginKeepaliveTimeout :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidOriginKeepaliveTimeout =
+    _MatchServiceError cloudFront "InvalidOriginKeepaliveTimeout" .
+    hasStatus 400
 
 -- | You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.
 --

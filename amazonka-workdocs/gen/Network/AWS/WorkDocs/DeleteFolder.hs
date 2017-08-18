@@ -27,6 +27,7 @@ module Network.AWS.WorkDocs.DeleteFolder
       deleteFolder
     , DeleteFolder
     -- * Request Lenses
+    , dfAuthenticationToken
     , dfFolderId
 
     -- * Destructuring the Response
@@ -42,13 +43,16 @@ import           Network.AWS.WorkDocs.Types
 import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deleteFolder' smart constructor.
-newtype DeleteFolder = DeleteFolder'
-    { _dfFolderId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+data DeleteFolder = DeleteFolder'
+    { _dfAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _dfFolderId            :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteFolder' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dfAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'dfFolderId' - The ID of the folder.
 deleteFolder
@@ -56,8 +60,13 @@ deleteFolder
     -> DeleteFolder
 deleteFolder pFolderId_ =
     DeleteFolder'
-    { _dfFolderId = pFolderId_
+    { _dfAuthenticationToken = Nothing
+    , _dfFolderId = pFolderId_
     }
+
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+dfAuthenticationToken :: Lens' DeleteFolder (Maybe Text)
+dfAuthenticationToken = lens _dfAuthenticationToken (\ s a -> s{_dfAuthenticationToken = a}) . mapping _Sensitive;
 
 -- | The ID of the folder.
 dfFolderId :: Lens' DeleteFolder Text
@@ -73,11 +82,11 @@ instance Hashable DeleteFolder
 instance NFData DeleteFolder
 
 instance ToHeaders DeleteFolder where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders DeleteFolder'{..}
+          = mconcat
+              ["Authentication" =# _dfAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToPath DeleteFolder where
         toPath DeleteFolder'{..}

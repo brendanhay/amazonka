@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Aborts the upload of the specified document version that was previously initiated by 'InitiateDocumentVersionUpload' . The client should make this call only when it no longer intends or fails to upload the document version.
+-- Aborts the upload of the specified document version that was previously initiated by 'InitiateDocumentVersionUpload' . The client should make this call only when it no longer intends to upload the document version, or fails to do so.
 --
 --
 module Network.AWS.WorkDocs.AbortDocumentVersionUpload
@@ -27,6 +27,7 @@ module Network.AWS.WorkDocs.AbortDocumentVersionUpload
       abortDocumentVersionUpload
     , AbortDocumentVersionUpload
     -- * Request Lenses
+    , advuAuthenticationToken
     , advuDocumentId
     , advuVersionId
 
@@ -44,13 +45,16 @@ import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'abortDocumentVersionUpload' smart constructor.
 data AbortDocumentVersionUpload = AbortDocumentVersionUpload'
-    { _advuDocumentId :: !Text
-    , _advuVersionId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    { _advuAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _advuDocumentId          :: !Text
+    , _advuVersionId           :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AbortDocumentVersionUpload' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'advuAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'advuDocumentId' - The ID of the document.
 --
@@ -61,9 +65,14 @@ abortDocumentVersionUpload
     -> AbortDocumentVersionUpload
 abortDocumentVersionUpload pDocumentId_ pVersionId_ =
     AbortDocumentVersionUpload'
-    { _advuDocumentId = pDocumentId_
+    { _advuAuthenticationToken = Nothing
+    , _advuDocumentId = pDocumentId_
     , _advuVersionId = pVersionId_
     }
+
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+advuAuthenticationToken :: Lens' AbortDocumentVersionUpload (Maybe Text)
+advuAuthenticationToken = lens _advuAuthenticationToken (\ s a -> s{_advuAuthenticationToken = a}) . mapping _Sensitive;
 
 -- | The ID of the document.
 advuDocumentId :: Lens' AbortDocumentVersionUpload Text
@@ -85,11 +94,11 @@ instance Hashable AbortDocumentVersionUpload
 instance NFData AbortDocumentVersionUpload
 
 instance ToHeaders AbortDocumentVersionUpload where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders AbortDocumentVersionUpload'{..}
+          = mconcat
+              ["Authentication" =# _advuAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToPath AbortDocumentVersionUpload where
         toPath AbortDocumentVersionUpload'{..}

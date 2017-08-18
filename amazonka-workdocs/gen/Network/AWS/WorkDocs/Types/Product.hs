@@ -21,6 +21,283 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.WorkDocs.Types.Sum
 
+-- | Describes the activity information.
+--
+--
+--
+-- /See:/ 'activity' smart constructor.
+data Activity = Activity'
+    { _aResourceMetadata :: !(Maybe ResourceMetadata)
+    , _aInitiator        :: !(Maybe UserMetadata)
+    , _aParticipants     :: !(Maybe Participants)
+    , _aOriginalParent   :: !(Maybe ResourceMetadata)
+    , _aType             :: !(Maybe ActivityType)
+    , _aCommentMetadata  :: !(Maybe CommentMetadata)
+    , _aTimeStamp        :: !(Maybe POSIX)
+    , _aOrganizationId   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Activity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aResourceMetadata' - The metadata of the resource involved in the user action.
+--
+-- * 'aInitiator' - The user who performed the action.
+--
+-- * 'aParticipants' - The list of users or groups impacted by this action. This is an optional field and is filled for the following sharing activities: DOCUMENT_SHARED, DOCUMENT_SHARED, DOCUMENT_UNSHARED, FOLDER_SHARED, FOLDER_UNSHARED.
+--
+-- * 'aOriginalParent' - The original parent of the resource. This is an optional field and is filled for move activities.
+--
+-- * 'aType' - The activity type.
+--
+-- * 'aCommentMetadata' - Metadata of the commenting activity. This is an optional field and is filled for commenting activities.
+--
+-- * 'aTimeStamp' - The timestamp when the action was performed.
+--
+-- * 'aOrganizationId' - The ID of the organization.
+activity
+    :: Activity
+activity =
+    Activity'
+    { _aResourceMetadata = Nothing
+    , _aInitiator = Nothing
+    , _aParticipants = Nothing
+    , _aOriginalParent = Nothing
+    , _aType = Nothing
+    , _aCommentMetadata = Nothing
+    , _aTimeStamp = Nothing
+    , _aOrganizationId = Nothing
+    }
+
+-- | The metadata of the resource involved in the user action.
+aResourceMetadata :: Lens' Activity (Maybe ResourceMetadata)
+aResourceMetadata = lens _aResourceMetadata (\ s a -> s{_aResourceMetadata = a});
+
+-- | The user who performed the action.
+aInitiator :: Lens' Activity (Maybe UserMetadata)
+aInitiator = lens _aInitiator (\ s a -> s{_aInitiator = a});
+
+-- | The list of users or groups impacted by this action. This is an optional field and is filled for the following sharing activities: DOCUMENT_SHARED, DOCUMENT_SHARED, DOCUMENT_UNSHARED, FOLDER_SHARED, FOLDER_UNSHARED.
+aParticipants :: Lens' Activity (Maybe Participants)
+aParticipants = lens _aParticipants (\ s a -> s{_aParticipants = a});
+
+-- | The original parent of the resource. This is an optional field and is filled for move activities.
+aOriginalParent :: Lens' Activity (Maybe ResourceMetadata)
+aOriginalParent = lens _aOriginalParent (\ s a -> s{_aOriginalParent = a});
+
+-- | The activity type.
+aType :: Lens' Activity (Maybe ActivityType)
+aType = lens _aType (\ s a -> s{_aType = a});
+
+-- | Metadata of the commenting activity. This is an optional field and is filled for commenting activities.
+aCommentMetadata :: Lens' Activity (Maybe CommentMetadata)
+aCommentMetadata = lens _aCommentMetadata (\ s a -> s{_aCommentMetadata = a});
+
+-- | The timestamp when the action was performed.
+aTimeStamp :: Lens' Activity (Maybe UTCTime)
+aTimeStamp = lens _aTimeStamp (\ s a -> s{_aTimeStamp = a}) . mapping _Time;
+
+-- | The ID of the organization.
+aOrganizationId :: Lens' Activity (Maybe Text)
+aOrganizationId = lens _aOrganizationId (\ s a -> s{_aOrganizationId = a});
+
+instance FromJSON Activity where
+        parseJSON
+          = withObject "Activity"
+              (\ x ->
+                 Activity' <$>
+                   (x .:? "ResourceMetadata") <*> (x .:? "Initiator")
+                     <*> (x .:? "Participants")
+                     <*> (x .:? "OriginalParent")
+                     <*> (x .:? "Type")
+                     <*> (x .:? "CommentMetadata")
+                     <*> (x .:? "TimeStamp")
+                     <*> (x .:? "OrganizationId"))
+
+instance Hashable Activity
+
+instance NFData Activity
+
+-- | Describes a comment.
+--
+--
+--
+-- /See:/ 'comment' smart constructor.
+data Comment = Comment'
+    { _cStatus           :: !(Maybe CommentStatusType)
+    , _cText             :: !(Maybe (Sensitive Text))
+    , _cVisibility       :: !(Maybe CommentVisibilityType)
+    , _cThreadId         :: !(Maybe Text)
+    , _cContributor      :: !(Maybe User)
+    , _cCreatedTimestamp :: !(Maybe POSIX)
+    , _cRecipientId      :: !(Maybe Text)
+    , _cParentId         :: !(Maybe Text)
+    , _cCommentId        :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Comment' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cStatus' - The status of the comment.
+--
+-- * 'cText' - The text of the comment.
+--
+-- * 'cVisibility' - The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors.
+--
+-- * 'cThreadId' - The ID of the root comment in the thread.
+--
+-- * 'cContributor' - The details of the user who made the comment.
+--
+-- * 'cCreatedTimestamp' - The time that the comment was created.
+--
+-- * 'cRecipientId' - If the comment is a reply to another user's comment, this field contains the user ID of the user being replied to.
+--
+-- * 'cParentId' - The ID of the parent comment.
+--
+-- * 'cCommentId' - The ID of the comment.
+comment
+    :: Text -- ^ 'cCommentId'
+    -> Comment
+comment pCommentId_ =
+    Comment'
+    { _cStatus = Nothing
+    , _cText = Nothing
+    , _cVisibility = Nothing
+    , _cThreadId = Nothing
+    , _cContributor = Nothing
+    , _cCreatedTimestamp = Nothing
+    , _cRecipientId = Nothing
+    , _cParentId = Nothing
+    , _cCommentId = pCommentId_
+    }
+
+-- | The status of the comment.
+cStatus :: Lens' Comment (Maybe CommentStatusType)
+cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
+
+-- | The text of the comment.
+cText :: Lens' Comment (Maybe Text)
+cText = lens _cText (\ s a -> s{_cText = a}) . mapping _Sensitive;
+
+-- | The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors.
+cVisibility :: Lens' Comment (Maybe CommentVisibilityType)
+cVisibility = lens _cVisibility (\ s a -> s{_cVisibility = a});
+
+-- | The ID of the root comment in the thread.
+cThreadId :: Lens' Comment (Maybe Text)
+cThreadId = lens _cThreadId (\ s a -> s{_cThreadId = a});
+
+-- | The details of the user who made the comment.
+cContributor :: Lens' Comment (Maybe User)
+cContributor = lens _cContributor (\ s a -> s{_cContributor = a});
+
+-- | The time that the comment was created.
+cCreatedTimestamp :: Lens' Comment (Maybe UTCTime)
+cCreatedTimestamp = lens _cCreatedTimestamp (\ s a -> s{_cCreatedTimestamp = a}) . mapping _Time;
+
+-- | If the comment is a reply to another user's comment, this field contains the user ID of the user being replied to.
+cRecipientId :: Lens' Comment (Maybe Text)
+cRecipientId = lens _cRecipientId (\ s a -> s{_cRecipientId = a});
+
+-- | The ID of the parent comment.
+cParentId :: Lens' Comment (Maybe Text)
+cParentId = lens _cParentId (\ s a -> s{_cParentId = a});
+
+-- | The ID of the comment.
+cCommentId :: Lens' Comment Text
+cCommentId = lens _cCommentId (\ s a -> s{_cCommentId = a});
+
+instance FromJSON Comment where
+        parseJSON
+          = withObject "Comment"
+              (\ x ->
+                 Comment' <$>
+                   (x .:? "Status") <*> (x .:? "Text") <*>
+                     (x .:? "Visibility")
+                     <*> (x .:? "ThreadId")
+                     <*> (x .:? "Contributor")
+                     <*> (x .:? "CreatedTimestamp")
+                     <*> (x .:? "RecipientId")
+                     <*> (x .:? "ParentId")
+                     <*> (x .: "CommentId"))
+
+instance Hashable Comment
+
+instance NFData Comment
+
+-- | Describes the metadata of a comment.
+--
+--
+--
+-- /See:/ 'commentMetadata' smart constructor.
+data CommentMetadata = CommentMetadata'
+    { _cmCommentStatus    :: !(Maybe CommentStatusType)
+    , _cmContributor      :: !(Maybe User)
+    , _cmCommentId        :: !(Maybe Text)
+    , _cmCreatedTimestamp :: !(Maybe POSIX)
+    , _cmRecipientId      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CommentMetadata' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cmCommentStatus' - Undocumented member.
+--
+-- * 'cmContributor' - The user who made the comment.
+--
+-- * 'cmCommentId' - The ID of the comment.
+--
+-- * 'cmCreatedTimestamp' - Undocumented member.
+--
+-- * 'cmRecipientId' - The ID of the user being replied to.
+commentMetadata
+    :: CommentMetadata
+commentMetadata =
+    CommentMetadata'
+    { _cmCommentStatus = Nothing
+    , _cmContributor = Nothing
+    , _cmCommentId = Nothing
+    , _cmCreatedTimestamp = Nothing
+    , _cmRecipientId = Nothing
+    }
+
+-- | Undocumented member.
+cmCommentStatus :: Lens' CommentMetadata (Maybe CommentStatusType)
+cmCommentStatus = lens _cmCommentStatus (\ s a -> s{_cmCommentStatus = a});
+
+-- | The user who made the comment.
+cmContributor :: Lens' CommentMetadata (Maybe User)
+cmContributor = lens _cmContributor (\ s a -> s{_cmContributor = a});
+
+-- | The ID of the comment.
+cmCommentId :: Lens' CommentMetadata (Maybe Text)
+cmCommentId = lens _cmCommentId (\ s a -> s{_cmCommentId = a});
+
+-- | Undocumented member.
+cmCreatedTimestamp :: Lens' CommentMetadata (Maybe UTCTime)
+cmCreatedTimestamp = lens _cmCreatedTimestamp (\ s a -> s{_cmCreatedTimestamp = a}) . mapping _Time;
+
+-- | The ID of the user being replied to.
+cmRecipientId :: Lens' CommentMetadata (Maybe Text)
+cmRecipientId = lens _cmRecipientId (\ s a -> s{_cmRecipientId = a});
+
+instance FromJSON CommentMetadata where
+        parseJSON
+          = withObject "CommentMetadata"
+              (\ x ->
+                 CommentMetadata' <$>
+                   (x .:? "CommentStatus") <*> (x .:? "Contributor") <*>
+                     (x .:? "CommentId")
+                     <*> (x .:? "CreatedTimestamp")
+                     <*> (x .:? "RecipientId"))
+
+instance Hashable CommentMetadata
+
+instance NFData CommentMetadata
+
 -- | Describes the document.
 --
 --
@@ -31,6 +308,7 @@ data DocumentMetadata = DocumentMetadata'
     , _dmParentFolderId        :: !(Maybe Text)
     , _dmModifiedTimestamp     :: !(Maybe POSIX)
     , _dmId                    :: !(Maybe Text)
+    , _dmLabels                :: !(Maybe [Text])
     , _dmResourceState         :: !(Maybe ResourceStateType)
     , _dmCreatedTimestamp      :: !(Maybe POSIX)
     , _dmCreatorId             :: !(Maybe Text)
@@ -48,6 +326,8 @@ data DocumentMetadata = DocumentMetadata'
 --
 -- * 'dmId' - The ID of the document.
 --
+-- * 'dmLabels' - List of labels on the document.
+--
 -- * 'dmResourceState' - The resource state.
 --
 -- * 'dmCreatedTimestamp' - The time when the document was created.
@@ -61,6 +341,7 @@ documentMetadata =
     , _dmParentFolderId = Nothing
     , _dmModifiedTimestamp = Nothing
     , _dmId = Nothing
+    , _dmLabels = Nothing
     , _dmResourceState = Nothing
     , _dmCreatedTimestamp = Nothing
     , _dmCreatorId = Nothing
@@ -81,6 +362,10 @@ dmModifiedTimestamp = lens _dmModifiedTimestamp (\ s a -> s{_dmModifiedTimestamp
 -- | The ID of the document.
 dmId :: Lens' DocumentMetadata (Maybe Text)
 dmId = lens _dmId (\ s a -> s{_dmId = a});
+
+-- | List of labels on the document.
+dmLabels :: Lens' DocumentMetadata [Text]
+dmLabels = lens _dmLabels (\ s a -> s{_dmLabels = a}) . _Default . _Coerce;
 
 -- | The resource state.
 dmResourceState :: Lens' DocumentMetadata (Maybe ResourceStateType)
@@ -103,6 +388,7 @@ instance FromJSON DocumentMetadata where
                      (x .:? "ParentFolderId")
                      <*> (x .:? "ModifiedTimestamp")
                      <*> (x .:? "Id")
+                     <*> (x .:? "Labels" .!= mempty)
                      <*> (x .:? "ResourceState")
                      <*> (x .:? "CreatedTimestamp")
                      <*> (x .:? "CreatorId"))
@@ -262,9 +548,12 @@ instance NFData DocumentVersionMetadata
 data FolderMetadata = FolderMetadata'
     { _fmSignature         :: !(Maybe Text)
     , _fmParentFolderId    :: !(Maybe Text)
+    , _fmSize              :: !(Maybe Integer)
+    , _fmLatestVersionSize :: !(Maybe Integer)
     , _fmName              :: !(Maybe Text)
     , _fmModifiedTimestamp :: !(Maybe POSIX)
     , _fmId                :: !(Maybe Text)
+    , _fmLabels            :: !(Maybe [Text])
     , _fmResourceState     :: !(Maybe ResourceStateType)
     , _fmCreatedTimestamp  :: !(Maybe POSIX)
     , _fmCreatorId         :: !(Maybe Text)
@@ -278,11 +567,17 @@ data FolderMetadata = FolderMetadata'
 --
 -- * 'fmParentFolderId' - The ID of the parent folder.
 --
+-- * 'fmSize' - The size of the folder metadata.
+--
+-- * 'fmLatestVersionSize' - The size of the latest version of the folder metadata.
+--
 -- * 'fmName' - The name of the folder.
 --
 -- * 'fmModifiedTimestamp' - The time when the folder was updated.
 --
 -- * 'fmId' - The ID of the folder.
+--
+-- * 'fmLabels' - List of labels on the folder.
 --
 -- * 'fmResourceState' - The resource state of the folder.
 --
@@ -295,9 +590,12 @@ folderMetadata =
     FolderMetadata'
     { _fmSignature = Nothing
     , _fmParentFolderId = Nothing
+    , _fmSize = Nothing
+    , _fmLatestVersionSize = Nothing
     , _fmName = Nothing
     , _fmModifiedTimestamp = Nothing
     , _fmId = Nothing
+    , _fmLabels = Nothing
     , _fmResourceState = Nothing
     , _fmCreatedTimestamp = Nothing
     , _fmCreatorId = Nothing
@@ -311,6 +609,14 @@ fmSignature = lens _fmSignature (\ s a -> s{_fmSignature = a});
 fmParentFolderId :: Lens' FolderMetadata (Maybe Text)
 fmParentFolderId = lens _fmParentFolderId (\ s a -> s{_fmParentFolderId = a});
 
+-- | The size of the folder metadata.
+fmSize :: Lens' FolderMetadata (Maybe Integer)
+fmSize = lens _fmSize (\ s a -> s{_fmSize = a});
+
+-- | The size of the latest version of the folder metadata.
+fmLatestVersionSize :: Lens' FolderMetadata (Maybe Integer)
+fmLatestVersionSize = lens _fmLatestVersionSize (\ s a -> s{_fmLatestVersionSize = a});
+
 -- | The name of the folder.
 fmName :: Lens' FolderMetadata (Maybe Text)
 fmName = lens _fmName (\ s a -> s{_fmName = a});
@@ -322,6 +628,10 @@ fmModifiedTimestamp = lens _fmModifiedTimestamp (\ s a -> s{_fmModifiedTimestamp
 -- | The ID of the folder.
 fmId :: Lens' FolderMetadata (Maybe Text)
 fmId = lens _fmId (\ s a -> s{_fmId = a});
+
+-- | List of labels on the folder.
+fmLabels :: Lens' FolderMetadata [Text]
+fmLabels = lens _fmLabels (\ s a -> s{_fmLabels = a}) . _Default . _Coerce;
 
 -- | The resource state of the folder.
 fmResourceState :: Lens' FolderMetadata (Maybe ResourceStateType)
@@ -341,9 +651,12 @@ instance FromJSON FolderMetadata where
               (\ x ->
                  FolderMetadata' <$>
                    (x .:? "Signature") <*> (x .:? "ParentFolderId") <*>
-                     (x .:? "Name")
+                     (x .:? "Size")
+                     <*> (x .:? "LatestVersionSize")
+                     <*> (x .:? "Name")
                      <*> (x .:? "ModifiedTimestamp")
                      <*> (x .:? "Id")
+                     <*> (x .:? "Labels" .!= mempty)
                      <*> (x .:? "ResourceState")
                      <*> (x .:? "CreatedTimestamp")
                      <*> (x .:? "CreatorId"))
@@ -351,6 +664,94 @@ instance FromJSON FolderMetadata where
 instance Hashable FolderMetadata
 
 instance NFData FolderMetadata
+
+-- | Describes the metadata of a user group.
+--
+--
+--
+-- /See:/ 'groupMetadata' smart constructor.
+data GroupMetadata = GroupMetadata'
+    { _gmName :: !(Maybe Text)
+    , _gmId   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GroupMetadata' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gmName' - The name of the group.
+--
+-- * 'gmId' - The ID of the user group.
+groupMetadata
+    :: GroupMetadata
+groupMetadata =
+    GroupMetadata'
+    { _gmName = Nothing
+    , _gmId = Nothing
+    }
+
+-- | The name of the group.
+gmName :: Lens' GroupMetadata (Maybe Text)
+gmName = lens _gmName (\ s a -> s{_gmName = a});
+
+-- | The ID of the user group.
+gmId :: Lens' GroupMetadata (Maybe Text)
+gmId = lens _gmId (\ s a -> s{_gmId = a});
+
+instance FromJSON GroupMetadata where
+        parseJSON
+          = withObject "GroupMetadata"
+              (\ x ->
+                 GroupMetadata' <$> (x .:? "Name") <*> (x .:? "Id"))
+
+instance Hashable GroupMetadata
+
+instance NFData GroupMetadata
+
+-- | Describes the users and/or user groups.
+--
+--
+--
+-- /See:/ 'participants' smart constructor.
+data Participants = Participants'
+    { _pGroups :: !(Maybe [GroupMetadata])
+    , _pUsers  :: !(Maybe [UserMetadata])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Participants' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pGroups' - The list of user groups.
+--
+-- * 'pUsers' - The list of users.
+participants
+    :: Participants
+participants =
+    Participants'
+    { _pGroups = Nothing
+    , _pUsers = Nothing
+    }
+
+-- | The list of user groups.
+pGroups :: Lens' Participants [GroupMetadata]
+pGroups = lens _pGroups (\ s a -> s{_pGroups = a}) . _Default . _Coerce;
+
+-- | The list of users.
+pUsers :: Lens' Participants [UserMetadata]
+pUsers = lens _pUsers (\ s a -> s{_pUsers = a}) . _Default . _Coerce;
+
+instance FromJSON Participants where
+        parseJSON
+          = withObject "Participants"
+              (\ x ->
+                 Participants' <$>
+                   (x .:? "Groups" .!= mempty) <*>
+                     (x .:? "Users" .!= mempty))
+
+instance Hashable Participants
+
+instance NFData Participants
 
 -- | Describes the permissions.
 --
@@ -448,6 +849,95 @@ instance FromJSON Principal where
 instance Hashable Principal
 
 instance NFData Principal
+
+-- | Describes the metadata of a resource.
+--
+--
+--
+-- /See:/ 'resourceMetadata' smart constructor.
+data ResourceMetadata = ResourceMetadata'
+    { _rmVersionId    :: !(Maybe Text)
+    , _rmOwner        :: !(Maybe UserMetadata)
+    , _rmName         :: !(Maybe Text)
+    , _rmId           :: !(Maybe Text)
+    , _rmType         :: !(Maybe ResourceType)
+    , _rmOriginalName :: !(Maybe Text)
+    , _rmParentId     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ResourceMetadata' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rmVersionId' - The version ID of the resource. This is an optional field and is filled for action on document version.
+--
+-- * 'rmOwner' - The owner of the resource.
+--
+-- * 'rmName' - The name of the resource.
+--
+-- * 'rmId' - The ID of the resource.
+--
+-- * 'rmType' - The type of resource.
+--
+-- * 'rmOriginalName' - The original name of the resource prior to a rename operation.
+--
+-- * 'rmParentId' - The parent ID of the resource before a rename operation.
+resourceMetadata
+    :: ResourceMetadata
+resourceMetadata =
+    ResourceMetadata'
+    { _rmVersionId = Nothing
+    , _rmOwner = Nothing
+    , _rmName = Nothing
+    , _rmId = Nothing
+    , _rmType = Nothing
+    , _rmOriginalName = Nothing
+    , _rmParentId = Nothing
+    }
+
+-- | The version ID of the resource. This is an optional field and is filled for action on document version.
+rmVersionId :: Lens' ResourceMetadata (Maybe Text)
+rmVersionId = lens _rmVersionId (\ s a -> s{_rmVersionId = a});
+
+-- | The owner of the resource.
+rmOwner :: Lens' ResourceMetadata (Maybe UserMetadata)
+rmOwner = lens _rmOwner (\ s a -> s{_rmOwner = a});
+
+-- | The name of the resource.
+rmName :: Lens' ResourceMetadata (Maybe Text)
+rmName = lens _rmName (\ s a -> s{_rmName = a});
+
+-- | The ID of the resource.
+rmId :: Lens' ResourceMetadata (Maybe Text)
+rmId = lens _rmId (\ s a -> s{_rmId = a});
+
+-- | The type of resource.
+rmType :: Lens' ResourceMetadata (Maybe ResourceType)
+rmType = lens _rmType (\ s a -> s{_rmType = a});
+
+-- | The original name of the resource prior to a rename operation.
+rmOriginalName :: Lens' ResourceMetadata (Maybe Text)
+rmOriginalName = lens _rmOriginalName (\ s a -> s{_rmOriginalName = a});
+
+-- | The parent ID of the resource before a rename operation.
+rmParentId :: Lens' ResourceMetadata (Maybe Text)
+rmParentId = lens _rmParentId (\ s a -> s{_rmParentId = a});
+
+instance FromJSON ResourceMetadata where
+        parseJSON
+          = withObject "ResourceMetadata"
+              (\ x ->
+                 ResourceMetadata' <$>
+                   (x .:? "VersionId") <*> (x .:? "Owner") <*>
+                     (x .:? "Name")
+                     <*> (x .:? "Id")
+                     <*> (x .:? "Type")
+                     <*> (x .:? "OriginalName")
+                     <*> (x .:? "ParentId"))
+
+instance Hashable ResourceMetadata
+
+instance NFData ResourceMetadata
 
 -- | Describes the path information of a resource.
 --
@@ -965,6 +1455,77 @@ instance FromJSON User where
 instance Hashable User
 
 instance NFData User
+
+-- | Describes the metadata of the user.
+--
+--
+--
+-- /See:/ 'userMetadata' smart constructor.
+data UserMetadata = UserMetadata'
+    { _umGivenName    :: !(Maybe Text)
+    , _umUsername     :: !(Maybe Text)
+    , _umEmailAddress :: !(Maybe Text)
+    , _umId           :: !(Maybe Text)
+    , _umSurname      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UserMetadata' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'umGivenName' - The given name of the user before a rename operation.
+--
+-- * 'umUsername' - The username of the user.
+--
+-- * 'umEmailAddress' - The email address of the user.
+--
+-- * 'umId' - The ID of the user.
+--
+-- * 'umSurname' - The surname of the user.
+userMetadata
+    :: UserMetadata
+userMetadata =
+    UserMetadata'
+    { _umGivenName = Nothing
+    , _umUsername = Nothing
+    , _umEmailAddress = Nothing
+    , _umId = Nothing
+    , _umSurname = Nothing
+    }
+
+-- | The given name of the user before a rename operation.
+umGivenName :: Lens' UserMetadata (Maybe Text)
+umGivenName = lens _umGivenName (\ s a -> s{_umGivenName = a});
+
+-- | The username of the user.
+umUsername :: Lens' UserMetadata (Maybe Text)
+umUsername = lens _umUsername (\ s a -> s{_umUsername = a});
+
+-- | The email address of the user.
+umEmailAddress :: Lens' UserMetadata (Maybe Text)
+umEmailAddress = lens _umEmailAddress (\ s a -> s{_umEmailAddress = a});
+
+-- | The ID of the user.
+umId :: Lens' UserMetadata (Maybe Text)
+umId = lens _umId (\ s a -> s{_umId = a});
+
+-- | The surname of the user.
+umSurname :: Lens' UserMetadata (Maybe Text)
+umSurname = lens _umSurname (\ s a -> s{_umSurname = a});
+
+instance FromJSON UserMetadata where
+        parseJSON
+          = withObject "UserMetadata"
+              (\ x ->
+                 UserMetadata' <$>
+                   (x .:? "GivenName") <*> (x .:? "Username") <*>
+                     (x .:? "EmailAddress")
+                     <*> (x .:? "Id")
+                     <*> (x .:? "Surname"))
+
+instance Hashable UserMetadata
+
+instance NFData UserMetadata
 
 -- | Describes the storage for a user.
 --

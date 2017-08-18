@@ -27,6 +27,7 @@ module Network.AWS.WorkDocs.DeleteFolderContents
       deleteFolderContents
     , DeleteFolderContents
     -- * Request Lenses
+    , dfcAuthenticationToken
     , dfcFolderId
 
     -- * Destructuring the Response
@@ -42,13 +43,16 @@ import           Network.AWS.WorkDocs.Types
 import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deleteFolderContents' smart constructor.
-newtype DeleteFolderContents = DeleteFolderContents'
-    { _dfcFolderId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+data DeleteFolderContents = DeleteFolderContents'
+    { _dfcAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _dfcFolderId            :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteFolderContents' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dfcAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'dfcFolderId' - The ID of the folder.
 deleteFolderContents
@@ -56,8 +60,13 @@ deleteFolderContents
     -> DeleteFolderContents
 deleteFolderContents pFolderId_ =
     DeleteFolderContents'
-    { _dfcFolderId = pFolderId_
+    { _dfcAuthenticationToken = Nothing
+    , _dfcFolderId = pFolderId_
     }
+
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+dfcAuthenticationToken :: Lens' DeleteFolderContents (Maybe Text)
+dfcAuthenticationToken = lens _dfcAuthenticationToken (\ s a -> s{_dfcAuthenticationToken = a}) . mapping _Sensitive;
 
 -- | The ID of the folder.
 dfcFolderId :: Lens' DeleteFolderContents Text
@@ -74,11 +83,11 @@ instance Hashable DeleteFolderContents
 instance NFData DeleteFolderContents
 
 instance ToHeaders DeleteFolderContents where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders DeleteFolderContents'{..}
+          = mconcat
+              ["Authentication" =# _dfcAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToPath DeleteFolderContents where
         toPath DeleteFolderContents'{..}

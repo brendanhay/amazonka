@@ -27,6 +27,7 @@ module Network.AWS.WorkDocs.CreateFolder
       createFolder
     , CreateFolder
     -- * Request Lenses
+    , cfAuthenticationToken
     , cfName
     , cfParentFolderId
 
@@ -47,13 +48,16 @@ import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'createFolder' smart constructor.
 data CreateFolder = CreateFolder'
-    { _cfName           :: !(Maybe Text)
-    , _cfParentFolderId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    { _cfAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _cfName                :: !(Maybe Text)
+    , _cfParentFolderId      :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateFolder' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cfAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'cfName' - The name of the new folder.
 --
@@ -63,9 +67,14 @@ createFolder
     -> CreateFolder
 createFolder pParentFolderId_ =
     CreateFolder'
-    { _cfName = Nothing
+    { _cfAuthenticationToken = Nothing
+    , _cfName = Nothing
     , _cfParentFolderId = pParentFolderId_
     }
+
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+cfAuthenticationToken :: Lens' CreateFolder (Maybe Text)
+cfAuthenticationToken = lens _cfAuthenticationToken (\ s a -> s{_cfAuthenticationToken = a}) . mapping _Sensitive;
 
 -- | The name of the new folder.
 cfName :: Lens' CreateFolder (Maybe Text)
@@ -89,11 +98,11 @@ instance Hashable CreateFolder
 instance NFData CreateFolder
 
 instance ToHeaders CreateFolder where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders CreateFolder'{..}
+          = mconcat
+              ["Authentication" =# _cfAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToJSON CreateFolder where
         toJSON CreateFolder'{..}

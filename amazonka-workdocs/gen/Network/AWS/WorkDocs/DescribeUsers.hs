@@ -33,6 +33,7 @@ module Network.AWS.WorkDocs.DescribeUsers
     -- * Request Lenses
     , duInclude
     , duUserIds
+    , duAuthenticationToken
     , duSort
     , duMarker
     , duQuery
@@ -61,15 +62,16 @@ import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'describeUsers' smart constructor.
 data DescribeUsers = DescribeUsers'
-    { _duInclude        :: !(Maybe UserFilterType)
-    , _duUserIds        :: !(Maybe Text)
-    , _duSort           :: !(Maybe UserSortType)
-    , _duMarker         :: !(Maybe Text)
-    , _duQuery          :: !(Maybe (Sensitive Text))
-    , _duLimit          :: !(Maybe Nat)
-    , _duOrder          :: !(Maybe OrderType)
-    , _duOrganizationId :: !(Maybe Text)
-    , _duFields         :: !(Maybe Text)
+    { _duInclude             :: !(Maybe UserFilterType)
+    , _duUserIds             :: !(Maybe Text)
+    , _duAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _duSort                :: !(Maybe UserSortType)
+    , _duMarker              :: !(Maybe Text)
+    , _duQuery               :: !(Maybe (Sensitive Text))
+    , _duLimit               :: !(Maybe Nat)
+    , _duOrder               :: !(Maybe OrderType)
+    , _duOrganizationId      :: !(Maybe Text)
+    , _duFields              :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeUsers' with the minimum fields required to make a request.
@@ -79,6 +81,8 @@ data DescribeUsers = DescribeUsers'
 -- * 'duInclude' - The state of the users. Specify "ALL" to include inactive users.
 --
 -- * 'duUserIds' - The IDs of the users.
+--
+-- * 'duAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'duSort' - The sorting criteria.
 --
@@ -99,6 +103,7 @@ describeUsers =
     DescribeUsers'
     { _duInclude = Nothing
     , _duUserIds = Nothing
+    , _duAuthenticationToken = Nothing
     , _duSort = Nothing
     , _duMarker = Nothing
     , _duQuery = Nothing
@@ -115,6 +120,10 @@ duInclude = lens _duInclude (\ s a -> s{_duInclude = a});
 -- | The IDs of the users.
 duUserIds :: Lens' DescribeUsers (Maybe Text)
 duUserIds = lens _duUserIds (\ s a -> s{_duUserIds = a});
+
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+duAuthenticationToken :: Lens' DescribeUsers (Maybe Text)
+duAuthenticationToken = lens _duAuthenticationToken (\ s a -> s{_duAuthenticationToken = a}) . mapping _Sensitive;
 
 -- | The sorting criteria.
 duSort :: Lens' DescribeUsers (Maybe UserSortType)
@@ -168,11 +177,11 @@ instance Hashable DescribeUsers
 instance NFData DescribeUsers
 
 instance ToHeaders DescribeUsers where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders DescribeUsers'{..}
+          = mconcat
+              ["Authentication" =# _duAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToPath DescribeUsers where
         toPath = const "/api/v1/users"

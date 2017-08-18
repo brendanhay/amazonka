@@ -27,6 +27,7 @@ module Network.AWS.WorkDocs.RemoveAllResourcePermissions
       removeAllResourcePermissions
     , RemoveAllResourcePermissions
     -- * Request Lenses
+    , rarpAuthenticationToken
     , rarpResourceId
 
     -- * Destructuring the Response
@@ -42,13 +43,16 @@ import           Network.AWS.WorkDocs.Types
 import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'removeAllResourcePermissions' smart constructor.
-newtype RemoveAllResourcePermissions = RemoveAllResourcePermissions'
-    { _rarpResourceId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+data RemoveAllResourcePermissions = RemoveAllResourcePermissions'
+    { _rarpAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _rarpResourceId          :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RemoveAllResourcePermissions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rarpAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'rarpResourceId' - The ID of the resource.
 removeAllResourcePermissions
@@ -56,8 +60,13 @@ removeAllResourcePermissions
     -> RemoveAllResourcePermissions
 removeAllResourcePermissions pResourceId_ =
     RemoveAllResourcePermissions'
-    { _rarpResourceId = pResourceId_
+    { _rarpAuthenticationToken = Nothing
+    , _rarpResourceId = pResourceId_
     }
+
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+rarpAuthenticationToken :: Lens' RemoveAllResourcePermissions (Maybe Text)
+rarpAuthenticationToken = lens _rarpAuthenticationToken (\ s a -> s{_rarpAuthenticationToken = a}) . mapping _Sensitive;
 
 -- | The ID of the resource.
 rarpResourceId :: Lens' RemoveAllResourcePermissions Text
@@ -76,11 +85,11 @@ instance Hashable RemoveAllResourcePermissions
 instance NFData RemoveAllResourcePermissions
 
 instance ToHeaders RemoveAllResourcePermissions where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders RemoveAllResourcePermissions'{..}
+          = mconcat
+              ["Authentication" =# _rarpAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToPath RemoveAllResourcePermissions where
         toPath RemoveAllResourcePermissions'{..}

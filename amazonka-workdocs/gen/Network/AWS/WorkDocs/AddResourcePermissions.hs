@@ -27,6 +27,7 @@ module Network.AWS.WorkDocs.AddResourcePermissions
       addResourcePermissions
     , AddResourcePermissions
     -- * Request Lenses
+    , arpAuthenticationToken
     , arpResourceId
     , arpPrincipals
 
@@ -47,13 +48,16 @@ import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'addResourcePermissions' smart constructor.
 data AddResourcePermissions = AddResourcePermissions'
-    { _arpResourceId :: !Text
-    , _arpPrincipals :: ![SharePrincipal]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    { _arpAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _arpResourceId          :: !Text
+    , _arpPrincipals          :: ![SharePrincipal]
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AddResourcePermissions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'arpAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'arpResourceId' - The ID of the resource.
 --
@@ -63,9 +67,14 @@ addResourcePermissions
     -> AddResourcePermissions
 addResourcePermissions pResourceId_ =
     AddResourcePermissions'
-    { _arpResourceId = pResourceId_
+    { _arpAuthenticationToken = Nothing
+    , _arpResourceId = pResourceId_
     , _arpPrincipals = mempty
     }
+
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+arpAuthenticationToken :: Lens' AddResourcePermissions (Maybe Text)
+arpAuthenticationToken = lens _arpAuthenticationToken (\ s a -> s{_arpAuthenticationToken = a}) . mapping _Sensitive;
 
 -- | The ID of the resource.
 arpResourceId :: Lens' AddResourcePermissions Text
@@ -91,11 +100,11 @@ instance Hashable AddResourcePermissions
 instance NFData AddResourcePermissions
 
 instance ToHeaders AddResourcePermissions where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders AddResourcePermissions'{..}
+          = mconcat
+              ["Authentication" =# _arpAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToJSON AddResourcePermissions where
         toJSON AddResourcePermissions'{..}

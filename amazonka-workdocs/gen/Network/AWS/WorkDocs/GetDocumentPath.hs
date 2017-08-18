@@ -29,6 +29,7 @@ module Network.AWS.WorkDocs.GetDocumentPath
       getDocumentPath
     , GetDocumentPath
     -- * Request Lenses
+    , gdpAuthenticationToken
     , gdpMarker
     , gdpLimit
     , gdpFields
@@ -51,21 +52,24 @@ import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'getDocumentPath' smart constructor.
 data GetDocumentPath = GetDocumentPath'
-    { _gdpMarker     :: !(Maybe Text)
-    , _gdpLimit      :: !(Maybe Nat)
-    , _gdpFields     :: !(Maybe Text)
-    , _gdpDocumentId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    { _gdpAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _gdpMarker              :: !(Maybe Text)
+    , _gdpLimit               :: !(Maybe Nat)
+    , _gdpFields              :: !(Maybe Text)
+    , _gdpDocumentId          :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetDocumentPath' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'gdpAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+--
 -- * 'gdpMarker' - This value is not supported.
 --
 -- * 'gdpLimit' - The maximum number of levels in the hierarchy to return.
 --
--- * 'gdpFields' - A comma-separated list of values. Specify "NAME" to include the names of the parent folders.
+-- * 'gdpFields' - A comma-separated list of values. Specify @NAME@ to include the names of the parent folders.
 --
 -- * 'gdpDocumentId' - The ID of the document.
 getDocumentPath
@@ -73,11 +77,16 @@ getDocumentPath
     -> GetDocumentPath
 getDocumentPath pDocumentId_ =
     GetDocumentPath'
-    { _gdpMarker = Nothing
+    { _gdpAuthenticationToken = Nothing
+    , _gdpMarker = Nothing
     , _gdpLimit = Nothing
     , _gdpFields = Nothing
     , _gdpDocumentId = pDocumentId_
     }
+
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+gdpAuthenticationToken :: Lens' GetDocumentPath (Maybe Text)
+gdpAuthenticationToken = lens _gdpAuthenticationToken (\ s a -> s{_gdpAuthenticationToken = a}) . mapping _Sensitive;
 
 -- | This value is not supported.
 gdpMarker :: Lens' GetDocumentPath (Maybe Text)
@@ -87,7 +96,7 @@ gdpMarker = lens _gdpMarker (\ s a -> s{_gdpMarker = a});
 gdpLimit :: Lens' GetDocumentPath (Maybe Natural)
 gdpLimit = lens _gdpLimit (\ s a -> s{_gdpLimit = a}) . mapping _Nat;
 
--- | A comma-separated list of values. Specify "NAME" to include the names of the parent folders.
+-- | A comma-separated list of values. Specify @NAME@ to include the names of the parent folders.
 gdpFields :: Lens' GetDocumentPath (Maybe Text)
 gdpFields = lens _gdpFields (\ s a -> s{_gdpFields = a});
 
@@ -109,11 +118,11 @@ instance Hashable GetDocumentPath
 instance NFData GetDocumentPath
 
 instance ToHeaders GetDocumentPath where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders GetDocumentPath'{..}
+          = mconcat
+              ["Authentication" =# _gdpAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToPath GetDocumentPath where
         toPath GetDocumentPath'{..}

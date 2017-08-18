@@ -27,6 +27,7 @@ module Network.AWS.WorkDocs.DeleteDocument
       deleteDocument
     , DeleteDocument
     -- * Request Lenses
+    , ddAuthenticationToken
     , ddDocumentId
 
     -- * Destructuring the Response
@@ -42,13 +43,16 @@ import           Network.AWS.WorkDocs.Types
 import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deleteDocument' smart constructor.
-newtype DeleteDocument = DeleteDocument'
-    { _ddDocumentId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+data DeleteDocument = DeleteDocument'
+    { _ddAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _ddDocumentId          :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteDocument' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'ddDocumentId' - The ID of the document.
 deleteDocument
@@ -56,8 +60,13 @@ deleteDocument
     -> DeleteDocument
 deleteDocument pDocumentId_ =
     DeleteDocument'
-    { _ddDocumentId = pDocumentId_
+    { _ddAuthenticationToken = Nothing
+    , _ddDocumentId = pDocumentId_
     }
+
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+ddAuthenticationToken :: Lens' DeleteDocument (Maybe Text)
+ddAuthenticationToken = lens _ddAuthenticationToken (\ s a -> s{_ddAuthenticationToken = a}) . mapping _Sensitive;
 
 -- | The ID of the document.
 ddDocumentId :: Lens' DeleteDocument Text
@@ -73,11 +82,11 @@ instance Hashable DeleteDocument
 instance NFData DeleteDocument
 
 instance ToHeaders DeleteDocument where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders DeleteDocument'{..}
+          = mconcat
+              ["Authentication" =# _ddAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToPath DeleteDocument where
         toPath DeleteDocument'{..}

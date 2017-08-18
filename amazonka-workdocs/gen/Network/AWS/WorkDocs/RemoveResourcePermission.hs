@@ -28,6 +28,7 @@ module Network.AWS.WorkDocs.RemoveResourcePermission
     , RemoveResourcePermission
     -- * Request Lenses
     , rrpPrincipalType
+    , rrpAuthenticationToken
     , rrpResourceId
     , rrpPrincipalId
 
@@ -45,16 +46,19 @@ import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'removeResourcePermission' smart constructor.
 data RemoveResourcePermission = RemoveResourcePermission'
-    { _rrpPrincipalType :: !(Maybe PrincipalType)
-    , _rrpResourceId    :: !Text
-    , _rrpPrincipalId   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    { _rrpPrincipalType       :: !(Maybe PrincipalType)
+    , _rrpAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _rrpResourceId          :: !Text
+    , _rrpPrincipalId         :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RemoveResourcePermission' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rrpPrincipalType' - The principal type of the resource.
+--
+-- * 'rrpAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'rrpResourceId' - The ID of the resource.
 --
@@ -66,6 +70,7 @@ removeResourcePermission
 removeResourcePermission pResourceId_ pPrincipalId_ =
     RemoveResourcePermission'
     { _rrpPrincipalType = Nothing
+    , _rrpAuthenticationToken = Nothing
     , _rrpResourceId = pResourceId_
     , _rrpPrincipalId = pPrincipalId_
     }
@@ -73,6 +78,10 @@ removeResourcePermission pResourceId_ pPrincipalId_ =
 -- | The principal type of the resource.
 rrpPrincipalType :: Lens' RemoveResourcePermission (Maybe PrincipalType)
 rrpPrincipalType = lens _rrpPrincipalType (\ s a -> s{_rrpPrincipalType = a});
+
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+rrpAuthenticationToken :: Lens' RemoveResourcePermission (Maybe Text)
+rrpAuthenticationToken = lens _rrpAuthenticationToken (\ s a -> s{_rrpAuthenticationToken = a}) . mapping _Sensitive;
 
 -- | The ID of the resource.
 rrpResourceId :: Lens' RemoveResourcePermission Text
@@ -94,11 +103,11 @@ instance Hashable RemoveResourcePermission
 instance NFData RemoveResourcePermission
 
 instance ToHeaders RemoveResourcePermission where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders RemoveResourcePermission'{..}
+          = mconcat
+              ["Authentication" =# _rrpAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToPath RemoveResourcePermission where
         toPath RemoveResourcePermission'{..}

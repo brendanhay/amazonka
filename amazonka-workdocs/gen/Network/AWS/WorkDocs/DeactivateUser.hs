@@ -27,7 +27,8 @@ module Network.AWS.WorkDocs.DeactivateUser
       deactivateUser
     , DeactivateUser
     -- * Request Lenses
-    , duUserId
+    , dAuthenticationToken
+    , dUserId
 
     -- * Destructuring the Response
     , deactivateUserResponse
@@ -42,26 +43,34 @@ import           Network.AWS.WorkDocs.Types
 import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deactivateUser' smart constructor.
-newtype DeactivateUser = DeactivateUser'
-    { _duUserId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+data DeactivateUser = DeactivateUser'
+    { _dAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _dUserId              :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeactivateUser' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'duUserId' - The ID of the user.
+-- * 'dAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+--
+-- * 'dUserId' - The ID of the user.
 deactivateUser
-    :: Text -- ^ 'duUserId'
+    :: Text -- ^ 'dUserId'
     -> DeactivateUser
 deactivateUser pUserId_ =
     DeactivateUser'
-    { _duUserId = pUserId_
+    { _dAuthenticationToken = Nothing
+    , _dUserId = pUserId_
     }
 
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+dAuthenticationToken :: Lens' DeactivateUser (Maybe Text)
+dAuthenticationToken = lens _dAuthenticationToken (\ s a -> s{_dAuthenticationToken = a}) . mapping _Sensitive;
+
 -- | The ID of the user.
-duUserId :: Lens' DeactivateUser Text
-duUserId = lens _duUserId (\ s a -> s{_duUserId = a});
+dUserId :: Lens' DeactivateUser Text
+dUserId = lens _dUserId (\ s a -> s{_dUserId = a});
 
 instance AWSRequest DeactivateUser where
         type Rs DeactivateUser = DeactivateUserResponse
@@ -73,16 +82,16 @@ instance Hashable DeactivateUser
 instance NFData DeactivateUser
 
 instance ToHeaders DeactivateUser where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders DeactivateUser'{..}
+          = mconcat
+              ["Authentication" =# _dAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToPath DeactivateUser where
         toPath DeactivateUser'{..}
           = mconcat
-              ["/api/v1/users/", toBS _duUserId, "/activation"]
+              ["/api/v1/users/", toBS _dUserId, "/activation"]
 
 instance ToQuery DeactivateUser where
         toQuery = const mempty

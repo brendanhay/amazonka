@@ -32,11 +32,20 @@ module Network.AWS.WorkDocs
     -- * Errors
     -- $errors
 
+    -- ** CustomMetadataLimitExceededException
+    , _CustomMetadataLimitExceededException
+
     -- ** EntityAlreadyExistsException
     , _EntityAlreadyExistsException
 
+    -- ** ResourceAlreadyCheckedOutException
+    , _ResourceAlreadyCheckedOutException
+
     -- ** ProhibitedStateException
     , _ProhibitedStateException
+
+    -- ** TooManyLabelsException
+    , _TooManyLabelsException
 
     -- ** InvalidArgumentException
     , _InvalidArgumentException
@@ -49,6 +58,9 @@ module Network.AWS.WorkDocs
 
     -- ** FailedDependencyException
     , _FailedDependencyException
+
+    -- ** DocumentLockedForCommentsException
+    , _DocumentLockedForCommentsException
 
     -- ** EntityNotExistsException
     , _EntityNotExistsException
@@ -77,6 +89,9 @@ module Network.AWS.WorkDocs
     -- ** UnauthorizedOperationException
     , _UnauthorizedOperationException
 
+    -- ** DraftUploadOutOfSyncException
+    , _DraftUploadOutOfSyncException
+
     -- ** LimitExceededException
     , _LimitExceededException
 
@@ -86,11 +101,17 @@ module Network.AWS.WorkDocs
     -- * Operations
     -- $operations
 
+    -- ** DeleteLabels
+    , module Network.AWS.WorkDocs.DeleteLabels
+
     -- ** AbortDocumentVersionUpload
     , module Network.AWS.WorkDocs.AbortDocumentVersionUpload
 
     -- ** GetDocumentPath
     , module Network.AWS.WorkDocs.GetDocumentPath
+
+    -- ** CreateComment
+    , module Network.AWS.WorkDocs.CreateComment
 
     -- ** DescribeUsers (Paginated)
     , module Network.AWS.WorkDocs.DescribeUsers
@@ -100,6 +121,9 @@ module Network.AWS.WorkDocs
 
     -- ** UpdateFolder
     , module Network.AWS.WorkDocs.UpdateFolder
+
+    -- ** DeleteCustomMetadata
+    , module Network.AWS.WorkDocs.DeleteCustomMetadata
 
     -- ** DescribeResourcePermissions
     , module Network.AWS.WorkDocs.DescribeResourcePermissions
@@ -113,8 +137,14 @@ module Network.AWS.WorkDocs
     -- ** CreateNotificationSubscription
     , module Network.AWS.WorkDocs.CreateNotificationSubscription
 
+    -- ** CreateCustomMetadata
+    , module Network.AWS.WorkDocs.CreateCustomMetadata
+
     -- ** GetFolderPath
     , module Network.AWS.WorkDocs.GetFolderPath
+
+    -- ** DescribeComments
+    , module Network.AWS.WorkDocs.DescribeComments
 
     -- ** DeleteFolderContents
     , module Network.AWS.WorkDocs.DeleteFolderContents
@@ -137,6 +167,15 @@ module Network.AWS.WorkDocs
     -- ** GetDocumentVersion
     , module Network.AWS.WorkDocs.GetDocumentVersion
 
+    -- ** DescribeActivities
+    , module Network.AWS.WorkDocs.DescribeActivities
+
+    -- ** DescribeRootFolders
+    , module Network.AWS.WorkDocs.DescribeRootFolders
+
+    -- ** GetCurrentUser
+    , module Network.AWS.WorkDocs.GetCurrentUser
+
     -- ** DeactivateUser
     , module Network.AWS.WorkDocs.DeactivateUser
 
@@ -146,11 +185,17 @@ module Network.AWS.WorkDocs
     -- ** DescribeFolderContents (Paginated)
     , module Network.AWS.WorkDocs.DescribeFolderContents
 
+    -- ** CreateLabels
+    , module Network.AWS.WorkDocs.CreateLabels
+
     -- ** UpdateDocumentVersion
     , module Network.AWS.WorkDocs.UpdateDocumentVersion
 
     -- ** RemoveResourcePermission
     , module Network.AWS.WorkDocs.RemoveResourcePermission
+
+    -- ** DeleteComment
+    , module Network.AWS.WorkDocs.DeleteComment
 
     -- ** InitiateDocumentVersionUpload
     , module Network.AWS.WorkDocs.InitiateDocumentVersionUpload
@@ -174,6 +219,15 @@ module Network.AWS.WorkDocs
     , module Network.AWS.WorkDocs.DeleteDocument
 
     -- * Types
+
+    -- ** ActivityType
+    , ActivityType (..)
+
+    -- ** CommentStatusType
+    , CommentStatusType (..)
+
+    -- ** CommentVisibilityType
+    , CommentVisibilityType (..)
 
     -- ** DocumentSourceType
     , DocumentSourceType (..)
@@ -205,6 +259,9 @@ module Network.AWS.WorkDocs
     -- ** ResourceStateType
     , ResourceStateType (..)
 
+    -- ** ResourceType
+    , ResourceType (..)
+
     -- ** RolePermissionType
     , RolePermissionType (..)
 
@@ -235,6 +292,40 @@ module Network.AWS.WorkDocs
     -- ** UserType
     , UserType (..)
 
+    -- ** Activity
+    , Activity
+    , activity
+    , aResourceMetadata
+    , aInitiator
+    , aParticipants
+    , aOriginalParent
+    , aType
+    , aCommentMetadata
+    , aTimeStamp
+    , aOrganizationId
+
+    -- ** Comment
+    , Comment
+    , comment
+    , cStatus
+    , cText
+    , cVisibility
+    , cThreadId
+    , cContributor
+    , cCreatedTimestamp
+    , cRecipientId
+    , cParentId
+    , cCommentId
+
+    -- ** CommentMetadata
+    , CommentMetadata
+    , commentMetadata
+    , cmCommentStatus
+    , cmContributor
+    , cmCommentId
+    , cmCreatedTimestamp
+    , cmRecipientId
+
     -- ** DocumentMetadata
     , DocumentMetadata
     , documentMetadata
@@ -242,6 +333,7 @@ module Network.AWS.WorkDocs
     , dmParentFolderId
     , dmModifiedTimestamp
     , dmId
+    , dmLabels
     , dmResourceState
     , dmCreatedTimestamp
     , dmCreatorId
@@ -268,12 +360,27 @@ module Network.AWS.WorkDocs
     , folderMetadata
     , fmSignature
     , fmParentFolderId
+    , fmSize
+    , fmLatestVersionSize
     , fmName
     , fmModifiedTimestamp
     , fmId
+    , fmLabels
     , fmResourceState
     , fmCreatedTimestamp
     , fmCreatorId
+
+    -- ** GroupMetadata
+    , GroupMetadata
+    , groupMetadata
+    , gmName
+    , gmId
+
+    -- ** Participants
+    , Participants
+    , participants
+    , pGroups
+    , pUsers
 
     -- ** PermissionInfo
     , PermissionInfo
@@ -287,6 +394,17 @@ module Network.AWS.WorkDocs
     , pRoles
     , pId
     , pType
+
+    -- ** ResourceMetadata
+    , ResourceMetadata
+    , resourceMetadata
+    , rmVersionId
+    , rmOwner
+    , rmName
+    , rmId
+    , rmType
+    , rmOriginalName
+    , rmParentId
 
     -- ** ResourcePath
     , ResourcePath
@@ -353,6 +471,15 @@ module Network.AWS.WorkDocs
     , uOrganizationId
     , uRecycleBinFolderId
 
+    -- ** UserMetadata
+    , UserMetadata
+    , userMetadata
+    , umGivenName
+    , umUsername
+    , umEmailAddress
+    , umId
+    , umSurname
+
     -- ** UserStorageMetadata
     , UserStorageMetadata
     , userStorageMetadata
@@ -363,20 +490,30 @@ module Network.AWS.WorkDocs
 import           Network.AWS.WorkDocs.AbortDocumentVersionUpload
 import           Network.AWS.WorkDocs.ActivateUser
 import           Network.AWS.WorkDocs.AddResourcePermissions
+import           Network.AWS.WorkDocs.CreateComment
+import           Network.AWS.WorkDocs.CreateCustomMetadata
 import           Network.AWS.WorkDocs.CreateFolder
+import           Network.AWS.WorkDocs.CreateLabels
 import           Network.AWS.WorkDocs.CreateNotificationSubscription
 import           Network.AWS.WorkDocs.CreateUser
 import           Network.AWS.WorkDocs.DeactivateUser
+import           Network.AWS.WorkDocs.DeleteComment
+import           Network.AWS.WorkDocs.DeleteCustomMetadata
 import           Network.AWS.WorkDocs.DeleteDocument
 import           Network.AWS.WorkDocs.DeleteFolder
 import           Network.AWS.WorkDocs.DeleteFolderContents
+import           Network.AWS.WorkDocs.DeleteLabels
 import           Network.AWS.WorkDocs.DeleteNotificationSubscription
 import           Network.AWS.WorkDocs.DeleteUser
+import           Network.AWS.WorkDocs.DescribeActivities
+import           Network.AWS.WorkDocs.DescribeComments
 import           Network.AWS.WorkDocs.DescribeDocumentVersions
 import           Network.AWS.WorkDocs.DescribeFolderContents
 import           Network.AWS.WorkDocs.DescribeNotificationSubscriptions
 import           Network.AWS.WorkDocs.DescribeResourcePermissions
+import           Network.AWS.WorkDocs.DescribeRootFolders
 import           Network.AWS.WorkDocs.DescribeUsers
+import           Network.AWS.WorkDocs.GetCurrentUser
 import           Network.AWS.WorkDocs.GetDocument
 import           Network.AWS.WorkDocs.GetDocumentPath
 import           Network.AWS.WorkDocs.GetDocumentVersion

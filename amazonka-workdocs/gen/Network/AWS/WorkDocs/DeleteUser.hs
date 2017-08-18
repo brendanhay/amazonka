@@ -27,7 +27,8 @@ module Network.AWS.WorkDocs.DeleteUser
       deleteUser
     , DeleteUser
     -- * Request Lenses
-    , dUserId
+    , duuAuthenticationToken
+    , duuUserId
 
     -- * Destructuring the Response
     , deleteUserResponse
@@ -42,26 +43,34 @@ import           Network.AWS.WorkDocs.Types
 import           Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deleteUser' smart constructor.
-newtype DeleteUser = DeleteUser'
-    { _dUserId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+data DeleteUser = DeleteUser'
+    { _duuAuthenticationToken :: !(Maybe (Sensitive Text))
+    , _duuUserId              :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteUser' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dUserId' - The ID of the user.
+-- * 'duuAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+--
+-- * 'duuUserId' - The ID of the user.
 deleteUser
-    :: Text -- ^ 'dUserId'
+    :: Text -- ^ 'duuUserId'
     -> DeleteUser
 deleteUser pUserId_ =
     DeleteUser'
-    { _dUserId = pUserId_
+    { _duuAuthenticationToken = Nothing
+    , _duuUserId = pUserId_
     }
 
+-- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+duuAuthenticationToken :: Lens' DeleteUser (Maybe Text)
+duuAuthenticationToken = lens _duuAuthenticationToken (\ s a -> s{_duuAuthenticationToken = a}) . mapping _Sensitive;
+
 -- | The ID of the user.
-dUserId :: Lens' DeleteUser Text
-dUserId = lens _dUserId (\ s a -> s{_dUserId = a});
+duuUserId :: Lens' DeleteUser Text
+duuUserId = lens _duuUserId (\ s a -> s{_duuUserId = a});
 
 instance AWSRequest DeleteUser where
         type Rs DeleteUser = DeleteUserResponse
@@ -73,15 +82,15 @@ instance Hashable DeleteUser
 instance NFData DeleteUser
 
 instance ToHeaders DeleteUser where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+        toHeaders DeleteUser'{..}
+          = mconcat
+              ["Authentication" =# _duuAuthenticationToken,
+               "Content-Type" =#
+                 ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToPath DeleteUser where
         toPath DeleteUser'{..}
-          = mconcat ["/api/v1/users/", toBS _dUserId]
+          = mconcat ["/api/v1/users/", toBS _duuUserId]
 
 instance ToQuery DeleteUser where
         toQuery = const mempty

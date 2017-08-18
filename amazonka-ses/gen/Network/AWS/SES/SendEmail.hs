@@ -27,6 +27,8 @@
 --
 --     * The total size of the message cannot exceed 10 MB. This includes any attachments that are part of the message.
 --
+--     * You must provide at least one recipient email address. The recipient address can be a To: address, a CC: address, or a BCC: address. If any email address you provide is invalid, Amazon SES rejects the entire email.
+--
 --     * Amazon SES has a limit on the total number of recipients per message. The combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.
 --
 --     * For every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your sending quota - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html Amazon SES Developer Guide> .

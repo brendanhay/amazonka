@@ -134,19 +134,22 @@ instance FromXML CustomMailFromStatus where
 
 data DimensionValueSource
     = EmailHeader
+    | LinkTag
     | MessageTag
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DimensionValueSource where
     parser = takeLowerText >>= \case
         "emailheader" -> pure EmailHeader
+        "linktag" -> pure LinkTag
         "messagetag" -> pure MessageTag
         e -> fromTextError $ "Failure parsing DimensionValueSource from value: '" <> e
-           <> "'. Accepted values: emailheader, messagetag"
+           <> "'. Accepted values: emailheader, linktag, messagetag"
 
 instance ToText DimensionValueSource where
     toText = \case
         EmailHeader -> "emailHeader"
+        LinkTag -> "linkTag"
         MessageTag -> "messageTag"
 
 instance Hashable     DimensionValueSource
@@ -192,8 +195,10 @@ instance ToHeader     DsnAction
 
 data EventType
     = ETBounce
+    | ETClick
     | ETComplaint
     | ETDelivery
+    | ETOpen
     | ETReject
     | ETSend
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -201,18 +206,22 @@ data EventType
 instance FromText EventType where
     parser = takeLowerText >>= \case
         "bounce" -> pure ETBounce
+        "click" -> pure ETClick
         "complaint" -> pure ETComplaint
         "delivery" -> pure ETDelivery
+        "open" -> pure ETOpen
         "reject" -> pure ETReject
         "send" -> pure ETSend
         e -> fromTextError $ "Failure parsing EventType from value: '" <> e
-           <> "'. Accepted values: bounce, complaint, delivery, reject, send"
+           <> "'. Accepted values: bounce, click, complaint, delivery, open, reject, send"
 
 instance ToText EventType where
     toText = \case
         ETBounce -> "bounce"
+        ETClick -> "click"
         ETComplaint -> "complaint"
         ETDelivery -> "delivery"
+        ETOpen -> "open"
         ETReject -> "reject"
         ETSend -> "send"
 

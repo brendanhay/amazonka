@@ -27,6 +27,8 @@
 --
 --     * The total size of the message cannot exceed 10 MB. This includes any attachments that are part of the message.
 --
+--     * You must provide at least one recipient email address. The recipient address can be a To: address, a CC: address, or a BCC: address. If any email address you provide is invalid, Amazon SES rejects the entire email.
+--
 --     * Amazon SES has a limit on the total number of recipients per message. The combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.
 --
 --     * The To:, CC:, and BCC: headers in the raw message can contain a group list. Note that each recipient in a group list counts towards the 50-recipient limit.
@@ -115,7 +117,7 @@ data SendRawEmail = SendRawEmail'
 --
 -- * 'sreTags' - A list of tags, in the form of name/value pairs, to apply to an email that you send using @SendRawEmail@ . Tags correspond to characteristics of the email that you define, so that you can publish email sending events.
 --
--- * 'sreRawMessage' - The raw text of the message. The client is responsible for ensuring the following:     * Message must contain a header and a body, separated by a blank line.     * All required header fields must be present.     * Each part of a multipart MIME message must be formatted properly.     * MIME content types must be among those supported by Amazon SES. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Amazon SES Developer Guide> .     * Must be base64-encoded.
+-- * 'sreRawMessage' - The raw text of the message. The client is responsible for ensuring the following:     * Message must contain a header and a body, separated by a blank line.     * All required header fields must be present.     * Each part of a multipart MIME message must be formatted properly.     * MIME content types must be among those supported by Amazon SES. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Amazon SES Developer Guide> .     * Must be base64-encoded.     * Per <https://tools.ietf.org/html/rfc5321#section-4.5.3.1.6 RFC 5321> , the maximum length of each line of text, including the <CRLF>, must not exceed 1,000 characters.
 sendRawEmail
     :: RawMessage -- ^ 'sreRawMessage'
     -> SendRawEmail
@@ -159,7 +161,7 @@ sreFromARN = lens _sreFromARN (\ s a -> s{_sreFromARN = a});
 sreTags :: Lens' SendRawEmail [MessageTag]
 sreTags = lens _sreTags (\ s a -> s{_sreTags = a}) . _Default . _Coerce;
 
--- | The raw text of the message. The client is responsible for ensuring the following:     * Message must contain a header and a body, separated by a blank line.     * All required header fields must be present.     * Each part of a multipart MIME message must be formatted properly.     * MIME content types must be among those supported by Amazon SES. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Amazon SES Developer Guide> .     * Must be base64-encoded.
+-- | The raw text of the message. The client is responsible for ensuring the following:     * Message must contain a header and a body, separated by a blank line.     * All required header fields must be present.     * Each part of a multipart MIME message must be formatted properly.     * MIME content types must be among those supported by Amazon SES. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Amazon SES Developer Guide> .     * Must be base64-encoded.     * Per <https://tools.ietf.org/html/rfc5321#section-4.5.3.1.6 RFC 5321> , the maximum length of each line of text, including the <CRLF>, must not exceed 1,000 characters.
 sreRawMessage :: Lens' SendRawEmail RawMessage
 sreRawMessage = lens _sreRawMessage (\ s a -> s{_sreRawMessage = a});
 

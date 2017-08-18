@@ -25,7 +25,7 @@
 --
 -- __Access Control__
 --
--- If an IAM policy grants permission to use @RespondDecisionTaskCompleted@ , it can express permissions for the list of decisions in the @decisions@ parameter. Each of the decisions has one or more parameters, much like a regular API call. To allow for policies to be as readable as possible, you can express permissions on decisions as if they were actual API calls, including applying conditions to some parameters. For more information, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+-- If an IAM policy grants permission to use @RespondDecisionTaskCompleted@ , it can express permissions for the list of decisions in the @decisions@ parameter. Each of the decisions has one or more parameters, much like a regular API call. To allow for policies to be as readable as possible, you can express permissions on decisions as if they were actual API calls, including applying conditions to some parameters. For more information, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> in the /Amazon SWF Developer Guide/ .
 --
 module Network.AWS.SWF.RespondDecisionTaskCompleted
     (
@@ -49,7 +49,11 @@ import           Network.AWS.Response
 import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
--- | /See:/ 'respondDecisionTaskCompleted' smart constructor.
+-- | Input data for a TaskCompleted response to a decision task.
+--
+--
+--
+-- /See:/ 'respondDecisionTaskCompleted' smart constructor.
 data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted'
     { _rdtcDecisions        :: !(Maybe [Decision])
     , _rdtcExecutionContext :: !(Maybe Text)
@@ -60,7 +64,7 @@ data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdtcDecisions' - The list of decisions (possibly empty) made by the decider while processing this decision task. See the docs for the decision structure for details.
+-- * 'rdtcDecisions' - The list of decisions (possibly empty) made by the decider while processing this decision task. See the docs for the 'Decision' structure for details.
 --
 -- * 'rdtcExecutionContext' - User defined context to add to workflow execution.
 --
@@ -75,7 +79,7 @@ respondDecisionTaskCompleted pTaskToken_ =
     , _rdtcTaskToken = pTaskToken_
     }
 
--- | The list of decisions (possibly empty) made by the decider while processing this decision task. See the docs for the decision structure for details.
+-- | The list of decisions (possibly empty) made by the decider while processing this decision task. See the docs for the 'Decision' structure for details.
 rdtcDecisions :: Lens' RespondDecisionTaskCompleted [Decision]
 rdtcDecisions = lens _rdtcDecisions (\ s a -> s{_rdtcDecisions = a}) . _Default . _Coerce;
 

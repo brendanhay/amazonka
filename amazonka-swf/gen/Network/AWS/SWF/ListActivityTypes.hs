@@ -25,9 +25,15 @@
 --
 -- You can use IAM policies to control this action's access to Amazon SWF resources as follows:
 --
---     * Use a @Resource@ element with the domain name to limit the action to only specified domains.    * Use an @Action@ element to allow or deny permission to call this action.    * You cannot use an IAM policy to constrain this action's parameters.
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+--     * Use an @Action@ element to allow or deny permission to call this action.
+--
+--     * You cannot use an IAM policy to constrain this action's parameters.
+--
+--
+--
+-- If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's @cause@ parameter is set to @OPERATION_NOT_PERMITTED@ . For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> in the /Amazon SWF Developer Guide/ .
 --
 --
 -- This operation returns paginated results.
@@ -81,7 +87,7 @@ data ListActivityTypes = ListActivityTypes'
 --
 -- * 'latName' - If specified, only lists the activity types that have this name.
 --
--- * 'latMaximumPageSize' - The maximum number of results that will be returned per call. @nextPageToken@ can be used to obtain futher pages of results. The default is 1000, which is the maximum allowed page size. You can, however, specify a page size /smaller/ than the maximum. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
+-- * 'latMaximumPageSize' - The maximum number of results that are returned per call. @nextPageToken@ can be used to obtain futher pages of results. The default is 1000, which is the maximum allowed page size. You can, however, specify a page size /smaller/ than the maximum. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
 --
 -- * 'latDomain' - The name of the domain in which the activity types have been registered.
 --
@@ -112,7 +118,7 @@ latReverseOrder = lens _latReverseOrder (\ s a -> s{_latReverseOrder = a});
 latName :: Lens' ListActivityTypes (Maybe Text)
 latName = lens _latName (\ s a -> s{_latName = a});
 
--- | The maximum number of results that will be returned per call. @nextPageToken@ can be used to obtain futher pages of results. The default is 1000, which is the maximum allowed page size. You can, however, specify a page size /smaller/ than the maximum. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
+-- | The maximum number of results that are returned per call. @nextPageToken@ can be used to obtain futher pages of results. The default is 1000, which is the maximum allowed page size. You can, however, specify a page size /smaller/ than the maximum. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
 latMaximumPageSize :: Lens' ListActivityTypes (Maybe Natural)
 latMaximumPageSize = lens _latMaximumPageSize (\ s a -> s{_latMaximumPageSize = a}) . mapping _Nat;
 

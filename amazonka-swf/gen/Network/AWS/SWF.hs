@@ -17,7 +17,7 @@
 --
 -- Amazon SWF gives you full control over implementing tasks and coordinating them without worrying about underlying complexities such as tracking their progress and maintaining their state.
 --
--- This documentation serves as reference only. For a broader overview of the Amazon SWF programming model, see the <http://docs.aws.amazon.com/amazonswf/latest/developerguide/ Amazon SWF Developer Guide> .
+-- This documentation serves as reference only. For a broader overview of the Amazon SWF programming model, see the /<http:\/\/docs.aws.amazon.com\/amazonswf\/latest\/developerguide\/ Amazon SWF Developer Guide> / .
 --
 module Network.AWS.SWF
     (
@@ -592,6 +592,7 @@ module Network.AWS.SWF
     -- ** LambdaFunctionScheduledEventAttributes
     , LambdaFunctionScheduledEventAttributes
     , lambdaFunctionScheduledEventAttributes
+    , lfseaControl
     , lfseaInput
     , lfseaStartToCloseTimeout
     , lfseaId
@@ -698,6 +699,7 @@ module Network.AWS.SWF
     -- ** ScheduleLambdaFunctionDecisionAttributes
     , ScheduleLambdaFunctionDecisionAttributes
     , scheduleLambdaFunctionDecisionAttributes
+    , slfdaControl
     , slfdaInput
     , slfdaStartToCloseTimeout
     , slfdaId

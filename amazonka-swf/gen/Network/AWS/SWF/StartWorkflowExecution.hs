@@ -27,11 +27,33 @@
 --
 -- You can use IAM policies to control this action's access to Amazon SWF resources as follows:
 --
---     * Use a @Resource@ element with the domain name to limit the action to only specified domains.    * Use an @Action@ element to allow or deny permission to call this action.    * Constrain the following parameters by using a @Condition@ element with the appropriate keys.     * @tagList.member.0@ : The key is @swf:tagList.member.0@ .    * @tagList.member.1@ : The key is @swf:tagList.member.1@ .    * @tagList.member.2@ : The key is @swf:tagList.member.2@ .    * @tagList.member.3@ : The key is @swf:tagList.member.3@ .    * @tagList.member.4@ : The key is @swf:tagList.member.4@ .    * @taskList@ : String constraint. The key is @swf:taskList.name@ .    * @workflowType.name@ : String constraint. The key is @swf:workflowType.name@ .    * @workflowType.version@ : String constraint. The key is @swf:workflowType.version@ .
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.
+--
+--     * Use an @Action@ element to allow or deny permission to call this action.
+--
+--     * Constrain the following parameters by using a @Condition@ element with the appropriate keys.
+--
+--     * @tagList.member.0@ : The key is @swf:tagList.member.0@ .
+--
+--     * @tagList.member.1@ : The key is @swf:tagList.member.1@ .
+--
+--     * @tagList.member.2@ : The key is @swf:tagList.member.2@ .
+--
+--     * @tagList.member.3@ : The key is @swf:tagList.member.3@ .
+--
+--     * @tagList.member.4@ : The key is @swf:tagList.member.4@ .
+--
+--     * @taskList@ : String constraint. The key is @swf:taskList.name@ .
+--
+--     * @workflowType.name@ : String constraint. The key is @swf:workflowType.name@ .
+--
+--     * @workflowType.version@ : String constraint. The key is @swf:workflowType.version@ .
 --
 --
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+--
+--
+-- If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's @cause@ parameter is set to @OPERATION_NOT_PERMITTED@ . For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> in the /Amazon SWF Developer Guide/ .
 --
 module Network.AWS.SWF.StartWorkflowExecution
     (
@@ -87,23 +109,23 @@ data StartWorkflowExecution = StartWorkflowExecution'
 --
 -- * 'sTagList' - The list of tags to associate with the workflow execution. You can specify a maximum of 5 tags. You can list workflow executions with a specific tag by calling 'ListOpenWorkflowExecutions' or 'ListClosedWorkflowExecutions' and specifying a 'TagFilter' .
 --
--- * 'sTaskStartToCloseTimeout' - Specifies the maximum duration of decision tasks for this workflow execution. This parameter overrides the @defaultTaskStartToCloseTimout@ specified when registering the workflow type using 'RegisterWorkflowType' . The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
+-- * 'sTaskStartToCloseTimeout' - Specifies the maximum duration of decision tasks for this workflow execution. This parameter overrides the @defaultTaskStartToCloseTimout@ specified when registering the workflow type using 'RegisterWorkflowType' . The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
 --
--- * 'sLambdaRole' - The ARN of an IAM role that authorizes Amazon SWF to invoke AWS Lambda functions.
+-- * 'sLambdaRole' - The IAM role to attach to this workflow execution.
 --
 -- * 'sInput' - The input for the workflow execution. This is a free form string which should be meaningful to the workflow you are starting. This @input@ is made available to the new workflow execution in the @WorkflowExecutionStarted@ history event.
 --
--- * 'sExecutionStartToCloseTimeout' - The total duration for this workflow execution. This overrides the defaultExecutionStartToCloseTimeout specified when registering the workflow type. The duration is specified in seconds; an integer greater than or equal to 0. Exceeding this limit will cause the workflow execution to time out. Unlike some of the other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for this timeout; there is a one-year max limit on the time that a workflow execution can run.
+-- * 'sExecutionStartToCloseTimeout' - The total duration for this workflow execution. This overrides the defaultExecutionStartToCloseTimeout specified when registering the workflow type. The duration is specified in seconds; an integer greater than or equal to @0@ . Exceeding this limit causes the workflow execution to time out. Unlike some of the other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for this timeout; there is a one-year max limit on the time that a workflow execution can run.
 --
--- * 'sTaskList' - The task list to use for the decision tasks generated for this workflow execution. This overrides the @defaultTaskList@ specified when registering the workflow type. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal string quotarnquot.
+-- * 'sTaskList' - The task list to use for the decision tasks generated for this workflow execution. This overrides the @defaultTaskList@ specified when registering the workflow type. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
 --
--- * 'sTaskPriority' - The task priority to use for this workflow execution. This will override any default priority that was assigned when the workflow type was registered. If not set, then the default task priority for the workflow type will be used. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/ .
+-- * 'sTaskPriority' - The task priority to use for this workflow execution. This overrides any default priority that was assigned when the workflow type was registered. If not set, then the default task priority for the workflow type is used. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
 --
--- * 'sChildPolicy' - If set, specifies the policy to use for the child workflow executions of this workflow execution if it is terminated, by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. This policy overrides the default child policy specified when registering the workflow type using 'RegisterWorkflowType' . The supported child policies are:     * __TERMINATE:__ the child executions will be terminated.    * __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    * __ABANDON:__ no action will be taken. The child executions will continue to run.
+-- * 'sChildPolicy' - If set, specifies the policy to use for the child workflow executions of this workflow execution if it is terminated, by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. This policy overrides the default child policy specified when registering the workflow type using 'RegisterWorkflowType' . The supported child policies are:     * @TERMINATE@ – The child executions are terminated.     * @REQUEST_CANCEL@ – A request to cancel is attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.     * @ABANDON@ – No action is taken. The child executions continue to run.
 --
 -- * 'sDomain' - The name of the domain in which the workflow execution is created.
 --
--- * 'sWorkflowId' - The user defined identifier associated with the workflow execution. You can use this to associate a custom identifier with the workflow execution. You may specify the same identifier if a workflow execution is logically a /restart/ of a previous execution. You cannot have two open workflow executions with the same @workflowId@ at the same time. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal string quotarnquot.
+-- * 'sWorkflowId' - The user defined identifier associated with the workflow execution. You can use this to associate a custom identifier with the workflow execution. You may specify the same identifier if a workflow execution is logically a /restart/ of a previous execution. You cannot have two open workflow executions with the same @workflowId@ at the same time. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
 --
 -- * 'sWorkflowType' - The type of the workflow to start.
 startWorkflowExecution
@@ -130,11 +152,11 @@ startWorkflowExecution pDomain_ pWorkflowId_ pWorkflowType_ =
 sTagList :: Lens' StartWorkflowExecution [Text]
 sTagList = lens _sTagList (\ s a -> s{_sTagList = a}) . _Default . _Coerce;
 
--- | Specifies the maximum duration of decision tasks for this workflow execution. This parameter overrides the @defaultTaskStartToCloseTimout@ specified when registering the workflow type using 'RegisterWorkflowType' . The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
+-- | Specifies the maximum duration of decision tasks for this workflow execution. This parameter overrides the @defaultTaskStartToCloseTimout@ specified when registering the workflow type using 'RegisterWorkflowType' . The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
 sTaskStartToCloseTimeout :: Lens' StartWorkflowExecution (Maybe Text)
 sTaskStartToCloseTimeout = lens _sTaskStartToCloseTimeout (\ s a -> s{_sTaskStartToCloseTimeout = a});
 
--- | The ARN of an IAM role that authorizes Amazon SWF to invoke AWS Lambda functions.
+-- | The IAM role to attach to this workflow execution.
 sLambdaRole :: Lens' StartWorkflowExecution (Maybe Text)
 sLambdaRole = lens _sLambdaRole (\ s a -> s{_sLambdaRole = a});
 
@@ -142,19 +164,19 @@ sLambdaRole = lens _sLambdaRole (\ s a -> s{_sLambdaRole = a});
 sInput :: Lens' StartWorkflowExecution (Maybe Text)
 sInput = lens _sInput (\ s a -> s{_sInput = a});
 
--- | The total duration for this workflow execution. This overrides the defaultExecutionStartToCloseTimeout specified when registering the workflow type. The duration is specified in seconds; an integer greater than or equal to 0. Exceeding this limit will cause the workflow execution to time out. Unlike some of the other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for this timeout; there is a one-year max limit on the time that a workflow execution can run.
+-- | The total duration for this workflow execution. This overrides the defaultExecutionStartToCloseTimeout specified when registering the workflow type. The duration is specified in seconds; an integer greater than or equal to @0@ . Exceeding this limit causes the workflow execution to time out. Unlike some of the other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for this timeout; there is a one-year max limit on the time that a workflow execution can run.
 sExecutionStartToCloseTimeout :: Lens' StartWorkflowExecution (Maybe Text)
 sExecutionStartToCloseTimeout = lens _sExecutionStartToCloseTimeout (\ s a -> s{_sExecutionStartToCloseTimeout = a});
 
--- | The task list to use for the decision tasks generated for this workflow execution. This overrides the @defaultTaskList@ specified when registering the workflow type. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal string quotarnquot.
+-- | The task list to use for the decision tasks generated for this workflow execution. This overrides the @defaultTaskList@ specified when registering the workflow type. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
 sTaskList :: Lens' StartWorkflowExecution (Maybe TaskList)
 sTaskList = lens _sTaskList (\ s a -> s{_sTaskList = a});
 
--- | The task priority to use for this workflow execution. This will override any default priority that was assigned when the workflow type was registered. If not set, then the default task priority for the workflow type will be used. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/ .
+-- | The task priority to use for this workflow execution. This overrides any default priority that was assigned when the workflow type was registered. If not set, then the default task priority for the workflow type is used. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
 sTaskPriority :: Lens' StartWorkflowExecution (Maybe Text)
 sTaskPriority = lens _sTaskPriority (\ s a -> s{_sTaskPriority = a});
 
--- | If set, specifies the policy to use for the child workflow executions of this workflow execution if it is terminated, by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. This policy overrides the default child policy specified when registering the workflow type using 'RegisterWorkflowType' . The supported child policies are:     * __TERMINATE:__ the child executions will be terminated.    * __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    * __ABANDON:__ no action will be taken. The child executions will continue to run.
+-- | If set, specifies the policy to use for the child workflow executions of this workflow execution if it is terminated, by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. This policy overrides the default child policy specified when registering the workflow type using 'RegisterWorkflowType' . The supported child policies are:     * @TERMINATE@ – The child executions are terminated.     * @REQUEST_CANCEL@ – A request to cancel is attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.     * @ABANDON@ – No action is taken. The child executions continue to run.
 sChildPolicy :: Lens' StartWorkflowExecution (Maybe ChildPolicy)
 sChildPolicy = lens _sChildPolicy (\ s a -> s{_sChildPolicy = a});
 
@@ -162,7 +184,7 @@ sChildPolicy = lens _sChildPolicy (\ s a -> s{_sChildPolicy = a});
 sDomain :: Lens' StartWorkflowExecution Text
 sDomain = lens _sDomain (\ s a -> s{_sDomain = a});
 
--- | The user defined identifier associated with the workflow execution. You can use this to associate a custom identifier with the workflow execution. You may specify the same identifier if a workflow execution is logically a /restart/ of a previous execution. You cannot have two open workflow executions with the same @workflowId@ at the same time. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal string quotarnquot.
+-- | The user defined identifier associated with the workflow execution. You can use this to associate a custom identifier with the workflow execution. You may specify the same identifier if a workflow execution is logically a /restart/ of a previous execution. You cannot have two open workflow executions with the same @workflowId@ at the same time. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
 sWorkflowId :: Lens' StartWorkflowExecution Text
 sWorkflowId = lens _sWorkflowId (\ s a -> s{_sWorkflowId = a});
 

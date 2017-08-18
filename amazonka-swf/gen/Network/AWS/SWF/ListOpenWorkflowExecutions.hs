@@ -25,11 +25,23 @@
 --
 -- You can use IAM policies to control this action's access to Amazon SWF resources as follows:
 --
---     * Use a @Resource@ element with the domain name to limit the action to only specified domains.    * Use an @Action@ element to allow or deny permission to call this action.    * Constrain the following parameters by using a @Condition@ element with the appropriate keys.     * @tagFilter.tag@ : String constraint. The key is @swf:tagFilter.tag@ .    * @typeFilter.name@ : String constraint. The key is @swf:typeFilter.name@ .    * @typeFilter.version@ : String constraint. The key is @swf:typeFilter.version@ .
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.
+--
+--     * Use an @Action@ element to allow or deny permission to call this action.
+--
+--     * Constrain the following parameters by using a @Condition@ element with the appropriate keys.
+--
+--     * @tagFilter.tag@ : String constraint. The key is @swf:tagFilter.tag@ .
+--
+--     * @typeFilter.name@ : String constraint. The key is @swf:typeFilter.name@ .
+--
+--     * @typeFilter.version@ : String constraint. The key is @swf:typeFilter.version@ .
 --
 --
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+--
+--
+-- If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's @cause@ parameter is set to @OPERATION_NOT_PERMITTED@ . For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> in the /Amazon SWF Developer Guide/ .
 --
 --
 -- This operation returns paginated results.
@@ -90,7 +102,7 @@ data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions'
 --
 -- * 'loweTagFilter' - If specified, only executions that have the matching tag are listed.
 --
--- * 'loweMaximumPageSize' - The maximum number of results that will be returned per call. @nextPageToken@ can be used to obtain futher pages of results. The default is 1000, which is the maximum allowed page size. You can, however, specify a page size /smaller/ than the maximum. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
+-- * 'loweMaximumPageSize' - The maximum number of results that are returned per call. @nextPageToken@ can be used to obtain futher pages of results. The default is 1000, which is the maximum allowed page size. You can, however, specify a page size /smaller/ than the maximum. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
 --
 -- * 'loweDomain' - The name of the domain that contains the workflow executions to list.
 --
@@ -131,7 +143,7 @@ loweReverseOrder = lens _loweReverseOrder (\ s a -> s{_loweReverseOrder = a});
 loweTagFilter :: Lens' ListOpenWorkflowExecutions (Maybe TagFilter)
 loweTagFilter = lens _loweTagFilter (\ s a -> s{_loweTagFilter = a});
 
--- | The maximum number of results that will be returned per call. @nextPageToken@ can be used to obtain futher pages of results. The default is 1000, which is the maximum allowed page size. You can, however, specify a page size /smaller/ than the maximum. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
+-- | The maximum number of results that are returned per call. @nextPageToken@ can be used to obtain futher pages of results. The default is 1000, which is the maximum allowed page size. You can, however, specify a page size /smaller/ than the maximum. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
 loweMaximumPageSize :: Lens' ListOpenWorkflowExecutions (Maybe Natural)
 loweMaximumPageSize = lens _loweMaximumPageSize (\ s a -> s{_loweMaximumPageSize = a}) . mapping _Nat;
 

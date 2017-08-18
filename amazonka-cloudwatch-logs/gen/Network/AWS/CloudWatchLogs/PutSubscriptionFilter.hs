@@ -31,7 +31,7 @@
 --
 --
 --
--- There can only be one subscription filter associated with a log group.
+-- There can only be one subscription filter associated with a log group. If you are updating an existing filter, you must specify the correct name in @filterName@ . Otherwise, the call will fail because you cannot associate a second filter with a log group.
 --
 module Network.AWS.CloudWatchLogs.PutSubscriptionFilter
     (
@@ -78,7 +78,7 @@ data PutSubscriptionFilter = PutSubscriptionFilter'
 --
 -- * 'psfLogGroupName' - The name of the log group.
 --
--- * 'psfFilterName' - A name for the subscription filter.
+-- * 'psfFilterName' - A name for the subscription filter. If you are updating an existing filter, you must specify the correct name in @filterName@ . Otherwise, the call will fail because you cannot associate a second filter with a log group. To find the name of the filter currently associated with a log group, use 'DescribeSubscriptionFilters' .
 --
 -- * 'psfFilterPattern' - A filter pattern for subscribing to a filtered stream of log events.
 --
@@ -111,7 +111,7 @@ psfRoleARN = lens _psfRoleARN (\ s a -> s{_psfRoleARN = a});
 psfLogGroupName :: Lens' PutSubscriptionFilter Text
 psfLogGroupName = lens _psfLogGroupName (\ s a -> s{_psfLogGroupName = a});
 
--- | A name for the subscription filter.
+-- | A name for the subscription filter. If you are updating an existing filter, you must specify the correct name in @filterName@ . Otherwise, the call will fail because you cannot associate a second filter with a log group. To find the name of the filter currently associated with a log group, use 'DescribeSubscriptionFilters' .
 psfFilterName :: Lens' PutSubscriptionFilter Text
 psfFilterName = lens _psfFilterName (\ s a -> s{_psfFilterName = a});
 

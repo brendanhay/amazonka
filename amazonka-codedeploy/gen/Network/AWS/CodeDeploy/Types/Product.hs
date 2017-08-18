@@ -128,10 +128,11 @@ instance ToJSON AlarmConfiguration where
 --
 -- /See:/ 'applicationInfo' smart constructor.
 data ApplicationInfo = ApplicationInfo'
-    { _aiLinkedToGitHub  :: !(Maybe Bool)
-    , _aiApplicationId   :: !(Maybe Text)
-    , _aiApplicationName :: !(Maybe Text)
-    , _aiCreateTime      :: !(Maybe POSIX)
+    { _aiLinkedToGitHub    :: !(Maybe Bool)
+    , _aiApplicationId     :: !(Maybe Text)
+    , _aiApplicationName   :: !(Maybe Text)
+    , _aiGitHubAccountName :: !(Maybe Text)
+    , _aiCreateTime        :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ApplicationInfo' with the minimum fields required to make a request.
@@ -144,6 +145,8 @@ data ApplicationInfo = ApplicationInfo'
 --
 -- * 'aiApplicationName' - The application name.
 --
+-- * 'aiGitHubAccountName' - The name for a connection to a GitHub account.
+--
 -- * 'aiCreateTime' - The time at which the application was created.
 applicationInfo
     :: ApplicationInfo
@@ -152,6 +155,7 @@ applicationInfo =
     { _aiLinkedToGitHub = Nothing
     , _aiApplicationId = Nothing
     , _aiApplicationName = Nothing
+    , _aiGitHubAccountName = Nothing
     , _aiCreateTime = Nothing
     }
 
@@ -167,6 +171,10 @@ aiApplicationId = lens _aiApplicationId (\ s a -> s{_aiApplicationId = a});
 aiApplicationName :: Lens' ApplicationInfo (Maybe Text)
 aiApplicationName = lens _aiApplicationName (\ s a -> s{_aiApplicationName = a});
 
+-- | The name for a connection to a GitHub account.
+aiGitHubAccountName :: Lens' ApplicationInfo (Maybe Text)
+aiGitHubAccountName = lens _aiGitHubAccountName (\ s a -> s{_aiGitHubAccountName = a});
+
 -- | The time at which the application was created.
 aiCreateTime :: Lens' ApplicationInfo (Maybe UTCTime)
 aiCreateTime = lens _aiCreateTime (\ s a -> s{_aiCreateTime = a}) . mapping _Time;
@@ -178,6 +186,7 @@ instance FromJSON ApplicationInfo where
                  ApplicationInfo' <$>
                    (x .:? "linkedToGitHub") <*> (x .:? "applicationId")
                      <*> (x .:? "applicationName")
+                     <*> (x .:? "gitHubAccountName")
                      <*> (x .:? "createTime"))
 
 instance Hashable ApplicationInfo
@@ -470,12 +479,16 @@ instance NFData DeploymentConfigInfo
 -- /See:/ 'deploymentGroupInfo' smart constructor.
 data DeploymentGroupInfo = DeploymentGroupInfo'
     { _dgiServiceRoleARN                   :: !(Maybe Text)
+    , _dgiEc2TagSet                        :: !(Maybe EC2TagSet)
     , _dgiDeploymentConfigName             :: !(Maybe Text)
+    , _dgiLastAttemptedDeployment          :: !(Maybe LastDeploymentInfo)
+    , _dgiOnPremisesTagSet                 :: !(Maybe OnPremisesTagSet)
     , _dgiTargetRevision                   :: !(Maybe RevisionLocation)
     , _dgiEc2TagFilters                    :: !(Maybe [EC2TagFilter])
     , _dgiBlueGreenDeploymentConfiguration :: !(Maybe BlueGreenDeploymentConfiguration)
     , _dgiLoadBalancerInfo                 :: !(Maybe LoadBalancerInfo)
     , _dgiOnPremisesInstanceTagFilters     :: !(Maybe [TagFilter])
+    , _dgiLastSuccessfulDeployment         :: !(Maybe LastDeploymentInfo)
     , _dgiApplicationName                  :: !(Maybe Text)
     , _dgiAlarmConfiguration               :: !(Maybe AlarmConfiguration)
     , _dgiTriggerConfigurations            :: !(Maybe [TriggerConfig])
@@ -492,17 +505,25 @@ data DeploymentGroupInfo = DeploymentGroupInfo'
 --
 -- * 'dgiServiceRoleARN' - A service role ARN.
 --
+-- * 'dgiEc2TagSet' - Information about groups of tags applied to an EC2 instance. The deployment group includes only EC2 instances identified by all the tag groups. Cannot be used in the same call as ec2TagFilters.
+--
 -- * 'dgiDeploymentConfigName' - The deployment configuration name.
+--
+-- * 'dgiLastAttemptedDeployment' - Information about the most recent attempted deployment to the deployment group.
+--
+-- * 'dgiOnPremisesTagSet' - Information about groups of tags applied to an on-premises instance. The deployment group includes only on-premises instances identified by all the tag groups. Cannot be used in the same call as onPremisesInstanceTagFilters.
 --
 -- * 'dgiTargetRevision' - Information about the deployment group's target revision, including type and location.
 --
--- * 'dgiEc2TagFilters' - The Amazon EC2 tags on which to filter.
+-- * 'dgiEc2TagFilters' - The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances with any of the specified tags.
 --
 -- * 'dgiBlueGreenDeploymentConfiguration' - Information about blue/green deployment options for a deployment group.
 --
--- * 'dgiLoadBalancerInfo' - Information about the load balancer to use in a blue/green deployment.
+-- * 'dgiLoadBalancerInfo' - Information about the load balancer to use in a deployment.
 --
--- * 'dgiOnPremisesInstanceTagFilters' - The on-premises instance tags on which to filter.
+-- * 'dgiOnPremisesInstanceTagFilters' - The on-premises instance tags on which to filter. The deployment group includes on-premises instances with any of the specified tags.
+--
+-- * 'dgiLastSuccessfulDeployment' - Information about the most recent successful deployment to the deployment group.
 --
 -- * 'dgiApplicationName' - The application name.
 --
@@ -514,7 +535,7 @@ data DeploymentGroupInfo = DeploymentGroupInfo'
 --
 -- * 'dgiAutoScalingGroups' - A list of associated Auto Scaling groups.
 --
--- * 'dgiDeploymentStyle' - Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+-- * 'dgiDeploymentStyle' - Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
 --
 -- * 'dgiAutoRollbackConfiguration' - Information about the automatic rollback configuration associated with the deployment group.
 --
@@ -524,12 +545,16 @@ deploymentGroupInfo
 deploymentGroupInfo =
     DeploymentGroupInfo'
     { _dgiServiceRoleARN = Nothing
+    , _dgiEc2TagSet = Nothing
     , _dgiDeploymentConfigName = Nothing
+    , _dgiLastAttemptedDeployment = Nothing
+    , _dgiOnPremisesTagSet = Nothing
     , _dgiTargetRevision = Nothing
     , _dgiEc2TagFilters = Nothing
     , _dgiBlueGreenDeploymentConfiguration = Nothing
     , _dgiLoadBalancerInfo = Nothing
     , _dgiOnPremisesInstanceTagFilters = Nothing
+    , _dgiLastSuccessfulDeployment = Nothing
     , _dgiApplicationName = Nothing
     , _dgiAlarmConfiguration = Nothing
     , _dgiTriggerConfigurations = Nothing
@@ -544,15 +569,27 @@ deploymentGroupInfo =
 dgiServiceRoleARN :: Lens' DeploymentGroupInfo (Maybe Text)
 dgiServiceRoleARN = lens _dgiServiceRoleARN (\ s a -> s{_dgiServiceRoleARN = a});
 
+-- | Information about groups of tags applied to an EC2 instance. The deployment group includes only EC2 instances identified by all the tag groups. Cannot be used in the same call as ec2TagFilters.
+dgiEc2TagSet :: Lens' DeploymentGroupInfo (Maybe EC2TagSet)
+dgiEc2TagSet = lens _dgiEc2TagSet (\ s a -> s{_dgiEc2TagSet = a});
+
 -- | The deployment configuration name.
 dgiDeploymentConfigName :: Lens' DeploymentGroupInfo (Maybe Text)
 dgiDeploymentConfigName = lens _dgiDeploymentConfigName (\ s a -> s{_dgiDeploymentConfigName = a});
+
+-- | Information about the most recent attempted deployment to the deployment group.
+dgiLastAttemptedDeployment :: Lens' DeploymentGroupInfo (Maybe LastDeploymentInfo)
+dgiLastAttemptedDeployment = lens _dgiLastAttemptedDeployment (\ s a -> s{_dgiLastAttemptedDeployment = a});
+
+-- | Information about groups of tags applied to an on-premises instance. The deployment group includes only on-premises instances identified by all the tag groups. Cannot be used in the same call as onPremisesInstanceTagFilters.
+dgiOnPremisesTagSet :: Lens' DeploymentGroupInfo (Maybe OnPremisesTagSet)
+dgiOnPremisesTagSet = lens _dgiOnPremisesTagSet (\ s a -> s{_dgiOnPremisesTagSet = a});
 
 -- | Information about the deployment group's target revision, including type and location.
 dgiTargetRevision :: Lens' DeploymentGroupInfo (Maybe RevisionLocation)
 dgiTargetRevision = lens _dgiTargetRevision (\ s a -> s{_dgiTargetRevision = a});
 
--- | The Amazon EC2 tags on which to filter.
+-- | The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances with any of the specified tags.
 dgiEc2TagFilters :: Lens' DeploymentGroupInfo [EC2TagFilter]
 dgiEc2TagFilters = lens _dgiEc2TagFilters (\ s a -> s{_dgiEc2TagFilters = a}) . _Default . _Coerce;
 
@@ -560,13 +597,17 @@ dgiEc2TagFilters = lens _dgiEc2TagFilters (\ s a -> s{_dgiEc2TagFilters = a}) . 
 dgiBlueGreenDeploymentConfiguration :: Lens' DeploymentGroupInfo (Maybe BlueGreenDeploymentConfiguration)
 dgiBlueGreenDeploymentConfiguration = lens _dgiBlueGreenDeploymentConfiguration (\ s a -> s{_dgiBlueGreenDeploymentConfiguration = a});
 
--- | Information about the load balancer to use in a blue/green deployment.
+-- | Information about the load balancer to use in a deployment.
 dgiLoadBalancerInfo :: Lens' DeploymentGroupInfo (Maybe LoadBalancerInfo)
 dgiLoadBalancerInfo = lens _dgiLoadBalancerInfo (\ s a -> s{_dgiLoadBalancerInfo = a});
 
--- | The on-premises instance tags on which to filter.
+-- | The on-premises instance tags on which to filter. The deployment group includes on-premises instances with any of the specified tags.
 dgiOnPremisesInstanceTagFilters :: Lens' DeploymentGroupInfo [TagFilter]
 dgiOnPremisesInstanceTagFilters = lens _dgiOnPremisesInstanceTagFilters (\ s a -> s{_dgiOnPremisesInstanceTagFilters = a}) . _Default . _Coerce;
+
+-- | Information about the most recent successful deployment to the deployment group.
+dgiLastSuccessfulDeployment :: Lens' DeploymentGroupInfo (Maybe LastDeploymentInfo)
+dgiLastSuccessfulDeployment = lens _dgiLastSuccessfulDeployment (\ s a -> s{_dgiLastSuccessfulDeployment = a});
 
 -- | The application name.
 dgiApplicationName :: Lens' DeploymentGroupInfo (Maybe Text)
@@ -588,7 +629,7 @@ dgiDeploymentGroupId = lens _dgiDeploymentGroupId (\ s a -> s{_dgiDeploymentGrou
 dgiAutoScalingGroups :: Lens' DeploymentGroupInfo [AutoScalingGroup]
 dgiAutoScalingGroups = lens _dgiAutoScalingGroups (\ s a -> s{_dgiAutoScalingGroups = a}) . _Default . _Coerce;
 
--- | Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+-- | Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
 dgiDeploymentStyle :: Lens' DeploymentGroupInfo (Maybe DeploymentStyle)
 dgiDeploymentStyle = lens _dgiDeploymentStyle (\ s a -> s{_dgiDeploymentStyle = a});
 
@@ -605,13 +646,16 @@ instance FromJSON DeploymentGroupInfo where
           = withObject "DeploymentGroupInfo"
               (\ x ->
                  DeploymentGroupInfo' <$>
-                   (x .:? "serviceRoleArn") <*>
+                   (x .:? "serviceRoleArn") <*> (x .:? "ec2TagSet") <*>
                      (x .:? "deploymentConfigName")
+                     <*> (x .:? "lastAttemptedDeployment")
+                     <*> (x .:? "onPremisesTagSet")
                      <*> (x .:? "targetRevision")
                      <*> (x .:? "ec2TagFilters" .!= mempty)
                      <*> (x .:? "blueGreenDeploymentConfiguration")
                      <*> (x .:? "loadBalancerInfo")
                      <*> (x .:? "onPremisesInstanceTagFilters" .!= mempty)
+                     <*> (x .:? "lastSuccessfulDeployment")
                      <*> (x .:? "applicationName")
                      <*> (x .:? "alarmConfiguration")
                      <*> (x .:? "triggerConfigurations" .!= mempty)
@@ -635,6 +679,7 @@ data DeploymentInfo = DeploymentInfo'
     , _diStatus                             :: !(Maybe DeploymentStatus)
     , _diDeploymentId                       :: !(Maybe Text)
     , _diDeploymentConfigName               :: !(Maybe Text)
+    , _diPreviousRevision                   :: !(Maybe RevisionLocation)
     , _diInstanceTerminationWaitTimeStarted :: !(Maybe Bool)
     , _diStartTime                          :: !(Maybe POSIX)
     , _diCompleteTime                       :: !(Maybe POSIX)
@@ -643,6 +688,7 @@ data DeploymentInfo = DeploymentInfo'
     , _diLoadBalancerInfo                   :: !(Maybe LoadBalancerInfo)
     , _diAdditionalDeploymentStatusInfo     :: !(Maybe Text)
     , _diDeploymentOverview                 :: !(Maybe DeploymentOverview)
+    , _diFileExistsBehavior                 :: !(Maybe FileExistsBehavior)
     , _diApplicationName                    :: !(Maybe Text)
     , _diRollbackInfo                       :: !(Maybe RollbackInfo)
     , _diTargetInstances                    :: !(Maybe TargetInstances)
@@ -668,6 +714,8 @@ data DeploymentInfo = DeploymentInfo'
 --
 -- * 'diDeploymentConfigName' - The deployment configuration name.
 --
+-- * 'diPreviousRevision' - Information about the application revision that was deployed to the deployment group before the most recent successful deployment.
+--
 -- * 'diInstanceTerminationWaitTimeStarted' - Indicates whether the wait period set for the termination of instances in the original environment has started. Status is 'false' if the KEEP_ALIVE option is specified; otherwise, 'true' as soon as the termination wait period starts.
 --
 -- * 'diStartTime' - A timestamp indicating when the deployment was deployed to the deployment group. In some cases, the reported value of the start time may be later than the complete time. This is due to differences in the clock settings of back-end servers that participate in the deployment process.
@@ -678,11 +726,13 @@ data DeploymentInfo = DeploymentInfo'
 --
 -- * 'diErrorInformation' - Information about any error associated with this deployment.
 --
--- * 'diLoadBalancerInfo' - Information about the load balancer used in this blue/green deployment.
+-- * 'diLoadBalancerInfo' - Information about the load balancer used in the deployment.
 --
 -- * 'diAdditionalDeploymentStatusInfo' - Provides information about the results of a deployment, such as whether instances in the original environment in a blue/green deployment were not terminated.
 --
 -- * 'diDeploymentOverview' - A summary of the deployment status of the instances in the deployment.
+--
+-- * 'diFileExistsBehavior' - Information about how AWS CodeDeploy handles files that already exist in a deployment target location but weren't part of the previous successful deployment.     * DISALLOW: The deployment fails. This is also the default behavior if no option is specified.     * OVERWRITE: The version of the file from the application revision currently being deployed replaces the version already on the instance.     * RETAIN: The version of the file already on the instance is kept and used as part of the new deployment.
 --
 -- * 'diApplicationName' - The application name.
 --
@@ -694,7 +744,7 @@ data DeploymentInfo = DeploymentInfo'
 --
 -- * 'diDescription' - A comment about the deployment.
 --
--- * 'diDeploymentStyle' - Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+-- * 'diDeploymentStyle' - Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
 --
 -- * 'diCreateTime' - A timestamp indicating when the deployment was created.
 --
@@ -713,6 +763,7 @@ deploymentInfo =
     , _diStatus = Nothing
     , _diDeploymentId = Nothing
     , _diDeploymentConfigName = Nothing
+    , _diPreviousRevision = Nothing
     , _diInstanceTerminationWaitTimeStarted = Nothing
     , _diStartTime = Nothing
     , _diCompleteTime = Nothing
@@ -721,6 +772,7 @@ deploymentInfo =
     , _diLoadBalancerInfo = Nothing
     , _diAdditionalDeploymentStatusInfo = Nothing
     , _diDeploymentOverview = Nothing
+    , _diFileExistsBehavior = Nothing
     , _diApplicationName = Nothing
     , _diRollbackInfo = Nothing
     , _diTargetInstances = Nothing
@@ -750,6 +802,10 @@ diDeploymentId = lens _diDeploymentId (\ s a -> s{_diDeploymentId = a});
 diDeploymentConfigName :: Lens' DeploymentInfo (Maybe Text)
 diDeploymentConfigName = lens _diDeploymentConfigName (\ s a -> s{_diDeploymentConfigName = a});
 
+-- | Information about the application revision that was deployed to the deployment group before the most recent successful deployment.
+diPreviousRevision :: Lens' DeploymentInfo (Maybe RevisionLocation)
+diPreviousRevision = lens _diPreviousRevision (\ s a -> s{_diPreviousRevision = a});
+
 -- | Indicates whether the wait period set for the termination of instances in the original environment has started. Status is 'false' if the KEEP_ALIVE option is specified; otherwise, 'true' as soon as the termination wait period starts.
 diInstanceTerminationWaitTimeStarted :: Lens' DeploymentInfo (Maybe Bool)
 diInstanceTerminationWaitTimeStarted = lens _diInstanceTerminationWaitTimeStarted (\ s a -> s{_diInstanceTerminationWaitTimeStarted = a});
@@ -770,7 +826,7 @@ diBlueGreenDeploymentConfiguration = lens _diBlueGreenDeploymentConfiguration (\
 diErrorInformation :: Lens' DeploymentInfo (Maybe ErrorInformation)
 diErrorInformation = lens _diErrorInformation (\ s a -> s{_diErrorInformation = a});
 
--- | Information about the load balancer used in this blue/green deployment.
+-- | Information about the load balancer used in the deployment.
 diLoadBalancerInfo :: Lens' DeploymentInfo (Maybe LoadBalancerInfo)
 diLoadBalancerInfo = lens _diLoadBalancerInfo (\ s a -> s{_diLoadBalancerInfo = a});
 
@@ -781,6 +837,10 @@ diAdditionalDeploymentStatusInfo = lens _diAdditionalDeploymentStatusInfo (\ s a
 -- | A summary of the deployment status of the instances in the deployment.
 diDeploymentOverview :: Lens' DeploymentInfo (Maybe DeploymentOverview)
 diDeploymentOverview = lens _diDeploymentOverview (\ s a -> s{_diDeploymentOverview = a});
+
+-- | Information about how AWS CodeDeploy handles files that already exist in a deployment target location but weren't part of the previous successful deployment.     * DISALLOW: The deployment fails. This is also the default behavior if no option is specified.     * OVERWRITE: The version of the file from the application revision currently being deployed replaces the version already on the instance.     * RETAIN: The version of the file already on the instance is kept and used as part of the new deployment.
+diFileExistsBehavior :: Lens' DeploymentInfo (Maybe FileExistsBehavior)
+diFileExistsBehavior = lens _diFileExistsBehavior (\ s a -> s{_diFileExistsBehavior = a});
 
 -- | The application name.
 diApplicationName :: Lens' DeploymentInfo (Maybe Text)
@@ -802,7 +862,7 @@ diRevision = lens _diRevision (\ s a -> s{_diRevision = a});
 diDescription :: Lens' DeploymentInfo (Maybe Text)
 diDescription = lens _diDescription (\ s a -> s{_diDescription = a});
 
--- | Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+-- | Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
 diDeploymentStyle :: Lens' DeploymentInfo (Maybe DeploymentStyle)
 diDeploymentStyle = lens _diDeploymentStyle (\ s a -> s{_diDeploymentStyle = a});
 
@@ -834,6 +894,7 @@ instance FromJSON DeploymentInfo where
                    (x .:? "creator") <*> (x .:? "status") <*>
                      (x .:? "deploymentId")
                      <*> (x .:? "deploymentConfigName")
+                     <*> (x .:? "previousRevision")
                      <*> (x .:? "instanceTerminationWaitTimeStarted")
                      <*> (x .:? "startTime")
                      <*> (x .:? "completeTime")
@@ -842,6 +903,7 @@ instance FromJSON DeploymentInfo where
                      <*> (x .:? "loadBalancerInfo")
                      <*> (x .:? "additionalDeploymentStatusInfo")
                      <*> (x .:? "deploymentOverview")
+                     <*> (x .:? "fileExistsBehavior")
                      <*> (x .:? "applicationName")
                      <*> (x .:? "rollbackInfo")
                      <*> (x .:? "targetInstances")
@@ -990,7 +1052,7 @@ instance ToJSON DeploymentReadyOption where
                  [("actionOnTimeout" .=) <$> _droActionOnTimeout,
                   ("waitTimeInMinutes" .=) <$> _droWaitTimeInMinutes])
 
--- | Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+-- | Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
 --
 --
 --
@@ -1006,7 +1068,7 @@ data DeploymentStyle = DeploymentStyle'
 --
 -- * 'dsDeploymentOption' - Indicates whether to route deployment traffic behind a load balancer.
 --
--- * 'dsDeploymentType' - Indicates whether to run a standard deployment or a blue/green deployment.
+-- * 'dsDeploymentType' - Indicates whether to run an in-place deployment or a blue/green deployment.
 deploymentStyle
     :: DeploymentStyle
 deploymentStyle =
@@ -1019,7 +1081,7 @@ deploymentStyle =
 dsDeploymentOption :: Lens' DeploymentStyle (Maybe DeploymentOption)
 dsDeploymentOption = lens _dsDeploymentOption (\ s a -> s{_dsDeploymentOption = a});
 
--- | Indicates whether to run a standard deployment or a blue/green deployment.
+-- | Indicates whether to run an in-place deployment or a blue/green deployment.
 dsDeploymentType :: Lens' DeploymentStyle (Maybe DeploymentType)
 dsDeploymentType = lens _dsDeploymentType (\ s a -> s{_dsDeploymentType = a});
 
@@ -1104,7 +1166,7 @@ instance Hashable Diagnostics
 
 instance NFData Diagnostics
 
--- | Information about a tag filter.
+-- | Information about an EC2 tag filter.
 --
 --
 --
@@ -1163,7 +1225,48 @@ instance ToJSON EC2TagFilter where
                  [("Value" .=) <$> _etfValue, ("Key" .=) <$> _etfKey,
                   ("Type" .=) <$> _etfType])
 
--- | Information about a load balancer in Elastic Load Balancing to use in a blue/green deployment.
+-- | Information about groups of EC2 instance tags.
+--
+--
+--
+-- /See:/ 'ec2TagSet' smart constructor.
+newtype EC2TagSet = EC2TagSet'
+    { _etsEc2TagSetList :: Maybe [[EC2TagFilter]]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EC2TagSet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'etsEc2TagSetList' - A list containing other lists of EC2 instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
+ec2TagSet
+    :: EC2TagSet
+ec2TagSet =
+    EC2TagSet'
+    { _etsEc2TagSetList = Nothing
+    }
+
+-- | A list containing other lists of EC2 instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
+etsEc2TagSetList :: Lens' EC2TagSet [[EC2TagFilter]]
+etsEc2TagSetList = lens _etsEc2TagSetList (\ s a -> s{_etsEc2TagSetList = a}) . _Default . _Coerce;
+
+instance FromJSON EC2TagSet where
+        parseJSON
+          = withObject "EC2TagSet"
+              (\ x ->
+                 EC2TagSet' <$> (x .:? "ec2TagSetList" .!= mempty))
+
+instance Hashable EC2TagSet
+
+instance NFData EC2TagSet
+
+instance ToJSON EC2TagSet where
+        toJSON EC2TagSet'{..}
+          = object
+              (catMaybes
+                 [("ec2TagSetList" .=) <$> _etsEc2TagSetList])
+
+-- | Information about a load balancer in Elastic Load Balancing to use in a deployment. Instances are registered directly with a load balancer, and traffic is routed to the load balancer.
 --
 --
 --
@@ -1176,7 +1279,7 @@ newtype ELBInfo = ELBInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'elbiName' - The name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment.
+-- * 'elbiName' - For blue/green deployments, the name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 eLBInfo
     :: ELBInfo
 eLBInfo =
@@ -1184,7 +1287,7 @@ eLBInfo =
     { _elbiName = Nothing
     }
 
--- | The name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment.
+-- | For blue/green deployments, the name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 elbiName :: Lens' ELBInfo (Maybe Text)
 elbiName = lens _elbiName (\ s a -> s{_elbiName = a});
 
@@ -1575,6 +1678,68 @@ instance Hashable InstanceSummary
 
 instance NFData InstanceSummary
 
+-- | Information about the most recent attempted or successful deployment to a deployment group.
+--
+--
+--
+-- /See:/ 'lastDeploymentInfo' smart constructor.
+data LastDeploymentInfo = LastDeploymentInfo'
+    { _ldiStatus       :: !(Maybe DeploymentStatus)
+    , _ldiDeploymentId :: !(Maybe Text)
+    , _ldiEndTime      :: !(Maybe POSIX)
+    , _ldiCreateTime   :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LastDeploymentInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldiStatus' - The status of the most recent deployment.
+--
+-- * 'ldiDeploymentId' - The deployment ID.
+--
+-- * 'ldiEndTime' - A timestamp indicating when the most recent deployment to the deployment group completed.
+--
+-- * 'ldiCreateTime' - A timestamp indicating when the most recent deployment to the deployment group started.
+lastDeploymentInfo
+    :: LastDeploymentInfo
+lastDeploymentInfo =
+    LastDeploymentInfo'
+    { _ldiStatus = Nothing
+    , _ldiDeploymentId = Nothing
+    , _ldiEndTime = Nothing
+    , _ldiCreateTime = Nothing
+    }
+
+-- | The status of the most recent deployment.
+ldiStatus :: Lens' LastDeploymentInfo (Maybe DeploymentStatus)
+ldiStatus = lens _ldiStatus (\ s a -> s{_ldiStatus = a});
+
+-- | The deployment ID.
+ldiDeploymentId :: Lens' LastDeploymentInfo (Maybe Text)
+ldiDeploymentId = lens _ldiDeploymentId (\ s a -> s{_ldiDeploymentId = a});
+
+-- | A timestamp indicating when the most recent deployment to the deployment group completed.
+ldiEndTime :: Lens' LastDeploymentInfo (Maybe UTCTime)
+ldiEndTime = lens _ldiEndTime (\ s a -> s{_ldiEndTime = a}) . mapping _Time;
+
+-- | A timestamp indicating when the most recent deployment to the deployment group started.
+ldiCreateTime :: Lens' LastDeploymentInfo (Maybe UTCTime)
+ldiCreateTime = lens _ldiCreateTime (\ s a -> s{_ldiCreateTime = a}) . mapping _Time;
+
+instance FromJSON LastDeploymentInfo where
+        parseJSON
+          = withObject "LastDeploymentInfo"
+              (\ x ->
+                 LastDeploymentInfo' <$>
+                   (x .:? "status") <*> (x .:? "deploymentId") <*>
+                     (x .:? "endTime")
+                     <*> (x .:? "createTime"))
+
+instance Hashable LastDeploymentInfo
+
+instance NFData LastDeploymentInfo
+
 -- | Information about a deployment lifecycle event.
 --
 --
@@ -1646,37 +1811,46 @@ instance Hashable LifecycleEvent
 
 instance NFData LifecycleEvent
 
--- | Information about the load balancer used in a blue/green deployment.
+-- | Information about the Elastic Load Balancing load balancer or target group used in a deployment.
 --
 --
 --
 -- /See:/ 'loadBalancerInfo' smart constructor.
-newtype LoadBalancerInfo = LoadBalancerInfo'
-    { _lbiElbInfoList :: Maybe [ELBInfo]
+data LoadBalancerInfo = LoadBalancerInfo'
+    { _lbiElbInfoList         :: !(Maybe [ELBInfo])
+    , _lbiTargetGroupInfoList :: !(Maybe [TargetGroupInfo])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'LoadBalancerInfo' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbiElbInfoList' - An array containing information about the load balancer in Elastic Load Balancing to use in a blue/green deployment.
+-- * 'lbiElbInfoList' - An array containing information about the load balancer to use for load balancing in a deployment. In Elastic Load Balancing, load balancers are used with Classic Load Balancers.
+--
+-- * 'lbiTargetGroupInfoList' - An array containing information about the target group to use for load balancing in a deployment. In Elastic Load Balancing, target groups are used with Application Load Balancers.
 loadBalancerInfo
     :: LoadBalancerInfo
 loadBalancerInfo =
     LoadBalancerInfo'
     { _lbiElbInfoList = Nothing
+    , _lbiTargetGroupInfoList = Nothing
     }
 
--- | An array containing information about the load balancer in Elastic Load Balancing to use in a blue/green deployment.
+-- | An array containing information about the load balancer to use for load balancing in a deployment. In Elastic Load Balancing, load balancers are used with Classic Load Balancers.
 lbiElbInfoList :: Lens' LoadBalancerInfo [ELBInfo]
 lbiElbInfoList = lens _lbiElbInfoList (\ s a -> s{_lbiElbInfoList = a}) . _Default . _Coerce;
+
+-- | An array containing information about the target group to use for load balancing in a deployment. In Elastic Load Balancing, target groups are used with Application Load Balancers.
+lbiTargetGroupInfoList :: Lens' LoadBalancerInfo [TargetGroupInfo]
+lbiTargetGroupInfoList = lens _lbiTargetGroupInfoList (\ s a -> s{_lbiTargetGroupInfoList = a}) . _Default . _Coerce;
 
 instance FromJSON LoadBalancerInfo where
         parseJSON
           = withObject "LoadBalancerInfo"
               (\ x ->
                  LoadBalancerInfo' <$>
-                   (x .:? "elbInfoList" .!= mempty))
+                   (x .:? "elbInfoList" .!= mempty) <*>
+                     (x .:? "targetGroupInfoList" .!= mempty))
 
 instance Hashable LoadBalancerInfo
 
@@ -1685,7 +1859,10 @@ instance NFData LoadBalancerInfo
 instance ToJSON LoadBalancerInfo where
         toJSON LoadBalancerInfo'{..}
           = object
-              (catMaybes [("elbInfoList" .=) <$> _lbiElbInfoList])
+              (catMaybes
+                 [("elbInfoList" .=) <$> _lbiElbInfoList,
+                  ("targetGroupInfoList" .=) <$>
+                    _lbiTargetGroupInfoList])
 
 -- | Information about minimum healthy instance.
 --
@@ -1703,7 +1880,7 @@ data MinimumHealthyHosts = MinimumHealthyHosts'
 --
 -- * 'mhhValue' - The minimum healthy instance value.
 --
--- * 'mhhType' - The minimum healthy instance type:     * HOST_COUNT: The minimum number of healthy instance as an absolute value.     * FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment. In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment will be successful if six or more instances are deployed to successfully; otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment will be successful if four or more instance are deployed to successfully; otherwise, the deployment fails.
+-- * 'mhhType' - The minimum healthy instance type:     * HOST_COUNT: The minimum number of healthy instance as an absolute value.     * FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment. In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment will be successful if six or more instances are deployed to successfully; otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment will be successful if four or more instance are deployed to successfully; otherwise, the deployment fails. For more information, see <http://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html AWS CodeDeploy Instance Health> in the /AWS CodeDeploy User Guide/ .
 minimumHealthyHosts
     :: MinimumHealthyHosts
 minimumHealthyHosts =
@@ -1716,7 +1893,7 @@ minimumHealthyHosts =
 mhhValue :: Lens' MinimumHealthyHosts (Maybe Int)
 mhhValue = lens _mhhValue (\ s a -> s{_mhhValue = a});
 
--- | The minimum healthy instance type:     * HOST_COUNT: The minimum number of healthy instance as an absolute value.     * FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment. In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment will be successful if six or more instances are deployed to successfully; otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment will be successful if four or more instance are deployed to successfully; otherwise, the deployment fails.
+-- | The minimum healthy instance type:     * HOST_COUNT: The minimum number of healthy instance as an absolute value.     * FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment. In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment will be successful if six or more instances are deployed to successfully; otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment will be successful if four or more instance are deployed to successfully; otherwise, the deployment fails. For more information, see <http://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html AWS CodeDeploy Instance Health> in the /AWS CodeDeploy User Guide/ .
 mhhType :: Lens' MinimumHealthyHosts (Maybe MinimumHealthyHostsType)
 mhhType = lens _mhhType (\ s a -> s{_mhhType = a});
 
@@ -1737,6 +1914,49 @@ instance ToJSON MinimumHealthyHosts where
               (catMaybes
                  [("value" .=) <$> _mhhValue,
                   ("type" .=) <$> _mhhType])
+
+-- | Information about groups of on-premises instance tags.
+--
+--
+--
+-- /See:/ 'onPremisesTagSet' smart constructor.
+newtype OnPremisesTagSet = OnPremisesTagSet'
+    { _optsOnPremisesTagSetList :: Maybe [[TagFilter]]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'OnPremisesTagSet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'optsOnPremisesTagSetList' - A list containing other lists of on-premises instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
+onPremisesTagSet
+    :: OnPremisesTagSet
+onPremisesTagSet =
+    OnPremisesTagSet'
+    { _optsOnPremisesTagSetList = Nothing
+    }
+
+-- | A list containing other lists of on-premises instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
+optsOnPremisesTagSetList :: Lens' OnPremisesTagSet [[TagFilter]]
+optsOnPremisesTagSetList = lens _optsOnPremisesTagSetList (\ s a -> s{_optsOnPremisesTagSetList = a}) . _Default . _Coerce;
+
+instance FromJSON OnPremisesTagSet where
+        parseJSON
+          = withObject "OnPremisesTagSet"
+              (\ x ->
+                 OnPremisesTagSet' <$>
+                   (x .:? "onPremisesTagSetList" .!= mempty))
+
+instance Hashable OnPremisesTagSet
+
+instance NFData OnPremisesTagSet
+
+instance ToJSON OnPremisesTagSet where
+        toJSON OnPremisesTagSet'{..}
+          = object
+              (catMaybes
+                 [("onPremisesTagSetList" .=) <$>
+                    _optsOnPremisesTagSetList])
 
 -- | Information about an application revision.
 --
@@ -2085,13 +2305,52 @@ instance ToJSON TagFilter where
                  [("Value" .=) <$> _tfValue, ("Key" .=) <$> _tfKey,
                   ("Type" .=) <$> _tfType])
 
+-- | Information about a target group in Elastic Load Balancing to use in a deployment. Instances are registered as targets in a target group, and traffic is routed to the target group.
+--
+--
+--
+-- /See:/ 'targetGroupInfo' smart constructor.
+newtype TargetGroupInfo = TargetGroupInfo'
+    { _tgiName :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TargetGroupInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tgiName' - For blue/green deployments, the name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
+targetGroupInfo
+    :: TargetGroupInfo
+targetGroupInfo =
+    TargetGroupInfo'
+    { _tgiName = Nothing
+    }
+
+-- | For blue/green deployments, the name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
+tgiName :: Lens' TargetGroupInfo (Maybe Text)
+tgiName = lens _tgiName (\ s a -> s{_tgiName = a});
+
+instance FromJSON TargetGroupInfo where
+        parseJSON
+          = withObject "TargetGroupInfo"
+              (\ x -> TargetGroupInfo' <$> (x .:? "name"))
+
+instance Hashable TargetGroupInfo
+
+instance NFData TargetGroupInfo
+
+instance ToJSON TargetGroupInfo where
+        toJSON TargetGroupInfo'{..}
+          = object (catMaybes [("name" .=) <$> _tgiName])
+
 -- | Information about the instances to be used in the replacement environment in a blue/green deployment.
 --
 --
 --
 -- /See:/ 'targetInstances' smart constructor.
 data TargetInstances = TargetInstances'
-    { _tiTagFilters        :: !(Maybe [EC2TagFilter])
+    { _tiEc2TagSet         :: !(Maybe EC2TagSet)
+    , _tiTagFilters        :: !(Maybe [EC2TagFilter])
     , _tiAutoScalingGroups :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -2099,18 +2358,25 @@ data TargetInstances = TargetInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tiTagFilters' - The tag filter key, type, and value used to identify Amazon EC2 instances in a replacement environment for a blue/green deployment.
+-- * 'tiEc2TagSet' - Information about the groups of EC2 instance tags that an instance must be identified by in order for it to be included in the replacement environment for a blue/green deployment. Cannot be used in the same call as tagFilters.
+--
+-- * 'tiTagFilters' - The tag filter key, type, and value used to identify Amazon EC2 instances in a replacement environment for a blue/green deployment. Cannot be used in the same call as ec2TagSet.
 --
 -- * 'tiAutoScalingGroups' - The names of one or more Auto Scaling groups to identify a replacement environment for a blue/green deployment.
 targetInstances
     :: TargetInstances
 targetInstances =
     TargetInstances'
-    { _tiTagFilters = Nothing
+    { _tiEc2TagSet = Nothing
+    , _tiTagFilters = Nothing
     , _tiAutoScalingGroups = Nothing
     }
 
--- | The tag filter key, type, and value used to identify Amazon EC2 instances in a replacement environment for a blue/green deployment.
+-- | Information about the groups of EC2 instance tags that an instance must be identified by in order for it to be included in the replacement environment for a blue/green deployment. Cannot be used in the same call as tagFilters.
+tiEc2TagSet :: Lens' TargetInstances (Maybe EC2TagSet)
+tiEc2TagSet = lens _tiEc2TagSet (\ s a -> s{_tiEc2TagSet = a});
+
+-- | The tag filter key, type, and value used to identify Amazon EC2 instances in a replacement environment for a blue/green deployment. Cannot be used in the same call as ec2TagSet.
 tiTagFilters :: Lens' TargetInstances [EC2TagFilter]
 tiTagFilters = lens _tiTagFilters (\ s a -> s{_tiTagFilters = a}) . _Default . _Coerce;
 
@@ -2123,8 +2389,9 @@ instance FromJSON TargetInstances where
           = withObject "TargetInstances"
               (\ x ->
                  TargetInstances' <$>
-                   (x .:? "tagFilters" .!= mempty) <*>
-                     (x .:? "autoScalingGroups" .!= mempty))
+                   (x .:? "ec2TagSet") <*>
+                     (x .:? "tagFilters" .!= mempty)
+                     <*> (x .:? "autoScalingGroups" .!= mempty))
 
 instance Hashable TargetInstances
 
@@ -2134,7 +2401,8 @@ instance ToJSON TargetInstances where
         toJSON TargetInstances'{..}
           = object
               (catMaybes
-                 [("tagFilters" .=) <$> _tiTagFilters,
+                 [("ec2TagSet" .=) <$> _tiEc2TagSet,
+                  ("tagFilters" .=) <$> _tiTagFilters,
                   ("autoScalingGroups" .=) <$> _tiAutoScalingGroups])
 
 -- | Information about a time range.

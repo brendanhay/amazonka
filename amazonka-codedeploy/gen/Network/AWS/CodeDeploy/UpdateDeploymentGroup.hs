@@ -28,7 +28,9 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     , UpdateDeploymentGroup
     -- * Request Lenses
     , udgServiceRoleARN
+    , udgEc2TagSet
     , udgDeploymentConfigName
+    , udgOnPremisesTagSet
     , udgNewDeploymentGroupName
     , udgEc2TagFilters
     , udgBlueGreenDeploymentConfiguration
@@ -57,14 +59,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of an update deployment group operation.
+-- | Represents the input of an UpdateDeploymentGroup operation.
 --
 --
 --
 -- /See:/ 'updateDeploymentGroup' smart constructor.
 data UpdateDeploymentGroup = UpdateDeploymentGroup'
     { _udgServiceRoleARN                   :: !(Maybe Text)
+    , _udgEc2TagSet                        :: !(Maybe EC2TagSet)
     , _udgDeploymentConfigName             :: !(Maybe Text)
+    , _udgOnPremisesTagSet                 :: !(Maybe OnPremisesTagSet)
     , _udgNewDeploymentGroupName           :: !(Maybe Text)
     , _udgEc2TagFilters                    :: !(Maybe [EC2TagFilter])
     , _udgBlueGreenDeploymentConfiguration :: !(Maybe BlueGreenDeploymentConfiguration)
@@ -85,7 +89,11 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
 --
 -- * 'udgServiceRoleARN' - A replacement ARN for the service role, if you want to change it.
 --
+-- * 'udgEc2TagSet' - Information about groups of tags applied to on-premises instances. The deployment group will include only EC2 instances identified by all the tag groups.
+--
 -- * 'udgDeploymentConfigName' - The replacement deployment configuration name to use, if you want to change it.
+--
+-- * 'udgOnPremisesTagSet' - Information about an on-premises instance tag set. The deployment group will include only on-premises instances identified by all the tag groups.
 --
 -- * 'udgNewDeploymentGroupName' - The new name of the deployment group, if you want to change it.
 --
@@ -93,7 +101,7 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
 --
 -- * 'udgBlueGreenDeploymentConfiguration' - Information about blue/green deployment options for a deployment group.
 --
--- * 'udgLoadBalancerInfo' - Information about the load balancer used in a blue/green deployment.
+-- * 'udgLoadBalancerInfo' - Information about the load balancer used in a deployment.
 --
 -- * 'udgOnPremisesInstanceTagFilters' - The replacement set of on-premises instance tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names.
 --
@@ -103,7 +111,7 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
 --
 -- * 'udgAutoScalingGroups' - The replacement list of Auto Scaling groups to be included in the deployment group, if you want to change them. To keep the Auto Scaling groups, enter their names. To remove Auto Scaling groups, do not enter any Auto Scaling group names.
 --
--- * 'udgDeploymentStyle' - Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+-- * 'udgDeploymentStyle' - Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
 --
 -- * 'udgAutoRollbackConfiguration' - Information for an automatic rollback configuration that is added or changed when a deployment group is updated.
 --
@@ -117,7 +125,9 @@ updateDeploymentGroup
 updateDeploymentGroup pApplicationName_ pCurrentDeploymentGroupName_ =
     UpdateDeploymentGroup'
     { _udgServiceRoleARN = Nothing
+    , _udgEc2TagSet = Nothing
     , _udgDeploymentConfigName = Nothing
+    , _udgOnPremisesTagSet = Nothing
     , _udgNewDeploymentGroupName = Nothing
     , _udgEc2TagFilters = Nothing
     , _udgBlueGreenDeploymentConfiguration = Nothing
@@ -136,9 +146,17 @@ updateDeploymentGroup pApplicationName_ pCurrentDeploymentGroupName_ =
 udgServiceRoleARN :: Lens' UpdateDeploymentGroup (Maybe Text)
 udgServiceRoleARN = lens _udgServiceRoleARN (\ s a -> s{_udgServiceRoleARN = a});
 
+-- | Information about groups of tags applied to on-premises instances. The deployment group will include only EC2 instances identified by all the tag groups.
+udgEc2TagSet :: Lens' UpdateDeploymentGroup (Maybe EC2TagSet)
+udgEc2TagSet = lens _udgEc2TagSet (\ s a -> s{_udgEc2TagSet = a});
+
 -- | The replacement deployment configuration name to use, if you want to change it.
 udgDeploymentConfigName :: Lens' UpdateDeploymentGroup (Maybe Text)
 udgDeploymentConfigName = lens _udgDeploymentConfigName (\ s a -> s{_udgDeploymentConfigName = a});
+
+-- | Information about an on-premises instance tag set. The deployment group will include only on-premises instances identified by all the tag groups.
+udgOnPremisesTagSet :: Lens' UpdateDeploymentGroup (Maybe OnPremisesTagSet)
+udgOnPremisesTagSet = lens _udgOnPremisesTagSet (\ s a -> s{_udgOnPremisesTagSet = a});
 
 -- | The new name of the deployment group, if you want to change it.
 udgNewDeploymentGroupName :: Lens' UpdateDeploymentGroup (Maybe Text)
@@ -152,7 +170,7 @@ udgEc2TagFilters = lens _udgEc2TagFilters (\ s a -> s{_udgEc2TagFilters = a}) . 
 udgBlueGreenDeploymentConfiguration :: Lens' UpdateDeploymentGroup (Maybe BlueGreenDeploymentConfiguration)
 udgBlueGreenDeploymentConfiguration = lens _udgBlueGreenDeploymentConfiguration (\ s a -> s{_udgBlueGreenDeploymentConfiguration = a});
 
--- | Information about the load balancer used in a blue/green deployment.
+-- | Information about the load balancer used in a deployment.
 udgLoadBalancerInfo :: Lens' UpdateDeploymentGroup (Maybe LoadBalancerInfo)
 udgLoadBalancerInfo = lens _udgLoadBalancerInfo (\ s a -> s{_udgLoadBalancerInfo = a});
 
@@ -172,7 +190,7 @@ udgTriggerConfigurations = lens _udgTriggerConfigurations (\ s a -> s{_udgTrigge
 udgAutoScalingGroups :: Lens' UpdateDeploymentGroup [Text]
 udgAutoScalingGroups = lens _udgAutoScalingGroups (\ s a -> s{_udgAutoScalingGroups = a}) . _Default . _Coerce;
 
--- | Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+-- | Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
 udgDeploymentStyle :: Lens' UpdateDeploymentGroup (Maybe DeploymentStyle)
 udgDeploymentStyle = lens _udgDeploymentStyle (\ s a -> s{_udgDeploymentStyle = a});
 
@@ -218,8 +236,10 @@ instance ToJSON UpdateDeploymentGroup where
           = object
               (catMaybes
                  [("serviceRoleArn" .=) <$> _udgServiceRoleARN,
+                  ("ec2TagSet" .=) <$> _udgEc2TagSet,
                   ("deploymentConfigName" .=) <$>
                     _udgDeploymentConfigName,
+                  ("onPremisesTagSet" .=) <$> _udgOnPremisesTagSet,
                   ("newDeploymentGroupName" .=) <$>
                     _udgNewDeploymentGroupName,
                   ("ec2TagFilters" .=) <$> _udgEc2TagFilters,
@@ -246,7 +266,7 @@ instance ToPath UpdateDeploymentGroup where
 instance ToQuery UpdateDeploymentGroup where
         toQuery = const mempty
 
--- | Represents the output of an update deployment group operation.
+-- | Represents the output of an UpdateDeploymentGroup operation.
 --
 --
 --

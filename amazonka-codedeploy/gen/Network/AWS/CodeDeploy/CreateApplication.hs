@@ -44,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a create application operation.
+-- | Represents the input of a CreateApplication operation.
 --
 --
 --
@@ -105,7 +105,7 @@ instance ToPath CreateApplication where
 instance ToQuery CreateApplication where
         toQuery = const mempty
 
--- | Represents the output of a create application operation.
+-- | Represents the output of a CreateApplication operation.
 --
 --
 --

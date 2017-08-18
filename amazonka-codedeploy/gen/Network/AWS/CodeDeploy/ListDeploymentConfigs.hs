@@ -48,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a list deployment configurations operation.
+-- | Represents the input of a ListDeploymentConfigs operation.
 --
 --
 --
@@ -117,7 +117,7 @@ instance ToPath ListDeploymentConfigs where
 instance ToQuery ListDeploymentConfigs where
         toQuery = const mempty
 
--- | Represents the output of a list deployment configurations operation.
+-- | Represents the output of a ListDeploymentConfigs operation.
 --
 --
 --

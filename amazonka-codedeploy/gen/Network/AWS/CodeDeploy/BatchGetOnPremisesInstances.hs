@@ -44,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a batch get on-premises instances operation.
+-- | Represents the input of a BatchGetOnPremisesInstances operation.
 --
 --
 --
@@ -106,7 +106,7 @@ instance ToPath BatchGetOnPremisesInstances where
 instance ToQuery BatchGetOnPremisesInstances where
         toQuery = const mempty
 
--- | Represents the output of a batch get on-premises instances operation.
+-- | Represents the output of a BatchGetOnPremisesInstances operation.
 --
 --
 --

@@ -43,7 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a register application revision operation.
+-- | Represents the input of a RegisterApplicationRevision operation.
 --
 --
 --

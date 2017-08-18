@@ -69,6 +69,7 @@ library
         , Network.AWS.CodeDeploy.ListDeploymentGroups
         , Network.AWS.CodeDeploy.ListDeploymentInstances
         , Network.AWS.CodeDeploy.ListDeployments
+        , Network.AWS.CodeDeploy.ListGitHubAccountTokenNames
         , Network.AWS.CodeDeploy.ListOnPremisesInstances
         , Network.AWS.CodeDeploy.RegisterApplicationRevision
         , Network.AWS.CodeDeploy.RegisterOnPremisesInstance

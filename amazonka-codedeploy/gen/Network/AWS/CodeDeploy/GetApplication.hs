@@ -44,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a get application operation.
+-- | Represents the input of a GetApplication operation.
 --
 --
 --
@@ -104,7 +104,7 @@ instance ToPath GetApplication where
 instance ToQuery GetApplication where
         toQuery = const mempty
 
--- | Represents the output of a get application operation.
+-- | Represents the output of a GetApplication operation.
 --
 --
 --

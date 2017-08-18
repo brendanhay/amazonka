@@ -44,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a get deployment operation.
+-- | Represents the input of a GetDeployment operation.
 --
 --
 --
@@ -104,7 +104,7 @@ instance ToPath GetDeployment where
 instance ToQuery GetDeployment where
         toQuery = const mempty
 
--- | Represents the output of a get deployment operation.
+-- | Represents the output of a GetDeployment operation.
 --
 --
 --

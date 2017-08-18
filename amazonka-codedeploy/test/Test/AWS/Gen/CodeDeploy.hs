@@ -97,6 +97,9 @@ import Test.AWS.CodeDeploy.Internal
 --         , requestStopDeployment $
 --             stopDeployment
 --
+--         , requestListGitHubAccountTokenNames $
+--             listGitHubAccountTokenNames
+--
 --         , requestBatchGetDeploymentInstances $
 --             batchGetDeploymentInstances
 --
@@ -210,6 +213,9 @@ import Test.AWS.CodeDeploy.Internal
 --
 --         , responseStopDeployment $
 --             stopDeploymentResponse
+--
+--         , responseListGitHubAccountTokenNames $
+--             listGitHubAccountTokenNamesResponse
 --
 --         , responseBatchGetDeploymentInstances $
 --             batchGetDeploymentInstancesResponse
@@ -372,6 +378,11 @@ requestStopDeployment :: StopDeployment -> TestTree
 requestStopDeployment = req
     "StopDeployment"
     "fixture/StopDeployment.yaml"
+
+requestListGitHubAccountTokenNames :: ListGitHubAccountTokenNames -> TestTree
+requestListGitHubAccountTokenNames = req
+    "ListGitHubAccountTokenNames"
+    "fixture/ListGitHubAccountTokenNames.yaml"
 
 requestBatchGetDeploymentInstances :: BatchGetDeploymentInstances -> TestTree
 requestBatchGetDeploymentInstances = req
@@ -605,6 +616,13 @@ responseStopDeployment = res
     "fixture/StopDeploymentResponse.proto"
     codeDeploy
     (Proxy :: Proxy StopDeployment)
+
+responseListGitHubAccountTokenNames :: ListGitHubAccountTokenNamesResponse -> TestTree
+responseListGitHubAccountTokenNames = res
+    "ListGitHubAccountTokenNamesResponse"
+    "fixture/ListGitHubAccountTokenNamesResponse.proto"
+    codeDeploy
+    (Proxy :: Proxy ListGitHubAccountTokenNames)
 
 responseBatchGetDeploymentInstances :: BatchGetDeploymentInstancesResponse -> TestTree
 responseBatchGetDeploymentInstances = res

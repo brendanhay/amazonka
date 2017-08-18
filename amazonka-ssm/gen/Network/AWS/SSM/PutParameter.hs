@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Add one or more paramaters to the system.
+-- Add one or more parameters to the system.
 --
 --
 module Network.AWS.SSM.PutParameter
@@ -28,6 +28,7 @@ module Network.AWS.SSM.PutParameter
     , PutParameter
     -- * Request Lenses
     , ppKeyId
+    , ppAllowedPattern
     , ppOverwrite
     , ppDescription
     , ppName
@@ -50,21 +51,24 @@ import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'putParameter' smart constructor.
 data PutParameter = PutParameter'
-    { _ppKeyId       :: !(Maybe Text)
-    , _ppOverwrite   :: !(Maybe Bool)
-    , _ppDescription :: !(Maybe Text)
-    , _ppName        :: !Text
-    , _ppValue       :: !Text
-    , _ppType        :: !ParameterType
+    { _ppKeyId          :: !(Maybe Text)
+    , _ppAllowedPattern :: !(Maybe Text)
+    , _ppOverwrite      :: !(Maybe Bool)
+    , _ppDescription    :: !(Maybe Text)
+    , _ppName           :: !Text
+    , _ppValue          :: !Text
+    , _ppType           :: !ParameterType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutParameter' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ppKeyId' - The parameter key ID that you want to add to the system.
+-- * 'ppKeyId' - The KMS Key ID that you want to use to encrypt a parameter when you choose the SecureString data type. If you don't specify a key ID, the system uses the default key associated with your AWS account.
 --
--- * 'ppOverwrite' - Overwrite an existing parameter.
+-- * 'ppAllowedPattern' - A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: AllowedPattern=^\d+$
+--
+-- * 'ppOverwrite' - Overwrite an existing parameter. If not specified, will default to "false".
 --
 -- * 'ppDescription' - Information about the parameter that you want to add to the system
 --
@@ -81,6 +85,7 @@ putParameter
 putParameter pName_ pValue_ pType_ =
     PutParameter'
     { _ppKeyId = Nothing
+    , _ppAllowedPattern = Nothing
     , _ppOverwrite = Nothing
     , _ppDescription = Nothing
     , _ppName = pName_
@@ -88,11 +93,15 @@ putParameter pName_ pValue_ pType_ =
     , _ppType = pType_
     }
 
--- | The parameter key ID that you want to add to the system.
+-- | The KMS Key ID that you want to use to encrypt a parameter when you choose the SecureString data type. If you don't specify a key ID, the system uses the default key associated with your AWS account.
 ppKeyId :: Lens' PutParameter (Maybe Text)
 ppKeyId = lens _ppKeyId (\ s a -> s{_ppKeyId = a});
 
--- | Overwrite an existing parameter.
+-- | A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: AllowedPattern=^\d+$
+ppAllowedPattern :: Lens' PutParameter (Maybe Text)
+ppAllowedPattern = lens _ppAllowedPattern (\ s a -> s{_ppAllowedPattern = a});
+
+-- | Overwrite an existing parameter. If not specified, will default to "false".
 ppOverwrite :: Lens' PutParameter (Maybe Bool)
 ppOverwrite = lens _ppOverwrite (\ s a -> s{_ppOverwrite = a});
 
@@ -138,6 +147,7 @@ instance ToJSON PutParameter where
           = object
               (catMaybes
                  [("KeyId" .=) <$> _ppKeyId,
+                  ("AllowedPattern" .=) <$> _ppAllowedPattern,
                   ("Overwrite" .=) <$> _ppOverwrite,
                   ("Description" .=) <$> _ppDescription,
                   Just ("Name" .= _ppName), Just ("Value" .= _ppValue),

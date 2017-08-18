@@ -128,7 +128,7 @@ instance Hashable Activation
 
 instance NFData Activation
 
--- | Describes an association of an SSM document and an instance.
+-- | Describes an association of a Systems Manager document and an instance.
 --
 --
 --
@@ -440,7 +440,7 @@ data AssociationOverview = AssociationOverview'
 --
 -- * 'aoDetailedStatus' - A detailed status of the association.
 --
--- * 'aoStatus' - The status of the association. Status can be: @Pending@ , @Success@ , or @Failed@ .
+-- * 'aoStatus' - The status of the association. Status can be: Pending, Success, or Failed.
 --
 -- * 'aoAssociationStatusAggregatedCount' - Returns the number of targets for the association status. For example, if you created an association with two instances, and one of them was successful, this would return the count of instances by status.
 associationOverview
@@ -456,7 +456,7 @@ associationOverview =
 aoDetailedStatus :: Lens' AssociationOverview (Maybe Text)
 aoDetailedStatus = lens _aoDetailedStatus (\ s a -> s{_aoDetailedStatus = a});
 
--- | The status of the association. Status can be: @Pending@ , @Success@ , or @Failed@ .
+-- | The status of the association. Status can be: Pending, Success, or Failed.
 aoStatus :: Lens' AssociationOverview (Maybe Text)
 aoStatus = lens _aoStatus (\ s a -> s{_aoStatus = a});
 
@@ -584,7 +584,7 @@ data AutomationExecution = AutomationExecution'
 --
 -- * 'aeExecutionStartTime' - The time the execution started.
 --
--- * 'aeParameters' - The key-value map of execution parameters, which were supplied when calling @StartAutomationExecution@ .
+-- * 'aeParameters' - The key-value map of execution parameters, which were supplied when calling StartAutomationExecution.
 --
 -- * 'aeDocumentVersion' - The version of the document to use during execution.
 --
@@ -631,7 +631,7 @@ aeOutputs = lens _aeOutputs (\ s a -> s{_aeOutputs = a}) . _Default . _Map;
 aeExecutionStartTime :: Lens' AutomationExecution (Maybe UTCTime)
 aeExecutionStartTime = lens _aeExecutionStartTime (\ s a -> s{_aeExecutionStartTime = a}) . mapping _Time;
 
--- | The key-value map of execution parameters, which were supplied when calling @StartAutomationExecution@ .
+-- | The key-value map of execution parameters, which were supplied when calling StartAutomationExecution.
 aeParameters :: Lens' AutomationExecution (HashMap Text [Text])
 aeParameters = lens _aeParameters (\ s a -> s{_aeParameters = a}) . _Default . _Map;
 
@@ -861,31 +861,31 @@ data Command = Command'
 --
 -- * 'cOutputS3KeyPrefix' - The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command.
 --
--- * 'cDocumentName' - The name of the SSM document requested for execution.
+-- * 'cDocumentName' - The name of the document requested for execution.
 --
--- * 'cErrorCount' - The number of targets for which the status is @Failed@ or @Execution Timed Out@ .
+-- * 'cErrorCount' - The number of targets for which the status is Failed or Execution Timed Out.
 --
--- * 'cStatusDetails' - A detailed status of the command execution. @StatusDetails@ includes more information than @Status@ because it includes states resulting from error and concurrency control parameters. @StatusDetails@ can show different results than @Status@ . For more information about these statuses, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-commands.html Monitor Commands> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/monitor-commands.html Monitor Commands> (Windows). @StatusDetails@ can be one of the following values:     * Pending – The command has not been sent to any instances.     * In Progress – The command has been sent to at least one instance but has not reached a final state on all instances.     * Success – The command successfully executed on all invocations. This is a terminal state.     * Delivery Timed Out – The value of @MaxErrors@ or more command invocations shows a status of @Delivery Timed Out@ . This is a terminal state.     * Execution Timed Out – The value of @MaxErrors@ or more command invocations shows a status of @Execution Timed Out@ . This is a terminal state.     * Failed – The value of @MaxErrors@ or more command invocations shows a status of @Failed@ . This is a terminal state.     * Incomplete – The command was attempted on all instances and one or more invocations does not have a value of @Success@ but not enough invocations failed for the status to be @Failed@ . This is a terminal state.     * Canceled – The command was terminated before it was completed. This is a terminal state.     * Rate Exceeded – The number of instances targeted by the command exceeded the account limit for pending invocations. The system has canceled the command before executing it on any instance. This is a terminal state.
+-- * 'cStatusDetails' - A detailed status of the command execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html Run Command Status> . StatusDetails can be one of the following values:     * Pending: The command has not been sent to any instances.     * In Progress: The command has been sent to at least one instance but has not reached a final state on all instances.     * Success: The command successfully executed on all invocations. This is a terminal state.     * Delivery Timed Out: The value of MaxErrors or more command invocations shows a status of Delivery Timed Out. This is a terminal state.     * Execution Timed Out: The value of MaxErrors or more command invocations shows a status of Execution Timed Out. This is a terminal state.     * Failed: The value of MaxErrors or more command invocations shows a status of Failed. This is a terminal state.     * Incomplete: The command was attempted on all instances and one or more invocations does not have a value of Success but not enough invocations failed for the status to be Failed. This is a terminal state.     * Canceled: The command was terminated before it was completed. This is a terminal state.     * Rate Exceeded: The number of instances targeted by the command exceeded the account limit for pending invocations. The system has canceled the command before executing it on any instance. This is a terminal state.
 --
--- * 'cMaxErrors' - The maximum number of errors allowed before the system stops sending the command to additional targets. You can specify a number of errors, such as 10, or a percentage or errors, such as 10%. The default value is 50. For more information about how to use @MaxErrors@ , see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Windows).
+-- * 'cMaxErrors' - The maximum number of errors allowed before the system stops sending the command to additional targets. You can specify a number of errors, such as 10, or a percentage or errors, such as 10%. The default value is 50. For more information about how to use MaxErrors, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Executing a Command Using Systems Manager Run Command> .
 --
 -- * 'cInstanceIds' - The instance IDs against which this command was requested.
 --
--- * 'cOutputS3Region' - The region where the Amazon Simple Storage Service (Amazon S3) output bucket is located. The default value is the region where Run Command is being called.
+-- * 'cOutputS3Region' - (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Amazon S3 bucket region.
 --
--- * 'cTargets' - An array of search criteria that targets instances using a @Key@ ;@Value@ combination that you specify. @Targets@ is required if you don't provide one or more instance IDs in the call.
+-- * 'cTargets' - An array of search criteria that targets instances using a Key,Value combination that you specify. Targets is required if you don't provide one or more instance IDs in the call.
 --
 -- * 'cCommandId' - A unique identifier for this command.
 --
--- * 'cParameters' - The parameter values to be inserted in the SSM document when executing the command.
+-- * 'cParameters' - The parameter values to be inserted in the document when executing the command.
 --
 -- * 'cComment' - User-specified information about the command, such as a brief description of what the command should do.
 --
--- * 'cCompletedCount' - The number of targets for which the command invocation reached a terminal state. Terminal states include the following: @Success@ , @Failed@ , @Execution Timed Out@ , @Delivery Timed Out@ , @Canceled@ , @Terminated@ , or @Undeliverable@ .
+-- * 'cCompletedCount' - The number of targets for which the command invocation reached a terminal state. Terminal states include the following: Success, Failed, Execution Timed Out, Delivery Timed Out, Canceled, Terminated, or Undeliverable.
 --
 -- * 'cOutputS3BucketName' - The S3 bucket where the responses to the command executions should be stored. This was requested when issuing the command.
 --
--- * 'cMaxConcurrency' - The maximum number of instances that are allowed to execute the command at the same time. You can specify a number of instances, such as 10, or a percentage of instances, such as 10%. The default value is 50. For more information about how to use @MaxConcurrency@ , see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Windows).
+-- * 'cMaxConcurrency' - The maximum number of instances that are allowed to execute the command at the same time. You can specify a number of instances, such as 10, or a percentage of instances, such as 10%. The default value is 50. For more information about how to use MaxConcurrency, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Executing a Command Using Systems Manager Run Command> .
 --
 -- * 'cRequestedDateTime' - The date and time the command was requested.
 --
@@ -936,19 +936,19 @@ cTargetCount = lens _cTargetCount (\ s a -> s{_cTargetCount = a});
 cOutputS3KeyPrefix :: Lens' Command (Maybe Text)
 cOutputS3KeyPrefix = lens _cOutputS3KeyPrefix (\ s a -> s{_cOutputS3KeyPrefix = a});
 
--- | The name of the SSM document requested for execution.
+-- | The name of the document requested for execution.
 cDocumentName :: Lens' Command (Maybe Text)
 cDocumentName = lens _cDocumentName (\ s a -> s{_cDocumentName = a});
 
--- | The number of targets for which the status is @Failed@ or @Execution Timed Out@ .
+-- | The number of targets for which the status is Failed or Execution Timed Out.
 cErrorCount :: Lens' Command (Maybe Int)
 cErrorCount = lens _cErrorCount (\ s a -> s{_cErrorCount = a});
 
--- | A detailed status of the command execution. @StatusDetails@ includes more information than @Status@ because it includes states resulting from error and concurrency control parameters. @StatusDetails@ can show different results than @Status@ . For more information about these statuses, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-commands.html Monitor Commands> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/monitor-commands.html Monitor Commands> (Windows). @StatusDetails@ can be one of the following values:     * Pending – The command has not been sent to any instances.     * In Progress – The command has been sent to at least one instance but has not reached a final state on all instances.     * Success – The command successfully executed on all invocations. This is a terminal state.     * Delivery Timed Out – The value of @MaxErrors@ or more command invocations shows a status of @Delivery Timed Out@ . This is a terminal state.     * Execution Timed Out – The value of @MaxErrors@ or more command invocations shows a status of @Execution Timed Out@ . This is a terminal state.     * Failed – The value of @MaxErrors@ or more command invocations shows a status of @Failed@ . This is a terminal state.     * Incomplete – The command was attempted on all instances and one or more invocations does not have a value of @Success@ but not enough invocations failed for the status to be @Failed@ . This is a terminal state.     * Canceled – The command was terminated before it was completed. This is a terminal state.     * Rate Exceeded – The number of instances targeted by the command exceeded the account limit for pending invocations. The system has canceled the command before executing it on any instance. This is a terminal state.
+-- | A detailed status of the command execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html Run Command Status> . StatusDetails can be one of the following values:     * Pending: The command has not been sent to any instances.     * In Progress: The command has been sent to at least one instance but has not reached a final state on all instances.     * Success: The command successfully executed on all invocations. This is a terminal state.     * Delivery Timed Out: The value of MaxErrors or more command invocations shows a status of Delivery Timed Out. This is a terminal state.     * Execution Timed Out: The value of MaxErrors or more command invocations shows a status of Execution Timed Out. This is a terminal state.     * Failed: The value of MaxErrors or more command invocations shows a status of Failed. This is a terminal state.     * Incomplete: The command was attempted on all instances and one or more invocations does not have a value of Success but not enough invocations failed for the status to be Failed. This is a terminal state.     * Canceled: The command was terminated before it was completed. This is a terminal state.     * Rate Exceeded: The number of instances targeted by the command exceeded the account limit for pending invocations. The system has canceled the command before executing it on any instance. This is a terminal state.
 cStatusDetails :: Lens' Command (Maybe Text)
 cStatusDetails = lens _cStatusDetails (\ s a -> s{_cStatusDetails = a});
 
--- | The maximum number of errors allowed before the system stops sending the command to additional targets. You can specify a number of errors, such as 10, or a percentage or errors, such as 10%. The default value is 50. For more information about how to use @MaxErrors@ , see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Windows).
+-- | The maximum number of errors allowed before the system stops sending the command to additional targets. You can specify a number of errors, such as 10, or a percentage or errors, such as 10%. The default value is 50. For more information about how to use MaxErrors, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Executing a Command Using Systems Manager Run Command> .
 cMaxErrors :: Lens' Command (Maybe Text)
 cMaxErrors = lens _cMaxErrors (\ s a -> s{_cMaxErrors = a});
 
@@ -956,11 +956,11 @@ cMaxErrors = lens _cMaxErrors (\ s a -> s{_cMaxErrors = a});
 cInstanceIds :: Lens' Command [Text]
 cInstanceIds = lens _cInstanceIds (\ s a -> s{_cInstanceIds = a}) . _Default . _Coerce;
 
--- | The region where the Amazon Simple Storage Service (Amazon S3) output bucket is located. The default value is the region where Run Command is being called.
+-- | (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Amazon S3 bucket region.
 cOutputS3Region :: Lens' Command (Maybe Text)
 cOutputS3Region = lens _cOutputS3Region (\ s a -> s{_cOutputS3Region = a});
 
--- | An array of search criteria that targets instances using a @Key@ ;@Value@ combination that you specify. @Targets@ is required if you don't provide one or more instance IDs in the call.
+-- | An array of search criteria that targets instances using a Key,Value combination that you specify. Targets is required if you don't provide one or more instance IDs in the call.
 cTargets :: Lens' Command [Target]
 cTargets = lens _cTargets (\ s a -> s{_cTargets = a}) . _Default . _Coerce;
 
@@ -968,7 +968,7 @@ cTargets = lens _cTargets (\ s a -> s{_cTargets = a}) . _Default . _Coerce;
 cCommandId :: Lens' Command (Maybe Text)
 cCommandId = lens _cCommandId (\ s a -> s{_cCommandId = a});
 
--- | The parameter values to be inserted in the SSM document when executing the command.
+-- | The parameter values to be inserted in the document when executing the command.
 cParameters :: Lens' Command (HashMap Text [Text])
 cParameters = lens _cParameters (\ s a -> s{_cParameters = a}) . _Default . _Map;
 
@@ -976,7 +976,7 @@ cParameters = lens _cParameters (\ s a -> s{_cParameters = a}) . _Default . _Map
 cComment :: Lens' Command (Maybe Text)
 cComment = lens _cComment (\ s a -> s{_cComment = a});
 
--- | The number of targets for which the command invocation reached a terminal state. Terminal states include the following: @Success@ , @Failed@ , @Execution Timed Out@ , @Delivery Timed Out@ , @Canceled@ , @Terminated@ , or @Undeliverable@ .
+-- | The number of targets for which the command invocation reached a terminal state. Terminal states include the following: Success, Failed, Execution Timed Out, Delivery Timed Out, Canceled, Terminated, or Undeliverable.
 cCompletedCount :: Lens' Command (Maybe Int)
 cCompletedCount = lens _cCompletedCount (\ s a -> s{_cCompletedCount = a});
 
@@ -984,7 +984,7 @@ cCompletedCount = lens _cCompletedCount (\ s a -> s{_cCompletedCount = a});
 cOutputS3BucketName :: Lens' Command (Maybe Text)
 cOutputS3BucketName = lens _cOutputS3BucketName (\ s a -> s{_cOutputS3BucketName = a});
 
--- | The maximum number of instances that are allowed to execute the command at the same time. You can specify a number of instances, such as 10, or a percentage of instances, such as 10%. The default value is 50. For more information about how to use @MaxConcurrency@ , see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Windows).
+-- | The maximum number of instances that are allowed to execute the command at the same time. You can specify a number of instances, such as 10, or a percentage of instances, such as 10%. The default value is 50. For more information about how to use MaxConcurrency, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Executing a Command Using Systems Manager Run Command> .
 cMaxConcurrency :: Lens' Command (Maybe Text)
 cMaxConcurrency = lens _cMaxConcurrency (\ s a -> s{_cMaxConcurrency = a});
 
@@ -1039,9 +1039,9 @@ data CommandFilter = CommandFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cfKey' - The name of the filter. For example, requested date and time.
+-- * 'cfKey' - The name of the filter.
 --
--- * 'cfValue' - The filter value. For example: June 30, 2015.
+-- * 'cfValue' - The filter value.
 commandFilter
     :: CommandFilterKey -- ^ 'cfKey'
     -> Text -- ^ 'cfValue'
@@ -1052,11 +1052,11 @@ commandFilter pKey_ pValue_ =
     , _cfValue = pValue_
     }
 
--- | The name of the filter. For example, requested date and time.
+-- | The name of the filter.
 cfKey :: Lens' CommandFilter CommandFilterKey
 cfKey = lens _cfKey (\ s a -> s{_cfKey = a});
 
--- | The filter value. For example: June 30, 2015.
+-- | The filter value.
 cfValue :: Lens' CommandFilter Text
 cfValue = lens _cfValue (\ s a -> s{_cfValue = a});
 
@@ -1076,128 +1076,128 @@ instance ToJSON CommandFilter where
 --
 -- /See:/ 'commandInvocation' smart constructor.
 data CommandInvocation = CommandInvocation'
-    { _ciInstanceId         :: !(Maybe Text)
-    , _ciStatus             :: !(Maybe CommandInvocationStatus)
-    , _ciNotificationConfig :: !(Maybe NotificationConfig)
-    , _ciCommandPlugins     :: !(Maybe [CommandPlugin])
-    , _ciDocumentName       :: !(Maybe Text)
-    , _ciStandardErrorURL   :: !(Maybe Text)
-    , _ciStatusDetails      :: !(Maybe Text)
-    , _ciStandardOutputURL  :: !(Maybe Text)
-    , _ciCommandId          :: !(Maybe Text)
-    , _ciComment            :: !(Maybe Text)
-    , _ciTraceOutput        :: !(Maybe Text)
-    , _ciInstanceName       :: !(Maybe Text)
-    , _ciRequestedDateTime  :: !(Maybe POSIX)
-    , _ciServiceRole        :: !(Maybe Text)
+    { _comInstanceId         :: !(Maybe Text)
+    , _comStatus             :: !(Maybe CommandInvocationStatus)
+    , _comNotificationConfig :: !(Maybe NotificationConfig)
+    , _comCommandPlugins     :: !(Maybe [CommandPlugin])
+    , _comDocumentName       :: !(Maybe Text)
+    , _comStandardErrorURL   :: !(Maybe Text)
+    , _comStatusDetails      :: !(Maybe Text)
+    , _comStandardOutputURL  :: !(Maybe Text)
+    , _comCommandId          :: !(Maybe Text)
+    , _comComment            :: !(Maybe Text)
+    , _comTraceOutput        :: !(Maybe Text)
+    , _comInstanceName       :: !(Maybe Text)
+    , _comRequestedDateTime  :: !(Maybe POSIX)
+    , _comServiceRole        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CommandInvocation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ciInstanceId' - The instance ID in which this invocation was requested.
+-- * 'comInstanceId' - The instance ID in which this invocation was requested.
 --
--- * 'ciStatus' - Whether or not the invocation succeeded, failed, or is pending.
+-- * 'comStatus' - Whether or not the invocation succeeded, failed, or is pending.
 --
--- * 'ciNotificationConfig' - Configurations for sending notifications about command status changes on a per instance basis.
+-- * 'comNotificationConfig' - Configurations for sending notifications about command status changes on a per instance basis.
 --
--- * 'ciCommandPlugins' - Undocumented member.
+-- * 'comCommandPlugins' - Undocumented member.
 --
--- * 'ciDocumentName' - The document name that was requested for execution.
+-- * 'comDocumentName' - The document name that was requested for execution.
 --
--- * 'ciStandardErrorURL' - The URL to the plugin’s StdErr file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, @StandardErrorUrl@ is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
+-- * 'comStandardErrorURL' - The URL to the plugin's StdErr file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, StandardErrorUrl is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
 --
--- * 'ciStatusDetails' - A detailed status of the command execution for each invocation (each instance targeted by the command). @StatusDetails@ includes more information than @Status@ because it includes states resulting from error and concurrency control parameters. @StatusDetails@ can show different results than @Status@ . For more information about these statuses, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-commands.html Monitor Commands> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/monitor-commands.html Monitor Commands> (Windows). @StatusDetails@ can be one of the following values:      * Pending – The command has not been sent to the instance.     * In Progress – The command has been sent to the instance but has not reached a terminal state.     * Success – The execution of the command or plugin was successfully completed. This is a terminal state.     * Delivery Timed Out – The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command’s @MaxErrors@ limit, but they do contribute to whether the parent command status is @Success@ or @Incomplete@ . This is a terminal state.     * Execution Timed Out – Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the @MaxErrors@ limit of the parent command. This is a terminal state.     * Failed – The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the @MaxErrors@ limit of the parent command. This is a terminal state.     * Canceled – The command was terminated before it was completed. This is a terminal state.     * Undeliverable – The command can't be delivered to the instance. The instance might not exist or might not be responding. Undeliverable invocations don't count against the parent command’s @MaxErrors@ limit and don't contribute to whether the parent command status is @Success@ or @Incomplete@ . This is a terminal state.     * Terminated – The parent command exceeded its @MaxErrors@ limit and subsequent command invocations were canceled by the system. This is a terminal state.
+-- * 'comStatusDetails' - A detailed status of the command execution for each invocation (each instance targeted by the command). StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html Run Command Status> . StatusDetails can be one of the following values:     * Pending: The command has not been sent to the instance.     * In Progress: The command has been sent to the instance but has not reached a terminal state.     * Success: The execution of the command or plugin was successfully completed. This is a terminal state.     * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.     * Failed: The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.     * Canceled: The command was terminated before it was completed. This is a terminal state.     * Undeliverable: The command can't be delivered to the instance. The instance might not exist or might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit and don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.
 --
--- * 'ciStandardOutputURL' - The URL to the plugin’s StdOut file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, @StandardOutputUrl@ is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
+-- * 'comStandardOutputURL' - The URL to the plugin's StdOut file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, StandardOutputUrl is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
 --
--- * 'ciCommandId' - The command against which this invocation was requested.
+-- * 'comCommandId' - The command against which this invocation was requested.
 --
--- * 'ciComment' - User-specified information about the command, such as a brief description of what the command should do.
+-- * 'comComment' - User-specified information about the command, such as a brief description of what the command should do.
 --
--- * 'ciTraceOutput' - Gets the trace output sent by the agent.
+-- * 'comTraceOutput' - Gets the trace output sent by the agent.
 --
--- * 'ciInstanceName' - The name of the invocation target. For Amazon EC2 instances this is the value for the @aws:Name@ tag. For on-premises instances, this is the name of the instance.
+-- * 'comInstanceName' - The name of the invocation target. For Amazon EC2 instances this is the value for the aws:Name tag. For on-premises instances, this is the name of the instance.
 --
--- * 'ciRequestedDateTime' - The time and date the request was sent to this instance.
+-- * 'comRequestedDateTime' - The time and date the request was sent to this instance.
 --
--- * 'ciServiceRole' - The IAM service role that Run Command uses to act on your behalf when sending notifications about command status changes on a per instance basis.
+-- * 'comServiceRole' - The IAM service role that Run Command uses to act on your behalf when sending notifications about command status changes on a per instance basis.
 commandInvocation
     :: CommandInvocation
 commandInvocation =
     CommandInvocation'
-    { _ciInstanceId = Nothing
-    , _ciStatus = Nothing
-    , _ciNotificationConfig = Nothing
-    , _ciCommandPlugins = Nothing
-    , _ciDocumentName = Nothing
-    , _ciStandardErrorURL = Nothing
-    , _ciStatusDetails = Nothing
-    , _ciStandardOutputURL = Nothing
-    , _ciCommandId = Nothing
-    , _ciComment = Nothing
-    , _ciTraceOutput = Nothing
-    , _ciInstanceName = Nothing
-    , _ciRequestedDateTime = Nothing
-    , _ciServiceRole = Nothing
+    { _comInstanceId = Nothing
+    , _comStatus = Nothing
+    , _comNotificationConfig = Nothing
+    , _comCommandPlugins = Nothing
+    , _comDocumentName = Nothing
+    , _comStandardErrorURL = Nothing
+    , _comStatusDetails = Nothing
+    , _comStandardOutputURL = Nothing
+    , _comCommandId = Nothing
+    , _comComment = Nothing
+    , _comTraceOutput = Nothing
+    , _comInstanceName = Nothing
+    , _comRequestedDateTime = Nothing
+    , _comServiceRole = Nothing
     }
 
 -- | The instance ID in which this invocation was requested.
-ciInstanceId :: Lens' CommandInvocation (Maybe Text)
-ciInstanceId = lens _ciInstanceId (\ s a -> s{_ciInstanceId = a});
+comInstanceId :: Lens' CommandInvocation (Maybe Text)
+comInstanceId = lens _comInstanceId (\ s a -> s{_comInstanceId = a});
 
 -- | Whether or not the invocation succeeded, failed, or is pending.
-ciStatus :: Lens' CommandInvocation (Maybe CommandInvocationStatus)
-ciStatus = lens _ciStatus (\ s a -> s{_ciStatus = a});
+comStatus :: Lens' CommandInvocation (Maybe CommandInvocationStatus)
+comStatus = lens _comStatus (\ s a -> s{_comStatus = a});
 
 -- | Configurations for sending notifications about command status changes on a per instance basis.
-ciNotificationConfig :: Lens' CommandInvocation (Maybe NotificationConfig)
-ciNotificationConfig = lens _ciNotificationConfig (\ s a -> s{_ciNotificationConfig = a});
+comNotificationConfig :: Lens' CommandInvocation (Maybe NotificationConfig)
+comNotificationConfig = lens _comNotificationConfig (\ s a -> s{_comNotificationConfig = a});
 
 -- | Undocumented member.
-ciCommandPlugins :: Lens' CommandInvocation [CommandPlugin]
-ciCommandPlugins = lens _ciCommandPlugins (\ s a -> s{_ciCommandPlugins = a}) . _Default . _Coerce;
+comCommandPlugins :: Lens' CommandInvocation [CommandPlugin]
+comCommandPlugins = lens _comCommandPlugins (\ s a -> s{_comCommandPlugins = a}) . _Default . _Coerce;
 
 -- | The document name that was requested for execution.
-ciDocumentName :: Lens' CommandInvocation (Maybe Text)
-ciDocumentName = lens _ciDocumentName (\ s a -> s{_ciDocumentName = a});
+comDocumentName :: Lens' CommandInvocation (Maybe Text)
+comDocumentName = lens _comDocumentName (\ s a -> s{_comDocumentName = a});
 
--- | The URL to the plugin’s StdErr file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, @StandardErrorUrl@ is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
-ciStandardErrorURL :: Lens' CommandInvocation (Maybe Text)
-ciStandardErrorURL = lens _ciStandardErrorURL (\ s a -> s{_ciStandardErrorURL = a});
+-- | The URL to the plugin's StdErr file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, StandardErrorUrl is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
+comStandardErrorURL :: Lens' CommandInvocation (Maybe Text)
+comStandardErrorURL = lens _comStandardErrorURL (\ s a -> s{_comStandardErrorURL = a});
 
--- | A detailed status of the command execution for each invocation (each instance targeted by the command). @StatusDetails@ includes more information than @Status@ because it includes states resulting from error and concurrency control parameters. @StatusDetails@ can show different results than @Status@ . For more information about these statuses, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-commands.html Monitor Commands> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/monitor-commands.html Monitor Commands> (Windows). @StatusDetails@ can be one of the following values:      * Pending – The command has not been sent to the instance.     * In Progress – The command has been sent to the instance but has not reached a terminal state.     * Success – The execution of the command or plugin was successfully completed. This is a terminal state.     * Delivery Timed Out – The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command’s @MaxErrors@ limit, but they do contribute to whether the parent command status is @Success@ or @Incomplete@ . This is a terminal state.     * Execution Timed Out – Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the @MaxErrors@ limit of the parent command. This is a terminal state.     * Failed – The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the @MaxErrors@ limit of the parent command. This is a terminal state.     * Canceled – The command was terminated before it was completed. This is a terminal state.     * Undeliverable – The command can't be delivered to the instance. The instance might not exist or might not be responding. Undeliverable invocations don't count against the parent command’s @MaxErrors@ limit and don't contribute to whether the parent command status is @Success@ or @Incomplete@ . This is a terminal state.     * Terminated – The parent command exceeded its @MaxErrors@ limit and subsequent command invocations were canceled by the system. This is a terminal state.
-ciStatusDetails :: Lens' CommandInvocation (Maybe Text)
-ciStatusDetails = lens _ciStatusDetails (\ s a -> s{_ciStatusDetails = a});
+-- | A detailed status of the command execution for each invocation (each instance targeted by the command). StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html Run Command Status> . StatusDetails can be one of the following values:     * Pending: The command has not been sent to the instance.     * In Progress: The command has been sent to the instance but has not reached a terminal state.     * Success: The execution of the command or plugin was successfully completed. This is a terminal state.     * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.     * Failed: The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.     * Canceled: The command was terminated before it was completed. This is a terminal state.     * Undeliverable: The command can't be delivered to the instance. The instance might not exist or might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit and don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.
+comStatusDetails :: Lens' CommandInvocation (Maybe Text)
+comStatusDetails = lens _comStatusDetails (\ s a -> s{_comStatusDetails = a});
 
--- | The URL to the plugin’s StdOut file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, @StandardOutputUrl@ is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
-ciStandardOutputURL :: Lens' CommandInvocation (Maybe Text)
-ciStandardOutputURL = lens _ciStandardOutputURL (\ s a -> s{_ciStandardOutputURL = a});
+-- | The URL to the plugin's StdOut file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, StandardOutputUrl is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
+comStandardOutputURL :: Lens' CommandInvocation (Maybe Text)
+comStandardOutputURL = lens _comStandardOutputURL (\ s a -> s{_comStandardOutputURL = a});
 
 -- | The command against which this invocation was requested.
-ciCommandId :: Lens' CommandInvocation (Maybe Text)
-ciCommandId = lens _ciCommandId (\ s a -> s{_ciCommandId = a});
+comCommandId :: Lens' CommandInvocation (Maybe Text)
+comCommandId = lens _comCommandId (\ s a -> s{_comCommandId = a});
 
 -- | User-specified information about the command, such as a brief description of what the command should do.
-ciComment :: Lens' CommandInvocation (Maybe Text)
-ciComment = lens _ciComment (\ s a -> s{_ciComment = a});
+comComment :: Lens' CommandInvocation (Maybe Text)
+comComment = lens _comComment (\ s a -> s{_comComment = a});
 
 -- | Gets the trace output sent by the agent.
-ciTraceOutput :: Lens' CommandInvocation (Maybe Text)
-ciTraceOutput = lens _ciTraceOutput (\ s a -> s{_ciTraceOutput = a});
+comTraceOutput :: Lens' CommandInvocation (Maybe Text)
+comTraceOutput = lens _comTraceOutput (\ s a -> s{_comTraceOutput = a});
 
--- | The name of the invocation target. For Amazon EC2 instances this is the value for the @aws:Name@ tag. For on-premises instances, this is the name of the instance.
-ciInstanceName :: Lens' CommandInvocation (Maybe Text)
-ciInstanceName = lens _ciInstanceName (\ s a -> s{_ciInstanceName = a});
+-- | The name of the invocation target. For Amazon EC2 instances this is the value for the aws:Name tag. For on-premises instances, this is the name of the instance.
+comInstanceName :: Lens' CommandInvocation (Maybe Text)
+comInstanceName = lens _comInstanceName (\ s a -> s{_comInstanceName = a});
 
 -- | The time and date the request was sent to this instance.
-ciRequestedDateTime :: Lens' CommandInvocation (Maybe UTCTime)
-ciRequestedDateTime = lens _ciRequestedDateTime (\ s a -> s{_ciRequestedDateTime = a}) . mapping _Time;
+comRequestedDateTime :: Lens' CommandInvocation (Maybe UTCTime)
+comRequestedDateTime = lens _comRequestedDateTime (\ s a -> s{_comRequestedDateTime = a}) . mapping _Time;
 
 -- | The IAM service role that Run Command uses to act on your behalf when sending notifications about command status changes on a per instance basis.
-ciServiceRole :: Lens' CommandInvocation (Maybe Text)
-ciServiceRole = lens _ciServiceRole (\ s a -> s{_ciServiceRole = a});
+comServiceRole :: Lens' CommandInvocation (Maybe Text)
+comServiceRole = lens _comServiceRole (\ s a -> s{_comServiceRole = a});
 
 instance FromJSON CommandInvocation where
         parseJSON
@@ -1250,13 +1250,13 @@ data CommandPlugin = CommandPlugin'
 --
 -- * 'cpResponseStartDateTime' - The time the plugin started executing.
 --
--- * 'cpOutputS3KeyPrefix' - The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command. For example, in the following response: @test_folder/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-1234567876543/awsrunShellScript@  @test_folder@ is the name of the Amazon S3 bucket; @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix; @i-1234567876543@ is the instance ID; @awsrunShellScript@ is the name of the plugin.
+-- * 'cpOutputS3KeyPrefix' - The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command. For example, in the following response: test_folder/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-1234567876543/awsrunShellScript  test_folder is the name of the Amazon S3 bucket; ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix; i-1234567876543 is the instance ID; awsrunShellScript is the name of the plugin.
 --
 -- * 'cpStandardErrorURL' - The URL for the complete text written by the plugin to stderr. If execution is not yet complete, then this string is empty.
 --
 -- * 'cpResponseCode' - A numeric response code generated after executing the plugin.
 --
--- * 'cpStatusDetails' - A detailed status of the plugin execution. @StatusDetails@ includes more information than @Status@ because it includes states resulting from error and concurrency control parameters. @StatusDetails@ can show different results than @Status@ . For more information about these statuses, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-commands.html Monitor Commands> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/monitor-commands.html Monitor Commands> (Windows). @StatusDetails@ can be one of the following values:     * Pending – The command has not been sent to the instance.     * In Progress – The command has been sent to the instance but has not reached a terminal state.     * Success – The execution of the command or plugin was successfully completed. This is a terminal state.     * Delivery Timed Out – The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command’s @MaxErrors@ limit, but they do contribute to whether the parent command status is @Success@ or @Incomplete@ . This is a terminal state.     * Execution Timed Out – Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the @MaxErrors@ limit of the parent command. This is a terminal state.     * Failed – The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the @MaxErrors@ limit of the parent command. This is a terminal state.     * Canceled – The command was terminated before it was completed. This is a terminal state.     * Undeliverable – The command can't be delivered to the instance. The instance might not exist, or it might not be responding. Undeliverable invocations don't count against the parent command’s @MaxErrors@ limit, and they don't contribute to whether the parent command status is @Success@ or @Incomplete@ . This is a terminal state.     * Terminated – The parent command exceeded its @MaxErrors@ limit and subsequent command invocations were canceled by the system. This is a terminal state.
+-- * 'cpStatusDetails' - A detailed status of the plugin execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html Run Command Status> . StatusDetails can be one of the following values:     * Pending: The command has not been sent to the instance.     * In Progress: The command has been sent to the instance but has not reached a terminal state.     * Success: The execution of the command or plugin was successfully completed. This is a terminal state.     * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.     * Failed: The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.     * Canceled: The command was terminated before it was completed. This is a terminal state.     * Undeliverable: The command can't be delivered to the instance. The instance might not exist, or it might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit, and they don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.
 --
 -- * 'cpOutput' - Output of the plugin execution.
 --
@@ -1264,9 +1264,9 @@ data CommandPlugin = CommandPlugin'
 --
 -- * 'cpName' - The name of the plugin. Must be one of the following: aws:updateAgent, aws:domainjoin, aws:applications, aws:runPowerShellScript, aws:psmodule, aws:cloudWatch, aws:runShellScript, or aws:updateSSMAgent.
 --
--- * 'cpOutputS3Region' - The name of the region where the output is stored in Amazon S3.
+-- * 'cpOutputS3Region' - (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Amazon S3 bucket region.
 --
--- * 'cpOutputS3BucketName' - The S3 bucket where the responses to the command executions should be stored. This was requested when issuing the command. For example, in the following response: @test_folder/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-1234567876543/awsrunShellScript@  @test_folder@ is the name of the Amazon S3 bucket; @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix; @i-1234567876543@ is the instance ID; @awsrunShellScript@ is the name of the plugin.
+-- * 'cpOutputS3BucketName' - The S3 bucket where the responses to the command executions should be stored. This was requested when issuing the command. For example, in the following response: test_folder/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-1234567876543/awsrunShellScript  test_folder is the name of the Amazon S3 bucket; ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix; i-1234567876543 is the instance ID; awsrunShellScript is the name of the plugin.
 --
 -- * 'cpResponseFinishDateTime' - The time the plugin stopped executing. Could stop prematurely if, for example, a cancel command was sent.
 commandPlugin
@@ -1295,7 +1295,7 @@ cpStatus = lens _cpStatus (\ s a -> s{_cpStatus = a});
 cpResponseStartDateTime :: Lens' CommandPlugin (Maybe UTCTime)
 cpResponseStartDateTime = lens _cpResponseStartDateTime (\ s a -> s{_cpResponseStartDateTime = a}) . mapping _Time;
 
--- | The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command. For example, in the following response: @test_folder/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-1234567876543/awsrunShellScript@  @test_folder@ is the name of the Amazon S3 bucket; @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix; @i-1234567876543@ is the instance ID; @awsrunShellScript@ is the name of the plugin.
+-- | The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command. For example, in the following response: test_folder/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-1234567876543/awsrunShellScript  test_folder is the name of the Amazon S3 bucket; ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix; i-1234567876543 is the instance ID; awsrunShellScript is the name of the plugin.
 cpOutputS3KeyPrefix :: Lens' CommandPlugin (Maybe Text)
 cpOutputS3KeyPrefix = lens _cpOutputS3KeyPrefix (\ s a -> s{_cpOutputS3KeyPrefix = a});
 
@@ -1307,7 +1307,7 @@ cpStandardErrorURL = lens _cpStandardErrorURL (\ s a -> s{_cpStandardErrorURL = 
 cpResponseCode :: Lens' CommandPlugin (Maybe Int)
 cpResponseCode = lens _cpResponseCode (\ s a -> s{_cpResponseCode = a});
 
--- | A detailed status of the plugin execution. @StatusDetails@ includes more information than @Status@ because it includes states resulting from error and concurrency control parameters. @StatusDetails@ can show different results than @Status@ . For more information about these statuses, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-commands.html Monitor Commands> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/monitor-commands.html Monitor Commands> (Windows). @StatusDetails@ can be one of the following values:     * Pending – The command has not been sent to the instance.     * In Progress – The command has been sent to the instance but has not reached a terminal state.     * Success – The execution of the command or plugin was successfully completed. This is a terminal state.     * Delivery Timed Out – The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command’s @MaxErrors@ limit, but they do contribute to whether the parent command status is @Success@ or @Incomplete@ . This is a terminal state.     * Execution Timed Out – Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the @MaxErrors@ limit of the parent command. This is a terminal state.     * Failed – The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the @MaxErrors@ limit of the parent command. This is a terminal state.     * Canceled – The command was terminated before it was completed. This is a terminal state.     * Undeliverable – The command can't be delivered to the instance. The instance might not exist, or it might not be responding. Undeliverable invocations don't count against the parent command’s @MaxErrors@ limit, and they don't contribute to whether the parent command status is @Success@ or @Incomplete@ . This is a terminal state.     * Terminated – The parent command exceeded its @MaxErrors@ limit and subsequent command invocations were canceled by the system. This is a terminal state.
+-- | A detailed status of the plugin execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html Run Command Status> . StatusDetails can be one of the following values:     * Pending: The command has not been sent to the instance.     * In Progress: The command has been sent to the instance but has not reached a terminal state.     * Success: The execution of the command or plugin was successfully completed. This is a terminal state.     * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.     * Failed: The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.     * Canceled: The command was terminated before it was completed. This is a terminal state.     * Undeliverable: The command can't be delivered to the instance. The instance might not exist, or it might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit, and they don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.
 cpStatusDetails :: Lens' CommandPlugin (Maybe Text)
 cpStatusDetails = lens _cpStatusDetails (\ s a -> s{_cpStatusDetails = a});
 
@@ -1323,11 +1323,11 @@ cpStandardOutputURL = lens _cpStandardOutputURL (\ s a -> s{_cpStandardOutputURL
 cpName :: Lens' CommandPlugin (Maybe Text)
 cpName = lens _cpName (\ s a -> s{_cpName = a});
 
--- | The name of the region where the output is stored in Amazon S3.
+-- | (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Amazon S3 bucket region.
 cpOutputS3Region :: Lens' CommandPlugin (Maybe Text)
 cpOutputS3Region = lens _cpOutputS3Region (\ s a -> s{_cpOutputS3Region = a});
 
--- | The S3 bucket where the responses to the command executions should be stored. This was requested when issuing the command. For example, in the following response: @test_folder/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-1234567876543/awsrunShellScript@  @test_folder@ is the name of the Amazon S3 bucket; @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix; @i-1234567876543@ is the instance ID; @awsrunShellScript@ is the name of the plugin.
+-- | The S3 bucket where the responses to the command executions should be stored. This was requested when issuing the command. For example, in the following response: test_folder/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-1234567876543/awsrunShellScript  test_folder is the name of the Amazon S3 bucket; ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix; i-1234567876543 is the instance ID; awsrunShellScript is the name of the plugin.
 cpOutputS3BucketName :: Lens' CommandPlugin (Maybe Text)
 cpOutputS3BucketName = lens _cpOutputS3BucketName (\ s a -> s{_cpOutputS3BucketName = a});
 
@@ -1356,7 +1356,399 @@ instance Hashable CommandPlugin
 
 instance NFData CommandPlugin
 
--- | Describes the association of an SSM document and an instance.
+-- | A summary of the call execution that includes an execution ID, the type of execution (for example, @Command@ ), and the date/time of the execution using a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
+--
+--
+--
+-- /See:/ 'complianceExecutionSummary' smart constructor.
+data ComplianceExecutionSummary = ComplianceExecutionSummary'
+    { _cesExecutionId   :: !(Maybe Text)
+    , _cesExecutionType :: !(Maybe Text)
+    , _cesExecutionTime :: !POSIX
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ComplianceExecutionSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cesExecutionId' - An ID created by the system when @PutComplianceItems@ was called. For example, @CommandID@ is a valid execution ID. You can use this ID in subsequent calls.
+--
+-- * 'cesExecutionType' - The type of execution. For example, @Command@ is a valid execution type.
+--
+-- * 'cesExecutionTime' - The time the execution ran as a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
+complianceExecutionSummary
+    :: UTCTime -- ^ 'cesExecutionTime'
+    -> ComplianceExecutionSummary
+complianceExecutionSummary pExecutionTime_ =
+    ComplianceExecutionSummary'
+    { _cesExecutionId = Nothing
+    , _cesExecutionType = Nothing
+    , _cesExecutionTime = _Time # pExecutionTime_
+    }
+
+-- | An ID created by the system when @PutComplianceItems@ was called. For example, @CommandID@ is a valid execution ID. You can use this ID in subsequent calls.
+cesExecutionId :: Lens' ComplianceExecutionSummary (Maybe Text)
+cesExecutionId = lens _cesExecutionId (\ s a -> s{_cesExecutionId = a});
+
+-- | The type of execution. For example, @Command@ is a valid execution type.
+cesExecutionType :: Lens' ComplianceExecutionSummary (Maybe Text)
+cesExecutionType = lens _cesExecutionType (\ s a -> s{_cesExecutionType = a});
+
+-- | The time the execution ran as a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
+cesExecutionTime :: Lens' ComplianceExecutionSummary UTCTime
+cesExecutionTime = lens _cesExecutionTime (\ s a -> s{_cesExecutionTime = a}) . _Time;
+
+instance FromJSON ComplianceExecutionSummary where
+        parseJSON
+          = withObject "ComplianceExecutionSummary"
+              (\ x ->
+                 ComplianceExecutionSummary' <$>
+                   (x .:? "ExecutionId") <*> (x .:? "ExecutionType") <*>
+                     (x .: "ExecutionTime"))
+
+instance Hashable ComplianceExecutionSummary
+
+instance NFData ComplianceExecutionSummary
+
+instance ToJSON ComplianceExecutionSummary where
+        toJSON ComplianceExecutionSummary'{..}
+          = object
+              (catMaybes
+                 [("ExecutionId" .=) <$> _cesExecutionId,
+                  ("ExecutionType" .=) <$> _cesExecutionType,
+                  Just ("ExecutionTime" .= _cesExecutionTime)])
+
+-- | Information about the compliance as defined by the resource type. For example, for a patch resource type, @Items@ includes information about the PatchSeverity, Classification, etc.
+--
+--
+--
+-- /See:/ 'complianceItem' smart constructor.
+data ComplianceItem = ComplianceItem'
+    { _ciStatus           :: !(Maybe ComplianceStatus)
+    , _ciResourceId       :: !(Maybe Text)
+    , _ciResourceType     :: !(Maybe Text)
+    , _ciSeverity         :: !(Maybe ComplianceSeverity)
+    , _ciExecutionSummary :: !(Maybe ComplianceExecutionSummary)
+    , _ciDetails          :: !(Maybe (Map Text Text))
+    , _ciId               :: !(Maybe Text)
+    , _ciComplianceType   :: !(Maybe Text)
+    , _ciTitle            :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ComplianceItem' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ciStatus' - The status of the compliance item. An item is either COMPLIANT or NON_COMPLIANT.
+--
+-- * 'ciResourceId' - An ID for the resource. For a managed instance, this is the instance ID.
+--
+-- * 'ciResourceType' - The type of resource. @ManagedInstance@ is currently the only supported resource type.
+--
+-- * 'ciSeverity' - The severity of the compliance status. Severity can be one of the following: Critical, HIGH, Medium, Low, Informational, Unspecified.
+--
+-- * 'ciExecutionSummary' - A summary for the compliance item. The summary includes an execution ID, the execution type (for example, command), and the execution time.
+--
+-- * 'ciDetails' - A "Key": "Value" tag combination for the compliance item.
+--
+-- * 'ciId' - An ID for the compliance item. For example, if the compliance item is a Windows patch, the ID could be the number of the KB article. Here's an example: KB4010320.
+--
+-- * 'ciComplianceType' - The compliance type. For example, Association (for a State Manager association), Patch, or Custom:@string@ are all valide compliance types.
+--
+-- * 'ciTitle' - A title for the compliance item. For example, if the compliance item is a Windows patch, the title could be the title of the KB article for the patch. Here's an example: Security Update for Active Directory Federation Services.
+complianceItem
+    :: ComplianceItem
+complianceItem =
+    ComplianceItem'
+    { _ciStatus = Nothing
+    , _ciResourceId = Nothing
+    , _ciResourceType = Nothing
+    , _ciSeverity = Nothing
+    , _ciExecutionSummary = Nothing
+    , _ciDetails = Nothing
+    , _ciId = Nothing
+    , _ciComplianceType = Nothing
+    , _ciTitle = Nothing
+    }
+
+-- | The status of the compliance item. An item is either COMPLIANT or NON_COMPLIANT.
+ciStatus :: Lens' ComplianceItem (Maybe ComplianceStatus)
+ciStatus = lens _ciStatus (\ s a -> s{_ciStatus = a});
+
+-- | An ID for the resource. For a managed instance, this is the instance ID.
+ciResourceId :: Lens' ComplianceItem (Maybe Text)
+ciResourceId = lens _ciResourceId (\ s a -> s{_ciResourceId = a});
+
+-- | The type of resource. @ManagedInstance@ is currently the only supported resource type.
+ciResourceType :: Lens' ComplianceItem (Maybe Text)
+ciResourceType = lens _ciResourceType (\ s a -> s{_ciResourceType = a});
+
+-- | The severity of the compliance status. Severity can be one of the following: Critical, HIGH, Medium, Low, Informational, Unspecified.
+ciSeverity :: Lens' ComplianceItem (Maybe ComplianceSeverity)
+ciSeverity = lens _ciSeverity (\ s a -> s{_ciSeverity = a});
+
+-- | A summary for the compliance item. The summary includes an execution ID, the execution type (for example, command), and the execution time.
+ciExecutionSummary :: Lens' ComplianceItem (Maybe ComplianceExecutionSummary)
+ciExecutionSummary = lens _ciExecutionSummary (\ s a -> s{_ciExecutionSummary = a});
+
+-- | A "Key": "Value" tag combination for the compliance item.
+ciDetails :: Lens' ComplianceItem (HashMap Text Text)
+ciDetails = lens _ciDetails (\ s a -> s{_ciDetails = a}) . _Default . _Map;
+
+-- | An ID for the compliance item. For example, if the compliance item is a Windows patch, the ID could be the number of the KB article. Here's an example: KB4010320.
+ciId :: Lens' ComplianceItem (Maybe Text)
+ciId = lens _ciId (\ s a -> s{_ciId = a});
+
+-- | The compliance type. For example, Association (for a State Manager association), Patch, or Custom:@string@ are all valide compliance types.
+ciComplianceType :: Lens' ComplianceItem (Maybe Text)
+ciComplianceType = lens _ciComplianceType (\ s a -> s{_ciComplianceType = a});
+
+-- | A title for the compliance item. For example, if the compliance item is a Windows patch, the title could be the title of the KB article for the patch. Here's an example: Security Update for Active Directory Federation Services.
+ciTitle :: Lens' ComplianceItem (Maybe Text)
+ciTitle = lens _ciTitle (\ s a -> s{_ciTitle = a});
+
+instance FromJSON ComplianceItem where
+        parseJSON
+          = withObject "ComplianceItem"
+              (\ x ->
+                 ComplianceItem' <$>
+                   (x .:? "Status") <*> (x .:? "ResourceId") <*>
+                     (x .:? "ResourceType")
+                     <*> (x .:? "Severity")
+                     <*> (x .:? "ExecutionSummary")
+                     <*> (x .:? "Details" .!= mempty)
+                     <*> (x .:? "Id")
+                     <*> (x .:? "ComplianceType")
+                     <*> (x .:? "Title"))
+
+instance Hashable ComplianceItem
+
+instance NFData ComplianceItem
+
+-- | Information about a compliance item.
+--
+--
+--
+-- /See:/ 'complianceItemEntry' smart constructor.
+data ComplianceItemEntry = ComplianceItemEntry'
+    { _cieDetails  :: !(Maybe (Map Text Text))
+    , _cieId       :: !(Maybe Text)
+    , _cieTitle    :: !(Maybe Text)
+    , _cieSeverity :: !ComplianceSeverity
+    , _cieStatus   :: !ComplianceStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ComplianceItemEntry' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cieDetails' - A "Key": "Value" tag combination for the compliance item.
+--
+-- * 'cieId' - The compliance item ID. For example, if the compliance item is a Windows patch, the ID could be the number of the KB article.
+--
+-- * 'cieTitle' - The title of the compliance item. For example, if the compliance item is a Windows patch, the title could be the title of the KB article for the patch. Here's an example: Security Update for Active Directory Federation Services.
+--
+-- * 'cieSeverity' - The severity of the compliance status. Severity can be one of the following: Critical, High, Medium, Low, Informational, Unspecified.
+--
+-- * 'cieStatus' - The status of the compliance item. An item is either COMPLIANT or NON_COMPLIANT.
+complianceItemEntry
+    :: ComplianceSeverity -- ^ 'cieSeverity'
+    -> ComplianceStatus -- ^ 'cieStatus'
+    -> ComplianceItemEntry
+complianceItemEntry pSeverity_ pStatus_ =
+    ComplianceItemEntry'
+    { _cieDetails = Nothing
+    , _cieId = Nothing
+    , _cieTitle = Nothing
+    , _cieSeverity = pSeverity_
+    , _cieStatus = pStatus_
+    }
+
+-- | A "Key": "Value" tag combination for the compliance item.
+cieDetails :: Lens' ComplianceItemEntry (HashMap Text Text)
+cieDetails = lens _cieDetails (\ s a -> s{_cieDetails = a}) . _Default . _Map;
+
+-- | The compliance item ID. For example, if the compliance item is a Windows patch, the ID could be the number of the KB article.
+cieId :: Lens' ComplianceItemEntry (Maybe Text)
+cieId = lens _cieId (\ s a -> s{_cieId = a});
+
+-- | The title of the compliance item. For example, if the compliance item is a Windows patch, the title could be the title of the KB article for the patch. Here's an example: Security Update for Active Directory Federation Services.
+cieTitle :: Lens' ComplianceItemEntry (Maybe Text)
+cieTitle = lens _cieTitle (\ s a -> s{_cieTitle = a});
+
+-- | The severity of the compliance status. Severity can be one of the following: Critical, High, Medium, Low, Informational, Unspecified.
+cieSeverity :: Lens' ComplianceItemEntry ComplianceSeverity
+cieSeverity = lens _cieSeverity (\ s a -> s{_cieSeverity = a});
+
+-- | The status of the compliance item. An item is either COMPLIANT or NON_COMPLIANT.
+cieStatus :: Lens' ComplianceItemEntry ComplianceStatus
+cieStatus = lens _cieStatus (\ s a -> s{_cieStatus = a});
+
+instance Hashable ComplianceItemEntry
+
+instance NFData ComplianceItemEntry
+
+instance ToJSON ComplianceItemEntry where
+        toJSON ComplianceItemEntry'{..}
+          = object
+              (catMaybes
+                 [("Details" .=) <$> _cieDetails,
+                  ("Id" .=) <$> _cieId, ("Title" .=) <$> _cieTitle,
+                  Just ("Severity" .= _cieSeverity),
+                  Just ("Status" .= _cieStatus)])
+
+-- | One or more filters. Use a filter to return a more specific list of results.
+--
+--
+--
+-- /See:/ 'complianceStringFilter' smart constructor.
+data ComplianceStringFilter = ComplianceStringFilter'
+    { _csfValues :: !(Maybe (List1 Text))
+    , _csfKey    :: !(Maybe Text)
+    , _csfType   :: !(Maybe ComplianceQueryOperatorType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ComplianceStringFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csfValues' - The value you want to search for.
+--
+-- * 'csfKey' - The name of the filter.
+--
+-- * 'csfType' - The type of comparison that should be performed for the value: Equal, NotEqual, BeginWith, LessThan, or GreaterThan.
+complianceStringFilter
+    :: ComplianceStringFilter
+complianceStringFilter =
+    ComplianceStringFilter'
+    { _csfValues = Nothing
+    , _csfKey = Nothing
+    , _csfType = Nothing
+    }
+
+-- | The value you want to search for.
+csfValues :: Lens' ComplianceStringFilter (Maybe (NonEmpty Text))
+csfValues = lens _csfValues (\ s a -> s{_csfValues = a}) . mapping _List1;
+
+-- | The name of the filter.
+csfKey :: Lens' ComplianceStringFilter (Maybe Text)
+csfKey = lens _csfKey (\ s a -> s{_csfKey = a});
+
+-- | The type of comparison that should be performed for the value: Equal, NotEqual, BeginWith, LessThan, or GreaterThan.
+csfType :: Lens' ComplianceStringFilter (Maybe ComplianceQueryOperatorType)
+csfType = lens _csfType (\ s a -> s{_csfType = a});
+
+instance Hashable ComplianceStringFilter
+
+instance NFData ComplianceStringFilter
+
+instance ToJSON ComplianceStringFilter where
+        toJSON ComplianceStringFilter'{..}
+          = object
+              (catMaybes
+                 [("Values" .=) <$> _csfValues,
+                  ("Key" .=) <$> _csfKey, ("Type" .=) <$> _csfType])
+
+-- | A summary of compliance information by compliance type.
+--
+--
+--
+-- /See:/ 'complianceSummaryItem' smart constructor.
+data ComplianceSummaryItem = ComplianceSummaryItem'
+    { _csiNonCompliantSummary :: !(Maybe NonCompliantSummary)
+    , _csiCompliantSummary    :: !(Maybe CompliantSummary)
+    , _csiComplianceType      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ComplianceSummaryItem' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csiNonCompliantSummary' - A list of NON_COMPLIANT items for the specified compliance type.
+--
+-- * 'csiCompliantSummary' - A list of COMPLIANT items for the specified compliance type.
+--
+-- * 'csiComplianceType' - The type of compliance item. For example, the compliance type can be Association, Patch, or Custom:string.
+complianceSummaryItem
+    :: ComplianceSummaryItem
+complianceSummaryItem =
+    ComplianceSummaryItem'
+    { _csiNonCompliantSummary = Nothing
+    , _csiCompliantSummary = Nothing
+    , _csiComplianceType = Nothing
+    }
+
+-- | A list of NON_COMPLIANT items for the specified compliance type.
+csiNonCompliantSummary :: Lens' ComplianceSummaryItem (Maybe NonCompliantSummary)
+csiNonCompliantSummary = lens _csiNonCompliantSummary (\ s a -> s{_csiNonCompliantSummary = a});
+
+-- | A list of COMPLIANT items for the specified compliance type.
+csiCompliantSummary :: Lens' ComplianceSummaryItem (Maybe CompliantSummary)
+csiCompliantSummary = lens _csiCompliantSummary (\ s a -> s{_csiCompliantSummary = a});
+
+-- | The type of compliance item. For example, the compliance type can be Association, Patch, or Custom:string.
+csiComplianceType :: Lens' ComplianceSummaryItem (Maybe Text)
+csiComplianceType = lens _csiComplianceType (\ s a -> s{_csiComplianceType = a});
+
+instance FromJSON ComplianceSummaryItem where
+        parseJSON
+          = withObject "ComplianceSummaryItem"
+              (\ x ->
+                 ComplianceSummaryItem' <$>
+                   (x .:? "NonCompliantSummary") <*>
+                     (x .:? "CompliantSummary")
+                     <*> (x .:? "ComplianceType"))
+
+instance Hashable ComplianceSummaryItem
+
+instance NFData ComplianceSummaryItem
+
+-- | A summary of resources that are compliant. The summary is organized according to the resource count for each compliance type.
+--
+--
+--
+-- /See:/ 'compliantSummary' smart constructor.
+data CompliantSummary = CompliantSummary'
+    { _csCompliantCount  :: !(Maybe Int)
+    , _csSeveritySummary :: !(Maybe SeveritySummary)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CompliantSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csCompliantCount' - The total number of resources that are compliant.
+--
+-- * 'csSeveritySummary' - A summary of the compliance severity by compliance type.
+compliantSummary
+    :: CompliantSummary
+compliantSummary =
+    CompliantSummary'
+    { _csCompliantCount = Nothing
+    , _csSeveritySummary = Nothing
+    }
+
+-- | The total number of resources that are compliant.
+csCompliantCount :: Lens' CompliantSummary (Maybe Int)
+csCompliantCount = lens _csCompliantCount (\ s a -> s{_csCompliantCount = a});
+
+-- | A summary of the compliance severity by compliance type.
+csSeveritySummary :: Lens' CompliantSummary (Maybe SeveritySummary)
+csSeveritySummary = lens _csSeveritySummary (\ s a -> s{_csSeveritySummary = a});
+
+instance FromJSON CompliantSummary where
+        parseJSON
+          = withObject "CompliantSummary"
+              (\ x ->
+                 CompliantSummary' <$>
+                   (x .:? "CompliantCount") <*>
+                     (x .:? "SeveritySummary"))
+
+instance Hashable CompliantSummary
+
+instance NFData CompliantSummary
+
+-- | Describes the association of a Systems Manager document and an instance.
 --
 --
 --
@@ -1593,7 +1985,7 @@ data DocumentDescription = DocumentDescription'
 --
 -- * 'dPlatformTypes' - The list of OS platforms compatible with this SSM document.
 --
--- * 'dCreatedDate' - The date when the SSM document was created.
+-- * 'dCreatedDate' - The date when the document was created.
 --
 -- * 'dName' - The name of the SSM document.
 --
@@ -1659,7 +2051,7 @@ dOwner = lens _dOwner (\ s a -> s{_dOwner = a});
 dPlatformTypes :: Lens' DocumentDescription [PlatformType]
 dPlatformTypes = lens _dPlatformTypes (\ s a -> s{_dPlatformTypes = a}) . _Default . _Coerce;
 
--- | The date when the SSM document was created.
+-- | The date when the document was created.
 dCreatedDate :: Lens' DocumentDescription (Maybe UTCTime)
 dCreatedDate = lens _dCreatedDate (\ s a -> s{_dCreatedDate = a}) . mapping _Time;
 
@@ -1836,7 +2228,7 @@ instance Hashable DocumentIdentifier
 
 instance NFData DocumentIdentifier
 
--- | Parameters specified in the SSM document that execute on the server when the command is run.
+-- | Parameters specified in a System Manager document that execute on the server when the command is run.
 --
 --
 --
@@ -1856,7 +2248,7 @@ data DocumentParameter = DocumentParameter'
 --
 -- * 'dpDefaultValue' - If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
 --
--- * 'dpType' - The type of parameter. The type can be either “String” or “StringList”.
+-- * 'dpType' - The type of parameter. The type can be either String or StringList.
 --
 -- * 'dpDescription' - A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
 documentParameter
@@ -1877,7 +2269,7 @@ dpName = lens _dpName (\ s a -> s{_dpName = a});
 dpDefaultValue :: Lens' DocumentParameter (Maybe Text)
 dpDefaultValue = lens _dpDefaultValue (\ s a -> s{_dpDefaultValue = a});
 
--- | The type of parameter. The type can be either “String” or “StringList”.
+-- | The type of parameter. The type can be either String or StringList.
 dpType :: Lens' DocumentParameter (Maybe DocumentParameterType)
 dpType = lens _dpType (\ s a -> s{_dpType = a});
 
@@ -2056,6 +2448,59 @@ instance FromJSON FailedCreateAssociation where
 instance Hashable FailedCreateAssociation
 
 instance NFData FailedCreateAssociation
+
+-- | Information about an Automation failure.
+--
+--
+--
+-- /See:/ 'failureDetails' smart constructor.
+data FailureDetails = FailureDetails'
+    { _fdFailureType  :: !(Maybe Text)
+    , _fdFailureStage :: !(Maybe Text)
+    , _fdDetails      :: !(Maybe (Map Text [Text]))
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'FailureDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fdFailureType' - The type of Automation failure. Failure types include the following: Action, Permission, Throttling, Verification, Internal.
+--
+-- * 'fdFailureStage' - The stage of the Automation execution when the failure occurred. The stages include the following: InputValidation, PreVerification, Invocation, PostVerification.
+--
+-- * 'fdDetails' - Detailed information about the Automation step failure.
+failureDetails
+    :: FailureDetails
+failureDetails =
+    FailureDetails'
+    { _fdFailureType = Nothing
+    , _fdFailureStage = Nothing
+    , _fdDetails = Nothing
+    }
+
+-- | The type of Automation failure. Failure types include the following: Action, Permission, Throttling, Verification, Internal.
+fdFailureType :: Lens' FailureDetails (Maybe Text)
+fdFailureType = lens _fdFailureType (\ s a -> s{_fdFailureType = a});
+
+-- | The stage of the Automation execution when the failure occurred. The stages include the following: InputValidation, PreVerification, Invocation, PostVerification.
+fdFailureStage :: Lens' FailureDetails (Maybe Text)
+fdFailureStage = lens _fdFailureStage (\ s a -> s{_fdFailureStage = a});
+
+-- | Detailed information about the Automation step failure.
+fdDetails :: Lens' FailureDetails (HashMap Text [Text])
+fdDetails = lens _fdDetails (\ s a -> s{_fdDetails = a}) . _Default . _Map;
+
+instance FromJSON FailureDetails where
+        parseJSON
+          = withObject "FailureDetails"
+              (\ x ->
+                 FailureDetails' <$>
+                   (x .:? "FailureType") <*> (x .:? "FailureStage") <*>
+                     (x .:? "Details" .!= mempty))
+
+instance Hashable FailureDetails
+
+instance NFData FailureDetails
 
 -- | Status information about the aggregated associations.
 --
@@ -2386,7 +2831,7 @@ data InstanceInformation = InstanceInformation'
 --
 -- * 'iiInstanceId' - The instance ID.
 --
--- * 'iiPingStatus' - Connection status of the SSM agent.
+-- * 'iiPingStatus' - Connection status of the SSM Agent.
 --
 -- * 'iiIPAddress' - The IP address of the managed instance.
 --
@@ -2396,9 +2841,9 @@ data InstanceInformation = InstanceInformation'
 --
 -- * 'iiPlatformVersion' - The version of the OS platform running on your instance.
 --
--- * 'iiIsLatestVersion' - Indicates whether latest version of the SSM agent is running on your instance.
+-- * 'iiIsLatestVersion' - Indicates whether latest version of the SSM Agent is running on your instance.
 --
--- * 'iiAgentVersion' - The version of the SSM agent running on your Linux instance.
+-- * 'iiAgentVersion' - The version of the SSM Agent running on your Linux instance.
 --
 -- * 'iiLastPingDateTime' - The date and time when agent last pinged Systems Manager service.
 --
@@ -2450,7 +2895,7 @@ instanceInformation =
 iiInstanceId :: Lens' InstanceInformation (Maybe Text)
 iiInstanceId = lens _iiInstanceId (\ s a -> s{_iiInstanceId = a});
 
--- | Connection status of the SSM agent.
+-- | Connection status of the SSM Agent.
 iiPingStatus :: Lens' InstanceInformation (Maybe PingStatus)
 iiPingStatus = lens _iiPingStatus (\ s a -> s{_iiPingStatus = a});
 
@@ -2470,11 +2915,11 @@ iiRegistrationDate = lens _iiRegistrationDate (\ s a -> s{_iiRegistrationDate = 
 iiPlatformVersion :: Lens' InstanceInformation (Maybe Text)
 iiPlatformVersion = lens _iiPlatformVersion (\ s a -> s{_iiPlatformVersion = a});
 
--- | Indicates whether latest version of the SSM agent is running on your instance.
+-- | Indicates whether latest version of the SSM Agent is running on your instance.
 iiIsLatestVersion :: Lens' InstanceInformation (Maybe Bool)
 iiIsLatestVersion = lens _iiIsLatestVersion (\ s a -> s{_iiIsLatestVersion = a});
 
--- | The version of the SSM agent running on your Linux instance.
+-- | The version of the SSM Agent running on your Linux instance.
 iiAgentVersion :: Lens' InstanceInformation (Maybe Text)
 iiAgentVersion = lens _iiAgentVersion (\ s a -> s{_iiAgentVersion = a});
 
@@ -2610,7 +3055,7 @@ data InstanceInformationStringFilter = InstanceInformationStringFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iisfKey' - The filter key name to describe your instances. For example: "InstanceIds"|"AgentVersion"|"PingStatus"|"PlatformTypes"|"ActivationIds"|"IamRole"|"ResourceType"|”AssociationStatus”|”Tag Key”
+-- * 'iisfKey' - The filter key name to describe your instances. For example: "InstanceIds"|"AgentVersion"|"PingStatus"|"PlatformTypes"|"ActivationIds"|"IamRole"|"ResourceType"|"AssociationStatus"|"Tag Key"
 --
 -- * 'iisfValues' - The filter values.
 instanceInformationStringFilter
@@ -2623,7 +3068,7 @@ instanceInformationStringFilter pKey_ pValues_ =
     , _iisfValues = _List1 # pValues_
     }
 
--- | The filter key name to describe your instances. For example: "InstanceIds"|"AgentVersion"|"PingStatus"|"PlatformTypes"|"ActivationIds"|"IamRole"|"ResourceType"|”AssociationStatus”|”Tag Key”
+-- | The filter key name to describe your instances. For example: "InstanceIds"|"AgentVersion"|"PingStatus"|"PlatformTypes"|"ActivationIds"|"IamRole"|"ResourceType"|"AssociationStatus"|"Tag Key"
 iisfKey :: Lens' InstanceInformationStringFilter Text
 iisfKey = lens _iisfKey (\ s a -> s{_iisfKey = a});
 
@@ -2673,9 +3118,9 @@ data InstancePatchState = InstancePatchState'
 --
 -- * 'ipsInstalledOtherCount' - The number of patches not specified in the patch baseline that are installed on the instance.
 --
--- * 'ipsMissingCount' - The number of patches from the patch baseline that are applicable for the instance but aren’t currently installed.
+-- * 'ipsMissingCount' - The number of patches from the patch baseline that are applicable for the instance but aren't currently installed.
 --
--- * 'ipsNotApplicableCount' - The number of patches from the patch baseline that aren’t applicable for the instance and hence aren’t installed on the instance.
+-- * 'ipsNotApplicableCount' - The number of patches from the patch baseline that aren't applicable for the instance and hence aren't installed on the instance.
 --
 -- * 'ipsInstalledCount' - The number of patches from the patch baseline that are installed on the instance.
 --
@@ -2729,11 +3174,11 @@ ipsFailedCount = lens _ipsFailedCount (\ s a -> s{_ipsFailedCount = a});
 ipsInstalledOtherCount :: Lens' InstancePatchState (Maybe Int)
 ipsInstalledOtherCount = lens _ipsInstalledOtherCount (\ s a -> s{_ipsInstalledOtherCount = a});
 
--- | The number of patches from the patch baseline that are applicable for the instance but aren’t currently installed.
+-- | The number of patches from the patch baseline that are applicable for the instance but aren't currently installed.
 ipsMissingCount :: Lens' InstancePatchState (Maybe Int)
 ipsMissingCount = lens _ipsMissingCount (\ s a -> s{_ipsMissingCount = a});
 
--- | The number of patches from the patch baseline that aren’t applicable for the instance and hence aren’t installed on the instance.
+-- | The number of patches from the patch baseline that aren't applicable for the instance and hence aren't installed on the instance.
 ipsNotApplicableCount :: Lens' InstancePatchState (Maybe Int)
 ipsNotApplicableCount = lens _ipsNotApplicableCount (\ s a -> s{_ipsNotApplicableCount = a});
 
@@ -2907,7 +3352,8 @@ instance ToJSON InventoryFilter where
 --
 -- /See:/ 'inventoryItem' smart constructor.
 data InventoryItem = InventoryItem'
-    { _iiContentHash   :: !(Maybe Text)
+    { _iiContext       :: !(Maybe (Map Text Text))
+    , _iiContentHash   :: !(Maybe Text)
     , _iiContent       :: !(Maybe [Map Text Text])
     , _iiTypeName      :: !Text
     , _iiSchemaVersion :: !Text
@@ -2918,11 +3364,13 @@ data InventoryItem = InventoryItem'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iiContentHash' - MD5 hash of the inventory item type contents. The content hash is used to determine whether to update inventory information. The @PutInventory@ API does not update the inventory item type contents if the MD5 hash has not changed since last update.
+-- * 'iiContext' - A map of associated properties for a specified inventory type. For example, with this attribute, you can specify the @ExecutionId@ , @ExecutionType@ , @ComplianceType@ properties of the @AWS:ComplianceItem@ type.
+--
+-- * 'iiContentHash' - MD5 hash of the inventory item type contents. The content hash is used to determine whether to update inventory information. The PutInventory API does not update the inventory item type contents if the MD5 hash has not changed since last update.
 --
 -- * 'iiContent' - The inventory data of the inventory type.
 --
--- * 'iiTypeName' - The name of the inventory type. Default inventory item type names start with @AWS@ . Custom inventory type names will start with @Custom@ . Default inventory item types include the following: @AWS:AWSComponent@ , @AWS:Application@ , @AWS:InstanceInformation@ , @AWS:Network@ , and @AWS:WindowsUpdate@ .
+-- * 'iiTypeName' - The name of the inventory type. Default inventory item type names start with AWS. Custom inventory type names will start with Custom. Default inventory item types include the following: AWS:AWSComponent, AWS:Application, AWS:InstanceInformation, AWS:Network, and AWS:WindowsUpdate.
 --
 -- * 'iiSchemaVersion' - The schema version for the inventory item.
 --
@@ -2934,14 +3382,19 @@ inventoryItem
     -> InventoryItem
 inventoryItem pTypeName_ pSchemaVersion_ pCaptureTime_ =
     InventoryItem'
-    { _iiContentHash = Nothing
+    { _iiContext = Nothing
+    , _iiContentHash = Nothing
     , _iiContent = Nothing
     , _iiTypeName = pTypeName_
     , _iiSchemaVersion = pSchemaVersion_
     , _iiCaptureTime = pCaptureTime_
     }
 
--- | MD5 hash of the inventory item type contents. The content hash is used to determine whether to update inventory information. The @PutInventory@ API does not update the inventory item type contents if the MD5 hash has not changed since last update.
+-- | A map of associated properties for a specified inventory type. For example, with this attribute, you can specify the @ExecutionId@ , @ExecutionType@ , @ComplianceType@ properties of the @AWS:ComplianceItem@ type.
+iiContext :: Lens' InventoryItem (HashMap Text Text)
+iiContext = lens _iiContext (\ s a -> s{_iiContext = a}) . _Default . _Map;
+
+-- | MD5 hash of the inventory item type contents. The content hash is used to determine whether to update inventory information. The PutInventory API does not update the inventory item type contents if the MD5 hash has not changed since last update.
 iiContentHash :: Lens' InventoryItem (Maybe Text)
 iiContentHash = lens _iiContentHash (\ s a -> s{_iiContentHash = a});
 
@@ -2949,7 +3402,7 @@ iiContentHash = lens _iiContentHash (\ s a -> s{_iiContentHash = a});
 iiContent :: Lens' InventoryItem [HashMap Text Text]
 iiContent = lens _iiContent (\ s a -> s{_iiContent = a}) . _Default . _Coerce;
 
--- | The name of the inventory type. Default inventory item type names start with @AWS@ . Custom inventory type names will start with @Custom@ . Default inventory item types include the following: @AWS:AWSComponent@ , @AWS:Application@ , @AWS:InstanceInformation@ , @AWS:Network@ , and @AWS:WindowsUpdate@ .
+-- | The name of the inventory type. Default inventory item type names start with AWS. Custom inventory type names will start with Custom. Default inventory item types include the following: AWS:AWSComponent, AWS:Application, AWS:InstanceInformation, AWS:Network, and AWS:WindowsUpdate.
 iiTypeName :: Lens' InventoryItem Text
 iiTypeName = lens _iiTypeName (\ s a -> s{_iiTypeName = a});
 
@@ -2969,7 +3422,8 @@ instance ToJSON InventoryItem where
         toJSON InventoryItem'{..}
           = object
               (catMaybes
-                 [("ContentHash" .=) <$> _iiContentHash,
+                 [("Context" .=) <$> _iiContext,
+                  ("ContentHash" .=) <$> _iiContentHash,
                   ("Content" .=) <$> _iiContent,
                   Just ("TypeName" .= _iiTypeName),
                   Just ("SchemaVersion" .= _iiSchemaVersion),
@@ -3038,7 +3492,7 @@ data InventoryItemSchema = InventoryItemSchema'
 --
 -- * 'iisVersion' - The schema version for the inventory item.
 --
--- * 'iisTypeName' - The name of the inventory type. Default inventory item type names start with @AWS@ . Custom inventory type names will start with @Custom@ . Default inventory item types include the following: @AWS:AWSComponent@ , @AWS:Application@ , @AWS:InstanceInformation@ , @AWS:Network@ , and @AWS:WindowsUpdate@ .
+-- * 'iisTypeName' - The name of the inventory type. Default inventory item type names start with AWS. Custom inventory type names will start with Custom. Default inventory item types include the following: AWS:AWSComponent, AWS:Application, AWS:InstanceInformation, AWS:Network, and AWS:WindowsUpdate.
 --
 -- * 'iisAttributes' - The schema attributes for inventory. This contains data type and attribute name.
 inventoryItemSchema
@@ -3056,7 +3510,7 @@ inventoryItemSchema pTypeName_ pAttributes_ =
 iisVersion :: Lens' InventoryItemSchema (Maybe Text)
 iisVersion = lens _iisVersion (\ s a -> s{_iisVersion = a});
 
--- | The name of the inventory type. Default inventory item type names start with @AWS@ . Custom inventory type names will start with @Custom@ . Default inventory item types include the following: @AWS:AWSComponent@ , @AWS:Application@ , @AWS:InstanceInformation@ , @AWS:Network@ , and @AWS:WindowsUpdate@ .
+-- | The name of the inventory type. Default inventory item type names start with AWS. Custom inventory type names will start with Custom. Default inventory item types include the following: AWS:AWSComponent, AWS:Application, AWS:InstanceInformation, AWS:Network, and AWS:WindowsUpdate.
 iisTypeName :: Lens' InventoryItemSchema Text
 iisTypeName = lens _iisTypeName (\ s a -> s{_iisTypeName = a});
 
@@ -3137,7 +3591,7 @@ data InventoryResultItem = InventoryResultItem'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iriContentHash' - MD5 hash of the inventory item type contents. The content hash is used to determine whether to update inventory information. The @PutInventory@ API does not update the inventory item type contents if the MD5 hash has not changed since last update.
+-- * 'iriContentHash' - MD5 hash of the inventory item type contents. The content hash is used to determine whether to update inventory information. The PutInventory API does not update the inventory item type contents if the MD5 hash has not changed since last update.
 --
 -- * 'iriCaptureTime' - The time inventory item data was captured.
 --
@@ -3159,7 +3613,7 @@ inventoryResultItem pTypeName_ pSchemaVersion_ =
     , _iriContent = mempty
     }
 
--- | MD5 hash of the inventory item type contents. The content hash is used to determine whether to update inventory information. The @PutInventory@ API does not update the inventory item type contents if the MD5 hash has not changed since last update.
+-- | MD5 hash of the inventory item type contents. The content hash is used to determine whether to update inventory information. The PutInventory API does not update the inventory item type contents if the MD5 hash has not changed since last update.
 iriContentHash :: Lens' InventoryResultItem (Maybe Text)
 iriContentHash = lens _iriContentHash (\ s a -> s{_iriContentHash = a});
 
@@ -3255,6 +3709,61 @@ instance ToJSON LoggingInfo where
                  [("S3KeyPrefix" .=) <$> _liS3KeyPrefix,
                   Just ("S3BucketName" .= _liS3BucketName),
                   Just ("S3Region" .= _liS3Region)])
+
+-- | Parameters for an AUTOMATION task type.
+--
+--
+--
+-- /See:/ 'maintenanceWindowAutomationParameters' smart constructor.
+data MaintenanceWindowAutomationParameters = MaintenanceWindowAutomationParameters'
+    { _mwapParameters      :: !(Maybe (Map Text [Text]))
+    , _mwapDocumentVersion :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MaintenanceWindowAutomationParameters' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mwapParameters' - Parameters for the AUTOMATION task.
+--
+-- * 'mwapDocumentVersion' - The version of an SSM Automation document to use during task execution.
+maintenanceWindowAutomationParameters
+    :: MaintenanceWindowAutomationParameters
+maintenanceWindowAutomationParameters =
+    MaintenanceWindowAutomationParameters'
+    { _mwapParameters = Nothing
+    , _mwapDocumentVersion = Nothing
+    }
+
+-- | Parameters for the AUTOMATION task.
+mwapParameters :: Lens' MaintenanceWindowAutomationParameters (HashMap Text [Text])
+mwapParameters = lens _mwapParameters (\ s a -> s{_mwapParameters = a}) . _Default . _Map;
+
+-- | The version of an SSM Automation document to use during task execution.
+mwapDocumentVersion :: Lens' MaintenanceWindowAutomationParameters (Maybe Text)
+mwapDocumentVersion = lens _mwapDocumentVersion (\ s a -> s{_mwapDocumentVersion = a});
+
+instance FromJSON
+         MaintenanceWindowAutomationParameters where
+        parseJSON
+          = withObject "MaintenanceWindowAutomationParameters"
+              (\ x ->
+                 MaintenanceWindowAutomationParameters' <$>
+                   (x .:? "Parameters" .!= mempty) <*>
+                     (x .:? "DocumentVersion"))
+
+instance Hashable
+         MaintenanceWindowAutomationParameters
+
+instance NFData MaintenanceWindowAutomationParameters
+
+instance ToJSON MaintenanceWindowAutomationParameters
+         where
+        toJSON MaintenanceWindowAutomationParameters'{..}
+          = object
+              (catMaybes
+                 [("Parameters" .=) <$> _mwapParameters,
+                  ("DocumentVersion" .=) <$> _mwapDocumentVersion])
 
 -- | Describes the information about an execution of a Maintenance Window.
 --
@@ -3449,6 +3958,7 @@ data MaintenanceWindowExecutionTaskInvocationIdentity = MaintenanceWindowExecuti
     , _mwetiiStartTime         :: !(Maybe POSIX)
     , _mwetiiInvocationId      :: !(Maybe Text)
     , _mwetiiOwnerInformation  :: !(Maybe (Sensitive Text))
+    , _mwetiiTaskType          :: !(Maybe MaintenanceWindowTaskType)
     , _mwetiiWindowTargetId    :: !(Maybe Text)
     , _mwetiiWindowExecutionId :: !(Maybe Text)
     , _mwetiiStatusDetails     :: !(Maybe Text)
@@ -3472,6 +3982,8 @@ data MaintenanceWindowExecutionTaskInvocationIdentity = MaintenanceWindowExecuti
 --
 -- * 'mwetiiOwnerInformation' - User-provided value that was specified when the target was registered with the Maintenance Window. This was also included in any CloudWatch events raised during the task invocation.
 --
+-- * 'mwetiiTaskType' - The task type.
+--
 -- * 'mwetiiWindowTargetId' - The ID of the target definition in this Maintenance Window the invocation was performed for.
 --
 -- * 'mwetiiWindowExecutionId' - The ID of the Maintenance Window execution that ran the task.
@@ -3491,6 +4003,7 @@ maintenanceWindowExecutionTaskInvocationIdentity =
     , _mwetiiStartTime = Nothing
     , _mwetiiInvocationId = Nothing
     , _mwetiiOwnerInformation = Nothing
+    , _mwetiiTaskType = Nothing
     , _mwetiiWindowTargetId = Nothing
     , _mwetiiWindowExecutionId = Nothing
     , _mwetiiStatusDetails = Nothing
@@ -3521,6 +4034,10 @@ mwetiiInvocationId = lens _mwetiiInvocationId (\ s a -> s{_mwetiiInvocationId = 
 -- | User-provided value that was specified when the target was registered with the Maintenance Window. This was also included in any CloudWatch events raised during the task invocation.
 mwetiiOwnerInformation :: Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Maybe Text)
 mwetiiOwnerInformation = lens _mwetiiOwnerInformation (\ s a -> s{_mwetiiOwnerInformation = a}) . mapping _Sensitive;
+
+-- | The task type.
+mwetiiTaskType :: Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Maybe MaintenanceWindowTaskType)
+mwetiiTaskType = lens _mwetiiTaskType (\ s a -> s{_mwetiiTaskType = a});
 
 -- | The ID of the target definition in this Maintenance Window the invocation was performed for.
 mwetiiWindowTargetId :: Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Maybe Text)
@@ -3555,6 +4072,7 @@ instance FromJSON
                      <*> (x .:? "StartTime")
                      <*> (x .:? "InvocationId")
                      <*> (x .:? "OwnerInformation")
+                     <*> (x .:? "TaskType")
                      <*> (x .:? "WindowTargetId")
                      <*> (x .:? "WindowExecutionId")
                      <*> (x .:? "StatusDetails")
@@ -3617,12 +4135,13 @@ instance ToJSON MaintenanceWindowFilter where
 --
 -- /See:/ 'maintenanceWindowIdentity' smart constructor.
 data MaintenanceWindowIdentity = MaintenanceWindowIdentity'
-    { _mwiEnabled  :: !(Maybe Bool)
-    , _mwiName     :: !(Maybe Text)
-    , _mwiCutoff   :: !(Maybe Nat)
-    , _mwiDuration :: !(Maybe Nat)
-    , _mwiWindowId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    { _mwiEnabled     :: !(Maybe Bool)
+    , _mwiName        :: !(Maybe Text)
+    , _mwiCutoff      :: !(Maybe Nat)
+    , _mwiDescription :: !(Maybe (Sensitive Text))
+    , _mwiDuration    :: !(Maybe Nat)
+    , _mwiWindowId    :: !(Maybe Text)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MaintenanceWindowIdentity' with the minimum fields required to make a request.
 --
@@ -3634,6 +4153,8 @@ data MaintenanceWindowIdentity = MaintenanceWindowIdentity'
 --
 -- * 'mwiCutoff' - The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
 --
+-- * 'mwiDescription' - A description of the Maintenance Window.
+--
 -- * 'mwiDuration' - The duration of the Maintenance Window in hours.
 --
 -- * 'mwiWindowId' - The ID of the Maintenance Window.
@@ -3644,6 +4165,7 @@ maintenanceWindowIdentity =
     { _mwiEnabled = Nothing
     , _mwiName = Nothing
     , _mwiCutoff = Nothing
+    , _mwiDescription = Nothing
     , _mwiDuration = Nothing
     , _mwiWindowId = Nothing
     }
@@ -3660,6 +4182,10 @@ mwiName = lens _mwiName (\ s a -> s{_mwiName = a});
 mwiCutoff :: Lens' MaintenanceWindowIdentity (Maybe Natural)
 mwiCutoff = lens _mwiCutoff (\ s a -> s{_mwiCutoff = a}) . mapping _Nat;
 
+-- | A description of the Maintenance Window.
+mwiDescription :: Lens' MaintenanceWindowIdentity (Maybe Text)
+mwiDescription = lens _mwiDescription (\ s a -> s{_mwiDescription = a}) . mapping _Sensitive;
+
 -- | The duration of the Maintenance Window in hours.
 mwiDuration :: Lens' MaintenanceWindowIdentity (Maybe Natural)
 mwiDuration = lens _mwiDuration (\ s a -> s{_mwiDuration = a}) . mapping _Nat;
@@ -3675,12 +4201,259 @@ instance FromJSON MaintenanceWindowIdentity where
                  MaintenanceWindowIdentity' <$>
                    (x .:? "Enabled") <*> (x .:? "Name") <*>
                      (x .:? "Cutoff")
+                     <*> (x .:? "Description")
                      <*> (x .:? "Duration")
                      <*> (x .:? "WindowId"))
 
 instance Hashable MaintenanceWindowIdentity
 
 instance NFData MaintenanceWindowIdentity
+
+-- | Parameters for a LAMBDA task type.
+--
+--
+--
+-- /See:/ 'maintenanceWindowLambdaParameters' smart constructor.
+data MaintenanceWindowLambdaParameters = MaintenanceWindowLambdaParameters'
+    { _mwlpPayload       :: !(Maybe (Sensitive Base64))
+    , _mwlpQualifier     :: !(Maybe Text)
+    , _mwlpClientContext :: !(Maybe Text)
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MaintenanceWindowLambdaParameters' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mwlpPayload' - JSON that you want to provide to your Lambda function as input.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+--
+-- * 'mwlpQualifier' - You can use this optional parameter to specify a Lambda function version or alias name. If you specify a function version, the API uses the qualified function ARN to invoke a specific Lambda function. If you specify an alias name, the API uses the alias ARN to invoke the Lambda function version to which the alias points.
+--
+-- * 'mwlpClientContext' - Using the ClientContext you can pass client-specific information to the Lambda function you are invoking. You can then process the client information in your Lambda function as you choose through the context variable.
+maintenanceWindowLambdaParameters
+    :: MaintenanceWindowLambdaParameters
+maintenanceWindowLambdaParameters =
+    MaintenanceWindowLambdaParameters'
+    { _mwlpPayload = Nothing
+    , _mwlpQualifier = Nothing
+    , _mwlpClientContext = Nothing
+    }
+
+-- | JSON that you want to provide to your Lambda function as input.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+mwlpPayload :: Lens' MaintenanceWindowLambdaParameters (Maybe ByteString)
+mwlpPayload = lens _mwlpPayload (\ s a -> s{_mwlpPayload = a}) . mapping (_Sensitive . _Base64);
+
+-- | You can use this optional parameter to specify a Lambda function version or alias name. If you specify a function version, the API uses the qualified function ARN to invoke a specific Lambda function. If you specify an alias name, the API uses the alias ARN to invoke the Lambda function version to which the alias points.
+mwlpQualifier :: Lens' MaintenanceWindowLambdaParameters (Maybe Text)
+mwlpQualifier = lens _mwlpQualifier (\ s a -> s{_mwlpQualifier = a});
+
+-- | Using the ClientContext you can pass client-specific information to the Lambda function you are invoking. You can then process the client information in your Lambda function as you choose through the context variable.
+mwlpClientContext :: Lens' MaintenanceWindowLambdaParameters (Maybe Text)
+mwlpClientContext = lens _mwlpClientContext (\ s a -> s{_mwlpClientContext = a});
+
+instance FromJSON MaintenanceWindowLambdaParameters
+         where
+        parseJSON
+          = withObject "MaintenanceWindowLambdaParameters"
+              (\ x ->
+                 MaintenanceWindowLambdaParameters' <$>
+                   (x .:? "Payload") <*> (x .:? "Qualifier") <*>
+                     (x .:? "ClientContext"))
+
+instance Hashable MaintenanceWindowLambdaParameters
+
+instance NFData MaintenanceWindowLambdaParameters
+
+instance ToJSON MaintenanceWindowLambdaParameters
+         where
+        toJSON MaintenanceWindowLambdaParameters'{..}
+          = object
+              (catMaybes
+                 [("Payload" .=) <$> _mwlpPayload,
+                  ("Qualifier" .=) <$> _mwlpQualifier,
+                  ("ClientContext" .=) <$> _mwlpClientContext])
+
+-- | Parameters for a RUN_COMMAND task type.
+--
+--
+--
+-- /See:/ 'maintenanceWindowRunCommandParameters' smart constructor.
+data MaintenanceWindowRunCommandParameters = MaintenanceWindowRunCommandParameters'
+    { _mwrcpServiceRoleARN     :: !(Maybe Text)
+    , _mwrcpNotificationConfig :: !(Maybe NotificationConfig)
+    , _mwrcpDocumentHashType   :: !(Maybe DocumentHashType)
+    , _mwrcpOutputS3KeyPrefix  :: !(Maybe Text)
+    , _mwrcpParameters         :: !(Maybe (Map Text [Text]))
+    , _mwrcpDocumentHash       :: !(Maybe Text)
+    , _mwrcpTimeoutSeconds     :: !(Maybe Nat)
+    , _mwrcpComment            :: !(Maybe Text)
+    , _mwrcpOutputS3BucketName :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MaintenanceWindowRunCommandParameters' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mwrcpServiceRoleARN' - The IAM service role that to assume during task execution.
+--
+-- * 'mwrcpNotificationConfig' - Configurations for sending notifications about command status changes on a per instance basis.
+--
+-- * 'mwrcpDocumentHashType' - Sha256 or Sha1. Sha1 hashes have been deprecated.
+--
+-- * 'mwrcpOutputS3KeyPrefix' - The Amazon S3 bucket subfolder.
+--
+-- * 'mwrcpParameters' - Parameters for the RUN_COMMAND task execution.
+--
+-- * 'mwrcpDocumentHash' - The Sha256 or Sha1 hash created by the system when the document was created. Sha1 hashes have been deprecated.
+--
+-- * 'mwrcpTimeoutSeconds' - If this time is reached and the command has not already started executing, it will not execute.
+--
+-- * 'mwrcpComment' - Information about the command(s) to execute.
+--
+-- * 'mwrcpOutputS3BucketName' - The name of the Amazon S3 bucket.
+maintenanceWindowRunCommandParameters
+    :: MaintenanceWindowRunCommandParameters
+maintenanceWindowRunCommandParameters =
+    MaintenanceWindowRunCommandParameters'
+    { _mwrcpServiceRoleARN = Nothing
+    , _mwrcpNotificationConfig = Nothing
+    , _mwrcpDocumentHashType = Nothing
+    , _mwrcpOutputS3KeyPrefix = Nothing
+    , _mwrcpParameters = Nothing
+    , _mwrcpDocumentHash = Nothing
+    , _mwrcpTimeoutSeconds = Nothing
+    , _mwrcpComment = Nothing
+    , _mwrcpOutputS3BucketName = Nothing
+    }
+
+-- | The IAM service role that to assume during task execution.
+mwrcpServiceRoleARN :: Lens' MaintenanceWindowRunCommandParameters (Maybe Text)
+mwrcpServiceRoleARN = lens _mwrcpServiceRoleARN (\ s a -> s{_mwrcpServiceRoleARN = a});
+
+-- | Configurations for sending notifications about command status changes on a per instance basis.
+mwrcpNotificationConfig :: Lens' MaintenanceWindowRunCommandParameters (Maybe NotificationConfig)
+mwrcpNotificationConfig = lens _mwrcpNotificationConfig (\ s a -> s{_mwrcpNotificationConfig = a});
+
+-- | Sha256 or Sha1. Sha1 hashes have been deprecated.
+mwrcpDocumentHashType :: Lens' MaintenanceWindowRunCommandParameters (Maybe DocumentHashType)
+mwrcpDocumentHashType = lens _mwrcpDocumentHashType (\ s a -> s{_mwrcpDocumentHashType = a});
+
+-- | The Amazon S3 bucket subfolder.
+mwrcpOutputS3KeyPrefix :: Lens' MaintenanceWindowRunCommandParameters (Maybe Text)
+mwrcpOutputS3KeyPrefix = lens _mwrcpOutputS3KeyPrefix (\ s a -> s{_mwrcpOutputS3KeyPrefix = a});
+
+-- | Parameters for the RUN_COMMAND task execution.
+mwrcpParameters :: Lens' MaintenanceWindowRunCommandParameters (HashMap Text [Text])
+mwrcpParameters = lens _mwrcpParameters (\ s a -> s{_mwrcpParameters = a}) . _Default . _Map;
+
+-- | The Sha256 or Sha1 hash created by the system when the document was created. Sha1 hashes have been deprecated.
+mwrcpDocumentHash :: Lens' MaintenanceWindowRunCommandParameters (Maybe Text)
+mwrcpDocumentHash = lens _mwrcpDocumentHash (\ s a -> s{_mwrcpDocumentHash = a});
+
+-- | If this time is reached and the command has not already started executing, it will not execute.
+mwrcpTimeoutSeconds :: Lens' MaintenanceWindowRunCommandParameters (Maybe Natural)
+mwrcpTimeoutSeconds = lens _mwrcpTimeoutSeconds (\ s a -> s{_mwrcpTimeoutSeconds = a}) . mapping _Nat;
+
+-- | Information about the command(s) to execute.
+mwrcpComment :: Lens' MaintenanceWindowRunCommandParameters (Maybe Text)
+mwrcpComment = lens _mwrcpComment (\ s a -> s{_mwrcpComment = a});
+
+-- | The name of the Amazon S3 bucket.
+mwrcpOutputS3BucketName :: Lens' MaintenanceWindowRunCommandParameters (Maybe Text)
+mwrcpOutputS3BucketName = lens _mwrcpOutputS3BucketName (\ s a -> s{_mwrcpOutputS3BucketName = a});
+
+instance FromJSON
+         MaintenanceWindowRunCommandParameters where
+        parseJSON
+          = withObject "MaintenanceWindowRunCommandParameters"
+              (\ x ->
+                 MaintenanceWindowRunCommandParameters' <$>
+                   (x .:? "ServiceRoleArn") <*>
+                     (x .:? "NotificationConfig")
+                     <*> (x .:? "DocumentHashType")
+                     <*> (x .:? "OutputS3KeyPrefix")
+                     <*> (x .:? "Parameters" .!= mempty)
+                     <*> (x .:? "DocumentHash")
+                     <*> (x .:? "TimeoutSeconds")
+                     <*> (x .:? "Comment")
+                     <*> (x .:? "OutputS3BucketName"))
+
+instance Hashable
+         MaintenanceWindowRunCommandParameters
+
+instance NFData MaintenanceWindowRunCommandParameters
+
+instance ToJSON MaintenanceWindowRunCommandParameters
+         where
+        toJSON MaintenanceWindowRunCommandParameters'{..}
+          = object
+              (catMaybes
+                 [("ServiceRoleArn" .=) <$> _mwrcpServiceRoleARN,
+                  ("NotificationConfig" .=) <$>
+                    _mwrcpNotificationConfig,
+                  ("DocumentHashType" .=) <$> _mwrcpDocumentHashType,
+                  ("OutputS3KeyPrefix" .=) <$> _mwrcpOutputS3KeyPrefix,
+                  ("Parameters" .=) <$> _mwrcpParameters,
+                  ("DocumentHash" .=) <$> _mwrcpDocumentHash,
+                  ("TimeoutSeconds" .=) <$> _mwrcpTimeoutSeconds,
+                  ("Comment" .=) <$> _mwrcpComment,
+                  ("OutputS3BucketName" .=) <$>
+                    _mwrcpOutputS3BucketName])
+
+-- | Parameters for the STEP_FUNCTION execution.
+--
+--
+--
+-- /See:/ 'maintenanceWindowStepFunctionsParameters' smart constructor.
+data MaintenanceWindowStepFunctionsParameters = MaintenanceWindowStepFunctionsParameters'
+    { _mwsfpInput :: !(Maybe (Sensitive Text))
+    , _mwsfpName  :: !(Maybe Text)
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MaintenanceWindowStepFunctionsParameters' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mwsfpInput' - The inputs for the STEP_FUNCTION task.
+--
+-- * 'mwsfpName' - The name of the STEP_FUNCTION task.
+maintenanceWindowStepFunctionsParameters
+    :: MaintenanceWindowStepFunctionsParameters
+maintenanceWindowStepFunctionsParameters =
+    MaintenanceWindowStepFunctionsParameters'
+    { _mwsfpInput = Nothing
+    , _mwsfpName = Nothing
+    }
+
+-- | The inputs for the STEP_FUNCTION task.
+mwsfpInput :: Lens' MaintenanceWindowStepFunctionsParameters (Maybe Text)
+mwsfpInput = lens _mwsfpInput (\ s a -> s{_mwsfpInput = a}) . mapping _Sensitive;
+
+-- | The name of the STEP_FUNCTION task.
+mwsfpName :: Lens' MaintenanceWindowStepFunctionsParameters (Maybe Text)
+mwsfpName = lens _mwsfpName (\ s a -> s{_mwsfpName = a});
+
+instance FromJSON
+         MaintenanceWindowStepFunctionsParameters where
+        parseJSON
+          = withObject
+              "MaintenanceWindowStepFunctionsParameters"
+              (\ x ->
+                 MaintenanceWindowStepFunctionsParameters' <$>
+                   (x .:? "Input") <*> (x .:? "Name"))
+
+instance Hashable
+         MaintenanceWindowStepFunctionsParameters
+
+instance NFData
+         MaintenanceWindowStepFunctionsParameters
+
+instance ToJSON
+         MaintenanceWindowStepFunctionsParameters where
+        toJSON MaintenanceWindowStepFunctionsParameters'{..}
+          = object
+              (catMaybes
+                 [("Input" .=) <$> _mwsfpInput,
+                  ("Name" .=) <$> _mwsfpName])
 
 -- | The target registered with the Maintenance Window.
 --
@@ -3691,7 +4464,9 @@ data MaintenanceWindowTarget = MaintenanceWindowTarget'
     { _mResourceType     :: !(Maybe MaintenanceWindowResourceType)
     , _mOwnerInformation :: !(Maybe (Sensitive Text))
     , _mWindowTargetId   :: !(Maybe Text)
+    , _mName             :: !(Maybe Text)
     , _mTargets          :: !(Maybe [Target])
+    , _mDescription      :: !(Maybe (Sensitive Text))
     , _mWindowId         :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -3705,7 +4480,11 @@ data MaintenanceWindowTarget = MaintenanceWindowTarget'
 --
 -- * 'mWindowTargetId' - The ID of the target.
 --
+-- * 'mName' - The target name.
+--
 -- * 'mTargets' - The targets (either instances or tags). Instances are specified using Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using Key=<tag name>,Values=<tag value>.
+--
+-- * 'mDescription' - A description of the target.
 --
 -- * 'mWindowId' - The Maintenance Window ID where the target is registered.
 maintenanceWindowTarget
@@ -3715,7 +4494,9 @@ maintenanceWindowTarget =
     { _mResourceType = Nothing
     , _mOwnerInformation = Nothing
     , _mWindowTargetId = Nothing
+    , _mName = Nothing
     , _mTargets = Nothing
+    , _mDescription = Nothing
     , _mWindowId = Nothing
     }
 
@@ -3731,9 +4512,17 @@ mOwnerInformation = lens _mOwnerInformation (\ s a -> s{_mOwnerInformation = a})
 mWindowTargetId :: Lens' MaintenanceWindowTarget (Maybe Text)
 mWindowTargetId = lens _mWindowTargetId (\ s a -> s{_mWindowTargetId = a});
 
+-- | The target name.
+mName :: Lens' MaintenanceWindowTarget (Maybe Text)
+mName = lens _mName (\ s a -> s{_mName = a});
+
 -- | The targets (either instances or tags). Instances are specified using Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using Key=<tag name>,Values=<tag value>.
 mTargets :: Lens' MaintenanceWindowTarget [Target]
 mTargets = lens _mTargets (\ s a -> s{_mTargets = a}) . _Default . _Coerce;
+
+-- | A description of the target.
+mDescription :: Lens' MaintenanceWindowTarget (Maybe Text)
+mDescription = lens _mDescription (\ s a -> s{_mDescription = a}) . mapping _Sensitive;
 
 -- | The Maintenance Window ID where the target is registered.
 mWindowId :: Lens' MaintenanceWindowTarget (Maybe Text)
@@ -3746,7 +4535,9 @@ instance FromJSON MaintenanceWindowTarget where
                  MaintenanceWindowTarget' <$>
                    (x .:? "ResourceType") <*> (x .:? "OwnerInformation")
                      <*> (x .:? "WindowTargetId")
+                     <*> (x .:? "Name")
                      <*> (x .:? "Targets" .!= mempty)
+                     <*> (x .:? "Description")
                      <*> (x .:? "WindowId"))
 
 instance Hashable MaintenanceWindowTarget
@@ -3765,9 +4556,11 @@ data MaintenanceWindowTask = MaintenanceWindowTask'
     , _mwtPriority       :: !(Maybe Nat)
     , _mwtTaskARN        :: !(Maybe Text)
     , _mwtMaxErrors      :: !(Maybe Text)
+    , _mwtName           :: !(Maybe Text)
     , _mwtTargets        :: !(Maybe [Target])
     , _mwtLoggingInfo    :: !(Maybe LoggingInfo)
     , _mwtType           :: !(Maybe MaintenanceWindowTaskType)
+    , _mwtDescription    :: !(Maybe (Sensitive Text))
     , _mwtMaxConcurrency :: !(Maybe Text)
     , _mwtWindowId       :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -3782,17 +4575,21 @@ data MaintenanceWindowTask = MaintenanceWindowTask'
 --
 -- * 'mwtTaskParameters' - The parameters that should be passed to the task when it is executed.
 --
--- * 'mwtPriority' - The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+-- * 'mwtPriority' - The priority of the task in the Maintenance Window. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
 --
--- * 'mwtTaskARN' - The ARN of the task to execute.
+-- * 'mwtTaskARN' - TaskArn is the resource that the task uses during execution. For RUN_COMMAND and AUTOMATION task types, the TaskArn is the SSM Document Name/ARN. For LAMBDA tasks, it's the Function Name/ARN. For STEP_FUNCTION tasks, it's the State Machine ARN.
 --
 -- * 'mwtMaxErrors' - The maximum number of errors allowed before this task stops being scheduled.
+--
+-- * 'mwtName' - The task name.
 --
 -- * 'mwtTargets' - The targets (either instances or tags). Instances are specified using Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using Key=<tag name>,Values=<tag value>.
 --
 -- * 'mwtLoggingInfo' - Information about an Amazon S3 bucket to write task-level logs to.
 --
--- * 'mwtType' - The type of task.
+-- * 'mwtType' - The type of task. The type can be one of the following: RUN_COMMAND, AUTOMATION, LAMBDA, or STEP_FUNCTION.
+--
+-- * 'mwtDescription' - A description of the task.
 --
 -- * 'mwtMaxConcurrency' - The maximum number of targets this task can be run for in parallel.
 --
@@ -3807,9 +4604,11 @@ maintenanceWindowTask =
     , _mwtPriority = Nothing
     , _mwtTaskARN = Nothing
     , _mwtMaxErrors = Nothing
+    , _mwtName = Nothing
     , _mwtTargets = Nothing
     , _mwtLoggingInfo = Nothing
     , _mwtType = Nothing
+    , _mwtDescription = Nothing
     , _mwtMaxConcurrency = Nothing
     , _mwtWindowId = Nothing
     }
@@ -3826,17 +4625,21 @@ mwtWindowTaskId = lens _mwtWindowTaskId (\ s a -> s{_mwtWindowTaskId = a});
 mwtTaskParameters :: Lens' MaintenanceWindowTask (Maybe (HashMap Text MaintenanceWindowTaskParameterValueExpression))
 mwtTaskParameters = lens _mwtTaskParameters (\ s a -> s{_mwtTaskParameters = a}) . mapping (_Sensitive . _Map);
 
--- | The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+-- | The priority of the task in the Maintenance Window. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
 mwtPriority :: Lens' MaintenanceWindowTask (Maybe Natural)
 mwtPriority = lens _mwtPriority (\ s a -> s{_mwtPriority = a}) . mapping _Nat;
 
--- | The ARN of the task to execute.
+-- | TaskArn is the resource that the task uses during execution. For RUN_COMMAND and AUTOMATION task types, the TaskArn is the SSM Document Name/ARN. For LAMBDA tasks, it's the Function Name/ARN. For STEP_FUNCTION tasks, it's the State Machine ARN.
 mwtTaskARN :: Lens' MaintenanceWindowTask (Maybe Text)
 mwtTaskARN = lens _mwtTaskARN (\ s a -> s{_mwtTaskARN = a});
 
 -- | The maximum number of errors allowed before this task stops being scheduled.
 mwtMaxErrors :: Lens' MaintenanceWindowTask (Maybe Text)
 mwtMaxErrors = lens _mwtMaxErrors (\ s a -> s{_mwtMaxErrors = a});
+
+-- | The task name.
+mwtName :: Lens' MaintenanceWindowTask (Maybe Text)
+mwtName = lens _mwtName (\ s a -> s{_mwtName = a});
 
 -- | The targets (either instances or tags). Instances are specified using Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using Key=<tag name>,Values=<tag value>.
 mwtTargets :: Lens' MaintenanceWindowTask [Target]
@@ -3846,9 +4649,13 @@ mwtTargets = lens _mwtTargets (\ s a -> s{_mwtTargets = a}) . _Default . _Coerce
 mwtLoggingInfo :: Lens' MaintenanceWindowTask (Maybe LoggingInfo)
 mwtLoggingInfo = lens _mwtLoggingInfo (\ s a -> s{_mwtLoggingInfo = a});
 
--- | The type of task.
+-- | The type of task. The type can be one of the following: RUN_COMMAND, AUTOMATION, LAMBDA, or STEP_FUNCTION.
 mwtType :: Lens' MaintenanceWindowTask (Maybe MaintenanceWindowTaskType)
 mwtType = lens _mwtType (\ s a -> s{_mwtType = a});
+
+-- | A description of the task.
+mwtDescription :: Lens' MaintenanceWindowTask (Maybe Text)
+mwtDescription = lens _mwtDescription (\ s a -> s{_mwtDescription = a}) . mapping _Sensitive;
 
 -- | The maximum number of targets this task can be run for in parallel.
 mwtMaxConcurrency :: Lens' MaintenanceWindowTask (Maybe Text)
@@ -3868,15 +4675,93 @@ instance FromJSON MaintenanceWindowTask where
                      <*> (x .:? "Priority")
                      <*> (x .:? "TaskArn")
                      <*> (x .:? "MaxErrors")
+                     <*> (x .:? "Name")
                      <*> (x .:? "Targets" .!= mempty)
                      <*> (x .:? "LoggingInfo")
                      <*> (x .:? "Type")
+                     <*> (x .:? "Description")
                      <*> (x .:? "MaxConcurrency")
                      <*> (x .:? "WindowId"))
 
 instance Hashable MaintenanceWindowTask
 
 instance NFData MaintenanceWindowTask
+
+-- | Parameters for task execution.
+--
+--
+--
+-- /See:/ 'maintenanceWindowTaskInvocationParameters' smart constructor.
+data MaintenanceWindowTaskInvocationParameters = MaintenanceWindowTaskInvocationParameters'
+    { _mwtipAutomation    :: !(Maybe MaintenanceWindowAutomationParameters)
+    , _mwtipStepFunctions :: !(Maybe MaintenanceWindowStepFunctionsParameters)
+    , _mwtipRunCommand    :: !(Maybe MaintenanceWindowRunCommandParameters)
+    , _mwtipLambda        :: !(Maybe MaintenanceWindowLambdaParameters)
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MaintenanceWindowTaskInvocationParameters' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mwtipAutomation' - Parameters for a AUTOMATION task type.
+--
+-- * 'mwtipStepFunctions' - Parameters for a STEP_FUNCTION task type.
+--
+-- * 'mwtipRunCommand' - Parameters for a RUN_COMMAND task type.
+--
+-- * 'mwtipLambda' - Parameters for a LAMBDA task type.
+maintenanceWindowTaskInvocationParameters
+    :: MaintenanceWindowTaskInvocationParameters
+maintenanceWindowTaskInvocationParameters =
+    MaintenanceWindowTaskInvocationParameters'
+    { _mwtipAutomation = Nothing
+    , _mwtipStepFunctions = Nothing
+    , _mwtipRunCommand = Nothing
+    , _mwtipLambda = Nothing
+    }
+
+-- | Parameters for a AUTOMATION task type.
+mwtipAutomation :: Lens' MaintenanceWindowTaskInvocationParameters (Maybe MaintenanceWindowAutomationParameters)
+mwtipAutomation = lens _mwtipAutomation (\ s a -> s{_mwtipAutomation = a});
+
+-- | Parameters for a STEP_FUNCTION task type.
+mwtipStepFunctions :: Lens' MaintenanceWindowTaskInvocationParameters (Maybe MaintenanceWindowStepFunctionsParameters)
+mwtipStepFunctions = lens _mwtipStepFunctions (\ s a -> s{_mwtipStepFunctions = a});
+
+-- | Parameters for a RUN_COMMAND task type.
+mwtipRunCommand :: Lens' MaintenanceWindowTaskInvocationParameters (Maybe MaintenanceWindowRunCommandParameters)
+mwtipRunCommand = lens _mwtipRunCommand (\ s a -> s{_mwtipRunCommand = a});
+
+-- | Parameters for a LAMBDA task type.
+mwtipLambda :: Lens' MaintenanceWindowTaskInvocationParameters (Maybe MaintenanceWindowLambdaParameters)
+mwtipLambda = lens _mwtipLambda (\ s a -> s{_mwtipLambda = a});
+
+instance FromJSON
+         MaintenanceWindowTaskInvocationParameters where
+        parseJSON
+          = withObject
+              "MaintenanceWindowTaskInvocationParameters"
+              (\ x ->
+                 MaintenanceWindowTaskInvocationParameters' <$>
+                   (x .:? "Automation") <*> (x .:? "StepFunctions") <*>
+                     (x .:? "RunCommand")
+                     <*> (x .:? "Lambda"))
+
+instance Hashable
+         MaintenanceWindowTaskInvocationParameters
+
+instance NFData
+         MaintenanceWindowTaskInvocationParameters
+
+instance ToJSON
+         MaintenanceWindowTaskInvocationParameters where
+        toJSON MaintenanceWindowTaskInvocationParameters'{..}
+          = object
+              (catMaybes
+                 [("Automation" .=) <$> _mwtipAutomation,
+                  ("StepFunctions" .=) <$> _mwtipStepFunctions,
+                  ("RunCommand" .=) <$> _mwtipRunCommand,
+                  ("Lambda" .=) <$> _mwtipLambda])
 
 -- | Defines the values for a task parameter.
 --
@@ -3925,6 +4810,51 @@ instance ToJSON
           = object
               (catMaybes [("Values" .=) <$> _mwtpveValues])
 
+-- | A summary of resources that are not compliant. The summary is organized according to resource type.
+--
+--
+--
+-- /See:/ 'nonCompliantSummary' smart constructor.
+data NonCompliantSummary = NonCompliantSummary'
+    { _ncsNonCompliantCount :: !(Maybe Int)
+    , _ncsSeveritySummary   :: !(Maybe SeveritySummary)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NonCompliantSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ncsNonCompliantCount' - The total number of compliance items that are not compliant.
+--
+-- * 'ncsSeveritySummary' - A summary of the non-compliance severity by compliance type
+nonCompliantSummary
+    :: NonCompliantSummary
+nonCompliantSummary =
+    NonCompliantSummary'
+    { _ncsNonCompliantCount = Nothing
+    , _ncsSeveritySummary = Nothing
+    }
+
+-- | The total number of compliance items that are not compliant.
+ncsNonCompliantCount :: Lens' NonCompliantSummary (Maybe Int)
+ncsNonCompliantCount = lens _ncsNonCompliantCount (\ s a -> s{_ncsNonCompliantCount = a});
+
+-- | A summary of the non-compliance severity by compliance type
+ncsSeveritySummary :: Lens' NonCompliantSummary (Maybe SeveritySummary)
+ncsSeveritySummary = lens _ncsSeveritySummary (\ s a -> s{_ncsSeveritySummary = a});
+
+instance FromJSON NonCompliantSummary where
+        parseJSON
+          = withObject "NonCompliantSummary"
+              (\ x ->
+                 NonCompliantSummary' <$>
+                   (x .:? "NonCompliantCount") <*>
+                     (x .:? "SeveritySummary"))
+
+instance Hashable NonCompliantSummary
+
+instance NFData NonCompliantSummary
+
 -- | Configurations for sending notifications.
 --
 --
@@ -3940,7 +4870,7 @@ data NotificationConfig = NotificationConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ncNotificationEvents' - The different events for which you can receive notifications. These events include the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To learn more about these events, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-commands.html Monitoring Commands> in the /Amazon Elastic Compute Cloud User Guide / .
+-- * 'ncNotificationEvents' - The different events for which you can receive notifications. These events include the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To learn more about these events, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Setting Up Events and Notifications> in the /Amazon EC2 Systems Manager User Guide/ .
 --
 -- * 'ncNotificationType' - Command: Receive notification when the status of a command changes. Invocation: For commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes.
 --
@@ -3954,7 +4884,7 @@ notificationConfig =
     , _ncNotificationARN = Nothing
     }
 
--- | The different events for which you can receive notifications. These events include the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To learn more about these events, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-commands.html Monitoring Commands> in the /Amazon Elastic Compute Cloud User Guide / .
+-- | The different events for which you can receive notifications. These events include the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To learn more about these events, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Setting Up Events and Notifications> in the /Amazon EC2 Systems Manager User Guide/ .
 ncNotificationEvents :: Lens' NotificationConfig [NotificationEvent]
 ncNotificationEvents = lens _ncNotificationEvents (\ s a -> s{_ncNotificationEvents = a}) . _Default . _Coerce;
 
@@ -4051,6 +4981,7 @@ data ParameterHistory = ParameterHistory'
     , _phValue            :: !(Maybe Text)
     , _phName             :: !(Maybe Text)
     , _phLastModifiedUser :: !(Maybe Text)
+    , _phAllowedPattern   :: !(Maybe Text)
     , _phType             :: !(Maybe ParameterType)
     , _phDescription      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -4069,6 +5000,8 @@ data ParameterHistory = ParameterHistory'
 --
 -- * 'phLastModifiedUser' - Amazon Resource Name (ARN) of the AWS user who last changed the parameter.
 --
+-- * 'phAllowedPattern' - Parameter names can include the following letters and symbols. a-zA-Z0-9_.-
+--
 -- * 'phType' - The type of parameter used.
 --
 -- * 'phDescription' - Information about the parameter.
@@ -4081,6 +5014,7 @@ parameterHistory =
     , _phValue = Nothing
     , _phName = Nothing
     , _phLastModifiedUser = Nothing
+    , _phAllowedPattern = Nothing
     , _phType = Nothing
     , _phDescription = Nothing
     }
@@ -4105,6 +5039,10 @@ phName = lens _phName (\ s a -> s{_phName = a});
 phLastModifiedUser :: Lens' ParameterHistory (Maybe Text)
 phLastModifiedUser = lens _phLastModifiedUser (\ s a -> s{_phLastModifiedUser = a});
 
+-- | Parameter names can include the following letters and symbols. a-zA-Z0-9_.-
+phAllowedPattern :: Lens' ParameterHistory (Maybe Text)
+phAllowedPattern = lens _phAllowedPattern (\ s a -> s{_phAllowedPattern = a});
+
 -- | The type of parameter used.
 phType :: Lens' ParameterHistory (Maybe ParameterType)
 phType = lens _phType (\ s a -> s{_phType = a});
@@ -4122,6 +5060,7 @@ instance FromJSON ParameterHistory where
                      (x .:? "Value")
                      <*> (x .:? "Name")
                      <*> (x .:? "LastModifiedUser")
+                     <*> (x .:? "AllowedPattern")
                      <*> (x .:? "Type")
                      <*> (x .:? "Description"))
 
@@ -4139,6 +5078,7 @@ data ParameterMetadata = ParameterMetadata'
     , _pmKeyId            :: !(Maybe Text)
     , _pmName             :: !(Maybe Text)
     , _pmLastModifiedUser :: !(Maybe Text)
+    , _pmAllowedPattern   :: !(Maybe Text)
     , _pmType             :: !(Maybe ParameterType)
     , _pmDescription      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -4155,6 +5095,8 @@ data ParameterMetadata = ParameterMetadata'
 --
 -- * 'pmLastModifiedUser' - Amazon Resource Name (ARN) of the AWS user who last changed the parameter.
 --
+-- * 'pmAllowedPattern' - A parameter name can include only the following letters and symbols. a-zA-Z0-9_.-
+--
 -- * 'pmType' - The type of parameter. Valid parameter types include the following: String, String list, Secure string.
 --
 -- * 'pmDescription' - Description of the parameter actions.
@@ -4166,6 +5108,7 @@ parameterMetadata =
     , _pmKeyId = Nothing
     , _pmName = Nothing
     , _pmLastModifiedUser = Nothing
+    , _pmAllowedPattern = Nothing
     , _pmType = Nothing
     , _pmDescription = Nothing
     }
@@ -4186,6 +5129,10 @@ pmName = lens _pmName (\ s a -> s{_pmName = a});
 pmLastModifiedUser :: Lens' ParameterMetadata (Maybe Text)
 pmLastModifiedUser = lens _pmLastModifiedUser (\ s a -> s{_pmLastModifiedUser = a});
 
+-- | A parameter name can include only the following letters and symbols. a-zA-Z0-9_.-
+pmAllowedPattern :: Lens' ParameterMetadata (Maybe Text)
+pmAllowedPattern = lens _pmAllowedPattern (\ s a -> s{_pmAllowedPattern = a});
+
 -- | The type of parameter. Valid parameter types include the following: String, String list, Secure string.
 pmType :: Lens' ParameterMetadata (Maybe ParameterType)
 pmType = lens _pmType (\ s a -> s{_pmType = a});
@@ -4202,6 +5149,7 @@ instance FromJSON ParameterMetadata where
                    (x .:? "LastModifiedDate") <*> (x .:? "KeyId") <*>
                      (x .:? "Name")
                      <*> (x .:? "LastModifiedUser")
+                     <*> (x .:? "AllowedPattern")
                      <*> (x .:? "Type")
                      <*> (x .:? "Description"))
 
@@ -4213,9 +5161,63 @@ instance NFData ParameterMetadata
 --
 --
 --
+-- /See:/ 'parameterStringFilter' smart constructor.
+data ParameterStringFilter = ParameterStringFilter'
+    { _psfValues :: !(Maybe (List1 Text))
+    , _psfOption :: !(Maybe Text)
+    , _psfKey    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ParameterStringFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'psfValues' - The value you want to search for.
+--
+-- * 'psfOption' - Valid options are Equals and BeginsWith. For Path filter, valid options are Recursive and OneLevel.
+--
+-- * 'psfKey' - The name of the filter.
+parameterStringFilter
+    :: Text -- ^ 'psfKey'
+    -> ParameterStringFilter
+parameterStringFilter pKey_ =
+    ParameterStringFilter'
+    { _psfValues = Nothing
+    , _psfOption = Nothing
+    , _psfKey = pKey_
+    }
+
+-- | The value you want to search for.
+psfValues :: Lens' ParameterStringFilter (Maybe (NonEmpty Text))
+psfValues = lens _psfValues (\ s a -> s{_psfValues = a}) . mapping _List1;
+
+-- | Valid options are Equals and BeginsWith. For Path filter, valid options are Recursive and OneLevel.
+psfOption :: Lens' ParameterStringFilter (Maybe Text)
+psfOption = lens _psfOption (\ s a -> s{_psfOption = a});
+
+-- | The name of the filter.
+psfKey :: Lens' ParameterStringFilter Text
+psfKey = lens _psfKey (\ s a -> s{_psfKey = a});
+
+instance Hashable ParameterStringFilter
+
+instance NFData ParameterStringFilter
+
+instance ToJSON ParameterStringFilter where
+        toJSON ParameterStringFilter'{..}
+          = object
+              (catMaybes
+                 [("Values" .=) <$> _psfValues,
+                  ("Option" .=) <$> _psfOption,
+                  Just ("Key" .= _psfKey)])
+
+-- | One or more filters. Use a filter to return a more specific list of results.
+--
+--
+--
 -- /See:/ 'parametersFilter' smart constructor.
 data ParametersFilter = ParametersFilter'
-    { _pKey    :: !(Maybe ParametersFilterKey)
+    { _pKey    :: !ParametersFilterKey
     , _pValues :: !(List1 Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -4227,16 +5229,17 @@ data ParametersFilter = ParametersFilter'
 --
 -- * 'pValues' - The filter values.
 parametersFilter
-    :: NonEmpty Text -- ^ 'pValues'
+    :: ParametersFilterKey -- ^ 'pKey'
+    -> NonEmpty Text -- ^ 'pValues'
     -> ParametersFilter
-parametersFilter pValues_ =
+parametersFilter pKey_ pValues_ =
     ParametersFilter'
-    { _pKey = Nothing
+    { _pKey = pKey_
     , _pValues = _List1 # pValues_
     }
 
 -- | The name of the filter.
-pKey :: Lens' ParametersFilter (Maybe ParametersFilterKey)
+pKey :: Lens' ParametersFilter ParametersFilterKey
 pKey = lens _pKey (\ s a -> s{_pKey = a});
 
 -- | The filter values.
@@ -4251,7 +5254,7 @@ instance ToJSON ParametersFilter where
         toJSON ParametersFilter'{..}
           = object
               (catMaybes
-                 [("Key" .=) <$> _pKey, Just ("Values" .= _pValues)])
+                 [Just ("Key" .= _pKey), Just ("Values" .= _pValues)])
 
 -- | Represents metadata about a patch.
 --
@@ -4288,7 +5291,7 @@ data Patch = Patch'
 --
 -- * 'pMsrcNumber' - The ID of the MSRC bulletin the patch is related to.
 --
--- * 'pLanguage' - The language of the patch if it’s language-specific.
+-- * 'pLanguage' - The language of the patch if it's language-specific.
 --
 -- * 'pKbNumber' - The Microsoft Knowledge Base ID of the patch.
 --
@@ -4342,7 +5345,7 @@ pClassification = lens _pClassification (\ s a -> s{_pClassification = a});
 pMsrcNumber :: Lens' Patch (Maybe Text)
 pMsrcNumber = lens _pMsrcNumber (\ s a -> s{_pMsrcNumber = a});
 
--- | The language of the patch if it’s language-specific.
+-- | The language of the patch if it's language-specific.
 pLanguage :: Lens' Patch (Maybe Text)
 pLanguage = lens _pLanguage (\ s a -> s{_pLanguage = a});
 
@@ -4404,6 +5407,7 @@ instance NFData Patch
 data PatchBaselineIdentity = PatchBaselineIdentity'
     { _pbiBaselineName        :: !(Maybe Text)
     , _pbiBaselineDescription :: !(Maybe Text)
+    , _pbiOperatingSystem     :: !(Maybe OperatingSystem)
     , _pbiDefaultBaseline     :: !(Maybe Bool)
     , _pbiBaselineId          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -4416,7 +5420,9 @@ data PatchBaselineIdentity = PatchBaselineIdentity'
 --
 -- * 'pbiBaselineDescription' - The description of the patch baseline.
 --
--- * 'pbiDefaultBaseline' - Whether this is the default baseline.
+-- * 'pbiOperatingSystem' - Defines the operating system the patch baseline applies to. Supported operating systems include WINDOWS, AMAZON_LINUX, UBUNTU and REDHAT_ENTERPRISE_LINUX. The Default value is WINDOWS.
+--
+-- * 'pbiDefaultBaseline' - Whether this is the default baseline. Note that Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
 --
 -- * 'pbiBaselineId' - The ID of the patch baseline.
 patchBaselineIdentity
@@ -4425,6 +5431,7 @@ patchBaselineIdentity =
     PatchBaselineIdentity'
     { _pbiBaselineName = Nothing
     , _pbiBaselineDescription = Nothing
+    , _pbiOperatingSystem = Nothing
     , _pbiDefaultBaseline = Nothing
     , _pbiBaselineId = Nothing
     }
@@ -4437,7 +5444,11 @@ pbiBaselineName = lens _pbiBaselineName (\ s a -> s{_pbiBaselineName = a});
 pbiBaselineDescription :: Lens' PatchBaselineIdentity (Maybe Text)
 pbiBaselineDescription = lens _pbiBaselineDescription (\ s a -> s{_pbiBaselineDescription = a});
 
--- | Whether this is the default baseline.
+-- | Defines the operating system the patch baseline applies to. Supported operating systems include WINDOWS, AMAZON_LINUX, UBUNTU and REDHAT_ENTERPRISE_LINUX. The Default value is WINDOWS.
+pbiOperatingSystem :: Lens' PatchBaselineIdentity (Maybe OperatingSystem)
+pbiOperatingSystem = lens _pbiOperatingSystem (\ s a -> s{_pbiOperatingSystem = a});
+
+-- | Whether this is the default baseline. Note that Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
 pbiDefaultBaseline :: Lens' PatchBaselineIdentity (Maybe Bool)
 pbiDefaultBaseline = lens _pbiDefaultBaseline (\ s a -> s{_pbiDefaultBaseline = a});
 
@@ -4452,6 +5463,7 @@ instance FromJSON PatchBaselineIdentity where
                  PatchBaselineIdentity' <$>
                    (x .:? "BaselineName") <*>
                      (x .:? "BaselineDescription")
+                     <*> (x .:? "OperatingSystem")
                      <*> (x .:? "DefaultBaseline")
                      <*> (x .:? "BaselineId"))
 
@@ -4479,7 +5491,7 @@ data PatchComplianceData = PatchComplianceData'
 --
 -- * 'pcdTitle' - The title of the patch.
 --
--- * 'pcdKBId' - The Microsoft Knowledge Base ID of the patch.
+-- * 'pcdKBId' - The operating system-specific ID of the patch.
 --
 -- * 'pcdClassification' - The classification of the patch (for example, SecurityUpdates, Updates, CriticalUpdates).
 --
@@ -4487,7 +5499,7 @@ data PatchComplianceData = PatchComplianceData'
 --
 -- * 'pcdState' - The state of the patch on the instance (INSTALLED, INSTALLED_OTHER, MISSING, NOT_APPLICABLE or FAILED).
 --
--- * 'pcdInstalledTime' - The date/time the patch was installed on the instance.
+-- * 'pcdInstalledTime' - The date/time the patch was installed on the instance. Note that not all operating systems provide this level of information.
 patchComplianceData
     :: Text -- ^ 'pcdTitle'
     -> Text -- ^ 'pcdKBId'
@@ -4510,7 +5522,7 @@ patchComplianceData pTitle_ pKBId_ pClassification_ pSeverity_ pState_ pInstalle
 pcdTitle :: Lens' PatchComplianceData Text
 pcdTitle = lens _pcdTitle (\ s a -> s{_pcdTitle = a});
 
--- | The Microsoft Knowledge Base ID of the patch.
+-- | The operating system-specific ID of the patch.
 pcdKBId :: Lens' PatchComplianceData Text
 pcdKBId = lens _pcdKBId (\ s a -> s{_pcdKBId = a});
 
@@ -4526,7 +5538,7 @@ pcdSeverity = lens _pcdSeverity (\ s a -> s{_pcdSeverity = a});
 pcdState :: Lens' PatchComplianceData PatchComplianceDataState
 pcdState = lens _pcdState (\ s a -> s{_pcdState = a});
 
--- | The date/time the patch was installed on the instance.
+-- | The date/time the patch was installed on the instance. Note that not all operating systems provide this level of information.
 pcdInstalledTime :: Lens' PatchComplianceData UTCTime
 pcdInstalledTime = lens _pcdInstalledTime (\ s a -> s{_pcdInstalledTime = a}) . _Time;
 
@@ -4734,13 +5746,16 @@ instance ToJSON PatchOrchestratorFilter where
 --
 -- /See:/ 'patchRule' smart constructor.
 data PatchRule = PatchRule'
-    { _prPatchFilterGroup :: !PatchFilterGroup
+    { _prComplianceLevel  :: !(Maybe PatchComplianceLevel)
+    , _prPatchFilterGroup :: !PatchFilterGroup
     , _prApproveAfterDays :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PatchRule' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prComplianceLevel' - A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: Unspecified, Critical, High, Medium, Low, and Informational.
 --
 -- * 'prPatchFilterGroup' - The patch filter group that defines the criteria for the rule.
 --
@@ -4751,9 +5766,14 @@ patchRule
     -> PatchRule
 patchRule pPatchFilterGroup_ pApproveAfterDays_ =
     PatchRule'
-    { _prPatchFilterGroup = pPatchFilterGroup_
+    { _prComplianceLevel = Nothing
+    , _prPatchFilterGroup = pPatchFilterGroup_
     , _prApproveAfterDays = _Nat # pApproveAfterDays_
     }
+
+-- | A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: Unspecified, Critical, High, Medium, Low, and Informational.
+prComplianceLevel :: Lens' PatchRule (Maybe PatchComplianceLevel)
+prComplianceLevel = lens _prComplianceLevel (\ s a -> s{_prComplianceLevel = a});
 
 -- | The patch filter group that defines the criteria for the rule.
 prPatchFilterGroup :: Lens' PatchRule PatchFilterGroup
@@ -4768,8 +5788,9 @@ instance FromJSON PatchRule where
           = withObject "PatchRule"
               (\ x ->
                  PatchRule' <$>
-                   (x .: "PatchFilterGroup") <*>
-                     (x .: "ApproveAfterDays"))
+                   (x .:? "ComplianceLevel") <*>
+                     (x .: "PatchFilterGroup")
+                     <*> (x .: "ApproveAfterDays"))
 
 instance Hashable PatchRule
 
@@ -4779,7 +5800,8 @@ instance ToJSON PatchRule where
         toJSON PatchRule'{..}
           = object
               (catMaybes
-                 [Just ("PatchFilterGroup" .= _prPatchFilterGroup),
+                 [("ComplianceLevel" .=) <$> _prComplianceLevel,
+                  Just ("PatchFilterGroup" .= _prPatchFilterGroup),
                   Just ("ApproveAfterDays" .= _prApproveAfterDays)])
 
 -- | A set of rules defining the approval rules for a patch baseline.
@@ -4830,6 +5852,7 @@ instance ToJSON PatchRuleGroup where
 data PatchStatus = PatchStatus'
     { _psApprovalDate     :: !(Maybe POSIX)
     , _psDeploymentStatus :: !(Maybe PatchDeploymentStatus)
+    , _psComplianceLevel  :: !(Maybe PatchComplianceLevel)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PatchStatus' with the minimum fields required to make a request.
@@ -4839,12 +5862,15 @@ data PatchStatus = PatchStatus'
 -- * 'psApprovalDate' - The date the patch was approved (or will be approved if the status is PENDING_APPROVAL).
 --
 -- * 'psDeploymentStatus' - The approval status of a patch (APPROVED, PENDING_APPROVAL, EXPLICIT_APPROVED, EXPLICIT_REJECTED).
+--
+-- * 'psComplianceLevel' - The compliance severity level for a patch.
 patchStatus
     :: PatchStatus
 patchStatus =
     PatchStatus'
     { _psApprovalDate = Nothing
     , _psDeploymentStatus = Nothing
+    , _psComplianceLevel = Nothing
     }
 
 -- | The date the patch was approved (or will be approved if the status is PENDING_APPROVAL).
@@ -4855,17 +5881,273 @@ psApprovalDate = lens _psApprovalDate (\ s a -> s{_psApprovalDate = a}) . mappin
 psDeploymentStatus :: Lens' PatchStatus (Maybe PatchDeploymentStatus)
 psDeploymentStatus = lens _psDeploymentStatus (\ s a -> s{_psDeploymentStatus = a});
 
+-- | The compliance severity level for a patch.
+psComplianceLevel :: Lens' PatchStatus (Maybe PatchComplianceLevel)
+psComplianceLevel = lens _psComplianceLevel (\ s a -> s{_psComplianceLevel = a});
+
 instance FromJSON PatchStatus where
         parseJSON
           = withObject "PatchStatus"
               (\ x ->
                  PatchStatus' <$>
-                   (x .:? "ApprovalDate") <*>
-                     (x .:? "DeploymentStatus"))
+                   (x .:? "ApprovalDate") <*> (x .:? "DeploymentStatus")
+                     <*> (x .:? "ComplianceLevel"))
 
 instance Hashable PatchStatus
 
 instance NFData PatchStatus
+
+-- | Compliance summary information for a specific resource.
+--
+--
+--
+-- /See:/ 'resourceComplianceSummaryItem' smart constructor.
+data ResourceComplianceSummaryItem = ResourceComplianceSummaryItem'
+    { _rcsiNonCompliantSummary :: !(Maybe NonCompliantSummary)
+    , _rcsiStatus              :: !(Maybe ComplianceStatus)
+    , _rcsiResourceId          :: !(Maybe Text)
+    , _rcsiResourceType        :: !(Maybe Text)
+    , _rcsiCompliantSummary    :: !(Maybe CompliantSummary)
+    , _rcsiExecutionSummary    :: !(Maybe ComplianceExecutionSummary)
+    , _rcsiOverallSeverity     :: !(Maybe ComplianceSeverity)
+    , _rcsiComplianceType      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ResourceComplianceSummaryItem' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcsiNonCompliantSummary' - A list of items that aren't compliant for the resource.
+--
+-- * 'rcsiStatus' - The compliance status for the resource.
+--
+-- * 'rcsiResourceId' - The resource ID.
+--
+-- * 'rcsiResourceType' - The resource type.
+--
+-- * 'rcsiCompliantSummary' - A list of items that are compliant for the resource.
+--
+-- * 'rcsiExecutionSummary' - Information about the execution.
+--
+-- * 'rcsiOverallSeverity' - The highest severity item found for the resource. The resource is compliant for this item.
+--
+-- * 'rcsiComplianceType' - The compliance type.
+resourceComplianceSummaryItem
+    :: ResourceComplianceSummaryItem
+resourceComplianceSummaryItem =
+    ResourceComplianceSummaryItem'
+    { _rcsiNonCompliantSummary = Nothing
+    , _rcsiStatus = Nothing
+    , _rcsiResourceId = Nothing
+    , _rcsiResourceType = Nothing
+    , _rcsiCompliantSummary = Nothing
+    , _rcsiExecutionSummary = Nothing
+    , _rcsiOverallSeverity = Nothing
+    , _rcsiComplianceType = Nothing
+    }
+
+-- | A list of items that aren't compliant for the resource.
+rcsiNonCompliantSummary :: Lens' ResourceComplianceSummaryItem (Maybe NonCompliantSummary)
+rcsiNonCompliantSummary = lens _rcsiNonCompliantSummary (\ s a -> s{_rcsiNonCompliantSummary = a});
+
+-- | The compliance status for the resource.
+rcsiStatus :: Lens' ResourceComplianceSummaryItem (Maybe ComplianceStatus)
+rcsiStatus = lens _rcsiStatus (\ s a -> s{_rcsiStatus = a});
+
+-- | The resource ID.
+rcsiResourceId :: Lens' ResourceComplianceSummaryItem (Maybe Text)
+rcsiResourceId = lens _rcsiResourceId (\ s a -> s{_rcsiResourceId = a});
+
+-- | The resource type.
+rcsiResourceType :: Lens' ResourceComplianceSummaryItem (Maybe Text)
+rcsiResourceType = lens _rcsiResourceType (\ s a -> s{_rcsiResourceType = a});
+
+-- | A list of items that are compliant for the resource.
+rcsiCompliantSummary :: Lens' ResourceComplianceSummaryItem (Maybe CompliantSummary)
+rcsiCompliantSummary = lens _rcsiCompliantSummary (\ s a -> s{_rcsiCompliantSummary = a});
+
+-- | Information about the execution.
+rcsiExecutionSummary :: Lens' ResourceComplianceSummaryItem (Maybe ComplianceExecutionSummary)
+rcsiExecutionSummary = lens _rcsiExecutionSummary (\ s a -> s{_rcsiExecutionSummary = a});
+
+-- | The highest severity item found for the resource. The resource is compliant for this item.
+rcsiOverallSeverity :: Lens' ResourceComplianceSummaryItem (Maybe ComplianceSeverity)
+rcsiOverallSeverity = lens _rcsiOverallSeverity (\ s a -> s{_rcsiOverallSeverity = a});
+
+-- | The compliance type.
+rcsiComplianceType :: Lens' ResourceComplianceSummaryItem (Maybe Text)
+rcsiComplianceType = lens _rcsiComplianceType (\ s a -> s{_rcsiComplianceType = a});
+
+instance FromJSON ResourceComplianceSummaryItem where
+        parseJSON
+          = withObject "ResourceComplianceSummaryItem"
+              (\ x ->
+                 ResourceComplianceSummaryItem' <$>
+                   (x .:? "NonCompliantSummary") <*> (x .:? "Status")
+                     <*> (x .:? "ResourceId")
+                     <*> (x .:? "ResourceType")
+                     <*> (x .:? "CompliantSummary")
+                     <*> (x .:? "ExecutionSummary")
+                     <*> (x .:? "OverallSeverity")
+                     <*> (x .:? "ComplianceType"))
+
+instance Hashable ResourceComplianceSummaryItem
+
+instance NFData ResourceComplianceSummaryItem
+
+-- | Information about a Resource Data Sync configuration, including its current status and last successful sync.
+--
+--
+--
+-- /See:/ 'resourceDataSyncItem' smart constructor.
+data ResourceDataSyncItem = ResourceDataSyncItem'
+    { _rdsiSyncCreatedTime        :: !(Maybe POSIX)
+    , _rdsiLastSyncTime           :: !(Maybe POSIX)
+    , _rdsiSyncName               :: !(Maybe Text)
+    , _rdsiLastStatus             :: !(Maybe LastResourceDataSyncStatus)
+    , _rdsiS3Destination          :: !(Maybe ResourceDataSyncS3Destination)
+    , _rdsiLastSuccessfulSyncTime :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ResourceDataSyncItem' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rdsiSyncCreatedTime' - The date and time the configuration was created (UTC).
+--
+-- * 'rdsiLastSyncTime' - The last time the configuration attempted to sync (UTC).
+--
+-- * 'rdsiSyncName' - The name of the Resource Data Sync.
+--
+-- * 'rdsiLastStatus' - The status reported by the last sync.
+--
+-- * 'rdsiS3Destination' - Configuration information for the target Amazon S3 bucket.
+--
+-- * 'rdsiLastSuccessfulSyncTime' - The last time the sync operations returned a status of @SUCCESSFUL@ (UTC).
+resourceDataSyncItem
+    :: ResourceDataSyncItem
+resourceDataSyncItem =
+    ResourceDataSyncItem'
+    { _rdsiSyncCreatedTime = Nothing
+    , _rdsiLastSyncTime = Nothing
+    , _rdsiSyncName = Nothing
+    , _rdsiLastStatus = Nothing
+    , _rdsiS3Destination = Nothing
+    , _rdsiLastSuccessfulSyncTime = Nothing
+    }
+
+-- | The date and time the configuration was created (UTC).
+rdsiSyncCreatedTime :: Lens' ResourceDataSyncItem (Maybe UTCTime)
+rdsiSyncCreatedTime = lens _rdsiSyncCreatedTime (\ s a -> s{_rdsiSyncCreatedTime = a}) . mapping _Time;
+
+-- | The last time the configuration attempted to sync (UTC).
+rdsiLastSyncTime :: Lens' ResourceDataSyncItem (Maybe UTCTime)
+rdsiLastSyncTime = lens _rdsiLastSyncTime (\ s a -> s{_rdsiLastSyncTime = a}) . mapping _Time;
+
+-- | The name of the Resource Data Sync.
+rdsiSyncName :: Lens' ResourceDataSyncItem (Maybe Text)
+rdsiSyncName = lens _rdsiSyncName (\ s a -> s{_rdsiSyncName = a});
+
+-- | The status reported by the last sync.
+rdsiLastStatus :: Lens' ResourceDataSyncItem (Maybe LastResourceDataSyncStatus)
+rdsiLastStatus = lens _rdsiLastStatus (\ s a -> s{_rdsiLastStatus = a});
+
+-- | Configuration information for the target Amazon S3 bucket.
+rdsiS3Destination :: Lens' ResourceDataSyncItem (Maybe ResourceDataSyncS3Destination)
+rdsiS3Destination = lens _rdsiS3Destination (\ s a -> s{_rdsiS3Destination = a});
+
+-- | The last time the sync operations returned a status of @SUCCESSFUL@ (UTC).
+rdsiLastSuccessfulSyncTime :: Lens' ResourceDataSyncItem (Maybe UTCTime)
+rdsiLastSuccessfulSyncTime = lens _rdsiLastSuccessfulSyncTime (\ s a -> s{_rdsiLastSuccessfulSyncTime = a}) . mapping _Time;
+
+instance FromJSON ResourceDataSyncItem where
+        parseJSON
+          = withObject "ResourceDataSyncItem"
+              (\ x ->
+                 ResourceDataSyncItem' <$>
+                   (x .:? "SyncCreatedTime") <*> (x .:? "LastSyncTime")
+                     <*> (x .:? "SyncName")
+                     <*> (x .:? "LastStatus")
+                     <*> (x .:? "S3Destination")
+                     <*> (x .:? "LastSuccessfulSyncTime"))
+
+instance Hashable ResourceDataSyncItem
+
+instance NFData ResourceDataSyncItem
+
+-- | Information about the target Amazon S3 bucket for the Resource Data Sync.
+--
+--
+--
+-- /See:/ 'resourceDataSyncS3Destination' smart constructor.
+data ResourceDataSyncS3Destination = ResourceDataSyncS3Destination'
+    { _rdssdPrefix     :: !(Maybe Text)
+    , _rdssdBucketName :: !Text
+    , _rdssdSyncFormat :: !ResourceDataSyncS3Format
+    , _rdssdRegion     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ResourceDataSyncS3Destination' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rdssdPrefix' - An Amazon S3 prefix for the bucket.
+--
+-- * 'rdssdBucketName' - The name of the Amazon S3 bucket where the aggregated data is stored.
+--
+-- * 'rdssdSyncFormat' - A supported sync format. The following format is currently supported: JsonSerDe
+--
+-- * 'rdssdRegion' - The AWS Region with the Amazon S3 bucket targeted by the Resource Data Sync.
+resourceDataSyncS3Destination
+    :: Text -- ^ 'rdssdBucketName'
+    -> ResourceDataSyncS3Format -- ^ 'rdssdSyncFormat'
+    -> Text -- ^ 'rdssdRegion'
+    -> ResourceDataSyncS3Destination
+resourceDataSyncS3Destination pBucketName_ pSyncFormat_ pRegion_ =
+    ResourceDataSyncS3Destination'
+    { _rdssdPrefix = Nothing
+    , _rdssdBucketName = pBucketName_
+    , _rdssdSyncFormat = pSyncFormat_
+    , _rdssdRegion = pRegion_
+    }
+
+-- | An Amazon S3 prefix for the bucket.
+rdssdPrefix :: Lens' ResourceDataSyncS3Destination (Maybe Text)
+rdssdPrefix = lens _rdssdPrefix (\ s a -> s{_rdssdPrefix = a});
+
+-- | The name of the Amazon S3 bucket where the aggregated data is stored.
+rdssdBucketName :: Lens' ResourceDataSyncS3Destination Text
+rdssdBucketName = lens _rdssdBucketName (\ s a -> s{_rdssdBucketName = a});
+
+-- | A supported sync format. The following format is currently supported: JsonSerDe
+rdssdSyncFormat :: Lens' ResourceDataSyncS3Destination ResourceDataSyncS3Format
+rdssdSyncFormat = lens _rdssdSyncFormat (\ s a -> s{_rdssdSyncFormat = a});
+
+-- | The AWS Region with the Amazon S3 bucket targeted by the Resource Data Sync.
+rdssdRegion :: Lens' ResourceDataSyncS3Destination Text
+rdssdRegion = lens _rdssdRegion (\ s a -> s{_rdssdRegion = a});
+
+instance FromJSON ResourceDataSyncS3Destination where
+        parseJSON
+          = withObject "ResourceDataSyncS3Destination"
+              (\ x ->
+                 ResourceDataSyncS3Destination' <$>
+                   (x .:? "Prefix") <*> (x .: "BucketName") <*>
+                     (x .: "SyncFormat")
+                     <*> (x .: "Region"))
+
+instance Hashable ResourceDataSyncS3Destination
+
+instance NFData ResourceDataSyncS3Destination
+
+instance ToJSON ResourceDataSyncS3Destination where
+        toJSON ResourceDataSyncS3Destination'{..}
+          = object
+              (catMaybes
+                 [("Prefix" .=) <$> _rdssdPrefix,
+                  Just ("BucketName" .= _rdssdBucketName),
+                  Just ("SyncFormat" .= _rdssdSyncFormat),
+                  Just ("Region" .= _rdssdRegion)])
 
 -- | The inventory item result attribute.
 --
@@ -4880,7 +6162,7 @@ newtype ResultAttribute = ResultAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'raTypeName' - Name of the inventory item type. Valid value: “AWS:InstanceInformation”. Default Value: “AWS:InstanceInformation”.
+-- * 'raTypeName' - Name of the inventory item type. Valid value: AWS:InstanceInformation. Default Value: AWS:InstanceInformation.
 resultAttribute
     :: Text -- ^ 'raTypeName'
     -> ResultAttribute
@@ -4889,7 +6171,7 @@ resultAttribute pTypeName_ =
     { _raTypeName = pTypeName_
     }
 
--- | Name of the inventory item type. Valid value: “AWS:InstanceInformation”. Default Value: “AWS:InstanceInformation”.
+-- | Name of the inventory item type. Valid value: AWS:InstanceInformation. Default Value: AWS:InstanceInformation.
 raTypeName :: Lens' ResultAttribute Text
 raTypeName = lens _raTypeName (\ s a -> s{_raTypeName = a});
 
@@ -4919,7 +6201,7 @@ data S3OutputLocation = S3OutputLocation'
 --
 -- * 'solOutputS3KeyPrefix' - The Amazon S3 bucket subfolder.
 --
--- * 'solOutputS3Region' - The Amazon S3 region where the association information is stored.
+-- * 'solOutputS3Region' - (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Amazon S3 bucket region.
 --
 -- * 'solOutputS3BucketName' - The name of the Amazon S3 bucket.
 s3OutputLocation
@@ -4935,7 +6217,7 @@ s3OutputLocation =
 solOutputS3KeyPrefix :: Lens' S3OutputLocation (Maybe Text)
 solOutputS3KeyPrefix = lens _solOutputS3KeyPrefix (\ s a -> s{_solOutputS3KeyPrefix = a});
 
--- | The Amazon S3 region where the association information is stored.
+-- | (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Amazon S3 bucket region.
 solOutputS3Region :: Lens' S3OutputLocation (Maybe Text)
 solOutputS3Region = lens _solOutputS3Region (\ s a -> s{_solOutputS3Region = a});
 
@@ -4999,13 +6281,94 @@ instance Hashable S3OutputURL
 
 instance NFData S3OutputURL
 
+-- | The number of managed instances found for each patch severity level defined in the request filter.
+--
+--
+--
+-- /See:/ 'severitySummary' smart constructor.
+data SeveritySummary = SeveritySummary'
+    { _ssLowCount           :: !(Maybe Int)
+    , _ssUnspecifiedCount   :: !(Maybe Int)
+    , _ssHighCount          :: !(Maybe Int)
+    , _ssMediumCount        :: !(Maybe Int)
+    , _ssInformationalCount :: !(Maybe Int)
+    , _ssCriticalCount      :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SeveritySummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssLowCount' - The total number of resources or compliance items that have a severity level of low. Low severity is determined by the organization that published the compliance items.
+--
+-- * 'ssUnspecifiedCount' - The total number of resources or compliance items that have a severity level of unspecified. Unspecified severity is determined by the organization that published the compliance items.
+--
+-- * 'ssHighCount' - The total number of resources or compliance items that have a severity level of high. High severity is determined by the organization that published the compliance items.
+--
+-- * 'ssMediumCount' - The total number of resources or compliance items that have a severity level of medium. Medium severity is determined by the organization that published the compliance items.
+--
+-- * 'ssInformationalCount' - The total number of resources or compliance items that have a severity level of informational. Informational severity is determined by the organization that published the compliance items.
+--
+-- * 'ssCriticalCount' - The total number of resources or compliance items that have a severity level of critical. Critical severity is determined by the organization that published the compliance items.
+severitySummary
+    :: SeveritySummary
+severitySummary =
+    SeveritySummary'
+    { _ssLowCount = Nothing
+    , _ssUnspecifiedCount = Nothing
+    , _ssHighCount = Nothing
+    , _ssMediumCount = Nothing
+    , _ssInformationalCount = Nothing
+    , _ssCriticalCount = Nothing
+    }
+
+-- | The total number of resources or compliance items that have a severity level of low. Low severity is determined by the organization that published the compliance items.
+ssLowCount :: Lens' SeveritySummary (Maybe Int)
+ssLowCount = lens _ssLowCount (\ s a -> s{_ssLowCount = a});
+
+-- | The total number of resources or compliance items that have a severity level of unspecified. Unspecified severity is determined by the organization that published the compliance items.
+ssUnspecifiedCount :: Lens' SeveritySummary (Maybe Int)
+ssUnspecifiedCount = lens _ssUnspecifiedCount (\ s a -> s{_ssUnspecifiedCount = a});
+
+-- | The total number of resources or compliance items that have a severity level of high. High severity is determined by the organization that published the compliance items.
+ssHighCount :: Lens' SeveritySummary (Maybe Int)
+ssHighCount = lens _ssHighCount (\ s a -> s{_ssHighCount = a});
+
+-- | The total number of resources or compliance items that have a severity level of medium. Medium severity is determined by the organization that published the compliance items.
+ssMediumCount :: Lens' SeveritySummary (Maybe Int)
+ssMediumCount = lens _ssMediumCount (\ s a -> s{_ssMediumCount = a});
+
+-- | The total number of resources or compliance items that have a severity level of informational. Informational severity is determined by the organization that published the compliance items.
+ssInformationalCount :: Lens' SeveritySummary (Maybe Int)
+ssInformationalCount = lens _ssInformationalCount (\ s a -> s{_ssInformationalCount = a});
+
+-- | The total number of resources or compliance items that have a severity level of critical. Critical severity is determined by the organization that published the compliance items.
+ssCriticalCount :: Lens' SeveritySummary (Maybe Int)
+ssCriticalCount = lens _ssCriticalCount (\ s a -> s{_ssCriticalCount = a});
+
+instance FromJSON SeveritySummary where
+        parseJSON
+          = withObject "SeveritySummary"
+              (\ x ->
+                 SeveritySummary' <$>
+                   (x .:? "LowCount") <*> (x .:? "UnspecifiedCount") <*>
+                     (x .:? "HighCount")
+                     <*> (x .:? "MediumCount")
+                     <*> (x .:? "InformationalCount")
+                     <*> (x .:? "CriticalCount"))
+
+instance Hashable SeveritySummary
+
+instance NFData SeveritySummary
+
 -- | Detailed information about an the execution state of an Automation step.
 --
 --
 --
 -- /See:/ 'stepExecution' smart constructor.
 data StepExecution = StepExecution'
-    { _seInputs             :: !(Maybe (Map Text Text))
+    { _seFailureDetails     :: !(Maybe FailureDetails)
+    , _seInputs             :: !(Maybe (Map Text Text))
     , _seStepName           :: !(Maybe Text)
     , _seExecutionEndTime   :: !(Maybe POSIX)
     , _seFailureMessage     :: !(Maybe Text)
@@ -5021,6 +6384,8 @@ data StepExecution = StepExecution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'seFailureDetails' - Information about the Automation failure.
+--
 -- * 'seInputs' - Fully-resolved values passed into the step before execution.
 --
 -- * 'seStepName' - The name of this execution step.
@@ -5035,16 +6400,17 @@ data StepExecution = StepExecution'
 --
 -- * 'seResponseCode' - The response code returned by the execution of the step.
 --
--- * 'seStepStatus' - The execution status for this step. Valid values include: @Pending@ , @InProgress@ , @Success@ , @Cancelled@ , @Failed@ , and @TimedOut@ .
+-- * 'seStepStatus' - The execution status for this step. Valid values include: Pending, InProgress, Success, Cancelled, Failed, and TimedOut.
 --
 -- * 'seOutputs' - Returned values from the execution of the step.
 --
--- * 'seExecutionStartTime' - If a step has begun execution, this contains the time the step started. If the step is in @Pending@ status, this field is not populated.
+-- * 'seExecutionStartTime' - If a step has begun execution, this contains the time the step started. If the step is in Pending status, this field is not populated.
 stepExecution
     :: StepExecution
 stepExecution =
     StepExecution'
-    { _seInputs = Nothing
+    { _seFailureDetails = Nothing
+    , _seInputs = Nothing
     , _seStepName = Nothing
     , _seExecutionEndTime = Nothing
     , _seFailureMessage = Nothing
@@ -5055,6 +6421,10 @@ stepExecution =
     , _seOutputs = Nothing
     , _seExecutionStartTime = Nothing
     }
+
+-- | Information about the Automation failure.
+seFailureDetails :: Lens' StepExecution (Maybe FailureDetails)
+seFailureDetails = lens _seFailureDetails (\ s a -> s{_seFailureDetails = a});
 
 -- | Fully-resolved values passed into the step before execution.
 seInputs :: Lens' StepExecution (HashMap Text Text)
@@ -5084,7 +6454,7 @@ seAction = lens _seAction (\ s a -> s{_seAction = a});
 seResponseCode :: Lens' StepExecution (Maybe Text)
 seResponseCode = lens _seResponseCode (\ s a -> s{_seResponseCode = a});
 
--- | The execution status for this step. Valid values include: @Pending@ , @InProgress@ , @Success@ , @Cancelled@ , @Failed@ , and @TimedOut@ .
+-- | The execution status for this step. Valid values include: Pending, InProgress, Success, Cancelled, Failed, and TimedOut.
 seStepStatus :: Lens' StepExecution (Maybe AutomationExecutionStatus)
 seStepStatus = lens _seStepStatus (\ s a -> s{_seStepStatus = a});
 
@@ -5092,7 +6462,7 @@ seStepStatus = lens _seStepStatus (\ s a -> s{_seStepStatus = a});
 seOutputs :: Lens' StepExecution (HashMap Text [Text])
 seOutputs = lens _seOutputs (\ s a -> s{_seOutputs = a}) . _Default . _Map;
 
--- | If a step has begun execution, this contains the time the step started. If the step is in @Pending@ status, this field is not populated.
+-- | If a step has begun execution, this contains the time the step started. If the step is in Pending status, this field is not populated.
 seExecutionStartTime :: Lens' StepExecution (Maybe UTCTime)
 seExecutionStartTime = lens _seExecutionStartTime (\ s a -> s{_seExecutionStartTime = a}) . mapping _Time;
 
@@ -5101,7 +6471,9 @@ instance FromJSON StepExecution where
           = withObject "StepExecution"
               (\ x ->
                  StepExecution' <$>
-                   (x .:? "Inputs" .!= mempty) <*> (x .:? "StepName")
+                   (x .:? "FailureDetails") <*>
+                     (x .:? "Inputs" .!= mempty)
+                     <*> (x .:? "StepName")
                      <*> (x .:? "ExecutionEndTime")
                      <*> (x .:? "FailureMessage")
                      <*> (x .:? "Response")
@@ -5166,7 +6538,9 @@ instance ToJSON Tag where
                  [Just ("Key" .= _tagKey),
                   Just ("Value" .= _tagValue)])
 
--- | An array of search criteria that targets instances using a @Key@ ;@Value@ combination that you specify. @Targets@ is required if you don't provide one or more instance IDs in the call.
+-- | An array of search criteria that targets instances using a Key,Value combination that you specify. @Targets@ is required if you don't provide one or more instance IDs in the call.
+--
+--
 --
 --
 --
@@ -5180,9 +6554,9 @@ data Target = Target'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tValues' - User-defined criteria that maps to @Key@ . For example, if you specified @tag:ServerRole@ , you could specify @value:WebServer@ to execute a command on instances that include Amazon EC2 tags of ServerRole;WebServer. For more information about how to send commands that target instances using @Key@ ;@Value@ parameters, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Windows).
+-- * 'tValues' - User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using Key,Value parameters, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Executing a Command Using Systems Manager Run Command> .
 --
--- * 'tKey' - User-defined criteria for sending commands that target instances that meet the criteria. @Key@ can be @tag:<Amazon EC2 tag>@ or @name:<Amazon EC2 instance ID>@ . For example, @tag:ServerRole@ or @name:0123456789012345@ . For more information about how to send commands that target instances using @Key@ ;@Value@ parameters, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Windows).
+-- * 'tKey' - User-defined criteria for sending commands that target instances that meet the criteria. Key can be tag:<Amazon EC2 tag> or InstanceIds. For more information about how to send commands that target instances using Key,Value parameters, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Executing a Command Using Systems Manager Run Command> .
 target
     :: Target
 target =
@@ -5191,11 +6565,11 @@ target =
     , _tKey = Nothing
     }
 
--- | User-defined criteria that maps to @Key@ . For example, if you specified @tag:ServerRole@ , you could specify @value:WebServer@ to execute a command on instances that include Amazon EC2 tags of ServerRole;WebServer. For more information about how to send commands that target instances using @Key@ ;@Value@ parameters, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Windows).
+-- | User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using Key,Value parameters, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Executing a Command Using Systems Manager Run Command> .
 tValues :: Lens' Target [Text]
 tValues = lens _tValues (\ s a -> s{_tValues = a}) . _Default . _Coerce;
 
--- | User-defined criteria for sending commands that target instances that meet the criteria. @Key@ can be @tag:<Amazon EC2 tag>@ or @name:<Amazon EC2 instance ID>@ . For example, @tag:ServerRole@ or @name:0123456789012345@ . For more information about how to send commands that target instances using @Key@ ;@Value@ parameters, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Windows).
+-- | User-defined criteria for sending commands that target instances that meet the criteria. Key can be tag:<Amazon EC2 tag> or InstanceIds. For more information about how to send commands that target instances using Key,Value parameters, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Executing a Command Using Systems Manager Run Command> .
 tKey :: Lens' Target (Maybe Text)
 tKey = lens _tKey (\ s a -> s{_tKey = a});
 

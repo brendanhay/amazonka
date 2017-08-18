@@ -29,6 +29,7 @@ module Network.AWS.SSM.GetInventorySchema
     -- * Request Lenses
     , gisTypeName
     , gisNextToken
+    , gisSubType
     , gisMaxResults
 
     -- * Destructuring the Response
@@ -51,6 +52,7 @@ import           Network.AWS.SSM.Types.Product
 data GetInventorySchema = GetInventorySchema'
     { _gisTypeName   :: !(Maybe Text)
     , _gisNextToken  :: !(Maybe Text)
+    , _gisSubType    :: !(Maybe Bool)
     , _gisMaxResults :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -62,6 +64,8 @@ data GetInventorySchema = GetInventorySchema'
 --
 -- * 'gisNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
+-- * 'gisSubType' - Returns the sub-type schema for a specified inventory type.
+--
 -- * 'gisMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 getInventorySchema
     :: GetInventorySchema
@@ -69,6 +73,7 @@ getInventorySchema =
     GetInventorySchema'
     { _gisTypeName = Nothing
     , _gisNextToken = Nothing
+    , _gisSubType = Nothing
     , _gisMaxResults = Nothing
     }
 
@@ -79,6 +84,10 @@ gisTypeName = lens _gisTypeName (\ s a -> s{_gisTypeName = a});
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 gisNextToken :: Lens' GetInventorySchema (Maybe Text)
 gisNextToken = lens _gisNextToken (\ s a -> s{_gisNextToken = a});
+
+-- | Returns the sub-type schema for a specified inventory type.
+gisSubType :: Lens' GetInventorySchema (Maybe Bool)
+gisSubType = lens _gisSubType (\ s a -> s{_gisSubType = a});
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 gisMaxResults :: Lens' GetInventorySchema (Maybe Natural)
@@ -114,6 +123,7 @@ instance ToJSON GetInventorySchema where
               (catMaybes
                  [("TypeName" .=) <$> _gisTypeName,
                   ("NextToken" .=) <$> _gisNextToken,
+                  ("SubType" .=) <$> _gisSubType,
                   ("MaxResults" .=) <$> _gisMaxResults])
 
 instance ToPath GetInventorySchema where

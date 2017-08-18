@@ -28,7 +28,9 @@ module Network.AWS.SSM.UpdateAssociation
     , UpdateAssociation
     -- * Request Lenses
     , uaScheduleExpression
+    , uaName
     , uaOutputLocation
+    , uaTargets
     , uaParameters
     , uaDocumentVersion
     , uaAssociationId
@@ -51,7 +53,9 @@ import           Network.AWS.SSM.Types.Product
 -- | /See:/ 'updateAssociation' smart constructor.
 data UpdateAssociation = UpdateAssociation'
     { _uaScheduleExpression :: !(Maybe Text)
+    , _uaName               :: !(Maybe Text)
     , _uaOutputLocation     :: !(Maybe InstanceAssociationOutputLocation)
+    , _uaTargets            :: !(Maybe [Target])
     , _uaParameters         :: !(Maybe (Map Text [Text]))
     , _uaDocumentVersion    :: !(Maybe Text)
     , _uaAssociationId      :: !Text
@@ -61,9 +65,13 @@ data UpdateAssociation = UpdateAssociation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uaScheduleExpression' - The cron expression used to schedule the association that you want to update. Supported expressions are every half, 1, 2, 4, 8 or 12 hour(s); every specified day and time of the week. For example: cron(0 0/30 * 1/1 * ? *) to run every thirty minutes; cron(0 0 0/4 1/1 * ? *) to run every four hours; and cron(0 0 10 ? * SUN *) to run every Sunday at 10 a.m.
+-- * 'uaScheduleExpression' - The cron expression used to schedule the association that you want to update.
 --
--- * 'uaOutputLocation' - An Amazon S3 bucket where you want to store the results of this request. @"{ \"S3Location\": { \"OutputS3Region\": \"<region>\", \"OutputS3BucketName\": \"bucket name\", \"OutputS3KeyPrefix\": \"folder name\" } }"@
+-- * 'uaName' - The name of the association document.
+--
+-- * 'uaOutputLocation' - An Amazon S3 bucket where you want to store the results of this request.
+--
+-- * 'uaTargets' - The targets of the association.
 --
 -- * 'uaParameters' - The parameters you want to update for the association. If you create a parameter using Parameter Store, you can reference the parameter using {{ssm:parameter-name}}
 --
@@ -76,19 +84,29 @@ updateAssociation
 updateAssociation pAssociationId_ =
     UpdateAssociation'
     { _uaScheduleExpression = Nothing
+    , _uaName = Nothing
     , _uaOutputLocation = Nothing
+    , _uaTargets = Nothing
     , _uaParameters = Nothing
     , _uaDocumentVersion = Nothing
     , _uaAssociationId = pAssociationId_
     }
 
--- | The cron expression used to schedule the association that you want to update. Supported expressions are every half, 1, 2, 4, 8 or 12 hour(s); every specified day and time of the week. For example: cron(0 0/30 * 1/1 * ? *) to run every thirty minutes; cron(0 0 0/4 1/1 * ? *) to run every four hours; and cron(0 0 10 ? * SUN *) to run every Sunday at 10 a.m.
+-- | The cron expression used to schedule the association that you want to update.
 uaScheduleExpression :: Lens' UpdateAssociation (Maybe Text)
 uaScheduleExpression = lens _uaScheduleExpression (\ s a -> s{_uaScheduleExpression = a});
 
--- | An Amazon S3 bucket where you want to store the results of this request. @"{ \"S3Location\": { \"OutputS3Region\": \"<region>\", \"OutputS3BucketName\": \"bucket name\", \"OutputS3KeyPrefix\": \"folder name\" } }"@
+-- | The name of the association document.
+uaName :: Lens' UpdateAssociation (Maybe Text)
+uaName = lens _uaName (\ s a -> s{_uaName = a});
+
+-- | An Amazon S3 bucket where you want to store the results of this request.
 uaOutputLocation :: Lens' UpdateAssociation (Maybe InstanceAssociationOutputLocation)
 uaOutputLocation = lens _uaOutputLocation (\ s a -> s{_uaOutputLocation = a});
+
+-- | The targets of the association.
+uaTargets :: Lens' UpdateAssociation [Target]
+uaTargets = lens _uaTargets (\ s a -> s{_uaTargets = a}) . _Default . _Coerce;
 
 -- | The parameters you want to update for the association. If you create a parameter using Parameter Store, you can reference the parameter using {{ssm:parameter-name}}
 uaParameters :: Lens' UpdateAssociation (HashMap Text [Text])
@@ -130,7 +148,9 @@ instance ToJSON UpdateAssociation where
           = object
               (catMaybes
                  [("ScheduleExpression" .=) <$> _uaScheduleExpression,
+                  ("Name" .=) <$> _uaName,
                   ("OutputLocation" .=) <$> _uaOutputLocation,
+                  ("Targets" .=) <$> _uaTargets,
                   ("Parameters" .=) <$> _uaParameters,
                   ("DocumentVersion" .=) <$> _uaDocumentVersion,
                   Just ("AssociationId" .= _uaAssociationId)])

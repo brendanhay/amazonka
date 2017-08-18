@@ -28,6 +28,7 @@ module Network.AWS.SSM.CreateMaintenanceWindow
     , CreateMaintenanceWindow
     -- * Request Lenses
     , cmwClientToken
+    , cmwDescription
     , cmwName
     , cmwSchedule
     , cmwDuration
@@ -52,18 +53,21 @@ import           Network.AWS.SSM.Types.Product
 -- | /See:/ 'createMaintenanceWindow' smart constructor.
 data CreateMaintenanceWindow = CreateMaintenanceWindow'
     { _cmwClientToken              :: !(Maybe Text)
+    , _cmwDescription              :: !(Maybe (Sensitive Text))
     , _cmwName                     :: !Text
     , _cmwSchedule                 :: !Text
     , _cmwDuration                 :: !Nat
     , _cmwCutoff                   :: !Nat
     , _cmwAllowUnassociatedTargets :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateMaintenanceWindow' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cmwClientToken' - User-provided idempotency token.
+--
+-- * 'cmwDescription' - An optional description for the Maintenance Window. We recommend specifying a description to help your organize your Maintenance Windows.
 --
 -- * 'cmwName' - The name of the Maintenance Window.
 --
@@ -84,6 +88,7 @@ createMaintenanceWindow
 createMaintenanceWindow pName_ pSchedule_ pDuration_ pCutoff_ pAllowUnassociatedTargets_ =
     CreateMaintenanceWindow'
     { _cmwClientToken = Nothing
+    , _cmwDescription = Nothing
     , _cmwName = pName_
     , _cmwSchedule = pSchedule_
     , _cmwDuration = _Nat # pDuration_
@@ -94,6 +99,10 @@ createMaintenanceWindow pName_ pSchedule_ pDuration_ pCutoff_ pAllowUnassociated
 -- | User-provided idempotency token.
 cmwClientToken :: Lens' CreateMaintenanceWindow (Maybe Text)
 cmwClientToken = lens _cmwClientToken (\ s a -> s{_cmwClientToken = a});
+
+-- | An optional description for the Maintenance Window. We recommend specifying a description to help your organize your Maintenance Windows.
+cmwDescription :: Lens' CreateMaintenanceWindow (Maybe Text)
+cmwDescription = lens _cmwDescription (\ s a -> s{_cmwDescription = a}) . mapping _Sensitive;
 
 -- | The name of the Maintenance Window.
 cmwName :: Lens' CreateMaintenanceWindow Text
@@ -143,6 +152,7 @@ instance ToJSON CreateMaintenanceWindow where
           = object
               (catMaybes
                  [("ClientToken" .=) <$> _cmwClientToken,
+                  ("Description" .=) <$> _cmwDescription,
                   Just ("Name" .= _cmwName),
                   Just ("Schedule" .= _cmwSchedule),
                   Just ("Duration" .= _cmwDuration),

@@ -128,9 +128,9 @@ data DescribePatchGroupStateResponse = DescribePatchGroupStateResponse'
 --
 -- * 'dpgsrsInstancesWithMissingPatches' - The number of instances with missing patches from the patch baseline.
 --
--- * 'dpgsrsInstancesWithInstalledOtherPatches' - The number of instances with patches installed that aren’t defined in the patch baseline.
+-- * 'dpgsrsInstancesWithInstalledOtherPatches' - The number of instances with patches installed that aren't defined in the patch baseline.
 --
--- * 'dpgsrsInstancesWithNotApplicablePatches' - The number of instances with patches that aren’t applicable.
+-- * 'dpgsrsInstancesWithNotApplicablePatches' - The number of instances with patches that aren't applicable.
 --
 -- * 'dpgsrsInstancesWithInstalledPatches' - The number of instances with installed patches.
 --
@@ -157,11 +157,11 @@ describePatchGroupStateResponse pResponseStatus_ =
 dpgsrsInstancesWithMissingPatches :: Lens' DescribePatchGroupStateResponse (Maybe Int)
 dpgsrsInstancesWithMissingPatches = lens _dpgsrsInstancesWithMissingPatches (\ s a -> s{_dpgsrsInstancesWithMissingPatches = a});
 
--- | The number of instances with patches installed that aren’t defined in the patch baseline.
+-- | The number of instances with patches installed that aren't defined in the patch baseline.
 dpgsrsInstancesWithInstalledOtherPatches :: Lens' DescribePatchGroupStateResponse (Maybe Int)
 dpgsrsInstancesWithInstalledOtherPatches = lens _dpgsrsInstancesWithInstalledOtherPatches (\ s a -> s{_dpgsrsInstancesWithInstalledOtherPatches = a});
 
--- | The number of instances with patches that aren’t applicable.
+-- | The number of instances with patches that aren't applicable.
 dpgsrsInstancesWithNotApplicablePatches :: Lens' DescribePatchGroupStateResponse (Maybe Int)
 dpgsrsInstancesWithNotApplicablePatches = lens _dpgsrsInstancesWithNotApplicablePatches (\ s a -> s{_dpgsrsInstancesWithNotApplicablePatches = a});
 

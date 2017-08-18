@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an SSM document.
+-- Creates a Systems Manager document.
 --
 --
--- After you create an SSM document, you can use CreateAssociation to associate it with one or more running instances.
+-- After you create a document, you can use CreateAssociation to associate it with one or more running instances.
 --
 module Network.AWS.SSM.CreateDocument
     (
@@ -63,7 +63,7 @@ data CreateDocument = CreateDocument'
 --
 -- * 'cdContent' - A valid JSON string.
 --
--- * 'cdName' - A name for the SSM document.
+-- * 'cdName' - A name for the Systems Manager document.
 createDocument
     :: Text -- ^ 'cdContent'
     -> Text -- ^ 'cdName'
@@ -83,7 +83,7 @@ cdDocumentType = lens _cdDocumentType (\ s a -> s{_cdDocumentType = a});
 cdContent :: Lens' CreateDocument Text
 cdContent = lens _cdContent (\ s a -> s{_cdContent = a});
 
--- | A name for the SSM document.
+-- | A name for the Systems Manager document.
 cdName :: Lens' CreateDocument Text
 cdName = lens _cdName (\ s a -> s{_cdName = a});
 
@@ -134,7 +134,7 @@ data CreateDocumentResponse = CreateDocumentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdrsDocumentDescription' - Information about the SSM document.
+-- * 'cdrsDocumentDescription' - Information about the Systems Manager document.
 --
 -- * 'cdrsResponseStatus' - -- | The response status code.
 createDocumentResponse
@@ -146,7 +146,7 @@ createDocumentResponse pResponseStatus_ =
     , _cdrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the SSM document.
+-- | Information about the Systems Manager document.
 cdrsDocumentDescription :: Lens' CreateDocumentResponse (Maybe DocumentDescription)
 cdrsDocumentDescription = lens _cdrsDocumentDescription (\ s a -> s{_cdrsDocumentDescription = a});
 

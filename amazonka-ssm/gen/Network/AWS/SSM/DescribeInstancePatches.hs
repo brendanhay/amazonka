@@ -60,7 +60,7 @@ data DescribeInstancePatches = DescribeInstancePatches'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dipFilters' - Each entry in the array is a structure containing: Key (string, 1 ≤ length ≤ 128) Values (array of strings 1 ≤ length ≤ 256)
+-- * 'dipFilters' - Each entry in the array is a structure containing: Key (string, between 1 and 128 characters) Values (array of strings, each string between 1 and 256 characters)
 --
 -- * 'dipNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
@@ -78,7 +78,7 @@ describeInstancePatches pInstanceId_ =
     , _dipInstanceId = pInstanceId_
     }
 
--- | Each entry in the array is a structure containing: Key (string, 1 ≤ length ≤ 128) Values (array of strings 1 ≤ length ≤ 256)
+-- | Each entry in the array is a structure containing: Key (string, between 1 and 128 characters) Values (array of strings, each string between 1 and 256 characters)
 dipFilters :: Lens' DescribeInstancePatches [PatchOrchestratorFilter]
 dipFilters = lens _dipFilters (\ s a -> s{_dipFilters = a}) . _Default . _Coerce;
 
@@ -144,7 +144,7 @@ data DescribeInstancePatchesResponse = DescribeInstancePatchesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diprsPatches' - Each entry in the array is a structure containing: Title (string) KBId (string) Classification (string) Severity (string) State (string – “INSTALLED”, “INSTALLED_OTHER”, “MISSING”, “NOT_APPLICABLE”, “FAILED”) InstalledTime (DateTime) InstalledBy (string)
+-- * 'diprsPatches' - Each entry in the array is a structure containing: Title (string) KBId (string) Classification (string) Severity (string) State (string: "INSTALLED", "INSTALLED OTHER", "MISSING", "NOT APPLICABLE", "FAILED") InstalledTime (DateTime) InstalledBy (string)
 --
 -- * 'diprsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
@@ -159,7 +159,7 @@ describeInstancePatchesResponse pResponseStatus_ =
     , _diprsResponseStatus = pResponseStatus_
     }
 
--- | Each entry in the array is a structure containing: Title (string) KBId (string) Classification (string) Severity (string) State (string – “INSTALLED”, “INSTALLED_OTHER”, “MISSING”, “NOT_APPLICABLE”, “FAILED”) InstalledTime (DateTime) InstalledBy (string)
+-- | Each entry in the array is a structure containing: Title (string) KBId (string) Classification (string) Severity (string) State (string: "INSTALLED", "INSTALLED OTHER", "MISSING", "NOT APPLICABLE", "FAILED") InstalledTime (DateTime) InstalledBy (string)
 diprsPatches :: Lens' DescribeInstancePatchesResponse [PatchComplianceData]
 diprsPatches = lens _diprsPatches (\ s a -> s{_diprsPatches = a}) . _Default . _Coerce;
 

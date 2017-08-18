@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers your on-premises server or virtual machine with Amazon EC2 so that you can manage these resources using Run Command. An on-premises server or virtual machine that has been registered with EC2 is called a managed instance. For more information about activations, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managed-instances.html Setting Up Managed Instances (Linux)> or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/managed-instances.html Setting Up Managed Instances (Windows)> in the Amazon EC2 User Guide.
+-- Registers your on-premises server or virtual machine with Amazon EC2 so that you can manage these resources using Run Command. An on-premises server or virtual machine that has been registered with EC2 is called a managed instance. For more information about activations, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html Setting Up Systems Manager in Hybrid Environments> .
 --
 --
 module Network.AWS.SSM.CreateActivation
@@ -68,7 +68,7 @@ data CreateActivation = CreateActivation'
 --
 -- * 'caExpirationDate' - The date by which this activation request should expire. The default value is 24 hours.
 --
--- * 'caDescription' - A user-defined description of the resource that you want to register with Amazon EC2.
+-- * 'caDescription' - A userdefined description of the resource that you want to register with Amazon EC2.
 --
 -- * 'caIAMRole' - The Amazon Identity and Access Management (IAM) role that you want to assign to the managed instance.
 createActivation
@@ -95,7 +95,7 @@ caRegistrationLimit = lens _caRegistrationLimit (\ s a -> s{_caRegistrationLimit
 caExpirationDate :: Lens' CreateActivation (Maybe UTCTime)
 caExpirationDate = lens _caExpirationDate (\ s a -> s{_caExpirationDate = a}) . mapping _Time;
 
--- | A user-defined description of the resource that you want to register with Amazon EC2.
+-- | A userdefined description of the resource that you want to register with Amazon EC2.
 caDescription :: Lens' CreateActivation (Maybe Text)
 caDescription = lens _caDescription (\ s a -> s{_caDescription = a});
 

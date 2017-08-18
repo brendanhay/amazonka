@@ -27,6 +27,7 @@ module Network.AWS.SSM.DeregisterTargetFromMaintenanceWindow
       deregisterTargetFromMaintenanceWindow
     , DeregisterTargetFromMaintenanceWindow
     -- * Request Lenses
+    , dtfmwSafe
     , dtfmwWindowId
     , dtfmwWindowTargetId
 
@@ -48,13 +49,16 @@ import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'deregisterTargetFromMaintenanceWindow' smart constructor.
 data DeregisterTargetFromMaintenanceWindow = DeregisterTargetFromMaintenanceWindow'
-    { _dtfmwWindowId       :: !Text
+    { _dtfmwSafe           :: !(Maybe Bool)
+    , _dtfmwWindowId       :: !Text
     , _dtfmwWindowTargetId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeregisterTargetFromMaintenanceWindow' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtfmwSafe' - The system checks if the target is being referenced by a task. If the target is being referenced, the system returns and error and does not deregister the target from the Maintenance Window.
 --
 -- * 'dtfmwWindowId' - The ID of the Maintenance Window the target should be removed from.
 --
@@ -65,9 +69,14 @@ deregisterTargetFromMaintenanceWindow
     -> DeregisterTargetFromMaintenanceWindow
 deregisterTargetFromMaintenanceWindow pWindowId_ pWindowTargetId_ =
     DeregisterTargetFromMaintenanceWindow'
-    { _dtfmwWindowId = pWindowId_
+    { _dtfmwSafe = Nothing
+    , _dtfmwWindowId = pWindowId_
     , _dtfmwWindowTargetId = pWindowTargetId_
     }
+
+-- | The system checks if the target is being referenced by a task. If the target is being referenced, the system returns and error and does not deregister the target from the Maintenance Window.
+dtfmwSafe :: Lens' DeregisterTargetFromMaintenanceWindow (Maybe Bool)
+dtfmwSafe = lens _dtfmwSafe (\ s a -> s{_dtfmwSafe = a});
 
 -- | The ID of the Maintenance Window the target should be removed from.
 dtfmwWindowId :: Lens' DeregisterTargetFromMaintenanceWindow Text
@@ -110,7 +119,8 @@ instance ToJSON DeregisterTargetFromMaintenanceWindow
         toJSON DeregisterTargetFromMaintenanceWindow'{..}
           = object
               (catMaybes
-                 [Just ("WindowId" .= _dtfmwWindowId),
+                 [("Safe" .=) <$> _dtfmwSafe,
+                  Just ("WindowId" .= _dtfmwWindowId),
                   Just ("WindowTargetId" .= _dtfmwWindowTargetId)])
 
 instance ToPath DeregisterTargetFromMaintenanceWindow

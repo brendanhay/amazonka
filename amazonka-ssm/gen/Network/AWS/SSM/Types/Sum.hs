@@ -122,6 +122,7 @@ data AutomationExecutionStatus
     | AESPending
     | AESSuccess
     | AESTimedOut
+    | AESWaiting
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText AutomationExecutionStatus where
@@ -132,8 +133,9 @@ instance FromText AutomationExecutionStatus where
         "pending" -> pure AESPending
         "success" -> pure AESSuccess
         "timedout" -> pure AESTimedOut
+        "waiting" -> pure AESWaiting
         e -> fromTextError $ "Failure parsing AutomationExecutionStatus from value: '" <> e
-           <> "'. Accepted values: cancelled, failed, inprogress, pending, success, timedout"
+           <> "'. Accepted values: cancelled, failed, inprogress, pending, success, timedout, waiting"
 
 instance ToText AutomationExecutionStatus where
     toText = \case
@@ -143,6 +145,7 @@ instance ToText AutomationExecutionStatus where
         AESPending -> "Pending"
         AESSuccess -> "Success"
         AESTimedOut -> "TimedOut"
+        AESWaiting -> "Waiting"
 
 instance Hashable     AutomationExecutionStatus
 instance NFData       AutomationExecutionStatus
@@ -304,6 +307,111 @@ instance ToHeader     CommandStatus
 
 instance FromJSON CommandStatus where
     parseJSON = parseJSONText "CommandStatus"
+
+data ComplianceQueryOperatorType
+    = CQOTBeginWith
+    | CQOTEqual
+    | CQOTGreaterThan
+    | CQOTLessThan
+    | CQOTNotEqual
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ComplianceQueryOperatorType where
+    parser = takeLowerText >>= \case
+        "begin_with" -> pure CQOTBeginWith
+        "equal" -> pure CQOTEqual
+        "greater_than" -> pure CQOTGreaterThan
+        "less_than" -> pure CQOTLessThan
+        "not_equal" -> pure CQOTNotEqual
+        e -> fromTextError $ "Failure parsing ComplianceQueryOperatorType from value: '" <> e
+           <> "'. Accepted values: begin_with, equal, greater_than, less_than, not_equal"
+
+instance ToText ComplianceQueryOperatorType where
+    toText = \case
+        CQOTBeginWith -> "BEGIN_WITH"
+        CQOTEqual -> "EQUAL"
+        CQOTGreaterThan -> "GREATER_THAN"
+        CQOTLessThan -> "LESS_THAN"
+        CQOTNotEqual -> "NOT_EQUAL"
+
+instance Hashable     ComplianceQueryOperatorType
+instance NFData       ComplianceQueryOperatorType
+instance ToByteString ComplianceQueryOperatorType
+instance ToQuery      ComplianceQueryOperatorType
+instance ToHeader     ComplianceQueryOperatorType
+
+instance ToJSON ComplianceQueryOperatorType where
+    toJSON = toJSONText
+
+data ComplianceSeverity
+    = CSCritical
+    | CSHigh
+    | CSInformational
+    | CSLow
+    | CSMedium
+    | CSUnspecified
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ComplianceSeverity where
+    parser = takeLowerText >>= \case
+        "critical" -> pure CSCritical
+        "high" -> pure CSHigh
+        "informational" -> pure CSInformational
+        "low" -> pure CSLow
+        "medium" -> pure CSMedium
+        "unspecified" -> pure CSUnspecified
+        e -> fromTextError $ "Failure parsing ComplianceSeverity from value: '" <> e
+           <> "'. Accepted values: critical, high, informational, low, medium, unspecified"
+
+instance ToText ComplianceSeverity where
+    toText = \case
+        CSCritical -> "CRITICAL"
+        CSHigh -> "HIGH"
+        CSInformational -> "INFORMATIONAL"
+        CSLow -> "LOW"
+        CSMedium -> "MEDIUM"
+        CSUnspecified -> "UNSPECIFIED"
+
+instance Hashable     ComplianceSeverity
+instance NFData       ComplianceSeverity
+instance ToByteString ComplianceSeverity
+instance ToQuery      ComplianceSeverity
+instance ToHeader     ComplianceSeverity
+
+instance ToJSON ComplianceSeverity where
+    toJSON = toJSONText
+
+instance FromJSON ComplianceSeverity where
+    parseJSON = parseJSONText "ComplianceSeverity"
+
+data ComplianceStatus
+    = Compliant
+    | NonCompliant
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ComplianceStatus where
+    parser = takeLowerText >>= \case
+        "compliant" -> pure Compliant
+        "non_compliant" -> pure NonCompliant
+        e -> fromTextError $ "Failure parsing ComplianceStatus from value: '" <> e
+           <> "'. Accepted values: compliant, non_compliant"
+
+instance ToText ComplianceStatus where
+    toText = \case
+        Compliant -> "COMPLIANT"
+        NonCompliant -> "NON_COMPLIANT"
+
+instance Hashable     ComplianceStatus
+instance NFData       ComplianceStatus
+instance ToByteString ComplianceStatus
+instance ToQuery      ComplianceStatus
+instance ToHeader     ComplianceStatus
+
+instance ToJSON ComplianceStatus where
+    toJSON = toJSONText
+
+instance FromJSON ComplianceStatus where
+    parseJSON = parseJSONText "ComplianceStatus"
 
 data DescribeActivationsFilterKeys
     = ActivationIds
@@ -674,6 +782,35 @@ instance ToHeader     InventoryQueryOperatorType
 instance ToJSON InventoryQueryOperatorType where
     toJSON = toJSONText
 
+data LastResourceDataSyncStatus
+    = LRDSSFailed
+    | LRDSSInProgress
+    | LRDSSSuccessful
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText LastResourceDataSyncStatus where
+    parser = takeLowerText >>= \case
+        "failed" -> pure LRDSSFailed
+        "inprogress" -> pure LRDSSInProgress
+        "successful" -> pure LRDSSSuccessful
+        e -> fromTextError $ "Failure parsing LastResourceDataSyncStatus from value: '" <> e
+           <> "'. Accepted values: failed, inprogress, successful"
+
+instance ToText LastResourceDataSyncStatus where
+    toText = \case
+        LRDSSFailed -> "Failed"
+        LRDSSInProgress -> "InProgress"
+        LRDSSSuccessful -> "Successful"
+
+instance Hashable     LastResourceDataSyncStatus
+instance NFData       LastResourceDataSyncStatus
+instance ToByteString LastResourceDataSyncStatus
+instance ToQuery      LastResourceDataSyncStatus
+instance ToHeader     LastResourceDataSyncStatus
+
+instance FromJSON LastResourceDataSyncStatus where
+    parseJSON = parseJSONText "LastResourceDataSyncStatus"
+
 data MaintenanceWindowExecutionStatus
     = MWESCancelled
     | MWESCancelling
@@ -744,19 +881,28 @@ instance ToJSON MaintenanceWindowResourceType where
 instance FromJSON MaintenanceWindowResourceType where
     parseJSON = parseJSONText "MaintenanceWindowResourceType"
 
-data MaintenanceWindowTaskType =
-    RunCommand
+data MaintenanceWindowTaskType
+    = Automation
+    | Lambda
+    | RunCommand
+    | StepFunctions
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MaintenanceWindowTaskType where
     parser = takeLowerText >>= \case
+        "automation" -> pure Automation
+        "lambda" -> pure Lambda
         "run_command" -> pure RunCommand
+        "step_functions" -> pure StepFunctions
         e -> fromTextError $ "Failure parsing MaintenanceWindowTaskType from value: '" <> e
-           <> "'. Accepted values: run_command"
+           <> "'. Accepted values: automation, lambda, run_command, step_functions"
 
 instance ToText MaintenanceWindowTaskType where
     toText = \case
+        Automation -> "AUTOMATION"
+        Lambda -> "LAMBDA"
         RunCommand -> "RUN_COMMAND"
+        StepFunctions -> "STEP_FUNCTIONS"
 
 instance Hashable     MaintenanceWindowTaskType
 instance NFData       MaintenanceWindowTaskType
@@ -839,6 +985,41 @@ instance ToJSON NotificationType where
 
 instance FromJSON NotificationType where
     parseJSON = parseJSONText "NotificationType"
+
+data OperatingSystem
+    = AmazonLinux
+    | RedhatEnterpriseLinux
+    | Ubuntu
+    | Windows
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText OperatingSystem where
+    parser = takeLowerText >>= \case
+        "amazon_linux" -> pure AmazonLinux
+        "redhat_enterprise_linux" -> pure RedhatEnterpriseLinux
+        "ubuntu" -> pure Ubuntu
+        "windows" -> pure Windows
+        e -> fromTextError $ "Failure parsing OperatingSystem from value: '" <> e
+           <> "'. Accepted values: amazon_linux, redhat_enterprise_linux, ubuntu, windows"
+
+instance ToText OperatingSystem where
+    toText = \case
+        AmazonLinux -> "AMAZON_LINUX"
+        RedhatEnterpriseLinux -> "REDHAT_ENTERPRISE_LINUX"
+        Ubuntu -> "UBUNTU"
+        Windows -> "WINDOWS"
+
+instance Hashable     OperatingSystem
+instance NFData       OperatingSystem
+instance ToByteString OperatingSystem
+instance ToQuery      OperatingSystem
+instance ToHeader     OperatingSystem
+
+instance ToJSON OperatingSystem where
+    toJSON = toJSONText
+
+instance FromJSON OperatingSystem where
+    parseJSON = parseJSONText "OperatingSystem"
 
 data ParameterType
     = SecureString
@@ -936,6 +1117,47 @@ instance ToHeader     PatchComplianceDataState
 instance FromJSON PatchComplianceDataState where
     parseJSON = parseJSONText "PatchComplianceDataState"
 
+data PatchComplianceLevel
+    = Critical
+    | High
+    | Informational
+    | Low
+    | Medium
+    | Unspecified
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText PatchComplianceLevel where
+    parser = takeLowerText >>= \case
+        "critical" -> pure Critical
+        "high" -> pure High
+        "informational" -> pure Informational
+        "low" -> pure Low
+        "medium" -> pure Medium
+        "unspecified" -> pure Unspecified
+        e -> fromTextError $ "Failure parsing PatchComplianceLevel from value: '" <> e
+           <> "'. Accepted values: critical, high, informational, low, medium, unspecified"
+
+instance ToText PatchComplianceLevel where
+    toText = \case
+        Critical -> "CRITICAL"
+        High -> "HIGH"
+        Informational -> "INFORMATIONAL"
+        Low -> "LOW"
+        Medium -> "MEDIUM"
+        Unspecified -> "UNSPECIFIED"
+
+instance Hashable     PatchComplianceLevel
+instance NFData       PatchComplianceLevel
+instance ToByteString PatchComplianceLevel
+instance ToQuery      PatchComplianceLevel
+instance ToHeader     PatchComplianceLevel
+
+instance ToJSON PatchComplianceLevel where
+    toJSON = toJSONText
+
+instance FromJSON PatchComplianceLevel where
+    parseJSON = parseJSONText "PatchComplianceLevel"
+
 data PatchDeploymentStatus
     = Approved
     | ExplicitApproved
@@ -972,7 +1194,10 @@ data PatchFilterKey
     = Classification
     | MsrcSeverity
     | PatchId
+    | Priority
     | Product
+    | Section
+    | Severity
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText PatchFilterKey where
@@ -980,16 +1205,22 @@ instance FromText PatchFilterKey where
         "classification" -> pure Classification
         "msrc_severity" -> pure MsrcSeverity
         "patch_id" -> pure PatchId
+        "priority" -> pure Priority
         "product" -> pure Product
+        "section" -> pure Section
+        "severity" -> pure Severity
         e -> fromTextError $ "Failure parsing PatchFilterKey from value: '" <> e
-           <> "'. Accepted values: classification, msrc_severity, patch_id, product"
+           <> "'. Accepted values: classification, msrc_severity, patch_id, priority, product, section, severity"
 
 instance ToText PatchFilterKey where
     toText = \case
         Classification -> "CLASSIFICATION"
         MsrcSeverity -> "MSRC_SEVERITY"
         PatchId -> "PATCH_ID"
+        Priority -> "PRIORITY"
         Product -> "PRODUCT"
+        Section -> "SECTION"
+        Severity -> "SEVERITY"
 
 instance Hashable     PatchFilterKey
 instance NFData       PatchFilterKey
@@ -1059,21 +1290,21 @@ instance FromJSON PingStatus where
     parseJSON = parseJSONText "PingStatus"
 
 data PlatformType
-    = Linux
-    | Windows
+    = PTLinux
+    | PTWindows
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText PlatformType where
     parser = takeLowerText >>= \case
-        "linux" -> pure Linux
-        "windows" -> pure Windows
+        "linux" -> pure PTLinux
+        "windows" -> pure PTWindows
         e -> fromTextError $ "Failure parsing PlatformType from value: '" <> e
            <> "'. Accepted values: linux, windows"
 
 instance ToText PlatformType where
     toText = \case
-        Linux -> "Linux"
-        Windows -> "Windows"
+        PTLinux -> "Linux"
+        PTWindows -> "Windows"
 
 instance Hashable     PlatformType
 instance NFData       PlatformType
@@ -1083,6 +1314,32 @@ instance ToHeader     PlatformType
 
 instance FromJSON PlatformType where
     parseJSON = parseJSONText "PlatformType"
+
+data ResourceDataSyncS3Format =
+    JSONSerDe
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ResourceDataSyncS3Format where
+    parser = takeLowerText >>= \case
+        "jsonserde" -> pure JSONSerDe
+        e -> fromTextError $ "Failure parsing ResourceDataSyncS3Format from value: '" <> e
+           <> "'. Accepted values: jsonserde"
+
+instance ToText ResourceDataSyncS3Format where
+    toText = \case
+        JSONSerDe -> "JsonSerDe"
+
+instance Hashable     ResourceDataSyncS3Format
+instance NFData       ResourceDataSyncS3Format
+instance ToByteString ResourceDataSyncS3Format
+instance ToQuery      ResourceDataSyncS3Format
+instance ToHeader     ResourceDataSyncS3Format
+
+instance ToJSON ResourceDataSyncS3Format where
+    toJSON = toJSONText
+
+instance FromJSON ResourceDataSyncS3Format where
+    parseJSON = parseJSONText "ResourceDataSyncS3Format"
 
 data ResourceType
     = Document
@@ -1140,4 +1397,30 @@ instance ToQuery      ResourceTypeForTagging
 instance ToHeader     ResourceTypeForTagging
 
 instance ToJSON ResourceTypeForTagging where
+    toJSON = toJSONText
+
+data SignalType
+    = Approve
+    | Reject
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText SignalType where
+    parser = takeLowerText >>= \case
+        "approve" -> pure Approve
+        "reject" -> pure Reject
+        e -> fromTextError $ "Failure parsing SignalType from value: '" <> e
+           <> "'. Accepted values: approve, reject"
+
+instance ToText SignalType where
+    toText = \case
+        Approve -> "Approve"
+        Reject -> "Reject"
+
+instance Hashable     SignalType
+instance NFData       SignalType
+instance ToByteString SignalType
+instance ToQuery      SignalType
+instance ToHeader     SignalType
+
+instance ToJSON SignalType where
     toJSON = toJSONText

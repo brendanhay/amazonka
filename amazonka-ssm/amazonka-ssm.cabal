@@ -48,12 +48,15 @@ library
         , Network.AWS.SSM.CreateDocument
         , Network.AWS.SSM.CreateMaintenanceWindow
         , Network.AWS.SSM.CreatePatchBaseline
+        , Network.AWS.SSM.CreateResourceDataSync
         , Network.AWS.SSM.DeleteActivation
         , Network.AWS.SSM.DeleteAssociation
         , Network.AWS.SSM.DeleteDocument
         , Network.AWS.SSM.DeleteMaintenanceWindow
         , Network.AWS.SSM.DeleteParameter
+        , Network.AWS.SSM.DeleteParameters
         , Network.AWS.SSM.DeletePatchBaseline
+        , Network.AWS.SSM.DeleteResourceDataSync
         , Network.AWS.SSM.DeregisterManagedInstance
         , Network.AWS.SSM.DeregisterPatchBaselineForPatchGroup
         , Network.AWS.SSM.DeregisterTargetFromMaintenanceWindow
@@ -91,18 +94,27 @@ library
         , Network.AWS.SSM.GetMaintenanceWindow
         , Network.AWS.SSM.GetMaintenanceWindowExecution
         , Network.AWS.SSM.GetMaintenanceWindowExecutionTask
+        , Network.AWS.SSM.GetMaintenanceWindowExecutionTaskInvocation
+        , Network.AWS.SSM.GetMaintenanceWindowTask
+        , Network.AWS.SSM.GetParameter
         , Network.AWS.SSM.GetParameterHistory
         , Network.AWS.SSM.GetParameters
+        , Network.AWS.SSM.GetParametersByPath
         , Network.AWS.SSM.GetPatchBaseline
         , Network.AWS.SSM.GetPatchBaselineForPatchGroup
         , Network.AWS.SSM.ListAssociations
         , Network.AWS.SSM.ListCommandInvocations
         , Network.AWS.SSM.ListCommands
+        , Network.AWS.SSM.ListComplianceItems
+        , Network.AWS.SSM.ListComplianceSummaries
         , Network.AWS.SSM.ListDocumentVersions
         , Network.AWS.SSM.ListDocuments
         , Network.AWS.SSM.ListInventoryEntries
+        , Network.AWS.SSM.ListResourceComplianceSummaries
+        , Network.AWS.SSM.ListResourceDataSync
         , Network.AWS.SSM.ListTagsForResource
         , Network.AWS.SSM.ModifyDocumentPermission
+        , Network.AWS.SSM.PutComplianceItems
         , Network.AWS.SSM.PutInventory
         , Network.AWS.SSM.PutParameter
         , Network.AWS.SSM.RegisterDefaultPatchBaseline
@@ -110,6 +122,7 @@ library
         , Network.AWS.SSM.RegisterTargetWithMaintenanceWindow
         , Network.AWS.SSM.RegisterTaskWithMaintenanceWindow
         , Network.AWS.SSM.RemoveTagsFromResource
+        , Network.AWS.SSM.SendAutomationSignal
         , Network.AWS.SSM.SendCommand
         , Network.AWS.SSM.StartAutomationExecution
         , Network.AWS.SSM.StopAutomationExecution
@@ -119,6 +132,8 @@ library
         , Network.AWS.SSM.UpdateDocument
         , Network.AWS.SSM.UpdateDocumentDefaultVersion
         , Network.AWS.SSM.UpdateMaintenanceWindow
+        , Network.AWS.SSM.UpdateMaintenanceWindowTarget
+        , Network.AWS.SSM.UpdateMaintenanceWindowTask
         , Network.AWS.SSM.UpdateManagedInstanceRole
         , Network.AWS.SSM.UpdatePatchBaseline
         , Network.AWS.SSM.Waiters

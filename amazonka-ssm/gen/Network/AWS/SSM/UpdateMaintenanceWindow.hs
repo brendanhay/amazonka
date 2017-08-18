@@ -27,11 +27,13 @@ module Network.AWS.SSM.UpdateMaintenanceWindow
       updateMaintenanceWindow
     , UpdateMaintenanceWindow
     -- * Request Lenses
+    , umwReplace
     , umwEnabled
     , umwSchedule
     , umwName
     , umwCutoff
     , umwAllowUnassociatedTargets
+    , umwDescription
     , umwDuration
     , umwWindowId
 
@@ -44,6 +46,7 @@ module Network.AWS.SSM.UpdateMaintenanceWindow
     , umwrsName
     , umwrsCutoff
     , umwrsAllowUnassociatedTargets
+    , umwrsDescription
     , umwrsDuration
     , umwrsWindowId
     , umwrsResponseStatus
@@ -58,18 +61,22 @@ import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updateMaintenanceWindow' smart constructor.
 data UpdateMaintenanceWindow = UpdateMaintenanceWindow'
-    { _umwEnabled                  :: !(Maybe Bool)
+    { _umwReplace                  :: !(Maybe Bool)
+    , _umwEnabled                  :: !(Maybe Bool)
     , _umwSchedule                 :: !(Maybe Text)
     , _umwName                     :: !(Maybe Text)
     , _umwCutoff                   :: !(Maybe Nat)
     , _umwAllowUnassociatedTargets :: !(Maybe Bool)
+    , _umwDescription              :: !(Maybe (Sensitive Text))
     , _umwDuration                 :: !(Maybe Nat)
     , _umwWindowId                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateMaintenanceWindow' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'umwReplace' - If you specify True, then all fields that are required by the CreateMaintenanceWindow API are also required for this API request. Optional fields that are not specified will be set to null.
 --
 -- * 'umwEnabled' - Whether the Maintenance Window is enabled.
 --
@@ -81,6 +88,8 @@ data UpdateMaintenanceWindow = UpdateMaintenanceWindow'
 --
 -- * 'umwAllowUnassociatedTargets' - Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
 --
+-- * 'umwDescription' - An optional description for the update request.
+--
 -- * 'umwDuration' - The duration of the Maintenance Window in hours.
 --
 -- * 'umwWindowId' - The ID of the Maintenance Window to update.
@@ -89,14 +98,20 @@ updateMaintenanceWindow
     -> UpdateMaintenanceWindow
 updateMaintenanceWindow pWindowId_ =
     UpdateMaintenanceWindow'
-    { _umwEnabled = Nothing
+    { _umwReplace = Nothing
+    , _umwEnabled = Nothing
     , _umwSchedule = Nothing
     , _umwName = Nothing
     , _umwCutoff = Nothing
     , _umwAllowUnassociatedTargets = Nothing
+    , _umwDescription = Nothing
     , _umwDuration = Nothing
     , _umwWindowId = pWindowId_
     }
+
+-- | If you specify True, then all fields that are required by the CreateMaintenanceWindow API are also required for this API request. Optional fields that are not specified will be set to null.
+umwReplace :: Lens' UpdateMaintenanceWindow (Maybe Bool)
+umwReplace = lens _umwReplace (\ s a -> s{_umwReplace = a});
 
 -- | Whether the Maintenance Window is enabled.
 umwEnabled :: Lens' UpdateMaintenanceWindow (Maybe Bool)
@@ -118,6 +133,10 @@ umwCutoff = lens _umwCutoff (\ s a -> s{_umwCutoff = a}) . mapping _Nat;
 umwAllowUnassociatedTargets :: Lens' UpdateMaintenanceWindow (Maybe Bool)
 umwAllowUnassociatedTargets = lens _umwAllowUnassociatedTargets (\ s a -> s{_umwAllowUnassociatedTargets = a});
 
+-- | An optional description for the update request.
+umwDescription :: Lens' UpdateMaintenanceWindow (Maybe Text)
+umwDescription = lens _umwDescription (\ s a -> s{_umwDescription = a}) . mapping _Sensitive;
+
 -- | The duration of the Maintenance Window in hours.
 umwDuration :: Lens' UpdateMaintenanceWindow (Maybe Natural)
 umwDuration = lens _umwDuration (\ s a -> s{_umwDuration = a}) . mapping _Nat;
@@ -138,6 +157,7 @@ instance AWSRequest UpdateMaintenanceWindow where
                      (x .?> "Name")
                      <*> (x .?> "Cutoff")
                      <*> (x .?> "AllowUnassociatedTargets")
+                     <*> (x .?> "Description")
                      <*> (x .?> "Duration")
                      <*> (x .?> "WindowId")
                      <*> (pure (fromEnum s)))
@@ -159,12 +179,14 @@ instance ToJSON UpdateMaintenanceWindow where
         toJSON UpdateMaintenanceWindow'{..}
           = object
               (catMaybes
-                 [("Enabled" .=) <$> _umwEnabled,
+                 [("Replace" .=) <$> _umwReplace,
+                  ("Enabled" .=) <$> _umwEnabled,
                   ("Schedule" .=) <$> _umwSchedule,
                   ("Name" .=) <$> _umwName,
                   ("Cutoff" .=) <$> _umwCutoff,
                   ("AllowUnassociatedTargets" .=) <$>
                     _umwAllowUnassociatedTargets,
+                  ("Description" .=) <$> _umwDescription,
                   ("Duration" .=) <$> _umwDuration,
                   Just ("WindowId" .= _umwWindowId)])
 
@@ -181,10 +203,11 @@ data UpdateMaintenanceWindowResponse = UpdateMaintenanceWindowResponse'
     , _umwrsName                     :: !(Maybe Text)
     , _umwrsCutoff                   :: !(Maybe Nat)
     , _umwrsAllowUnassociatedTargets :: !(Maybe Bool)
+    , _umwrsDescription              :: !(Maybe (Sensitive Text))
     , _umwrsDuration                 :: !(Maybe Nat)
     , _umwrsWindowId                 :: !(Maybe Text)
     , _umwrsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateMaintenanceWindowResponse' with the minimum fields required to make a request.
 --
@@ -199,6 +222,8 @@ data UpdateMaintenanceWindowResponse = UpdateMaintenanceWindowResponse'
 -- * 'umwrsCutoff' - The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
 --
 -- * 'umwrsAllowUnassociatedTargets' - Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
+--
+-- * 'umwrsDescription' - An optional description of the update.
 --
 -- * 'umwrsDuration' - The duration of the Maintenance Window in hours.
 --
@@ -215,6 +240,7 @@ updateMaintenanceWindowResponse pResponseStatus_ =
     , _umwrsName = Nothing
     , _umwrsCutoff = Nothing
     , _umwrsAllowUnassociatedTargets = Nothing
+    , _umwrsDescription = Nothing
     , _umwrsDuration = Nothing
     , _umwrsWindowId = Nothing
     , _umwrsResponseStatus = pResponseStatus_
@@ -239,6 +265,10 @@ umwrsCutoff = lens _umwrsCutoff (\ s a -> s{_umwrsCutoff = a}) . mapping _Nat;
 -- | Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
 umwrsAllowUnassociatedTargets :: Lens' UpdateMaintenanceWindowResponse (Maybe Bool)
 umwrsAllowUnassociatedTargets = lens _umwrsAllowUnassociatedTargets (\ s a -> s{_umwrsAllowUnassociatedTargets = a});
+
+-- | An optional description of the update.
+umwrsDescription :: Lens' UpdateMaintenanceWindowResponse (Maybe Text)
+umwrsDescription = lens _umwrsDescription (\ s a -> s{_umwrsDescription = a}) . mapping _Sensitive;
 
 -- | The duration of the Maintenance Window in hours.
 umwrsDuration :: Lens' UpdateMaintenanceWindowResponse (Maybe Natural)

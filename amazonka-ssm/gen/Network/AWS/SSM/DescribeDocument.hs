@@ -34,8 +34,8 @@ module Network.AWS.SSM.DescribeDocument
     , describeDocumentResponse
     , DescribeDocumentResponse
     -- * Response Lenses
-    , drsDocument
-    , drsResponseStatus
+    , desrsDocument
+    , desrsResponseStatus
     ) where
 
 import           Network.AWS.Lens
@@ -112,32 +112,32 @@ instance ToQuery DescribeDocument where
 
 -- | /See:/ 'describeDocumentResponse' smart constructor.
 data DescribeDocumentResponse = DescribeDocumentResponse'
-    { _drsDocument       :: !(Maybe DocumentDescription)
-    , _drsResponseStatus :: !Int
+    { _desrsDocument       :: !(Maybe DocumentDescription)
+    , _desrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDocumentResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsDocument' - Information about the SSM document.
+-- * 'desrsDocument' - Information about the SSM document.
 --
--- * 'drsResponseStatus' - -- | The response status code.
+-- * 'desrsResponseStatus' - -- | The response status code.
 describeDocumentResponse
-    :: Int -- ^ 'drsResponseStatus'
+    :: Int -- ^ 'desrsResponseStatus'
     -> DescribeDocumentResponse
 describeDocumentResponse pResponseStatus_ =
     DescribeDocumentResponse'
-    { _drsDocument = Nothing
-    , _drsResponseStatus = pResponseStatus_
+    { _desrsDocument = Nothing
+    , _desrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the SSM document.
-drsDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
-drsDocument = lens _drsDocument (\ s a -> s{_drsDocument = a});
+desrsDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
+desrsDocument = lens _desrsDocument (\ s a -> s{_desrsDocument = a});
 
 -- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeDocumentResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+desrsResponseStatus :: Lens' DescribeDocumentResponse Int
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 
 instance NFData DescribeDocumentResponse

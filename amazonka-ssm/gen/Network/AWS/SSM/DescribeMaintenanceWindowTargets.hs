@@ -60,7 +60,7 @@ data DescribeMaintenanceWindowTargets = DescribeMaintenanceWindowTargets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmwtFilters' - Optional filters that can be used to narrow down the scope of the returned window targets. The supported filter keys are @Type@ , @WindowTargetId@ and @OwnerInformation@ .
+-- * 'dmwtFilters' - Optional filters that can be used to narrow down the scope of the returned window targets. The supported filter keys are Type, WindowTargetId and OwnerInformation.
 --
 -- * 'dmwtNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
@@ -78,7 +78,7 @@ describeMaintenanceWindowTargets pWindowId_ =
     , _dmwtWindowId = pWindowId_
     }
 
--- | Optional filters that can be used to narrow down the scope of the returned window targets. The supported filter keys are @Type@ , @WindowTargetId@ and @OwnerInformation@ .
+-- | Optional filters that can be used to narrow down the scope of the returned window targets. The supported filter keys are Type, WindowTargetId and OwnerInformation.
 dmwtFilters :: Lens' DescribeMaintenanceWindowTargets [MaintenanceWindowFilter]
 dmwtFilters = lens _dmwtFilters (\ s a -> s{_dmwtFilters = a}) . _Default . _Coerce;
 

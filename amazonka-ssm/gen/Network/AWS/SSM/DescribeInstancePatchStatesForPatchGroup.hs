@@ -60,7 +60,7 @@ data DescribeInstancePatchStatesForPatchGroup = DescribeInstancePatchStatesForPa
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dipsfpgFilters' - Each entry in the array is a structure containing: Key (string 1 ≤ length ≤ 200) Values (array containing a single string) Type (string “Equal”, “NotEqual”, “LessThan”, “GreaterThan”)
+-- * 'dipsfpgFilters' - Each entry in the array is a structure containing: Key (string between 1 and 200 characters) Values (array containing a single string) Type (string "Equal", "NotEqual", "LessThan", "GreaterThan")
 --
 -- * 'dipsfpgNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
@@ -78,7 +78,7 @@ describeInstancePatchStatesForPatchGroup pPatchGroup_ =
     , _dipsfpgPatchGroup = pPatchGroup_
     }
 
--- | Each entry in the array is a structure containing: Key (string 1 ≤ length ≤ 200) Values (array containing a single string) Type (string “Equal”, “NotEqual”, “LessThan”, “GreaterThan”)
+-- | Each entry in the array is a structure containing: Key (string between 1 and 200 characters) Values (array containing a single string) Type (string "Equal", "NotEqual", "LessThan", "GreaterThan")
 dipsfpgFilters :: Lens' DescribeInstancePatchStatesForPatchGroup [InstancePatchStateFilter]
 dipsfpgFilters = lens _dipsfpgFilters (\ s a -> s{_dipsfpgFilters = a}) . _Default . _Coerce;
 

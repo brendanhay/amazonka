@@ -53,7 +53,7 @@ newtype GetAutomationExecution = GetAutomationExecution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaeAutomationExecutionId' - The unique identifier for an existing automation execution to examine. The execution ID is returned by @StartAutomationExecution@ when the execution of an Automation document is initiated.
+-- * 'gaeAutomationExecutionId' - The unique identifier for an existing automation execution to examine. The execution ID is returned by StartAutomationExecution when the execution of an Automation document is initiated.
 getAutomationExecution
     :: Text -- ^ 'gaeAutomationExecutionId'
     -> GetAutomationExecution
@@ -62,7 +62,7 @@ getAutomationExecution pAutomationExecutionId_ =
     { _gaeAutomationExecutionId = pAutomationExecutionId_
     }
 
--- | The unique identifier for an existing automation execution to examine. The execution ID is returned by @StartAutomationExecution@ when the execution of an Automation document is initiated.
+-- | The unique identifier for an existing automation execution to examine. The execution ID is returned by StartAutomationExecution when the execution of an Automation document is initiated.
 gaeAutomationExecutionId :: Lens' GetAutomationExecution Text
 gaeAutomationExecutionId = lens _gaeAutomationExecutionId (\ s a -> s{_gaeAutomationExecutionId = a});
 

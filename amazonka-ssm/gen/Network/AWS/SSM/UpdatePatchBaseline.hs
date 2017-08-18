@@ -29,6 +29,7 @@ module Network.AWS.SSM.UpdatePatchBaseline
     -- * Request Lenses
     , upbApprovalRules
     , upbGlobalFilters
+    , upbApprovedPatchesComplianceLevel
     , upbApprovedPatches
     , upbRejectedPatches
     , upbName
@@ -40,7 +41,9 @@ module Network.AWS.SSM.UpdatePatchBaseline
     , UpdatePatchBaselineResponse
     -- * Response Lenses
     , upbrsApprovalRules
+    , upbrsOperatingSystem
     , upbrsGlobalFilters
+    , upbrsApprovedPatchesComplianceLevel
     , upbrsApprovedPatches
     , upbrsRejectedPatches
     , upbrsCreatedDate
@@ -60,13 +63,14 @@ import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updatePatchBaseline' smart constructor.
 data UpdatePatchBaseline = UpdatePatchBaseline'
-    { _upbApprovalRules   :: !(Maybe PatchRuleGroup)
-    , _upbGlobalFilters   :: !(Maybe PatchFilterGroup)
-    , _upbApprovedPatches :: !(Maybe [Text])
-    , _upbRejectedPatches :: !(Maybe [Text])
-    , _upbName            :: !(Maybe Text)
-    , _upbDescription     :: !(Maybe Text)
-    , _upbBaselineId      :: !Text
+    { _upbApprovalRules                  :: !(Maybe PatchRuleGroup)
+    , _upbGlobalFilters                  :: !(Maybe PatchFilterGroup)
+    , _upbApprovedPatchesComplianceLevel :: !(Maybe PatchComplianceLevel)
+    , _upbApprovedPatches                :: !(Maybe [Text])
+    , _upbRejectedPatches                :: !(Maybe [Text])
+    , _upbName                           :: !(Maybe Text)
+    , _upbDescription                    :: !(Maybe Text)
+    , _upbBaselineId                     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdatePatchBaseline' with the minimum fields required to make a request.
@@ -76,6 +80,8 @@ data UpdatePatchBaseline = UpdatePatchBaseline'
 -- * 'upbApprovalRules' - A set of rules used to include patches in the baseline.
 --
 -- * 'upbGlobalFilters' - A set of global filters used to exclude patches from the baseline.
+--
+-- * 'upbApprovedPatchesComplianceLevel' - Assigns a new compliance severity level to an existing patch baseline.
 --
 -- * 'upbApprovedPatches' - A list of explicitly approved patches for the baseline.
 --
@@ -93,6 +99,7 @@ updatePatchBaseline pBaselineId_ =
     UpdatePatchBaseline'
     { _upbApprovalRules = Nothing
     , _upbGlobalFilters = Nothing
+    , _upbApprovedPatchesComplianceLevel = Nothing
     , _upbApprovedPatches = Nothing
     , _upbRejectedPatches = Nothing
     , _upbName = Nothing
@@ -107,6 +114,10 @@ upbApprovalRules = lens _upbApprovalRules (\ s a -> s{_upbApprovalRules = a});
 -- | A set of global filters used to exclude patches from the baseline.
 upbGlobalFilters :: Lens' UpdatePatchBaseline (Maybe PatchFilterGroup)
 upbGlobalFilters = lens _upbGlobalFilters (\ s a -> s{_upbGlobalFilters = a});
+
+-- | Assigns a new compliance severity level to an existing patch baseline.
+upbApprovedPatchesComplianceLevel :: Lens' UpdatePatchBaseline (Maybe PatchComplianceLevel)
+upbApprovedPatchesComplianceLevel = lens _upbApprovedPatchesComplianceLevel (\ s a -> s{_upbApprovedPatchesComplianceLevel = a});
 
 -- | A list of explicitly approved patches for the baseline.
 upbApprovedPatches :: Lens' UpdatePatchBaseline [Text]
@@ -136,7 +147,9 @@ instance AWSRequest UpdatePatchBaseline where
           = receiveJSON
               (\ s h x ->
                  UpdatePatchBaselineResponse' <$>
-                   (x .?> "ApprovalRules") <*> (x .?> "GlobalFilters")
+                   (x .?> "ApprovalRules") <*> (x .?> "OperatingSystem")
+                     <*> (x .?> "GlobalFilters")
+                     <*> (x .?> "ApprovedPatchesComplianceLevel")
                      <*> (x .?> "ApprovedPatches" .!@ mempty)
                      <*> (x .?> "RejectedPatches" .!@ mempty)
                      <*> (x .?> "CreatedDate")
@@ -165,6 +178,8 @@ instance ToJSON UpdatePatchBaseline where
               (catMaybes
                  [("ApprovalRules" .=) <$> _upbApprovalRules,
                   ("GlobalFilters" .=) <$> _upbGlobalFilters,
+                  ("ApprovedPatchesComplianceLevel" .=) <$>
+                    _upbApprovedPatchesComplianceLevel,
                   ("ApprovedPatches" .=) <$> _upbApprovedPatches,
                   ("RejectedPatches" .=) <$> _upbRejectedPatches,
                   ("Name" .=) <$> _upbName,
@@ -179,16 +194,18 @@ instance ToQuery UpdatePatchBaseline where
 
 -- | /See:/ 'updatePatchBaselineResponse' smart constructor.
 data UpdatePatchBaselineResponse = UpdatePatchBaselineResponse'
-    { _upbrsApprovalRules   :: !(Maybe PatchRuleGroup)
-    , _upbrsGlobalFilters   :: !(Maybe PatchFilterGroup)
-    , _upbrsApprovedPatches :: !(Maybe [Text])
-    , _upbrsRejectedPatches :: !(Maybe [Text])
-    , _upbrsCreatedDate     :: !(Maybe POSIX)
-    , _upbrsName            :: !(Maybe Text)
-    , _upbrsModifiedDate    :: !(Maybe POSIX)
-    , _upbrsDescription     :: !(Maybe Text)
-    , _upbrsBaselineId      :: !(Maybe Text)
-    , _upbrsResponseStatus  :: !Int
+    { _upbrsApprovalRules                  :: !(Maybe PatchRuleGroup)
+    , _upbrsOperatingSystem                :: !(Maybe OperatingSystem)
+    , _upbrsGlobalFilters                  :: !(Maybe PatchFilterGroup)
+    , _upbrsApprovedPatchesComplianceLevel :: !(Maybe PatchComplianceLevel)
+    , _upbrsApprovedPatches                :: !(Maybe [Text])
+    , _upbrsRejectedPatches                :: !(Maybe [Text])
+    , _upbrsCreatedDate                    :: !(Maybe POSIX)
+    , _upbrsName                           :: !(Maybe Text)
+    , _upbrsModifiedDate                   :: !(Maybe POSIX)
+    , _upbrsDescription                    :: !(Maybe Text)
+    , _upbrsBaselineId                     :: !(Maybe Text)
+    , _upbrsResponseStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdatePatchBaselineResponse' with the minimum fields required to make a request.
@@ -197,7 +214,11 @@ data UpdatePatchBaselineResponse = UpdatePatchBaselineResponse'
 --
 -- * 'upbrsApprovalRules' - A set of rules used to include patches in the baseline.
 --
+-- * 'upbrsOperatingSystem' - The operating system rule used by the updated patch baseline.
+--
 -- * 'upbrsGlobalFilters' - A set of global filters used to exclude patches from the baseline.
+--
+-- * 'upbrsApprovedPatchesComplianceLevel' - The compliance severity level assigned to the patch baseline after the update completed.
 --
 -- * 'upbrsApprovedPatches' - A list of explicitly approved patches for the baseline.
 --
@@ -220,7 +241,9 @@ updatePatchBaselineResponse
 updatePatchBaselineResponse pResponseStatus_ =
     UpdatePatchBaselineResponse'
     { _upbrsApprovalRules = Nothing
+    , _upbrsOperatingSystem = Nothing
     , _upbrsGlobalFilters = Nothing
+    , _upbrsApprovedPatchesComplianceLevel = Nothing
     , _upbrsApprovedPatches = Nothing
     , _upbrsRejectedPatches = Nothing
     , _upbrsCreatedDate = Nothing
@@ -235,9 +258,17 @@ updatePatchBaselineResponse pResponseStatus_ =
 upbrsApprovalRules :: Lens' UpdatePatchBaselineResponse (Maybe PatchRuleGroup)
 upbrsApprovalRules = lens _upbrsApprovalRules (\ s a -> s{_upbrsApprovalRules = a});
 
+-- | The operating system rule used by the updated patch baseline.
+upbrsOperatingSystem :: Lens' UpdatePatchBaselineResponse (Maybe OperatingSystem)
+upbrsOperatingSystem = lens _upbrsOperatingSystem (\ s a -> s{_upbrsOperatingSystem = a});
+
 -- | A set of global filters used to exclude patches from the baseline.
 upbrsGlobalFilters :: Lens' UpdatePatchBaselineResponse (Maybe PatchFilterGroup)
 upbrsGlobalFilters = lens _upbrsGlobalFilters (\ s a -> s{_upbrsGlobalFilters = a});
+
+-- | The compliance severity level assigned to the patch baseline after the update completed.
+upbrsApprovedPatchesComplianceLevel :: Lens' UpdatePatchBaselineResponse (Maybe PatchComplianceLevel)
+upbrsApprovedPatchesComplianceLevel = lens _upbrsApprovedPatchesComplianceLevel (\ s a -> s{_upbrsApprovedPatchesComplianceLevel = a});
 
 -- | A list of explicitly approved patches for the baseline.
 upbrsApprovedPatches :: Lens' UpdatePatchBaselineResponse [Text]

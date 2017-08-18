@@ -34,11 +34,12 @@ module Network.AWS.DirectConnect.DescribeLoa
     , dlConnectionId
 
     -- * Destructuring the Response
-    , loa
-    , Loa
+    , describeLoaResponse
+    , DescribeLoaResponse
     -- * Response Lenses
-    , loaLoaContent
-    , loaLoaContentType
+    , dlrsLoaContent
+    , dlrsLoaContentType
+    , dlrsResponseStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -91,9 +92,14 @@ dlConnectionId :: Lens' DescribeLoa Text
 dlConnectionId = lens _dlConnectionId (\ s a -> s{_dlConnectionId = a});
 
 instance AWSRequest DescribeLoa where
-        type Rs DescribeLoa = Loa
+        type Rs DescribeLoa = DescribeLoaResponse
         request = postJSON directConnect
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeLoaResponse' <$>
+                   (x .?> "loaContent") <*> (x .?> "loaContentType") <*>
+                     (pure (fromEnum s)))
 
 instance Hashable DescribeLoa
 
@@ -121,3 +127,47 @@ instance ToPath DescribeLoa where
 
 instance ToQuery DescribeLoa where
         toQuery = const mempty
+
+-- | A structure containing the Letter of Authorization - Connecting Facility Assignment (LOA-CFA) for a connection.
+--
+--
+--
+-- /See:/ 'describeLoaResponse' smart constructor.
+data DescribeLoaResponse = DescribeLoaResponse'
+    { _dlrsLoaContent     :: !(Maybe Base64)
+    , _dlrsLoaContentType :: !(Maybe LoaContentType)
+    , _dlrsResponseStatus :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeLoaResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlrsLoaContent' - Undocumented member.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+--
+-- * 'dlrsLoaContentType' - Undocumented member.
+--
+-- * 'dlrsResponseStatus' - -- | The response status code.
+describeLoaResponse
+    :: Int -- ^ 'dlrsResponseStatus'
+    -> DescribeLoaResponse
+describeLoaResponse pResponseStatus_ =
+    DescribeLoaResponse'
+    { _dlrsLoaContent = Nothing
+    , _dlrsLoaContentType = Nothing
+    , _dlrsResponseStatus = pResponseStatus_
+    }
+
+-- | Undocumented member.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+dlrsLoaContent :: Lens' DescribeLoaResponse (Maybe ByteString)
+dlrsLoaContent = lens _dlrsLoaContent (\ s a -> s{_dlrsLoaContent = a}) . mapping _Base64;
+
+-- | Undocumented member.
+dlrsLoaContentType :: Lens' DescribeLoaResponse (Maybe LoaContentType)
+dlrsLoaContentType = lens _dlrsLoaContentType (\ s a -> s{_dlrsLoaContentType = a});
+
+-- | -- | The response status code.
+dlrsResponseStatus :: Lens' DescribeLoaResponse Int
+dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
+
+instance NFData DescribeLoaResponse

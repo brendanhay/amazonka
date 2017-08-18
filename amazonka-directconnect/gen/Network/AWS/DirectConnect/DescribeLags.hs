@@ -35,8 +35,8 @@ module Network.AWS.DirectConnect.DescribeLags
     , describeLagsResponse
     , DescribeLagsResponse
     -- * Response Lenses
-    , dlsrsLags
-    , dlsrsResponseStatus
+    , desrsLags
+    , desrsResponseStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -109,32 +109,32 @@ instance ToQuery DescribeLags where
 --
 -- /See:/ 'describeLagsResponse' smart constructor.
 data DescribeLagsResponse = DescribeLagsResponse'
-    { _dlsrsLags           :: !(Maybe [Lag])
-    , _dlsrsResponseStatus :: !Int
+    { _desrsLags           :: !(Maybe [Lag])
+    , _desrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeLagsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlsrsLags' - A list of LAGs.
+-- * 'desrsLags' - A list of LAGs.
 --
--- * 'dlsrsResponseStatus' - -- | The response status code.
+-- * 'desrsResponseStatus' - -- | The response status code.
 describeLagsResponse
-    :: Int -- ^ 'dlsrsResponseStatus'
+    :: Int -- ^ 'desrsResponseStatus'
     -> DescribeLagsResponse
 describeLagsResponse pResponseStatus_ =
     DescribeLagsResponse'
-    { _dlsrsLags = Nothing
-    , _dlsrsResponseStatus = pResponseStatus_
+    { _desrsLags = Nothing
+    , _desrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of LAGs.
-dlsrsLags :: Lens' DescribeLagsResponse [Lag]
-dlsrsLags = lens _dlsrsLags (\ s a -> s{_dlsrsLags = a}) . _Default . _Coerce;
+desrsLags :: Lens' DescribeLagsResponse [Lag]
+desrsLags = lens _desrsLags (\ s a -> s{_desrsLags = a}) . _Default . _Coerce;
 
 -- | -- | The response status code.
-dlsrsResponseStatus :: Lens' DescribeLagsResponse Int
-dlsrsResponseStatus = lens _dlsrsResponseStatus (\ s a -> s{_dlsrsResponseStatus = a});
+desrsResponseStatus :: Lens' DescribeLagsResponse Int
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 
 instance NFData DescribeLagsResponse

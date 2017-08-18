@@ -31,8 +31,8 @@ module Network.AWS.DirectConnect.DescribeLocations
     , describeLocationsResponse
     , DescribeLocationsResponse
     -- * Response Lenses
-    , dlrsLocations
-    , dlrsResponseStatus
+    , dlsrsLocations
+    , dlsrsResponseStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -91,32 +91,32 @@ instance ToQuery DescribeLocations where
 --
 -- /See:/ 'describeLocationsResponse' smart constructor.
 data DescribeLocationsResponse = DescribeLocationsResponse'
-    { _dlrsLocations      :: !(Maybe [Location])
-    , _dlrsResponseStatus :: !Int
+    { _dlsrsLocations      :: !(Maybe [Location])
+    , _dlsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeLocationsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlrsLocations' - A list of colocation hubs where network providers have equipment. Most regions have multiple locations available.
+-- * 'dlsrsLocations' - A list of colocation hubs where network providers have equipment. Most regions have multiple locations available.
 --
--- * 'dlrsResponseStatus' - -- | The response status code.
+-- * 'dlsrsResponseStatus' - -- | The response status code.
 describeLocationsResponse
-    :: Int -- ^ 'dlrsResponseStatus'
+    :: Int -- ^ 'dlsrsResponseStatus'
     -> DescribeLocationsResponse
 describeLocationsResponse pResponseStatus_ =
     DescribeLocationsResponse'
-    { _dlrsLocations = Nothing
-    , _dlrsResponseStatus = pResponseStatus_
+    { _dlsrsLocations = Nothing
+    , _dlsrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of colocation hubs where network providers have equipment. Most regions have multiple locations available.
-dlrsLocations :: Lens' DescribeLocationsResponse [Location]
-dlrsLocations = lens _dlrsLocations (\ s a -> s{_dlrsLocations = a}) . _Default . _Coerce;
+dlsrsLocations :: Lens' DescribeLocationsResponse [Location]
+dlsrsLocations = lens _dlsrsLocations (\ s a -> s{_dlsrsLocations = a}) . _Default . _Coerce;
 
 -- | -- | The response status code.
-dlrsResponseStatus :: Lens' DescribeLocationsResponse Int
-dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
+dlsrsResponseStatus :: Lens' DescribeLocationsResponse Int
+dlsrsResponseStatus = lens _dlsrsResponseStatus (\ s a -> s{_dlsrsResponseStatus = a});
 
 instance NFData DescribeLocationsResponse

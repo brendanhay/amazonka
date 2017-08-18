@@ -52,9 +52,6 @@ import Test.AWS.DirectConnect.Internal
 --         , requestDescribeConnections $
 --             describeConnections
 --
---         , requestDescribeConnectionsOnInterconnect $
---             describeConnectionsOnInterconnect
---
 --         , requestDeleteInterconnect $
 --             deleteInterconnect
 --
@@ -91,17 +88,11 @@ import Test.AWS.DirectConnect.Internal
 --         , requestDeleteVirtualInterface $
 --             deleteVirtualInterface
 --
---         , requestDescribeInterconnectLoa $
---             describeInterconnectLoa
---
 --         , requestCreatePrivateVirtualInterface $
 --             createPrivateVirtualInterface
 --
 --         , requestAllocatePublicVirtualInterface $
 --             allocatePublicVirtualInterface
---
---         , requestAllocateConnectionOnInterconnect $
---             allocateConnectionOnInterconnect
 --
 --         , requestDisassociateConnectionFromLag $
 --             disassociateConnectionFromLag
@@ -133,9 +124,6 @@ import Test.AWS.DirectConnect.Internal
 --         , requestCreateLag $
 --             createLag
 --
---         , requestDescribeConnectionLoa $
---             describeConnectionLoa
---
 --         , requestDescribeHostedConnections $
 --             describeHostedConnections
 --
@@ -149,7 +137,7 @@ import Test.AWS.DirectConnect.Internal
 --             describeTagsResponse
 --
 --         , responseDescribeLoa $
---             loa
+--             describeLoaResponse
 --
 --         , responseDeleteConnection $
 --             connection
@@ -164,9 +152,6 @@ import Test.AWS.DirectConnect.Internal
 --             virtualInterface
 --
 --         , responseDescribeConnections $
---             connections
---
---         , responseDescribeConnectionsOnInterconnect $
 --             connections
 --
 --         , responseDeleteInterconnect $
@@ -205,17 +190,11 @@ import Test.AWS.DirectConnect.Internal
 --         , responseDeleteVirtualInterface $
 --             deleteVirtualInterfaceResponse
 --
---         , responseDescribeInterconnectLoa $
---             describeInterconnectLoaResponse
---
 --         , responseCreatePrivateVirtualInterface $
 --             virtualInterface
 --
 --         , responseAllocatePublicVirtualInterface $
 --             virtualInterface
---
---         , responseAllocateConnectionOnInterconnect $
---             connection
 --
 --         , responseDisassociateConnectionFromLag $
 --             connection
@@ -246,9 +225,6 @@ import Test.AWS.DirectConnect.Internal
 --
 --         , responseCreateLag $
 --             lag
---
---         , responseDescribeConnectionLoa $
---             describeConnectionLoaResponse
 --
 --         , responseDescribeHostedConnections $
 --             connections
@@ -297,11 +273,6 @@ requestDescribeConnections :: DescribeConnections -> TestTree
 requestDescribeConnections = req
     "DescribeConnections"
     "fixture/DescribeConnections.yaml"
-
-requestDescribeConnectionsOnInterconnect :: DescribeConnectionsOnInterconnect -> TestTree
-requestDescribeConnectionsOnInterconnect = req
-    "DescribeConnectionsOnInterconnect"
-    "fixture/DescribeConnectionsOnInterconnect.yaml"
 
 requestDeleteInterconnect :: DeleteInterconnect -> TestTree
 requestDeleteInterconnect = req
@@ -363,11 +334,6 @@ requestDeleteVirtualInterface = req
     "DeleteVirtualInterface"
     "fixture/DeleteVirtualInterface.yaml"
 
-requestDescribeInterconnectLoa :: DescribeInterconnectLoa -> TestTree
-requestDescribeInterconnectLoa = req
-    "DescribeInterconnectLoa"
-    "fixture/DescribeInterconnectLoa.yaml"
-
 requestCreatePrivateVirtualInterface :: CreatePrivateVirtualInterface -> TestTree
 requestCreatePrivateVirtualInterface = req
     "CreatePrivateVirtualInterface"
@@ -377,11 +343,6 @@ requestAllocatePublicVirtualInterface :: AllocatePublicVirtualInterface -> TestT
 requestAllocatePublicVirtualInterface = req
     "AllocatePublicVirtualInterface"
     "fixture/AllocatePublicVirtualInterface.yaml"
-
-requestAllocateConnectionOnInterconnect :: AllocateConnectionOnInterconnect -> TestTree
-requestAllocateConnectionOnInterconnect = req
-    "AllocateConnectionOnInterconnect"
-    "fixture/AllocateConnectionOnInterconnect.yaml"
 
 requestDisassociateConnectionFromLag :: DisassociateConnectionFromLag -> TestTree
 requestDisassociateConnectionFromLag = req
@@ -433,11 +394,6 @@ requestCreateLag = req
     "CreateLag"
     "fixture/CreateLag.yaml"
 
-requestDescribeConnectionLoa :: DescribeConnectionLoa -> TestTree
-requestDescribeConnectionLoa = req
-    "DescribeConnectionLoa"
-    "fixture/DescribeConnectionLoa.yaml"
-
 requestDescribeHostedConnections :: DescribeHostedConnections -> TestTree
 requestDescribeHostedConnections = req
     "DescribeHostedConnections"
@@ -459,7 +415,7 @@ responseDescribeTags = res
     directConnect
     (Proxy :: Proxy DescribeTags)
 
-responseDescribeLoa :: Loa -> TestTree
+responseDescribeLoa :: DescribeLoaResponse -> TestTree
 responseDescribeLoa = res
     "DescribeLoaResponse"
     "fixture/DescribeLoaResponse.proto"
@@ -500,13 +456,6 @@ responseDescribeConnections = res
     "fixture/DescribeConnectionsResponse.proto"
     directConnect
     (Proxy :: Proxy DescribeConnections)
-
-responseDescribeConnectionsOnInterconnect :: Connections -> TestTree
-responseDescribeConnectionsOnInterconnect = res
-    "DescribeConnectionsOnInterconnectResponse"
-    "fixture/DescribeConnectionsOnInterconnectResponse.proto"
-    directConnect
-    (Proxy :: Proxy DescribeConnectionsOnInterconnect)
 
 responseDeleteInterconnect :: DeleteInterconnectResponse -> TestTree
 responseDeleteInterconnect = res
@@ -592,13 +541,6 @@ responseDeleteVirtualInterface = res
     directConnect
     (Proxy :: Proxy DeleteVirtualInterface)
 
-responseDescribeInterconnectLoa :: DescribeInterconnectLoaResponse -> TestTree
-responseDescribeInterconnectLoa = res
-    "DescribeInterconnectLoaResponse"
-    "fixture/DescribeInterconnectLoaResponse.proto"
-    directConnect
-    (Proxy :: Proxy DescribeInterconnectLoa)
-
 responseCreatePrivateVirtualInterface :: VirtualInterface -> TestTree
 responseCreatePrivateVirtualInterface = res
     "CreatePrivateVirtualInterfaceResponse"
@@ -612,13 +554,6 @@ responseAllocatePublicVirtualInterface = res
     "fixture/AllocatePublicVirtualInterfaceResponse.proto"
     directConnect
     (Proxy :: Proxy AllocatePublicVirtualInterface)
-
-responseAllocateConnectionOnInterconnect :: Connection -> TestTree
-responseAllocateConnectionOnInterconnect = res
-    "AllocateConnectionOnInterconnectResponse"
-    "fixture/AllocateConnectionOnInterconnectResponse.proto"
-    directConnect
-    (Proxy :: Proxy AllocateConnectionOnInterconnect)
 
 responseDisassociateConnectionFromLag :: Connection -> TestTree
 responseDisassociateConnectionFromLag = res
@@ -689,13 +624,6 @@ responseCreateLag = res
     "fixture/CreateLagResponse.proto"
     directConnect
     (Proxy :: Proxy CreateLag)
-
-responseDescribeConnectionLoa :: DescribeConnectionLoaResponse -> TestTree
-responseDescribeConnectionLoa = res
-    "DescribeConnectionLoaResponse"
-    "fixture/DescribeConnectionLoaResponse.proto"
-    directConnect
-    (Proxy :: Proxy DescribeConnectionLoa)
 
 responseDescribeHostedConnections :: Connections -> TestTree
 responseDescribeHostedConnections = res

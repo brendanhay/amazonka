@@ -21,8 +21,10 @@ module Network.AWS.DMS.Types
     , _ReplicationSubnetGroupDoesNotCoverEnoughAZs
     , _InvalidResourceStateFault
     , _InvalidCertificateFault
+    , _SNSNoAuthorizationFault
     , _ResourceAlreadyExistsFault
     , _InsufficientResourceCapacityFault
+    , _SNSInvalidTopicFault
     , _ResourceQuotaExceededFault
     , _UpgradeDependencyFailureFault
     , _ResourceNotFoundFault
@@ -30,17 +32,32 @@ module Network.AWS.DMS.Types
     , _AccessDeniedFault
     , _SubnetAlreadyInUse
 
+    -- * AuthMechanismValue
+    , AuthMechanismValue (..)
+
+    -- * AuthTypeValue
+    , AuthTypeValue (..)
+
+    -- * CompressionTypeValue
+    , CompressionTypeValue (..)
+
     -- * DmsSSLModeValue
     , DmsSSLModeValue (..)
 
     -- * MigrationTypeValue
     , MigrationTypeValue (..)
 
+    -- * NestingLevelValue
+    , NestingLevelValue (..)
+
     -- * RefreshSchemasStatusTypeValue
     , RefreshSchemasStatusTypeValue (..)
 
     -- * ReplicationEndpointTypeValue
     , ReplicationEndpointTypeValue (..)
+
+    -- * SourceType
+    , SourceType (..)
 
     -- * StartReplicationTaskTypeValue
     , StartReplicationTaskTypeValue (..)
@@ -81,6 +98,11 @@ module Network.AWS.DMS.Types
     , cEndpointARN
     , cLastFailureMessage
 
+    -- * DynamoDBSettings
+    , DynamoDBSettings
+    , dynamoDBSettings
+    , ddsServiceAccessRoleARN
+
     -- * Endpoint
     , Endpoint
     , endpoint
@@ -92,17 +114,64 @@ module Network.AWS.DMS.Types
     , eUsername
     , eEngineName
     , eKMSKeyId
+    , eMongoDBSettings
     , eSSLMode
     , eDatabaseName
+    , eS3Settings
     , eEndpointIdentifier
+    , eExternalId
+    , eDynamoDBSettings
     , eEndpointARN
     , ePort
+
+    -- * Event
+    , Event
+    , event
+    , eSourceType
+    , eSourceIdentifier
+    , eDate
+    , eEventCategories
+    , eMessage
+
+    -- * EventCategoryGroup
+    , EventCategoryGroup
+    , eventCategoryGroup
+    , ecgSourceType
+    , ecgEventCategories
+
+    -- * EventSubscription
+    , EventSubscription
+    , eventSubscription
+    , esStatus
+    , esCustomerAWSId
+    , esCustSubscriptionId
+    , esSNSTopicARN
+    , esEnabled
+    , esSourceType
+    , esSubscriptionCreationTime
+    , esEventCategoriesList
+    , esSourceIdsList
 
     -- * Filter
     , Filter
     , filter'
     , fName
     , fValues
+
+    -- * MongoDBSettings
+    , MongoDBSettings
+    , mongoDBSettings
+    , mdsServerName
+    , mdsAuthMechanism
+    , mdsUsername
+    , mdsPassword
+    , mdsNestingLevel
+    , mdsDatabaseName
+    , mdsDocsToInvestigate
+    , mdsAuthSource
+    , mdsExtractDocId
+    , mdsAuthType
+    , mdsPort
 
     -- * OrderableReplicationInstance
     , OrderableReplicationInstance
@@ -169,20 +238,20 @@ module Network.AWS.DMS.Types
     -- * ReplicationTask
     , ReplicationTask
     , replicationTask
-    , rtReplicationTaskSettings
-    , rtStatus
-    , rtStopReason
-    , rtTargetEndpointARN
-    , rtReplicationTaskIdentifier
-    , rtReplicationTaskStartDate
-    , rtSourceEndpointARN
-    , rtTableMappings
-    , rtReplicationTaskCreationDate
-    , rtMigrationType
-    , rtReplicationTaskARN
-    , rtReplicationTaskStats
-    , rtReplicationInstanceARN
-    , rtLastFailureMessage
+    , rReplicationTaskSettings
+    , rStatus
+    , rStopReason
+    , rTargetEndpointARN
+    , rReplicationTaskIdentifier
+    , rReplicationTaskStartDate
+    , rSourceEndpointARN
+    , rTableMappings
+    , rReplicationTaskCreationDate
+    , rMigrationType
+    , rReplicationTaskARN
+    , rReplicationTaskStats
+    , rReplicationInstanceARN
+    , rLastFailureMessage
 
     -- * ReplicationTaskStats
     , ReplicationTaskStats
@@ -193,6 +262,17 @@ module Network.AWS.DMS.Types
     , rtsTablesLoaded
     , rtsTablesQueued
     , rtsTablesLoading
+
+    -- * S3Settings
+    , S3Settings
+    , s3Settings
+    , ssCSVDelimiter
+    , ssServiceAccessRoleARN
+    , ssBucketFolder
+    , ssExternalTableDefinition
+    , ssBucketName
+    , ssCSVRowDelimiter
+    , ssCompressionType
 
     -- * Subnet
     , Subnet
@@ -213,13 +293,21 @@ module Network.AWS.DMS.Types
     , tableStatistics
     , tsFullLoadRows
     , tsInserts
+    , tsFullLoadCondtnlChkFailedRows
     , tsSchemaName
     , tsTableState
+    , tsFullLoadErrorRows
     , tsDdls
     , tsDeletes
     , tsUpdates
     , tsLastUpdateTime
     , tsTableName
+
+    -- * TableToReload
+    , TableToReload
+    , tableToReload
+    , ttrSchemaName
+    , ttrTableName
 
     -- * Tag
     , Tag
@@ -263,6 +351,8 @@ dms =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -305,6 +395,12 @@ _InvalidResourceStateFault = _MatchServiceError dms "InvalidResourceStateFault"
 _InvalidCertificateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidCertificateFault = _MatchServiceError dms "InvalidCertificateFault"
 
+-- | You are not authorized for the SNS subscription.
+--
+--
+_SNSNoAuthorizationFault :: AsError a => Getting (First ServiceError) a ServiceError
+_SNSNoAuthorizationFault = _MatchServiceError dms "SNSNoAuthorizationFault"
+
 -- | The resource you are attempting to create already exists.
 --
 --
@@ -318,6 +414,12 @@ _ResourceAlreadyExistsFault =
 _InsufficientResourceCapacityFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientResourceCapacityFault =
     _MatchServiceError dms "InsufficientResourceCapacityFault"
+
+-- | The SNS topic is invalid.
+--
+--
+_SNSInvalidTopicFault :: AsError a => Getting (First ServiceError) a ServiceError
+_SNSInvalidTopicFault = _MatchServiceError dms "SNSInvalidTopicFault"
 
 -- | The quota for this resource quota has been exceeded.
 --

@@ -79,7 +79,7 @@ data CreateReplicationTask = CreateReplicationTask'
 --
 -- * 'crtCdcStartTime' - The start time for the Change Data Capture (CDC) operation.
 --
--- * 'crtReplicationTaskIdentifier' - The replication task identifier. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
+-- * 'crtReplicationTaskIdentifier' - The replication task identifier. Constraints:     * Must contain from 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 --
 -- * 'crtSourceEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 --
@@ -89,7 +89,7 @@ data CreateReplicationTask = CreateReplicationTask'
 --
 -- * 'crtMigrationType' - The migration type.
 --
--- * 'crtTableMappings' - The path of the JSON file that contains the table mappings. Preceed the path with "file://". For example, --table-mappings file://mappingfile.json
+-- * 'crtTableMappings' - When using the AWS CLI or boto3, provide the path of the JSON file that contains the table mappings. Precede the path with "file://". When working with the DMS API, provide the JSON as the parameter value. For example, --table-mappings file://mappingfile.json
 createReplicationTask
     :: Text -- ^ 'crtReplicationTaskIdentifier'
     -> Text -- ^ 'crtSourceEndpointARN'
@@ -123,7 +123,7 @@ crtTags = lens _crtTags (\ s a -> s{_crtTags = a}) . _Default . _Coerce;
 crtCdcStartTime :: Lens' CreateReplicationTask (Maybe UTCTime)
 crtCdcStartTime = lens _crtCdcStartTime (\ s a -> s{_crtCdcStartTime = a}) . mapping _Time;
 
--- | The replication task identifier. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
+-- | The replication task identifier. Constraints:     * Must contain from 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 crtReplicationTaskIdentifier :: Lens' CreateReplicationTask Text
 crtReplicationTaskIdentifier = lens _crtReplicationTaskIdentifier (\ s a -> s{_crtReplicationTaskIdentifier = a});
 
@@ -143,7 +143,7 @@ crtReplicationInstanceARN = lens _crtReplicationInstanceARN (\ s a -> s{_crtRepl
 crtMigrationType :: Lens' CreateReplicationTask MigrationTypeValue
 crtMigrationType = lens _crtMigrationType (\ s a -> s{_crtMigrationType = a});
 
--- | The path of the JSON file that contains the table mappings. Preceed the path with "file://". For example, --table-mappings file://mappingfile.json
+-- | When using the AWS CLI or boto3, provide the path of the JSON file that contains the table mappings. Precede the path with "file://". When working with the DMS API, provide the JSON as the parameter value. For example, --table-mappings file://mappingfile.json
 crtTableMappings :: Lens' CreateReplicationTask Text
 crtTableMappings = lens _crtTableMappings (\ s a -> s{_crtTableMappings = a});
 

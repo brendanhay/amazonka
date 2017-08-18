@@ -31,11 +31,20 @@ import Test.AWS.DMS.Internal
 --         [ requestDeleteReplicationInstance $
 --             deleteReplicationInstance
 --
+--         , requestReloadTables $
+--             reloadTables
+--
 --         , requestCreateEndpoint $
 --             createEndpoint
 --
 --         , requestDescribeSchemas $
 --             describeSchemas
+--
+--         , requestModifyEventSubscription $
+--             modifyEventSubscription
+--
+--         , requestDescribeEvents $
+--             describeEvents
 --
 --         , requestDeleteEndpoint $
 --             deleteEndpoint
@@ -61,8 +70,14 @@ import Test.AWS.DMS.Internal
 --         , requestModifyEndpoint $
 --             modifyEndpoint
 --
+--         , requestCreateEventSubscription $
+--             createEventSubscription
+--
 --         , requestDescribeCertificates $
 --             describeCertificates
+--
+--         , requestDeleteEventSubscription $
+--             deleteEventSubscription
 --
 --         , requestDescribeTableStatistics $
 --             describeTableStatistics
@@ -72,6 +87,9 @@ import Test.AWS.DMS.Internal
 --
 --         , requestStartReplicationTask $
 --             startReplicationTask
+--
+--         , requestDescribeEventSubscriptions $
+--             describeEventSubscriptions
 --
 --         , requestAddTagsToResource $
 --             addTagsToResource
@@ -87,6 +105,9 @@ import Test.AWS.DMS.Internal
 --
 --         , requestDescribeReplicationTasks $
 --             describeReplicationTasks
+--
+--         , requestDescribeEventCategories $
+--             describeEventCategories
 --
 --         , requestDescribeOrderableReplicationInstances $
 --             describeOrderableReplicationInstances
@@ -133,11 +154,20 @@ import Test.AWS.DMS.Internal
 --         [ responseDeleteReplicationInstance $
 --             deleteReplicationInstanceResponse
 --
+--         , responseReloadTables $
+--             reloadTablesResponse
+--
 --         , responseCreateEndpoint $
 --             createEndpointResponse
 --
 --         , responseDescribeSchemas $
 --             describeSchemasResponse
+--
+--         , responseModifyEventSubscription $
+--             modifyEventSubscriptionResponse
+--
+--         , responseDescribeEvents $
+--             describeEventsResponse
 --
 --         , responseDeleteEndpoint $
 --             deleteEndpointResponse
@@ -163,8 +193,14 @@ import Test.AWS.DMS.Internal
 --         , responseModifyEndpoint $
 --             modifyEndpointResponse
 --
+--         , responseCreateEventSubscription $
+--             createEventSubscriptionResponse
+--
 --         , responseDescribeCertificates $
 --             describeCertificatesResponse
+--
+--         , responseDeleteEventSubscription $
+--             deleteEventSubscriptionResponse
 --
 --         , responseDescribeTableStatistics $
 --             describeTableStatisticsResponse
@@ -174,6 +210,9 @@ import Test.AWS.DMS.Internal
 --
 --         , responseStartReplicationTask $
 --             startReplicationTaskResponse
+--
+--         , responseDescribeEventSubscriptions $
+--             describeEventSubscriptionsResponse
 --
 --         , responseAddTagsToResource $
 --             addTagsToResourceResponse
@@ -189,6 +228,9 @@ import Test.AWS.DMS.Internal
 --
 --         , responseDescribeReplicationTasks $
 --             describeReplicationTasksResponse
+--
+--         , responseDescribeEventCategories $
+--             describeEventCategoriesResponse
 --
 --         , responseDescribeOrderableReplicationInstances $
 --             describeOrderableReplicationInstancesResponse
@@ -239,6 +281,11 @@ requestDeleteReplicationInstance = req
     "DeleteReplicationInstance"
     "fixture/DeleteReplicationInstance.yaml"
 
+requestReloadTables :: ReloadTables -> TestTree
+requestReloadTables = req
+    "ReloadTables"
+    "fixture/ReloadTables.yaml"
+
 requestCreateEndpoint :: CreateEndpoint -> TestTree
 requestCreateEndpoint = req
     "CreateEndpoint"
@@ -248,6 +295,16 @@ requestDescribeSchemas :: DescribeSchemas -> TestTree
 requestDescribeSchemas = req
     "DescribeSchemas"
     "fixture/DescribeSchemas.yaml"
+
+requestModifyEventSubscription :: ModifyEventSubscription -> TestTree
+requestModifyEventSubscription = req
+    "ModifyEventSubscription"
+    "fixture/ModifyEventSubscription.yaml"
+
+requestDescribeEvents :: DescribeEvents -> TestTree
+requestDescribeEvents = req
+    "DescribeEvents"
+    "fixture/DescribeEvents.yaml"
 
 requestDeleteEndpoint :: DeleteEndpoint -> TestTree
 requestDeleteEndpoint = req
@@ -289,10 +346,20 @@ requestModifyEndpoint = req
     "ModifyEndpoint"
     "fixture/ModifyEndpoint.yaml"
 
+requestCreateEventSubscription :: CreateEventSubscription -> TestTree
+requestCreateEventSubscription = req
+    "CreateEventSubscription"
+    "fixture/CreateEventSubscription.yaml"
+
 requestDescribeCertificates :: DescribeCertificates -> TestTree
 requestDescribeCertificates = req
     "DescribeCertificates"
     "fixture/DescribeCertificates.yaml"
+
+requestDeleteEventSubscription :: DeleteEventSubscription -> TestTree
+requestDeleteEventSubscription = req
+    "DeleteEventSubscription"
+    "fixture/DeleteEventSubscription.yaml"
 
 requestDescribeTableStatistics :: DescribeTableStatistics -> TestTree
 requestDescribeTableStatistics = req
@@ -308,6 +375,11 @@ requestStartReplicationTask :: StartReplicationTask -> TestTree
 requestStartReplicationTask = req
     "StartReplicationTask"
     "fixture/StartReplicationTask.yaml"
+
+requestDescribeEventSubscriptions :: DescribeEventSubscriptions -> TestTree
+requestDescribeEventSubscriptions = req
+    "DescribeEventSubscriptions"
+    "fixture/DescribeEventSubscriptions.yaml"
 
 requestAddTagsToResource :: AddTagsToResource -> TestTree
 requestAddTagsToResource = req
@@ -333,6 +405,11 @@ requestDescribeReplicationTasks :: DescribeReplicationTasks -> TestTree
 requestDescribeReplicationTasks = req
     "DescribeReplicationTasks"
     "fixture/DescribeReplicationTasks.yaml"
+
+requestDescribeEventCategories :: DescribeEventCategories -> TestTree
+requestDescribeEventCategories = req
+    "DescribeEventCategories"
+    "fixture/DescribeEventCategories.yaml"
 
 requestDescribeOrderableReplicationInstances :: DescribeOrderableReplicationInstances -> TestTree
 requestDescribeOrderableReplicationInstances = req
@@ -408,6 +485,13 @@ responseDeleteReplicationInstance = res
     dms
     (Proxy :: Proxy DeleteReplicationInstance)
 
+responseReloadTables :: ReloadTablesResponse -> TestTree
+responseReloadTables = res
+    "ReloadTablesResponse"
+    "fixture/ReloadTablesResponse.proto"
+    dms
+    (Proxy :: Proxy ReloadTables)
+
 responseCreateEndpoint :: CreateEndpointResponse -> TestTree
 responseCreateEndpoint = res
     "CreateEndpointResponse"
@@ -421,6 +505,20 @@ responseDescribeSchemas = res
     "fixture/DescribeSchemasResponse.proto"
     dms
     (Proxy :: Proxy DescribeSchemas)
+
+responseModifyEventSubscription :: ModifyEventSubscriptionResponse -> TestTree
+responseModifyEventSubscription = res
+    "ModifyEventSubscriptionResponse"
+    "fixture/ModifyEventSubscriptionResponse.proto"
+    dms
+    (Proxy :: Proxy ModifyEventSubscription)
+
+responseDescribeEvents :: DescribeEventsResponse -> TestTree
+responseDescribeEvents = res
+    "DescribeEventsResponse"
+    "fixture/DescribeEventsResponse.proto"
+    dms
+    (Proxy :: Proxy DescribeEvents)
 
 responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
 responseDeleteEndpoint = res
@@ -478,12 +576,26 @@ responseModifyEndpoint = res
     dms
     (Proxy :: Proxy ModifyEndpoint)
 
+responseCreateEventSubscription :: CreateEventSubscriptionResponse -> TestTree
+responseCreateEventSubscription = res
+    "CreateEventSubscriptionResponse"
+    "fixture/CreateEventSubscriptionResponse.proto"
+    dms
+    (Proxy :: Proxy CreateEventSubscription)
+
 responseDescribeCertificates :: DescribeCertificatesResponse -> TestTree
 responseDescribeCertificates = res
     "DescribeCertificatesResponse"
     "fixture/DescribeCertificatesResponse.proto"
     dms
     (Proxy :: Proxy DescribeCertificates)
+
+responseDeleteEventSubscription :: DeleteEventSubscriptionResponse -> TestTree
+responseDeleteEventSubscription = res
+    "DeleteEventSubscriptionResponse"
+    "fixture/DeleteEventSubscriptionResponse.proto"
+    dms
+    (Proxy :: Proxy DeleteEventSubscription)
 
 responseDescribeTableStatistics :: DescribeTableStatisticsResponse -> TestTree
 responseDescribeTableStatistics = res
@@ -505,6 +617,13 @@ responseStartReplicationTask = res
     "fixture/StartReplicationTaskResponse.proto"
     dms
     (Proxy :: Proxy StartReplicationTask)
+
+responseDescribeEventSubscriptions :: DescribeEventSubscriptionsResponse -> TestTree
+responseDescribeEventSubscriptions = res
+    "DescribeEventSubscriptionsResponse"
+    "fixture/DescribeEventSubscriptionsResponse.proto"
+    dms
+    (Proxy :: Proxy DescribeEventSubscriptions)
 
 responseAddTagsToResource :: AddTagsToResourceResponse -> TestTree
 responseAddTagsToResource = res
@@ -540,6 +659,13 @@ responseDescribeReplicationTasks = res
     "fixture/DescribeReplicationTasksResponse.proto"
     dms
     (Proxy :: Proxy DescribeReplicationTasks)
+
+responseDescribeEventCategories :: DescribeEventCategoriesResponse -> TestTree
+responseDescribeEventCategories = res
+    "DescribeEventCategoriesResponse"
+    "fixture/DescribeEventCategoriesResponse.proto"
+    dms
+    (Proxy :: Proxy DescribeEventCategories)
 
 responseDescribeOrderableReplicationInstances :: DescribeOrderableReplicationInstancesResponse -> TestTree
 responseDescribeOrderableReplicationInstances = res

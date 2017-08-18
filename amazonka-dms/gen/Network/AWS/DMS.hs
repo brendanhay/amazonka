@@ -15,6 +15,8 @@
 --
 -- AWS Database Migration Service (AWS DMS) can migrate your data to and from the most widely used commercial and open-source databases such as Oracle, PostgreSQL, Microsoft SQL Server, Amazon Redshift, MariaDB, Amazon Aurora, MySQL, and SAP Adaptive Server Enterprise (ASE). The service supports homogeneous migrations such as Oracle to Oracle, as well as heterogeneous migrations between different database platforms, such as Oracle to MySQL or SQL Server to PostgreSQL.
 --
+-- For more information about AWS DMS, see the AWS DMS user guide at <http://docs.aws.amazon.com/dms/latest/userguide/Welcome.html What Is AWS Database Migration Service? >
+--
 module Network.AWS.DMS
     (
     -- * Service Configuration
@@ -38,11 +40,17 @@ module Network.AWS.DMS
     -- ** InvalidCertificateFault
     , _InvalidCertificateFault
 
+    -- ** SNSNoAuthorizationFault
+    , _SNSNoAuthorizationFault
+
     -- ** ResourceAlreadyExistsFault
     , _ResourceAlreadyExistsFault
 
     -- ** InsufficientResourceCapacityFault
     , _InsufficientResourceCapacityFault
+
+    -- ** SNSInvalidTopicFault
+    , _SNSInvalidTopicFault
 
     -- ** ResourceQuotaExceededFault
     , _ResourceQuotaExceededFault
@@ -71,11 +79,20 @@ module Network.AWS.DMS
     -- ** DeleteReplicationInstance
     , module Network.AWS.DMS.DeleteReplicationInstance
 
+    -- ** ReloadTables
+    , module Network.AWS.DMS.ReloadTables
+
     -- ** CreateEndpoint
     , module Network.AWS.DMS.CreateEndpoint
 
     -- ** DescribeSchemas
     , module Network.AWS.DMS.DescribeSchemas
+
+    -- ** ModifyEventSubscription
+    , module Network.AWS.DMS.ModifyEventSubscription
+
+    -- ** DescribeEvents
+    , module Network.AWS.DMS.DescribeEvents
 
     -- ** DeleteEndpoint
     , module Network.AWS.DMS.DeleteEndpoint
@@ -101,8 +118,14 @@ module Network.AWS.DMS
     -- ** ModifyEndpoint
     , module Network.AWS.DMS.ModifyEndpoint
 
+    -- ** CreateEventSubscription
+    , module Network.AWS.DMS.CreateEventSubscription
+
     -- ** DescribeCertificates
     , module Network.AWS.DMS.DescribeCertificates
+
+    -- ** DeleteEventSubscription
+    , module Network.AWS.DMS.DeleteEventSubscription
 
     -- ** DescribeTableStatistics
     , module Network.AWS.DMS.DescribeTableStatistics
@@ -112,6 +135,9 @@ module Network.AWS.DMS
 
     -- ** StartReplicationTask
     , module Network.AWS.DMS.StartReplicationTask
+
+    -- ** DescribeEventSubscriptions
+    , module Network.AWS.DMS.DescribeEventSubscriptions
 
     -- ** AddTagsToResource
     , module Network.AWS.DMS.AddTagsToResource
@@ -127,6 +153,9 @@ module Network.AWS.DMS
 
     -- ** DescribeReplicationTasks
     , module Network.AWS.DMS.DescribeReplicationTasks
+
+    -- ** DescribeEventCategories
+    , module Network.AWS.DMS.DescribeEventCategories
 
     -- ** DescribeOrderableReplicationInstances
     , module Network.AWS.DMS.DescribeOrderableReplicationInstances
@@ -169,17 +198,32 @@ module Network.AWS.DMS
 
     -- * Types
 
+    -- ** AuthMechanismValue
+    , AuthMechanismValue (..)
+
+    -- ** AuthTypeValue
+    , AuthTypeValue (..)
+
+    -- ** CompressionTypeValue
+    , CompressionTypeValue (..)
+
     -- ** DmsSSLModeValue
     , DmsSSLModeValue (..)
 
     -- ** MigrationTypeValue
     , MigrationTypeValue (..)
 
+    -- ** NestingLevelValue
+    , NestingLevelValue (..)
+
     -- ** RefreshSchemasStatusTypeValue
     , RefreshSchemasStatusTypeValue (..)
 
     -- ** ReplicationEndpointTypeValue
     , ReplicationEndpointTypeValue (..)
+
+    -- ** SourceType
+    , SourceType (..)
 
     -- ** StartReplicationTaskTypeValue
     , StartReplicationTaskTypeValue (..)
@@ -220,6 +264,11 @@ module Network.AWS.DMS
     , cEndpointARN
     , cLastFailureMessage
 
+    -- ** DynamoDBSettings
+    , DynamoDBSettings
+    , dynamoDBSettings
+    , ddsServiceAccessRoleARN
+
     -- ** Endpoint
     , Endpoint
     , endpoint
@@ -231,17 +280,64 @@ module Network.AWS.DMS
     , eUsername
     , eEngineName
     , eKMSKeyId
+    , eMongoDBSettings
     , eSSLMode
     , eDatabaseName
+    , eS3Settings
     , eEndpointIdentifier
+    , eExternalId
+    , eDynamoDBSettings
     , eEndpointARN
     , ePort
+
+    -- ** Event
+    , Event
+    , event
+    , eSourceType
+    , eSourceIdentifier
+    , eDate
+    , eEventCategories
+    , eMessage
+
+    -- ** EventCategoryGroup
+    , EventCategoryGroup
+    , eventCategoryGroup
+    , ecgSourceType
+    , ecgEventCategories
+
+    -- ** EventSubscription
+    , EventSubscription
+    , eventSubscription
+    , esStatus
+    , esCustomerAWSId
+    , esCustSubscriptionId
+    , esSNSTopicARN
+    , esEnabled
+    , esSourceType
+    , esSubscriptionCreationTime
+    , esEventCategoriesList
+    , esSourceIdsList
 
     -- ** Filter
     , Filter
     , filter'
     , fName
     , fValues
+
+    -- ** MongoDBSettings
+    , MongoDBSettings
+    , mongoDBSettings
+    , mdsServerName
+    , mdsAuthMechanism
+    , mdsUsername
+    , mdsPassword
+    , mdsNestingLevel
+    , mdsDatabaseName
+    , mdsDocsToInvestigate
+    , mdsAuthSource
+    , mdsExtractDocId
+    , mdsAuthType
+    , mdsPort
 
     -- ** OrderableReplicationInstance
     , OrderableReplicationInstance
@@ -308,20 +404,20 @@ module Network.AWS.DMS
     -- ** ReplicationTask
     , ReplicationTask
     , replicationTask
-    , rtReplicationTaskSettings
-    , rtStatus
-    , rtStopReason
-    , rtTargetEndpointARN
-    , rtReplicationTaskIdentifier
-    , rtReplicationTaskStartDate
-    , rtSourceEndpointARN
-    , rtTableMappings
-    , rtReplicationTaskCreationDate
-    , rtMigrationType
-    , rtReplicationTaskARN
-    , rtReplicationTaskStats
-    , rtReplicationInstanceARN
-    , rtLastFailureMessage
+    , rReplicationTaskSettings
+    , rStatus
+    , rStopReason
+    , rTargetEndpointARN
+    , rReplicationTaskIdentifier
+    , rReplicationTaskStartDate
+    , rSourceEndpointARN
+    , rTableMappings
+    , rReplicationTaskCreationDate
+    , rMigrationType
+    , rReplicationTaskARN
+    , rReplicationTaskStats
+    , rReplicationInstanceARN
+    , rLastFailureMessage
 
     -- ** ReplicationTaskStats
     , ReplicationTaskStats
@@ -332,6 +428,17 @@ module Network.AWS.DMS
     , rtsTablesLoaded
     , rtsTablesQueued
     , rtsTablesLoading
+
+    -- ** S3Settings
+    , S3Settings
+    , s3Settings
+    , ssCSVDelimiter
+    , ssServiceAccessRoleARN
+    , ssBucketFolder
+    , ssExternalTableDefinition
+    , ssBucketName
+    , ssCSVRowDelimiter
+    , ssCompressionType
 
     -- ** Subnet
     , Subnet
@@ -352,13 +459,21 @@ module Network.AWS.DMS
     , tableStatistics
     , tsFullLoadRows
     , tsInserts
+    , tsFullLoadCondtnlChkFailedRows
     , tsSchemaName
     , tsTableState
+    , tsFullLoadErrorRows
     , tsDdls
     , tsDeletes
     , tsUpdates
     , tsLastUpdateTime
     , tsTableName
+
+    -- ** TableToReload
+    , TableToReload
+    , tableToReload
+    , ttrSchemaName
+    , ttrTableName
 
     -- ** Tag
     , Tag
@@ -375,11 +490,13 @@ module Network.AWS.DMS
 
 import           Network.AWS.DMS.AddTagsToResource
 import           Network.AWS.DMS.CreateEndpoint
+import           Network.AWS.DMS.CreateEventSubscription
 import           Network.AWS.DMS.CreateReplicationInstance
 import           Network.AWS.DMS.CreateReplicationSubnetGroup
 import           Network.AWS.DMS.CreateReplicationTask
 import           Network.AWS.DMS.DeleteCertificate
 import           Network.AWS.DMS.DeleteEndpoint
+import           Network.AWS.DMS.DeleteEventSubscription
 import           Network.AWS.DMS.DeleteReplicationInstance
 import           Network.AWS.DMS.DeleteReplicationSubnetGroup
 import           Network.AWS.DMS.DeleteReplicationTask
@@ -388,6 +505,9 @@ import           Network.AWS.DMS.DescribeCertificates
 import           Network.AWS.DMS.DescribeConnections
 import           Network.AWS.DMS.DescribeEndpoints
 import           Network.AWS.DMS.DescribeEndpointTypes
+import           Network.AWS.DMS.DescribeEventCategories
+import           Network.AWS.DMS.DescribeEvents
+import           Network.AWS.DMS.DescribeEventSubscriptions
 import           Network.AWS.DMS.DescribeOrderableReplicationInstances
 import           Network.AWS.DMS.DescribeRefreshSchemasStatus
 import           Network.AWS.DMS.DescribeReplicationInstances
@@ -398,10 +518,12 @@ import           Network.AWS.DMS.DescribeTableStatistics
 import           Network.AWS.DMS.ImportCertificate
 import           Network.AWS.DMS.ListTagsForResource
 import           Network.AWS.DMS.ModifyEndpoint
+import           Network.AWS.DMS.ModifyEventSubscription
 import           Network.AWS.DMS.ModifyReplicationInstance
 import           Network.AWS.DMS.ModifyReplicationSubnetGroup
 import           Network.AWS.DMS.ModifyReplicationTask
 import           Network.AWS.DMS.RefreshSchemas
+import           Network.AWS.DMS.ReloadTables
 import           Network.AWS.DMS.RemoveTagsFromResource
 import           Network.AWS.DMS.StartReplicationTask
 import           Network.AWS.DMS.StopReplicationTask

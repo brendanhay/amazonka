@@ -42,11 +42,13 @@ library
           Network.AWS.DMS
         , Network.AWS.DMS.AddTagsToResource
         , Network.AWS.DMS.CreateEndpoint
+        , Network.AWS.DMS.CreateEventSubscription
         , Network.AWS.DMS.CreateReplicationInstance
         , Network.AWS.DMS.CreateReplicationSubnetGroup
         , Network.AWS.DMS.CreateReplicationTask
         , Network.AWS.DMS.DeleteCertificate
         , Network.AWS.DMS.DeleteEndpoint
+        , Network.AWS.DMS.DeleteEventSubscription
         , Network.AWS.DMS.DeleteReplicationInstance
         , Network.AWS.DMS.DeleteReplicationSubnetGroup
         , Network.AWS.DMS.DeleteReplicationTask
@@ -55,6 +57,9 @@ library
         , Network.AWS.DMS.DescribeConnections
         , Network.AWS.DMS.DescribeEndpointTypes
         , Network.AWS.DMS.DescribeEndpoints
+        , Network.AWS.DMS.DescribeEventCategories
+        , Network.AWS.DMS.DescribeEventSubscriptions
+        , Network.AWS.DMS.DescribeEvents
         , Network.AWS.DMS.DescribeOrderableReplicationInstances
         , Network.AWS.DMS.DescribeRefreshSchemasStatus
         , Network.AWS.DMS.DescribeReplicationInstances
@@ -65,10 +70,12 @@ library
         , Network.AWS.DMS.ImportCertificate
         , Network.AWS.DMS.ListTagsForResource
         , Network.AWS.DMS.ModifyEndpoint
+        , Network.AWS.DMS.ModifyEventSubscription
         , Network.AWS.DMS.ModifyReplicationInstance
         , Network.AWS.DMS.ModifyReplicationSubnetGroup
         , Network.AWS.DMS.ModifyReplicationTask
         , Network.AWS.DMS.RefreshSchemas
+        , Network.AWS.DMS.ReloadTables
         , Network.AWS.DMS.RemoveTagsFromResource
         , Network.AWS.DMS.StartReplicationTask
         , Network.AWS.DMS.StopReplicationTask

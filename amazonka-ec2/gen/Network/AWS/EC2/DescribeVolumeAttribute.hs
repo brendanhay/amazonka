@@ -65,7 +65,7 @@ data DescribeVolumeAttribute = DescribeVolumeAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvaAttribute' - The instance attribute.
+-- * 'dvaAttribute' - The attribute of the volume. This parameter is required.
 --
 -- * 'dvaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
@@ -80,7 +80,7 @@ describeVolumeAttribute pVolumeId_ =
     , _dvaVolumeId = pVolumeId_
     }
 
--- | The instance attribute.
+-- | The attribute of the volume. This parameter is required.
 dvaAttribute :: Lens' DescribeVolumeAttribute (Maybe VolumeAttributeName)
 dvaAttribute = lens _dvaAttribute (\ s a -> s{_dvaAttribute = a});
 

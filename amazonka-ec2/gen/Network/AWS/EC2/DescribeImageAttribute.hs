@@ -28,8 +28,8 @@ module Network.AWS.EC2.DescribeImageAttribute
     , DescribeImageAttribute
     -- * Request Lenses
     , diaiDryRun
-    , diaiImageId
     , diaiAttribute
+    , diaiImageId
 
     -- * Destructuring the Response
     , describeImageAttributeResponse
@@ -60,8 +60,8 @@ import           Network.AWS.Response
 -- /See:/ 'describeImageAttribute' smart constructor.
 data DescribeImageAttribute = DescribeImageAttribute'
     { _diaiDryRun    :: !(Maybe Bool)
-    , _diaiImageId   :: !Text
     , _diaiAttribute :: !ImageAttributeName
+    , _diaiImageId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeImageAttribute' with the minimum fields required to make a request.
@@ -70,31 +70,31 @@ data DescribeImageAttribute = DescribeImageAttribute'
 --
 -- * 'diaiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'diaiImageId' - The ID of the AMI.
---
 -- * 'diaiAttribute' - The AMI attribute. __Note__ : Depending on your account privileges, the @blockDeviceMapping@ attribute may return a @Client.AuthFailure@ error. If this happens, use 'DescribeImages' to get information about the block device mapping for the AMI.
+--
+-- * 'diaiImageId' - The ID of the AMI.
 describeImageAttribute
-    :: Text -- ^ 'diaiImageId'
-    -> ImageAttributeName -- ^ 'diaiAttribute'
+    :: ImageAttributeName -- ^ 'diaiAttribute'
+    -> Text -- ^ 'diaiImageId'
     -> DescribeImageAttribute
-describeImageAttribute pImageId_ pAttribute_ =
+describeImageAttribute pAttribute_ pImageId_ =
     DescribeImageAttribute'
     { _diaiDryRun = Nothing
-    , _diaiImageId = pImageId_
     , _diaiAttribute = pAttribute_
+    , _diaiImageId = pImageId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 diaiDryRun :: Lens' DescribeImageAttribute (Maybe Bool)
 diaiDryRun = lens _diaiDryRun (\ s a -> s{_diaiDryRun = a});
 
--- | The ID of the AMI.
-diaiImageId :: Lens' DescribeImageAttribute Text
-diaiImageId = lens _diaiImageId (\ s a -> s{_diaiImageId = a});
-
 -- | The AMI attribute. __Note__ : Depending on your account privileges, the @blockDeviceMapping@ attribute may return a @Client.AuthFailure@ error. If this happens, use 'DescribeImages' to get information about the block device mapping for the AMI.
 diaiAttribute :: Lens' DescribeImageAttribute ImageAttributeName
 diaiAttribute = lens _diaiAttribute (\ s a -> s{_diaiAttribute = a});
+
+-- | The ID of the AMI.
+diaiImageId :: Lens' DescribeImageAttribute Text
+diaiImageId = lens _diaiImageId (\ s a -> s{_diaiImageId = a});
 
 instance AWSRequest DescribeImageAttribute where
         type Rs DescribeImageAttribute =
@@ -135,8 +135,9 @@ instance ToQuery DescribeImageAttribute where
               ["Action" =:
                  ("DescribeImageAttribute" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               "DryRun" =: _diaiDryRun, "ImageId" =: _diaiImageId,
-               "Attribute" =: _diaiAttribute]
+               "DryRun" =: _diaiDryRun,
+               "Attribute" =: _diaiAttribute,
+               "ImageId" =: _diaiImageId]
 
 -- | Describes an image attribute.
 --

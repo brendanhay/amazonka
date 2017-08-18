@@ -30,11 +30,11 @@ module Network.AWS.EC2.CreateFlowLogs
     , CreateFlowLogs
     -- * Request Lenses
     , cflClientToken
+    , cflDeliverLogsPermissionARN
+    , cflLogGroupName
     , cflResourceIds
     , cflResourceType
     , cflTrafficType
-    , cflLogGroupName
-    , cflDeliverLogsPermissionARN
 
     -- * Destructuring the Response
     , createFlowLogsResponse
@@ -60,11 +60,11 @@ import           Network.AWS.Response
 -- /See:/ 'createFlowLogs' smart constructor.
 data CreateFlowLogs = CreateFlowLogs'
     { _cflClientToken              :: !(Maybe Text)
+    , _cflDeliverLogsPermissionARN :: !Text
+    , _cflLogGroupName             :: !Text
     , _cflResourceIds              :: ![Text]
     , _cflResourceType             :: !FlowLogsResourceType
     , _cflTrafficType              :: !TrafficType
-    , _cflLogGroupName             :: !Text
-    , _cflDeliverLogsPermissionARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateFlowLogs' with the minimum fields required to make a request.
@@ -73,34 +73,42 @@ data CreateFlowLogs = CreateFlowLogs'
 --
 -- * 'cflClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 --
+-- * 'cflDeliverLogsPermissionARN' - The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+--
+-- * 'cflLogGroupName' - The name of the CloudWatch log group.
+--
 -- * 'cflResourceIds' - One or more subnet, network interface, or VPC IDs. Constraints: Maximum of 1000 resources
 --
 -- * 'cflResourceType' - The type of resource on which to create the flow log.
 --
 -- * 'cflTrafficType' - The type of traffic to log.
---
--- * 'cflLogGroupName' - The name of the CloudWatch log group.
---
--- * 'cflDeliverLogsPermissionARN' - The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group.
 createFlowLogs
-    :: FlowLogsResourceType -- ^ 'cflResourceType'
-    -> TrafficType -- ^ 'cflTrafficType'
+    :: Text -- ^ 'cflDeliverLogsPermissionARN'
     -> Text -- ^ 'cflLogGroupName'
-    -> Text -- ^ 'cflDeliverLogsPermissionARN'
+    -> FlowLogsResourceType -- ^ 'cflResourceType'
+    -> TrafficType -- ^ 'cflTrafficType'
     -> CreateFlowLogs
-createFlowLogs pResourceType_ pTrafficType_ pLogGroupName_ pDeliverLogsPermissionARN_ =
+createFlowLogs pDeliverLogsPermissionARN_ pLogGroupName_ pResourceType_ pTrafficType_ =
     CreateFlowLogs'
     { _cflClientToken = Nothing
+    , _cflDeliverLogsPermissionARN = pDeliverLogsPermissionARN_
+    , _cflLogGroupName = pLogGroupName_
     , _cflResourceIds = mempty
     , _cflResourceType = pResourceType_
     , _cflTrafficType = pTrafficType_
-    , _cflLogGroupName = pLogGroupName_
-    , _cflDeliverLogsPermissionARN = pDeliverLogsPermissionARN_
     }
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 cflClientToken :: Lens' CreateFlowLogs (Maybe Text)
 cflClientToken = lens _cflClientToken (\ s a -> s{_cflClientToken = a});
+
+-- | The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+cflDeliverLogsPermissionARN :: Lens' CreateFlowLogs Text
+cflDeliverLogsPermissionARN = lens _cflDeliverLogsPermissionARN (\ s a -> s{_cflDeliverLogsPermissionARN = a});
+
+-- | The name of the CloudWatch log group.
+cflLogGroupName :: Lens' CreateFlowLogs Text
+cflLogGroupName = lens _cflLogGroupName (\ s a -> s{_cflLogGroupName = a});
 
 -- | One or more subnet, network interface, or VPC IDs. Constraints: Maximum of 1000 resources
 cflResourceIds :: Lens' CreateFlowLogs [Text]
@@ -113,14 +121,6 @@ cflResourceType = lens _cflResourceType (\ s a -> s{_cflResourceType = a});
 -- | The type of traffic to log.
 cflTrafficType :: Lens' CreateFlowLogs TrafficType
 cflTrafficType = lens _cflTrafficType (\ s a -> s{_cflTrafficType = a});
-
--- | The name of the CloudWatch log group.
-cflLogGroupName :: Lens' CreateFlowLogs Text
-cflLogGroupName = lens _cflLogGroupName (\ s a -> s{_cflLogGroupName = a});
-
--- | The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group.
-cflDeliverLogsPermissionARN :: Lens' CreateFlowLogs Text
-cflDeliverLogsPermissionARN = lens _cflDeliverLogsPermissionARN (\ s a -> s{_cflDeliverLogsPermissionARN = a});
 
 instance AWSRequest CreateFlowLogs where
         type Rs CreateFlowLogs = CreateFlowLogsResponse
@@ -153,12 +153,12 @@ instance ToQuery CreateFlowLogs where
               ["Action" =: ("CreateFlowLogs" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
                "ClientToken" =: _cflClientToken,
+               "DeliverLogsPermissionArn" =:
+                 _cflDeliverLogsPermissionARN,
+               "LogGroupName" =: _cflLogGroupName,
                toQueryList "ResourceId" _cflResourceIds,
                "ResourceType" =: _cflResourceType,
-               "TrafficType" =: _cflTrafficType,
-               "LogGroupName" =: _cflLogGroupName,
-               "DeliverLogsPermissionArn" =:
-                 _cflDeliverLogsPermissionARN]
+               "TrafficType" =: _cflTrafficType]
 
 -- | Contains the output of CreateFlowLogs.
 --

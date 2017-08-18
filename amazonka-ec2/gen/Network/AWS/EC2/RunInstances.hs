@@ -41,7 +41,7 @@
 --
 -- To ensure faster instance launches, break up large requests into smaller batches. For example, create 5 separate launch requests for 100 instances each instead of 1 launch request for 500 instances.
 --
--- An instance is ready for you to use when it's in the @running@ state. You can check the state of your instance using 'DescribeInstances' . After launch, you can apply tags to your running instance (requires a resource ID). For more information, see 'CreateTags' and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Amazon EC2 Resources> .
+-- An instance is ready for you to use when it's in the @running@ state. You can check the state of your instance using 'DescribeInstances' . You can tag instances and EBS volumes during launch, after launch, or both. For more information, see 'CreateTags' and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Amazon EC2 Resources> .
 --
 -- Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
@@ -67,8 +67,10 @@ module Network.AWS.EC2.RunInstances
     , rEBSOptimized
     , rUserData
     , rMonitoring
+    , rTagSpecifications
     , rIPv6AddressCount
     , rIAMInstanceProfile
+    , rElasticGpuSpecification
     , rPrivateIPAddress
     , rInstanceInitiatedShutdownBehavior
     , rBlockDeviceMappings
@@ -76,8 +78,8 @@ module Network.AWS.EC2.RunInstances
     , rPlacement
     , rIPv6Addresses
     , rImageId
-    , rMinCount
     , rMaxCount
+    , rMinCount
 
     -- * Destructuring the Response
     , reservation
@@ -117,8 +119,10 @@ data RunInstances = RunInstances'
     , _rEBSOptimized                      :: !(Maybe Bool)
     , _rUserData                          :: !(Maybe Text)
     , _rMonitoring                        :: !(Maybe RunInstancesMonitoringEnabled)
+    , _rTagSpecifications                 :: !(Maybe [TagSpecification])
     , _rIPv6AddressCount                  :: !(Maybe Int)
     , _rIAMInstanceProfile                :: !(Maybe IAMInstanceProfileSpecification)
+    , _rElasticGpuSpecification           :: !(Maybe [ElasticGpuSpecification])
     , _rPrivateIPAddress                  :: !(Maybe Text)
     , _rInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
     , _rBlockDeviceMappings               :: !(Maybe [BlockDeviceMapping])
@@ -126,8 +130,8 @@ data RunInstances = RunInstances'
     , _rPlacement                         :: !(Maybe Placement)
     , _rIPv6Addresses                     :: !(Maybe [InstanceIPv6Address])
     , _rImageId                           :: !Text
-    , _rMinCount                          :: !Int
     , _rMaxCount                          :: !Int
+    , _rMinCount                          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RunInstances' with the minimum fields required to make a request.
@@ -162,9 +166,13 @@ data RunInstances = RunInstances'
 --
 -- * 'rMonitoring' - The monitoring for the instance.
 --
+-- * 'rTagSpecifications' - The tags to apply to the resources during launch. You can tag instances and volumes. The specified tags are applied to all instances or volumes that are created during launch.
+--
 -- * 'rIPv6AddressCount' - [EC2-VPC] A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
 --
 -- * 'rIAMInstanceProfile' - The IAM instance profile.
+--
+-- * 'rElasticGpuSpecification' - An Elastic GPU to associate with the instance.
 --
 -- * 'rPrivateIPAddress' - [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet. Only one private IP address can be designated as primary. You can't specify this option if you've specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you're launching more than one instance in the request.
 --
@@ -180,15 +188,15 @@ data RunInstances = RunInstances'
 --
 -- * 'rImageId' - The ID of the AMI, which you can get by calling 'DescribeImages' .
 --
--- * 'rMinCount' - The minimum number of instances to launch. If you specify a minimum that is more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches no instances. Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2> in the Amazon EC2 General FAQ.
---
 -- * 'rMaxCount' - The maximum number of instances to launch. If you specify more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches the largest possible number of instances above @MinCount@ . Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2> in the Amazon EC2 FAQ.
+--
+-- * 'rMinCount' - The minimum number of instances to launch. If you specify a minimum that is more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches no instances. Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2> in the Amazon EC2 General FAQ.
 runInstances
     :: Text -- ^ 'rImageId'
-    -> Int -- ^ 'rMinCount'
     -> Int -- ^ 'rMaxCount'
+    -> Int -- ^ 'rMinCount'
     -> RunInstances
-runInstances pImageId_ pMinCount_ pMaxCount_ =
+runInstances pImageId_ pMaxCount_ pMinCount_ =
     RunInstances'
     { _rAdditionalInfo = Nothing
     , _rSecurityGroupIds = Nothing
@@ -204,8 +212,10 @@ runInstances pImageId_ pMinCount_ pMaxCount_ =
     , _rEBSOptimized = Nothing
     , _rUserData = Nothing
     , _rMonitoring = Nothing
+    , _rTagSpecifications = Nothing
     , _rIPv6AddressCount = Nothing
     , _rIAMInstanceProfile = Nothing
+    , _rElasticGpuSpecification = Nothing
     , _rPrivateIPAddress = Nothing
     , _rInstanceInitiatedShutdownBehavior = Nothing
     , _rBlockDeviceMappings = Nothing
@@ -213,8 +223,8 @@ runInstances pImageId_ pMinCount_ pMaxCount_ =
     , _rPlacement = Nothing
     , _rIPv6Addresses = Nothing
     , _rImageId = pImageId_
-    , _rMinCount = pMinCount_
     , _rMaxCount = pMaxCount_
+    , _rMinCount = pMinCount_
     }
 
 -- | Reserved.
@@ -273,6 +283,10 @@ rUserData = lens _rUserData (\ s a -> s{_rUserData = a});
 rMonitoring :: Lens' RunInstances (Maybe RunInstancesMonitoringEnabled)
 rMonitoring = lens _rMonitoring (\ s a -> s{_rMonitoring = a});
 
+-- | The tags to apply to the resources during launch. You can tag instances and volumes. The specified tags are applied to all instances or volumes that are created during launch.
+rTagSpecifications :: Lens' RunInstances [TagSpecification]
+rTagSpecifications = lens _rTagSpecifications (\ s a -> s{_rTagSpecifications = a}) . _Default . _Coerce;
+
 -- | [EC2-VPC] A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
 rIPv6AddressCount :: Lens' RunInstances (Maybe Int)
 rIPv6AddressCount = lens _rIPv6AddressCount (\ s a -> s{_rIPv6AddressCount = a});
@@ -280,6 +294,10 @@ rIPv6AddressCount = lens _rIPv6AddressCount (\ s a -> s{_rIPv6AddressCount = a})
 -- | The IAM instance profile.
 rIAMInstanceProfile :: Lens' RunInstances (Maybe IAMInstanceProfileSpecification)
 rIAMInstanceProfile = lens _rIAMInstanceProfile (\ s a -> s{_rIAMInstanceProfile = a});
+
+-- | An Elastic GPU to associate with the instance.
+rElasticGpuSpecification :: Lens' RunInstances [ElasticGpuSpecification]
+rElasticGpuSpecification = lens _rElasticGpuSpecification (\ s a -> s{_rElasticGpuSpecification = a}) . _Default . _Coerce;
 
 -- | [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet. Only one private IP address can be designated as primary. You can't specify this option if you've specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you're launching more than one instance in the request.
 rPrivateIPAddress :: Lens' RunInstances (Maybe Text)
@@ -309,13 +327,13 @@ rIPv6Addresses = lens _rIPv6Addresses (\ s a -> s{_rIPv6Addresses = a}) . _Defau
 rImageId :: Lens' RunInstances Text
 rImageId = lens _rImageId (\ s a -> s{_rImageId = a});
 
--- | The minimum number of instances to launch. If you specify a minimum that is more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches no instances. Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2> in the Amazon EC2 General FAQ.
-rMinCount :: Lens' RunInstances Int
-rMinCount = lens _rMinCount (\ s a -> s{_rMinCount = a});
-
 -- | The maximum number of instances to launch. If you specify more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches the largest possible number of instances above @MinCount@ . Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2> in the Amazon EC2 FAQ.
 rMaxCount :: Lens' RunInstances Int
 rMaxCount = lens _rMaxCount (\ s a -> s{_rMaxCount = a});
+
+-- | The minimum number of instances to launch. If you specify a minimum that is more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches no instances. Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2> in the Amazon EC2 General FAQ.
+rMinCount :: Lens' RunInstances Int
+rMinCount = lens _rMinCount (\ s a -> s{_rMinCount = a});
 
 instance AWSRequest RunInstances where
         type Rs RunInstances = Reservation
@@ -355,8 +373,14 @@ instance ToQuery RunInstances where
                "EbsOptimized" =: _rEBSOptimized,
                "UserData" =: _rUserData,
                "Monitoring" =: _rMonitoring,
+               toQuery
+                 (toQueryList "TagSpecification" <$>
+                    _rTagSpecifications),
                "Ipv6AddressCount" =: _rIPv6AddressCount,
                "IamInstanceProfile" =: _rIAMInstanceProfile,
+               toQuery
+                 (toQueryList "ElasticGpuSpecification" <$>
+                    _rElasticGpuSpecification),
                "PrivateIpAddress" =: _rPrivateIPAddress,
                "InstanceInitiatedShutdownBehavior" =:
                  _rInstanceInitiatedShutdownBehavior,
@@ -366,5 +390,5 @@ instance ToQuery RunInstances where
                "DryRun" =: _rDryRun, "Placement" =: _rPlacement,
                toQuery
                  (toQueryList "Ipv6Address" <$> _rIPv6Addresses),
-               "ImageId" =: _rImageId, "MinCount" =: _rMinCount,
-               "MaxCount" =: _rMaxCount]
+               "ImageId" =: _rImageId, "MaxCount" =: _rMaxCount,
+               "MinCount" =: _rMinCount]

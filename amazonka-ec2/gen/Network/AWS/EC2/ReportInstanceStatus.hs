@@ -34,8 +34,8 @@ module Network.AWS.EC2.ReportInstanceStatus
     , risDescription
     , risDryRun
     , risInstances
-    , risStatus
     , risReasonCodes
+    , risStatus
 
     -- * Destructuring the Response
     , reportInstanceStatusResponse
@@ -60,8 +60,8 @@ data ReportInstanceStatus = ReportInstanceStatus'
     , _risDescription :: !(Maybe Text)
     , _risDryRun      :: !(Maybe Bool)
     , _risInstances   :: ![Text]
-    , _risStatus      :: !ReportStatusType
     , _risReasonCodes :: ![ReportInstanceReasonCodes]
+    , _risStatus      :: !ReportStatusType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReportInstanceStatus' with the minimum fields required to make a request.
@@ -78,9 +78,9 @@ data ReportInstanceStatus = ReportInstanceStatus'
 --
 -- * 'risInstances' - One or more instances.
 --
--- * 'risStatus' - The status of all instances listed.
---
 -- * 'risReasonCodes' - One or more reason codes that describes the health state of your instance.     * @instance-stuck-in-state@ : My instance is stuck in a state.     * @unresponsive@ : My instance is unresponsive.     * @not-accepting-credentials@ : My instance is not accepting my credentials.     * @password-not-available@ : A password is not available for my instance.     * @performance-network@ : My instance is experiencing performance problems which I believe are network related.     * @performance-instance-store@ : My instance is experiencing performance problems which I believe are related to the instance stores.     * @performance-ebs-volume@ : My instance is experiencing performance problems which I believe are related to an EBS volume.     * @performance-other@ : My instance is experiencing performance problems.     * @other@ : [explain using the description parameter]
+--
+-- * 'risStatus' - The status of all instances listed.
 reportInstanceStatus
     :: ReportStatusType -- ^ 'risStatus'
     -> ReportInstanceStatus
@@ -91,8 +91,8 @@ reportInstanceStatus pStatus_ =
     , _risDescription = Nothing
     , _risDryRun = Nothing
     , _risInstances = mempty
-    , _risStatus = pStatus_
     , _risReasonCodes = mempty
+    , _risStatus = pStatus_
     }
 
 -- | The time at which the reported instance health state began.
@@ -115,13 +115,13 @@ risDryRun = lens _risDryRun (\ s a -> s{_risDryRun = a});
 risInstances :: Lens' ReportInstanceStatus [Text]
 risInstances = lens _risInstances (\ s a -> s{_risInstances = a}) . _Coerce;
 
--- | The status of all instances listed.
-risStatus :: Lens' ReportInstanceStatus ReportStatusType
-risStatus = lens _risStatus (\ s a -> s{_risStatus = a});
-
 -- | One or more reason codes that describes the health state of your instance.     * @instance-stuck-in-state@ : My instance is stuck in a state.     * @unresponsive@ : My instance is unresponsive.     * @not-accepting-credentials@ : My instance is not accepting my credentials.     * @password-not-available@ : A password is not available for my instance.     * @performance-network@ : My instance is experiencing performance problems which I believe are network related.     * @performance-instance-store@ : My instance is experiencing performance problems which I believe are related to the instance stores.     * @performance-ebs-volume@ : My instance is experiencing performance problems which I believe are related to an EBS volume.     * @performance-other@ : My instance is experiencing performance problems.     * @other@ : [explain using the description parameter]
 risReasonCodes :: Lens' ReportInstanceStatus [ReportInstanceReasonCodes]
 risReasonCodes = lens _risReasonCodes (\ s a -> s{_risReasonCodes = a}) . _Coerce;
+
+-- | The status of all instances listed.
+risStatus :: Lens' ReportInstanceStatus ReportStatusType
+risStatus = lens _risStatus (\ s a -> s{_risStatus = a});
 
 instance AWSRequest ReportInstanceStatus where
         type Rs ReportInstanceStatus =
@@ -149,8 +149,8 @@ instance ToQuery ReportInstanceStatus where
                "Description" =: _risDescription,
                "DryRun" =: _risDryRun,
                toQueryList "InstanceId" _risInstances,
-               "Status" =: _risStatus,
-               toQueryList "ReasonCode" _risReasonCodes]
+               toQueryList "ReasonCode" _risReasonCodes,
+               "Status" =: _risStatus]
 
 -- | /See:/ 'reportInstanceStatusResponse' smart constructor.
 data ReportInstanceStatusResponse =

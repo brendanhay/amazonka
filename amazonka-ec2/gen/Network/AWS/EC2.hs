@@ -119,6 +119,9 @@ module Network.AWS.EC2
     -- ** RevokeSecurityGroupEgress
     , module Network.AWS.EC2.RevokeSecurityGroupEgress
 
+    -- ** CreateNetworkInterfacePermission
+    , module Network.AWS.EC2.CreateNetworkInterfacePermission
+
     -- ** CreateVPNGateway
     , module Network.AWS.EC2.CreateVPNGateway
 
@@ -350,6 +353,9 @@ module Network.AWS.EC2
     -- ** DescribeVolumesModifications
     , module Network.AWS.EC2.DescribeVolumesModifications
 
+    -- ** CreateFpgaImage
+    , module Network.AWS.EC2.CreateFpgaImage
+
     -- ** AllocateAddress
     , module Network.AWS.EC2.AllocateAddress
 
@@ -419,6 +425,9 @@ module Network.AWS.EC2
     -- ** DeleteNetworkACL
     , module Network.AWS.EC2.DeleteNetworkACL
 
+    -- ** DeleteNetworkInterfacePermission
+    , module Network.AWS.EC2.DeleteNetworkInterfacePermission
+
     -- ** DeleteVPNGateway
     , module Network.AWS.EC2.DeleteVPNGateway
 
@@ -439,6 +448,9 @@ module Network.AWS.EC2
 
     -- ** ModifyVPCPeeringConnectionOptions
     , module Network.AWS.EC2.ModifyVPCPeeringConnectionOptions
+
+    -- ** DescribeFpgaImages
+    , module Network.AWS.EC2.DescribeFpgaImages
 
     -- ** CopySnapshot
     , module Network.AWS.EC2.CopySnapshot
@@ -517,6 +529,9 @@ module Network.AWS.EC2
 
     -- ** CancelExportTask
     , module Network.AWS.EC2.CancelExportTask
+
+    -- ** CreateDefaultVPC
+    , module Network.AWS.EC2.CreateDefaultVPC
 
     -- ** DisassociateVPCCidrBlock
     , module Network.AWS.EC2.DisassociateVPCCidrBlock
@@ -740,6 +755,9 @@ module Network.AWS.EC2
     -- ** UnassignPrivateIPAddresses
     , module Network.AWS.EC2.UnassignPrivateIPAddresses
 
+    -- ** DescribeNetworkInterfacePermissions
+    , module Network.AWS.EC2.DescribeNetworkInterfacePermissions
+
     -- ** DeleteDHCPOptions
     , module Network.AWS.EC2.DeleteDHCPOptions
 
@@ -778,6 +796,9 @@ module Network.AWS.EC2
 
     -- ** DescribeImages
     , module Network.AWS.EC2.DescribeImages
+
+    -- ** DescribeElasticGpus
+    , module Network.AWS.EC2.DescribeElasticGpus
 
     -- ** RestoreAddressToClassic
     , module Network.AWS.EC2.RestoreAddressToClassic
@@ -862,6 +883,12 @@ module Network.AWS.EC2
     -- ** DomainType
     , DomainType (..)
 
+    -- ** ElasticGpuState
+    , ElasticGpuState (..)
+
+    -- ** ElasticGpuStatus
+    , ElasticGpuStatus (..)
+
     -- ** EventCode
     , EventCode (..)
 
@@ -882,6 +909,9 @@ module Network.AWS.EC2
 
     -- ** FlowLogsResourceType
     , FlowLogsResourceType (..)
+
+    -- ** FpgaImageStateCode
+    , FpgaImageStateCode (..)
 
     -- ** GatewayType
     , GatewayType (..)
@@ -919,6 +949,9 @@ module Network.AWS.EC2
     -- ** InstanceType
     , InstanceType (..)
 
+    -- ** InterfacePermissionType
+    , InterfacePermissionType (..)
+
     -- ** ListingState
     , ListingState (..)
 
@@ -936,6 +969,9 @@ module Network.AWS.EC2
 
     -- ** NetworkInterfaceAttribute
     , NetworkInterfaceAttribute (..)
+
+    -- ** NetworkInterfacePermissionStateCode
+    , NetworkInterfacePermissionStateCode (..)
 
     -- ** NetworkInterfaceStatus
     , NetworkInterfaceStatus (..)
@@ -1190,15 +1226,15 @@ module Network.AWS.EC2
     -- ** CancelSpotFleetRequestsErrorItem
     , CancelSpotFleetRequestsErrorItem
     , cancelSpotFleetRequestsErrorItem
-    , csfreiSpotFleetRequestId
     , csfreiError
+    , csfreiSpotFleetRequestId
 
     -- ** CancelSpotFleetRequestsSuccessItem
     , CancelSpotFleetRequestsSuccessItem
     , cancelSpotFleetRequestsSuccessItem
-    , csfrsiSpotFleetRequestId
     , csfrsiCurrentSpotFleetRequestState
     , csfrsiPreviousSpotFleetRequestState
+    , csfrsiSpotFleetRequestId
 
     -- ** CancelledSpotInstanceRequest
     , CancelledSpotInstanceRequest
@@ -1286,14 +1322,14 @@ module Network.AWS.EC2
     , diskImageDescription
     , dChecksum
     , dFormat
-    , dSize
     , dImportManifestURL
+    , dSize
 
     -- ** DiskImageDetail
     , DiskImageDetail
     , diskImageDetail
-    , didFormat
     , didBytes
+    , didFormat
     , didImportManifestURL
 
     -- ** DiskImageVolumeDescription
@@ -1331,6 +1367,34 @@ module Network.AWS.EC2
     , egressOnlyInternetGateway
     , eoigEgressOnlyInternetGatewayId
     , eoigAttachments
+
+    -- ** ElasticGpuAssociation
+    , ElasticGpuAssociation
+    , elasticGpuAssociation
+    , egaElasticGpuId
+    , egaElasticGpuAssociationId
+    , egaElasticGpuAssociationTime
+    , egaElasticGpuAssociationState
+
+    -- ** ElasticGpuHealth
+    , ElasticGpuHealth
+    , elasticGpuHealth
+    , eghStatus
+
+    -- ** ElasticGpuSpecification
+    , ElasticGpuSpecification
+    , elasticGpuSpecification
+    , egsType
+
+    -- ** ElasticGpus
+    , ElasticGpus
+    , elasticGpus
+    , egInstanceId
+    , egElasticGpuType
+    , egElasticGpuId
+    , egElasticGpuState
+    , egElasticGpuHealth
+    , egAvailabilityZone
 
     -- ** EventInformation
     , EventInformation
@@ -1384,6 +1448,29 @@ module Network.AWS.EC2
     , flDeliverLogsPermissionARN
     , flFlowLogId
 
+    -- ** FpgaImage
+    , FpgaImage
+    , fpgaImage
+    , fiShellVersion
+    , fiPciId
+    , fiState
+    , fiOwnerAlias
+    , fiFpgaImageId
+    , fiOwnerId
+    , fiUpdateTime
+    , fiName
+    , fiProductCodes
+    , fiDescription
+    , fiCreateTime
+    , fiTags
+    , fiFpgaImageGlobalId
+
+    -- ** FpgaImageState
+    , FpgaImageState
+    , fpgaImageState
+    , fisCode
+    , fisMessage
+
     -- ** GroupIdentifier
     , GroupIdentifier
     , groupIdentifier
@@ -1393,9 +1480,9 @@ module Network.AWS.EC2
     -- ** HistoryRecord
     , HistoryRecord
     , historyRecord
-    , hrTimestamp
-    , hrEventType
     , hrEventInformation
+    , hrEventType
+    , hrTimestamp
 
     -- ** Host
     , Host
@@ -1593,11 +1680,11 @@ module Network.AWS.EC2
     , importInstanceVolumeDetailItem
     , iivdiStatusMessage
     , iivdiDescription
-    , iivdiBytesConverted
     , iivdiAvailabilityZone
+    , iivdiBytesConverted
     , iivdiImage
-    , iivdiVolume
     , iivdiStatus
+    , iivdiVolume
 
     -- ** ImportSnapshotTask
     , ImportSnapshotTask
@@ -1610,8 +1697,8 @@ module Network.AWS.EC2
     , ImportVolumeTaskDetails
     , importVolumeTaskDetails
     , ivtdDescription
-    , ivtdBytesConverted
     , ivtdAvailabilityZone
+    , ivtdBytesConverted
     , ivtdImage
     , ivtdVolume
 
@@ -1624,6 +1711,7 @@ module Network.AWS.EC2
     , insClientToken
     , insEnaSupport
     , insSourceDestCheck
+    , insElasticGpuAssociations
     , insVPCId
     , insKeyName
     , insNetworkInterfaces
@@ -1971,6 +2059,22 @@ module Network.AWS.EC2
     , networkInterfaceIPv6Address
     , niiaIPv6Address
 
+    -- ** NetworkInterfacePermission
+    , NetworkInterfacePermission
+    , networkInterfacePermission
+    , nipPermissionState
+    , nipNetworkInterfacePermissionId
+    , nipNetworkInterfaceId
+    , nipAWSAccountId
+    , nipAWSService
+    , nipPermission
+
+    -- ** NetworkInterfacePermissionState
+    , NetworkInterfacePermissionState
+    , networkInterfacePermissionState
+    , nipsState
+    , nipsStatusMessage
+
     -- ** NetworkInterfacePrivateIPAddress
     , NetworkInterfacePrivateIPAddress
     , networkInterfacePrivateIPAddress
@@ -1984,6 +2088,14 @@ module Network.AWS.EC2
     , newDHCPConfiguration
     , ndcValues
     , ndcKey
+
+    -- ** PciId
+    , PciId
+    , pciId
+    , piSubsystemId
+    , piDeviceId
+    , piSubsystemVendorId
+    , piVendorId
 
     -- ** PeeringConnectionOptions
     , PeeringConnectionOptions
@@ -2004,6 +2116,7 @@ module Network.AWS.EC2
     , placement
     , pAffinity
     , pHostId
+    , pSpreadDomain
     , pAvailabilityZone
     , pTenancy
     , pGroupName
@@ -2095,8 +2208,8 @@ module Network.AWS.EC2
     -- ** PurchaseRequest
     , PurchaseRequest
     , purchaseRequest
-    , prPurchaseToken
     , prInstanceCount
+    , prPurchaseToken
 
     -- ** RecurringCharge
     , RecurringCharge
@@ -2536,6 +2649,7 @@ module Network.AWS.EC2
     , sflsEBSOptimized
     , sflsUserData
     , sflsMonitoring
+    , sflsTagSpecifications
     , sflsIAMInstanceProfile
     , sflsImageId
     , sflsAddressingType
@@ -2551,10 +2665,10 @@ module Network.AWS.EC2
     , SpotFleetRequestConfig
     , spotFleetRequestConfig
     , sfrcActivityStatus
+    , sfrcCreateTime
+    , sfrcSpotFleetRequestConfig
     , sfrcSpotFleetRequestId
     , sfrcSpotFleetRequestState
-    , sfrcSpotFleetRequestConfig
-    , sfrcCreateTime
 
     -- ** SpotFleetRequestConfigData
     , SpotFleetRequestConfigData
@@ -2568,10 +2682,16 @@ module Network.AWS.EC2
     , sfrcdValidFrom
     , sfrcdReplaceUnhealthyInstances
     , sfrcdAllocationStrategy
-    , sfrcdSpotPrice
-    , sfrcdTargetCapacity
     , sfrcdIAMFleetRole
     , sfrcdLaunchSpecifications
+    , sfrcdSpotPrice
+    , sfrcdTargetCapacity
+
+    -- ** SpotFleetTagSpecification
+    , SpotFleetTagSpecification
+    , spotFleetTagSpecification
+    , sftsResourceType
+    , sftsTags
 
     -- ** SpotInstanceRequest
     , SpotInstanceRequest
@@ -2655,6 +2775,12 @@ module Network.AWS.EC2
     , storage
     , sS3
 
+    -- ** StorageLocation
+    , StorageLocation
+    , storageLocation
+    , slBucket
+    , slKey
+
     -- ** Subnet
     , Subnet
     , subnet
@@ -2696,6 +2822,12 @@ module Network.AWS.EC2
     , tdResourceType
     , tdKey
     , tdValue
+
+    -- ** TagSpecification
+    , TagSpecification
+    , tagSpecification
+    , tsResourceType
+    , tsTags
 
     -- ** TargetConfiguration
     , TargetConfiguration
@@ -3002,9 +3134,11 @@ import           Network.AWS.EC2.ConfirmProductInstance
 import           Network.AWS.EC2.CopyImage
 import           Network.AWS.EC2.CopySnapshot
 import           Network.AWS.EC2.CreateCustomerGateway
+import           Network.AWS.EC2.CreateDefaultVPC
 import           Network.AWS.EC2.CreateDHCPOptions
 import           Network.AWS.EC2.CreateEgressOnlyInternetGateway
 import           Network.AWS.EC2.CreateFlowLogs
+import           Network.AWS.EC2.CreateFpgaImage
 import           Network.AWS.EC2.CreateImage
 import           Network.AWS.EC2.CreateInstanceExportTask
 import           Network.AWS.EC2.CreateInternetGateway
@@ -3013,6 +3147,7 @@ import           Network.AWS.EC2.CreateNatGateway
 import           Network.AWS.EC2.CreateNetworkACL
 import           Network.AWS.EC2.CreateNetworkACLEntry
 import           Network.AWS.EC2.CreateNetworkInterface
+import           Network.AWS.EC2.CreateNetworkInterfacePermission
 import           Network.AWS.EC2.CreatePlacementGroup
 import           Network.AWS.EC2.CreateReservedInstancesListing
 import           Network.AWS.EC2.CreateRoute
@@ -3039,6 +3174,7 @@ import           Network.AWS.EC2.DeleteNatGateway
 import           Network.AWS.EC2.DeleteNetworkACL
 import           Network.AWS.EC2.DeleteNetworkACLEntry
 import           Network.AWS.EC2.DeleteNetworkInterface
+import           Network.AWS.EC2.DeleteNetworkInterfacePermission
 import           Network.AWS.EC2.DeletePlacementGroup
 import           Network.AWS.EC2.DeleteRoute
 import           Network.AWS.EC2.DeleteRouteTable
@@ -3064,8 +3200,10 @@ import           Network.AWS.EC2.DescribeConversionTasks
 import           Network.AWS.EC2.DescribeCustomerGateways
 import           Network.AWS.EC2.DescribeDHCPOptions
 import           Network.AWS.EC2.DescribeEgressOnlyInternetGateways
+import           Network.AWS.EC2.DescribeElasticGpus
 import           Network.AWS.EC2.DescribeExportTasks
 import           Network.AWS.EC2.DescribeFlowLogs
+import           Network.AWS.EC2.DescribeFpgaImages
 import           Network.AWS.EC2.DescribeHostReservationOfferings
 import           Network.AWS.EC2.DescribeHostReservations
 import           Network.AWS.EC2.DescribeHosts
@@ -3085,6 +3223,7 @@ import           Network.AWS.EC2.DescribeMovingAddresses
 import           Network.AWS.EC2.DescribeNatGateways
 import           Network.AWS.EC2.DescribeNetworkACLs
 import           Network.AWS.EC2.DescribeNetworkInterfaceAttribute
+import           Network.AWS.EC2.DescribeNetworkInterfacePermissions
 import           Network.AWS.EC2.DescribeNetworkInterfaces
 import           Network.AWS.EC2.DescribePlacementGroups
 import           Network.AWS.EC2.DescribePrefixLists

@@ -33,9 +33,9 @@ module Network.AWS.EC2.ModifyIdentityIdFormat
       modifyIdentityIdFormat
     , ModifyIdentityIdFormat
     -- * Request Lenses
+    , miifPrincipalARN
     , miifResource
     , miifUseLongIds
-    , miifPrincipalARN
 
     -- * Destructuring the Response
     , modifyIdentityIdFormatResponse
@@ -55,31 +55,35 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyIdentityIdFormat' smart constructor.
 data ModifyIdentityIdFormat = ModifyIdentityIdFormat'
-    { _miifResource     :: !Text
+    { _miifPrincipalARN :: !Text
+    , _miifResource     :: !Text
     , _miifUseLongIds   :: !Bool
-    , _miifPrincipalARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyIdentityIdFormat' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'miifPrincipalARN' - The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify @all@ to modify the ID format for all IAM users, IAM roles, and the root user of the account.
+--
 -- * 'miifResource' - The type of resource: @instance@ | @reservation@ | @snapshot@ | @volume@
 --
 -- * 'miifUseLongIds' - Indicates whether the resource should use longer IDs (17-character IDs)
---
--- * 'miifPrincipalARN' - The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify @all@ to modify the ID format for all IAM users, IAM roles, and the root user of the account.
 modifyIdentityIdFormat
-    :: Text -- ^ 'miifResource'
+    :: Text -- ^ 'miifPrincipalARN'
+    -> Text -- ^ 'miifResource'
     -> Bool -- ^ 'miifUseLongIds'
-    -> Text -- ^ 'miifPrincipalARN'
     -> ModifyIdentityIdFormat
-modifyIdentityIdFormat pResource_ pUseLongIds_ pPrincipalARN_ =
+modifyIdentityIdFormat pPrincipalARN_ pResource_ pUseLongIds_ =
     ModifyIdentityIdFormat'
-    { _miifResource = pResource_
+    { _miifPrincipalARN = pPrincipalARN_
+    , _miifResource = pResource_
     , _miifUseLongIds = pUseLongIds_
-    , _miifPrincipalARN = pPrincipalARN_
     }
+
+-- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify @all@ to modify the ID format for all IAM users, IAM roles, and the root user of the account.
+miifPrincipalARN :: Lens' ModifyIdentityIdFormat Text
+miifPrincipalARN = lens _miifPrincipalARN (\ s a -> s{_miifPrincipalARN = a});
 
 -- | The type of resource: @instance@ | @reservation@ | @snapshot@ | @volume@
 miifResource :: Lens' ModifyIdentityIdFormat Text
@@ -88,10 +92,6 @@ miifResource = lens _miifResource (\ s a -> s{_miifResource = a});
 -- | Indicates whether the resource should use longer IDs (17-character IDs)
 miifUseLongIds :: Lens' ModifyIdentityIdFormat Bool
 miifUseLongIds = lens _miifUseLongIds (\ s a -> s{_miifUseLongIds = a});
-
--- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify @all@ to modify the ID format for all IAM users, IAM roles, and the root user of the account.
-miifPrincipalARN :: Lens' ModifyIdentityIdFormat Text
-miifPrincipalARN = lens _miifPrincipalARN (\ s a -> s{_miifPrincipalARN = a});
 
 instance AWSRequest ModifyIdentityIdFormat where
         type Rs ModifyIdentityIdFormat =
@@ -116,9 +116,9 @@ instance ToQuery ModifyIdentityIdFormat where
               ["Action" =:
                  ("ModifyIdentityIdFormat" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
+               "PrincipalArn" =: _miifPrincipalARN,
                "Resource" =: _miifResource,
-               "UseLongIds" =: _miifUseLongIds,
-               "PrincipalArn" =: _miifPrincipalARN]
+               "UseLongIds" =: _miifUseLongIds]
 
 -- | /See:/ 'modifyIdentityIdFormatResponse' smart constructor.
 data ModifyIdentityIdFormatResponse =

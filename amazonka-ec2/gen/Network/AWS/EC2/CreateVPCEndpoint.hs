@@ -33,8 +33,8 @@ module Network.AWS.EC2.CreateVPCEndpoint
     , cveClientToken
     , cveDryRun
     , cveRouteTableIds
-    , cveVPCId
     , cveServiceName
+    , cveVPCId
 
     -- * Destructuring the Response
     , createVPCEndpointResponse
@@ -62,8 +62,8 @@ data CreateVPCEndpoint = CreateVPCEndpoint'
     , _cveClientToken    :: !(Maybe Text)
     , _cveDryRun         :: !(Maybe Bool)
     , _cveRouteTableIds  :: !(Maybe [Text])
-    , _cveVPCId          :: !Text
     , _cveServiceName    :: !Text
+    , _cveVPCId          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateVPCEndpoint' with the minimum fields required to make a request.
@@ -78,21 +78,21 @@ data CreateVPCEndpoint = CreateVPCEndpoint'
 --
 -- * 'cveRouteTableIds' - One or more route table IDs.
 --
--- * 'cveVPCId' - The ID of the VPC in which the endpoint will be used.
---
 -- * 'cveServiceName' - The AWS service name, in the form @com.amazonaws./region/ ./service/ @ . To get a list of available services, use the 'DescribeVpcEndpointServices' request.
+--
+-- * 'cveVPCId' - The ID of the VPC in which the endpoint will be used.
 createVPCEndpoint
-    :: Text -- ^ 'cveVPCId'
-    -> Text -- ^ 'cveServiceName'
+    :: Text -- ^ 'cveServiceName'
+    -> Text -- ^ 'cveVPCId'
     -> CreateVPCEndpoint
-createVPCEndpoint pVPCId_ pServiceName_ =
+createVPCEndpoint pServiceName_ pVPCId_ =
     CreateVPCEndpoint'
     { _cvePolicyDocument = Nothing
     , _cveClientToken = Nothing
     , _cveDryRun = Nothing
     , _cveRouteTableIds = Nothing
-    , _cveVPCId = pVPCId_
     , _cveServiceName = pServiceName_
+    , _cveVPCId = pVPCId_
     }
 
 -- | A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format. If this parameter is not specified, we attach a default policy that allows full access to the service.
@@ -111,13 +111,13 @@ cveDryRun = lens _cveDryRun (\ s a -> s{_cveDryRun = a});
 cveRouteTableIds :: Lens' CreateVPCEndpoint [Text]
 cveRouteTableIds = lens _cveRouteTableIds (\ s a -> s{_cveRouteTableIds = a}) . _Default . _Coerce;
 
--- | The ID of the VPC in which the endpoint will be used.
-cveVPCId :: Lens' CreateVPCEndpoint Text
-cveVPCId = lens _cveVPCId (\ s a -> s{_cveVPCId = a});
-
 -- | The AWS service name, in the form @com.amazonaws./region/ ./service/ @ . To get a list of available services, use the 'DescribeVpcEndpointServices' request.
 cveServiceName :: Lens' CreateVPCEndpoint Text
 cveServiceName = lens _cveServiceName (\ s a -> s{_cveServiceName = a});
+
+-- | The ID of the VPC in which the endpoint will be used.
+cveVPCId :: Lens' CreateVPCEndpoint Text
+cveVPCId = lens _cveVPCId (\ s a -> s{_cveVPCId = a});
 
 instance AWSRequest CreateVPCEndpoint where
         type Rs CreateVPCEndpoint = CreateVPCEndpointResponse
@@ -149,8 +149,8 @@ instance ToQuery CreateVPCEndpoint where
                "DryRun" =: _cveDryRun,
                toQuery
                  (toQueryList "RouteTableId" <$> _cveRouteTableIds),
-               "VpcId" =: _cveVPCId,
-               "ServiceName" =: _cveServiceName]
+               "ServiceName" =: _cveServiceName,
+               "VpcId" =: _cveVPCId]
 
 -- | Contains the output of CreateVpcEndpoint.
 --

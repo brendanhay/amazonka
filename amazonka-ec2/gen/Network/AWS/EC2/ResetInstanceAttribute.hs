@@ -30,8 +30,8 @@ module Network.AWS.EC2.ResetInstanceAttribute
     , ResetInstanceAttribute
     -- * Request Lenses
     , riaDryRun
-    , riaInstanceId
     , riaAttribute
+    , riaInstanceId
 
     -- * Destructuring the Response
     , resetInstanceAttributeResponse
@@ -52,8 +52,8 @@ import           Network.AWS.Response
 -- /See:/ 'resetInstanceAttribute' smart constructor.
 data ResetInstanceAttribute = ResetInstanceAttribute'
     { _riaDryRun     :: !(Maybe Bool)
-    , _riaInstanceId :: !Text
     , _riaAttribute  :: !InstanceAttributeName
+    , _riaInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ResetInstanceAttribute' with the minimum fields required to make a request.
@@ -62,31 +62,31 @@ data ResetInstanceAttribute = ResetInstanceAttribute'
 --
 -- * 'riaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'riaInstanceId' - The ID of the instance.
---
 -- * 'riaAttribute' - The attribute to reset. /Important:/ You can only reset the following attributes: @kernel@ | @ramdisk@ | @sourceDestCheck@ . To change an instance attribute, use 'ModifyInstanceAttribute' .
+--
+-- * 'riaInstanceId' - The ID of the instance.
 resetInstanceAttribute
-    :: Text -- ^ 'riaInstanceId'
-    -> InstanceAttributeName -- ^ 'riaAttribute'
+    :: InstanceAttributeName -- ^ 'riaAttribute'
+    -> Text -- ^ 'riaInstanceId'
     -> ResetInstanceAttribute
-resetInstanceAttribute pInstanceId_ pAttribute_ =
+resetInstanceAttribute pAttribute_ pInstanceId_ =
     ResetInstanceAttribute'
     { _riaDryRun = Nothing
-    , _riaInstanceId = pInstanceId_
     , _riaAttribute = pAttribute_
+    , _riaInstanceId = pInstanceId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 riaDryRun :: Lens' ResetInstanceAttribute (Maybe Bool)
 riaDryRun = lens _riaDryRun (\ s a -> s{_riaDryRun = a});
 
--- | The ID of the instance.
-riaInstanceId :: Lens' ResetInstanceAttribute Text
-riaInstanceId = lens _riaInstanceId (\ s a -> s{_riaInstanceId = a});
-
 -- | The attribute to reset. /Important:/ You can only reset the following attributes: @kernel@ | @ramdisk@ | @sourceDestCheck@ . To change an instance attribute, use 'ModifyInstanceAttribute' .
 riaAttribute :: Lens' ResetInstanceAttribute InstanceAttributeName
 riaAttribute = lens _riaAttribute (\ s a -> s{_riaAttribute = a});
+
+-- | The ID of the instance.
+riaInstanceId :: Lens' ResetInstanceAttribute Text
+riaInstanceId = lens _riaInstanceId (\ s a -> s{_riaInstanceId = a});
 
 instance AWSRequest ResetInstanceAttribute where
         type Rs ResetInstanceAttribute =
@@ -111,9 +111,8 @@ instance ToQuery ResetInstanceAttribute where
               ["Action" =:
                  ("ResetInstanceAttribute" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               "DryRun" =: _riaDryRun,
-               "InstanceId" =: _riaInstanceId,
-               "Attribute" =: _riaAttribute]
+               "DryRun" =: _riaDryRun, "Attribute" =: _riaAttribute,
+               "InstanceId" =: _riaInstanceId]
 
 -- | /See:/ 'resetInstanceAttributeResponse' smart constructor.
 data ResetInstanceAttributeResponse =

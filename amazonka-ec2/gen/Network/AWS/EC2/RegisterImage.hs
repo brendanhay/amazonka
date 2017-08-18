@@ -21,7 +21,7 @@
 -- Registers an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html Creating Your Own AMIs> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 --
--- You can also use @RegisterImage@ to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using the block device mapping. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html Launching an Instance from a Snapshot> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- You can also use @RegisterImage@ to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using the block device mapping. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-launch-snapshot.html Launching a Linux Instance from a Backup> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 -- You can't register an image where a secondary (non-root) snapshot has AWS Marketplace product codes.
 --
@@ -95,7 +95,7 @@ data RegisterImage = RegisterImage'
 --
 -- * 'riEnaSupport' - Set to @true@ to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI. This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
 --
--- * 'riBillingProducts' - The billing product codes.
+-- * 'riBillingProducts' - The billing product codes. Your account must be authorized to specify billing product codes. Otherwise, you can use the AWS Marketplace to bill for the use of an AMI.
 --
 -- * 'riRAMDiskId' - The ID of the RAM disk.
 --
@@ -146,7 +146,7 @@ riImageLocation = lens _riImageLocation (\ s a -> s{_riImageLocation = a});
 riEnaSupport :: Lens' RegisterImage (Maybe Bool)
 riEnaSupport = lens _riEnaSupport (\ s a -> s{_riEnaSupport = a});
 
--- | The billing product codes.
+-- | The billing product codes. Your account must be authorized to specify billing product codes. Otherwise, you can use the AWS Marketplace to bill for the use of an AMI.
 riBillingProducts :: Lens' RegisterImage [Text]
 riBillingProducts = lens _riBillingProducts (\ s a -> s{_riBillingProducts = a}) . _Default . _Coerce;
 

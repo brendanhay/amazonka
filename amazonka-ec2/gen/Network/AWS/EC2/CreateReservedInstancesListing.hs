@@ -33,10 +33,10 @@ module Network.AWS.EC2.CreateReservedInstancesListing
       createReservedInstancesListing
     , CreateReservedInstancesListing
     -- * Request Lenses
-    , crilReservedInstancesId
+    , crilClientToken
     , crilInstanceCount
     , crilPriceSchedules
-    , crilClientToken
+    , crilReservedInstancesId
 
     -- * Destructuring the Response
     , createReservedInstancesListingResponse
@@ -59,39 +59,39 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createReservedInstancesListing' smart constructor.
 data CreateReservedInstancesListing = CreateReservedInstancesListing'
-    { _crilReservedInstancesId :: !Text
+    { _crilClientToken         :: !Text
     , _crilInstanceCount       :: !Int
     , _crilPriceSchedules      :: ![PriceScheduleSpecification]
-    , _crilClientToken         :: !Text
+    , _crilReservedInstancesId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateReservedInstancesListing' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crilReservedInstancesId' - The ID of the active Standard Reserved Instance.
+-- * 'crilClientToken' - Unique, case-sensitive identifier you provide to ensure idempotency of your listings. This helps avoid duplicate listings. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 --
 -- * 'crilInstanceCount' - The number of instances that are a part of a Reserved Instance account to be listed in the Reserved Instance Marketplace. This number should be less than or equal to the instance count associated with the Reserved Instance ID specified in this call.
 --
 -- * 'crilPriceSchedules' - A list specifying the price of the Standard Reserved Instance for each month remaining in the Reserved Instance term.
 --
--- * 'crilClientToken' - Unique, case-sensitive identifier you provide to ensure idempotency of your listings. This helps avoid duplicate listings. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- * 'crilReservedInstancesId' - The ID of the active Standard Reserved Instance.
 createReservedInstancesListing
-    :: Text -- ^ 'crilReservedInstancesId'
+    :: Text -- ^ 'crilClientToken'
     -> Int -- ^ 'crilInstanceCount'
-    -> Text -- ^ 'crilClientToken'
+    -> Text -- ^ 'crilReservedInstancesId'
     -> CreateReservedInstancesListing
-createReservedInstancesListing pReservedInstancesId_ pInstanceCount_ pClientToken_ =
+createReservedInstancesListing pClientToken_ pInstanceCount_ pReservedInstancesId_ =
     CreateReservedInstancesListing'
-    { _crilReservedInstancesId = pReservedInstancesId_
+    { _crilClientToken = pClientToken_
     , _crilInstanceCount = pInstanceCount_
     , _crilPriceSchedules = mempty
-    , _crilClientToken = pClientToken_
+    , _crilReservedInstancesId = pReservedInstancesId_
     }
 
--- | The ID of the active Standard Reserved Instance.
-crilReservedInstancesId :: Lens' CreateReservedInstancesListing Text
-crilReservedInstancesId = lens _crilReservedInstancesId (\ s a -> s{_crilReservedInstancesId = a});
+-- | Unique, case-sensitive identifier you provide to ensure idempotency of your listings. This helps avoid duplicate listings. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+crilClientToken :: Lens' CreateReservedInstancesListing Text
+crilClientToken = lens _crilClientToken (\ s a -> s{_crilClientToken = a});
 
 -- | The number of instances that are a part of a Reserved Instance account to be listed in the Reserved Instance Marketplace. This number should be less than or equal to the instance count associated with the Reserved Instance ID specified in this call.
 crilInstanceCount :: Lens' CreateReservedInstancesListing Int
@@ -101,9 +101,9 @@ crilInstanceCount = lens _crilInstanceCount (\ s a -> s{_crilInstanceCount = a})
 crilPriceSchedules :: Lens' CreateReservedInstancesListing [PriceScheduleSpecification]
 crilPriceSchedules = lens _crilPriceSchedules (\ s a -> s{_crilPriceSchedules = a}) . _Coerce;
 
--- | Unique, case-sensitive identifier you provide to ensure idempotency of your listings. This helps avoid duplicate listings. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
-crilClientToken :: Lens' CreateReservedInstancesListing Text
-crilClientToken = lens _crilClientToken (\ s a -> s{_crilClientToken = a});
+-- | The ID of the active Standard Reserved Instance.
+crilReservedInstancesId :: Lens' CreateReservedInstancesListing Text
+crilReservedInstancesId = lens _crilReservedInstancesId (\ s a -> s{_crilReservedInstancesId = a});
 
 instance AWSRequest CreateReservedInstancesListing
          where
@@ -135,10 +135,10 @@ instance ToQuery CreateReservedInstancesListing where
               ["Action" =:
                  ("CreateReservedInstancesListing" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               "ReservedInstancesId" =: _crilReservedInstancesId,
+               "ClientToken" =: _crilClientToken,
                "InstanceCount" =: _crilInstanceCount,
                toQueryList "PriceSchedules" _crilPriceSchedules,
-               "ClientToken" =: _crilClientToken]
+               "ReservedInstancesId" =: _crilReservedInstancesId]
 
 -- | Contains the output of CreateReservedInstancesListing.
 --

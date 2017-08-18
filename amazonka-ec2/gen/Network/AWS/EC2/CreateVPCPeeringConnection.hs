@@ -23,7 +23,7 @@
 --
 -- The owner of the peer VPC must accept the peering request to activate the peering connection. The VPC peering connection request expires after 7 days, after which it cannot be accepted or rejected.
 --
--- A @CreateVpcPeeringConnection@ request between VPCs with overlapping CIDR blocks results in the VPC peering connection having a status of @failed@ .
+-- If you try to create a VPC peering connection between VPCs that have overlapping CIDR blocks, the VPC peering connection status goes to @failed@ .
 --
 module Network.AWS.EC2.CreateVPCPeeringConnection
     (

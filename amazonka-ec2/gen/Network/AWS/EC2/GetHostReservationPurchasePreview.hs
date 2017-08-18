@@ -29,8 +29,8 @@ module Network.AWS.EC2.GetHostReservationPurchasePreview
       getHostReservationPurchasePreview
     , GetHostReservationPurchasePreview
     -- * Request Lenses
-    , ghrppOfferingId
     , ghrppHostIdSet
+    , ghrppOfferingId
 
     -- * Destructuring the Response
     , getHostReservationPurchasePreviewResponse
@@ -52,33 +52,33 @@ import           Network.AWS.Response
 
 -- | /See:/ 'getHostReservationPurchasePreview' smart constructor.
 data GetHostReservationPurchasePreview = GetHostReservationPurchasePreview'
-    { _ghrppOfferingId :: !Text
-    , _ghrppHostIdSet  :: ![Text]
+    { _ghrppHostIdSet  :: ![Text]
+    , _ghrppOfferingId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetHostReservationPurchasePreview' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ghrppOfferingId' - The offering ID of the reservation.
---
 -- * 'ghrppHostIdSet' - The ID/s of the Dedicated Host/s that the reservation will be associated with.
+--
+-- * 'ghrppOfferingId' - The offering ID of the reservation.
 getHostReservationPurchasePreview
     :: Text -- ^ 'ghrppOfferingId'
     -> GetHostReservationPurchasePreview
 getHostReservationPurchasePreview pOfferingId_ =
     GetHostReservationPurchasePreview'
-    { _ghrppOfferingId = pOfferingId_
-    , _ghrppHostIdSet = mempty
+    { _ghrppHostIdSet = mempty
+    , _ghrppOfferingId = pOfferingId_
     }
-
--- | The offering ID of the reservation.
-ghrppOfferingId :: Lens' GetHostReservationPurchasePreview Text
-ghrppOfferingId = lens _ghrppOfferingId (\ s a -> s{_ghrppOfferingId = a});
 
 -- | The ID/s of the Dedicated Host/s that the reservation will be associated with.
 ghrppHostIdSet :: Lens' GetHostReservationPurchasePreview [Text]
 ghrppHostIdSet = lens _ghrppHostIdSet (\ s a -> s{_ghrppHostIdSet = a}) . _Coerce;
+
+-- | The offering ID of the reservation.
+ghrppOfferingId :: Lens' GetHostReservationPurchasePreview Text
+ghrppOfferingId = lens _ghrppOfferingId (\ s a -> s{_ghrppOfferingId = a});
 
 instance AWSRequest GetHostReservationPurchasePreview
          where
@@ -115,8 +115,8 @@ instance ToQuery GetHostReservationPurchasePreview
               ["Action" =:
                  ("GetHostReservationPurchasePreview" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               "OfferingId" =: _ghrppOfferingId,
-               toQueryList "HostIdSet" _ghrppHostIdSet]
+               toQueryList "HostIdSet" _ghrppHostIdSet,
+               "OfferingId" =: _ghrppOfferingId]
 
 -- | /See:/ 'getHostReservationPurchasePreviewResponse' smart constructor.
 data GetHostReservationPurchasePreviewResponse = GetHostReservationPurchasePreviewResponse'

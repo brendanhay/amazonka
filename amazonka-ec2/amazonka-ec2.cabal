@@ -72,8 +72,10 @@ library
         , Network.AWS.EC2.CopySnapshot
         , Network.AWS.EC2.CreateCustomerGateway
         , Network.AWS.EC2.CreateDHCPOptions
+        , Network.AWS.EC2.CreateDefaultVPC
         , Network.AWS.EC2.CreateEgressOnlyInternetGateway
         , Network.AWS.EC2.CreateFlowLogs
+        , Network.AWS.EC2.CreateFpgaImage
         , Network.AWS.EC2.CreateImage
         , Network.AWS.EC2.CreateInstanceExportTask
         , Network.AWS.EC2.CreateInternetGateway
@@ -82,6 +84,7 @@ library
         , Network.AWS.EC2.CreateNetworkACL
         , Network.AWS.EC2.CreateNetworkACLEntry
         , Network.AWS.EC2.CreateNetworkInterface
+        , Network.AWS.EC2.CreateNetworkInterfacePermission
         , Network.AWS.EC2.CreatePlacementGroup
         , Network.AWS.EC2.CreateReservedInstancesListing
         , Network.AWS.EC2.CreateRoute
@@ -108,6 +111,7 @@ library
         , Network.AWS.EC2.DeleteNetworkACL
         , Network.AWS.EC2.DeleteNetworkACLEntry
         , Network.AWS.EC2.DeleteNetworkInterface
+        , Network.AWS.EC2.DeleteNetworkInterfacePermission
         , Network.AWS.EC2.DeletePlacementGroup
         , Network.AWS.EC2.DeleteRoute
         , Network.AWS.EC2.DeleteRouteTable
@@ -133,8 +137,10 @@ library
         , Network.AWS.EC2.DescribeCustomerGateways
         , Network.AWS.EC2.DescribeDHCPOptions
         , Network.AWS.EC2.DescribeEgressOnlyInternetGateways
+        , Network.AWS.EC2.DescribeElasticGpus
         , Network.AWS.EC2.DescribeExportTasks
         , Network.AWS.EC2.DescribeFlowLogs
+        , Network.AWS.EC2.DescribeFpgaImages
         , Network.AWS.EC2.DescribeHostReservationOfferings
         , Network.AWS.EC2.DescribeHostReservations
         , Network.AWS.EC2.DescribeHosts
@@ -154,6 +160,7 @@ library
         , Network.AWS.EC2.DescribeNatGateways
         , Network.AWS.EC2.DescribeNetworkACLs
         , Network.AWS.EC2.DescribeNetworkInterfaceAttribute
+        , Network.AWS.EC2.DescribeNetworkInterfacePermissions
         , Network.AWS.EC2.DescribeNetworkInterfaces
         , Network.AWS.EC2.DescribePlacementGroups
         , Network.AWS.EC2.DescribePrefixLists

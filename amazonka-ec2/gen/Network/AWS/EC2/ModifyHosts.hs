@@ -27,8 +27,8 @@ module Network.AWS.EC2.ModifyHosts
       modifyHosts
     , ModifyHosts
     -- * Request Lenses
-    , mhHostIds
     , mhAutoPlacement
+    , mhHostIds
 
     -- * Destructuring the Response
     , modifyHostsResponse
@@ -52,33 +52,33 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyHosts' smart constructor.
 data ModifyHosts = ModifyHosts'
-    { _mhHostIds       :: ![Text]
-    , _mhAutoPlacement :: !AutoPlacement
+    { _mhAutoPlacement :: !AutoPlacement
+    , _mhHostIds       :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyHosts' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mhHostIds' - The host IDs of the Dedicated Hosts you want to modify.
---
 -- * 'mhAutoPlacement' - Specify whether to enable or disable auto-placement.
+--
+-- * 'mhHostIds' - The host IDs of the Dedicated Hosts you want to modify.
 modifyHosts
     :: AutoPlacement -- ^ 'mhAutoPlacement'
     -> ModifyHosts
 modifyHosts pAutoPlacement_ =
     ModifyHosts'
-    { _mhHostIds = mempty
-    , _mhAutoPlacement = pAutoPlacement_
+    { _mhAutoPlacement = pAutoPlacement_
+    , _mhHostIds = mempty
     }
-
--- | The host IDs of the Dedicated Hosts you want to modify.
-mhHostIds :: Lens' ModifyHosts [Text]
-mhHostIds = lens _mhHostIds (\ s a -> s{_mhHostIds = a}) . _Coerce;
 
 -- | Specify whether to enable or disable auto-placement.
 mhAutoPlacement :: Lens' ModifyHosts AutoPlacement
 mhAutoPlacement = lens _mhAutoPlacement (\ s a -> s{_mhAutoPlacement = a});
+
+-- | The host IDs of the Dedicated Hosts you want to modify.
+mhHostIds :: Lens' ModifyHosts [Text]
+mhHostIds = lens _mhHostIds (\ s a -> s{_mhHostIds = a}) . _Coerce;
 
 instance AWSRequest ModifyHosts where
         type Rs ModifyHosts = ModifyHostsResponse
@@ -109,8 +109,8 @@ instance ToQuery ModifyHosts where
           = mconcat
               ["Action" =: ("ModifyHosts" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               toQueryList "HostId" _mhHostIds,
-               "AutoPlacement" =: _mhAutoPlacement]
+               "AutoPlacement" =: _mhAutoPlacement,
+               toQueryList "HostId" _mhHostIds]
 
 -- | Contains the output of ModifyHosts.
 --

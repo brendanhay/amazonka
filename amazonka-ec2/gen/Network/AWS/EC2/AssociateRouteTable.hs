@@ -30,8 +30,8 @@ module Network.AWS.EC2.AssociateRouteTable
     , AssociateRouteTable
     -- * Request Lenses
     , artDryRun
-    , artSubnetId
     , artRouteTableId
+    , artSubnetId
 
     -- * Destructuring the Response
     , associateRouteTableResponse
@@ -55,8 +55,8 @@ import           Network.AWS.Response
 -- /See:/ 'associateRouteTable' smart constructor.
 data AssociateRouteTable = AssociateRouteTable'
     { _artDryRun       :: !(Maybe Bool)
-    , _artSubnetId     :: !Text
     , _artRouteTableId :: !Text
+    , _artSubnetId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AssociateRouteTable' with the minimum fields required to make a request.
@@ -65,31 +65,31 @@ data AssociateRouteTable = AssociateRouteTable'
 --
 -- * 'artDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'artSubnetId' - The ID of the subnet.
---
 -- * 'artRouteTableId' - The ID of the route table.
+--
+-- * 'artSubnetId' - The ID of the subnet.
 associateRouteTable
-    :: Text -- ^ 'artSubnetId'
-    -> Text -- ^ 'artRouteTableId'
+    :: Text -- ^ 'artRouteTableId'
+    -> Text -- ^ 'artSubnetId'
     -> AssociateRouteTable
-associateRouteTable pSubnetId_ pRouteTableId_ =
+associateRouteTable pRouteTableId_ pSubnetId_ =
     AssociateRouteTable'
     { _artDryRun = Nothing
-    , _artSubnetId = pSubnetId_
     , _artRouteTableId = pRouteTableId_
+    , _artSubnetId = pSubnetId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 artDryRun :: Lens' AssociateRouteTable (Maybe Bool)
 artDryRun = lens _artDryRun (\ s a -> s{_artDryRun = a});
 
--- | The ID of the subnet.
-artSubnetId :: Lens' AssociateRouteTable Text
-artSubnetId = lens _artSubnetId (\ s a -> s{_artSubnetId = a});
-
 -- | The ID of the route table.
 artRouteTableId :: Lens' AssociateRouteTable Text
 artRouteTableId = lens _artRouteTableId (\ s a -> s{_artRouteTableId = a});
+
+-- | The ID of the subnet.
+artSubnetId :: Lens' AssociateRouteTable Text
+artSubnetId = lens _artSubnetId (\ s a -> s{_artSubnetId = a});
 
 instance AWSRequest AssociateRouteTable where
         type Rs AssociateRouteTable =
@@ -116,8 +116,9 @@ instance ToQuery AssociateRouteTable where
           = mconcat
               ["Action" =: ("AssociateRouteTable" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               "DryRun" =: _artDryRun, "SubnetId" =: _artSubnetId,
-               "RouteTableId" =: _artRouteTableId]
+               "DryRun" =: _artDryRun,
+               "RouteTableId" =: _artRouteTableId,
+               "SubnetId" =: _artSubnetId]
 
 -- | Contains the output of AssociateRouteTable.
 --

@@ -28,9 +28,9 @@ module Network.AWS.EC2.AttachNetworkInterface
     , AttachNetworkInterface
     -- * Request Lenses
     , aniDryRun
-    , aniNetworkInterfaceId
-    , aniInstanceId
     , aniDeviceIndex
+    , aniInstanceId
+    , aniNetworkInterfaceId
 
     -- * Destructuring the Response
     , attachNetworkInterfaceResponse
@@ -54,9 +54,9 @@ import           Network.AWS.Response
 -- /See:/ 'attachNetworkInterface' smart constructor.
 data AttachNetworkInterface = AttachNetworkInterface'
     { _aniDryRun             :: !(Maybe Bool)
-    , _aniNetworkInterfaceId :: !Text
-    , _aniInstanceId         :: !Text
     , _aniDeviceIndex        :: !Int
+    , _aniInstanceId         :: !Text
+    , _aniNetworkInterfaceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AttachNetworkInterface' with the minimum fields required to make a request.
@@ -65,39 +65,39 @@ data AttachNetworkInterface = AttachNetworkInterface'
 --
 -- * 'aniDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'aniNetworkInterfaceId' - The ID of the network interface.
+-- * 'aniDeviceIndex' - The index of the device for the network interface attachment.
 --
 -- * 'aniInstanceId' - The ID of the instance.
 --
--- * 'aniDeviceIndex' - The index of the device for the network interface attachment.
+-- * 'aniNetworkInterfaceId' - The ID of the network interface.
 attachNetworkInterface
-    :: Text -- ^ 'aniNetworkInterfaceId'
+    :: Int -- ^ 'aniDeviceIndex'
     -> Text -- ^ 'aniInstanceId'
-    -> Int -- ^ 'aniDeviceIndex'
+    -> Text -- ^ 'aniNetworkInterfaceId'
     -> AttachNetworkInterface
-attachNetworkInterface pNetworkInterfaceId_ pInstanceId_ pDeviceIndex_ =
+attachNetworkInterface pDeviceIndex_ pInstanceId_ pNetworkInterfaceId_ =
     AttachNetworkInterface'
     { _aniDryRun = Nothing
-    , _aniNetworkInterfaceId = pNetworkInterfaceId_
-    , _aniInstanceId = pInstanceId_
     , _aniDeviceIndex = pDeviceIndex_
+    , _aniInstanceId = pInstanceId_
+    , _aniNetworkInterfaceId = pNetworkInterfaceId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 aniDryRun :: Lens' AttachNetworkInterface (Maybe Bool)
 aniDryRun = lens _aniDryRun (\ s a -> s{_aniDryRun = a});
 
--- | The ID of the network interface.
-aniNetworkInterfaceId :: Lens' AttachNetworkInterface Text
-aniNetworkInterfaceId = lens _aniNetworkInterfaceId (\ s a -> s{_aniNetworkInterfaceId = a});
+-- | The index of the device for the network interface attachment.
+aniDeviceIndex :: Lens' AttachNetworkInterface Int
+aniDeviceIndex = lens _aniDeviceIndex (\ s a -> s{_aniDeviceIndex = a});
 
 -- | The ID of the instance.
 aniInstanceId :: Lens' AttachNetworkInterface Text
 aniInstanceId = lens _aniInstanceId (\ s a -> s{_aniInstanceId = a});
 
--- | The index of the device for the network interface attachment.
-aniDeviceIndex :: Lens' AttachNetworkInterface Int
-aniDeviceIndex = lens _aniDeviceIndex (\ s a -> s{_aniDeviceIndex = a});
+-- | The ID of the network interface.
+aniNetworkInterfaceId :: Lens' AttachNetworkInterface Text
+aniNetworkInterfaceId = lens _aniNetworkInterfaceId (\ s a -> s{_aniNetworkInterfaceId = a});
 
 instance AWSRequest AttachNetworkInterface where
         type Rs AttachNetworkInterface =
@@ -126,9 +126,9 @@ instance ToQuery AttachNetworkInterface where
                  ("AttachNetworkInterface" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _aniDryRun,
-               "NetworkInterfaceId" =: _aniNetworkInterfaceId,
+               "DeviceIndex" =: _aniDeviceIndex,
                "InstanceId" =: _aniInstanceId,
-               "DeviceIndex" =: _aniDeviceIndex]
+               "NetworkInterfaceId" =: _aniNetworkInterfaceId]
 
 -- | Contains the output of AttachNetworkInterface.
 --

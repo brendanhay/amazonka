@@ -27,8 +27,8 @@ module Network.AWS.EC2.UnassignIPv6Addresses
       unassignIPv6Addresses
     , UnassignIPv6Addresses
     -- * Request Lenses
-    , uiaNetworkInterfaceId
     , uiaIPv6Addresses
+    , uiaNetworkInterfaceId
 
     -- * Destructuring the Response
     , unassignIPv6AddressesResponse
@@ -48,33 +48,33 @@ import           Network.AWS.Response
 
 -- | /See:/ 'unassignIPv6Addresses' smart constructor.
 data UnassignIPv6Addresses = UnassignIPv6Addresses'
-    { _uiaNetworkInterfaceId :: !Text
-    , _uiaIPv6Addresses      :: ![Text]
+    { _uiaIPv6Addresses      :: ![Text]
+    , _uiaNetworkInterfaceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UnassignIPv6Addresses' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uiaNetworkInterfaceId' - The ID of the network interface.
---
 -- * 'uiaIPv6Addresses' - The IPv6 addresses to unassign from the network interface.
+--
+-- * 'uiaNetworkInterfaceId' - The ID of the network interface.
 unassignIPv6Addresses
     :: Text -- ^ 'uiaNetworkInterfaceId'
     -> UnassignIPv6Addresses
 unassignIPv6Addresses pNetworkInterfaceId_ =
     UnassignIPv6Addresses'
-    { _uiaNetworkInterfaceId = pNetworkInterfaceId_
-    , _uiaIPv6Addresses = mempty
+    { _uiaIPv6Addresses = mempty
+    , _uiaNetworkInterfaceId = pNetworkInterfaceId_
     }
-
--- | The ID of the network interface.
-uiaNetworkInterfaceId :: Lens' UnassignIPv6Addresses Text
-uiaNetworkInterfaceId = lens _uiaNetworkInterfaceId (\ s a -> s{_uiaNetworkInterfaceId = a});
 
 -- | The IPv6 addresses to unassign from the network interface.
 uiaIPv6Addresses :: Lens' UnassignIPv6Addresses [Text]
 uiaIPv6Addresses = lens _uiaIPv6Addresses (\ s a -> s{_uiaIPv6Addresses = a}) . _Coerce;
+
+-- | The ID of the network interface.
+uiaNetworkInterfaceId :: Lens' UnassignIPv6Addresses Text
+uiaNetworkInterfaceId = lens _uiaNetworkInterfaceId (\ s a -> s{_uiaNetworkInterfaceId = a});
 
 instance AWSRequest UnassignIPv6Addresses where
         type Rs UnassignIPv6Addresses =
@@ -104,8 +104,8 @@ instance ToQuery UnassignIPv6Addresses where
           = mconcat
               ["Action" =: ("UnassignIpv6Addresses" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               "NetworkInterfaceId" =: _uiaNetworkInterfaceId,
-               toQueryList "Ipv6Addresses" _uiaIPv6Addresses]
+               toQueryList "Ipv6Addresses" _uiaIPv6Addresses,
+               "NetworkInterfaceId" =: _uiaNetworkInterfaceId]
 
 -- | /See:/ 'unassignIPv6AddressesResponse' smart constructor.
 data UnassignIPv6AddressesResponse = UnassignIPv6AddressesResponse'

@@ -39,8 +39,8 @@ module Network.AWS.EC2.CreateVPNConnection
     -- * Request Lenses
     , cvcOptions
     , cvcDryRun
-    , cvcType
     , cvcCustomerGatewayId
+    , cvcType
     , cvcVPNGatewayId
 
     -- * Destructuring the Response
@@ -66,8 +66,8 @@ import           Network.AWS.Response
 data CreateVPNConnection = CreateVPNConnection'
     { _cvcOptions           :: !(Maybe VPNConnectionOptionsSpecification)
     , _cvcDryRun            :: !(Maybe Bool)
-    , _cvcType              :: !Text
     , _cvcCustomerGatewayId :: !Text
+    , _cvcType              :: !Text
     , _cvcVPNGatewayId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -79,22 +79,22 @@ data CreateVPNConnection = CreateVPNConnection'
 --
 -- * 'cvcDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'cvcType' - The type of VPN connection (@ipsec.1@ ).
---
 -- * 'cvcCustomerGatewayId' - The ID of the customer gateway.
+--
+-- * 'cvcType' - The type of VPN connection (@ipsec.1@ ).
 --
 -- * 'cvcVPNGatewayId' - The ID of the virtual private gateway.
 createVPNConnection
-    :: Text -- ^ 'cvcType'
-    -> Text -- ^ 'cvcCustomerGatewayId'
+    :: Text -- ^ 'cvcCustomerGatewayId'
+    -> Text -- ^ 'cvcType'
     -> Text -- ^ 'cvcVPNGatewayId'
     -> CreateVPNConnection
-createVPNConnection pType_ pCustomerGatewayId_ pVPNGatewayId_ =
+createVPNConnection pCustomerGatewayId_ pType_ pVPNGatewayId_ =
     CreateVPNConnection'
     { _cvcOptions = Nothing
     , _cvcDryRun = Nothing
-    , _cvcType = pType_
     , _cvcCustomerGatewayId = pCustomerGatewayId_
+    , _cvcType = pType_
     , _cvcVPNGatewayId = pVPNGatewayId_
     }
 
@@ -106,13 +106,13 @@ cvcOptions = lens _cvcOptions (\ s a -> s{_cvcOptions = a});
 cvcDryRun :: Lens' CreateVPNConnection (Maybe Bool)
 cvcDryRun = lens _cvcDryRun (\ s a -> s{_cvcDryRun = a});
 
--- | The type of VPN connection (@ipsec.1@ ).
-cvcType :: Lens' CreateVPNConnection Text
-cvcType = lens _cvcType (\ s a -> s{_cvcType = a});
-
 -- | The ID of the customer gateway.
 cvcCustomerGatewayId :: Lens' CreateVPNConnection Text
 cvcCustomerGatewayId = lens _cvcCustomerGatewayId (\ s a -> s{_cvcCustomerGatewayId = a});
+
+-- | The type of VPN connection (@ipsec.1@ ).
+cvcType :: Lens' CreateVPNConnection Text
+cvcType = lens _cvcType (\ s a -> s{_cvcType = a});
 
 -- | The ID of the virtual private gateway.
 cvcVPNGatewayId :: Lens' CreateVPNConnection Text
@@ -144,8 +144,8 @@ instance ToQuery CreateVPNConnection where
               ["Action" =: ("CreateVpnConnection" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
                "Options" =: _cvcOptions, "DryRun" =: _cvcDryRun,
-               "Type" =: _cvcType,
                "CustomerGatewayId" =: _cvcCustomerGatewayId,
+               "Type" =: _cvcType,
                "VpnGatewayId" =: _cvcVPNGatewayId]
 
 -- | Contains the output of CreateVpnConnection.

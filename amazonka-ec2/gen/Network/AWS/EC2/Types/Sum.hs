@@ -644,6 +644,55 @@ instance ToHeader     DomainType
 instance FromXML DomainType where
     parseXML = parseXMLText "DomainType"
 
+data ElasticGpuState =
+    Attached
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ElasticGpuState where
+    parser = takeLowerText >>= \case
+        "attached" -> pure Attached
+        e -> fromTextError $ "Failure parsing ElasticGpuState from value: '" <> e
+           <> "'. Accepted values: attached"
+
+instance ToText ElasticGpuState where
+    toText = \case
+        Attached -> "ATTACHED"
+
+instance Hashable     ElasticGpuState
+instance NFData       ElasticGpuState
+instance ToByteString ElasticGpuState
+instance ToQuery      ElasticGpuState
+instance ToHeader     ElasticGpuState
+
+instance FromXML ElasticGpuState where
+    parseXML = parseXMLText "ElasticGpuState"
+
+data ElasticGpuStatus
+    = EGSImpaired
+    | EGSOK
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ElasticGpuStatus where
+    parser = takeLowerText >>= \case
+        "impaired" -> pure EGSImpaired
+        "ok" -> pure EGSOK
+        e -> fromTextError $ "Failure parsing ElasticGpuStatus from value: '" <> e
+           <> "'. Accepted values: impaired, ok"
+
+instance ToText ElasticGpuStatus where
+    toText = \case
+        EGSImpaired -> "IMPAIRED"
+        EGSOK -> "OK"
+
+instance Hashable     ElasticGpuStatus
+instance NFData       ElasticGpuStatus
+instance ToByteString ElasticGpuStatus
+instance ToQuery      ElasticGpuStatus
+instance ToHeader     ElasticGpuStatus
+
+instance FromXML ElasticGpuStatus where
+    parseXML = parseXMLText "ElasticGpuStatus"
+
 data EventCode
     = InstanceReboot
     | InstanceRetirement
@@ -846,6 +895,38 @@ instance NFData       FlowLogsResourceType
 instance ToByteString FlowLogsResourceType
 instance ToQuery      FlowLogsResourceType
 instance ToHeader     FlowLogsResourceType
+
+data FpgaImageStateCode
+    = FISCAvailable
+    | FISCFailed
+    | FISCPending
+    | FISCUnavailable
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText FpgaImageStateCode where
+    parser = takeLowerText >>= \case
+        "available" -> pure FISCAvailable
+        "failed" -> pure FISCFailed
+        "pending" -> pure FISCPending
+        "unavailable" -> pure FISCUnavailable
+        e -> fromTextError $ "Failure parsing FpgaImageStateCode from value: '" <> e
+           <> "'. Accepted values: available, failed, pending, unavailable"
+
+instance ToText FpgaImageStateCode where
+    toText = \case
+        FISCAvailable -> "available"
+        FISCFailed -> "failed"
+        FISCPending -> "pending"
+        FISCUnavailable -> "unavailable"
+
+instance Hashable     FpgaImageStateCode
+instance NFData       FpgaImageStateCode
+instance ToByteString FpgaImageStateCode
+instance ToQuery      FpgaImageStateCode
+instance ToHeader     FpgaImageStateCode
+
+instance FromXML FpgaImageStateCode where
+    parseXML = parseXMLText "FpgaImageStateCode"
 
 data GatewayType =
     IPsec_1
@@ -1233,6 +1314,9 @@ data InstanceType
     | F1_2XLarge
     | G2_2XLarge
     | G2_8XLarge
+    | G3_16XLarge
+    | G3_4XLarge
+    | G3_8XLarge
     | HI1_4XLarge
     | HS1_8XLarge
     | I2_2XLarge
@@ -1314,6 +1398,9 @@ instance FromText InstanceType where
         "f1.2xlarge" -> pure F1_2XLarge
         "g2.2xlarge" -> pure G2_2XLarge
         "g2.8xlarge" -> pure G2_8XLarge
+        "g3.16xlarge" -> pure G3_16XLarge
+        "g3.4xlarge" -> pure G3_4XLarge
+        "g3.8xlarge" -> pure G3_8XLarge
         "hi1.4xlarge" -> pure HI1_4XLarge
         "hs1.8xlarge" -> pure HS1_8XLarge
         "i2.2xlarge" -> pure I2_2XLarge
@@ -1368,7 +1455,7 @@ instance FromText InstanceType where
         "x1.16xlarge" -> pure X1_16XLarge
         "x1.32xlarge" -> pure X1_32XLarge
         e -> fromTextError $ "Failure parsing InstanceType from value: '" <> e
-           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, f1.16xlarge, f1.2xlarge, g2.2xlarge, g2.8xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, i3.16xlarge, i3.2xlarge, i3.4xlarge, i3.8xlarge, i3.large, i3.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.16xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, p2.16xlarge, p2.8xlarge, p2.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, r4.16xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.large, r4.xlarge, t1.micro, t2.2xlarge, t2.large, t2.medium, t2.micro, t2.nano, t2.small, t2.xlarge, x1.16xlarge, x1.32xlarge"
+           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, f1.16xlarge, f1.2xlarge, g2.2xlarge, g2.8xlarge, g3.16xlarge, g3.4xlarge, g3.8xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, i3.16xlarge, i3.2xlarge, i3.4xlarge, i3.8xlarge, i3.large, i3.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.16xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, p2.16xlarge, p2.8xlarge, p2.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, r4.16xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.large, r4.xlarge, t1.micro, t2.2xlarge, t2.large, t2.medium, t2.micro, t2.nano, t2.small, t2.xlarge, x1.16xlarge, x1.32xlarge"
 
 instance ToText InstanceType where
     toText = \case
@@ -1396,6 +1483,9 @@ instance ToText InstanceType where
         F1_2XLarge -> "f1.2xlarge"
         G2_2XLarge -> "g2.2xlarge"
         G2_8XLarge -> "g2.8xlarge"
+        G3_16XLarge -> "g3.16xlarge"
+        G3_4XLarge -> "g3.4xlarge"
+        G3_8XLarge -> "g3.8xlarge"
         HI1_4XLarge -> "hi1.4xlarge"
         HS1_8XLarge -> "hs1.8xlarge"
         I2_2XLarge -> "i2.2xlarge"
@@ -1458,6 +1548,32 @@ instance ToHeader     InstanceType
 
 instance FromXML InstanceType where
     parseXML = parseXMLText "InstanceType"
+
+data InterfacePermissionType
+    = EIPAssociate
+    | InstanceAttach
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText InterfacePermissionType where
+    parser = takeLowerText >>= \case
+        "eip-associate" -> pure EIPAssociate
+        "instance-attach" -> pure InstanceAttach
+        e -> fromTextError $ "Failure parsing InterfacePermissionType from value: '" <> e
+           <> "'. Accepted values: eip-associate, instance-attach"
+
+instance ToText InterfacePermissionType where
+    toText = \case
+        EIPAssociate -> "EIP-ASSOCIATE"
+        InstanceAttach -> "INSTANCE-ATTACH"
+
+instance Hashable     InterfacePermissionType
+instance NFData       InterfacePermissionType
+instance ToByteString InterfacePermissionType
+instance ToQuery      InterfacePermissionType
+instance ToHeader     InterfacePermissionType
+
+instance FromXML InterfacePermissionType where
+    parseXML = parseXMLText "InterfacePermissionType"
 
 data ListingState
     = LAvailable
@@ -1644,6 +1760,38 @@ instance NFData       NetworkInterfaceAttribute
 instance ToByteString NetworkInterfaceAttribute
 instance ToQuery      NetworkInterfaceAttribute
 instance ToHeader     NetworkInterfaceAttribute
+
+data NetworkInterfacePermissionStateCode
+    = NIPSCGranted
+    | NIPSCPending
+    | NIPSCRevoked
+    | NIPSCRevoking
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText NetworkInterfacePermissionStateCode where
+    parser = takeLowerText >>= \case
+        "granted" -> pure NIPSCGranted
+        "pending" -> pure NIPSCPending
+        "revoked" -> pure NIPSCRevoked
+        "revoking" -> pure NIPSCRevoking
+        e -> fromTextError $ "Failure parsing NetworkInterfacePermissionStateCode from value: '" <> e
+           <> "'. Accepted values: granted, pending, revoked, revoking"
+
+instance ToText NetworkInterfacePermissionStateCode where
+    toText = \case
+        NIPSCGranted -> "granted"
+        NIPSCPending -> "pending"
+        NIPSCRevoked -> "revoked"
+        NIPSCRevoking -> "revoking"
+
+instance Hashable     NetworkInterfacePermissionStateCode
+instance NFData       NetworkInterfacePermissionStateCode
+instance ToByteString NetworkInterfacePermissionStateCode
+instance ToQuery      NetworkInterfacePermissionStateCode
+instance ToHeader     NetworkInterfacePermissionStateCode
+
+instance FromXML NetworkInterfacePermissionStateCode where
+    parseXML = parseXMLText "NetworkInterfacePermissionStateCode"
 
 data NetworkInterfaceStatus
     = NISAttaching

@@ -65,7 +65,7 @@ data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dniaAttribute' - The attribute of the network interface.
+-- * 'dniaAttribute' - The attribute of the network interface. This parameter is required.
 --
 -- * 'dniaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
@@ -80,7 +80,7 @@ describeNetworkInterfaceAttribute pNetworkInterfaceId_ =
     , _dniaNetworkInterfaceId = pNetworkInterfaceId_
     }
 
--- | The attribute of the network interface.
+-- | The attribute of the network interface. This parameter is required.
 dniaAttribute :: Lens' DescribeNetworkInterfaceAttribute (Maybe NetworkInterfaceAttribute)
 dniaAttribute = lens _dniaAttribute (\ s a -> s{_dniaAttribute = a});
 

@@ -21,7 +21,7 @@
 -- Initiates the copy of an AMI from the specified source region to the current region. You specify the destination region by using its endpoint when making the request.
 --
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html Copying AMIs> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- For more information about the prerequisites and limits when copying an AMI, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html Copying an AMI> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 module Network.AWS.EC2.CopyImage
     (
@@ -34,9 +34,9 @@ module Network.AWS.EC2.CopyImage
     , ciKMSKeyId
     , ciDescription
     , ciDryRun
-    , ciSourceRegion
-    , ciSourceImageId
     , ciName
+    , ciSourceImageId
+    , ciSourceRegion
 
     -- * Destructuring the Response
     , copyImageResponse
@@ -64,9 +64,9 @@ data CopyImage = CopyImage'
     , _ciKMSKeyId      :: !(Maybe Text)
     , _ciDescription   :: !(Maybe Text)
     , _ciDryRun        :: !(Maybe Bool)
-    , _ciSourceRegion  :: !Text
-    , _ciSourceImageId :: !Text
     , _ciName          :: !Text
+    , _ciSourceImageId :: !Text
+    , _ciSourceRegion  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CopyImage' with the minimum fields required to make a request.
@@ -83,26 +83,26 @@ data CopyImage = CopyImage'
 --
 -- * 'ciDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'ciSourceRegion' - The name of the region that contains the AMI to copy.
+-- * 'ciName' - The name of the new AMI in the destination region.
 --
 -- * 'ciSourceImageId' - The ID of the AMI to copy.
 --
--- * 'ciName' - The name of the new AMI in the destination region.
+-- * 'ciSourceRegion' - The name of the region that contains the AMI to copy.
 copyImage
-    :: Text -- ^ 'ciSourceRegion'
+    :: Text -- ^ 'ciName'
     -> Text -- ^ 'ciSourceImageId'
-    -> Text -- ^ 'ciName'
+    -> Text -- ^ 'ciSourceRegion'
     -> CopyImage
-copyImage pSourceRegion_ pSourceImageId_ pName_ =
+copyImage pName_ pSourceImageId_ pSourceRegion_ =
     CopyImage'
     { _ciClientToken = Nothing
     , _ciEncrypted = Nothing
     , _ciKMSKeyId = Nothing
     , _ciDescription = Nothing
     , _ciDryRun = Nothing
-    , _ciSourceRegion = pSourceRegion_
-    , _ciSourceImageId = pSourceImageId_
     , _ciName = pName_
+    , _ciSourceImageId = pSourceImageId_
+    , _ciSourceRegion = pSourceRegion_
     }
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
@@ -125,17 +125,17 @@ ciDescription = lens _ciDescription (\ s a -> s{_ciDescription = a});
 ciDryRun :: Lens' CopyImage (Maybe Bool)
 ciDryRun = lens _ciDryRun (\ s a -> s{_ciDryRun = a});
 
--- | The name of the region that contains the AMI to copy.
-ciSourceRegion :: Lens' CopyImage Text
-ciSourceRegion = lens _ciSourceRegion (\ s a -> s{_ciSourceRegion = a});
+-- | The name of the new AMI in the destination region.
+ciName :: Lens' CopyImage Text
+ciName = lens _ciName (\ s a -> s{_ciName = a});
 
 -- | The ID of the AMI to copy.
 ciSourceImageId :: Lens' CopyImage Text
 ciSourceImageId = lens _ciSourceImageId (\ s a -> s{_ciSourceImageId = a});
 
--- | The name of the new AMI in the destination region.
-ciName :: Lens' CopyImage Text
-ciName = lens _ciName (\ s a -> s{_ciName = a});
+-- | The name of the region that contains the AMI to copy.
+ciSourceRegion :: Lens' CopyImage Text
+ciSourceRegion = lens _ciSourceRegion (\ s a -> s{_ciSourceRegion = a});
 
 instance AWSRequest CopyImage where
         type Rs CopyImage = CopyImageResponse
@@ -165,10 +165,9 @@ instance ToQuery CopyImage where
                "Encrypted" =: _ciEncrypted,
                "KmsKeyId" =: _ciKMSKeyId,
                "Description" =: _ciDescription,
-               "DryRun" =: _ciDryRun,
-               "SourceRegion" =: _ciSourceRegion,
+               "DryRun" =: _ciDryRun, "Name" =: _ciName,
                "SourceImageId" =: _ciSourceImageId,
-               "Name" =: _ciName]
+               "SourceRegion" =: _ciSourceRegion]
 
 -- | Contains the output of CopyImage.
 --

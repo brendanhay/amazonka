@@ -41,8 +41,8 @@ module Network.AWS.EC2.CreateSecurityGroup
     -- * Request Lenses
     , csgVPCId
     , csgDryRun
-    , csgGroupName
     , csgDescription
+    , csgGroupName
 
     -- * Destructuring the Response
     , createSecurityGroupResponse
@@ -67,8 +67,8 @@ import           Network.AWS.Response
 data CreateSecurityGroup = CreateSecurityGroup'
     { _csgVPCId       :: !(Maybe Text)
     , _csgDryRun      :: !(Maybe Bool)
-    , _csgGroupName   :: !Text
     , _csgDescription :: !Text
+    , _csgGroupName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateSecurityGroup' with the minimum fields required to make a request.
@@ -79,19 +79,19 @@ data CreateSecurityGroup = CreateSecurityGroup'
 --
 -- * 'csgDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'csgGroupName' - The name of the security group. Constraints: Up to 255 characters in length Constraints for EC2-Classic: ASCII characters Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
---
 -- * 'csgDescription' - A description for the security group. This is informational only. Constraints: Up to 255 characters in length Constraints for EC2-Classic: ASCII characters Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
+--
+-- * 'csgGroupName' - The name of the security group. Constraints: Up to 255 characters in length Constraints for EC2-Classic: ASCII characters Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
 createSecurityGroup
-    :: Text -- ^ 'csgGroupName'
-    -> Text -- ^ 'csgDescription'
+    :: Text -- ^ 'csgDescription'
+    -> Text -- ^ 'csgGroupName'
     -> CreateSecurityGroup
-createSecurityGroup pGroupName_ pDescription_ =
+createSecurityGroup pDescription_ pGroupName_ =
     CreateSecurityGroup'
     { _csgVPCId = Nothing
     , _csgDryRun = Nothing
-    , _csgGroupName = pGroupName_
     , _csgDescription = pDescription_
+    , _csgGroupName = pGroupName_
     }
 
 -- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
@@ -102,13 +102,13 @@ csgVPCId = lens _csgVPCId (\ s a -> s{_csgVPCId = a});
 csgDryRun :: Lens' CreateSecurityGroup (Maybe Bool)
 csgDryRun = lens _csgDryRun (\ s a -> s{_csgDryRun = a});
 
--- | The name of the security group. Constraints: Up to 255 characters in length Constraints for EC2-Classic: ASCII characters Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
-csgGroupName :: Lens' CreateSecurityGroup Text
-csgGroupName = lens _csgGroupName (\ s a -> s{_csgGroupName = a});
-
 -- | A description for the security group. This is informational only. Constraints: Up to 255 characters in length Constraints for EC2-Classic: ASCII characters Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
 csgDescription :: Lens' CreateSecurityGroup Text
 csgDescription = lens _csgDescription (\ s a -> s{_csgDescription = a});
+
+-- | The name of the security group. Constraints: Up to 255 characters in length Constraints for EC2-Classic: ASCII characters Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
+csgGroupName :: Lens' CreateSecurityGroup Text
+csgGroupName = lens _csgGroupName (\ s a -> s{_csgGroupName = a});
 
 instance AWSRequest CreateSecurityGroup where
         type Rs CreateSecurityGroup =
@@ -136,8 +136,8 @@ instance ToQuery CreateSecurityGroup where
               ["Action" =: ("CreateSecurityGroup" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
                "VpcId" =: _csgVPCId, "DryRun" =: _csgDryRun,
-               "GroupName" =: _csgGroupName,
-               "GroupDescription" =: _csgDescription]
+               "GroupDescription" =: _csgDescription,
+               "GroupName" =: _csgGroupName]
 
 -- | Contains the output of CreateSecurityGroup.
 --

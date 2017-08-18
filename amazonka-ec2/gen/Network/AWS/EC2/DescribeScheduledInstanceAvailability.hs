@@ -37,8 +37,8 @@ module Network.AWS.EC2.DescribeScheduledInstanceAvailability
     , dsiaMaxSlotDurationInHours
     , dsiaDryRun
     , dsiaMaxResults
-    , dsiaRecurrence
     , dsiaFirstSlotStartTimeRange
+    , dsiaRecurrence
 
     -- * Destructuring the Response
     , describeScheduledInstanceAvailabilityResponse
@@ -68,8 +68,8 @@ data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailabili
     , _dsiaMaxSlotDurationInHours  :: !(Maybe Int)
     , _dsiaDryRun                  :: !(Maybe Bool)
     , _dsiaMaxResults              :: !(Maybe Int)
-    , _dsiaRecurrence              :: !ScheduledInstanceRecurrenceRequest
     , _dsiaFirstSlotStartTimeRange :: !SlotDateTimeRangeRequest
+    , _dsiaRecurrence              :: !ScheduledInstanceRecurrenceRequest
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeScheduledInstanceAvailability' with the minimum fields required to make a request.
@@ -88,14 +88,14 @@ data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailabili
 --
 -- * 'dsiaMaxResults' - The maximum number of results to return in a single call. This value can be between 5 and 300. The default value is 300. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 --
--- * 'dsiaRecurrence' - The schedule recurrence.
---
 -- * 'dsiaFirstSlotStartTimeRange' - The time period for the first schedule to start.
+--
+-- * 'dsiaRecurrence' - The schedule recurrence.
 describeScheduledInstanceAvailability
-    :: ScheduledInstanceRecurrenceRequest -- ^ 'dsiaRecurrence'
-    -> SlotDateTimeRangeRequest -- ^ 'dsiaFirstSlotStartTimeRange'
+    :: SlotDateTimeRangeRequest -- ^ 'dsiaFirstSlotStartTimeRange'
+    -> ScheduledInstanceRecurrenceRequest -- ^ 'dsiaRecurrence'
     -> DescribeScheduledInstanceAvailability
-describeScheduledInstanceAvailability pRecurrence_ pFirstSlotStartTimeRange_ =
+describeScheduledInstanceAvailability pFirstSlotStartTimeRange_ pRecurrence_ =
     DescribeScheduledInstanceAvailability'
     { _dsiaMinSlotDurationInHours = Nothing
     , _dsiaFilters = Nothing
@@ -103,8 +103,8 @@ describeScheduledInstanceAvailability pRecurrence_ pFirstSlotStartTimeRange_ =
     , _dsiaMaxSlotDurationInHours = Nothing
     , _dsiaDryRun = Nothing
     , _dsiaMaxResults = Nothing
-    , _dsiaRecurrence = pRecurrence_
     , _dsiaFirstSlotStartTimeRange = pFirstSlotStartTimeRange_
+    , _dsiaRecurrence = pRecurrence_
     }
 
 -- | The minimum available duration, in hours. The minimum required duration is 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.
@@ -131,13 +131,13 @@ dsiaDryRun = lens _dsiaDryRun (\ s a -> s{_dsiaDryRun = a});
 dsiaMaxResults :: Lens' DescribeScheduledInstanceAvailability (Maybe Int)
 dsiaMaxResults = lens _dsiaMaxResults (\ s a -> s{_dsiaMaxResults = a});
 
--- | The schedule recurrence.
-dsiaRecurrence :: Lens' DescribeScheduledInstanceAvailability ScheduledInstanceRecurrenceRequest
-dsiaRecurrence = lens _dsiaRecurrence (\ s a -> s{_dsiaRecurrence = a});
-
 -- | The time period for the first schedule to start.
 dsiaFirstSlotStartTimeRange :: Lens' DescribeScheduledInstanceAvailability SlotDateTimeRangeRequest
 dsiaFirstSlotStartTimeRange = lens _dsiaFirstSlotStartTimeRange (\ s a -> s{_dsiaFirstSlotStartTimeRange = a});
+
+-- | The schedule recurrence.
+dsiaRecurrence :: Lens' DescribeScheduledInstanceAvailability ScheduledInstanceRecurrenceRequest
+dsiaRecurrence = lens _dsiaRecurrence (\ s a -> s{_dsiaRecurrence = a});
 
 instance AWSRequest
          DescribeScheduledInstanceAvailability where
@@ -182,9 +182,9 @@ instance ToQuery
                  _dsiaMaxSlotDurationInHours,
                "DryRun" =: _dsiaDryRun,
                "MaxResults" =: _dsiaMaxResults,
-               "Recurrence" =: _dsiaRecurrence,
                "FirstSlotStartTimeRange" =:
-                 _dsiaFirstSlotStartTimeRange]
+                 _dsiaFirstSlotStartTimeRange,
+               "Recurrence" =: _dsiaRecurrence]
 
 -- | Contains the output of DescribeScheduledInstanceAvailability.
 --

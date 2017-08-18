@@ -33,8 +33,8 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
     -- * Request Lenses
     , prioLimitPrice
     , prioDryRun
-    , prioReservedInstancesOfferingId
     , prioInstanceCount
+    , prioReservedInstancesOfferingId
 
     -- * Destructuring the Response
     , purchaseReservedInstancesOfferingResponse
@@ -59,8 +59,8 @@ import           Network.AWS.Response
 data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
     { _prioLimitPrice                  :: !(Maybe ReservedInstanceLimitPrice)
     , _prioDryRun                      :: !(Maybe Bool)
-    , _prioReservedInstancesOfferingId :: !Text
     , _prioInstanceCount               :: !Int
+    , _prioReservedInstancesOfferingId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PurchaseReservedInstancesOffering' with the minimum fields required to make a request.
@@ -71,19 +71,19 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
 --
 -- * 'prioDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'prioReservedInstancesOfferingId' - The ID of the Reserved Instance offering to purchase.
---
 -- * 'prioInstanceCount' - The number of Reserved Instances to purchase.
+--
+-- * 'prioReservedInstancesOfferingId' - The ID of the Reserved Instance offering to purchase.
 purchaseReservedInstancesOffering
-    :: Text -- ^ 'prioReservedInstancesOfferingId'
-    -> Int -- ^ 'prioInstanceCount'
+    :: Int -- ^ 'prioInstanceCount'
+    -> Text -- ^ 'prioReservedInstancesOfferingId'
     -> PurchaseReservedInstancesOffering
-purchaseReservedInstancesOffering pReservedInstancesOfferingId_ pInstanceCount_ =
+purchaseReservedInstancesOffering pInstanceCount_ pReservedInstancesOfferingId_ =
     PurchaseReservedInstancesOffering'
     { _prioLimitPrice = Nothing
     , _prioDryRun = Nothing
-    , _prioReservedInstancesOfferingId = pReservedInstancesOfferingId_
     , _prioInstanceCount = pInstanceCount_
+    , _prioReservedInstancesOfferingId = pReservedInstancesOfferingId_
     }
 
 -- | Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.
@@ -94,13 +94,13 @@ prioLimitPrice = lens _prioLimitPrice (\ s a -> s{_prioLimitPrice = a});
 prioDryRun :: Lens' PurchaseReservedInstancesOffering (Maybe Bool)
 prioDryRun = lens _prioDryRun (\ s a -> s{_prioDryRun = a});
 
--- | The ID of the Reserved Instance offering to purchase.
-prioReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering Text
-prioReservedInstancesOfferingId = lens _prioReservedInstancesOfferingId (\ s a -> s{_prioReservedInstancesOfferingId = a});
-
 -- | The number of Reserved Instances to purchase.
 prioInstanceCount :: Lens' PurchaseReservedInstancesOffering Int
 prioInstanceCount = lens _prioInstanceCount (\ s a -> s{_prioInstanceCount = a});
+
+-- | The ID of the Reserved Instance offering to purchase.
+prioReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering Text
+prioReservedInstancesOfferingId = lens _prioReservedInstancesOfferingId (\ s a -> s{_prioReservedInstancesOfferingId = a});
 
 instance AWSRequest PurchaseReservedInstancesOffering
          where
@@ -135,9 +135,9 @@ instance ToQuery PurchaseReservedInstancesOffering
                "Version" =: ("2016-11-15" :: ByteString),
                "LimitPrice" =: _prioLimitPrice,
                "DryRun" =: _prioDryRun,
+               "InstanceCount" =: _prioInstanceCount,
                "ReservedInstancesOfferingId" =:
-                 _prioReservedInstancesOfferingId,
-               "InstanceCount" =: _prioInstanceCount]
+                 _prioReservedInstancesOfferingId]
 
 -- | Contains the output of PurchaseReservedInstancesOffering.
 --

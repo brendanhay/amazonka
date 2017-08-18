@@ -29,6 +29,7 @@ module Network.AWS.DMS.ImportCertificate
     -- * Request Lenses
     , icCertificatePem
     , icCertificateWallet
+    , icTags
     , icCertificateIdentifier
 
     -- * Destructuring the Response
@@ -50,6 +51,7 @@ import           Network.AWS.Response
 data ImportCertificate = ImportCertificate'
     { _icCertificatePem        :: !(Maybe Text)
     , _icCertificateWallet     :: !(Maybe Base64)
+    , _icTags                  :: !(Maybe [Tag])
     , _icCertificateIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -61,6 +63,8 @@ data ImportCertificate = ImportCertificate'
 --
 -- * 'icCertificateWallet' - The location of the imported Oracle Wallet certificate for use with SSL.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
+-- * 'icTags' - The tags associated with the certificate.
+--
 -- * 'icCertificateIdentifier' - The customer-assigned name of the certificate. Valid characters are A-z and 0-9.
 importCertificate
     :: Text -- ^ 'icCertificateIdentifier'
@@ -69,6 +73,7 @@ importCertificate pCertificateIdentifier_ =
     ImportCertificate'
     { _icCertificatePem = Nothing
     , _icCertificateWallet = Nothing
+    , _icTags = Nothing
     , _icCertificateIdentifier = pCertificateIdentifier_
     }
 
@@ -79,6 +84,10 @@ icCertificatePem = lens _icCertificatePem (\ s a -> s{_icCertificatePem = a});
 -- | The location of the imported Oracle Wallet certificate for use with SSL.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 icCertificateWallet :: Lens' ImportCertificate (Maybe ByteString)
 icCertificateWallet = lens _icCertificateWallet (\ s a -> s{_icCertificateWallet = a}) . mapping _Base64;
+
+-- | The tags associated with the certificate.
+icTags :: Lens' ImportCertificate [Tag]
+icTags = lens _icTags (\ s a -> s{_icTags = a}) . _Default . _Coerce;
 
 -- | The customer-assigned name of the certificate. Valid characters are A-z and 0-9.
 icCertificateIdentifier :: Lens' ImportCertificate Text
@@ -113,6 +122,7 @@ instance ToJSON ImportCertificate where
               (catMaybes
                  [("CertificatePem" .=) <$> _icCertificatePem,
                   ("CertificateWallet" .=) <$> _icCertificateWallet,
+                  ("Tags" .=) <$> _icTags,
                   Just
                     ("CertificateIdentifier" .=
                        _icCertificateIdentifier)])

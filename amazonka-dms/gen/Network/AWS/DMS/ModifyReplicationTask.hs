@@ -23,6 +23,8 @@
 --
 -- You can't modify the task endpoints. The task must be stopped before you can modify it.
 --
+-- For more information about AWS DMS tasks, see the AWS DMS user guide at <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html Working with Migration Tasks >
+--
 module Network.AWS.DMS.ModifyReplicationTask
     (
     -- * Creating a Request
@@ -71,9 +73,9 @@ data ModifyReplicationTask = ModifyReplicationTask'
 --
 -- * 'mrtReplicationTaskSettings' - JSON file that contains settings for the task, such as target metadata settings.
 --
--- * 'mrtReplicationTaskIdentifier' - The replication task identifier. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
+-- * 'mrtReplicationTaskIdentifier' - The replication task identifier. Constraints:     * Must contain from 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- * 'mrtTableMappings' - The path of the JSON file that contains the table mappings. Preceed the path with "file://". For example, --table-mappings file://mappingfile.json
+-- * 'mrtTableMappings' - When using the AWS CLI or boto3, provide the path of the JSON file that contains the table mappings. Precede the path with "file://". When working with the DMS API, provide the JSON as the parameter value. For example, --table-mappings file://mappingfile.json
 --
 -- * 'mrtMigrationType' - The migration type. Valid values: full-load | cdc | full-load-and-cdc
 --
@@ -97,11 +99,11 @@ modifyReplicationTask pReplicationTaskARN_ =
 mrtReplicationTaskSettings :: Lens' ModifyReplicationTask (Maybe Text)
 mrtReplicationTaskSettings = lens _mrtReplicationTaskSettings (\ s a -> s{_mrtReplicationTaskSettings = a});
 
--- | The replication task identifier. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
+-- | The replication task identifier. Constraints:     * Must contain from 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 mrtReplicationTaskIdentifier :: Lens' ModifyReplicationTask (Maybe Text)
 mrtReplicationTaskIdentifier = lens _mrtReplicationTaskIdentifier (\ s a -> s{_mrtReplicationTaskIdentifier = a});
 
--- | The path of the JSON file that contains the table mappings. Preceed the path with "file://". For example, --table-mappings file://mappingfile.json
+-- | When using the AWS CLI or boto3, provide the path of the JSON file that contains the table mappings. Precede the path with "file://". When working with the DMS API, provide the JSON as the parameter value. For example, --table-mappings file://mappingfile.json
 mrtTableMappings :: Lens' ModifyReplicationTask (Maybe Text)
 mrtTableMappings = lens _mrtTableMappings (\ s a -> s{_mrtTableMappings = a});
 

@@ -33,10 +33,13 @@ module Network.AWS.DMS.ModifyEndpoint
     , meEndpointType
     , meUsername
     , meEngineName
+    , meMongoDBSettings
     , meSSLMode
     , mePassword
     , meDatabaseName
+    , meS3Settings
     , meEndpointIdentifier
+    , meDynamoDBSettings
     , mePort
     , meEndpointARN
 
@@ -67,10 +70,13 @@ data ModifyEndpoint = ModifyEndpoint'
     , _meEndpointType              :: !(Maybe ReplicationEndpointTypeValue)
     , _meUsername                  :: !(Maybe Text)
     , _meEngineName                :: !(Maybe Text)
+    , _meMongoDBSettings           :: !(Maybe MongoDBSettings)
     , _meSSLMode                   :: !(Maybe DmsSSLModeValue)
     , _mePassword                  :: !(Maybe (Sensitive Text))
     , _meDatabaseName              :: !(Maybe Text)
+    , _meS3Settings                :: !(Maybe S3Settings)
     , _meEndpointIdentifier        :: !(Maybe Text)
+    , _meDynamoDBSettings          :: !(Maybe DynamoDBSettings)
     , _mePort                      :: !(Maybe Int)
     , _meEndpointARN               :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -89,7 +95,9 @@ data ModifyEndpoint = ModifyEndpoint'
 --
 -- * 'meUsername' - The user name to be used to login to the endpoint database.
 --
--- * 'meEngineName' - The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER.
+-- * 'meEngineName' - The type of engine for the endpoint. Valid values, depending on the EndPointType, include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, S3, DYNAMODB, MONGODB, SYBASE, and SQLSERVER.
+--
+-- * 'meMongoDBSettings' - Settings in JSON format for the source MongoDB endpoint. For more information about the available settings, see the __Configuration Properties When Using MongoDB as a Source for AWS Database Migration Service__ section at <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html Using Amazon S3 as a Target for AWS Database Migration Service> .
 --
 -- * 'meSSLMode' - The SSL mode to be used. SSL mode can be one of four values: none, require, verify-ca, verify-full.  The default value is none.
 --
@@ -97,7 +105,11 @@ data ModifyEndpoint = ModifyEndpoint'
 --
 -- * 'meDatabaseName' - The name of the endpoint database.
 --
+-- * 'meS3Settings' - Settings in JSON format for the target S3 endpoint. For more information about the available settings, see the __Extra Connection Attributes__ section at <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html Using Amazon S3 as a Target for AWS Database Migration Service> .
+--
 -- * 'meEndpointIdentifier' - The database endpoint identifier. Identifiers must begin with a letter; must contain only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain two consecutive hyphens.
+--
+-- * 'meDynamoDBSettings' - Settings in JSON format for the target Amazon DynamoDB endpoint. For more information about the available settings, see the __Using Object Mapping to Migrate Data to DynamoDB__ section at <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html Using an Amazon DynamoDB Database as a Target for AWS Database Migration Service> .
 --
 -- * 'mePort' - The port used by the endpoint database.
 --
@@ -113,10 +125,13 @@ modifyEndpoint pEndpointARN_ =
     , _meEndpointType = Nothing
     , _meUsername = Nothing
     , _meEngineName = Nothing
+    , _meMongoDBSettings = Nothing
     , _meSSLMode = Nothing
     , _mePassword = Nothing
     , _meDatabaseName = Nothing
+    , _meS3Settings = Nothing
     , _meEndpointIdentifier = Nothing
+    , _meDynamoDBSettings = Nothing
     , _mePort = Nothing
     , _meEndpointARN = pEndpointARN_
     }
@@ -141,9 +156,13 @@ meEndpointType = lens _meEndpointType (\ s a -> s{_meEndpointType = a});
 meUsername :: Lens' ModifyEndpoint (Maybe Text)
 meUsername = lens _meUsername (\ s a -> s{_meUsername = a});
 
--- | The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER.
+-- | The type of engine for the endpoint. Valid values, depending on the EndPointType, include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, S3, DYNAMODB, MONGODB, SYBASE, and SQLSERVER.
 meEngineName :: Lens' ModifyEndpoint (Maybe Text)
 meEngineName = lens _meEngineName (\ s a -> s{_meEngineName = a});
+
+-- | Settings in JSON format for the source MongoDB endpoint. For more information about the available settings, see the __Configuration Properties When Using MongoDB as a Source for AWS Database Migration Service__ section at <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html Using Amazon S3 as a Target for AWS Database Migration Service> .
+meMongoDBSettings :: Lens' ModifyEndpoint (Maybe MongoDBSettings)
+meMongoDBSettings = lens _meMongoDBSettings (\ s a -> s{_meMongoDBSettings = a});
 
 -- | The SSL mode to be used. SSL mode can be one of four values: none, require, verify-ca, verify-full.  The default value is none.
 meSSLMode :: Lens' ModifyEndpoint (Maybe DmsSSLModeValue)
@@ -157,9 +176,17 @@ mePassword = lens _mePassword (\ s a -> s{_mePassword = a}) . mapping _Sensitive
 meDatabaseName :: Lens' ModifyEndpoint (Maybe Text)
 meDatabaseName = lens _meDatabaseName (\ s a -> s{_meDatabaseName = a});
 
+-- | Settings in JSON format for the target S3 endpoint. For more information about the available settings, see the __Extra Connection Attributes__ section at <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html Using Amazon S3 as a Target for AWS Database Migration Service> .
+meS3Settings :: Lens' ModifyEndpoint (Maybe S3Settings)
+meS3Settings = lens _meS3Settings (\ s a -> s{_meS3Settings = a});
+
 -- | The database endpoint identifier. Identifiers must begin with a letter; must contain only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain two consecutive hyphens.
 meEndpointIdentifier :: Lens' ModifyEndpoint (Maybe Text)
 meEndpointIdentifier = lens _meEndpointIdentifier (\ s a -> s{_meEndpointIdentifier = a});
+
+-- | Settings in JSON format for the target Amazon DynamoDB endpoint. For more information about the available settings, see the __Using Object Mapping to Migrate Data to DynamoDB__ section at <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html Using an Amazon DynamoDB Database as a Target for AWS Database Migration Service> .
+meDynamoDBSettings :: Lens' ModifyEndpoint (Maybe DynamoDBSettings)
+meDynamoDBSettings = lens _meDynamoDBSettings (\ s a -> s{_meDynamoDBSettings = a});
 
 -- | The port used by the endpoint database.
 mePort :: Lens' ModifyEndpoint (Maybe Int)
@@ -202,10 +229,13 @@ instance ToJSON ModifyEndpoint where
                   ("EndpointType" .=) <$> _meEndpointType,
                   ("Username" .=) <$> _meUsername,
                   ("EngineName" .=) <$> _meEngineName,
+                  ("MongoDbSettings" .=) <$> _meMongoDBSettings,
                   ("SslMode" .=) <$> _meSSLMode,
                   ("Password" .=) <$> _mePassword,
                   ("DatabaseName" .=) <$> _meDatabaseName,
+                  ("S3Settings" .=) <$> _meS3Settings,
                   ("EndpointIdentifier" .=) <$> _meEndpointIdentifier,
+                  ("DynamoDbSettings" .=) <$> _meDynamoDBSettings,
                   ("Port" .=) <$> _mePort,
                   Just ("EndpointArn" .= _meEndpointARN)])
 
@@ -223,7 +253,7 @@ instance ToQuery ModifyEndpoint where
 data ModifyEndpointResponse = ModifyEndpointResponse'
     { _mersEndpoint       :: !(Maybe Endpoint)
     , _mersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyEndpointResponse' with the minimum fields required to make a request.
 --

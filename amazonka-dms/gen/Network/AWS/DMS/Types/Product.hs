@@ -309,6 +309,50 @@ instance NFData Connection
 --
 --
 --
+-- /See:/ 'dynamoDBSettings' smart constructor.
+newtype DynamoDBSettings = DynamoDBSettings'
+    { _ddsServiceAccessRoleARN :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DynamoDBSettings' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddsServiceAccessRoleARN' - The Amazon Resource Name (ARN) used by the service access IAM role.
+dynamoDBSettings
+    :: Text -- ^ 'ddsServiceAccessRoleARN'
+    -> DynamoDBSettings
+dynamoDBSettings pServiceAccessRoleARN_ =
+    DynamoDBSettings'
+    { _ddsServiceAccessRoleARN = pServiceAccessRoleARN_
+    }
+
+-- | The Amazon Resource Name (ARN) used by the service access IAM role.
+ddsServiceAccessRoleARN :: Lens' DynamoDBSettings Text
+ddsServiceAccessRoleARN = lens _ddsServiceAccessRoleARN (\ s a -> s{_ddsServiceAccessRoleARN = a});
+
+instance FromJSON DynamoDBSettings where
+        parseJSON
+          = withObject "DynamoDBSettings"
+              (\ x ->
+                 DynamoDBSettings' <$> (x .: "ServiceAccessRoleArn"))
+
+instance Hashable DynamoDBSettings
+
+instance NFData DynamoDBSettings
+
+instance ToJSON DynamoDBSettings where
+        toJSON DynamoDBSettings'{..}
+          = object
+              (catMaybes
+                 [Just
+                    ("ServiceAccessRoleArn" .=
+                       _ddsServiceAccessRoleARN)])
+
+-- |
+--
+--
+--
 -- /See:/ 'endpoint' smart constructor.
 data Endpoint = Endpoint'
     { _eStatus                    :: !(Maybe Text)
@@ -319,12 +363,16 @@ data Endpoint = Endpoint'
     , _eUsername                  :: !(Maybe Text)
     , _eEngineName                :: !(Maybe Text)
     , _eKMSKeyId                  :: !(Maybe Text)
+    , _eMongoDBSettings           :: !(Maybe MongoDBSettings)
     , _eSSLMode                   :: !(Maybe DmsSSLModeValue)
     , _eDatabaseName              :: !(Maybe Text)
+    , _eS3Settings                :: !(Maybe S3Settings)
     , _eEndpointIdentifier        :: !(Maybe Text)
+    , _eExternalId                :: !(Maybe Text)
+    , _eDynamoDBSettings          :: !(Maybe DynamoDBSettings)
     , _eEndpointARN               :: !(Maybe Text)
     , _ePort                      :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
 --
@@ -342,15 +390,23 @@ data Endpoint = Endpoint'
 --
 -- * 'eUsername' - The user name used to connect to the endpoint.
 --
--- * 'eEngineName' - The database engine name. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER.
+-- * 'eEngineName' - The database engine name. Valid values, depending on the EndPointType, include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, S3, SYBASE, DYNAMODB, MONGODB, and SQLSERVER.
 --
 -- * 'eKMSKeyId' - The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+--
+-- * 'eMongoDBSettings' - The settings for the MongoDB source endpoint. For more information, see the @MongoDbSettings@ structure.
 --
 -- * 'eSSLMode' - The SSL mode used to connect to the endpoint. SSL mode can be one of four values: none, require, verify-ca, verify-full.  The default value is none.
 --
 -- * 'eDatabaseName' - The name of the database at the endpoint.
 --
+-- * 'eS3Settings' - The settings for the S3 target endpoint. For more information, see the @S3Settings@ structure.
+--
 -- * 'eEndpointIdentifier' - The database endpoint identifier. Identifiers must begin with a letter; must contain only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain two consecutive hyphens.
+--
+-- * 'eExternalId' - Value returned by a call to CreateEndpoint that can be used for cross-account validation. Use it on a subsequent call to CreateEndpoint to create the endpoint with a cross-account.
+--
+-- * 'eDynamoDBSettings' - The settings for the target DynamoDB database. For more information, see the @DynamoDBSettings@ structure.
 --
 -- * 'eEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 --
@@ -367,9 +423,13 @@ endpoint =
     , _eUsername = Nothing
     , _eEngineName = Nothing
     , _eKMSKeyId = Nothing
+    , _eMongoDBSettings = Nothing
     , _eSSLMode = Nothing
     , _eDatabaseName = Nothing
+    , _eS3Settings = Nothing
     , _eEndpointIdentifier = Nothing
+    , _eExternalId = Nothing
+    , _eDynamoDBSettings = Nothing
     , _eEndpointARN = Nothing
     , _ePort = Nothing
     }
@@ -398,13 +458,17 @@ eEndpointType = lens _eEndpointType (\ s a -> s{_eEndpointType = a});
 eUsername :: Lens' Endpoint (Maybe Text)
 eUsername = lens _eUsername (\ s a -> s{_eUsername = a});
 
--- | The database engine name. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER.
+-- | The database engine name. Valid values, depending on the EndPointType, include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, S3, SYBASE, DYNAMODB, MONGODB, and SQLSERVER.
 eEngineName :: Lens' Endpoint (Maybe Text)
 eEngineName = lens _eEngineName (\ s a -> s{_eEngineName = a});
 
 -- | The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 eKMSKeyId :: Lens' Endpoint (Maybe Text)
 eKMSKeyId = lens _eKMSKeyId (\ s a -> s{_eKMSKeyId = a});
+
+-- | The settings for the MongoDB source endpoint. For more information, see the @MongoDbSettings@ structure.
+eMongoDBSettings :: Lens' Endpoint (Maybe MongoDBSettings)
+eMongoDBSettings = lens _eMongoDBSettings (\ s a -> s{_eMongoDBSettings = a});
 
 -- | The SSL mode used to connect to the endpoint. SSL mode can be one of four values: none, require, verify-ca, verify-full.  The default value is none.
 eSSLMode :: Lens' Endpoint (Maybe DmsSSLModeValue)
@@ -414,9 +478,21 @@ eSSLMode = lens _eSSLMode (\ s a -> s{_eSSLMode = a});
 eDatabaseName :: Lens' Endpoint (Maybe Text)
 eDatabaseName = lens _eDatabaseName (\ s a -> s{_eDatabaseName = a});
 
+-- | The settings for the S3 target endpoint. For more information, see the @S3Settings@ structure.
+eS3Settings :: Lens' Endpoint (Maybe S3Settings)
+eS3Settings = lens _eS3Settings (\ s a -> s{_eS3Settings = a});
+
 -- | The database endpoint identifier. Identifiers must begin with a letter; must contain only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain two consecutive hyphens.
 eEndpointIdentifier :: Lens' Endpoint (Maybe Text)
 eEndpointIdentifier = lens _eEndpointIdentifier (\ s a -> s{_eEndpointIdentifier = a});
+
+-- | Value returned by a call to CreateEndpoint that can be used for cross-account validation. Use it on a subsequent call to CreateEndpoint to create the endpoint with a cross-account.
+eExternalId :: Lens' Endpoint (Maybe Text)
+eExternalId = lens _eExternalId (\ s a -> s{_eExternalId = a});
+
+-- | The settings for the target DynamoDB database. For more information, see the @DynamoDBSettings@ structure.
+eDynamoDBSettings :: Lens' Endpoint (Maybe DynamoDBSettings)
+eDynamoDBSettings = lens _eDynamoDBSettings (\ s a -> s{_eDynamoDBSettings = a});
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 eEndpointARN :: Lens' Endpoint (Maybe Text)
@@ -438,15 +514,242 @@ instance FromJSON Endpoint where
                      <*> (x .:? "Username")
                      <*> (x .:? "EngineName")
                      <*> (x .:? "KmsKeyId")
+                     <*> (x .:? "MongoDbSettings")
                      <*> (x .:? "SslMode")
                      <*> (x .:? "DatabaseName")
+                     <*> (x .:? "S3Settings")
                      <*> (x .:? "EndpointIdentifier")
+                     <*> (x .:? "ExternalId")
+                     <*> (x .:? "DynamoDbSettings")
                      <*> (x .:? "EndpointArn")
                      <*> (x .:? "Port"))
 
 instance Hashable Endpoint
 
 instance NFData Endpoint
+
+-- |
+--
+--
+--
+-- /See:/ 'event' smart constructor.
+data Event = Event'
+    { _eSourceType       :: !(Maybe SourceType)
+    , _eSourceIdentifier :: !(Maybe Text)
+    , _eDate             :: !(Maybe POSIX)
+    , _eEventCategories  :: !(Maybe [Text])
+    , _eMessage          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Event' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eSourceType' - The type of AWS DMS resource that generates events.  Valid values: replication-instance | endpoint | migration-task
+--
+-- * 'eSourceIdentifier' - The identifier of the event source. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it cannot end with a hyphen or contain two consecutive hyphens.  Constraints:replication instance, endpoint, migration task
+--
+-- * 'eDate' - The date of the event.
+--
+-- * 'eEventCategories' - The event categories available for the specified source type.
+--
+-- * 'eMessage' - The event message.
+event
+    :: Event
+event =
+    Event'
+    { _eSourceType = Nothing
+    , _eSourceIdentifier = Nothing
+    , _eDate = Nothing
+    , _eEventCategories = Nothing
+    , _eMessage = Nothing
+    }
+
+-- | The type of AWS DMS resource that generates events.  Valid values: replication-instance | endpoint | migration-task
+eSourceType :: Lens' Event (Maybe SourceType)
+eSourceType = lens _eSourceType (\ s a -> s{_eSourceType = a});
+
+-- | The identifier of the event source. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it cannot end with a hyphen or contain two consecutive hyphens.  Constraints:replication instance, endpoint, migration task
+eSourceIdentifier :: Lens' Event (Maybe Text)
+eSourceIdentifier = lens _eSourceIdentifier (\ s a -> s{_eSourceIdentifier = a});
+
+-- | The date of the event.
+eDate :: Lens' Event (Maybe UTCTime)
+eDate = lens _eDate (\ s a -> s{_eDate = a}) . mapping _Time;
+
+-- | The event categories available for the specified source type.
+eEventCategories :: Lens' Event [Text]
+eEventCategories = lens _eEventCategories (\ s a -> s{_eEventCategories = a}) . _Default . _Coerce;
+
+-- | The event message.
+eMessage :: Lens' Event (Maybe Text)
+eMessage = lens _eMessage (\ s a -> s{_eMessage = a});
+
+instance FromJSON Event where
+        parseJSON
+          = withObject "Event"
+              (\ x ->
+                 Event' <$>
+                   (x .:? "SourceType") <*> (x .:? "SourceIdentifier")
+                     <*> (x .:? "Date")
+                     <*> (x .:? "EventCategories" .!= mempty)
+                     <*> (x .:? "Message"))
+
+instance Hashable Event
+
+instance NFData Event
+
+-- |
+--
+--
+--
+-- /See:/ 'eventCategoryGroup' smart constructor.
+data EventCategoryGroup = EventCategoryGroup'
+    { _ecgSourceType      :: !(Maybe Text)
+    , _ecgEventCategories :: !(Maybe [Text])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EventCategoryGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ecgSourceType' - The type of AWS DMS resource that generates events.  Valid values: replication-instance | replication-server | security-group | migration-task
+--
+-- * 'ecgEventCategories' - A list of event categories for a @SourceType@ that you want to subscribe to.
+eventCategoryGroup
+    :: EventCategoryGroup
+eventCategoryGroup =
+    EventCategoryGroup'
+    { _ecgSourceType = Nothing
+    , _ecgEventCategories = Nothing
+    }
+
+-- | The type of AWS DMS resource that generates events.  Valid values: replication-instance | replication-server | security-group | migration-task
+ecgSourceType :: Lens' EventCategoryGroup (Maybe Text)
+ecgSourceType = lens _ecgSourceType (\ s a -> s{_ecgSourceType = a});
+
+-- | A list of event categories for a @SourceType@ that you want to subscribe to.
+ecgEventCategories :: Lens' EventCategoryGroup [Text]
+ecgEventCategories = lens _ecgEventCategories (\ s a -> s{_ecgEventCategories = a}) . _Default . _Coerce;
+
+instance FromJSON EventCategoryGroup where
+        parseJSON
+          = withObject "EventCategoryGroup"
+              (\ x ->
+                 EventCategoryGroup' <$>
+                   (x .:? "SourceType") <*>
+                     (x .:? "EventCategories" .!= mempty))
+
+instance Hashable EventCategoryGroup
+
+instance NFData EventCategoryGroup
+
+-- |
+--
+--
+--
+-- /See:/ 'eventSubscription' smart constructor.
+data EventSubscription = EventSubscription'
+    { _esStatus                   :: !(Maybe Text)
+    , _esCustomerAWSId            :: !(Maybe Text)
+    , _esCustSubscriptionId       :: !(Maybe Text)
+    , _esSNSTopicARN              :: !(Maybe Text)
+    , _esEnabled                  :: !(Maybe Bool)
+    , _esSourceType               :: !(Maybe Text)
+    , _esSubscriptionCreationTime :: !(Maybe Text)
+    , _esEventCategoriesList      :: !(Maybe [Text])
+    , _esSourceIdsList            :: !(Maybe [Text])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EventSubscription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'esStatus' - The status of the AWS DMS event notification subscription. Constraints: Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist The status "no-permission" indicates that AWS DMS no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+--
+-- * 'esCustomerAWSId' - The AWS customer account associated with the AWS DMS event notification subscription.
+--
+-- * 'esCustSubscriptionId' - The AWS DMS event notification subscription Id.
+--
+-- * 'esSNSTopicARN' - The topic ARN of the AWS DMS event notification subscription.
+--
+-- * 'esEnabled' - Boolean value that indicates if the event subscription is enabled.
+--
+-- * 'esSourceType' - The type of AWS DMS resource that generates events.  Valid values: replication-instance | replication-server | security-group | migration-task
+--
+-- * 'esSubscriptionCreationTime' - The time the RDS event notification subscription was created.
+--
+-- * 'esEventCategoriesList' - A lists of event categories.
+--
+-- * 'esSourceIdsList' - A list of source Ids for the event subscription.
+eventSubscription
+    :: EventSubscription
+eventSubscription =
+    EventSubscription'
+    { _esStatus = Nothing
+    , _esCustomerAWSId = Nothing
+    , _esCustSubscriptionId = Nothing
+    , _esSNSTopicARN = Nothing
+    , _esEnabled = Nothing
+    , _esSourceType = Nothing
+    , _esSubscriptionCreationTime = Nothing
+    , _esEventCategoriesList = Nothing
+    , _esSourceIdsList = Nothing
+    }
+
+-- | The status of the AWS DMS event notification subscription. Constraints: Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist The status "no-permission" indicates that AWS DMS no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+esStatus :: Lens' EventSubscription (Maybe Text)
+esStatus = lens _esStatus (\ s a -> s{_esStatus = a});
+
+-- | The AWS customer account associated with the AWS DMS event notification subscription.
+esCustomerAWSId :: Lens' EventSubscription (Maybe Text)
+esCustomerAWSId = lens _esCustomerAWSId (\ s a -> s{_esCustomerAWSId = a});
+
+-- | The AWS DMS event notification subscription Id.
+esCustSubscriptionId :: Lens' EventSubscription (Maybe Text)
+esCustSubscriptionId = lens _esCustSubscriptionId (\ s a -> s{_esCustSubscriptionId = a});
+
+-- | The topic ARN of the AWS DMS event notification subscription.
+esSNSTopicARN :: Lens' EventSubscription (Maybe Text)
+esSNSTopicARN = lens _esSNSTopicARN (\ s a -> s{_esSNSTopicARN = a});
+
+-- | Boolean value that indicates if the event subscription is enabled.
+esEnabled :: Lens' EventSubscription (Maybe Bool)
+esEnabled = lens _esEnabled (\ s a -> s{_esEnabled = a});
+
+-- | The type of AWS DMS resource that generates events.  Valid values: replication-instance | replication-server | security-group | migration-task
+esSourceType :: Lens' EventSubscription (Maybe Text)
+esSourceType = lens _esSourceType (\ s a -> s{_esSourceType = a});
+
+-- | The time the RDS event notification subscription was created.
+esSubscriptionCreationTime :: Lens' EventSubscription (Maybe Text)
+esSubscriptionCreationTime = lens _esSubscriptionCreationTime (\ s a -> s{_esSubscriptionCreationTime = a});
+
+-- | A lists of event categories.
+esEventCategoriesList :: Lens' EventSubscription [Text]
+esEventCategoriesList = lens _esEventCategoriesList (\ s a -> s{_esEventCategoriesList = a}) . _Default . _Coerce;
+
+-- | A list of source Ids for the event subscription.
+esSourceIdsList :: Lens' EventSubscription [Text]
+esSourceIdsList = lens _esSourceIdsList (\ s a -> s{_esSourceIdsList = a}) . _Default . _Coerce;
+
+instance FromJSON EventSubscription where
+        parseJSON
+          = withObject "EventSubscription"
+              (\ x ->
+                 EventSubscription' <$>
+                   (x .:? "Status") <*> (x .:? "CustomerAwsId") <*>
+                     (x .:? "CustSubscriptionId")
+                     <*> (x .:? "SnsTopicArn")
+                     <*> (x .:? "Enabled")
+                     <*> (x .:? "SourceType")
+                     <*> (x .:? "SubscriptionCreationTime")
+                     <*> (x .:? "EventCategoriesList" .!= mempty)
+                     <*> (x .:? "SourceIdsList" .!= mempty))
+
+instance Hashable EventSubscription
+
+instance NFData EventSubscription
 
 -- |
 --
@@ -492,6 +795,147 @@ instance ToJSON Filter where
               (catMaybes
                  [Just ("Name" .= _fName),
                   Just ("Values" .= _fValues)])
+
+-- |
+--
+--
+--
+-- /See:/ 'mongoDBSettings' smart constructor.
+data MongoDBSettings = MongoDBSettings'
+    { _mdsServerName        :: !(Maybe Text)
+    , _mdsAuthMechanism     :: !(Maybe AuthMechanismValue)
+    , _mdsUsername          :: !(Maybe Text)
+    , _mdsPassword          :: !(Maybe (Sensitive Text))
+    , _mdsNestingLevel      :: !(Maybe NestingLevelValue)
+    , _mdsDatabaseName      :: !(Maybe Text)
+    , _mdsDocsToInvestigate :: !(Maybe Text)
+    , _mdsAuthSource        :: !(Maybe Text)
+    , _mdsExtractDocId      :: !(Maybe Text)
+    , _mdsAuthType          :: !(Maybe AuthTypeValue)
+    , _mdsPort              :: !(Maybe Int)
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MongoDBSettings' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mdsServerName' - The name of the server on the MongoDB source endpoint.
+--
+-- * 'mdsAuthMechanism' - The authentication mechanism you use to access the MongoDB source endpoint. Valid values: DEFAULT, MONGODB_CR, SCRAM_SHA_1  DEFAULT – For MongoDB version 2.x, use MONGODB_CR. For MongoDB version 3.x, use SCRAM_SHA_1. This attribute is not used when authType=No.
+--
+-- * 'mdsUsername' - The user name you use to access the MongoDB source endpoint.
+--
+-- * 'mdsPassword' - The password for the user account you use to access the MongoDB source endpoint.
+--
+-- * 'mdsNestingLevel' - Specifies either document or table mode.  Valid values: NONE, ONE Default value is NONE. Specify NONE to use document mode. Specify ONE to use table mode.
+--
+-- * 'mdsDatabaseName' - The database name on the MongoDB source endpoint.
+--
+-- * 'mdsDocsToInvestigate' - Indicates the number of documents to preview to determine the document organization. Use this attribute when @NestingLevel@ is set to ONE.  Must be a positive value greater than 0. Default value is 1000.
+--
+-- * 'mdsAuthSource' - The MongoDB database name. This attribute is not used when @authType=NO@ .  The default is admin.
+--
+-- * 'mdsExtractDocId' - Specifies the document ID. Use this attribute when @NestingLevel@ is set to NONE.  Default value is false.
+--
+-- * 'mdsAuthType' - The authentication type you use to access the MongoDB source endpoint. Valid values: NO, PASSWORD  When NO is selected, user name and password parameters are not used and can be empty.
+--
+-- * 'mdsPort' - The port value for the MongoDB source endpoint.
+mongoDBSettings
+    :: MongoDBSettings
+mongoDBSettings =
+    MongoDBSettings'
+    { _mdsServerName = Nothing
+    , _mdsAuthMechanism = Nothing
+    , _mdsUsername = Nothing
+    , _mdsPassword = Nothing
+    , _mdsNestingLevel = Nothing
+    , _mdsDatabaseName = Nothing
+    , _mdsDocsToInvestigate = Nothing
+    , _mdsAuthSource = Nothing
+    , _mdsExtractDocId = Nothing
+    , _mdsAuthType = Nothing
+    , _mdsPort = Nothing
+    }
+
+-- | The name of the server on the MongoDB source endpoint.
+mdsServerName :: Lens' MongoDBSettings (Maybe Text)
+mdsServerName = lens _mdsServerName (\ s a -> s{_mdsServerName = a});
+
+-- | The authentication mechanism you use to access the MongoDB source endpoint. Valid values: DEFAULT, MONGODB_CR, SCRAM_SHA_1  DEFAULT – For MongoDB version 2.x, use MONGODB_CR. For MongoDB version 3.x, use SCRAM_SHA_1. This attribute is not used when authType=No.
+mdsAuthMechanism :: Lens' MongoDBSettings (Maybe AuthMechanismValue)
+mdsAuthMechanism = lens _mdsAuthMechanism (\ s a -> s{_mdsAuthMechanism = a});
+
+-- | The user name you use to access the MongoDB source endpoint.
+mdsUsername :: Lens' MongoDBSettings (Maybe Text)
+mdsUsername = lens _mdsUsername (\ s a -> s{_mdsUsername = a});
+
+-- | The password for the user account you use to access the MongoDB source endpoint.
+mdsPassword :: Lens' MongoDBSettings (Maybe Text)
+mdsPassword = lens _mdsPassword (\ s a -> s{_mdsPassword = a}) . mapping _Sensitive;
+
+-- | Specifies either document or table mode.  Valid values: NONE, ONE Default value is NONE. Specify NONE to use document mode. Specify ONE to use table mode.
+mdsNestingLevel :: Lens' MongoDBSettings (Maybe NestingLevelValue)
+mdsNestingLevel = lens _mdsNestingLevel (\ s a -> s{_mdsNestingLevel = a});
+
+-- | The database name on the MongoDB source endpoint.
+mdsDatabaseName :: Lens' MongoDBSettings (Maybe Text)
+mdsDatabaseName = lens _mdsDatabaseName (\ s a -> s{_mdsDatabaseName = a});
+
+-- | Indicates the number of documents to preview to determine the document organization. Use this attribute when @NestingLevel@ is set to ONE.  Must be a positive value greater than 0. Default value is 1000.
+mdsDocsToInvestigate :: Lens' MongoDBSettings (Maybe Text)
+mdsDocsToInvestigate = lens _mdsDocsToInvestigate (\ s a -> s{_mdsDocsToInvestigate = a});
+
+-- | The MongoDB database name. This attribute is not used when @authType=NO@ .  The default is admin.
+mdsAuthSource :: Lens' MongoDBSettings (Maybe Text)
+mdsAuthSource = lens _mdsAuthSource (\ s a -> s{_mdsAuthSource = a});
+
+-- | Specifies the document ID. Use this attribute when @NestingLevel@ is set to NONE.  Default value is false.
+mdsExtractDocId :: Lens' MongoDBSettings (Maybe Text)
+mdsExtractDocId = lens _mdsExtractDocId (\ s a -> s{_mdsExtractDocId = a});
+
+-- | The authentication type you use to access the MongoDB source endpoint. Valid values: NO, PASSWORD  When NO is selected, user name and password parameters are not used and can be empty.
+mdsAuthType :: Lens' MongoDBSettings (Maybe AuthTypeValue)
+mdsAuthType = lens _mdsAuthType (\ s a -> s{_mdsAuthType = a});
+
+-- | The port value for the MongoDB source endpoint.
+mdsPort :: Lens' MongoDBSettings (Maybe Int)
+mdsPort = lens _mdsPort (\ s a -> s{_mdsPort = a});
+
+instance FromJSON MongoDBSettings where
+        parseJSON
+          = withObject "MongoDBSettings"
+              (\ x ->
+                 MongoDBSettings' <$>
+                   (x .:? "ServerName") <*> (x .:? "AuthMechanism") <*>
+                     (x .:? "Username")
+                     <*> (x .:? "Password")
+                     <*> (x .:? "NestingLevel")
+                     <*> (x .:? "DatabaseName")
+                     <*> (x .:? "DocsToInvestigate")
+                     <*> (x .:? "AuthSource")
+                     <*> (x .:? "ExtractDocId")
+                     <*> (x .:? "AuthType")
+                     <*> (x .:? "Port"))
+
+instance Hashable MongoDBSettings
+
+instance NFData MongoDBSettings
+
+instance ToJSON MongoDBSettings where
+        toJSON MongoDBSettings'{..}
+          = object
+              (catMaybes
+                 [("ServerName" .=) <$> _mdsServerName,
+                  ("AuthMechanism" .=) <$> _mdsAuthMechanism,
+                  ("Username" .=) <$> _mdsUsername,
+                  ("Password" .=) <$> _mdsPassword,
+                  ("NestingLevel" .=) <$> _mdsNestingLevel,
+                  ("DatabaseName" .=) <$> _mdsDatabaseName,
+                  ("DocsToInvestigate" .=) <$> _mdsDocsToInvestigate,
+                  ("AuthSource" .=) <$> _mdsAuthSource,
+                  ("ExtractDocId" .=) <$> _mdsExtractDocId,
+                  ("AuthType" .=) <$> _mdsAuthType,
+                  ("Port" .=) <$> _mdsPort])
 
 -- |
 --
@@ -1014,128 +1458,128 @@ instance NFData ReplicationSubnetGroup
 --
 -- /See:/ 'replicationTask' smart constructor.
 data ReplicationTask = ReplicationTask'
-    { _rtReplicationTaskSettings     :: !(Maybe Text)
-    , _rtStatus                      :: !(Maybe Text)
-    , _rtStopReason                  :: !(Maybe Text)
-    , _rtTargetEndpointARN           :: !(Maybe Text)
-    , _rtReplicationTaskIdentifier   :: !(Maybe Text)
-    , _rtReplicationTaskStartDate    :: !(Maybe POSIX)
-    , _rtSourceEndpointARN           :: !(Maybe Text)
-    , _rtTableMappings               :: !(Maybe Text)
-    , _rtReplicationTaskCreationDate :: !(Maybe POSIX)
-    , _rtMigrationType               :: !(Maybe MigrationTypeValue)
-    , _rtReplicationTaskARN          :: !(Maybe Text)
-    , _rtReplicationTaskStats        :: !(Maybe ReplicationTaskStats)
-    , _rtReplicationInstanceARN      :: !(Maybe Text)
-    , _rtLastFailureMessage          :: !(Maybe Text)
+    { _rReplicationTaskSettings     :: !(Maybe Text)
+    , _rStatus                      :: !(Maybe Text)
+    , _rStopReason                  :: !(Maybe Text)
+    , _rTargetEndpointARN           :: !(Maybe Text)
+    , _rReplicationTaskIdentifier   :: !(Maybe Text)
+    , _rReplicationTaskStartDate    :: !(Maybe POSIX)
+    , _rSourceEndpointARN           :: !(Maybe Text)
+    , _rTableMappings               :: !(Maybe Text)
+    , _rReplicationTaskCreationDate :: !(Maybe POSIX)
+    , _rMigrationType               :: !(Maybe MigrationTypeValue)
+    , _rReplicationTaskARN          :: !(Maybe Text)
+    , _rReplicationTaskStats        :: !(Maybe ReplicationTaskStats)
+    , _rReplicationInstanceARN      :: !(Maybe Text)
+    , _rLastFailureMessage          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReplicationTask' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtReplicationTaskSettings' - The settings for the replication task.
+-- * 'rReplicationTaskSettings' - The settings for the replication task.
 --
--- * 'rtStatus' - The status of the replication task.
+-- * 'rStatus' - The status of the replication task.
 --
--- * 'rtStopReason' - The reason the replication task was stopped.
+-- * 'rStopReason' - The reason the replication task was stopped.
 --
--- * 'rtTargetEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
+-- * 'rTargetEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 --
--- * 'rtReplicationTaskIdentifier' - The replication task identifier. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
+-- * 'rReplicationTaskIdentifier' - The replication task identifier. Constraints:     * Must contain from 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- * 'rtReplicationTaskStartDate' - The date the replication task is scheduled to start.
+-- * 'rReplicationTaskStartDate' - The date the replication task is scheduled to start.
 --
--- * 'rtSourceEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
+-- * 'rSourceEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 --
--- * 'rtTableMappings' - Table mappings specified in the task.
+-- * 'rTableMappings' - Table mappings specified in the task.
 --
--- * 'rtReplicationTaskCreationDate' - The date the replication task was created.
+-- * 'rReplicationTaskCreationDate' - The date the replication task was created.
 --
--- * 'rtMigrationType' - The type of migration.
+-- * 'rMigrationType' - The type of migration.
 --
--- * 'rtReplicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
+-- * 'rReplicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
 --
--- * 'rtReplicationTaskStats' - The statistics for the task, including elapsed time, tables loaded, and table errors.
+-- * 'rReplicationTaskStats' - The statistics for the task, including elapsed time, tables loaded, and table errors.
 --
--- * 'rtReplicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
+-- * 'rReplicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
 --
--- * 'rtLastFailureMessage' - The last error (failure) message generated for the replication instance.
+-- * 'rLastFailureMessage' - The last error (failure) message generated for the replication instance.
 replicationTask
     :: ReplicationTask
 replicationTask =
     ReplicationTask'
-    { _rtReplicationTaskSettings = Nothing
-    , _rtStatus = Nothing
-    , _rtStopReason = Nothing
-    , _rtTargetEndpointARN = Nothing
-    , _rtReplicationTaskIdentifier = Nothing
-    , _rtReplicationTaskStartDate = Nothing
-    , _rtSourceEndpointARN = Nothing
-    , _rtTableMappings = Nothing
-    , _rtReplicationTaskCreationDate = Nothing
-    , _rtMigrationType = Nothing
-    , _rtReplicationTaskARN = Nothing
-    , _rtReplicationTaskStats = Nothing
-    , _rtReplicationInstanceARN = Nothing
-    , _rtLastFailureMessage = Nothing
+    { _rReplicationTaskSettings = Nothing
+    , _rStatus = Nothing
+    , _rStopReason = Nothing
+    , _rTargetEndpointARN = Nothing
+    , _rReplicationTaskIdentifier = Nothing
+    , _rReplicationTaskStartDate = Nothing
+    , _rSourceEndpointARN = Nothing
+    , _rTableMappings = Nothing
+    , _rReplicationTaskCreationDate = Nothing
+    , _rMigrationType = Nothing
+    , _rReplicationTaskARN = Nothing
+    , _rReplicationTaskStats = Nothing
+    , _rReplicationInstanceARN = Nothing
+    , _rLastFailureMessage = Nothing
     }
 
 -- | The settings for the replication task.
-rtReplicationTaskSettings :: Lens' ReplicationTask (Maybe Text)
-rtReplicationTaskSettings = lens _rtReplicationTaskSettings (\ s a -> s{_rtReplicationTaskSettings = a});
+rReplicationTaskSettings :: Lens' ReplicationTask (Maybe Text)
+rReplicationTaskSettings = lens _rReplicationTaskSettings (\ s a -> s{_rReplicationTaskSettings = a});
 
 -- | The status of the replication task.
-rtStatus :: Lens' ReplicationTask (Maybe Text)
-rtStatus = lens _rtStatus (\ s a -> s{_rtStatus = a});
+rStatus :: Lens' ReplicationTask (Maybe Text)
+rStatus = lens _rStatus (\ s a -> s{_rStatus = a});
 
 -- | The reason the replication task was stopped.
-rtStopReason :: Lens' ReplicationTask (Maybe Text)
-rtStopReason = lens _rtStopReason (\ s a -> s{_rtStopReason = a});
+rStopReason :: Lens' ReplicationTask (Maybe Text)
+rStopReason = lens _rStopReason (\ s a -> s{_rStopReason = a});
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
-rtTargetEndpointARN :: Lens' ReplicationTask (Maybe Text)
-rtTargetEndpointARN = lens _rtTargetEndpointARN (\ s a -> s{_rtTargetEndpointARN = a});
+rTargetEndpointARN :: Lens' ReplicationTask (Maybe Text)
+rTargetEndpointARN = lens _rTargetEndpointARN (\ s a -> s{_rTargetEndpointARN = a});
 
--- | The replication task identifier. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
-rtReplicationTaskIdentifier :: Lens' ReplicationTask (Maybe Text)
-rtReplicationTaskIdentifier = lens _rtReplicationTaskIdentifier (\ s a -> s{_rtReplicationTaskIdentifier = a});
+-- | The replication task identifier. Constraints:     * Must contain from 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
+rReplicationTaskIdentifier :: Lens' ReplicationTask (Maybe Text)
+rReplicationTaskIdentifier = lens _rReplicationTaskIdentifier (\ s a -> s{_rReplicationTaskIdentifier = a});
 
 -- | The date the replication task is scheduled to start.
-rtReplicationTaskStartDate :: Lens' ReplicationTask (Maybe UTCTime)
-rtReplicationTaskStartDate = lens _rtReplicationTaskStartDate (\ s a -> s{_rtReplicationTaskStartDate = a}) . mapping _Time;
+rReplicationTaskStartDate :: Lens' ReplicationTask (Maybe UTCTime)
+rReplicationTaskStartDate = lens _rReplicationTaskStartDate (\ s a -> s{_rReplicationTaskStartDate = a}) . mapping _Time;
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
-rtSourceEndpointARN :: Lens' ReplicationTask (Maybe Text)
-rtSourceEndpointARN = lens _rtSourceEndpointARN (\ s a -> s{_rtSourceEndpointARN = a});
+rSourceEndpointARN :: Lens' ReplicationTask (Maybe Text)
+rSourceEndpointARN = lens _rSourceEndpointARN (\ s a -> s{_rSourceEndpointARN = a});
 
 -- | Table mappings specified in the task.
-rtTableMappings :: Lens' ReplicationTask (Maybe Text)
-rtTableMappings = lens _rtTableMappings (\ s a -> s{_rtTableMappings = a});
+rTableMappings :: Lens' ReplicationTask (Maybe Text)
+rTableMappings = lens _rTableMappings (\ s a -> s{_rTableMappings = a});
 
 -- | The date the replication task was created.
-rtReplicationTaskCreationDate :: Lens' ReplicationTask (Maybe UTCTime)
-rtReplicationTaskCreationDate = lens _rtReplicationTaskCreationDate (\ s a -> s{_rtReplicationTaskCreationDate = a}) . mapping _Time;
+rReplicationTaskCreationDate :: Lens' ReplicationTask (Maybe UTCTime)
+rReplicationTaskCreationDate = lens _rReplicationTaskCreationDate (\ s a -> s{_rReplicationTaskCreationDate = a}) . mapping _Time;
 
 -- | The type of migration.
-rtMigrationType :: Lens' ReplicationTask (Maybe MigrationTypeValue)
-rtMigrationType = lens _rtMigrationType (\ s a -> s{_rtMigrationType = a});
+rMigrationType :: Lens' ReplicationTask (Maybe MigrationTypeValue)
+rMigrationType = lens _rMigrationType (\ s a -> s{_rMigrationType = a});
 
 -- | The Amazon Resource Name (ARN) of the replication task.
-rtReplicationTaskARN :: Lens' ReplicationTask (Maybe Text)
-rtReplicationTaskARN = lens _rtReplicationTaskARN (\ s a -> s{_rtReplicationTaskARN = a});
+rReplicationTaskARN :: Lens' ReplicationTask (Maybe Text)
+rReplicationTaskARN = lens _rReplicationTaskARN (\ s a -> s{_rReplicationTaskARN = a});
 
 -- | The statistics for the task, including elapsed time, tables loaded, and table errors.
-rtReplicationTaskStats :: Lens' ReplicationTask (Maybe ReplicationTaskStats)
-rtReplicationTaskStats = lens _rtReplicationTaskStats (\ s a -> s{_rtReplicationTaskStats = a});
+rReplicationTaskStats :: Lens' ReplicationTask (Maybe ReplicationTaskStats)
+rReplicationTaskStats = lens _rReplicationTaskStats (\ s a -> s{_rReplicationTaskStats = a});
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
-rtReplicationInstanceARN :: Lens' ReplicationTask (Maybe Text)
-rtReplicationInstanceARN = lens _rtReplicationInstanceARN (\ s a -> s{_rtReplicationInstanceARN = a});
+rReplicationInstanceARN :: Lens' ReplicationTask (Maybe Text)
+rReplicationInstanceARN = lens _rReplicationInstanceARN (\ s a -> s{_rReplicationInstanceARN = a});
 
 -- | The last error (failure) message generated for the replication instance.
-rtLastFailureMessage :: Lens' ReplicationTask (Maybe Text)
-rtLastFailureMessage = lens _rtLastFailureMessage (\ s a -> s{_rtLastFailureMessage = a});
+rLastFailureMessage :: Lens' ReplicationTask (Maybe Text)
+rLastFailureMessage = lens _rLastFailureMessage (\ s a -> s{_rLastFailureMessage = a});
 
 instance FromJSON ReplicationTask where
         parseJSON
@@ -1246,6 +1690,110 @@ instance NFData ReplicationTaskStats
 --
 --
 --
+-- /See:/ 's3Settings' smart constructor.
+data S3Settings = S3Settings'
+    { _ssCSVDelimiter            :: !(Maybe Text)
+    , _ssServiceAccessRoleARN    :: !(Maybe Text)
+    , _ssBucketFolder            :: !(Maybe Text)
+    , _ssExternalTableDefinition :: !(Maybe Text)
+    , _ssBucketName              :: !(Maybe Text)
+    , _ssCSVRowDelimiter         :: !(Maybe Text)
+    , _ssCompressionType         :: !(Maybe CompressionTypeValue)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'S3Settings' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssCSVDelimiter' - The delimiter used to separate columns in the source files. The default is a comma.
+--
+-- * 'ssServiceAccessRoleARN' - The Amazon Resource Name (ARN) used by the service access IAM role.
+--
+-- * 'ssBucketFolder' - An optional parameter to set a folder name in the S3 bucket. If provided, tables are created in the path <bucketFolder>/<schema_name>/<table_name>/. If this parameter is not specified, then the path used is <schema_name>/<table_name>/.
+--
+-- * 'ssExternalTableDefinition' -
+--
+-- * 'ssBucketName' - The name of the S3 bucket.
+--
+-- * 'ssCSVRowDelimiter' - The delimiter used to separate rows in the source files. The default is a carriage return (\n).
+--
+-- * 'ssCompressionType' - An optional parameter to use GZIP to compress the target files. Set to GZIP to compress the target files. Set to NONE (the default) or do not use to leave the files uncompressed.
+s3Settings
+    :: S3Settings
+s3Settings =
+    S3Settings'
+    { _ssCSVDelimiter = Nothing
+    , _ssServiceAccessRoleARN = Nothing
+    , _ssBucketFolder = Nothing
+    , _ssExternalTableDefinition = Nothing
+    , _ssBucketName = Nothing
+    , _ssCSVRowDelimiter = Nothing
+    , _ssCompressionType = Nothing
+    }
+
+-- | The delimiter used to separate columns in the source files. The default is a comma.
+ssCSVDelimiter :: Lens' S3Settings (Maybe Text)
+ssCSVDelimiter = lens _ssCSVDelimiter (\ s a -> s{_ssCSVDelimiter = a});
+
+-- | The Amazon Resource Name (ARN) used by the service access IAM role.
+ssServiceAccessRoleARN :: Lens' S3Settings (Maybe Text)
+ssServiceAccessRoleARN = lens _ssServiceAccessRoleARN (\ s a -> s{_ssServiceAccessRoleARN = a});
+
+-- | An optional parameter to set a folder name in the S3 bucket. If provided, tables are created in the path <bucketFolder>/<schema_name>/<table_name>/. If this parameter is not specified, then the path used is <schema_name>/<table_name>/.
+ssBucketFolder :: Lens' S3Settings (Maybe Text)
+ssBucketFolder = lens _ssBucketFolder (\ s a -> s{_ssBucketFolder = a});
+
+-- |
+ssExternalTableDefinition :: Lens' S3Settings (Maybe Text)
+ssExternalTableDefinition = lens _ssExternalTableDefinition (\ s a -> s{_ssExternalTableDefinition = a});
+
+-- | The name of the S3 bucket.
+ssBucketName :: Lens' S3Settings (Maybe Text)
+ssBucketName = lens _ssBucketName (\ s a -> s{_ssBucketName = a});
+
+-- | The delimiter used to separate rows in the source files. The default is a carriage return (\n).
+ssCSVRowDelimiter :: Lens' S3Settings (Maybe Text)
+ssCSVRowDelimiter = lens _ssCSVRowDelimiter (\ s a -> s{_ssCSVRowDelimiter = a});
+
+-- | An optional parameter to use GZIP to compress the target files. Set to GZIP to compress the target files. Set to NONE (the default) or do not use to leave the files uncompressed.
+ssCompressionType :: Lens' S3Settings (Maybe CompressionTypeValue)
+ssCompressionType = lens _ssCompressionType (\ s a -> s{_ssCompressionType = a});
+
+instance FromJSON S3Settings where
+        parseJSON
+          = withObject "S3Settings"
+              (\ x ->
+                 S3Settings' <$>
+                   (x .:? "CsvDelimiter") <*>
+                     (x .:? "ServiceAccessRoleArn")
+                     <*> (x .:? "BucketFolder")
+                     <*> (x .:? "ExternalTableDefinition")
+                     <*> (x .:? "BucketName")
+                     <*> (x .:? "CsvRowDelimiter")
+                     <*> (x .:? "CompressionType"))
+
+instance Hashable S3Settings
+
+instance NFData S3Settings
+
+instance ToJSON S3Settings where
+        toJSON S3Settings'{..}
+          = object
+              (catMaybes
+                 [("CsvDelimiter" .=) <$> _ssCSVDelimiter,
+                  ("ServiceAccessRoleArn" .=) <$>
+                    _ssServiceAccessRoleARN,
+                  ("BucketFolder" .=) <$> _ssBucketFolder,
+                  ("ExternalTableDefinition" .=) <$>
+                    _ssExternalTableDefinition,
+                  ("BucketName" .=) <$> _ssBucketName,
+                  ("CsvRowDelimiter" .=) <$> _ssCSVRowDelimiter,
+                  ("CompressionType" .=) <$> _ssCompressionType])
+
+-- |
+--
+--
+--
 -- /See:/ 'subnet' smart constructor.
 data Subnet = Subnet'
     { _sSubnetStatus           :: !(Maybe Text)
@@ -1312,7 +1860,7 @@ data SupportedEndpointType = SupportedEndpointType'
 --
 -- * 'setEndpointType' - The type of endpoint.
 --
--- * 'setEngineName' - The database engine name. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER.
+-- * 'setEngineName' - The database engine name. Valid values, depending on the EndPointType, include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, S3, SYBASE, DYNAMODB, MONGODB, and SQLSERVER.
 --
 -- * 'setSupportsCDC' - Indicates if Change Data Capture (CDC) is supported.
 supportedEndpointType
@@ -1328,7 +1876,7 @@ supportedEndpointType =
 setEndpointType :: Lens' SupportedEndpointType (Maybe ReplicationEndpointTypeValue)
 setEndpointType = lens _setEndpointType (\ s a -> s{_setEndpointType = a});
 
--- | The database engine name. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER.
+-- | The database engine name. Valid values, depending on the EndPointType, include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, S3, SYBASE, DYNAMODB, MONGODB, and SQLSERVER.
 setEngineName :: Lens' SupportedEndpointType (Maybe Text)
 setEngineName = lens _setEngineName (\ s a -> s{_setEngineName = a});
 
@@ -1354,15 +1902,17 @@ instance NFData SupportedEndpointType
 --
 -- /See:/ 'tableStatistics' smart constructor.
 data TableStatistics = TableStatistics'
-    { _tsFullLoadRows   :: !(Maybe Integer)
-    , _tsInserts        :: !(Maybe Integer)
-    , _tsSchemaName     :: !(Maybe Text)
-    , _tsTableState     :: !(Maybe Text)
-    , _tsDdls           :: !(Maybe Integer)
-    , _tsDeletes        :: !(Maybe Integer)
-    , _tsUpdates        :: !(Maybe Integer)
-    , _tsLastUpdateTime :: !(Maybe POSIX)
-    , _tsTableName      :: !(Maybe Text)
+    { _tsFullLoadRows                 :: !(Maybe Integer)
+    , _tsInserts                      :: !(Maybe Integer)
+    , _tsFullLoadCondtnlChkFailedRows :: !(Maybe Integer)
+    , _tsSchemaName                   :: !(Maybe Text)
+    , _tsTableState                   :: !(Maybe Text)
+    , _tsFullLoadErrorRows            :: !(Maybe Integer)
+    , _tsDdls                         :: !(Maybe Integer)
+    , _tsDeletes                      :: !(Maybe Integer)
+    , _tsUpdates                      :: !(Maybe Integer)
+    , _tsLastUpdateTime               :: !(Maybe POSIX)
+    , _tsTableName                    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TableStatistics' with the minimum fields required to make a request.
@@ -1373,9 +1923,13 @@ data TableStatistics = TableStatistics'
 --
 -- * 'tsInserts' - The number of insert actions performed on a table.
 --
+-- * 'tsFullLoadCondtnlChkFailedRows' - The number of rows that failed conditional checks during the Full Load operation (valid only for DynamoDB as a target migrations).
+--
 -- * 'tsSchemaName' - The schema name.
 --
 -- * 'tsTableState' - The state of the table.
+--
+-- * 'tsFullLoadErrorRows' - The number of rows that failed to load during the Full Load operation (valid only for DynamoDB as a target migrations).
 --
 -- * 'tsDdls' - The Data Definition Language (DDL) used to build and modify the structure of your tables.
 --
@@ -1392,8 +1946,10 @@ tableStatistics =
     TableStatistics'
     { _tsFullLoadRows = Nothing
     , _tsInserts = Nothing
+    , _tsFullLoadCondtnlChkFailedRows = Nothing
     , _tsSchemaName = Nothing
     , _tsTableState = Nothing
+    , _tsFullLoadErrorRows = Nothing
     , _tsDdls = Nothing
     , _tsDeletes = Nothing
     , _tsUpdates = Nothing
@@ -1409,6 +1965,10 @@ tsFullLoadRows = lens _tsFullLoadRows (\ s a -> s{_tsFullLoadRows = a});
 tsInserts :: Lens' TableStatistics (Maybe Integer)
 tsInserts = lens _tsInserts (\ s a -> s{_tsInserts = a});
 
+-- | The number of rows that failed conditional checks during the Full Load operation (valid only for DynamoDB as a target migrations).
+tsFullLoadCondtnlChkFailedRows :: Lens' TableStatistics (Maybe Integer)
+tsFullLoadCondtnlChkFailedRows = lens _tsFullLoadCondtnlChkFailedRows (\ s a -> s{_tsFullLoadCondtnlChkFailedRows = a});
+
 -- | The schema name.
 tsSchemaName :: Lens' TableStatistics (Maybe Text)
 tsSchemaName = lens _tsSchemaName (\ s a -> s{_tsSchemaName = a});
@@ -1416,6 +1976,10 @@ tsSchemaName = lens _tsSchemaName (\ s a -> s{_tsSchemaName = a});
 -- | The state of the table.
 tsTableState :: Lens' TableStatistics (Maybe Text)
 tsTableState = lens _tsTableState (\ s a -> s{_tsTableState = a});
+
+-- | The number of rows that failed to load during the Full Load operation (valid only for DynamoDB as a target migrations).
+tsFullLoadErrorRows :: Lens' TableStatistics (Maybe Integer)
+tsFullLoadErrorRows = lens _tsFullLoadErrorRows (\ s a -> s{_tsFullLoadErrorRows = a});
 
 -- | The Data Definition Language (DDL) used to build and modify the structure of your tables.
 tsDdls :: Lens' TableStatistics (Maybe Integer)
@@ -1443,8 +2007,10 @@ instance FromJSON TableStatistics where
               (\ x ->
                  TableStatistics' <$>
                    (x .:? "FullLoadRows") <*> (x .:? "Inserts") <*>
-                     (x .:? "SchemaName")
+                     (x .:? "FullLoadCondtnlChkFailedRows")
+                     <*> (x .:? "SchemaName")
                      <*> (x .:? "TableState")
+                     <*> (x .:? "FullLoadErrorRows")
                      <*> (x .:? "Ddls")
                      <*> (x .:? "Deletes")
                      <*> (x .:? "Updates")
@@ -1454,6 +2020,50 @@ instance FromJSON TableStatistics where
 instance Hashable TableStatistics
 
 instance NFData TableStatistics
+
+-- |
+--
+--
+--
+-- /See:/ 'tableToReload' smart constructor.
+data TableToReload = TableToReload'
+    { _ttrSchemaName :: !(Maybe Text)
+    , _ttrTableName  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TableToReload' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ttrSchemaName' - The schema name of the table to be reloaded.
+--
+-- * 'ttrTableName' - The table name of the table to be reloaded.
+tableToReload
+    :: TableToReload
+tableToReload =
+    TableToReload'
+    { _ttrSchemaName = Nothing
+    , _ttrTableName = Nothing
+    }
+
+-- | The schema name of the table to be reloaded.
+ttrSchemaName :: Lens' TableToReload (Maybe Text)
+ttrSchemaName = lens _ttrSchemaName (\ s a -> s{_ttrSchemaName = a});
+
+-- | The table name of the table to be reloaded.
+ttrTableName :: Lens' TableToReload (Maybe Text)
+ttrTableName = lens _ttrTableName (\ s a -> s{_ttrTableName = a});
+
+instance Hashable TableToReload
+
+instance NFData TableToReload
+
+instance ToJSON TableToReload where
+        toJSON TableToReload'{..}
+          = object
+              (catMaybes
+                 [("SchemaName" .=) <$> _ttrSchemaName,
+                  ("TableName" .=) <$> _ttrTableName])
 
 -- |
 --

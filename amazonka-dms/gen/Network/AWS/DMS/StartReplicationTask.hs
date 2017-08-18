@@ -21,6 +21,8 @@
 -- Starts the replication task.
 --
 --
+-- For more information about AWS DMS tasks, see the AWS DMS user guide at <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html Working with Migration Tasks >
+--
 module Network.AWS.DMS.StartReplicationTask
     (
     -- * Creating a Request

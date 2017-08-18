@@ -113,7 +113,7 @@ instance ToQuery DeleteEndpoint where
 data DeleteEndpointResponse = DeleteEndpointResponse'
     { _delrsEndpoint       :: !(Maybe Endpoint)
     , _delrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteEndpointResponse' with the minimum fields required to make a request.
 --

@@ -57,7 +57,7 @@ data AttachToIndex = AttachToIndex'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atiDirectoryARN' - The ARN of the directory where the object and index exist.
+-- * 'atiDirectoryARN' - The Amazon Resource Name (ARN) of the directory where the object and index exist.
 --
 -- * 'atiIndexReference' - A reference to the index that you are attaching the object to.
 --
@@ -74,7 +74,7 @@ attachToIndex pDirectoryARN_ pIndexReference_ pTargetReference_ =
     , _atiTargetReference = pTargetReference_
     }
 
--- | The ARN of the directory where the object and index exist.
+-- | The Amazon Resource Name (ARN) of the directory where the object and index exist.
 atiDirectoryARN :: Lens' AttachToIndex Text
 atiDirectoryARN = lens _atiDirectoryARN (\ s a -> s{_atiDirectoryARN = a});
 

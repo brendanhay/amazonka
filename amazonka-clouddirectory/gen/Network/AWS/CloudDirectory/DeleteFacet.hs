@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a given 'Facet' . All attributes and 'Rule' s associated with the facet will be deleted. Only development schema facets are allowed deletion.
+-- Deletes a given 'Facet' . All attributes and 'Rule' s that are associated with the facet will be deleted. Only development schema facets are allowed deletion.
 --
 --
 module Network.AWS.CloudDirectory.DeleteFacet
@@ -54,7 +54,7 @@ data DeleteFacet = DeleteFacet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfSchemaARN' - ARN associated with the 'Facet' . For more information, see 'arns' .
+-- * 'dfSchemaARN' - The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
 --
 -- * 'dfName' - The name of the facet to delete.
 deleteFacet
@@ -67,7 +67,7 @@ deleteFacet pSchemaARN_ pName_ =
     , _dfName = pName_
     }
 
--- | ARN associated with the 'Facet' . For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
 dfSchemaARN :: Lens' DeleteFacet Text
 dfSchemaARN = lens _dfSchemaARN (\ s a -> s{_dfSchemaARN = a});
 

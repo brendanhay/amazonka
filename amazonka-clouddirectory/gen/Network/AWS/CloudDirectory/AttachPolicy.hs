@@ -56,11 +56,11 @@ data AttachPolicy = AttachPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'apDirectoryARN' - ARN associated with the 'Directory' where both objects reside. For more information, see 'arns' .
+-- * 'apDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
 --
--- * 'apPolicyReference' - Reference associated with the policy object.
+-- * 'apPolicyReference' - The reference that is associated with the policy object.
 --
--- * 'apObjectReference' - Reference that identifies the object to which the policy will be attached.
+-- * 'apObjectReference' - The reference that identifies the object to which the policy will be attached.
 attachPolicy
     :: ObjectReference -- ^ 'apPolicyReference'
     -> ObjectReference -- ^ 'apObjectReference'
@@ -72,15 +72,15 @@ attachPolicy pPolicyReference_ pObjectReference_ =
     , _apObjectReference = pObjectReference_
     }
 
--- | ARN associated with the 'Directory' where both objects reside. For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
 apDirectoryARN :: Lens' AttachPolicy (Maybe Text)
 apDirectoryARN = lens _apDirectoryARN (\ s a -> s{_apDirectoryARN = a});
 
--- | Reference associated with the policy object.
+-- | The reference that is associated with the policy object.
 apPolicyReference :: Lens' AttachPolicy ObjectReference
 apPolicyReference = lens _apPolicyReference (\ s a -> s{_apPolicyReference = a});
 
--- | Reference that identifies the object to which the policy will be attached.
+-- | The reference that identifies the object to which the policy will be attached.
 apObjectReference :: Lens' AttachPolicy ObjectReference
 apObjectReference = lens _apObjectReference (\ s a -> s{_apObjectReference = a});
 

@@ -67,9 +67,9 @@ data CreateIndex = CreateIndex'
 --
 -- * 'ciDirectoryARN' - The ARN of the directory where the index should be created.
 --
--- * 'ciOrderedIndexedAttributeList' - Specifies the Attributes that should be indexed on. Currently only a single attribute is supported.
+-- * 'ciOrderedIndexedAttributeList' - Specifies the attributes that should be indexed on. Currently only a single attribute is supported.
 --
--- * 'ciIsUnique' - Indicates whether objects with the same indexed attribute value can be added to the index.
+-- * 'ciIsUnique' - Indicates whether the attribute that is being indexed has unique values or not.
 createIndex
     :: Text -- ^ 'ciDirectoryARN'
     -> Bool -- ^ 'ciIsUnique'
@@ -95,11 +95,11 @@ ciLinkName = lens _ciLinkName (\ s a -> s{_ciLinkName = a});
 ciDirectoryARN :: Lens' CreateIndex Text
 ciDirectoryARN = lens _ciDirectoryARN (\ s a -> s{_ciDirectoryARN = a});
 
--- | Specifies the Attributes that should be indexed on. Currently only a single attribute is supported.
+-- | Specifies the attributes that should be indexed on. Currently only a single attribute is supported.
 ciOrderedIndexedAttributeList :: Lens' CreateIndex [AttributeKey]
 ciOrderedIndexedAttributeList = lens _ciOrderedIndexedAttributeList (\ s a -> s{_ciOrderedIndexedAttributeList = a}) . _Coerce;
 
--- | Indicates whether objects with the same indexed attribute value can be added to the index.
+-- | Indicates whether the attribute that is being indexed has unique values or not.
 ciIsUnique :: Lens' CreateIndex Bool
 ciIsUnique = lens _ciIsUnique (\ s a -> s{_ciIsUnique = a});
 

@@ -21,9 +21,16 @@ import           Network.AWS.Prelude
 
 data BatchReadExceptionType
     = AccessDeniedException
+    | CannotListParentOfRootException
+    | DirectoryNotEnabledException
+    | FacetValidationException
+    | InternalServiceException
     | InvalidARNException
     | InvalidNextTokenException
+    | LimitExceededException
+    | NotIndexException
     | NotNodeException
+    | NotPolicyException
     | ResourceNotFoundException
     | ValidationException
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -31,20 +38,34 @@ data BatchReadExceptionType
 instance FromText BatchReadExceptionType where
     parser = takeLowerText >>= \case
         "accessdeniedexception" -> pure AccessDeniedException
+        "cannotlistparentofrootexception" -> pure CannotListParentOfRootException
+        "directorynotenabledexception" -> pure DirectoryNotEnabledException
+        "facetvalidationexception" -> pure FacetValidationException
+        "internalserviceexception" -> pure InternalServiceException
         "invalidarnexception" -> pure InvalidARNException
         "invalidnexttokenexception" -> pure InvalidNextTokenException
+        "limitexceededexception" -> pure LimitExceededException
+        "notindexexception" -> pure NotIndexException
         "notnodeexception" -> pure NotNodeException
+        "notpolicyexception" -> pure NotPolicyException
         "resourcenotfoundexception" -> pure ResourceNotFoundException
         "validationexception" -> pure ValidationException
         e -> fromTextError $ "Failure parsing BatchReadExceptionType from value: '" <> e
-           <> "'. Accepted values: accessdeniedexception, invalidarnexception, invalidnexttokenexception, notnodeexception, resourcenotfoundexception, validationexception"
+           <> "'. Accepted values: accessdeniedexception, cannotlistparentofrootexception, directorynotenabledexception, facetvalidationexception, internalserviceexception, invalidarnexception, invalidnexttokenexception, limitexceededexception, notindexexception, notnodeexception, notpolicyexception, resourcenotfoundexception, validationexception"
 
 instance ToText BatchReadExceptionType where
     toText = \case
         AccessDeniedException -> "AccessDeniedException"
+        CannotListParentOfRootException -> "CannotListParentOfRootException"
+        DirectoryNotEnabledException -> "DirectoryNotEnabledException"
+        FacetValidationException -> "FacetValidationException"
+        InternalServiceException -> "InternalServiceException"
         InvalidARNException -> "InvalidArnException"
         InvalidNextTokenException -> "InvalidNextTokenException"
+        LimitExceededException -> "LimitExceededException"
+        NotIndexException -> "NotIndexException"
         NotNodeException -> "NotNodeException"
+        NotPolicyException -> "NotPolicyException"
         ResourceNotFoundException -> "ResourceNotFoundException"
         ValidationException -> "ValidationException"
 

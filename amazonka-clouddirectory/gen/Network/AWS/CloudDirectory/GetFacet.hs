@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets details of the 'Facet' , such as Facet Name, Attributes, 'Rule' s, or ObjectType. You can call this on all kinds of schema facets -- published, development, or applied.
+-- Gets details of the 'Facet' , such as facet name, attributes, 'Rule' s, or @ObjectType@ . You can call this on all kinds of schema facets -- published, development, or applied.
 --
 --
 module Network.AWS.CloudDirectory.GetFacet
@@ -55,7 +55,7 @@ data GetFacet = GetFacet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gfSchemaARN' - ARN associated with the 'Facet' . For more information, see 'arns' .
+-- * 'gfSchemaARN' - The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
 --
 -- * 'gfName' - The name of the facet to retrieve.
 getFacet
@@ -68,7 +68,7 @@ getFacet pSchemaARN_ pName_ =
     , _gfName = pName_
     }
 
--- | ARN associated with the 'Facet' . For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
 gfSchemaARN :: Lens' GetFacet Text
 gfSchemaARN = lens _gfSchemaARN (\ s a -> s{_gfSchemaARN = a});
 
@@ -114,7 +114,7 @@ data GetFacetResponse = GetFacetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gfrsFacet' - 'Facet' structure associated with the facet.
+-- * 'gfrsFacet' - The 'Facet' structure that is associated with the facet.
 --
 -- * 'gfrsResponseStatus' - -- | The response status code.
 getFacetResponse
@@ -126,7 +126,7 @@ getFacetResponse pResponseStatus_ =
     , _gfrsResponseStatus = pResponseStatus_
     }
 
--- | 'Facet' structure associated with the facet.
+-- | The 'Facet' structure that is associated with the facet.
 gfrsFacet :: Lens' GetFacetResponse (Maybe Facet)
 gfrsFacet = lens _gfrsFacet (\ s a -> s{_gfrsFacet = a});
 

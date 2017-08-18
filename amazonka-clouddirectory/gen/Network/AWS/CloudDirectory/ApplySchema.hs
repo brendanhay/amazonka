@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Copies input published schema into 'Directory' with same name and version as that of published schema .
+-- Copies the input published schema into the 'Directory' with the same name and version as that of the published schema .
 --
 --
 module Network.AWS.CloudDirectory.ApplySchema
@@ -56,9 +56,9 @@ data ApplySchema = ApplySchema'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asPublishedSchemaARN' - Published schema ARN that needs to be copied. For more information, see 'arns' .
+-- * 'asPublishedSchemaARN' - Published schema Amazon Resource Name (ARN) that needs to be copied. For more information, see 'arns' .
 --
--- * 'asDirectoryARN' - ARN associated with the 'Directory' into which the schema is copied. For more information, see 'arns' .
+-- * 'asDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' into which the schema is copied. For more information, see 'arns' .
 applySchema
     :: Text -- ^ 'asPublishedSchemaARN'
     -> Text -- ^ 'asDirectoryARN'
@@ -69,11 +69,11 @@ applySchema pPublishedSchemaARN_ pDirectoryARN_ =
     , _asDirectoryARN = pDirectoryARN_
     }
 
--- | Published schema ARN that needs to be copied. For more information, see 'arns' .
+-- | Published schema Amazon Resource Name (ARN) that needs to be copied. For more information, see 'arns' .
 asPublishedSchemaARN :: Lens' ApplySchema Text
 asPublishedSchemaARN = lens _asPublishedSchemaARN (\ s a -> s{_asPublishedSchemaARN = a});
 
--- | ARN associated with the 'Directory' into which the schema is copied. For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) that is associated with the 'Directory' into which the schema is copied. For more information, see 'arns' .
 asDirectoryARN :: Lens' ApplySchema Text
 asDirectoryARN = lens _asDirectoryARN (\ s a -> s{_asDirectoryARN = a});
 
@@ -121,9 +121,9 @@ data ApplySchemaResponse = ApplySchemaResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asrsDirectoryARN' - ARN associated with the 'Directory' . For more information, see 'arns' .
+-- * 'asrsDirectoryARN' - The ARN that is associated with the 'Directory' . For more information, see 'arns' .
 --
--- * 'asrsAppliedSchemaARN' - Applied schema ARN associated with the copied schema in the 'Directory' . You can use this ARN to describe the schema information applied on this directory. For more information, see 'arns' .
+-- * 'asrsAppliedSchemaARN' - The applied schema ARN that is associated with the copied schema in the 'Directory' . You can use this ARN to describe the schema information applied on this directory. For more information, see 'arns' .
 --
 -- * 'asrsResponseStatus' - -- | The response status code.
 applySchemaResponse
@@ -136,11 +136,11 @@ applySchemaResponse pResponseStatus_ =
     , _asrsResponseStatus = pResponseStatus_
     }
 
--- | ARN associated with the 'Directory' . For more information, see 'arns' .
+-- | The ARN that is associated with the 'Directory' . For more information, see 'arns' .
 asrsDirectoryARN :: Lens' ApplySchemaResponse (Maybe Text)
 asrsDirectoryARN = lens _asrsDirectoryARN (\ s a -> s{_asrsDirectoryARN = a});
 
--- | Applied schema ARN associated with the copied schema in the 'Directory' . You can use this ARN to describe the schema information applied on this directory. For more information, see 'arns' .
+-- | The applied schema ARN that is associated with the copied schema in the 'Directory' . You can use this ARN to describe the schema information applied on this directory. For more information, see 'arns' .
 asrsAppliedSchemaARN :: Lens' ApplySchemaResponse (Maybe Text)
 asrsAppliedSchemaARN = lens _asrsAppliedSchemaARN (\ s a -> s{_asrsAppliedSchemaARN = a});
 

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- API for adding tags to a resource.
+-- An API operation for adding tags to a resource.
 --
 --
 module Network.AWS.CloudDirectory.TagResource
@@ -54,9 +54,9 @@ data TagResource = TagResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trResourceARN' - ARN of the resource. Tagging is only supported for directories.
+-- * 'trResourceARN' - The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.
 --
--- * 'trTags' - List of tag key value pairs.
+-- * 'trTags' - A list of tag key-value pairs.
 tagResource
     :: Text -- ^ 'trResourceARN'
     -> TagResource
@@ -66,11 +66,11 @@ tagResource pResourceARN_ =
     , _trTags = mempty
     }
 
--- | ARN of the resource. Tagging is only supported for directories.
+-- | The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.
 trResourceARN :: Lens' TagResource Text
 trResourceARN = lens _trResourceARN (\ s a -> s{_trResourceARN = a});
 
--- | List of tag key value pairs.
+-- | A list of tag key-value pairs.
 trTags :: Lens' TagResource [Tag]
 trTags = lens _trTags (\ s a -> s{_trTags = a}) . _Coerce;
 

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the ARNs of schemas in the development state.
+-- Retrieves each Amazon Resource Name (ARN) of schemas in the development state.
 --
 --
 module Network.AWS.CloudDirectory.ListDevelopmentSchemaARNs

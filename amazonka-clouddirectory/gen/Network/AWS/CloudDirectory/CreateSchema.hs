@@ -61,7 +61,7 @@ newtype CreateSchema = CreateSchema'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csName' - Name associated with the schema. This is unique to each account and in each region.
+-- * 'csName' - The name that is associated with the schema. This is unique to each account and in each region.
 createSchema
     :: Text -- ^ 'csName'
     -> CreateSchema
@@ -70,7 +70,7 @@ createSchema pName_ =
     { _csName = pName_
     }
 
--- | Name associated with the schema. This is unique to each account and in each region.
+-- | The name that is associated with the schema. This is unique to each account and in each region.
 csName :: Lens' CreateSchema Text
 csName = lens _csName (\ s a -> s{_csName = a});
 
@@ -112,7 +112,7 @@ data CreateSchemaResponse = CreateSchemaResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csrsSchemaARN' - ARN associated with the schema. For more information, see 'arns' .
+-- * 'csrsSchemaARN' - The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
 --
 -- * 'csrsResponseStatus' - -- | The response status code.
 createSchemaResponse
@@ -124,7 +124,7 @@ createSchemaResponse pResponseStatus_ =
     , _csrsResponseStatus = pResponseStatus_
     }
 
--- | ARN associated with the schema. For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
 csrsSchemaARN :: Lens' CreateSchemaResponse (Maybe Text)
 csrsSchemaARN = lens _csrsSchemaARN (\ s a -> s{_csrsSchemaARN = a});
 

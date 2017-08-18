@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a paginated list of child objects associated with a given object.
+-- Returns a paginated list of child objects that are associated with a given object.
 --
 --
 module Network.AWS.CloudDirectory.ListObjectChildren
@@ -66,11 +66,11 @@ data ListObjectChildren = ListObjectChildren'
 --
 -- * 'locNextToken' - The pagination token.
 --
--- * 'locMaxResults' - Maximum number of items to be retrieved in a single call. This is an approximate number.
+-- * 'locMaxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
 --
--- * 'locDirectoryARN' - ARN associated with the 'Directory' where the object resides. For more information, see 'arns' .
+-- * 'locDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
 --
--- * 'locObjectReference' - Reference that identifies the object for which child objects are being listed.
+-- * 'locObjectReference' - The reference that identifies the object for which child objects are being listed.
 listObjectChildren
     :: Text -- ^ 'locDirectoryARN'
     -> ObjectReference -- ^ 'locObjectReference'
@@ -92,15 +92,15 @@ locConsistencyLevel = lens _locConsistencyLevel (\ s a -> s{_locConsistencyLevel
 locNextToken :: Lens' ListObjectChildren (Maybe Text)
 locNextToken = lens _locNextToken (\ s a -> s{_locNextToken = a});
 
--- | Maximum number of items to be retrieved in a single call. This is an approximate number.
+-- | The maximum number of items to be retrieved in a single call. This is an approximate number.
 locMaxResults :: Lens' ListObjectChildren (Maybe Natural)
 locMaxResults = lens _locMaxResults (\ s a -> s{_locMaxResults = a}) . mapping _Nat;
 
--- | ARN associated with the 'Directory' where the object resides. For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
 locDirectoryARN :: Lens' ListObjectChildren Text
 locDirectoryARN = lens _locDirectoryARN (\ s a -> s{_locDirectoryARN = a});
 
--- | Reference that identifies the object for which child objects are being listed.
+-- | The reference that identifies the object for which child objects are being listed.
 locObjectReference :: Lens' ListObjectChildren ObjectReference
 locObjectReference = lens _locObjectReference (\ s a -> s{_locObjectReference = a});
 
@@ -152,7 +152,7 @@ data ListObjectChildrenResponse = ListObjectChildrenResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'locrsChildren' - Children structure, which is a map with key as the LinkName and @ObjectIdentifier@ as the value.
+-- * 'locrsChildren' - Children structure, which is a map with key as the @LinkName@ and @ObjectIdentifier@ as the value.
 --
 -- * 'locrsNextToken' - The pagination token.
 --
@@ -167,7 +167,7 @@ listObjectChildrenResponse pResponseStatus_ =
     , _locrsResponseStatus = pResponseStatus_
     }
 
--- | Children structure, which is a map with key as the LinkName and @ObjectIdentifier@ as the value.
+-- | Children structure, which is a map with key as the @LinkName@ and @ObjectIdentifier@ as the value.
 locrsChildren :: Lens' ListObjectChildrenResponse (HashMap Text Text)
 locrsChildren = lens _locrsChildren (\ s a -> s{_locrsChildren = a}) . _Default . _Map;
 

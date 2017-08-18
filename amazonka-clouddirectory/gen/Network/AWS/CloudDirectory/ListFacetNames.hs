@@ -60,9 +60,9 @@ data ListFacetNames = ListFacetNames'
 --
 -- * 'lfnNextToken' - The pagination token.
 --
--- * 'lfnMaxResults' - The maximum number of results to retrieve
+-- * 'lfnMaxResults' - The maximum number of results to retrieve.
 --
--- * 'lfnSchemaARN' - The ARN to retrieve facet names from.
+-- * 'lfnSchemaARN' - The Amazon Resource Name (ARN) to retrieve facet names from.
 listFacetNames
     :: Text -- ^ 'lfnSchemaARN'
     -> ListFacetNames
@@ -77,11 +77,11 @@ listFacetNames pSchemaARN_ =
 lfnNextToken :: Lens' ListFacetNames (Maybe Text)
 lfnNextToken = lens _lfnNextToken (\ s a -> s{_lfnNextToken = a});
 
--- | The maximum number of results to retrieve
+-- | The maximum number of results to retrieve.
 lfnMaxResults :: Lens' ListFacetNames (Maybe Natural)
 lfnMaxResults = lens _lfnMaxResults (\ s a -> s{_lfnMaxResults = a}) . mapping _Nat;
 
--- | The ARN to retrieve facet names from.
+-- | The Amazon Resource Name (ARN) to retrieve facet names from.
 lfnSchemaARN :: Lens' ListFacetNames Text
 lfnSchemaARN = lens _lfnSchemaARN (\ s a -> s{_lfnSchemaARN = a});
 

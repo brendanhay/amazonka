@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all attributes associated with an object.
+-- Lists all attributes that are associated with an object.
 --
 --
 module Network.AWS.CloudDirectory.ListObjectAttributes
@@ -27,6 +27,7 @@ module Network.AWS.CloudDirectory.ListObjectAttributes
       listObjectAttributes
     , ListObjectAttributes
     -- * Request Lenses
+    , loaFacetFilter
     , loaConsistencyLevel
     , loaNextToken
     , loaMaxResults
@@ -51,7 +52,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'listObjectAttributes' smart constructor.
 data ListObjectAttributes = ListObjectAttributes'
-    { _loaConsistencyLevel :: !(Maybe ConsistencyLevel)
+    { _loaFacetFilter      :: !(Maybe SchemaFacet)
+    , _loaConsistencyLevel :: !(Maybe ConsistencyLevel)
     , _loaNextToken        :: !(Maybe Text)
     , _loaMaxResults       :: !(Maybe Nat)
     , _loaDirectoryARN     :: !Text
@@ -62,27 +64,34 @@ data ListObjectAttributes = ListObjectAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'loaFacetFilter' - Used to filter the list of object attributes that are associated with a certain facet.
+--
 -- * 'loaConsistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 --
 -- * 'loaNextToken' - The pagination token.
 --
--- * 'loaMaxResults' - Maximum number of items to be retrieved in a single call. This is an approximate number.
+-- * 'loaMaxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
 --
--- * 'loaDirectoryARN' - ARN associated with the 'Directory' where the object resides. For more information, see 'arns' .
+-- * 'loaDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
 --
--- * 'loaObjectReference' - Reference that identifies the object whose attributes will be listed.
+-- * 'loaObjectReference' - The reference that identifies the object whose attributes will be listed.
 listObjectAttributes
     :: Text -- ^ 'loaDirectoryARN'
     -> ObjectReference -- ^ 'loaObjectReference'
     -> ListObjectAttributes
 listObjectAttributes pDirectoryARN_ pObjectReference_ =
     ListObjectAttributes'
-    { _loaConsistencyLevel = Nothing
+    { _loaFacetFilter = Nothing
+    , _loaConsistencyLevel = Nothing
     , _loaNextToken = Nothing
     , _loaMaxResults = Nothing
     , _loaDirectoryARN = pDirectoryARN_
     , _loaObjectReference = pObjectReference_
     }
+
+-- | Used to filter the list of object attributes that are associated with a certain facet.
+loaFacetFilter :: Lens' ListObjectAttributes (Maybe SchemaFacet)
+loaFacetFilter = lens _loaFacetFilter (\ s a -> s{_loaFacetFilter = a});
 
 -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 loaConsistencyLevel :: Lens' ListObjectAttributes (Maybe ConsistencyLevel)
@@ -92,15 +101,15 @@ loaConsistencyLevel = lens _loaConsistencyLevel (\ s a -> s{_loaConsistencyLevel
 loaNextToken :: Lens' ListObjectAttributes (Maybe Text)
 loaNextToken = lens _loaNextToken (\ s a -> s{_loaNextToken = a});
 
--- | Maximum number of items to be retrieved in a single call. This is an approximate number.
+-- | The maximum number of items to be retrieved in a single call. This is an approximate number.
 loaMaxResults :: Lens' ListObjectAttributes (Maybe Natural)
 loaMaxResults = lens _loaMaxResults (\ s a -> s{_loaMaxResults = a}) . mapping _Nat;
 
--- | ARN associated with the 'Directory' where the object resides. For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
 loaDirectoryARN :: Lens' ListObjectAttributes Text
 loaDirectoryARN = lens _loaDirectoryARN (\ s a -> s{_loaDirectoryARN = a});
 
--- | Reference that identifies the object whose attributes will be listed.
+-- | The reference that identifies the object whose attributes will be listed.
 loaObjectReference :: Lens' ListObjectAttributes ObjectReference
 loaObjectReference = lens _loaObjectReference (\ s a -> s{_loaObjectReference = a});
 
@@ -130,7 +139,8 @@ instance ToJSON ListObjectAttributes where
         toJSON ListObjectAttributes'{..}
           = object
               (catMaybes
-                 [("NextToken" .=) <$> _loaNextToken,
+                 [("FacetFilter" .=) <$> _loaFacetFilter,
+                  ("NextToken" .=) <$> _loaNextToken,
                   ("MaxResults" .=) <$> _loaMaxResults,
                   Just ("ObjectReference" .= _loaObjectReference)])
 
@@ -155,7 +165,7 @@ data ListObjectAttributesResponse = ListObjectAttributesResponse'
 --
 -- * 'loarsNextToken' - The pagination token.
 --
--- * 'loarsAttributes' - Attributes map associated with the object. AttributeArn is the key, and attribute value is the value.
+-- * 'loarsAttributes' - Attributes map that is associated with the object. @AttributeArn@ is the key, and attribute value is the value.
 --
 -- * 'loarsResponseStatus' - -- | The response status code.
 listObjectAttributesResponse
@@ -172,7 +182,7 @@ listObjectAttributesResponse pResponseStatus_ =
 loarsNextToken :: Lens' ListObjectAttributesResponse (Maybe Text)
 loarsNextToken = lens _loarsNextToken (\ s a -> s{_loarsNextToken = a});
 
--- | Attributes map associated with the object. AttributeArn is the key, and attribute value is the value.
+-- | Attributes map that is associated with the object. @AttributeArn@ is the key, and attribute value is the value.
 loarsAttributes :: Lens' ListObjectAttributesResponse [AttributeKeyAndValue]
 loarsAttributes = lens _loarsAttributes (\ s a -> s{_loarsAttributes = a}) . _Default . _Coerce;
 

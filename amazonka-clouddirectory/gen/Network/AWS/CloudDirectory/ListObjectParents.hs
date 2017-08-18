@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists parent objects associated with a given object in pagination fashion.
+-- Lists parent objects that are associated with a given object in pagination fashion.
 --
 --
 module Network.AWS.CloudDirectory.ListObjectParents
@@ -66,11 +66,11 @@ data ListObjectParents = ListObjectParents'
 --
 -- * 'lopNextToken' - The pagination token.
 --
--- * 'lopMaxResults' - Maximum number of items to be retrieved in a single call. This is an approximate number.
+-- * 'lopMaxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
 --
--- * 'lopDirectoryARN' - ARN associated with the 'Directory' where the object resides. For more information, see 'arns' .
+-- * 'lopDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
 --
--- * 'lopObjectReference' - Reference that identifies the object for which parent objects are being listed.
+-- * 'lopObjectReference' - The reference that identifies the object for which parent objects are being listed.
 listObjectParents
     :: Text -- ^ 'lopDirectoryARN'
     -> ObjectReference -- ^ 'lopObjectReference'
@@ -92,15 +92,15 @@ lopConsistencyLevel = lens _lopConsistencyLevel (\ s a -> s{_lopConsistencyLevel
 lopNextToken :: Lens' ListObjectParents (Maybe Text)
 lopNextToken = lens _lopNextToken (\ s a -> s{_lopNextToken = a});
 
--- | Maximum number of items to be retrieved in a single call. This is an approximate number.
+-- | The maximum number of items to be retrieved in a single call. This is an approximate number.
 lopMaxResults :: Lens' ListObjectParents (Maybe Natural)
 lopMaxResults = lens _lopMaxResults (\ s a -> s{_lopMaxResults = a}) . mapping _Nat;
 
--- | ARN associated with the 'Directory' where the object resides. For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
 lopDirectoryARN :: Lens' ListObjectParents Text
 lopDirectoryARN = lens _lopDirectoryARN (\ s a -> s{_lopDirectoryARN = a});
 
--- | Reference that identifies the object for which parent objects are being listed.
+-- | The reference that identifies the object for which parent objects are being listed.
 lopObjectReference :: Lens' ListObjectParents ObjectReference
 lopObjectReference = lens _lopObjectReference (\ s a -> s{_lopObjectReference = a});
 
@@ -153,7 +153,7 @@ data ListObjectParentsResponse = ListObjectParentsResponse'
 --
 -- * 'lrsNextToken' - The pagination token.
 --
--- * 'lrsParents' - Parent structure, which is a map with key as the @ObjectIdentifier@ and LinkName as the value.
+-- * 'lrsParents' - The parent structure, which is a map with key as the @ObjectIdentifier@ and LinkName as the value.
 --
 -- * 'lrsResponseStatus' - -- | The response status code.
 listObjectParentsResponse
@@ -170,7 +170,7 @@ listObjectParentsResponse pResponseStatus_ =
 lrsNextToken :: Lens' ListObjectParentsResponse (Maybe Text)
 lrsNextToken = lens _lrsNextToken (\ s a -> s{_lrsNextToken = a});
 
--- | Parent structure, which is a map with key as the @ObjectIdentifier@ and LinkName as the value.
+-- | The parent structure, which is a map with key as the @ObjectIdentifier@ and LinkName as the value.
 lrsParents :: Lens' ListObjectParentsResponse (HashMap Text Text)
 lrsParents = lens _lrsParents (\ s a -> s{_lrsParents = a}) . _Default . _Map;
 

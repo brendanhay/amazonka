@@ -66,11 +66,11 @@ data ListPolicyAttachments = ListPolicyAttachments'
 --
 -- * 'lpaNextToken' - The pagination token.
 --
--- * 'lpaMaxResults' - Maximum number of items to be retrieved in a single call. This is an approximate number.
+-- * 'lpaMaxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
 --
--- * 'lpaDirectoryARN' - ARN associated with the 'Directory' where objects reside. For more information, see 'arns' .
+-- * 'lpaDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where objects reside. For more information, see 'arns' .
 --
--- * 'lpaPolicyReference' - Reference that identifies the policy object.
+-- * 'lpaPolicyReference' - The reference that identifies the policy object.
 listPolicyAttachments
     :: Text -- ^ 'lpaDirectoryARN'
     -> ObjectReference -- ^ 'lpaPolicyReference'
@@ -92,15 +92,15 @@ lpaConsistencyLevel = lens _lpaConsistencyLevel (\ s a -> s{_lpaConsistencyLevel
 lpaNextToken :: Lens' ListPolicyAttachments (Maybe Text)
 lpaNextToken = lens _lpaNextToken (\ s a -> s{_lpaNextToken = a});
 
--- | Maximum number of items to be retrieved in a single call. This is an approximate number.
+-- | The maximum number of items to be retrieved in a single call. This is an approximate number.
 lpaMaxResults :: Lens' ListPolicyAttachments (Maybe Natural)
 lpaMaxResults = lens _lpaMaxResults (\ s a -> s{_lpaMaxResults = a}) . mapping _Nat;
 
--- | ARN associated with the 'Directory' where objects reside. For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where objects reside. For more information, see 'arns' .
 lpaDirectoryARN :: Lens' ListPolicyAttachments Text
 lpaDirectoryARN = lens _lpaDirectoryARN (\ s a -> s{_lpaDirectoryARN = a});
 
--- | Reference that identifies the policy object.
+-- | The reference that identifies the policy object.
 lpaPolicyReference :: Lens' ListPolicyAttachments ObjectReference
 lpaPolicyReference = lens _lpaPolicyReference (\ s a -> s{_lpaPolicyReference = a});
 
@@ -153,7 +153,7 @@ data ListPolicyAttachmentsResponse = ListPolicyAttachmentsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lparsObjectIdentifiers' - List of @ObjectIdentifiers@ to which the policy is attached.
+-- * 'lparsObjectIdentifiers' - A list of @ObjectIdentifiers@ to which the policy is attached.
 --
 -- * 'lparsNextToken' - The pagination token.
 --
@@ -168,7 +168,7 @@ listPolicyAttachmentsResponse pResponseStatus_ =
     , _lparsResponseStatus = pResponseStatus_
     }
 
--- | List of @ObjectIdentifiers@ to which the policy is attached.
+-- | A list of @ObjectIdentifiers@ to which the policy is attached.
 lparsObjectIdentifiers :: Lens' ListPolicyAttachmentsResponse [Text]
 lparsObjectIdentifiers = lens _lparsObjectIdentifiers (\ s a -> s{_lparsObjectIdentifiers = a}) . _Default . _Coerce;
 

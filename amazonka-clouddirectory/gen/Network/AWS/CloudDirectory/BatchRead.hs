@@ -59,9 +59,9 @@ data BatchRead = BatchRead'
 --
 -- * 'brConsistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 --
--- * 'brDirectoryARN' - ARN associated with the 'Directory' . For more information, see 'arns' .
+-- * 'brDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
 --
--- * 'brOperations' - List of operations that are part of the batch.
+-- * 'brOperations' - A list of operations that are part of the batch.
 batchRead
     :: Text -- ^ 'brDirectoryARN'
     -> BatchRead
@@ -76,11 +76,11 @@ batchRead pDirectoryARN_ =
 brConsistencyLevel :: Lens' BatchRead (Maybe ConsistencyLevel)
 brConsistencyLevel = lens _brConsistencyLevel (\ s a -> s{_brConsistencyLevel = a});
 
--- | ARN associated with the 'Directory' . For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
 brDirectoryARN :: Lens' BatchRead Text
 brDirectoryARN = lens _brDirectoryARN (\ s a -> s{_brDirectoryARN = a});
 
--- | List of operations that are part of the batch.
+-- | A list of operations that are part of the batch.
 brOperations :: Lens' BatchRead [BatchReadOperation]
 brOperations = lens _brOperations (\ s a -> s{_brOperations = a}) . _Coerce;
 
@@ -126,7 +126,7 @@ data BatchReadResponse = BatchReadResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'brrsResponses' - List of all the responses for each batch read.
+-- * 'brrsResponses' - A list of all the responses for each batch read.
 --
 -- * 'brrsResponseStatus' - -- | The response status code.
 batchReadResponse
@@ -138,7 +138,7 @@ batchReadResponse pResponseStatus_ =
     , _brrsResponseStatus = pResponseStatus_
     }
 
--- | List of all the responses for each batch read.
+-- | A list of all the responses for each batch read.
 brrsResponses :: Lens' BatchReadResponse [BatchReadOperationResponse]
 brrsResponses = lens _brrsResponses (\ s a -> s{_brrsResponses = a}) . _Default . _Coerce;
 

@@ -66,9 +66,9 @@ data ListObjectPolicies = ListObjectPolicies'
 --
 -- * 'lNextToken' - The pagination token.
 --
--- * 'lMaxResults' - Maximum number of items to be retrieved in a single call. This is an approximate number.
+-- * 'lMaxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
 --
--- * 'lDirectoryARN' - ARN associated with the 'Directory' where objects reside. For more information, see 'arns' .
+-- * 'lDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where objects reside. For more information, see 'arns' .
 --
 -- * 'lObjectReference' - Reference that identifies the object for which policies will be listed.
 listObjectPolicies
@@ -92,11 +92,11 @@ lConsistencyLevel = lens _lConsistencyLevel (\ s a -> s{_lConsistencyLevel = a})
 lNextToken :: Lens' ListObjectPolicies (Maybe Text)
 lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a});
 
--- | Maximum number of items to be retrieved in a single call. This is an approximate number.
+-- | The maximum number of items to be retrieved in a single call. This is an approximate number.
 lMaxResults :: Lens' ListObjectPolicies (Maybe Natural)
 lMaxResults = lens _lMaxResults (\ s a -> s{_lMaxResults = a}) . mapping _Nat;
 
--- | ARN associated with the 'Directory' where objects reside. For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where objects reside. For more information, see 'arns' .
 lDirectoryARN :: Lens' ListObjectPolicies Text
 lDirectoryARN = lens _lDirectoryARN (\ s a -> s{_lDirectoryARN = a});
 
@@ -155,7 +155,7 @@ data ListObjectPoliciesResponse = ListObjectPoliciesResponse'
 --
 -- * 'loprsNextToken' - The pagination token.
 --
--- * 'loprsAttachedPolicyIds' - List of policy @ObjectIdentifiers@ , that are attached to the object.
+-- * 'loprsAttachedPolicyIds' - A list of policy @ObjectIdentifiers@ , that are attached to the object.
 --
 -- * 'loprsResponseStatus' - -- | The response status code.
 listObjectPoliciesResponse
@@ -172,7 +172,7 @@ listObjectPoliciesResponse pResponseStatus_ =
 loprsNextToken :: Lens' ListObjectPoliciesResponse (Maybe Text)
 loprsNextToken = lens _loprsNextToken (\ s a -> s{_loprsNextToken = a});
 
--- | List of policy @ObjectIdentifiers@ , that are attached to the object.
+-- | A list of policy @ObjectIdentifiers@ , that are attached to the object.
 loprsAttachedPolicyIds :: Lens' ListObjectPoliciesResponse [Text]
 loprsAttachedPolicyIds = lens _loprsAttachedPolicyIds (\ s a -> s{_loprsAttachedPolicyIds = a}) . _Default . _Coerce;
 

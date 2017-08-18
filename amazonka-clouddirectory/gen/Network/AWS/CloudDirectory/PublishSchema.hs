@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Publishes a development schema with a version. If description and attributes are specified, PublishSchema overrides the development schema description and attributes. If not, the development schema description and attributes are used.
+-- Publishes a development schema with a version. If description and attributes are specified, @PublishSchema@ overrides the development schema description and attributes. If not, the development schema description and attributes are used.
 --
 --
 module Network.AWS.CloudDirectory.PublishSchema
@@ -57,11 +57,11 @@ data PublishSchema = PublishSchema'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'psName' - New name under which the schema will be published. If this is not provided, the development schema is considered.
+-- * 'psName' - The new name under which the schema will be published. If this is not provided, the development schema is considered.
 --
--- * 'psDevelopmentSchemaARN' - ARN associated with the development schema. For more information, see 'arns' .
+-- * 'psDevelopmentSchemaARN' - The Amazon Resource Name (ARN) that is associated with the development schema. For more information, see 'arns' .
 --
--- * 'psVersion' - Version under which the schema will be published.
+-- * 'psVersion' - The version under which the schema will be published.
 publishSchema
     :: Text -- ^ 'psDevelopmentSchemaARN'
     -> Text -- ^ 'psVersion'
@@ -73,15 +73,15 @@ publishSchema pDevelopmentSchemaARN_ pVersion_ =
     , _psVersion = pVersion_
     }
 
--- | New name under which the schema will be published. If this is not provided, the development schema is considered.
+-- | The new name under which the schema will be published. If this is not provided, the development schema is considered.
 psName :: Lens' PublishSchema (Maybe Text)
 psName = lens _psName (\ s a -> s{_psName = a});
 
--- | ARN associated with the development schema. For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) that is associated with the development schema. For more information, see 'arns' .
 psDevelopmentSchemaARN :: Lens' PublishSchema Text
 psDevelopmentSchemaARN = lens _psDevelopmentSchemaARN (\ s a -> s{_psDevelopmentSchemaARN = a});
 
--- | Version under which the schema will be published.
+-- | The version under which the schema will be published.
 psVersion :: Lens' PublishSchema Text
 psVersion = lens _psVersion (\ s a -> s{_psVersion = a});
 
@@ -128,7 +128,7 @@ data PublishSchemaResponse = PublishSchemaResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'psrsPublishedSchemaARN' - ARN associated with the published schema. For more information, see 'arns' .
+-- * 'psrsPublishedSchemaARN' - The ARN that is associated with the published schema. For more information, see 'arns' .
 --
 -- * 'psrsResponseStatus' - -- | The response status code.
 publishSchemaResponse
@@ -140,7 +140,7 @@ publishSchemaResponse pResponseStatus_ =
     , _psrsResponseStatus = pResponseStatus_
     }
 
--- | ARN associated with the published schema. For more information, see 'arns' .
+-- | The ARN that is associated with the published schema. For more information, see 'arns' .
 psrsPublishedSchemaARN :: Lens' PublishSchemaResponse (Maybe Text)
 psrsPublishedSchemaARN = lens _psrsPublishedSchemaARN (\ s a -> s{_psrsPublishedSchemaARN = a});
 

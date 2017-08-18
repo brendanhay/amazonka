@@ -13,7 +13,7 @@
 --
 -- __Amazon Cloud Directory__
 --
--- Amazon Cloud Directory is a component of the AWS Directory Service that simplifies the development and management of cloud-scale web, mobile and IoT applications. This guide describes the Cloud Directory operations that you can call programatically and includes detailed information on data types and errors. For information about AWS Directory Services features, see <https://aws.amazon.com/directoryservice/ AWS Directory Service> and the <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html AWS Directory Service Administration Guide> .
+-- Amazon Cloud Directory is a component of the AWS Directory Service that simplifies the development and management of cloud-scale web, mobile, and IoT applications. This guide describes the Cloud Directory operations that you can call programmatically and includes detailed information on data types and errors. For information about AWS Directory Services features, see <https://aws.amazon.com/directoryservice/ AWS Directory Service> and the <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html AWS Directory Service Administration Guide> .
 --
 module Network.AWS.CloudDirectory
     (
@@ -131,6 +131,9 @@ module Network.AWS.CloudDirectory
     -- * Operations
     -- $operations
 
+    -- ** ListTypedLinkFacetAttributes
+    , module Network.AWS.CloudDirectory.ListTypedLinkFacetAttributes
+
     -- ** DeleteObject
     , module Network.AWS.CloudDirectory.DeleteObject
 
@@ -161,6 +164,9 @@ module Network.AWS.CloudDirectory
     -- ** ListDirectories
     , module Network.AWS.CloudDirectory.ListDirectories
 
+    -- ** CreateTypedLinkFacet
+    , module Network.AWS.CloudDirectory.CreateTypedLinkFacet
+
     -- ** ListObjectParentPaths
     , module Network.AWS.CloudDirectory.ListObjectParentPaths
 
@@ -172,6 +178,12 @@ module Network.AWS.CloudDirectory
 
     -- ** ListFacetAttributes
     , module Network.AWS.CloudDirectory.ListFacetAttributes
+
+    -- ** UpdateTypedLinkFacet
+    , module Network.AWS.CloudDirectory.UpdateTypedLinkFacet
+
+    -- ** DeleteTypedLinkFacet
+    , module Network.AWS.CloudDirectory.DeleteTypedLinkFacet
 
     -- ** RemoveFacetFromObject
     , module Network.AWS.CloudDirectory.RemoveFacetFromObject
@@ -185,8 +197,14 @@ module Network.AWS.CloudDirectory
     -- ** ListAppliedSchemaARNs
     , module Network.AWS.CloudDirectory.ListAppliedSchemaARNs
 
+    -- ** ListIncomingTypedLinks
+    , module Network.AWS.CloudDirectory.ListIncomingTypedLinks
+
     -- ** GetFacet
     , module Network.AWS.CloudDirectory.GetFacet
+
+    -- ** GetTypedLinkFacetInformation
+    , module Network.AWS.CloudDirectory.GetTypedLinkFacetInformation
 
     -- ** ListDevelopmentSchemaARNs
     , module Network.AWS.CloudDirectory.ListDevelopmentSchemaARNs
@@ -211,6 +229,12 @@ module Network.AWS.CloudDirectory
 
     -- ** ListObjectChildren
     , module Network.AWS.CloudDirectory.ListObjectChildren
+
+    -- ** ListTypedLinkFacetNames
+    , module Network.AWS.CloudDirectory.ListTypedLinkFacetNames
+
+    -- ** AttachTypedLink
+    , module Network.AWS.CloudDirectory.AttachTypedLink
 
     -- ** DetachPolicy
     , module Network.AWS.CloudDirectory.DetachPolicy
@@ -254,11 +278,17 @@ module Network.AWS.CloudDirectory
     -- ** DeleteSchema
     , module Network.AWS.CloudDirectory.DeleteSchema
 
+    -- ** DetachTypedLink
+    , module Network.AWS.CloudDirectory.DetachTypedLink
+
     -- ** ListFacetNames
     , module Network.AWS.CloudDirectory.ListFacetNames
 
     -- ** UntagResource
     , module Network.AWS.CloudDirectory.UntagResource
+
+    -- ** ListOutgoingTypedLinks
+    , module Network.AWS.CloudDirectory.ListOutgoingTypedLinks
 
     -- ** UpdateObjectAttributes
     , module Network.AWS.CloudDirectory.UpdateObjectAttributes
@@ -320,6 +350,12 @@ module Network.AWS.CloudDirectory
     , akavKey
     , akavValue
 
+    -- ** AttributeNameAndValue
+    , AttributeNameAndValue
+    , attributeNameAndValue
+    , anavAttributeName
+    , anavValue
+
     -- ** BatchAddFacetToObject
     , BatchAddFacetToObject
     , batchAddFacetToObject
@@ -342,6 +378,54 @@ module Network.AWS.CloudDirectory
     , BatchAttachObjectResponse
     , batchAttachObjectResponse
     , baoAttachedObjectIdentifier
+
+    -- ** BatchAttachPolicy
+    , BatchAttachPolicy
+    , batchAttachPolicy
+    , bapPolicyReference
+    , bapObjectReference
+
+    -- ** BatchAttachPolicyResponse
+    , BatchAttachPolicyResponse
+    , batchAttachPolicyResponse
+
+    -- ** BatchAttachToIndex
+    , BatchAttachToIndex
+    , batchAttachToIndex
+    , batiIndexReference
+    , batiTargetReference
+
+    -- ** BatchAttachToIndexResponse
+    , BatchAttachToIndexResponse
+    , batchAttachToIndexResponse
+    , batiAttachedObjectIdentifier
+
+    -- ** BatchAttachTypedLink
+    , BatchAttachTypedLink
+    , batchAttachTypedLink
+    , batlSourceObjectReference
+    , batlTargetObjectReference
+    , batlTypedLinkFacet
+    , batlAttributes
+
+    -- ** BatchAttachTypedLinkResponse
+    , BatchAttachTypedLinkResponse
+    , batchAttachTypedLinkResponse
+    , batlTypedLinkSpecifier
+
+    -- ** BatchCreateIndex
+    , BatchCreateIndex
+    , batchCreateIndex
+    , bciParentReference
+    , bciLinkName
+    , bciBatchReferenceName
+    , bciOrderedIndexedAttributeList
+    , bciIsUnique
+
+    -- ** BatchCreateIndexResponse
+    , BatchCreateIndexResponse
+    , batchCreateIndexResponse
+    , bciObjectIdentifier
 
     -- ** BatchCreateObject
     , BatchCreateObject
@@ -366,6 +450,17 @@ module Network.AWS.CloudDirectory
     , BatchDeleteObjectResponse
     , batchDeleteObjectResponse
 
+    -- ** BatchDetachFromIndex
+    , BatchDetachFromIndex
+    , batchDetachFromIndex
+    , bdfiIndexReference
+    , bdfiTargetReference
+
+    -- ** BatchDetachFromIndexResponse
+    , BatchDetachFromIndexResponse
+    , batchDetachFromIndexResponse
+    , bdfiDetachedObjectIdentifier
+
     -- ** BatchDetachObject
     , BatchDetachObject
     , batchDetachObject
@@ -378,9 +473,82 @@ module Network.AWS.CloudDirectory
     , batchDetachObjectResponse
     , bdoDetachedObjectIdentifier
 
+    -- ** BatchDetachPolicy
+    , BatchDetachPolicy
+    , batchDetachPolicy
+    , bdpPolicyReference
+    , bdpObjectReference
+
+    -- ** BatchDetachPolicyResponse
+    , BatchDetachPolicyResponse
+    , batchDetachPolicyResponse
+
+    -- ** BatchDetachTypedLink
+    , BatchDetachTypedLink
+    , batchDetachTypedLink
+    , bdtlTypedLinkSpecifier
+
+    -- ** BatchDetachTypedLinkResponse
+    , BatchDetachTypedLinkResponse
+    , batchDetachTypedLinkResponse
+
+    -- ** BatchGetObjectInformation
+    , BatchGetObjectInformation
+    , batchGetObjectInformation
+    , bgoiObjectReference
+
+    -- ** BatchGetObjectInformationResponse
+    , BatchGetObjectInformationResponse
+    , batchGetObjectInformationResponse
+    , bgoiObjectIdentifier
+    , bgoiSchemaFacets
+
+    -- ** BatchListAttachedIndices
+    , BatchListAttachedIndices
+    , batchListAttachedIndices
+    , blaisNextToken
+    , blaisMaxResults
+    , blaisTargetReference
+
+    -- ** BatchListAttachedIndicesResponse
+    , BatchListAttachedIndicesResponse
+    , batchListAttachedIndicesResponse
+    , blaiIndexAttachments
+    , blaiNextToken
+
+    -- ** BatchListIncomingTypedLinks
+    , BatchListIncomingTypedLinks
+    , batchListIncomingTypedLinks
+    , blitlsFilterAttributeRanges
+    , blitlsNextToken
+    , blitlsFilterTypedLink
+    , blitlsMaxResults
+    , blitlsObjectReference
+
+    -- ** BatchListIncomingTypedLinksResponse
+    , BatchListIncomingTypedLinksResponse
+    , batchListIncomingTypedLinksResponse
+    , blitlLinkSpecifiers
+    , blitlNextToken
+
+    -- ** BatchListIndex
+    , BatchListIndex
+    , batchListIndex
+    , batRangesOnIndexedValues
+    , batNextToken
+    , batMaxResults
+    , batIndexReference
+
+    -- ** BatchListIndexResponse
+    , BatchListIndexResponse
+    , batchListIndexResponse
+    , bliIndexAttachments
+    , bliNextToken
+
     -- ** BatchListObjectAttributes
     , BatchListObjectAttributes
     , batchListObjectAttributes
+    , bloaFacetFilter
     , bloaNextToken
     , bloaMaxResults
     , bloaObjectReference
@@ -394,15 +562,82 @@ module Network.AWS.CloudDirectory
     -- ** BatchListObjectChildren
     , BatchListObjectChildren
     , batchListObjectChildren
-    , batNextToken
-    , batMaxResults
-    , batObjectReference
+    , bloclNextToken
+    , bloclMaxResults
+    , bloclObjectReference
 
     -- ** BatchListObjectChildrenResponse
     , BatchListObjectChildrenResponse
     , batchListObjectChildrenResponse
     , blocChildren
     , blocNextToken
+
+    -- ** BatchListObjectParentPaths
+    , BatchListObjectParentPaths
+    , batchListObjectParentPaths
+    , bloppsNextToken
+    , bloppsMaxResults
+    , bloppsObjectReference
+
+    -- ** BatchListObjectParentPathsResponse
+    , BatchListObjectParentPathsResponse
+    , batchListObjectParentPathsResponse
+    , bloppPathToObjectIdentifiersList
+    , bloppNextToken
+
+    -- ** BatchListObjectPolicies
+    , BatchListObjectPolicies
+    , batchListObjectPolicies
+    , blopsNextToken
+    , blopsMaxResults
+    , blopsObjectReference
+
+    -- ** BatchListObjectPoliciesResponse
+    , BatchListObjectPoliciesResponse
+    , batchListObjectPoliciesResponse
+    , blopNextToken
+    , blopAttachedPolicyIds
+
+    -- ** BatchListOutgoingTypedLinks
+    , BatchListOutgoingTypedLinks
+    , batchListOutgoingTypedLinks
+    , blotlsFilterAttributeRanges
+    , blotlsNextToken
+    , blotlsFilterTypedLink
+    , blotlsMaxResults
+    , blotlsObjectReference
+
+    -- ** BatchListOutgoingTypedLinksResponse
+    , BatchListOutgoingTypedLinksResponse
+    , batchListOutgoingTypedLinksResponse
+    , blotlTypedLinkSpecifiers
+    , blotlNextToken
+
+    -- ** BatchListPolicyAttachments
+    , BatchListPolicyAttachments
+    , batchListPolicyAttachments
+    , blpasNextToken
+    , blpasMaxResults
+    , blpasPolicyReference
+
+    -- ** BatchListPolicyAttachmentsResponse
+    , BatchListPolicyAttachmentsResponse
+    , batchListPolicyAttachmentsResponse
+    , blpaObjectIdentifiers
+    , blpaNextToken
+
+    -- ** BatchLookupPolicy
+    , BatchLookupPolicy
+    , batchLookupPolicy
+    , blplNextToken
+    , blplMaxResults
+    , blplObjectReference
+
+    -- ** BatchLookupPolicyResponse
+    , BatchLookupPolicyResponse
+    , batchLookupPolicyResponse
+    , blpNextToken
+    , blpPolicyToPathList
 
     -- ** BatchReadException
     , BatchReadException
@@ -413,8 +648,17 @@ module Network.AWS.CloudDirectory
     -- ** BatchReadOperation
     , BatchReadOperation
     , batchReadOperation
+    , broListIndex
+    , broGetObjectInformation
+    , broListAttachedIndices
+    , broLookupPolicy
+    , broListObjectParentPaths
     , broListObjectAttributes
+    , broListIncomingTypedLinks
     , broListObjectChildren
+    , broListPolicyAttachments
+    , broListOutgoingTypedLinks
+    , broListObjectPolicies
 
     -- ** BatchReadOperationResponse
     , BatchReadOperationResponse
@@ -425,8 +669,17 @@ module Network.AWS.CloudDirectory
     -- ** BatchReadSuccessfulResponse
     , BatchReadSuccessfulResponse
     , batchReadSuccessfulResponse
+    , brsListIndex
+    , brsGetObjectInformation
+    , brsListAttachedIndices
+    , brsLookupPolicy
+    , brsListObjectParentPaths
     , brsListObjectAttributes
+    , brsListIncomingTypedLinks
     , brsListObjectChildren
+    , brsListPolicyAttachments
+    , brsListOutgoingTypedLinks
+    , brsListObjectPolicies
 
     -- ** BatchRemoveFacetFromObject
     , BatchRemoveFacetFromObject
@@ -453,23 +706,37 @@ module Network.AWS.CloudDirectory
     , BatchWriteOperation
     , batchWriteOperation
     , bDeleteObject
+    , bDetachFromIndex
     , bRemoveFacetFromObject
     , bAttachObject
     , bCreateObject
+    , bAttachTypedLink
+    , bDetachPolicy
+    , bCreateIndex
     , bDetachObject
     , bAddFacetToObject
+    , bDetachTypedLink
     , bUpdateObjectAttributes
+    , bAttachPolicy
+    , bAttachToIndex
 
     -- ** BatchWriteOperationResponse
     , BatchWriteOperationResponse
     , batchWriteOperationResponse
     , bwoDeleteObject
+    , bwoDetachFromIndex
     , bwoRemoveFacetFromObject
     , bwoAttachObject
     , bwoCreateObject
+    , bwoAttachTypedLink
+    , bwoDetachPolicy
+    , bwoCreateIndex
     , bwoDetachObject
     , bwoAddFacetToObject
+    , bwoDetachTypedLink
     , bwoUpdateObjectAttributes
+    , bwoAttachPolicy
+    , bwoAttachToIndex
 
     -- ** Directory
     , Directory
@@ -595,6 +862,49 @@ module Network.AWS.CloudDirectory
     , tavrStartValue
     , tavrStartMode
     , tavrEndMode
+
+    -- ** TypedLinkAttributeDefinition
+    , TypedLinkAttributeDefinition
+    , typedLinkAttributeDefinition
+    , tladRules
+    , tladDefaultValue
+    , tladIsImmutable
+    , tladName
+    , tladType
+    , tladRequiredBehavior
+
+    -- ** TypedLinkAttributeRange
+    , TypedLinkAttributeRange
+    , typedLinkAttributeRange
+    , tlarAttributeName
+    , tlarRange
+
+    -- ** TypedLinkFacet
+    , TypedLinkFacet
+    , typedLinkFacet
+    , tlfName
+    , tlfAttributes
+    , tlfIdentityAttributeOrder
+
+    -- ** TypedLinkFacetAttributeUpdate
+    , TypedLinkFacetAttributeUpdate
+    , typedLinkFacetAttributeUpdate
+    , tlfauAttribute
+    , tlfauAction
+
+    -- ** TypedLinkSchemaAndFacetName
+    , TypedLinkSchemaAndFacetName
+    , typedLinkSchemaAndFacetName
+    , tlsafnSchemaARN
+    , tlsafnTypedLinkName
+
+    -- ** TypedLinkSpecifier
+    , TypedLinkSpecifier
+    , typedLinkSpecifier
+    , tlsTypedLinkFacet
+    , tlsSourceObjectReference
+    , tlsTargetObjectReference
+    , tlsIdentityAttributeValues
     ) where
 
 import           Network.AWS.CloudDirectory.AddFacetToObject
@@ -602,6 +912,7 @@ import           Network.AWS.CloudDirectory.ApplySchema
 import           Network.AWS.CloudDirectory.AttachObject
 import           Network.AWS.CloudDirectory.AttachPolicy
 import           Network.AWS.CloudDirectory.AttachToIndex
+import           Network.AWS.CloudDirectory.AttachTypedLink
 import           Network.AWS.CloudDirectory.BatchRead
 import           Network.AWS.CloudDirectory.BatchWrite
 import           Network.AWS.CloudDirectory.CreateDirectory
@@ -609,34 +920,42 @@ import           Network.AWS.CloudDirectory.CreateFacet
 import           Network.AWS.CloudDirectory.CreateIndex
 import           Network.AWS.CloudDirectory.CreateObject
 import           Network.AWS.CloudDirectory.CreateSchema
+import           Network.AWS.CloudDirectory.CreateTypedLinkFacet
 import           Network.AWS.CloudDirectory.DeleteDirectory
 import           Network.AWS.CloudDirectory.DeleteFacet
 import           Network.AWS.CloudDirectory.DeleteObject
 import           Network.AWS.CloudDirectory.DeleteSchema
+import           Network.AWS.CloudDirectory.DeleteTypedLinkFacet
 import           Network.AWS.CloudDirectory.DetachFromIndex
 import           Network.AWS.CloudDirectory.DetachObject
 import           Network.AWS.CloudDirectory.DetachPolicy
+import           Network.AWS.CloudDirectory.DetachTypedLink
 import           Network.AWS.CloudDirectory.DisableDirectory
 import           Network.AWS.CloudDirectory.EnableDirectory
 import           Network.AWS.CloudDirectory.GetDirectory
 import           Network.AWS.CloudDirectory.GetFacet
 import           Network.AWS.CloudDirectory.GetObjectInformation
 import           Network.AWS.CloudDirectory.GetSchemaAsJSON
+import           Network.AWS.CloudDirectory.GetTypedLinkFacetInformation
 import           Network.AWS.CloudDirectory.ListAppliedSchemaARNs
 import           Network.AWS.CloudDirectory.ListAttachedIndices
 import           Network.AWS.CloudDirectory.ListDevelopmentSchemaARNs
 import           Network.AWS.CloudDirectory.ListDirectories
 import           Network.AWS.CloudDirectory.ListFacetAttributes
 import           Network.AWS.CloudDirectory.ListFacetNames
+import           Network.AWS.CloudDirectory.ListIncomingTypedLinks
 import           Network.AWS.CloudDirectory.ListIndex
 import           Network.AWS.CloudDirectory.ListObjectAttributes
 import           Network.AWS.CloudDirectory.ListObjectChildren
 import           Network.AWS.CloudDirectory.ListObjectParentPaths
 import           Network.AWS.CloudDirectory.ListObjectParents
 import           Network.AWS.CloudDirectory.ListObjectPolicies
+import           Network.AWS.CloudDirectory.ListOutgoingTypedLinks
 import           Network.AWS.CloudDirectory.ListPolicyAttachments
 import           Network.AWS.CloudDirectory.ListPublishedSchemaARNs
 import           Network.AWS.CloudDirectory.ListTagsForResource
+import           Network.AWS.CloudDirectory.ListTypedLinkFacetAttributes
+import           Network.AWS.CloudDirectory.ListTypedLinkFacetNames
 import           Network.AWS.CloudDirectory.LookupPolicy
 import           Network.AWS.CloudDirectory.PublishSchema
 import           Network.AWS.CloudDirectory.PutSchemaFromJSON
@@ -647,6 +966,7 @@ import           Network.AWS.CloudDirectory.UntagResource
 import           Network.AWS.CloudDirectory.UpdateFacet
 import           Network.AWS.CloudDirectory.UpdateObjectAttributes
 import           Network.AWS.CloudDirectory.UpdateSchema
+import           Network.AWS.CloudDirectory.UpdateTypedLinkFacet
 import           Network.AWS.CloudDirectory.Waiters
 
 {- $errors

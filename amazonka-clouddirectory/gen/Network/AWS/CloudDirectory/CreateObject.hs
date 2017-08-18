@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an object in a 'Directory' . Additionally attaches the object to a parent, if a parent reference and LinkName is specified. An object is simply a collection of 'Facet' attributes. You can also use this API call to create a policy object, if the facet from which you create the object is a policy facet.
+-- Creates an object in a 'Directory' . Additionally attaches the object to a parent, if a parent reference and @LinkName@ is specified. An object is simply a collection of 'Facet' attributes. You can also use this API call to create a policy object, if the facet from which you create the object is a policy facet.
 --
 --
 module Network.AWS.CloudDirectory.CreateObject
@@ -63,13 +63,13 @@ data CreateObject = CreateObject'
 --
 -- * 'coParentReference' - If specified, the parent reference to which this object will be attached.
 --
--- * 'coObjectAttributeList' - Attribute map whose attribute ARN contains the key and attribute value as the map value.
+-- * 'coObjectAttributeList' - The attribute map whose attribute ARN contains the key and attribute value as the map value.
 --
 -- * 'coLinkName' - The name of link that is used to attach this object to a parent.
 --
--- * 'coDirectoryARN' - ARN associated with the 'Directory' in which the object will be created. For more information, see 'arns' .
+-- * 'coDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' in which the object will be created. For more information, see 'arns' .
 --
--- * 'coSchemaFacets' - List of facet ARNs to be associated with the object. For more information, see 'arns' .
+-- * 'coSchemaFacets' - A list of schema facets to be associated with the object that contains @SchemaArn@ and facet name. For more information, see 'arns' .
 createObject
     :: Text -- ^ 'coDirectoryARN'
     -> CreateObject
@@ -86,7 +86,7 @@ createObject pDirectoryARN_ =
 coParentReference :: Lens' CreateObject (Maybe ObjectReference)
 coParentReference = lens _coParentReference (\ s a -> s{_coParentReference = a});
 
--- | Attribute map whose attribute ARN contains the key and attribute value as the map value.
+-- | The attribute map whose attribute ARN contains the key and attribute value as the map value.
 coObjectAttributeList :: Lens' CreateObject [AttributeKeyAndValue]
 coObjectAttributeList = lens _coObjectAttributeList (\ s a -> s{_coObjectAttributeList = a}) . _Default . _Coerce;
 
@@ -94,11 +94,11 @@ coObjectAttributeList = lens _coObjectAttributeList (\ s a -> s{_coObjectAttribu
 coLinkName :: Lens' CreateObject (Maybe Text)
 coLinkName = lens _coLinkName (\ s a -> s{_coLinkName = a});
 
--- | ARN associated with the 'Directory' in which the object will be created. For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) that is associated with the 'Directory' in which the object will be created. For more information, see 'arns' .
 coDirectoryARN :: Lens' CreateObject Text
 coDirectoryARN = lens _coDirectoryARN (\ s a -> s{_coDirectoryARN = a});
 
--- | List of facet ARNs to be associated with the object. For more information, see 'arns' .
+-- | A list of schema facets to be associated with the object that contains @SchemaArn@ and facet name. For more information, see 'arns' .
 coSchemaFacets :: Lens' CreateObject [SchemaFacet]
 coSchemaFacets = lens _coSchemaFacets (\ s a -> s{_coSchemaFacets = a}) . _Coerce;
 
@@ -146,7 +146,7 @@ data CreateObjectResponse = CreateObjectResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'corsObjectIdentifier' - Identifier associated with the object.
+-- * 'corsObjectIdentifier' - The identifier that is associated with the object.
 --
 -- * 'corsResponseStatus' - -- | The response status code.
 createObjectResponse
@@ -158,7 +158,7 @@ createObjectResponse pResponseStatus_ =
     , _corsResponseStatus = pResponseStatus_
     }
 
--- | Identifier associated with the object.
+-- | The identifier that is associated with the object.
 corsObjectIdentifier :: Lens' CreateObjectResponse (Maybe Text)
 corsObjectIdentifier = lens _corsObjectIdentifier (\ s a -> s{_corsObjectIdentifier = a});
 

@@ -54,9 +54,9 @@ data DeleteObject = DeleteObject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'doDirectoryARN' - ARN associated with the 'Directory' where the object resides. For more information, see 'arns' .
+-- * 'doDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
 --
--- * 'doObjectReference' - Reference that identifies the object.
+-- * 'doObjectReference' - A reference that identifies the object.
 deleteObject
     :: Text -- ^ 'doDirectoryARN'
     -> ObjectReference -- ^ 'doObjectReference'
@@ -67,11 +67,11 @@ deleteObject pDirectoryARN_ pObjectReference_ =
     , _doObjectReference = pObjectReference_
     }
 
--- | ARN associated with the 'Directory' where the object resides. For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
 doDirectoryARN :: Lens' DeleteObject Text
 doDirectoryARN = lens _doDirectoryARN (\ s a -> s{_doDirectoryARN = a});
 
--- | Reference that identifies the object.
+-- | A reference that identifies the object.
 doObjectReference :: Lens' DeleteObject ObjectReference
 doObjectReference = lens _doObjectReference (\ s a -> s{_doObjectReference = a});
 

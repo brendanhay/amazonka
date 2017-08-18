@@ -203,7 +203,7 @@ instance NFData MigrationTask
 --
 -- /See:/ 'migrationTaskSummary' smart constructor.
 data MigrationTaskSummary = MigrationTaskSummary'
-    { _mtsStatus               :: !(Maybe Status)
+    { _mtsStatus               :: !(Maybe MigrationStatus)
     , _mtsUpdateDateTime       :: !(Maybe POSIX)
     , _mtsProgressPercent      :: !(Maybe Nat)
     , _mtsStatusDetail         :: !(Maybe Text)
@@ -239,7 +239,7 @@ migrationTaskSummary =
     }
 
 -- | Status of the task.
-mtsStatus :: Lens' MigrationTaskSummary (Maybe Status)
+mtsStatus :: Lens' MigrationTaskSummary (Maybe MigrationStatus)
 mtsStatus = lens _mtsStatus (\ s a -> s{_mtsStatus = a});
 
 -- | The timestamp when the task was gathered.
@@ -374,7 +374,7 @@ instance ToJSON ResourceAttribute where
 data Task = Task'
     { _tProgressPercent :: !(Maybe Nat)
     , _tStatusDetail    :: !(Maybe Text)
-    , _tStatus          :: !Status
+    , _tStatus          :: !MigrationStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Task' with the minimum fields required to make a request.
@@ -387,7 +387,7 @@ data Task = Task'
 --
 -- * 'tStatus' - Status of the task - Not Started, In-Progress, Complete.
 task
-    :: Status -- ^ 'tStatus'
+    :: MigrationStatus -- ^ 'tStatus'
     -> Task
 task pStatus_ =
     Task'
@@ -405,7 +405,7 @@ tStatusDetail :: Lens' Task (Maybe Text)
 tStatusDetail = lens _tStatusDetail (\ s a -> s{_tStatusDetail = a});
 
 -- | Status of the task - Not Started, In-Progress, Complete.
-tStatus :: Lens' Task Status
+tStatus :: Lens' Task MigrationStatus
 tStatus = lens _tStatus (\ s a -> s{_tStatus = a});
 
 instance FromJSON Task where

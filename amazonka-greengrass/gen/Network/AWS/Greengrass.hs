@@ -318,6 +318,15 @@ module Network.AWS.Greengrass
     , functionDefinitionVersion
     , fdvFunctions
 
+    -- ** GreengrassLogger
+    , GreengrassLogger
+    , greengrassLogger
+    , glSpace
+    , glComponent
+    , glId
+    , glType
+    , glLevel
+
     -- ** GroupCertificateAuthorityProperties
     , GroupCertificateAuthorityProperties
     , groupCertificateAuthorityProperties
@@ -343,15 +352,6 @@ module Network.AWS.Greengrass
     , gvDeviceDefinitionVersionARN
     , gvFunctionDefinitionVersionARN
     , gvLoggerDefinitionVersionARN
-
-    -- ** Logger
-    , Logger
-    , logger
-    , lSpace
-    , lComponent
-    , lId
-    , lType
-    , lLevel
 
     -- ** LoggerDefinitionVersion
     , LoggerDefinitionVersion

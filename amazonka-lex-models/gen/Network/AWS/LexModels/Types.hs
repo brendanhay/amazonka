@@ -33,6 +33,9 @@ module Network.AWS.LexModels.Types
     -- * FulfillmentActivityType
     , FulfillmentActivityType (..)
 
+    -- * LexStatus
+    , LexStatus (..)
+
     -- * Locale
     , Locale (..)
 
@@ -41,9 +44,6 @@ module Network.AWS.LexModels.Types
 
     -- * SlotConstraint
     , SlotConstraint (..)
-
-    -- * Status
-    , Status (..)
 
     -- * StatusType
     , StatusType (..)

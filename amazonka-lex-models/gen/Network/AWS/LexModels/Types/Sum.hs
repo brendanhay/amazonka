@@ -106,6 +106,38 @@ instance ToJSON FulfillmentActivityType where
 instance FromJSON FulfillmentActivityType where
     parseJSON = parseJSONText "FulfillmentActivityType"
 
+data LexStatus
+    = Building
+    | Failed
+    | NotBuilt
+    | Ready
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText LexStatus where
+    parser = takeLowerText >>= \case
+        "building" -> pure Building
+        "failed" -> pure Failed
+        "not_built" -> pure NotBuilt
+        "ready" -> pure Ready
+        e -> fromTextError $ "Failure parsing LexStatus from value: '" <> e
+           <> "'. Accepted values: building, failed, not_built, ready"
+
+instance ToText LexStatus where
+    toText = \case
+        Building -> "BUILDING"
+        Failed -> "FAILED"
+        NotBuilt -> "NOT_BUILT"
+        Ready -> "READY"
+
+instance Hashable     LexStatus
+instance NFData       LexStatus
+instance ToByteString LexStatus
+instance ToQuery      LexStatus
+instance ToHeader     LexStatus
+
+instance FromJSON LexStatus where
+    parseJSON = parseJSONText "LexStatus"
+
 data Locale =
     EnUs
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -186,38 +218,6 @@ instance ToJSON SlotConstraint where
 
 instance FromJSON SlotConstraint where
     parseJSON = parseJSONText "SlotConstraint"
-
-data Status
-    = Building
-    | Failed
-    | NotBuilt
-    | Ready
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
-
-instance FromText Status where
-    parser = takeLowerText >>= \case
-        "building" -> pure Building
-        "failed" -> pure Failed
-        "not_built" -> pure NotBuilt
-        "ready" -> pure Ready
-        e -> fromTextError $ "Failure parsing Status from value: '" <> e
-           <> "'. Accepted values: building, failed, not_built, ready"
-
-instance ToText Status where
-    toText = \case
-        Building -> "BUILDING"
-        Failed -> "FAILED"
-        NotBuilt -> "NOT_BUILT"
-        Ready -> "READY"
-
-instance Hashable     Status
-instance NFData       Status
-instance ToByteString Status
-instance ToQuery      Status
-instance ToHeader     Status
-
-instance FromJSON Status where
-    parseJSON = parseJSONText "Status"
 
 data StatusType
     = Detected

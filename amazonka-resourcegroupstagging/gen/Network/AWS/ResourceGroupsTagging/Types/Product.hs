@@ -27,7 +27,7 @@ import           Network.AWS.ResourceGroupsTagging.Types.Sum
 --
 -- /See:/ 'failureInfo' smart constructor.
 data FailureInfo = FailureInfo'
-    { _fiErrorCode    :: !(Maybe ErrorCode)
+    { _fiErrorCode    :: !(Maybe ResourceErrorCode)
     , _fiErrorMessage :: !(Maybe Text)
     , _fiStatusCode   :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -51,7 +51,7 @@ failureInfo =
     }
 
 -- | The code of the common error. Valid values include @InternalServiceException@ , @InvalidParameterException@ , and any valid error code returned by the AWS service that hosts the resource that you want to tag.
-fiErrorCode :: Lens' FailureInfo (Maybe ErrorCode)
+fiErrorCode :: Lens' FailureInfo (Maybe ResourceErrorCode)
 fiErrorCode = lens _fiErrorCode (\ s a -> s{_fiErrorCode = a});
 
 -- | The message of the common error.

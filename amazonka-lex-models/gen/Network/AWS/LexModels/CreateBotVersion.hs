@@ -142,7 +142,7 @@ instance ToQuery CreateBotVersion where
 -- | /See:/ 'createBotVersionResponse' smart constructor.
 data CreateBotVersionResponse = CreateBotVersionResponse'
     { _cbvrsFailureReason           :: !(Maybe Text)
-    , _cbvrsStatus                  :: !(Maybe Status)
+    , _cbvrsStatus                  :: !(Maybe LexStatus)
     , _cbvrsAbortStatement          :: !(Maybe Statement)
     , _cbvrsIntents                 :: !(Maybe (List1 Intent))
     , _cbvrsChecksum                :: !(Maybe Text)
@@ -222,7 +222,7 @@ cbvrsFailureReason :: Lens' CreateBotVersionResponse (Maybe Text)
 cbvrsFailureReason = lens _cbvrsFailureReason (\ s a -> s{_cbvrsFailureReason = a});
 
 -- | When you send a request to create or update a bot, Amazon Lex sets the @status@ response element to @BUILDING@ . After Amazon Lex builds the bot, it sets @status@ to @READY@ . If Amazon Lex can't build the bot, it sets @status@ to @FAILED@ . Amazon Lex returns the reason for the failure in the @failureReason@ response element.
-cbvrsStatus :: Lens' CreateBotVersionResponse (Maybe Status)
+cbvrsStatus :: Lens' CreateBotVersionResponse (Maybe LexStatus)
 cbvrsStatus = lens _cbvrsStatus (\ s a -> s{_cbvrsStatus = a});
 
 -- | The message that Amazon Lex uses to abort a conversation. For more information, see 'PutBot' .

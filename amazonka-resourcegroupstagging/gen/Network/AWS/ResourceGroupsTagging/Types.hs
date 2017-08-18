@@ -21,8 +21,8 @@ module Network.AWS.ResourceGroupsTagging.Types
     , _PaginationTokenExpiredException
     , _InternalServiceException
 
-    -- * ErrorCode
-    , ErrorCode (..)
+    -- * ResourceErrorCode
+    , ResourceErrorCode (..)
 
     -- * FailureInfo
     , FailureInfo

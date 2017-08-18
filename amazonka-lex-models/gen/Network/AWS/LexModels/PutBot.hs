@@ -238,7 +238,7 @@ instance ToQuery PutBot where
 -- | /See:/ 'putBotResponse' smart constructor.
 data PutBotResponse = PutBotResponse'
     { _pbrsFailureReason           :: !(Maybe Text)
-    , _pbrsStatus                  :: !(Maybe Status)
+    , _pbrsStatus                  :: !(Maybe LexStatus)
     , _pbrsAbortStatement          :: !(Maybe Statement)
     , _pbrsIntents                 :: !(Maybe (List1 Intent))
     , _pbrsChecksum                :: !(Maybe Text)
@@ -318,7 +318,7 @@ pbrsFailureReason :: Lens' PutBotResponse (Maybe Text)
 pbrsFailureReason = lens _pbrsFailureReason (\ s a -> s{_pbrsFailureReason = a});
 
 -- | When you send a request to create a bot with @processBehavior@ set to @BUILD@ , Amazon Lex sets the @status@ response element to @BUILDING@ . After Amazon Lex builds the bot, it sets @status@ to @READY@ . If Amazon Lex can't build the bot, Amazon Lex sets @status@ to @FAILED@ . Amazon Lex returns the reason for the failure in the @failureReason@ response element.  When you set @processBehavior@ to @SAVE@ , Amazon Lex sets the status code to @NOT BUILT@ .
-pbrsStatus :: Lens' PutBotResponse (Maybe Status)
+pbrsStatus :: Lens' PutBotResponse (Maybe LexStatus)
 pbrsStatus = lens _pbrsStatus (\ s a -> s{_pbrsStatus = a});
 
 -- | The message that Amazon Lex uses to abort a conversation. For more information, see 'PutBot' .

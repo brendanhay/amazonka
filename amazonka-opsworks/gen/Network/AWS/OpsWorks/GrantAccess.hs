@@ -57,7 +57,7 @@ data GrantAccess = GrantAccess'
 --
 -- * 'gaValidForInMinutes' - The length of time (in minutes) that the grant is valid. When the grant expires at the end of this period, the user will no longer be able to use the credentials to log in. If the user is logged in at the time, he or she automatically will be logged out.
 --
--- * 'gaInstanceId' - The instance's AWS OpsWorks ID.
+-- * 'gaInstanceId' - The instance's AWS OpsWorks Stacks ID.
 grantAccess
     :: Text -- ^ 'gaInstanceId'
     -> GrantAccess
@@ -71,7 +71,7 @@ grantAccess pInstanceId_ =
 gaValidForInMinutes :: Lens' GrantAccess (Maybe Natural)
 gaValidForInMinutes = lens _gaValidForInMinutes (\ s a -> s{_gaValidForInMinutes = a}) . mapping _Nat;
 
--- | The instance's AWS OpsWorks ID.
+-- | The instance's AWS OpsWorks Stacks ID.
 gaInstanceId :: Lens' GrantAccess Text
 gaInstanceId = lens _gaInstanceId (\ s a -> s{_gaInstanceId = a});
 

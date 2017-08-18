@@ -65,7 +65,7 @@ data CreateUserProfile = CreateUserProfile'
 --
 -- * 'cupSSHPublicKey' - The user's public SSH key.
 --
--- * 'cupSSHUsername' - The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks generates one from the IAM user name.
+-- * 'cupSSHUsername' - The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks Stacks generates one from the IAM user name.
 --
 -- * 'cupIAMUserARN' - The user's IAM ARN; this can also be a federated user's ARN.
 createUserProfile
@@ -87,7 +87,7 @@ cupAllowSelfManagement = lens _cupAllowSelfManagement (\ s a -> s{_cupAllowSelfM
 cupSSHPublicKey :: Lens' CreateUserProfile (Maybe Text)
 cupSSHPublicKey = lens _cupSSHPublicKey (\ s a -> s{_cupSSHPublicKey = a});
 
--- | The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks generates one from the IAM user name.
+-- | The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks Stacks generates one from the IAM user name.
 cupSSHUsername :: Lens' CreateUserProfile (Maybe Text)
 cupSSHUsername = lens _cupSSHUsername (\ s a -> s{_cupSSHUsername = a});
 

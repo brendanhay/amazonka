@@ -126,7 +126,7 @@ data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningPara
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dspprsAgentInstallerURL' - The AWS OpsWorks agent installer's URL.
+-- * 'dspprsAgentInstallerURL' - The AWS OpsWorks Stacks agent installer's URL.
 --
 -- * 'dspprsParameters' - An embedded object that contains the provisioning parameters.
 --
@@ -141,7 +141,7 @@ describeStackProvisioningParametersResponse pResponseStatus_ =
     , _dspprsResponseStatus = pResponseStatus_
     }
 
--- | The AWS OpsWorks agent installer's URL.
+-- | The AWS OpsWorks Stacks agent installer's URL.
 dspprsAgentInstallerURL :: Lens' DescribeStackProvisioningParametersResponse (Maybe Text)
 dspprsAgentInstallerURL = lens _dspprsAgentInstallerURL (\ s a -> s{_dspprsAgentInstallerURL = a});
 

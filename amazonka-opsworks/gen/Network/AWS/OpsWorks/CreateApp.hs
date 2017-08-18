@@ -99,7 +99,7 @@ data CreateApp = CreateApp'
 --
 -- * 'caName' - The app name.
 --
--- * 'caType' - The app type. Each supported type is associated with a particular layer. For example, PHP applications are associated with a PHP layer. AWS OpsWorks deploys an application to those instances that are members of the corresponding layer. If your app isn't one of the standard types, or you prefer to implement your own Deploy recipes, specify @other@ .
+-- * 'caType' - The app type. Each supported type is associated with a particular layer. For example, PHP applications are associated with a PHP layer. AWS OpsWorks Stacks deploys an application to those instances that are members of the corresponding layer. If your app isn't one of the standard types, or you prefer to implement your own Deploy recipes, specify @other@ .
 createApp
     :: Text -- ^ 'caStackId'
     -> Text -- ^ 'caName'
@@ -165,7 +165,7 @@ caStackId = lens _caStackId (\ s a -> s{_caStackId = a});
 caName :: Lens' CreateApp Text
 caName = lens _caName (\ s a -> s{_caName = a});
 
--- | The app type. Each supported type is associated with a particular layer. For example, PHP applications are associated with a PHP layer. AWS OpsWorks deploys an application to those instances that are members of the corresponding layer. If your app isn't one of the standard types, or you prefer to implement your own Deploy recipes, specify @other@ .
+-- | The app type. Each supported type is associated with a particular layer. For example, PHP applications are associated with a PHP layer. AWS OpsWorks Stacks deploys an application to those instances that are members of the corresponding layer. If your app isn't one of the standard types, or you prefer to implement your own Deploy recipes, specify @other@ .
 caType :: Lens' CreateApp AppType
 caType = lens _caType (\ s a -> s{_caType = a});
 

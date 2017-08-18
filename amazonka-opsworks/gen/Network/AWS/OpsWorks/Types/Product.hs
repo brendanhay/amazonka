@@ -218,7 +218,7 @@ instance Hashable App
 
 instance NFData App
 
--- | Describes a load-based auto scaling upscaling or downscaling threshold configuration, which specifies when AWS OpsWorks starts or stops load-based instances.
+-- | Describes a load-based auto scaling upscaling or downscaling threshold configuration, which specifies when AWS OpsWorks Stacks starts or stops load-based instances.
 --
 --
 --
@@ -239,7 +239,7 @@ data AutoScalingThresholds = AutoScalingThresholds'
 --
 -- * 'astInstanceCount' - The number of instances to add or remove when the load exceeds a threshold.
 --
--- * 'astIgnoreMetricsTime' - The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks should ignore metrics and suppress additional scaling events. For example, AWS OpsWorks adds new instances following an upscaling event but the instances won't start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. @IgnoreMetricsTime@ allows you to direct AWS OpsWorks to suppress scaling events long enough to get the new instances online.
+-- * 'astIgnoreMetricsTime' - The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events. For example, AWS OpsWorks Stacks adds new instances following an upscaling event but the instances won't start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. @IgnoreMetricsTime@ allows you to direct AWS OpsWorks Stacks to suppress scaling events long enough to get the new instances online.
 --
 -- * 'astLoadThreshold' - The load threshold. A value of -1 disables the threshold. For more information about how load is computed, see <http://en.wikipedia.org/wiki/Load_%28computing%29 Load (computing)> .
 --
@@ -267,7 +267,7 @@ autoScalingThresholds =
 astInstanceCount :: Lens' AutoScalingThresholds (Maybe Int)
 astInstanceCount = lens _astInstanceCount (\ s a -> s{_astInstanceCount = a});
 
--- | The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks should ignore metrics and suppress additional scaling events. For example, AWS OpsWorks adds new instances following an upscaling event but the instances won't start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. @IgnoreMetricsTime@ allows you to direct AWS OpsWorks to suppress scaling events long enough to get the new instances online.
+-- | The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events. For example, AWS OpsWorks Stacks adds new instances following an upscaling event but the instances won't start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. @IgnoreMetricsTime@ allows you to direct AWS OpsWorks Stacks to suppress scaling events long enough to get the new instances online.
 astIgnoreMetricsTime :: Lens' AutoScalingThresholds (Maybe Natural)
 astIgnoreMetricsTime = lens _astIgnoreMetricsTime (\ s a -> s{_astIgnoreMetricsTime = a}) . mapping _Nat;
 
@@ -342,7 +342,7 @@ data BlockDeviceMapping = BlockDeviceMapping'
 --
 -- * 'bdmEBS' - An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume when the instance is launched.
 --
--- * 'bdmDeviceName' - The device name that is exposed to the instance, such as @/dev/sdh@ . For the root device, you can use the explicit device name or you can set this parameter to @ROOT_DEVICE@ and AWS OpsWorks will provide the correct device name.
+-- * 'bdmDeviceName' - The device name that is exposed to the instance, such as @/dev/sdh@ . For the root device, you can use the explicit device name or you can set this parameter to @ROOT_DEVICE@ and AWS OpsWorks Stacks will provide the correct device name.
 blockDeviceMapping
     :: BlockDeviceMapping
 blockDeviceMapping =
@@ -365,7 +365,7 @@ bdmNoDevice = lens _bdmNoDevice (\ s a -> s{_bdmNoDevice = a});
 bdmEBS :: Lens' BlockDeviceMapping (Maybe EBSBlockDevice)
 bdmEBS = lens _bdmEBS (\ s a -> s{_bdmEBS = a});
 
--- | The device name that is exposed to the instance, such as @/dev/sdh@ . For the root device, you can use the explicit device name or you can set this parameter to @ROOT_DEVICE@ and AWS OpsWorks will provide the correct device name.
+-- | The device name that is exposed to the instance, such as @/dev/sdh@ . For the root device, you can use the explicit device name or you can set this parameter to @ROOT_DEVICE@ and AWS OpsWorks Stacks will provide the correct device name.
 bdmDeviceName :: Lens' BlockDeviceMapping (Maybe Text)
 bdmDeviceName = lens _bdmDeviceName (\ s a -> s{_bdmDeviceName = a});
 
@@ -443,6 +443,202 @@ instance ToJSON ChefConfiguration where
                  [("BerkshelfVersion" .=) <$> _ccBerkshelfVersion,
                   ("ManageBerkshelf" .=) <$> _ccManageBerkshelf])
 
+-- | Describes the Amazon CloudWatch logs configuration for a layer.
+--
+--
+--
+-- /See:/ 'cloudWatchLogsConfiguration' smart constructor.
+data CloudWatchLogsConfiguration = CloudWatchLogsConfiguration'
+    { _cwlcEnabled    :: !(Maybe Bool)
+    , _cwlcLogStreams :: !(Maybe [CloudWatchLogsLogStream])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CloudWatchLogsConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cwlcEnabled' - Whether CloudWatch Logs is enabled for a layer.
+--
+-- * 'cwlcLogStreams' - A list of configuration options for CloudWatch Logs.
+cloudWatchLogsConfiguration
+    :: CloudWatchLogsConfiguration
+cloudWatchLogsConfiguration =
+    CloudWatchLogsConfiguration'
+    { _cwlcEnabled = Nothing
+    , _cwlcLogStreams = Nothing
+    }
+
+-- | Whether CloudWatch Logs is enabled for a layer.
+cwlcEnabled :: Lens' CloudWatchLogsConfiguration (Maybe Bool)
+cwlcEnabled = lens _cwlcEnabled (\ s a -> s{_cwlcEnabled = a});
+
+-- | A list of configuration options for CloudWatch Logs.
+cwlcLogStreams :: Lens' CloudWatchLogsConfiguration [CloudWatchLogsLogStream]
+cwlcLogStreams = lens _cwlcLogStreams (\ s a -> s{_cwlcLogStreams = a}) . _Default . _Coerce;
+
+instance FromJSON CloudWatchLogsConfiguration where
+        parseJSON
+          = withObject "CloudWatchLogsConfiguration"
+              (\ x ->
+                 CloudWatchLogsConfiguration' <$>
+                   (x .:? "Enabled") <*>
+                     (x .:? "LogStreams" .!= mempty))
+
+instance Hashable CloudWatchLogsConfiguration
+
+instance NFData CloudWatchLogsConfiguration
+
+instance ToJSON CloudWatchLogsConfiguration where
+        toJSON CloudWatchLogsConfiguration'{..}
+          = object
+              (catMaybes
+                 [("Enabled" .=) <$> _cwlcEnabled,
+                  ("LogStreams" .=) <$> _cwlcLogStreams])
+
+-- | Describes the Amazon CloudWatch logs configuration for a layer. For detailed information about members of this data type, see the <http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html CloudWatch Logs Agent Reference> .
+--
+--
+--
+-- /See:/ 'cloudWatchLogsLogStream' smart constructor.
+data CloudWatchLogsLogStream = CloudWatchLogsLogStream'
+    { _cwllsBatchCount            :: !(Maybe Int)
+    , _cwllsFileFingerprintLines  :: !(Maybe Text)
+    , _cwllsBufferDuration        :: !(Maybe Int)
+    , _cwllsBatchSize             :: !(Maybe Int)
+    , _cwllsLogGroupName          :: !(Maybe Text)
+    , _cwllsMultiLineStartPattern :: !(Maybe Text)
+    , _cwllsInitialPosition       :: !(Maybe CloudWatchLogsInitialPosition)
+    , _cwllsDatetimeFormat        :: !(Maybe Text)
+    , _cwllsEncoding              :: !(Maybe CloudWatchLogsEncoding)
+    , _cwllsTimeZone              :: !(Maybe CloudWatchLogsTimeZone)
+    , _cwllsFile                  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CloudWatchLogsLogStream' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cwllsBatchCount' - Specifies the max number of log events in a batch, up to 10000. The default value is 1000.
+--
+-- * 'cwllsFileFingerprintLines' - Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as '1', '2-5'. The default value is '1', meaning the first line is used to calculate the fingerprint. Fingerprint lines are not sent to CloudWatch Logs unless all specified lines are available.
+--
+-- * 'cwllsBufferDuration' - Specifies the time duration for the batching of log events. The minimum value is 5000ms and default value is 5000ms.
+--
+-- * 'cwllsBatchSize' - Specifies the maximum size of log events in a batch, in bytes, up to 1048576 bytes. The default value is 32768 bytes. This size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.
+--
+-- * 'cwllsLogGroupName' - Specifies the destination log group. A log group is created automatically if it doesn't already exist. Log group names can be between 1 and 512 characters long. Allowed characters include a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).
+--
+-- * 'cwllsMultiLineStartPattern' - Specifies the pattern for identifying the start of a log message.
+--
+-- * 'cwllsInitialPosition' - Specifies where to start to read data (start_of_file or end_of_file). The default is start_of_file. This setting is only used if there is no state persisted for that log stream.
+--
+-- * 'cwllsDatetimeFormat' - Specifies how the time stamp is extracted from logs. For more information, see the <http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html CloudWatch Logs Agent Reference> .
+--
+-- * 'cwllsEncoding' - Specifies the encoding of the log file so that the file can be read correctly. The default is @utf_8@ . Encodings supported by Python @codecs.decode()@ can be used here.
+--
+-- * 'cwllsTimeZone' - Specifies the time zone of log event time stamps.
+--
+-- * 'cwllsFile' - Specifies log files that you want to push to CloudWatch Logs. @File@ can point to a specific file or multiple files (by using wild card characters such as @/var/log/system.log*@ ). Only the latest file is pushed to CloudWatch Logs, based on file modification time. We recommend that you use wild card characters to specify a series of files of the same type, such as @access_log.2014-06-01-01@ , @access_log.2014-06-01-02@ , and so on by using a pattern like @access_log.*@ . Don't use a wildcard to match multiple file types, such as @access_log_80@ and @access_log_443@ . To specify multiple, different file types, add another log stream entry to the configuration file, so that each log file type is stored in a different log group. Zipped files are not supported.
+cloudWatchLogsLogStream
+    :: CloudWatchLogsLogStream
+cloudWatchLogsLogStream =
+    CloudWatchLogsLogStream'
+    { _cwllsBatchCount = Nothing
+    , _cwllsFileFingerprintLines = Nothing
+    , _cwllsBufferDuration = Nothing
+    , _cwllsBatchSize = Nothing
+    , _cwllsLogGroupName = Nothing
+    , _cwllsMultiLineStartPattern = Nothing
+    , _cwllsInitialPosition = Nothing
+    , _cwllsDatetimeFormat = Nothing
+    , _cwllsEncoding = Nothing
+    , _cwllsTimeZone = Nothing
+    , _cwllsFile = Nothing
+    }
+
+-- | Specifies the max number of log events in a batch, up to 10000. The default value is 1000.
+cwllsBatchCount :: Lens' CloudWatchLogsLogStream (Maybe Int)
+cwllsBatchCount = lens _cwllsBatchCount (\ s a -> s{_cwllsBatchCount = a});
+
+-- | Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as '1', '2-5'. The default value is '1', meaning the first line is used to calculate the fingerprint. Fingerprint lines are not sent to CloudWatch Logs unless all specified lines are available.
+cwllsFileFingerprintLines :: Lens' CloudWatchLogsLogStream (Maybe Text)
+cwllsFileFingerprintLines = lens _cwllsFileFingerprintLines (\ s a -> s{_cwllsFileFingerprintLines = a});
+
+-- | Specifies the time duration for the batching of log events. The minimum value is 5000ms and default value is 5000ms.
+cwllsBufferDuration :: Lens' CloudWatchLogsLogStream (Maybe Int)
+cwllsBufferDuration = lens _cwllsBufferDuration (\ s a -> s{_cwllsBufferDuration = a});
+
+-- | Specifies the maximum size of log events in a batch, in bytes, up to 1048576 bytes. The default value is 32768 bytes. This size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.
+cwllsBatchSize :: Lens' CloudWatchLogsLogStream (Maybe Int)
+cwllsBatchSize = lens _cwllsBatchSize (\ s a -> s{_cwllsBatchSize = a});
+
+-- | Specifies the destination log group. A log group is created automatically if it doesn't already exist. Log group names can be between 1 and 512 characters long. Allowed characters include a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).
+cwllsLogGroupName :: Lens' CloudWatchLogsLogStream (Maybe Text)
+cwllsLogGroupName = lens _cwllsLogGroupName (\ s a -> s{_cwllsLogGroupName = a});
+
+-- | Specifies the pattern for identifying the start of a log message.
+cwllsMultiLineStartPattern :: Lens' CloudWatchLogsLogStream (Maybe Text)
+cwllsMultiLineStartPattern = lens _cwllsMultiLineStartPattern (\ s a -> s{_cwllsMultiLineStartPattern = a});
+
+-- | Specifies where to start to read data (start_of_file or end_of_file). The default is start_of_file. This setting is only used if there is no state persisted for that log stream.
+cwllsInitialPosition :: Lens' CloudWatchLogsLogStream (Maybe CloudWatchLogsInitialPosition)
+cwllsInitialPosition = lens _cwllsInitialPosition (\ s a -> s{_cwllsInitialPosition = a});
+
+-- | Specifies how the time stamp is extracted from logs. For more information, see the <http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html CloudWatch Logs Agent Reference> .
+cwllsDatetimeFormat :: Lens' CloudWatchLogsLogStream (Maybe Text)
+cwllsDatetimeFormat = lens _cwllsDatetimeFormat (\ s a -> s{_cwllsDatetimeFormat = a});
+
+-- | Specifies the encoding of the log file so that the file can be read correctly. The default is @utf_8@ . Encodings supported by Python @codecs.decode()@ can be used here.
+cwllsEncoding :: Lens' CloudWatchLogsLogStream (Maybe CloudWatchLogsEncoding)
+cwllsEncoding = lens _cwllsEncoding (\ s a -> s{_cwllsEncoding = a});
+
+-- | Specifies the time zone of log event time stamps.
+cwllsTimeZone :: Lens' CloudWatchLogsLogStream (Maybe CloudWatchLogsTimeZone)
+cwllsTimeZone = lens _cwllsTimeZone (\ s a -> s{_cwllsTimeZone = a});
+
+-- | Specifies log files that you want to push to CloudWatch Logs. @File@ can point to a specific file or multiple files (by using wild card characters such as @/var/log/system.log*@ ). Only the latest file is pushed to CloudWatch Logs, based on file modification time. We recommend that you use wild card characters to specify a series of files of the same type, such as @access_log.2014-06-01-01@ , @access_log.2014-06-01-02@ , and so on by using a pattern like @access_log.*@ . Don't use a wildcard to match multiple file types, such as @access_log_80@ and @access_log_443@ . To specify multiple, different file types, add another log stream entry to the configuration file, so that each log file type is stored in a different log group. Zipped files are not supported.
+cwllsFile :: Lens' CloudWatchLogsLogStream (Maybe Text)
+cwllsFile = lens _cwllsFile (\ s a -> s{_cwllsFile = a});
+
+instance FromJSON CloudWatchLogsLogStream where
+        parseJSON
+          = withObject "CloudWatchLogsLogStream"
+              (\ x ->
+                 CloudWatchLogsLogStream' <$>
+                   (x .:? "BatchCount") <*>
+                     (x .:? "FileFingerprintLines")
+                     <*> (x .:? "BufferDuration")
+                     <*> (x .:? "BatchSize")
+                     <*> (x .:? "LogGroupName")
+                     <*> (x .:? "MultiLineStartPattern")
+                     <*> (x .:? "InitialPosition")
+                     <*> (x .:? "DatetimeFormat")
+                     <*> (x .:? "Encoding")
+                     <*> (x .:? "TimeZone")
+                     <*> (x .:? "File"))
+
+instance Hashable CloudWatchLogsLogStream
+
+instance NFData CloudWatchLogsLogStream
+
+instance ToJSON CloudWatchLogsLogStream where
+        toJSON CloudWatchLogsLogStream'{..}
+          = object
+              (catMaybes
+                 [("BatchCount" .=) <$> _cwllsBatchCount,
+                  ("FileFingerprintLines" .=) <$>
+                    _cwllsFileFingerprintLines,
+                  ("BufferDuration" .=) <$> _cwllsBufferDuration,
+                  ("BatchSize" .=) <$> _cwllsBatchSize,
+                  ("LogGroupName" .=) <$> _cwllsLogGroupName,
+                  ("MultiLineStartPattern" .=) <$>
+                    _cwllsMultiLineStartPattern,
+                  ("InitialPosition" .=) <$> _cwllsInitialPosition,
+                  ("DatetimeFormat" .=) <$> _cwllsDatetimeFormat,
+                  ("Encoding" .=) <$> _cwllsEncoding,
+                  ("TimeZone" .=) <$> _cwllsTimeZone,
+                  ("File" .=) <$> _cwllsFile])
+
 -- | Describes a command.
 --
 --
@@ -479,7 +675,7 @@ data Command = Command'
 --
 -- * 'cExitCode' - The command exit code.
 --
--- * 'cType' - The command type:     * @deploy@      * @rollback@      * @start@      * @stop@      * @restart@      * @undeploy@      * @update_dependencies@      * @install_dependencies@      * @update_custom_cookbooks@      * @execute_recipes@
+-- * 'cType' - The command type:     * @configure@      * @deploy@      * @execute_recipes@      * @install_dependencies@      * @restart@      * @rollback@      * @setup@      * @start@      * @stop@      * @undeploy@      * @update_custom_cookbooks@      * @update_dependencies@
 --
 -- * 'cCompletedAt' - Date when the command completed.
 --
@@ -528,7 +724,7 @@ cCommandId = lens _cCommandId (\ s a -> s{_cCommandId = a});
 cExitCode :: Lens' Command (Maybe Int)
 cExitCode = lens _cExitCode (\ s a -> s{_cExitCode = a});
 
--- | The command type:     * @deploy@      * @rollback@      * @start@      * @stop@      * @restart@      * @undeploy@      * @update_dependencies@      * @install_dependencies@      * @update_custom_cookbooks@      * @execute_recipes@
+-- | The command type:     * @configure@      * @deploy@      * @execute_recipes@      * @install_dependencies@      * @restart@      * @rollback@      * @setup@      * @start@      * @stop@      * @undeploy@      * @update_custom_cookbooks@      * @update_dependencies@
 cType :: Lens' Command (Maybe Text)
 cType = lens _cType (\ s a -> s{_cType = a});
 
@@ -768,9 +964,9 @@ data DeploymentCommand = DeploymentCommand'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcArgs' - The arguments of those commands that take arguments. It should be set to a JSON object with the following format: @{"arg_name1" : ["value1", "value2", ...], "arg_name2" : ["value1", "value2", ...], ...}@  The @update_dependencies@ command takes two arguments:     * @upgrade_os_to@ - Specifies the desired Amazon Linux version for instances whose OS you want to upgrade, such as @Amazon Linux 2014.09@ . You must also set the @allow_reboot@ argument to true.     * @allow_reboot@ - Specifies whether to allow AWS OpsWorks to reboot the instances if necessary, after installing the updates. This argument can be set to either @true@ or @false@ . The default value is @false@ . For example, to upgrade an instance to Amazon Linux 2014.09, set @Args@ to the following. @{ "upgrade_os_to":["Amazon Linux 2014.09"], "allow_reboot":["true"] } @
+-- * 'dcArgs' - The arguments of those commands that take arguments. It should be set to a JSON object with the following format: @{"arg_name1" : ["value1", "value2", ...], "arg_name2" : ["value1", "value2", ...], ...}@  The @update_dependencies@ command takes two arguments:     * @upgrade_os_to@ - Specifies the desired Amazon Linux version for instances whose OS you want to upgrade, such as @Amazon Linux 2016.09@ . You must also set the @allow_reboot@ argument to true.     * @allow_reboot@ - Specifies whether to allow AWS OpsWorks Stacks to reboot the instances if necessary, after installing the updates. This argument can be set to either @true@ or @false@ . The default value is @false@ . For example, to upgrade an instance to Amazon Linux 2016.09, set @Args@ to the following. @{ "upgrade_os_to":["Amazon Linux 2016.09"], "allow_reboot":["true"] } @
 --
--- * 'dcName' - Specifies the operation. You can specify only one command. For stacks, the following commands are available:     * @execute_recipes@ : Execute one or more recipes. To specify the recipes, set an @Args@ parameter named @recipes@ to the list of recipes to be executed. For example, to execute @phpapp::appsetup@ , set @Args@ to @{"recipes":["phpapp::appsetup"]}@ .     * @install_dependencies@ : Install the stack's dependencies.     * @update_custom_cookbooks@ : Update the stack's custom cookbooks.     * @update_dependencies@ : Update the stack's dependencies. For apps, the following commands are available:     * @deploy@ : Deploy an app. Ruby on Rails apps have an optional @Args@ parameter named @migrate@ . Set @Args@ to {"migrate":["true"]} to migrate the database. The default setting is {"migrate":["false"]}.     * @rollback@ Roll the app back to the previous version. When you update an app, AWS OpsWorks stores the previous version, up to a maximum of five versions. You can use this command to roll an app back as many as four versions.     * @start@ : Start the app's web or application server.     * @stop@ : Stop the app's web or application server.     * @restart@ : Restart the app's web or application server.     * @undeploy@ : Undeploy the app.
+-- * 'dcName' - Specifies the operation. You can specify only one command. For stacks, the following commands are available:     * @execute_recipes@ : Execute one or more recipes. To specify the recipes, set an @Args@ parameter named @recipes@ to the list of recipes to be executed. For example, to execute @phpapp::appsetup@ , set @Args@ to @{"recipes":["phpapp::appsetup"]}@ .     * @install_dependencies@ : Install the stack's dependencies.     * @update_custom_cookbooks@ : Update the stack's custom cookbooks.     * @update_dependencies@ : Update the stack's dependencies. For apps, the following commands are available:     * @deploy@ : Deploy an app. Ruby on Rails apps have an optional @Args@ parameter named @migrate@ . Set @Args@ to {"migrate":["true"]} to migrate the database. The default setting is {"migrate":["false"]}.     * @rollback@ Roll the app back to the previous version. When you update an app, AWS OpsWorks Stacks stores the previous version, up to a maximum of five versions. You can use this command to roll an app back as many as four versions.     * @start@ : Start the app's web or application server.     * @stop@ : Stop the app's web or application server.     * @restart@ : Restart the app's web or application server.     * @undeploy@ : Undeploy the app.
 deploymentCommand
     :: DeploymentCommandName -- ^ 'dcName'
     -> DeploymentCommand
@@ -780,11 +976,11 @@ deploymentCommand pName_ =
     , _dcName = pName_
     }
 
--- | The arguments of those commands that take arguments. It should be set to a JSON object with the following format: @{"arg_name1" : ["value1", "value2", ...], "arg_name2" : ["value1", "value2", ...], ...}@  The @update_dependencies@ command takes two arguments:     * @upgrade_os_to@ - Specifies the desired Amazon Linux version for instances whose OS you want to upgrade, such as @Amazon Linux 2014.09@ . You must also set the @allow_reboot@ argument to true.     * @allow_reboot@ - Specifies whether to allow AWS OpsWorks to reboot the instances if necessary, after installing the updates. This argument can be set to either @true@ or @false@ . The default value is @false@ . For example, to upgrade an instance to Amazon Linux 2014.09, set @Args@ to the following. @{ "upgrade_os_to":["Amazon Linux 2014.09"], "allow_reboot":["true"] } @
+-- | The arguments of those commands that take arguments. It should be set to a JSON object with the following format: @{"arg_name1" : ["value1", "value2", ...], "arg_name2" : ["value1", "value2", ...], ...}@  The @update_dependencies@ command takes two arguments:     * @upgrade_os_to@ - Specifies the desired Amazon Linux version for instances whose OS you want to upgrade, such as @Amazon Linux 2016.09@ . You must also set the @allow_reboot@ argument to true.     * @allow_reboot@ - Specifies whether to allow AWS OpsWorks Stacks to reboot the instances if necessary, after installing the updates. This argument can be set to either @true@ or @false@ . The default value is @false@ . For example, to upgrade an instance to Amazon Linux 2016.09, set @Args@ to the following. @{ "upgrade_os_to":["Amazon Linux 2016.09"], "allow_reboot":["true"] } @
 dcArgs :: Lens' DeploymentCommand (HashMap Text [Text])
 dcArgs = lens _dcArgs (\ s a -> s{_dcArgs = a}) . _Default . _Map;
 
--- | Specifies the operation. You can specify only one command. For stacks, the following commands are available:     * @execute_recipes@ : Execute one or more recipes. To specify the recipes, set an @Args@ parameter named @recipes@ to the list of recipes to be executed. For example, to execute @phpapp::appsetup@ , set @Args@ to @{"recipes":["phpapp::appsetup"]}@ .     * @install_dependencies@ : Install the stack's dependencies.     * @update_custom_cookbooks@ : Update the stack's custom cookbooks.     * @update_dependencies@ : Update the stack's dependencies. For apps, the following commands are available:     * @deploy@ : Deploy an app. Ruby on Rails apps have an optional @Args@ parameter named @migrate@ . Set @Args@ to {"migrate":["true"]} to migrate the database. The default setting is {"migrate":["false"]}.     * @rollback@ Roll the app back to the previous version. When you update an app, AWS OpsWorks stores the previous version, up to a maximum of five versions. You can use this command to roll an app back as many as four versions.     * @start@ : Start the app's web or application server.     * @stop@ : Stop the app's web or application server.     * @restart@ : Restart the app's web or application server.     * @undeploy@ : Undeploy the app.
+-- | Specifies the operation. You can specify only one command. For stacks, the following commands are available:     * @execute_recipes@ : Execute one or more recipes. To specify the recipes, set an @Args@ parameter named @recipes@ to the list of recipes to be executed. For example, to execute @phpapp::appsetup@ , set @Args@ to @{"recipes":["phpapp::appsetup"]}@ .     * @install_dependencies@ : Install the stack's dependencies.     * @update_custom_cookbooks@ : Update the stack's custom cookbooks.     * @update_dependencies@ : Update the stack's dependencies. For apps, the following commands are available:     * @deploy@ : Deploy an app. Ruby on Rails apps have an optional @Args@ parameter named @migrate@ . Set @Args@ to {"migrate":["true"]} to migrate the database. The default setting is {"migrate":["false"]}.     * @rollback@ Roll the app back to the previous version. When you update an app, AWS OpsWorks Stacks stores the previous version, up to a maximum of five versions. You can use this command to roll an app back as many as four versions.     * @start@ : Start the app's web or application server.     * @stop@ : Stop the app's web or application server.     * @restart@ : Restart the app's web or application server.     * @undeploy@ : Undeploy the app.
 dcName :: Lens' DeploymentCommand DeploymentCommandName
 dcName = lens _dcName (\ s a -> s{_dcName = a});
 
@@ -1208,6 +1404,7 @@ data Instance = Instance'
     , _iSSHHostRsaKeyFingerprint :: !(Maybe Text)
     , _iSecurityGroupIds         :: !(Maybe [Text])
     , _iEcsClusterARN            :: !(Maybe Text)
+    , _iARN                      :: !(Maybe Text)
     , _iCreatedAt                :: !(Maybe Text)
     , _iEC2InstanceId            :: !(Maybe Text)
     , _iSSHKeyName               :: !(Maybe Text)
@@ -1241,9 +1438,9 @@ data Instance = Instance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iPrivateDNS' - The The instance's private DNS name.
+-- * 'iPrivateDNS' - The instance's private DNS name.
 --
--- * 'iReportedAgentVersion' - The instance's reported AWS OpsWorks agent version.
+-- * 'iReportedAgentVersion' - The instance's reported AWS OpsWorks Stacks agent version.
 --
 -- * 'iInstanceId' - The instance ID.
 --
@@ -1266,6 +1463,8 @@ data Instance = Instance'
 -- * 'iSecurityGroupIds' - An array containing the instance security group IDs.
 --
 -- * 'iEcsClusterARN' - For container instances, the Amazon ECS cluster's ARN.
+--
+-- * 'iARN' - Undocumented member.
 --
 -- * 'iCreatedAt' - The time that the instance was created.
 --
@@ -1337,6 +1536,7 @@ instance' =
     , _iSSHHostRsaKeyFingerprint = Nothing
     , _iSecurityGroupIds = Nothing
     , _iEcsClusterARN = Nothing
+    , _iARN = Nothing
     , _iCreatedAt = Nothing
     , _iEC2InstanceId = Nothing
     , _iSSHKeyName = Nothing
@@ -1366,11 +1566,11 @@ instance' =
     , _iBlockDeviceMappings = Nothing
     }
 
--- | The The instance's private DNS name.
+-- | The instance's private DNS name.
 iPrivateDNS :: Lens' Instance (Maybe Text)
 iPrivateDNS = lens _iPrivateDNS (\ s a -> s{_iPrivateDNS = a});
 
--- | The instance's reported AWS OpsWorks agent version.
+-- | The instance's reported AWS OpsWorks Stacks agent version.
 iReportedAgentVersion :: Lens' Instance (Maybe Text)
 iReportedAgentVersion = lens _iReportedAgentVersion (\ s a -> s{_iReportedAgentVersion = a});
 
@@ -1417,6 +1617,10 @@ iSecurityGroupIds = lens _iSecurityGroupIds (\ s a -> s{_iSecurityGroupIds = a})
 -- | For container instances, the Amazon ECS cluster's ARN.
 iEcsClusterARN :: Lens' Instance (Maybe Text)
 iEcsClusterARN = lens _iEcsClusterARN (\ s a -> s{_iEcsClusterARN = a});
+
+-- | Undocumented member.
+iARN :: Lens' Instance (Maybe Text)
+iARN = lens _iARN (\ s a -> s{_iARN = a});
 
 -- | The time that the instance was created.
 iCreatedAt :: Lens' Instance (Maybe Text)
@@ -1544,6 +1748,7 @@ instance FromJSON Instance where
                      <*> (x .:? "SshHostRsaKeyFingerprint")
                      <*> (x .:? "SecurityGroupIds" .!= mempty)
                      <*> (x .:? "EcsClusterArn")
+                     <*> (x .:? "Arn")
                      <*> (x .:? "CreatedAt")
                      <*> (x .:? "Ec2InstanceId")
                      <*> (x .:? "SshKeyName")
@@ -1826,7 +2031,9 @@ data Layer = Layer'
     { _lCustomInstanceProfileARN    :: !(Maybe Text)
     , _lCustomSecurityGroupIds      :: !(Maybe [Text])
     , _lInstallUpdatesOnBoot        :: !(Maybe Bool)
+    , _lCloudWatchLogsConfiguration :: !(Maybe CloudWatchLogsConfiguration)
     , _lLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
+    , _lARN                         :: !(Maybe Text)
     , _lCreatedAt                   :: !(Maybe Text)
     , _lShortname                   :: !(Maybe Text)
     , _lDefaultRecipes              :: !(Maybe Recipes)
@@ -1856,7 +2063,11 @@ data Layer = Layer'
 --
 -- * 'lInstallUpdatesOnBoot' - Whether to install operating system and package updates when the instance boots. The default value is @true@ . If this value is set to @false@ , you must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
 --
+-- * 'lCloudWatchLogsConfiguration' - The Amazon CloudWatch Logs configuration settings for the layer.
+--
 -- * 'lLifecycleEventConfiguration' - A @LifeCycleEventConfiguration@ object that specifies the Shutdown event configuration.
+--
+-- * 'lARN' - Undocumented member.
 --
 -- * 'lCreatedAt' - Date when the layer was created.
 --
@@ -1874,7 +2085,7 @@ data Layer = Layer'
 --
 -- * 'lPackages' - An array of @Package@ objects that describe the layer's packages.
 --
--- * 'lAttributes' - The layer attributes. For the @HaproxyStatsPassword@ , @MysqlRootPassword@ , and @GangliaPassword@ attributes, AWS OpsWorks returns @*****FILTERED*****@ instead of the actual value For an ECS Cluster layer, AWS OpsWorks the @EcsClusterArn@ attribute is set to the cluster's ARN.
+-- * 'lAttributes' - The layer attributes. For the @HaproxyStatsPassword@ , @MysqlRootPassword@ , and @GangliaPassword@ attributes, AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual value For an ECS Cluster layer, AWS OpsWorks Stacks the @EcsClusterArn@ attribute is set to the cluster's ARN.
 --
 -- * 'lName' - The layer name.
 --
@@ -1898,7 +2109,9 @@ layer =
     { _lCustomInstanceProfileARN = Nothing
     , _lCustomSecurityGroupIds = Nothing
     , _lInstallUpdatesOnBoot = Nothing
+    , _lCloudWatchLogsConfiguration = Nothing
     , _lLifecycleEventConfiguration = Nothing
+    , _lARN = Nothing
     , _lCreatedAt = Nothing
     , _lShortname = Nothing
     , _lDefaultRecipes = Nothing
@@ -1930,9 +2143,17 @@ lCustomSecurityGroupIds = lens _lCustomSecurityGroupIds (\ s a -> s{_lCustomSecu
 lInstallUpdatesOnBoot :: Lens' Layer (Maybe Bool)
 lInstallUpdatesOnBoot = lens _lInstallUpdatesOnBoot (\ s a -> s{_lInstallUpdatesOnBoot = a});
 
+-- | The Amazon CloudWatch Logs configuration settings for the layer.
+lCloudWatchLogsConfiguration :: Lens' Layer (Maybe CloudWatchLogsConfiguration)
+lCloudWatchLogsConfiguration = lens _lCloudWatchLogsConfiguration (\ s a -> s{_lCloudWatchLogsConfiguration = a});
+
 -- | A @LifeCycleEventConfiguration@ object that specifies the Shutdown event configuration.
 lLifecycleEventConfiguration :: Lens' Layer (Maybe LifecycleEventConfiguration)
 lLifecycleEventConfiguration = lens _lLifecycleEventConfiguration (\ s a -> s{_lLifecycleEventConfiguration = a});
+
+-- | Undocumented member.
+lARN :: Lens' Layer (Maybe Text)
+lARN = lens _lARN (\ s a -> s{_lARN = a});
 
 -- | Date when the layer was created.
 lCreatedAt :: Lens' Layer (Maybe Text)
@@ -1966,7 +2187,7 @@ lEnableAutoHealing = lens _lEnableAutoHealing (\ s a -> s{_lEnableAutoHealing = 
 lPackages :: Lens' Layer [Text]
 lPackages = lens _lPackages (\ s a -> s{_lPackages = a}) . _Default . _Coerce;
 
--- | The layer attributes. For the @HaproxyStatsPassword@ , @MysqlRootPassword@ , and @GangliaPassword@ attributes, AWS OpsWorks returns @*****FILTERED*****@ instead of the actual value For an ECS Cluster layer, AWS OpsWorks the @EcsClusterArn@ attribute is set to the cluster's ARN.
+-- | The layer attributes. For the @HaproxyStatsPassword@ , @MysqlRootPassword@ , and @GangliaPassword@ attributes, AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual value For an ECS Cluster layer, AWS OpsWorks Stacks the @EcsClusterArn@ attribute is set to the cluster's ARN.
 lAttributes :: Lens' Layer (HashMap LayerAttributesKeys Text)
 lAttributes = lens _lAttributes (\ s a -> s{_lAttributes = a}) . _Default . _Map;
 
@@ -2010,7 +2231,9 @@ instance FromJSON Layer where
                    (x .:? "CustomInstanceProfileArn") <*>
                      (x .:? "CustomSecurityGroupIds" .!= mempty)
                      <*> (x .:? "InstallUpdatesOnBoot")
+                     <*> (x .:? "CloudWatchLogsConfiguration")
                      <*> (x .:? "LifecycleEventConfiguration")
+                     <*> (x .:? "Arn")
                      <*> (x .:? "CreatedAt")
                      <*> (x .:? "Shortname")
                      <*> (x .:? "DefaultRecipes")
@@ -2089,11 +2312,11 @@ data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbascUpScaling' - An @AutoScalingThresholds@ object that describes the upscaling configuration, which defines how and when AWS OpsWorks increases the number of instances.
+-- * 'lbascUpScaling' - An @AutoScalingThresholds@ object that describes the upscaling configuration, which defines how and when AWS OpsWorks Stacks increases the number of instances.
 --
 -- * 'lbascEnable' - Whether load-based auto scaling is enabled for the layer.
 --
--- * 'lbascDownScaling' - An @AutoScalingThresholds@ object that describes the downscaling configuration, which defines how and when AWS OpsWorks reduces the number of instances.
+-- * 'lbascDownScaling' - An @AutoScalingThresholds@ object that describes the downscaling configuration, which defines how and when AWS OpsWorks Stacks reduces the number of instances.
 --
 -- * 'lbascLayerId' - The layer ID.
 loadBasedAutoScalingConfiguration
@@ -2106,7 +2329,7 @@ loadBasedAutoScalingConfiguration =
     , _lbascLayerId = Nothing
     }
 
--- | An @AutoScalingThresholds@ object that describes the upscaling configuration, which defines how and when AWS OpsWorks increases the number of instances.
+-- | An @AutoScalingThresholds@ object that describes the upscaling configuration, which defines how and when AWS OpsWorks Stacks increases the number of instances.
 lbascUpScaling :: Lens' LoadBasedAutoScalingConfiguration (Maybe AutoScalingThresholds)
 lbascUpScaling = lens _lbascUpScaling (\ s a -> s{_lbascUpScaling = a});
 
@@ -2114,7 +2337,7 @@ lbascUpScaling = lens _lbascUpScaling (\ s a -> s{_lbascUpScaling = a});
 lbascEnable :: Lens' LoadBasedAutoScalingConfiguration (Maybe Bool)
 lbascEnable = lens _lbascEnable (\ s a -> s{_lbascEnable = a});
 
--- | An @AutoScalingThresholds@ object that describes the downscaling configuration, which defines how and when AWS OpsWorks reduces the number of instances.
+-- | An @AutoScalingThresholds@ object that describes the downscaling configuration, which defines how and when AWS OpsWorks Stacks reduces the number of instances.
 lbascDownScaling :: Lens' LoadBasedAutoScalingConfiguration (Maybe AutoScalingThresholds)
 lbascDownScaling = lens _lbascDownScaling (\ s a -> s{_lbascDownScaling = a});
 
@@ -2375,7 +2598,7 @@ data RDSDBInstance = RDSDBInstance'
 --
 -- * 'rdiDBUser' - The master user name.
 --
--- * 'rdiMissingOnRDS' - Set to @true@ if AWS OpsWorks was unable to discover the Amazon RDS instance. AWS OpsWorks attempts to discover the instance only once. If this value is set to @true@ , you must deregister the instance and then register it again.
+-- * 'rdiMissingOnRDS' - Set to @true@ if AWS OpsWorks Stacks is unable to discover the Amazon RDS instance. AWS OpsWorks Stacks attempts to discover the instance only once. If this value is set to @true@ , you must deregister the instance, and then register it again.
 --
 -- * 'rdiEngine' - The instance's database engine.
 --
@@ -2385,9 +2608,9 @@ data RDSDBInstance = RDSDBInstance'
 --
 -- * 'rdiRegion' - The instance's AWS region.
 --
--- * 'rdiStackId' - The ID of the stack that the instance is registered with.
+-- * 'rdiStackId' - The ID of the stack with which the instance is registered.
 --
--- * 'rdiDBPassword' - AWS OpsWorks returns @*****FILTERED*****@ instead of the actual value.
+-- * 'rdiDBPassword' - AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual value.
 rdsDBInstance
     :: RDSDBInstance
 rdsDBInstance =
@@ -2411,7 +2634,7 @@ rdiRDSDBInstanceARN = lens _rdiRDSDBInstanceARN (\ s a -> s{_rdiRDSDBInstanceARN
 rdiDBUser :: Lens' RDSDBInstance (Maybe Text)
 rdiDBUser = lens _rdiDBUser (\ s a -> s{_rdiDBUser = a});
 
--- | Set to @true@ if AWS OpsWorks was unable to discover the Amazon RDS instance. AWS OpsWorks attempts to discover the instance only once. If this value is set to @true@ , you must deregister the instance and then register it again.
+-- | Set to @true@ if AWS OpsWorks Stacks is unable to discover the Amazon RDS instance. AWS OpsWorks Stacks attempts to discover the instance only once. If this value is set to @true@ , you must deregister the instance, and then register it again.
 rdiMissingOnRDS :: Lens' RDSDBInstance (Maybe Bool)
 rdiMissingOnRDS = lens _rdiMissingOnRDS (\ s a -> s{_rdiMissingOnRDS = a});
 
@@ -2431,11 +2654,11 @@ rdiDBInstanceIdentifier = lens _rdiDBInstanceIdentifier (\ s a -> s{_rdiDBInstan
 rdiRegion :: Lens' RDSDBInstance (Maybe Text)
 rdiRegion = lens _rdiRegion (\ s a -> s{_rdiRegion = a});
 
--- | The ID of the stack that the instance is registered with.
+-- | The ID of the stack with which the instance is registered.
 rdiStackId :: Lens' RDSDBInstance (Maybe Text)
 rdiStackId = lens _rdiStackId (\ s a -> s{_rdiStackId = a});
 
--- | AWS OpsWorks returns @*****FILTERED*****@ instead of the actual value.
+-- | AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual value.
 rdiDBPassword :: Lens' RDSDBInstance (Maybe Text)
 rdiDBPassword = lens _rdiDBPassword (\ s a -> s{_rdiDBPassword = a});
 
@@ -2457,7 +2680,7 @@ instance Hashable RDSDBInstance
 
 instance NFData RDSDBInstance
 
--- | AWS OpsWorks supports five lifecycle events: __setup__ , __configuration__ , __deploy__ , __undeploy__ , and __shutdown__ . For each layer, AWS OpsWorks runs a set of standard recipes for each event. In addition, you can provide custom recipes for any or all layers and events. AWS OpsWorks runs custom event recipes after the standard recipes. @LayerCustomRecipes@ specifies the custom recipes for a particular layer to be run in response to each of the five events.
+-- | AWS OpsWorks Stacks supports five lifecycle events: __setup__ , __configuration__ , __deploy__ , __undeploy__ , and __shutdown__ . For each layer, AWS OpsWorks Stacks runs a set of standard recipes for each event. In addition, you can provide custom recipes for any or all layers and events. AWS OpsWorks Stacks runs custom event recipes after the standard recipes. @LayerCustomRecipes@ specifies the custom recipes for a particular layer to be run in response to each of the five events.
 --
 --
 -- To specify a recipe, use the cookbook's directory name in the repository followed by two colons and the recipe name, which is the recipe's file name without the .rb extension. For example: phpapp2::dbsetup specifies the dbsetup.rb recipe in the repository's phpapp2 folder.
@@ -2719,7 +2942,7 @@ instance Hashable SelfUserProfile
 
 instance NFData SelfUserProfile
 
--- | Describes an AWS OpsWorks service error.
+-- | Describes an AWS OpsWorks Stacks service error.
 --
 --
 --
@@ -2813,7 +3036,7 @@ data ShutdownEventConfiguration = ShutdownEventConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'secExecutionTimeout' - The time, in seconds, that AWS OpsWorks will wait after triggering a Shutdown event before shutting down an instance.
+-- * 'secExecutionTimeout' - The time, in seconds, that AWS OpsWorks Stacks will wait after triggering a Shutdown event before shutting down an instance.
 --
 -- * 'secDelayUntilElbConnectionsDrained' - Whether to enable Elastic Load Balancing connection draining. For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining>
 shutdownEventConfiguration
@@ -2824,7 +3047,7 @@ shutdownEventConfiguration =
     , _secDelayUntilElbConnectionsDrained = Nothing
     }
 
--- | The time, in seconds, that AWS OpsWorks will wait after triggering a Shutdown event before shutting down an instance.
+-- | The time, in seconds, that AWS OpsWorks Stacks will wait after triggering a Shutdown event before shutting down an instance.
 secExecutionTimeout :: Lens' ShutdownEventConfiguration (Maybe Int)
 secExecutionTimeout = lens _secExecutionTimeout (\ s a -> s{_secExecutionTimeout = a});
 
@@ -2870,17 +3093,17 @@ data Source = Source'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sURL' - The source URL.
+-- * 'sURL' - The source URL. The following is an example of an Amazon S3 source URL: @https://s3.amazonaws.com/opsworks-demo-bucket/opsworks_cookbook_demo.tar.gz@ .
 --
 -- * 'sUsername' - This parameter depends on the repository type.     * For Amazon S3 bundles, set @Username@ to the appropriate IAM access key ID.     * For HTTP bundles, Git repositories, and Subversion repositories, set @Username@ to the user name.
 --
--- * 'sSSHKey' - In requests, the repository's SSH key. In responses, AWS OpsWorks returns @*****FILTERED*****@ instead of the actual value.
+-- * 'sSSHKey' - In requests, the repository's SSH key. In responses, AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual value.
 --
--- * 'sPassword' - When included in a request, the parameter depends on the repository type.     * For Amazon S3 bundles, set @Password@ to the appropriate IAM secret access key.     * For HTTP bundles and Subversion repositories, set @Password@ to the password. For more information on how to safely handle IAM credentials, see <http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html> . In responses, AWS OpsWorks returns @*****FILTERED*****@ instead of the actual value.
+-- * 'sPassword' - When included in a request, the parameter depends on the repository type.     * For Amazon S3 bundles, set @Password@ to the appropriate IAM secret access key.     * For HTTP bundles and Subversion repositories, set @Password@ to the password. For more information on how to safely handle IAM credentials, see <http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html> . In responses, AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual value.
 --
 -- * 'sType' - The repository type.
 --
--- * 'sRevision' - The application's version. AWS OpsWorks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
+-- * 'sRevision' - The application's version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
 source
     :: Source
 source =
@@ -2893,7 +3116,7 @@ source =
     , _sRevision = Nothing
     }
 
--- | The source URL.
+-- | The source URL. The following is an example of an Amazon S3 source URL: @https://s3.amazonaws.com/opsworks-demo-bucket/opsworks_cookbook_demo.tar.gz@ .
 sURL :: Lens' Source (Maybe Text)
 sURL = lens _sURL (\ s a -> s{_sURL = a});
 
@@ -2901,11 +3124,11 @@ sURL = lens _sURL (\ s a -> s{_sURL = a});
 sUsername :: Lens' Source (Maybe Text)
 sUsername = lens _sUsername (\ s a -> s{_sUsername = a});
 
--- | In requests, the repository's SSH key. In responses, AWS OpsWorks returns @*****FILTERED*****@ instead of the actual value.
+-- | In requests, the repository's SSH key. In responses, AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual value.
 sSSHKey :: Lens' Source (Maybe Text)
 sSSHKey = lens _sSSHKey (\ s a -> s{_sSSHKey = a});
 
--- | When included in a request, the parameter depends on the repository type.     * For Amazon S3 bundles, set @Password@ to the appropriate IAM secret access key.     * For HTTP bundles and Subversion repositories, set @Password@ to the password. For more information on how to safely handle IAM credentials, see <http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html> . In responses, AWS OpsWorks returns @*****FILTERED*****@ instead of the actual value.
+-- | When included in a request, the parameter depends on the repository type.     * For Amazon S3 bundles, set @Password@ to the appropriate IAM secret access key.     * For HTTP bundles and Subversion repositories, set @Password@ to the password. For more information on how to safely handle IAM credentials, see <http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html> . In responses, AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual value.
 sPassword :: Lens' Source (Maybe Text)
 sPassword = lens _sPassword (\ s a -> s{_sPassword = a});
 
@@ -2913,7 +3136,7 @@ sPassword = lens _sPassword (\ s a -> s{_sPassword = a});
 sType :: Lens' Source (Maybe SourceType)
 sType = lens _sType (\ s a -> s{_sType = a});
 
--- | The application's version. AWS OpsWorks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
+-- | The application's version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
 sRevision :: Lens' Source (Maybe Text)
 sRevision = lens _sRevision (\ s a -> s{_sRevision = a});
 
@@ -3007,7 +3230,7 @@ data Stack = Stack'
 --
 -- * 'sDefaultOS' - The stack's default operating system.
 --
--- * 'sUseOpsworksSecurityGroups' - Whether the stack automatically associates the AWS OpsWorks built-in security groups with the stack's layers.
+-- * 'sUseOpsworksSecurityGroups' - Whether the stack automatically associates the AWS OpsWorks Stacks built-in security groups with the stack's layers.
 --
 -- * 'sUseCustomCookbooks' - Whether the stack uses custom cookbooks.
 --
@@ -3108,7 +3331,7 @@ sName = lens _sName (\ s a -> s{_sName = a});
 sDefaultOS :: Lens' Stack (Maybe Text)
 sDefaultOS = lens _sDefaultOS (\ s a -> s{_sDefaultOS = a});
 
--- | Whether the stack automatically associates the AWS OpsWorks built-in security groups with the stack's layers.
+-- | Whether the stack automatically associates the AWS OpsWorks Stacks built-in security groups with the stack's layers.
 sUseOpsworksSecurityGroups :: Lens' Stack (Maybe Bool)
 sUseOpsworksSecurityGroups = lens _sUseOpsworksSecurityGroups (\ s a -> s{_sUseOpsworksSecurityGroups = a});
 
@@ -3315,7 +3538,7 @@ data TemporaryCredential = TemporaryCredential'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tcInstanceId' - The instance's AWS OpsWorks ID.
+-- * 'tcInstanceId' - The instance's AWS OpsWorks Stacks ID.
 --
 -- * 'tcUsername' - The user name.
 --
@@ -3332,7 +3555,7 @@ temporaryCredential =
     , _tcValidForInMinutes = Nothing
     }
 
--- | The instance's AWS OpsWorks ID.
+-- | The instance's AWS OpsWorks Stacks ID.
 tcInstanceId :: Lens' TemporaryCredential (Maybe Text)
 tcInstanceId = lens _tcInstanceId (\ s a -> s{_tcInstanceId = a});
 

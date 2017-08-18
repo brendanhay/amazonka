@@ -86,6 +86,7 @@ library
         , Network.AWS.OpsWorks.DisassociateElasticIP
         , Network.AWS.OpsWorks.GetHostnameSuggestion
         , Network.AWS.OpsWorks.GrantAccess
+        , Network.AWS.OpsWorks.ListTags
         , Network.AWS.OpsWorks.RebootInstance
         , Network.AWS.OpsWorks.RegisterEcsCluster
         , Network.AWS.OpsWorks.RegisterElasticIP
@@ -99,9 +100,11 @@ library
         , Network.AWS.OpsWorks.StartStack
         , Network.AWS.OpsWorks.StopInstance
         , Network.AWS.OpsWorks.StopStack
+        , Network.AWS.OpsWorks.TagResource
         , Network.AWS.OpsWorks.Types
         , Network.AWS.OpsWorks.UnassignInstance
         , Network.AWS.OpsWorks.UnassignVolume
+        , Network.AWS.OpsWorks.UntagResource
         , Network.AWS.OpsWorks.UpdateApp
         , Network.AWS.OpsWorks.UpdateElasticIP
         , Network.AWS.OpsWorks.UpdateInstance

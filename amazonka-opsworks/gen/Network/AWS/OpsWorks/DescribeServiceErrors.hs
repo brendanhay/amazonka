@@ -18,10 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes AWS OpsWorks service errors.
+-- Describes AWS OpsWorks Stacks service errors.
 --
 --
 -- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
+-- This call accepts only one resource-identifying parameter.
 --
 module Network.AWS.OpsWorks.DescribeServiceErrors
     (

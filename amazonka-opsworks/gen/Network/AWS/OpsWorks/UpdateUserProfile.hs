@@ -62,7 +62,7 @@ data UpdateUserProfile = UpdateUserProfile'
 --
 -- * 'uupSSHPublicKey' - The user's new SSH public key.
 --
--- * 'uupSSHUsername' - The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks generates one from the IAM user name.
+-- * 'uupSSHUsername' - The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks Stacks generates one from the IAM user name.
 --
 -- * 'uupIAMUserARN' - The user IAM ARN. This can also be a federated user's ARN.
 updateUserProfile
@@ -84,7 +84,7 @@ uupAllowSelfManagement = lens _uupAllowSelfManagement (\ s a -> s{_uupAllowSelfM
 uupSSHPublicKey :: Lens' UpdateUserProfile (Maybe Text)
 uupSSHPublicKey = lens _uupSSHPublicKey (\ s a -> s{_uupSSHPublicKey = a});
 
--- | The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks generates one from the IAM user name.
+-- | The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks Stacks generates one from the IAM user name.
 uupSSHUsername :: Lens' UpdateUserProfile (Maybe Text)
 uupSSHUsername = lens _uupSSHUsername (\ s a -> s{_uupSSHUsername = a});
 

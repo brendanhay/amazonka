@@ -31,6 +31,15 @@ module Network.AWS.OpsWorks.Types
     -- * AutoScalingType
     , AutoScalingType (..)
 
+    -- * CloudWatchLogsEncoding
+    , CloudWatchLogsEncoding (..)
+
+    -- * CloudWatchLogsInitialPosition
+    , CloudWatchLogsInitialPosition (..)
+
+    -- * CloudWatchLogsTimeZone
+    , CloudWatchLogsTimeZone (..)
+
     -- * DeploymentCommandName
     , DeploymentCommandName (..)
 
@@ -103,6 +112,27 @@ module Network.AWS.OpsWorks.Types
     , chefConfiguration
     , ccBerkshelfVersion
     , ccManageBerkshelf
+
+    -- * CloudWatchLogsConfiguration
+    , CloudWatchLogsConfiguration
+    , cloudWatchLogsConfiguration
+    , cwlcEnabled
+    , cwlcLogStreams
+
+    -- * CloudWatchLogsLogStream
+    , CloudWatchLogsLogStream
+    , cloudWatchLogsLogStream
+    , cwllsBatchCount
+    , cwllsFileFingerprintLines
+    , cwllsBufferDuration
+    , cwllsBatchSize
+    , cwllsLogGroupName
+    , cwllsMultiLineStartPattern
+    , cwllsInitialPosition
+    , cwllsDatetimeFormat
+    , cwllsEncoding
+    , cwllsTimeZone
+    , cwllsFile
 
     -- * Command
     , Command
@@ -209,6 +239,7 @@ module Network.AWS.OpsWorks.Types
     , iSSHHostRsaKeyFingerprint
     , iSecurityGroupIds
     , iEcsClusterARN
+    , iARN
     , iCreatedAt
     , iEC2InstanceId
     , iSSHKeyName
@@ -272,7 +303,9 @@ module Network.AWS.OpsWorks.Types
     , lCustomInstanceProfileARN
     , lCustomSecurityGroupIds
     , lInstallUpdatesOnBoot
+    , lCloudWatchLogsConfiguration
     , lLifecycleEventConfiguration
+    , lARN
     , lCreatedAt
     , lShortname
     , lDefaultRecipes
@@ -533,6 +566,8 @@ opsWorks =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"

@@ -55,7 +55,7 @@ newtype ResendContactReachabilityEmail = ResendContactReachabilityEmail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcreDomainName' - The name of the domain for which you want Amazon Route 53 to resend a confirmation email to the registrant contact. Type: String Default: None Required: Yes
+-- * 'rcreDomainName' - The name of the domain for which you want Amazon Route 53 to resend a confirmation email to the registrant contact.
 resendContactReachabilityEmail
     :: ResendContactReachabilityEmail
 resendContactReachabilityEmail =
@@ -63,7 +63,7 @@ resendContactReachabilityEmail =
     { _rcreDomainName = Nothing
     }
 
--- | The name of the domain for which you want Amazon Route 53 to resend a confirmation email to the registrant contact. Type: String Default: None Required: Yes
+-- | The name of the domain for which you want Amazon Route 53 to resend a confirmation email to the registrant contact.
 rcreDomainName :: Lens' ResendContactReachabilityEmail (Maybe Text)
 rcreDomainName = lens _rcreDomainName (\ s a -> s{_rcreDomainName = a});
 
@@ -122,7 +122,7 @@ data ResendContactReachabilityEmailResponse = ResendContactReachabilityEmailResp
 --
 -- * 'rcrersEmailAddress' - The email address for the registrant contact at the time that we sent the verification email.
 --
--- * 'rcrersIsAlreadyVerified' - True if the email address for the registrant contact has already been verified, and false otherwise. If the email address has already been verified, we don't send another confirmation email.
+-- * 'rcrersIsAlreadyVerified' - @True@ if the email address for the registrant contact has already been verified, and @false@ otherwise. If the email address has already been verified, we don't send another confirmation email.
 --
 -- * 'rcrersResponseStatus' - -- | The response status code.
 resendContactReachabilityEmailResponse
@@ -144,7 +144,7 @@ rcrersDomainName = lens _rcrersDomainName (\ s a -> s{_rcrersDomainName = a});
 rcrersEmailAddress :: Lens' ResendContactReachabilityEmailResponse (Maybe Text)
 rcrersEmailAddress = lens _rcrersEmailAddress (\ s a -> s{_rcrersEmailAddress = a});
 
--- | True if the email address for the registrant contact has already been verified, and false otherwise. If the email address has already been verified, we don't send another confirmation email.
+-- | @True@ if the email address for the registrant contact has already been verified, and @false@ otherwise. If the email address has already been verified, we don't send another confirmation email.
 rcrersIsAlreadyVerified :: Lens' ResendContactReachabilityEmailResponse (Maybe Bool)
 rcrersIsAlreadyVerified = lens _rcrersIsAlreadyVerified (\ s a -> s{_rcrersIsAlreadyVerified = a});
 

@@ -54,7 +54,7 @@ newtype EnableDomainAutoRenew = EnableDomainAutoRenew'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'edarDomainName' - Undocumented member.
+-- * 'edarDomainName' - The name of the domain that you want to enable automatic renewal for.
 enableDomainAutoRenew
     :: Text -- ^ 'edarDomainName'
     -> EnableDomainAutoRenew
@@ -63,7 +63,7 @@ enableDomainAutoRenew pDomainName_ =
     { _edarDomainName = pDomainName_
     }
 
--- | Undocumented member.
+-- | The name of the domain that you want to enable automatic renewal for.
 edarDomainName :: Lens' EnableDomainAutoRenew Text
 edarDomainName = lens _edarDomainName (\ s a -> s{_edarDomainName = a});
 

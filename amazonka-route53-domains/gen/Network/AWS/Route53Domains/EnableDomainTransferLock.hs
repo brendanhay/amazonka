@@ -44,7 +44,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53Domains.Types
 import           Network.AWS.Route53Domains.Types.Product
 
--- | The EnableDomainTransferLock request includes the following element.
+-- | A request to set the transfer lock for the specified domain.
 --
 --
 --
@@ -57,7 +57,7 @@ newtype EnableDomainTransferLock = EnableDomainTransferLock'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'edtlDomainName' - The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported. Required: Yes
+-- * 'edtlDomainName' - The name of the domain that you want to set the transfer lock for.
 enableDomainTransferLock
     :: Text -- ^ 'edtlDomainName'
     -> EnableDomainTransferLock
@@ -66,7 +66,7 @@ enableDomainTransferLock pDomainName_ =
     { _edtlDomainName = pDomainName_
     }
 
--- | The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported. Required: Yes
+-- | The name of the domain that you want to set the transfer lock for.
 edtlDomainName :: Lens' EnableDomainTransferLock Text
 edtlDomainName = lens _edtlDomainName (\ s a -> s{_edtlDomainName = a});
 
@@ -121,7 +121,7 @@ data EnableDomainTransferLockResponse = EnableDomainTransferLockResponse'
 --
 -- * 'edtlrsResponseStatus' - -- | The response status code.
 --
--- * 'edtlrsOperationId' - Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail. Type: String Default: None Constraints: Maximum 255 characters.
+-- * 'edtlrsOperationId' - Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
 enableDomainTransferLockResponse
     :: Int -- ^ 'edtlrsResponseStatus'
     -> Text -- ^ 'edtlrsOperationId'
@@ -136,7 +136,7 @@ enableDomainTransferLockResponse pResponseStatus_ pOperationId_ =
 edtlrsResponseStatus :: Lens' EnableDomainTransferLockResponse Int
 edtlrsResponseStatus = lens _edtlrsResponseStatus (\ s a -> s{_edtlrsResponseStatus = a});
 
--- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail. Type: String Default: None Constraints: Maximum 255 characters.
+-- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
 edtlrsOperationId :: Lens' EnableDomainTransferLockResponse Text
 edtlrsOperationId = lens _edtlrsOperationId (\ s a -> s{_edtlrsOperationId = a});
 

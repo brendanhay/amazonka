@@ -122,7 +122,7 @@ data ListTagsForDomainResponse = ListTagsForDomainResponse'
 --
 -- * 'ltfdrsResponseStatus' - -- | The response status code.
 --
--- * 'ltfdrsTagList' - A list of the tags that are associated with the specified domain. Type: A complex type containing a list of tags Each tag includes the following elements.     * Key The key (name) of a tag. Type: String     * Value The value of a tag. Type: String
+-- * 'ltfdrsTagList' - A list of the tags that are associated with the specified domain.
 listTagsForDomainResponse
     :: Int -- ^ 'ltfdrsResponseStatus'
     -> ListTagsForDomainResponse
@@ -136,7 +136,7 @@ listTagsForDomainResponse pResponseStatus_ =
 ltfdrsResponseStatus :: Lens' ListTagsForDomainResponse Int
 ltfdrsResponseStatus = lens _ltfdrsResponseStatus (\ s a -> s{_ltfdrsResponseStatus = a});
 
--- | A list of the tags that are associated with the specified domain. Type: A complex type containing a list of tags Each tag includes the following elements.     * Key The key (name) of a tag. Type: String     * Value The value of a tag. Type: String
+-- | A list of the tags that are associated with the specified domain.
 ltfdrsTagList :: Lens' ListTagsForDomainResponse [Tag]
 ltfdrsTagList = lens _ltfdrsTagList (\ s a -> s{_ltfdrsTagList = a}) . _Coerce;
 

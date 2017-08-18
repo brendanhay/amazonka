@@ -52,7 +52,7 @@ newtype DisableDomainAutoRenew = DisableDomainAutoRenew'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddarDomainName' - Undocumented member.
+-- * 'ddarDomainName' - The name of the domain that you want to disable automatic renewal for.
 disableDomainAutoRenew
     :: Text -- ^ 'ddarDomainName'
     -> DisableDomainAutoRenew
@@ -61,7 +61,7 @@ disableDomainAutoRenew pDomainName_ =
     { _ddarDomainName = pDomainName_
     }
 
--- | Undocumented member.
+-- | The name of the domain that you want to disable automatic renewal for.
 ddarDomainName :: Lens' DisableDomainAutoRenew Text
 ddarDomainName = lens _ddarDomainName (\ s a -> s{_ddarDomainName = a});
 

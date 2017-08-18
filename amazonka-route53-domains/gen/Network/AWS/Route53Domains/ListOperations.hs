@@ -63,9 +63,9 @@ data ListOperations = ListOperations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'loMarker' - For an initial request for a list of operations, omit this element. If the number of operations that are not yet complete is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional operations. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element. Type: String Default: None Required: No
+-- * 'loMarker' - For an initial request for a list of operations, omit this element. If the number of operations that are not yet complete is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional operations. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element.
 --
--- * 'loMaxItems' - Number of domains to be returned. Type: Integer Default: 20 Constraints: A value between 1 and 100. Required: No
+-- * 'loMaxItems' - Number of domains to be returned. Default: 20
 listOperations
     :: ListOperations
 listOperations =
@@ -74,11 +74,11 @@ listOperations =
     , _loMaxItems = Nothing
     }
 
--- | For an initial request for a list of operations, omit this element. If the number of operations that are not yet complete is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional operations. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element. Type: String Default: None Required: No
+-- | For an initial request for a list of operations, omit this element. If the number of operations that are not yet complete is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional operations. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element.
 loMarker :: Lens' ListOperations (Maybe Text)
 loMarker = lens _loMarker (\ s a -> s{_loMarker = a});
 
--- | Number of domains to be returned. Type: Integer Default: 20 Constraints: A value between 1 and 100. Required: No
+-- | Number of domains to be returned. Default: 20
 loMaxItems :: Lens' ListOperations (Maybe Int)
 loMaxItems = lens _loMaxItems (\ s a -> s{_loMaxItems = a});
 
@@ -141,11 +141,11 @@ data ListOperationsResponse = ListOperationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lorsNextPageMarker' - If there are more operations than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ . Type: String Parent: @Operations@
+-- * 'lorsNextPageMarker' - If there are more operations than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ .
 --
 -- * 'lorsResponseStatus' - -- | The response status code.
 --
--- * 'lorsOperations' - Lists summaries of the operations. Type: Complex type containing a list of operation summaries Children: @OperationId@ , @Status@ , @SubmittedDate@ , @Type@
+-- * 'lorsOperations' - Lists summaries of the operations.
 listOperationsResponse
     :: Int -- ^ 'lorsResponseStatus'
     -> ListOperationsResponse
@@ -156,7 +156,7 @@ listOperationsResponse pResponseStatus_ =
     , _lorsOperations = mempty
     }
 
--- | If there are more operations than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ . Type: String Parent: @Operations@
+-- | If there are more operations than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ .
 lorsNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
 lorsNextPageMarker = lens _lorsNextPageMarker (\ s a -> s{_lorsNextPageMarker = a});
 
@@ -164,7 +164,7 @@ lorsNextPageMarker = lens _lorsNextPageMarker (\ s a -> s{_lorsNextPageMarker = 
 lorsResponseStatus :: Lens' ListOperationsResponse Int
 lorsResponseStatus = lens _lorsResponseStatus (\ s a -> s{_lorsResponseStatus = a});
 
--- | Lists summaries of the operations. Type: Complex type containing a list of operation summaries Children: @OperationId@ , @Status@ , @SubmittedDate@ , @Type@
+-- | Lists summaries of the operations.
 lorsOperations :: Lens' ListOperationsResponse [OperationSummary]
 lorsOperations = lens _lorsOperations (\ s a -> s{_lorsOperations = a}) . _Coerce;
 

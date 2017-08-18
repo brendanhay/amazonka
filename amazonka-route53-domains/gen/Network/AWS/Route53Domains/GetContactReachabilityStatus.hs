@@ -56,7 +56,7 @@ newtype GetContactReachabilityStatus = GetContactReachabilityStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcrsDomainName' - The name of the domain for which you want to know whether the registrant contact has confirmed that the email address is valid. Type: String Default: None Required: Yes
+-- * 'gcrsDomainName' - The name of the domain for which you want to know whether the registrant contact has confirmed that the email address is valid.
 getContactReachabilityStatus
     :: GetContactReachabilityStatus
 getContactReachabilityStatus =
@@ -64,7 +64,7 @@ getContactReachabilityStatus =
     { _gcrsDomainName = Nothing
     }
 
--- | The name of the domain for which you want to know whether the registrant contact has confirmed that the email address is valid. Type: String Default: None Required: Yes
+-- | The name of the domain for which you want to know whether the registrant contact has confirmed that the email address is valid.
 gcrsDomainName :: Lens' GetContactReachabilityStatus (Maybe Text)
 gcrsDomainName = lens _gcrsDomainName (\ s a -> s{_gcrsDomainName = a});
 
@@ -116,7 +116,7 @@ data GetContactReachabilityStatusResponse = GetContactReachabilityStatusResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcrsrsStatus' - Whether the registrant contact has responded. @PENDING@ indicates that we sent the confirmation email and haven't received a response yet, @DONE@ indicates that we sent the email and got confirmation from the registrant contact, and @EXPIRED@ indicates that the time limit expired before the registrant contact responded.  Type: String Valid values: @PENDING@ , @DONE@ , @EXPIRED@
+-- * 'gcrsrsStatus' - Whether the registrant contact has responded. Values include the following:     * PENDING    * We sent the confirmation email and haven't received a response yet.     * DONE    * We sent the email and got confirmation from the registrant contact.     * EXPIRED    * The time limit expired before the registrant contact responded.
 --
 -- * 'gcrsrsDomainName' - The domain name for which you requested the reachability status.
 --
@@ -131,7 +131,7 @@ getContactReachabilityStatusResponse pResponseStatus_ =
     , _gcrsrsResponseStatus = pResponseStatus_
     }
 
--- | Whether the registrant contact has responded. @PENDING@ indicates that we sent the confirmation email and haven't received a response yet, @DONE@ indicates that we sent the email and got confirmation from the registrant contact, and @EXPIRED@ indicates that the time limit expired before the registrant contact responded.  Type: String Valid values: @PENDING@ , @DONE@ , @EXPIRED@
+-- | Whether the registrant contact has responded. Values include the following:     * PENDING    * We sent the confirmation email and haven't received a response yet.     * DONE    * We sent the email and got confirmation from the registrant contact.     * EXPIRED    * The time limit expired before the registrant contact responded.
 gcrsrsStatus :: Lens' GetContactReachabilityStatusResponse (Maybe ReachabilityStatus)
 gcrsrsStatus = lens _gcrsrsStatus (\ s a -> s{_gcrsrsStatus = a});
 

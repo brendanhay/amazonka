@@ -44,7 +44,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53Domains.Types
 import           Network.AWS.Route53Domains.Types.Product
 
--- | The RetrieveDomainAuthCode request includes the following element.
+-- | A request for the authorization code for the specified domain. To transfer a domain to another registrar, you provide this value to the new registrar.
 --
 --
 --
@@ -57,7 +57,7 @@ newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdacDomainName' - The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported. Required: Yes
+-- * 'rdacDomainName' - The name of the domain that you want to get an authorization code for.
 retrieveDomainAuthCode
     :: Text -- ^ 'rdacDomainName'
     -> RetrieveDomainAuthCode
@@ -66,7 +66,7 @@ retrieveDomainAuthCode pDomainName_ =
     { _rdacDomainName = pDomainName_
     }
 
--- | The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported. Required: Yes
+-- | The name of the domain that you want to get an authorization code for.
 rdacDomainName :: Lens' RetrieveDomainAuthCode Text
 rdacDomainName = lens _rdacDomainName (\ s a -> s{_rdacDomainName = a});
 
@@ -121,7 +121,7 @@ data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
 --
 -- * 'rdacrsResponseStatus' - -- | The response status code.
 --
--- * 'rdacrsAuthCode' - The authorization code for the domain. Type: String
+-- * 'rdacrsAuthCode' - The authorization code for the domain.
 retrieveDomainAuthCodeResponse
     :: Int -- ^ 'rdacrsResponseStatus'
     -> Text -- ^ 'rdacrsAuthCode'
@@ -136,7 +136,7 @@ retrieveDomainAuthCodeResponse pResponseStatus_ pAuthCode_ =
 rdacrsResponseStatus :: Lens' RetrieveDomainAuthCodeResponse Int
 rdacrsResponseStatus = lens _rdacrsResponseStatus (\ s a -> s{_rdacrsResponseStatus = a});
 
--- | The authorization code for the domain. Type: String
+-- | The authorization code for the domain.
 rdacrsAuthCode :: Lens' RetrieveDomainAuthCodeResponse Text
 rdacrsAuthCode = lens _rdacrsAuthCode (\ s a -> s{_rdacrsAuthCode = a}) . _Sensitive;
 

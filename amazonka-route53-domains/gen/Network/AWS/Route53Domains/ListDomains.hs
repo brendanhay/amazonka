@@ -63,9 +63,9 @@ data ListDomains = ListDomains'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldMarker' - For an initial request for a list of domains, omit this element. If the number of domains that are associated with the current AWS account is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional domains. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element. Type: String Default: None Constraints: The marker must match the value specified in the previous request.  Required: No
+-- * 'ldMarker' - For an initial request for a list of domains, omit this element. If the number of domains that are associated with the current AWS account is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional domains. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element. Constraints: The marker must match the value specified in the previous request.
 --
--- * 'ldMaxItems' - Number of domains to be returned. Type: Integer Default: 20 Constraints: A numeral between 1 and 100. Required: No
+-- * 'ldMaxItems' - Number of domains to be returned. Default: 20
 listDomains
     :: ListDomains
 listDomains =
@@ -74,11 +74,11 @@ listDomains =
     , _ldMaxItems = Nothing
     }
 
--- | For an initial request for a list of domains, omit this element. If the number of domains that are associated with the current AWS account is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional domains. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element. Type: String Default: None Constraints: The marker must match the value specified in the previous request.  Required: No
+-- | For an initial request for a list of domains, omit this element. If the number of domains that are associated with the current AWS account is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional domains. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element. Constraints: The marker must match the value specified in the previous request.
 ldMarker :: Lens' ListDomains (Maybe Text)
 ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a});
 
--- | Number of domains to be returned. Type: Integer Default: 20 Constraints: A numeral between 1 and 100. Required: No
+-- | Number of domains to be returned. Default: 20
 ldMaxItems :: Lens' ListDomains (Maybe Int)
 ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a});
 
@@ -141,11 +141,11 @@ data ListDomainsResponse = ListDomainsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldrsNextPageMarker' - If there are more domains than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ . Type: String Parent: @Operations@
+-- * 'ldrsNextPageMarker' - If there are more domains than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ .
 --
 -- * 'ldrsResponseStatus' - -- | The response status code.
 --
--- * 'ldrsDomains' - A summary of domains. Type: Complex type containing a list of domain summaries. Children: @AutoRenew@ , @DomainName@ , @Expiry@ , @TransferLock@
+-- * 'ldrsDomains' - A summary of domains.
 listDomainsResponse
     :: Int -- ^ 'ldrsResponseStatus'
     -> ListDomainsResponse
@@ -156,7 +156,7 @@ listDomainsResponse pResponseStatus_ =
     , _ldrsDomains = mempty
     }
 
--- | If there are more domains than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ . Type: String Parent: @Operations@
+-- | If there are more domains than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ .
 ldrsNextPageMarker :: Lens' ListDomainsResponse (Maybe Text)
 ldrsNextPageMarker = lens _ldrsNextPageMarker (\ s a -> s{_ldrsNextPageMarker = a});
 
@@ -164,7 +164,7 @@ ldrsNextPageMarker = lens _ldrsNextPageMarker (\ s a -> s{_ldrsNextPageMarker = 
 ldrsResponseStatus :: Lens' ListDomainsResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
 
--- | A summary of domains. Type: Complex type containing a list of domain summaries. Children: @AutoRenew@ , @DomainName@ , @Expiry@ , @TransferLock@
+-- | A summary of domains.
 ldrsDomains :: Lens' ListDomainsResponse [DomainSummary]
 ldrsDomains = lens _ldrsDomains (\ s a -> s{_ldrsDomains = a}) . _Coerce;
 

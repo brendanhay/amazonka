@@ -47,14 +47,14 @@ library
         , Network.AWS.Discovery.DeleteTags
         , Network.AWS.Discovery.DescribeAgents
         , Network.AWS.Discovery.DescribeConfigurations
-        , Network.AWS.Discovery.DescribeExportConfigurations
+        , Network.AWS.Discovery.DescribeExportTasks
         , Network.AWS.Discovery.DescribeTags
         , Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication
-        , Network.AWS.Discovery.ExportConfigurations
         , Network.AWS.Discovery.GetDiscoverySummary
         , Network.AWS.Discovery.ListConfigurations
         , Network.AWS.Discovery.ListServerNeighbors
         , Network.AWS.Discovery.StartDataCollectionByAgentIds
+        , Network.AWS.Discovery.StartExportTask
         , Network.AWS.Discovery.StopDataCollectionByAgentIds
         , Network.AWS.Discovery.Types
         , Network.AWS.Discovery.UpdateApplication

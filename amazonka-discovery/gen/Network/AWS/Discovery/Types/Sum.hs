@@ -92,6 +92,32 @@ instance ToJSON ConfigurationItemType where
 instance FromJSON ConfigurationItemType where
     parseJSON = parseJSONText "ConfigurationItemType"
 
+data ExportDataFormat
+    = CSV
+    | Graphml
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ExportDataFormat where
+    parser = takeLowerText >>= \case
+        "csv" -> pure CSV
+        "graphml" -> pure Graphml
+        e -> fromTextError $ "Failure parsing ExportDataFormat from value: '" <> e
+           <> "'. Accepted values: csv, graphml"
+
+instance ToText ExportDataFormat where
+    toText = \case
+        CSV -> "CSV"
+        Graphml -> "GRAPHML"
+
+instance Hashable     ExportDataFormat
+instance NFData       ExportDataFormat
+instance ToByteString ExportDataFormat
+instance ToQuery      ExportDataFormat
+instance ToHeader     ExportDataFormat
+
+instance ToJSON ExportDataFormat where
+    toJSON = toJSONText
+
 data ExportStatus
     = Failed
     | InProgress

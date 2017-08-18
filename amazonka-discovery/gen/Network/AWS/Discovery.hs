@@ -23,13 +23,13 @@
 --
 --
 --
--- Application Discovery Service integrates with application discovery solutions from AWS Partner Network (APN) partners. Third-party application discovery tools can query the Application Discovery Service and write to the Application Discovery Service database using a public API. You can then import the data into either a visualization tool or cloud-migration solution.
+-- Application Discovery Service integrates with application discovery solutions from AWS Partner Network (APN) partners. Third-party application discovery tools can query Application Discovery Service and write to the Application Discovery Service database using a public API. You can then import the data into either a visualization tool or cloud-migration solution.
 --
 -- /Important:/ Application Discovery Service doesn't gather sensitive information. All data is handled according to the <http://aws.amazon.com/privacy/ AWS Privacy Policy> . You can operate Application Discovery Service using offline mode to inspect collected data before it is shared with the service.
 --
--- Your AWS account must be granted access to Application Discovery Service, a process called /whitelisting/ . This is true for AWS partners and customers alike. To request access, sign up for the AWS Application Discovery Service <http://aws.amazon.com/application-discovery/preview/ here> . We will send you information about how to get started.
+-- Your AWS account must be granted access to Application Discovery Service, a process called /whitelisting/ . This is true for AWS partners and customers alike. To request access, sign up for AWS Application Discovery Service <http://aws.amazon.com/application-discovery/preview/ here> . We send you information about how to get started.
 --
--- This API reference provides descriptions, syntax, and usage examples for each of the actions and data types for the Application Discovery Service. The topic for each action shows the API request parameters and the response. Alternatively, you can use one of the AWS SDKs to access an API that is tailored to the programming language or platform that you're using. For more information, see <http://aws.amazon.com/tools/#SDKs AWS SDKs> .
+-- This API reference provides descriptions, syntax, and usage examples for each of the actions and data types for Application Discovery Service. The topic for each action shows the API request parameters and the response. Alternatively, you can use one of the AWS SDKs to access an API that is tailored to the programming language or platform that you're using. For more information, see <http://aws.amazon.com/tools/#SDKs AWS SDKs> .
 --
 -- This guide is intended for use with the <http://docs.aws.amazon.com/application-discovery/latest/userguide/ /AWS Application Discovery Service User Guide/ > .
 --
@@ -68,9 +68,6 @@ module Network.AWS.Discovery
     -- ** DescribeTags
     , module Network.AWS.Discovery.DescribeTags
 
-    -- ** ExportConfigurations
-    , module Network.AWS.Discovery.ExportConfigurations
-
     -- ** StopDataCollectionByAgentIds
     , module Network.AWS.Discovery.StopDataCollectionByAgentIds
 
@@ -98,8 +95,8 @@ module Network.AWS.Discovery
     -- ** DescribeAgents
     , module Network.AWS.Discovery.DescribeAgents
 
-    -- ** DescribeExportConfigurations
-    , module Network.AWS.Discovery.DescribeExportConfigurations
+    -- ** DescribeExportTasks
+    , module Network.AWS.Discovery.DescribeExportTasks
 
     -- ** StartDataCollectionByAgentIds
     , module Network.AWS.Discovery.StartDataCollectionByAgentIds
@@ -116,6 +113,9 @@ module Network.AWS.Discovery
     -- ** ListServerNeighbors
     , module Network.AWS.Discovery.ListServerNeighbors
 
+    -- ** StartExportTask
+    , module Network.AWS.Discovery.StartExportTask
+
     -- * Types
 
     -- ** AgentStatus
@@ -123,6 +123,9 @@ module Network.AWS.Discovery
 
     -- ** ConfigurationItemType
     , ConfigurationItemType (..)
+
+    -- ** ExportDataFormat
+    , ExportDataFormat (..)
 
     -- ** ExportStatus
     , ExportStatus (..)
@@ -188,10 +191,20 @@ module Network.AWS.Discovery
     , cciTotalConnectors
     , cciUnknownConnectors
 
+    -- ** ExportFilter
+    , ExportFilter
+    , exportFilter
+    , efName
+    , efValues
+    , efCondition
+
     -- ** ExportInfo
     , ExportInfo
     , exportInfo
     , eiConfigurationsDownloadURL
+    , eiRequestedStartTime
+    , eiRequestedEndTime
+    , eiIsTruncated
     , eiExportId
     , eiExportStatus
     , eiStatusMessage
@@ -239,14 +252,14 @@ import           Network.AWS.Discovery.DeleteApplications
 import           Network.AWS.Discovery.DeleteTags
 import           Network.AWS.Discovery.DescribeAgents
 import           Network.AWS.Discovery.DescribeConfigurations
-import           Network.AWS.Discovery.DescribeExportConfigurations
+import           Network.AWS.Discovery.DescribeExportTasks
 import           Network.AWS.Discovery.DescribeTags
 import           Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication
-import           Network.AWS.Discovery.ExportConfigurations
 import           Network.AWS.Discovery.GetDiscoverySummary
 import           Network.AWS.Discovery.ListConfigurations
 import           Network.AWS.Discovery.ListServerNeighbors
 import           Network.AWS.Discovery.StartDataCollectionByAgentIds
+import           Network.AWS.Discovery.StartExportTask
 import           Network.AWS.Discovery.StopDataCollectionByAgentIds
 import           Network.AWS.Discovery.Types
 import           Network.AWS.Discovery.UpdateApplication

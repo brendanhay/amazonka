@@ -54,9 +54,9 @@ data DisassociateConfigurationItemsFromApplication = DisassociateConfigurationIt
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcifaApplicationConfigurationId' - Configuration ID of an application from which each item will be disassociated.
+-- * 'dcifaApplicationConfigurationId' - Configuration ID of an application from which each item is disassociated.
 --
--- * 'dcifaConfigurationIds' - Configuration ID of each item be be disassociated from an application.
+-- * 'dcifaConfigurationIds' - Configuration ID of each item to be disassociated from an application.
 disassociateConfigurationItemsFromApplication
     :: Text -- ^ 'dcifaApplicationConfigurationId'
     -> DisassociateConfigurationItemsFromApplication
@@ -66,11 +66,11 @@ disassociateConfigurationItemsFromApplication pApplicationConfigurationId_ =
     , _dcifaConfigurationIds = mempty
     }
 
--- | Configuration ID of an application from which each item will be disassociated.
+-- | Configuration ID of an application from which each item is disassociated.
 dcifaApplicationConfigurationId :: Lens' DisassociateConfigurationItemsFromApplication Text
 dcifaApplicationConfigurationId = lens _dcifaApplicationConfigurationId (\ s a -> s{_dcifaApplicationConfigurationId = a});
 
--- | Configuration ID of each item be be disassociated from an application.
+-- | Configuration ID of each item to be disassociated from an application.
 dcifaConfigurationIds :: Lens' DisassociateConfigurationItemsFromApplication [Text]
 dcifaConfigurationIds = lens _dcifaConfigurationIds (\ s a -> s{_dcifaConfigurationIds = a}) . _Coerce;
 

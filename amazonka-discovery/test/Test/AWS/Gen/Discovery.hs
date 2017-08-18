@@ -31,9 +31,6 @@ import Test.AWS.Discovery.Internal
 --         [ requestDescribeTags $
 --             describeTags
 --
---         , requestExportConfigurations $
---             exportConfigurations
---
 --         , requestStopDataCollectionByAgentIds $
 --             stopDataCollectionByAgentIds
 --
@@ -61,8 +58,8 @@ import Test.AWS.Discovery.Internal
 --         , requestDescribeAgents $
 --             describeAgents
 --
---         , requestDescribeExportConfigurations $
---             describeExportConfigurations
+--         , requestDescribeExportTasks $
+--             describeExportTasks
 --
 --         , requestStartDataCollectionByAgentIds $
 --             startDataCollectionByAgentIds
@@ -79,14 +76,14 @@ import Test.AWS.Discovery.Internal
 --         , requestListServerNeighbors $
 --             listServerNeighbors
 --
+--         , requestStartExportTask $
+--             startExportTask
+--
 --           ]
 
 --     , testGroup "response"
 --         [ responseDescribeTags $
 --             describeTagsResponse
---
---         , responseExportConfigurations $
---             exportConfigurationsResponse
 --
 --         , responseStopDataCollectionByAgentIds $
 --             stopDataCollectionByAgentIdsResponse
@@ -115,8 +112,8 @@ import Test.AWS.Discovery.Internal
 --         , responseDescribeAgents $
 --             describeAgentsResponse
 --
---         , responseDescribeExportConfigurations $
---             describeExportConfigurationsResponse
+--         , responseDescribeExportTasks $
+--             describeExportTasksResponse
 --
 --         , responseStartDataCollectionByAgentIds $
 --             startDataCollectionByAgentIdsResponse
@@ -133,6 +130,9 @@ import Test.AWS.Discovery.Internal
 --         , responseListServerNeighbors $
 --             listServerNeighborsResponse
 --
+--         , responseStartExportTask $
+--             startExportTaskResponse
+--
 --           ]
 --     ]
 
@@ -142,11 +142,6 @@ requestDescribeTags :: DescribeTags -> TestTree
 requestDescribeTags = req
     "DescribeTags"
     "fixture/DescribeTags.yaml"
-
-requestExportConfigurations :: ExportConfigurations -> TestTree
-requestExportConfigurations = req
-    "ExportConfigurations"
-    "fixture/ExportConfigurations.yaml"
 
 requestStopDataCollectionByAgentIds :: StopDataCollectionByAgentIds -> TestTree
 requestStopDataCollectionByAgentIds = req
@@ -193,10 +188,10 @@ requestDescribeAgents = req
     "DescribeAgents"
     "fixture/DescribeAgents.yaml"
 
-requestDescribeExportConfigurations :: DescribeExportConfigurations -> TestTree
-requestDescribeExportConfigurations = req
-    "DescribeExportConfigurations"
-    "fixture/DescribeExportConfigurations.yaml"
+requestDescribeExportTasks :: DescribeExportTasks -> TestTree
+requestDescribeExportTasks = req
+    "DescribeExportTasks"
+    "fixture/DescribeExportTasks.yaml"
 
 requestStartDataCollectionByAgentIds :: StartDataCollectionByAgentIds -> TestTree
 requestStartDataCollectionByAgentIds = req
@@ -223,6 +218,11 @@ requestListServerNeighbors = req
     "ListServerNeighbors"
     "fixture/ListServerNeighbors.yaml"
 
+requestStartExportTask :: StartExportTask -> TestTree
+requestStartExportTask = req
+    "StartExportTask"
+    "fixture/StartExportTask.yaml"
+
 -- Responses
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
@@ -231,13 +231,6 @@ responseDescribeTags = res
     "fixture/DescribeTagsResponse.proto"
     discovery
     (Proxy :: Proxy DescribeTags)
-
-responseExportConfigurations :: ExportConfigurationsResponse -> TestTree
-responseExportConfigurations = res
-    "ExportConfigurationsResponse"
-    "fixture/ExportConfigurationsResponse.proto"
-    discovery
-    (Proxy :: Proxy ExportConfigurations)
 
 responseStopDataCollectionByAgentIds :: StopDataCollectionByAgentIdsResponse -> TestTree
 responseStopDataCollectionByAgentIds = res
@@ -302,12 +295,12 @@ responseDescribeAgents = res
     discovery
     (Proxy :: Proxy DescribeAgents)
 
-responseDescribeExportConfigurations :: DescribeExportConfigurationsResponse -> TestTree
-responseDescribeExportConfigurations = res
-    "DescribeExportConfigurationsResponse"
-    "fixture/DescribeExportConfigurationsResponse.proto"
+responseDescribeExportTasks :: DescribeExportTasksResponse -> TestTree
+responseDescribeExportTasks = res
+    "DescribeExportTasksResponse"
+    "fixture/DescribeExportTasksResponse.proto"
     discovery
-    (Proxy :: Proxy DescribeExportConfigurations)
+    (Proxy :: Proxy DescribeExportTasks)
 
 responseStartDataCollectionByAgentIds :: StartDataCollectionByAgentIdsResponse -> TestTree
 responseStartDataCollectionByAgentIds = res
@@ -343,3 +336,10 @@ responseListServerNeighbors = res
     "fixture/ListServerNeighborsResponse.proto"
     discovery
     (Proxy :: Proxy ListServerNeighbors)
+
+responseStartExportTask :: StartExportTaskResponse -> TestTree
+responseStartExportTask = res
+    "StartExportTaskResponse"
+    "fixture/StartExportTaskResponse.proto"
+    discovery
+    (Proxy :: Proxy StartExportTask)

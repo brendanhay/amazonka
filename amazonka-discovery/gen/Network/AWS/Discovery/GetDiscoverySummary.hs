@@ -111,17 +111,17 @@ data GetDiscoverySummaryResponse = GetDiscoverySummaryResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdsrsServers' - Number of servers discovered.
+-- * 'gdsrsServers' - The number of servers discovered.
 --
--- * 'gdsrsServersMappedtoTags' - Number of servers mapped to tags.
+-- * 'gdsrsServersMappedtoTags' - The number of servers mapped to tags.
 --
--- * 'gdsrsServersMappedToApplications' - Number of servers mapped to applications.
+-- * 'gdsrsServersMappedToApplications' - The number of servers mapped to applications.
 --
 -- * 'gdsrsConnectorSummary' - Details about discovered connectors, including connector status and health.
 --
 -- * 'gdsrsAgentSummary' - Details about discovered agents, including agent status and health.
 --
--- * 'gdsrsApplications' - Number of applications discovered.
+-- * 'gdsrsApplications' - The number of applications discovered.
 --
 -- * 'gdsrsResponseStatus' - -- | The response status code.
 getDiscoverySummaryResponse
@@ -138,15 +138,15 @@ getDiscoverySummaryResponse pResponseStatus_ =
     , _gdsrsResponseStatus = pResponseStatus_
     }
 
--- | Number of servers discovered.
+-- | The number of servers discovered.
 gdsrsServers :: Lens' GetDiscoverySummaryResponse (Maybe Integer)
 gdsrsServers = lens _gdsrsServers (\ s a -> s{_gdsrsServers = a});
 
--- | Number of servers mapped to tags.
+-- | The number of servers mapped to tags.
 gdsrsServersMappedtoTags :: Lens' GetDiscoverySummaryResponse (Maybe Integer)
 gdsrsServersMappedtoTags = lens _gdsrsServersMappedtoTags (\ s a -> s{_gdsrsServersMappedtoTags = a});
 
--- | Number of servers mapped to applications.
+-- | The number of servers mapped to applications.
 gdsrsServersMappedToApplications :: Lens' GetDiscoverySummaryResponse (Maybe Integer)
 gdsrsServersMappedToApplications = lens _gdsrsServersMappedToApplications (\ s a -> s{_gdsrsServersMappedToApplications = a});
 
@@ -158,7 +158,7 @@ gdsrsConnectorSummary = lens _gdsrsConnectorSummary (\ s a -> s{_gdsrsConnectorS
 gdsrsAgentSummary :: Lens' GetDiscoverySummaryResponse (Maybe CustomerAgentInfo)
 gdsrsAgentSummary = lens _gdsrsAgentSummary (\ s a -> s{_gdsrsAgentSummary = a});
 
--- | Number of applications discovered.
+-- | The number of applications discovered.
 gdsrsApplications :: Lens' GetDiscoverySummaryResponse (Maybe Integer)
 gdsrsApplications = lens _gdsrsApplications (\ s a -> s{_gdsrsApplications = a});
 

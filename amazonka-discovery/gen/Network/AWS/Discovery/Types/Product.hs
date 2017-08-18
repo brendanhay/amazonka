@@ -21,7 +21,7 @@ import           Network.AWS.Discovery.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | Information about agents or Connectors that were instructed to start collecting data. Information includes the agent/Connector ID, a description of the operation, and whether or not the agent/Connector configuration was updated.
+-- | Information about agents or connectors that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation, and whether the agent/connector configuration was updated.
 --
 --
 --
@@ -36,9 +36,9 @@ data AgentConfigurationStatus = AgentConfigurationStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acsAgentId' - The agent/Connector ID.
+-- * 'acsAgentId' - The agent/connector ID.
 --
--- * 'acsOperationSucceeded' - Information about the status of the @StartDataCollection@ and @StopDataCollection@ operations. The system has recorded the data collection operation. The agent/Connector receives this command the next time it polls for a new command.
+-- * 'acsOperationSucceeded' - Information about the status of the @StartDataCollection@ and @StopDataCollection@ operations. The system has recorded the data collection operation. The agent/connector receives this command the next time it polls for a new command.
 --
 -- * 'acsDescription' - A description of the operation performed.
 agentConfigurationStatus
@@ -50,11 +50,11 @@ agentConfigurationStatus =
     , _acsDescription = Nothing
     }
 
--- | The agent/Connector ID.
+-- | The agent/connector ID.
 acsAgentId :: Lens' AgentConfigurationStatus (Maybe Text)
 acsAgentId = lens _acsAgentId (\ s a -> s{_acsAgentId = a});
 
--- | Information about the status of the @StartDataCollection@ and @StopDataCollection@ operations. The system has recorded the data collection operation. The agent/Connector receives this command the next time it polls for a new command.
+-- | Information about the status of the @StartDataCollection@ and @StopDataCollection@ operations. The system has recorded the data collection operation. The agent/connector receives this command the next time it polls for a new command.
 acsOperationSucceeded :: Lens' AgentConfigurationStatus (Maybe Bool)
 acsOperationSucceeded = lens _acsOperationSucceeded (\ s a -> s{_acsOperationSucceeded = a});
 
@@ -112,7 +112,7 @@ data AgentInfo = AgentInfo'
 --
 -- * 'aiCollectionStatus' - Status of the collection process for an agent or connector.
 --
--- * 'aiRegisteredTime' - Agent's first registration time stamp in UTC.
+-- * 'aiRegisteredTime' - Agent's first registration timestamp in UTC.
 --
 -- * 'aiAgentType' - Type of agent.
 agentInfo
@@ -163,7 +163,7 @@ aiVersion = lens _aiVersion (\ s a -> s{_aiVersion = a});
 aiCollectionStatus :: Lens' AgentInfo (Maybe Text)
 aiCollectionStatus = lens _aiCollectionStatus (\ s a -> s{_aiCollectionStatus = a});
 
--- | Agent's first registration time stamp in UTC.
+-- | Agent's first registration timestamp in UTC.
 aiRegisteredTime :: Lens' AgentInfo (Maybe Text)
 aiRegisteredTime = lens _aiRegisteredTime (\ s a -> s{_aiRegisteredTime = a});
 
@@ -190,7 +190,7 @@ instance Hashable AgentInfo
 
 instance NFData AgentInfo
 
--- | Network details about the host where the agent/Connector resides.
+-- | Network details about the host where the agent/connector resides.
 --
 --
 --
@@ -204,9 +204,9 @@ data AgentNetworkInfo = AgentNetworkInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aniIpAddress' - The IP address for the host where the agent/Connector resides.
+-- * 'aniIpAddress' - The IP address for the host where the agent/connector resides.
 --
--- * 'aniMacAddress' - The MAC address for the host where the agent/Connector resides.
+-- * 'aniMacAddress' - The MAC address for the host where the agent/connector resides.
 agentNetworkInfo
     :: AgentNetworkInfo
 agentNetworkInfo =
@@ -215,11 +215,11 @@ agentNetworkInfo =
     , _aniMacAddress = Nothing
     }
 
--- | The IP address for the host where the agent/Connector resides.
+-- | The IP address for the host where the agent/connector resides.
 aniIpAddress :: Lens' AgentNetworkInfo (Maybe Text)
 aniIpAddress = lens _aniIpAddress (\ s a -> s{_aniIpAddress = a});
 
--- | The MAC address for the host where the agent/Connector resides.
+-- | The MAC address for the host where the agent/connector resides.
 aniMacAddress :: Lens' AgentNetworkInfo (Maybe Text)
 aniMacAddress = lens _aniMacAddress (\ s a -> s{_aniMacAddress = a});
 
@@ -253,13 +253,13 @@ data ConfigurationTag = ConfigurationTag'
 --
 -- * 'ctTimeOfCreation' - The time the configuration tag was created in Coordinated Universal Time (UTC).
 --
--- * 'ctConfigurationId' - The configuration ID for the item you want to tag. You can specify a list of keys and values.
+-- * 'ctConfigurationId' - The configuration ID for the item to tag. You can specify a list of keys and values.
 --
--- * 'ctConfigurationType' - A type of IT asset that you want to tag.
+-- * 'ctConfigurationType' - A type of IT asset to tag.
 --
--- * 'ctValue' - A value to filter on. For example /key = serverType/ and /value = web server/ .
+-- * 'ctValue' - A value on which to filter. For example /key = serverType/ and /value = web server/ .
 --
--- * 'ctKey' - A type of tag to filter on. For example, /serverType/ .
+-- * 'ctKey' - A type of tag on which to filter. For example, /serverType/ .
 configurationTag
     :: ConfigurationTag
 configurationTag =
@@ -275,19 +275,19 @@ configurationTag =
 ctTimeOfCreation :: Lens' ConfigurationTag (Maybe UTCTime)
 ctTimeOfCreation = lens _ctTimeOfCreation (\ s a -> s{_ctTimeOfCreation = a}) . mapping _Time;
 
--- | The configuration ID for the item you want to tag. You can specify a list of keys and values.
+-- | The configuration ID for the item to tag. You can specify a list of keys and values.
 ctConfigurationId :: Lens' ConfigurationTag (Maybe Text)
 ctConfigurationId = lens _ctConfigurationId (\ s a -> s{_ctConfigurationId = a});
 
--- | A type of IT asset that you want to tag.
+-- | A type of IT asset to tag.
 ctConfigurationType :: Lens' ConfigurationTag (Maybe ConfigurationItemType)
 ctConfigurationType = lens _ctConfigurationType (\ s a -> s{_ctConfigurationType = a});
 
--- | A value to filter on. For example /key = serverType/ and /value = web server/ .
+-- | A value on which to filter. For example /key = serverType/ and /value = web server/ .
 ctValue :: Lens' ConfigurationTag (Maybe Text)
 ctValue = lens _ctValue (\ s a -> s{_ctValue = a});
 
--- | A type of tag to filter on. For example, /serverType/ .
+-- | A type of tag on which to filter. For example, /serverType/ .
 ctKey :: Lens' ConfigurationTag (Maybe Text)
 ctKey = lens _ctKey (\ s a -> s{_ctKey = a});
 
@@ -499,13 +499,71 @@ instance Hashable CustomerConnectorInfo
 
 instance NFData CustomerConnectorInfo
 
--- | Information regarding the export status of the discovered data. The value is an array of objects.
+-- | Used to select which agent's data is to be exported. A single agent ID may be selected for export using the <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_StartExportTask.html StartExportTask> action.
+--
+--
+--
+-- /See:/ 'exportFilter' smart constructor.
+data ExportFilter = ExportFilter'
+    { _efName      :: !Text
+    , _efValues    :: ![Text]
+    , _efCondition :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ExportFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'efName' - A single @ExportFilter@ name. Supported filters: @agentId@ .
+--
+-- * 'efValues' - A single @agentId@ for a Discovery Agent. An @agentId@ can be found using the <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html DescribeAgents> action. Typically an ADS @agentId@ is in the form @o-0123456789abcdef0@ .
+--
+-- * 'efCondition' - Supported condition: @EQUALS@
+exportFilter
+    :: Text -- ^ 'efName'
+    -> Text -- ^ 'efCondition'
+    -> ExportFilter
+exportFilter pName_ pCondition_ =
+    ExportFilter'
+    { _efName = pName_
+    , _efValues = mempty
+    , _efCondition = pCondition_
+    }
+
+-- | A single @ExportFilter@ name. Supported filters: @agentId@ .
+efName :: Lens' ExportFilter Text
+efName = lens _efName (\ s a -> s{_efName = a});
+
+-- | A single @agentId@ for a Discovery Agent. An @agentId@ can be found using the <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html DescribeAgents> action. Typically an ADS @agentId@ is in the form @o-0123456789abcdef0@ .
+efValues :: Lens' ExportFilter [Text]
+efValues = lens _efValues (\ s a -> s{_efValues = a}) . _Coerce;
+
+-- | Supported condition: @EQUALS@
+efCondition :: Lens' ExportFilter Text
+efCondition = lens _efCondition (\ s a -> s{_efCondition = a});
+
+instance Hashable ExportFilter
+
+instance NFData ExportFilter
+
+instance ToJSON ExportFilter where
+        toJSON ExportFilter'{..}
+          = object
+              (catMaybes
+                 [Just ("name" .= _efName),
+                  Just ("values" .= _efValues),
+                  Just ("condition" .= _efCondition)])
+
+-- | Information regarding the export status of discovered data. The value is an array of objects.
 --
 --
 --
 -- /See:/ 'exportInfo' smart constructor.
 data ExportInfo = ExportInfo'
     { _eiConfigurationsDownloadURL :: !(Maybe Text)
+    , _eiRequestedStartTime        :: !(Maybe POSIX)
+    , _eiRequestedEndTime          :: !(Maybe POSIX)
+    , _eiIsTruncated               :: !(Maybe Bool)
     , _eiExportId                  :: !Text
     , _eiExportStatus              :: !ExportStatus
     , _eiStatusMessage             :: !Text
@@ -516,15 +574,21 @@ data ExportInfo = ExportInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eiConfigurationsDownloadURL' - A URL for an Amazon S3 bucket where you can review the configuration data. The URL is displayed only if the export succeeded.
+-- * 'eiConfigurationsDownloadURL' - A URL for an Amazon S3 bucket where you can review the exported data. The URL is displayed only if the export succeeded.
 --
--- * 'eiExportId' - A unique identifier that you can use to query the export.
+-- * 'eiRequestedStartTime' - The value of @startTime@ parameter in the @StartExportTask@ request. If no @startTime@ was requested, this result does not appear in @ExportInfo@ .
 --
--- * 'eiExportStatus' - The status of the configuration data export. The status can succeed, fail, or be in-progress.
+-- * 'eiRequestedEndTime' - The @endTime@ used in the @StartExportTask@ request. If no @endTime@ was requested, this result does not appear in @ExportInfo@ .
 --
--- * 'eiStatusMessage' - Helpful status messages for API callers. For example: Too many exports in the last 6 hours. Export in progress. Export was successful.
+-- * 'eiIsTruncated' - If true, the export of agent information exceeded the size limit for a single export and the exported data is incomplete for the requested time range. To address this, select a smaller time range for the export by using @startDate@ and @endDate@ .
 --
--- * 'eiExportRequestTime' - The time the configuration data export was initiated.
+-- * 'eiExportId' - A unique identifier used to query an export.
+--
+-- * 'eiExportStatus' - The status of the data export job.
+--
+-- * 'eiStatusMessage' - A status message provided for API callers.
+--
+-- * 'eiExportRequestTime' - The time that the data export was initiated.
 exportInfo
     :: Text -- ^ 'eiExportId'
     -> ExportStatus -- ^ 'eiExportStatus'
@@ -534,29 +598,44 @@ exportInfo
 exportInfo pExportId_ pExportStatus_ pStatusMessage_ pExportRequestTime_ =
     ExportInfo'
     { _eiConfigurationsDownloadURL = Nothing
+    , _eiRequestedStartTime = Nothing
+    , _eiRequestedEndTime = Nothing
+    , _eiIsTruncated = Nothing
     , _eiExportId = pExportId_
     , _eiExportStatus = pExportStatus_
     , _eiStatusMessage = pStatusMessage_
     , _eiExportRequestTime = _Time # pExportRequestTime_
     }
 
--- | A URL for an Amazon S3 bucket where you can review the configuration data. The URL is displayed only if the export succeeded.
+-- | A URL for an Amazon S3 bucket where you can review the exported data. The URL is displayed only if the export succeeded.
 eiConfigurationsDownloadURL :: Lens' ExportInfo (Maybe Text)
 eiConfigurationsDownloadURL = lens _eiConfigurationsDownloadURL (\ s a -> s{_eiConfigurationsDownloadURL = a});
 
--- | A unique identifier that you can use to query the export.
+-- | The value of @startTime@ parameter in the @StartExportTask@ request. If no @startTime@ was requested, this result does not appear in @ExportInfo@ .
+eiRequestedStartTime :: Lens' ExportInfo (Maybe UTCTime)
+eiRequestedStartTime = lens _eiRequestedStartTime (\ s a -> s{_eiRequestedStartTime = a}) . mapping _Time;
+
+-- | The @endTime@ used in the @StartExportTask@ request. If no @endTime@ was requested, this result does not appear in @ExportInfo@ .
+eiRequestedEndTime :: Lens' ExportInfo (Maybe UTCTime)
+eiRequestedEndTime = lens _eiRequestedEndTime (\ s a -> s{_eiRequestedEndTime = a}) . mapping _Time;
+
+-- | If true, the export of agent information exceeded the size limit for a single export and the exported data is incomplete for the requested time range. To address this, select a smaller time range for the export by using @startDate@ and @endDate@ .
+eiIsTruncated :: Lens' ExportInfo (Maybe Bool)
+eiIsTruncated = lens _eiIsTruncated (\ s a -> s{_eiIsTruncated = a});
+
+-- | A unique identifier used to query an export.
 eiExportId :: Lens' ExportInfo Text
 eiExportId = lens _eiExportId (\ s a -> s{_eiExportId = a});
 
--- | The status of the configuration data export. The status can succeed, fail, or be in-progress.
+-- | The status of the data export job.
 eiExportStatus :: Lens' ExportInfo ExportStatus
 eiExportStatus = lens _eiExportStatus (\ s a -> s{_eiExportStatus = a});
 
--- | Helpful status messages for API callers. For example: Too many exports in the last 6 hours. Export in progress. Export was successful.
+-- | A status message provided for API callers.
 eiStatusMessage :: Lens' ExportInfo Text
 eiStatusMessage = lens _eiStatusMessage (\ s a -> s{_eiStatusMessage = a});
 
--- | The time the configuration data export was initiated.
+-- | The time that the data export was initiated.
 eiExportRequestTime :: Lens' ExportInfo UTCTime
 eiExportRequestTime = lens _eiExportRequestTime (\ s a -> s{_eiExportRequestTime = a}) . _Time;
 
@@ -566,7 +645,10 @@ instance FromJSON ExportInfo where
               (\ x ->
                  ExportInfo' <$>
                    (x .:? "configurationsDownloadUrl") <*>
-                     (x .: "exportId")
+                     (x .:? "requestedStartTime")
+                     <*> (x .:? "requestedEndTime")
+                     <*> (x .:? "isTruncated")
+                     <*> (x .: "exportId")
                      <*> (x .: "exportStatus")
                      <*> (x .: "statusMessage")
                      <*> (x .: "exportRequestTime"))
@@ -578,7 +660,7 @@ instance NFData ExportInfo
 -- | A filter that can use conditional operators.
 --
 --
--- for a complete list of filters and guidance for using them with the Application Discovery Service, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/querying-configuration-items.html Querying Discovered Configuration Items> .
+-- For more information about filters, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html Querying Discovered Configuration Items> .
 --
 --
 -- /See:/ 'filter'' smart constructor.
@@ -594,7 +676,7 @@ data Filter = Filter'
 --
 -- * 'fName' - The name of the filter.
 --
--- * 'fValues' - A string value that you want to filter on. For example, if you choose the @destinationServer.osVersion@ filter name, you could specify @Ubuntu@ for the value.
+-- * 'fValues' - A string value on which to filter. For example, if you choose the @destinationServer.osVersion@ filter name, you could specify @Ubuntu@ for the value.
 --
 -- * 'fCondition' - A conditional operator. The following operators are valid: EQUALS, NOT_EQUALS, CONTAINS, NOT_CONTAINS. If you specify multiple filters, the system utilizes all filters as though concatenated by /AND/ . If you specify multiple values for a particular filter, the system differentiates the values using /OR/ . Calling either /DescribeConfigurations/ or /ListConfigurations/ returns attributes of matching configuration items.
 filter'
@@ -612,7 +694,7 @@ filter' pName_ pCondition_ =
 fName :: Lens' Filter Text
 fName = lens _fName (\ s a -> s{_fName = a});
 
--- | A string value that you want to filter on. For example, if you choose the @destinationServer.osVersion@ filter name, you could specify @Ubuntu@ for the value.
+-- | A string value on which to filter. For example, if you choose the @destinationServer.osVersion@ filter name, you could specify @Ubuntu@ for the value.
 fValues :: Lens' Filter [Text]
 fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Coerce;
 
@@ -649,15 +731,15 @@ data NeighborConnectionDetail = NeighborConnectionDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ncdTransportProtocol' - Network protocol used for the connection.
+-- * 'ncdTransportProtocol' - The network protocol used for the connection.
 --
--- * 'ncdDestinationPort' - Destination network port for the connection.
+-- * 'ncdDestinationPort' - The destination network port for the connection.
 --
--- * 'ncdSourceServerId' - ID of server that opened the network connection.
+-- * 'ncdSourceServerId' - The ID of the server that opened the network connection.
 --
--- * 'ncdDestinationServerId' - ID of the server that accepted the networker connection.
+-- * 'ncdDestinationServerId' - The ID of the server that accepted the network connection.
 --
--- * 'ncdConnectionsCount' - Number of open network connections with the neighboring server.
+-- * 'ncdConnectionsCount' - The number of open network connections with the neighboring server.
 neighborConnectionDetail
     :: Text -- ^ 'ncdSourceServerId'
     -> Text -- ^ 'ncdDestinationServerId'
@@ -672,23 +754,23 @@ neighborConnectionDetail pSourceServerId_ pDestinationServerId_ pConnectionsCoun
     , _ncdConnectionsCount = pConnectionsCount_
     }
 
--- | Network protocol used for the connection.
+-- | The network protocol used for the connection.
 ncdTransportProtocol :: Lens' NeighborConnectionDetail (Maybe Text)
 ncdTransportProtocol = lens _ncdTransportProtocol (\ s a -> s{_ncdTransportProtocol = a});
 
--- | Destination network port for the connection.
+-- | The destination network port for the connection.
 ncdDestinationPort :: Lens' NeighborConnectionDetail (Maybe Int)
 ncdDestinationPort = lens _ncdDestinationPort (\ s a -> s{_ncdDestinationPort = a});
 
--- | ID of server that opened the network connection.
+-- | The ID of the server that opened the network connection.
 ncdSourceServerId :: Lens' NeighborConnectionDetail Text
 ncdSourceServerId = lens _ncdSourceServerId (\ s a -> s{_ncdSourceServerId = a});
 
--- | ID of the server that accepted the networker connection.
+-- | The ID of the server that accepted the network connection.
 ncdDestinationServerId :: Lens' NeighborConnectionDetail Text
 ncdDestinationServerId = lens _ncdDestinationServerId (\ s a -> s{_ncdDestinationServerId = a});
 
--- | Number of open network connections with the neighboring server.
+-- | The number of open network connections with the neighboring server.
 ncdConnectionsCount :: Lens' NeighborConnectionDetail Integer
 ncdConnectionsCount = lens _ncdConnectionsCount (\ s a -> s{_ncdConnectionsCount = a});
 
@@ -707,7 +789,7 @@ instance Hashable NeighborConnectionDetail
 
 instance NFData NeighborConnectionDetail
 
--- | Field and direction for ordered output.
+-- | A field and direction for ordered output.
 --
 --
 --
@@ -723,7 +805,7 @@ data OrderByElement = OrderByElement'
 --
 -- * 'obeSortOrder' - Ordering direction.
 --
--- * 'obeFieldName' - Field to order on.
+-- * 'obeFieldName' - The field on which to order.
 orderByElement
     :: Text -- ^ 'obeFieldName'
     -> OrderByElement
@@ -737,7 +819,7 @@ orderByElement pFieldName_ =
 obeSortOrder :: Lens' OrderByElement (Maybe OrderString)
 obeSortOrder = lens _obeSortOrder (\ s a -> s{_obeSortOrder = a});
 
--- | Field to order on.
+-- | The field on which to order.
 obeFieldName :: Lens' OrderByElement Text
 obeFieldName = lens _obeFieldName (\ s a -> s{_obeFieldName = a});
 
@@ -766,9 +848,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagKey' - A type of tag to filter on.
+-- * 'tagKey' - The type of tag on which to filter.
 --
--- * 'tagValue' - A value for a tag key to filter on.
+-- * 'tagValue' - A value for a tag key on which to filter.
 tag
     :: Text -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'
@@ -779,11 +861,11 @@ tag pKey_ pValue_ =
     , _tagValue = pValue_
     }
 
--- | A type of tag to filter on.
+-- | The type of tag on which to filter.
 tagKey :: Lens' Tag Text
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
--- | A value for a tag key to filter on.
+-- | A value for a tag key on which to filter.
 tagValue :: Lens' Tag Text
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
@@ -798,7 +880,7 @@ instance ToJSON Tag where
                  [Just ("key" .= _tagKey),
                   Just ("value" .= _tagValue)])
 
--- | The name of a tag filter. Valid names are: @tagKey@ , @tagValue@ , @configurationId@ .
+-- | The tag filter. Valid names are: @tagKey@ , @tagValue@ , @configurationId@ .
 --
 --
 --
@@ -812,9 +894,9 @@ data TagFilter = TagFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tfName' - A name of a tag filter.
+-- * 'tfName' - A name of the tag filter.
 --
--- * 'tfValues' - Values of a tag filter.
+-- * 'tfValues' - Values for the tag filter.
 tagFilter
     :: Text -- ^ 'tfName'
     -> TagFilter
@@ -824,11 +906,11 @@ tagFilter pName_ =
     , _tfValues = mempty
     }
 
--- | A name of a tag filter.
+-- | A name of the tag filter.
 tfName :: Lens' TagFilter Text
 tfName = lens _tfName (\ s a -> s{_tfName = a});
 
--- | Values of a tag filter.
+-- | Values for the tag filter.
 tfValues :: Lens' TagFilter [Text]
 tfValues = lens _tfValues (\ s a -> s{_tfValues = a}) . _Coerce;
 

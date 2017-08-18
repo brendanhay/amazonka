@@ -29,6 +29,9 @@ module Network.AWS.Discovery.Types
     -- * ConfigurationItemType
     , ConfigurationItemType (..)
 
+    -- * ExportDataFormat
+    , ExportDataFormat (..)
+
     -- * ExportStatus
     , ExportStatus (..)
 
@@ -93,10 +96,20 @@ module Network.AWS.Discovery.Types
     , cciTotalConnectors
     , cciUnknownConnectors
 
+    -- * ExportFilter
+    , ExportFilter
+    , exportFilter
+    , efName
+    , efValues
+    , efCondition
+
     -- * ExportInfo
     , ExportInfo
     , exportInfo
     , eiConfigurationsDownloadURL
+    , eiRequestedStartTime
+    , eiRequestedEndTime
+    , eiIsTruncated
     , eiExportId
     , eiExportStatus
     , eiStatusMessage
@@ -166,6 +179,8 @@ discovery =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"

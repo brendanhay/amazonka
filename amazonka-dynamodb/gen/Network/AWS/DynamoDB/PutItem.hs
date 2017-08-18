@@ -18,10 +18,32 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new item, or replaces an old item with a new item. If an item that has the same primary key as the new item already exists in the specified table, the new item completely replaces the existing item. You can perform a conditional put operation (add a new item if one with the specified primary key doesn't exist), or replace an existing item if it has certain attribute values.
+-- Creates a new item, or replaces an old item with a new item. If an item that has the same primary key as the new item already exists in the specified table, the new item completely replaces the existing item. You can perform a conditional put operation (add a new item if one with the specified primary key doesn't exist), or replace an existing item if it has certain attribute values. You can return the item's attribute values in the same operation, using the @ReturnValues@ parameter.
 --
 --
--- In addition to putting an item, you can also return the item's attribute values in the same operation, using the @ReturnValues@ parameter.
+-- /Important:/ This topic provides general information about the @PutItem@ API.
+--
+-- For information on how to call the @PutItem@ API using the AWS SDK in specific languages, see the following:
+--
+--     * <http://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/PutItem PutItem in the AWS Command Line Interface >
+--
+--     * <http://docs.aws.amazon.com/goto/DotNetSDKV3/dynamodb-2012-08-10/PutItem PutItem in the AWS SDK for .NET >
+--
+--     * <http://docs.aws.amazon.com/goto/SdkForCpp/dynamodb-2012-08-10/PutItem PutItem in the AWS SDK for C++ >
+--
+--     * <http://docs.aws.amazon.com/goto/SdkForGoV1/dynamodb-2012-08-10/PutItem PutItem in the AWS SDK for Go >
+--
+--     * <http://docs.aws.amazon.com/goto/SdkForJava/dynamodb-2012-08-10/PutItem PutItem in the AWS SDK for Java >
+--
+--     * <http://docs.aws.amazon.com/goto/AWSJavaScriptSDK/dynamodb-2012-08-10/PutItem PutItem in the AWS SDK for JavaScript >
+--
+--     * <http://docs.aws.amazon.com/goto/SdkForPHPV3/dynamodb-2012-08-10/PutItem PutItem in the AWS SDK for PHP V3 >
+--
+--     * <http://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/PutItem PutItem in the AWS SDK for Python >
+--
+--     * <http://docs.aws.amazon.com/goto/SdkForRubyV2/dynamodb-2012-08-10/PutItem PutItem in the AWS SDK for Ruby V2 >
+--
+--
 --
 -- When you add an item, the primary key attribute(s) are the only required attributes. Attribute values cannot be null. String and Binary type attributes must have lengths greater than zero. Set type attributes cannot be empty. Requests with empty values will be rejected with a @ValidationException@ exception.
 --
@@ -97,7 +119,7 @@ data PutItem = PutItem'
 --
 -- * 'piConditionalOperator' - This is a legacy parameter. Use @ConditionExpression@ instead. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator> in the /Amazon DynamoDB Developer Guide/ .
 --
--- * 'piExpected' - This is a legacy parameter. Use @ConditionExpresssion@ instead. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'piExpected' - This is a legacy parameter. Use @ConditionExpression@ instead. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected> in the /Amazon DynamoDB Developer Guide/ .
 --
 -- * 'piTableName' - The name of the table to contain the item.
 --
@@ -147,7 +169,7 @@ piConditionExpression = lens _piConditionExpression (\ s a -> s{_piConditionExpr
 piConditionalOperator :: Lens' PutItem (Maybe ConditionalOperator)
 piConditionalOperator = lens _piConditionalOperator (\ s a -> s{_piConditionalOperator = a});
 
--- | This is a legacy parameter. Use @ConditionExpresssion@ instead. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected> in the /Amazon DynamoDB Developer Guide/ .
+-- | This is a legacy parameter. Use @ConditionExpression@ instead. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected> in the /Amazon DynamoDB Developer Guide/ .
 piExpected :: Lens' PutItem (HashMap Text ExpectedAttributeValue)
 piExpected = lens _piExpected (\ s a -> s{_piExpected = a}) . _Default . _Map;
 

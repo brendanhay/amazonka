@@ -69,7 +69,7 @@ data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
 --
 -- * 'cifsInstanceNames' - The names for your new instances.
 --
--- * 'cifsAvailabilityZone' - The Availability Zone where you want to create your instances. Use the following formatting: @us-east-1a@ (case sensitive).
+-- * 'cifsAvailabilityZone' - The Availability Zone where you want to create your instances. Use the following formatting: @us-east-1a@ (case sensitive). You can get a list of availability zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include availability zones@ parameter to your request.
 --
 -- * 'cifsInstanceSnapshotName' - The name of the instance snapshot on which you are basing your new instances. Use the get instance snapshots operation to return information about your existing snapshots.
 --
@@ -101,7 +101,7 @@ cifsKeyPairName = lens _cifsKeyPairName (\ s a -> s{_cifsKeyPairName = a});
 cifsInstanceNames :: Lens' CreateInstancesFromSnapshot [Text]
 cifsInstanceNames = lens _cifsInstanceNames (\ s a -> s{_cifsInstanceNames = a}) . _Coerce;
 
--- | The Availability Zone where you want to create your instances. Use the following formatting: @us-east-1a@ (case sensitive).
+-- | The Availability Zone where you want to create your instances. Use the following formatting: @us-east-1a@ (case sensitive). You can get a list of availability zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include availability zones@ parameter to your request.
 cifsAvailabilityZone :: Lens' CreateInstancesFromSnapshot Text
 cifsAvailabilityZone = lens _cifsAvailabilityZone (\ s a -> s{_cifsAvailabilityZone = a});
 

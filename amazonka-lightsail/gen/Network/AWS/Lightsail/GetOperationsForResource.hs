@@ -35,6 +35,7 @@ module Network.AWS.Lightsail.GetOperationsForResource
     , GetOperationsForResourceResponse
     -- * Response Lenses
     , gofrrsNextPageCount
+    , gofrrsNextPageToken
     , gofrrsOperations
     , gofrrsResponseStatus
     ) where
@@ -84,8 +85,8 @@ instance AWSRequest GetOperationsForResource where
           = receiveJSON
               (\ s h x ->
                  GetOperationsForResourceResponse' <$>
-                   (x .?> "nextPageCount") <*>
-                     (x .?> "operations" .!@ mempty)
+                   (x .?> "nextPageCount") <*> (x .?> "nextPageToken")
+                     <*> (x .?> "operations" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
 instance Hashable GetOperationsForResource
@@ -118,6 +119,7 @@ instance ToQuery GetOperationsForResource where
 -- | /See:/ 'getOperationsForResourceResponse' smart constructor.
 data GetOperationsForResourceResponse = GetOperationsForResourceResponse'
     { _gofrrsNextPageCount  :: !(Maybe Text)
+    , _gofrrsNextPageToken  :: !(Maybe Text)
     , _gofrrsOperations     :: !(Maybe [Operation])
     , _gofrrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -126,7 +128,9 @@ data GetOperationsForResourceResponse = GetOperationsForResourceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gofrrsNextPageCount' - Returns the number of pages of results that remain.
+-- * 'gofrrsNextPageCount' - (Deprecated) Returns the number of pages of results that remain.
+--
+-- * 'gofrrsNextPageToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
 -- * 'gofrrsOperations' - An array of key-value pairs containing information about the results of your get operations for resource request.
 --
@@ -137,13 +141,18 @@ getOperationsForResourceResponse
 getOperationsForResourceResponse pResponseStatus_ =
     GetOperationsForResourceResponse'
     { _gofrrsNextPageCount = Nothing
+    , _gofrrsNextPageToken = Nothing
     , _gofrrsOperations = Nothing
     , _gofrrsResponseStatus = pResponseStatus_
     }
 
--- | Returns the number of pages of results that remain.
+-- | (Deprecated) Returns the number of pages of results that remain.
 gofrrsNextPageCount :: Lens' GetOperationsForResourceResponse (Maybe Text)
 gofrrsNextPageCount = lens _gofrrsNextPageCount (\ s a -> s{_gofrrsNextPageCount = a});
+
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+gofrrsNextPageToken :: Lens' GetOperationsForResourceResponse (Maybe Text)
+gofrrsNextPageToken = lens _gofrrsNextPageToken (\ s a -> s{_gofrrsNextPageToken = a});
 
 -- | An array of key-value pairs containing information about the results of your get operations for resource request.
 gofrrsOperations :: Lens' GetOperationsForResourceResponse [Operation]

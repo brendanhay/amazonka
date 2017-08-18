@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of all valid regions for Amazon Lightsail.
+-- Returns a list of all valid regions for Amazon Lightsail. Use the @include availability zones@ parameter to also return the availability zones in a region.
 --
 --
 module Network.AWS.Lightsail.GetRegions

@@ -387,6 +387,7 @@ data OperationType
     | DeleteInstanceSnapshot
     | DetachStaticIP
     | OpenInstancePublicPorts
+    | PutInstancePublicPorts
     | RebootInstance
     | ReleaseStaticIP
     | StartInstance
@@ -409,13 +410,14 @@ instance FromText OperationType where
         "deleteinstancesnapshot" -> pure DeleteInstanceSnapshot
         "detachstaticip" -> pure DetachStaticIP
         "openinstancepublicports" -> pure OpenInstancePublicPorts
+        "putinstancepublicports" -> pure PutInstancePublicPorts
         "rebootinstance" -> pure RebootInstance
         "releasestaticip" -> pure ReleaseStaticIP
         "startinstance" -> pure StartInstance
         "stopinstance" -> pure StopInstance
         "updatedomainentry" -> pure UpdateDomainEntry
         e -> fromTextError $ "Failure parsing OperationType from value: '" <> e
-           <> "'. Accepted values: allocatestaticip, attachstaticip, closeinstancepublicports, createdomain, createinstance, createinstancesnapshot, createinstancesfromsnapshot, deletedomain, deletedomainentry, deleteinstance, deleteinstancesnapshot, detachstaticip, openinstancepublicports, rebootinstance, releasestaticip, startinstance, stopinstance, updatedomainentry"
+           <> "'. Accepted values: allocatestaticip, attachstaticip, closeinstancepublicports, createdomain, createinstance, createinstancesnapshot, createinstancesfromsnapshot, deletedomain, deletedomainentry, deleteinstance, deleteinstancesnapshot, detachstaticip, openinstancepublicports, putinstancepublicports, rebootinstance, releasestaticip, startinstance, stopinstance, updatedomainentry"
 
 instance ToText OperationType where
     toText = \case
@@ -432,6 +434,7 @@ instance ToText OperationType where
         DeleteInstanceSnapshot -> "DeleteInstanceSnapshot"
         DetachStaticIP -> "DetachStaticIp"
         OpenInstancePublicPorts -> "OpenInstancePublicPorts"
+        PutInstancePublicPorts -> "PutInstancePublicPorts"
         RebootInstance -> "RebootInstance"
         ReleaseStaticIP -> "ReleaseStaticIp"
         StartInstance -> "StartInstance"
@@ -508,6 +511,7 @@ data RegionName
     | EuCentral1
     | EuWest1
     | UsEast1
+    | UsEast2
     | UsWest1
     | UsWest2
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -522,10 +526,11 @@ instance FromText RegionName where
         "eu-central-1" -> pure EuCentral1
         "eu-west-1" -> pure EuWest1
         "us-east-1" -> pure UsEast1
+        "us-east-2" -> pure UsEast2
         "us-west-1" -> pure UsWest1
         "us-west-2" -> pure UsWest2
         e -> fromTextError $ "Failure parsing RegionName from value: '" <> e
-           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, us-east-1, us-west-1, us-west-2"
+           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, us-east-1, us-east-2, us-west-1, us-west-2"
 
 instance ToText RegionName where
     toText = \case
@@ -537,6 +542,7 @@ instance ToText RegionName where
         EuCentral1 -> "eu-central-1"
         EuWest1 -> "eu-west-1"
         UsEast1 -> "us-east-1"
+        UsEast2 -> "us-east-2"
         UsWest1 -> "us-west-1"
         UsWest2 -> "us-west-2"
 

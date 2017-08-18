@@ -18,7 +18,23 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a collection of alias records for this AWS account. You can filter the result set by alias name and/or routing strategy type. Use the pagination parameters to retrieve results in sequential pages.
+-- Retrieves all aliases for this AWS account. You can filter the result set by alias name and/or routing strategy type. Use the pagination parameters to retrieve results in sequential pages.
+--
+--
+-- Alias-related operations include:
+--
+--     * 'CreateAlias'
+--
+--     * 'ListAliases'
+--
+--     * 'DescribeAlias'
+--
+--     * 'UpdateAlias'
+--
+--     * 'DeleteAlias'
+--
+--     * 'ResolveAlias'
+--
 --
 --
 module Network.AWS.GameLift.ListAliases
@@ -66,7 +82,7 @@ data ListAliases = ListAliases'
 --
 -- * 'laRoutingStrategyType' - Type of routing to filter results on. Use this parameter to retrieve only aliases of a certain type. To retrieve all aliases, leave this parameter empty. Possible routing types include the following:     * __SIMPLE__ – The alias resolves to one specific fleet. Use this type when routing to active fleets.     * __TERMINAL__ – The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
 --
--- * 'laNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- * 'laNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 --
 -- * 'laName' - Descriptive label that is associated with an alias. Alias names do not need to be unique.
 --
@@ -85,7 +101,7 @@ listAliases =
 laRoutingStrategyType :: Lens' ListAliases (Maybe RoutingStrategyType)
 laRoutingStrategyType = lens _laRoutingStrategyType (\ s a -> s{_laRoutingStrategyType = a});
 
--- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 laNextToken :: Lens' ListAliases (Maybe Text)
 laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 

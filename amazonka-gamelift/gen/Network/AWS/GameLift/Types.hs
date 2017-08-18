@@ -22,12 +22,16 @@ module Network.AWS.GameLift.Types
     , _TerminalRoutingStrategyException
     , _NotFoundException
     , _GameSessionFullException
+    , _UnsupportedRegionException
     , _InvalidGameSessionStatusException
     , _InternalServiceException
     , _IdempotentParameterMismatchException
     , _UnauthorizedException
     , _FleetCapacityExceededException
     , _LimitExceededException
+
+    -- * AcceptanceType
+    , AcceptanceType (..)
 
     -- * BuildStatus
     , BuildStatus (..)
@@ -55,6 +59,9 @@ module Network.AWS.GameLift.Types
 
     -- * InstanceStatus
     , InstanceStatus (..)
+
+    -- * MatchmakingConfigurationStatus
+    , MatchmakingConfigurationStatus (..)
 
     -- * MetricName
     , MetricName (..)
@@ -98,6 +105,14 @@ module Network.AWS.GameLift.Types
     , aAliasARN
     , aDescription
 
+    -- * AttributeValue
+    , AttributeValue
+    , attributeValue
+    , avSL
+    , avSDM
+    , avN
+    , avS
+
     -- * Build
     , Build
     , build
@@ -137,6 +152,7 @@ module Network.AWS.GameLift.Types
     , Event
     , event
     , eResourceId
+    , ePreSignedLogURL
     , eEventTime
     , eMessage
     , eEventCode
@@ -156,6 +172,7 @@ module Network.AWS.GameLift.Types
     , faNewGameSessionProtectionPolicy
     , faName
     , faServerLaunchPath
+    , faMetricGroups
     , faFleetId
     , faDescription
     , faResourceCreationLimitPolicy
@@ -195,9 +212,18 @@ module Network.AWS.GameLift.Types
     , gsPlayerSessionCreationPolicy
     , gsName
     , gsCurrentPlayerSessionCount
+    , gsGameSessionData
     , gsFleetId
     , gsCreatorId
     , gsPort
+
+    -- * GameSessionConnectionInfo
+    , GameSessionConnectionInfo
+    , gameSessionConnectionInfo
+    , gsciMatchedPlayerSessions
+    , gsciIPAddress
+    , gsciGameSessionARN
+    , gsciPort
 
     -- * GameSessionDetail
     , GameSessionDetail
@@ -211,18 +237,25 @@ module Network.AWS.GameLift.Types
     , gspStatus
     , gspPlacementId
     , gspGameProperties
+    , gspIPAddress
     , gspGameSessionName
     , gspStartTime
+    , gspGameSessionId
     , gspGameSessionRegion
     , gspMaximumPlayerSessionCount
     , gspEndTime
     , gspGameSessionARN
     , gspPlayerLatencies
+    , gspGameSessionData
     , gspGameSessionQueueName
+    , gspPlacedPlayerSessions
+    , gspPort
 
     -- * GameSessionQueue
     , GameSessionQueue
     , gameSessionQueue
+    , gsqGameSessionQueueARN
+    , gsqPlayerLatencyPolicies
     , gsqTimeoutInSeconds
     , gsqDestinations
     , gsqName
@@ -266,12 +299,74 @@ module Network.AWS.GameLift.Types
     , icUserName
     , icSecret
 
+    -- * MatchedPlayerSession
+    , MatchedPlayerSession
+    , matchedPlayerSession
+    , mpsPlayerSessionId
+    , mpsPlayerId
+
+    -- * MatchmakingConfiguration
+    , MatchmakingConfiguration
+    , matchmakingConfiguration
+    , mcCreationTime
+    , mcGameProperties
+    , mcRuleSetName
+    , mcAcceptanceTimeoutSeconds
+    , mcRequestTimeoutSeconds
+    , mcNotificationTarget
+    , mcGameSessionQueueARNs
+    , mcName
+    , mcCustomEventData
+    , mcAcceptanceRequired
+    , mcGameSessionData
+    , mcDescription
+    , mcAdditionalPlayerCount
+
+    -- * MatchmakingRuleSet
+    , MatchmakingRuleSet
+    , matchmakingRuleSet
+    , mrsCreationTime
+    , mrsRuleSetName
+    , mrsRuleSetBody
+
+    -- * MatchmakingTicket
+    , MatchmakingTicket
+    , matchmakingTicket
+    , mtStatus
+    , mtConfigurationName
+    , mtStartTime
+    , mtGameSessionConnectionInfo
+    , mtTicketId
+    , mtStatusMessage
+    , mtStatusReason
+    , mtPlayers
+
+    -- * PlacedPlayerSession
+    , PlacedPlayerSession
+    , placedPlayerSession
+    , ppsPlayerSessionId
+    , ppsPlayerId
+
+    -- * Player
+    , Player
+    , player
+    , pPlayerAttributes
+    , pTeam
+    , pPlayerId
+    , pLatencyInMs
+
     -- * PlayerLatency
     , PlayerLatency
     , playerLatency
     , plLatencyInMilliseconds
     , plRegionIdentifier
     , plPlayerId
+
+    -- * PlayerLatencyPolicy
+    , PlayerLatencyPolicy
+    , playerLatencyPolicy
+    , plpPolicyDurationSeconds
+    , plpMaximumIndividualPlayerLatencyMilliseconds
 
     -- * PlayerSession
     , PlayerSession
@@ -303,7 +398,9 @@ module Network.AWS.GameLift.Types
     -- * RuntimeConfiguration
     , RuntimeConfiguration
     , runtimeConfiguration
+    , rcGameSessionActivationTimeoutSeconds
     , rcServerProcesses
+    , rcMaxConcurrentGameSessionActivations
 
     -- * S3Location
     , S3Location
@@ -362,6 +459,8 @@ gameLift =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -412,6 +511,13 @@ _NotFoundException = _MatchServiceError gameLift "NotFoundException"
 _GameSessionFullException :: AsError a => Getting (First ServiceError) a ServiceError
 _GameSessionFullException =
     _MatchServiceError gameLift "GameSessionFullException"
+
+-- | The requested operation is not supported in the region specified.
+--
+--
+_UnsupportedRegionException :: AsError a => Getting (First ServiceError) a ServiceError
+_UnsupportedRegionException =
+    _MatchServiceError gameLift "UnsupportedRegionException"
 
 -- | The requested operation would cause a conflict with the current state of a resource associated with the request and/or the game instance. Resolve the conflict before retrying.
 --

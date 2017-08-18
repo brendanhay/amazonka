@@ -18,12 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a set of game sessions that match a set of search criteria and sorts them in a specified order. Currently a game session search is limited to a single fleet. Search results include only game sessions that are in @ACTIVE@ status. If you need to retrieve game sessions with a status other than active, use 'DescribeGameSessions' . If you need to retrieve the protection policy for each game session, use 'DescribeGameSessionDetails' .
+-- Retrieves a set of game sessions that match a set of search criteria and sorts them in a specified order. A game session search is limited to a single fleet. Search results include only game sessions that are in @ACTIVE@ status. If you need to retrieve game sessions with a status other than active, use 'DescribeGameSessions' . If you need to retrieve the protection policy for each game session, use 'DescribeGameSessionDetails' .
 --
 --
 -- You can search or sort by the following game session attributes:
 --
---     * __gameSessionId__ -- ID value assigned to a game session. This unique value is returned in a 'GameSession' object when a new game session is created.
+--     * __gameSessionId__ -- Unique identifier for the game session. You can use either a @GameSessionId@ or @GameSessionArn@ value.
 --
 --     * __gameSessionName__ -- Name assigned to a game session. This value is set when requesting a new game session with 'CreateGameSession' or updating with 'UpdateGameSession' . Game session names do not need to be unique to a game session.
 --
@@ -33,11 +33,37 @@
 --
 --     * __maximumSessions__ -- Maximum number of player sessions allowed for a game session. This value is set when requesting a new game session with 'CreateGameSession' or updating with 'UpdateGameSession' .
 --
---     * __hasAvailablePlayerSessions__ -- Boolean value indicating whether or not a game session has reached its maximum number of players. When searching with this attribute, the search value must be @true@ or @false@ . It is highly recommended that all search requests include this filter attribute to optimize search performance and return only sessions that players can join.
+--     * __hasAvailablePlayerSessions__ -- Boolean value indicating whether a game session has reached its maximum number of players. When searching with this attribute, the search value must be @true@ or @false@ . It is highly recommended that all search requests include this filter attribute to optimize search performance and return only sessions that players can join.
 --
 --
 --
 -- To search or sort, specify either a fleet ID or an alias ID, and provide a search filter expression, a sort expression, or both. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, a collection of 'GameSession' objects matching the request is returned.
+--
+-- Game-session-related operations include:
+--
+--     * 'CreateGameSession'
+--
+--     * 'DescribeGameSessions'
+--
+--     * 'DescribeGameSessionDetails'
+--
+--     * 'SearchGameSessions'
+--
+--     * 'UpdateGameSession'
+--
+--     * 'GetGameSessionLogUrl'
+--
+--     * Game session placements
+--
+--     * 'StartGameSessionPlacement'
+--
+--     * 'DescribeGameSessionPlacement'
+--
+--     * 'StopGameSessionPlacement'
+--
+--
+--
+--
 --
 module Network.AWS.GameLift.SearchGameSessions
     (
@@ -92,7 +118,7 @@ data SearchGameSessions = SearchGameSessions'
 --
 -- * 'sgsAliasId' - Unique identifier for an alias associated with the fleet to search for active game sessions. Each request must reference either a fleet ID or alias ID, but not both.
 --
--- * 'sgsNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- * 'sgsNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 --
 -- * 'sgsLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. The maximum number of results returned is 20, even if this value is not set or is set higher than 20.
 --
@@ -121,7 +147,7 @@ sgsSortExpression = lens _sgsSortExpression (\ s a -> s{_sgsSortExpression = a})
 sgsAliasId :: Lens' SearchGameSessions (Maybe Text)
 sgsAliasId = lens _sgsAliasId (\ s a -> s{_sgsAliasId = a});
 
--- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 sgsNextToken :: Lens' SearchGameSessions (Maybe Text)
 sgsNextToken = lens _sgsNextToken (\ s a -> s{_sgsNextToken = a});
 

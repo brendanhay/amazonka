@@ -18,10 +18,36 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves properties, including the protection policy in force, for one or more game sessions. This action can be used in several ways: (1) provide a @GameSessionId@ to request details for a specific game session; (2) provide either a @FleetId@ or an @AliasId@ to request properties for all game sessions running on a fleet.
+-- Retrieves properties, including the protection policy in force, for one or more game sessions. This action can be used in several ways: (1) provide a @GameSessionId@ or @GameSessionArn@ to request details for a specific game session; (2) provide either a @FleetId@ or an @AliasId@ to request properties for all game sessions running on a fleet.
 --
 --
 -- To get game session record(s), specify just one of the following: game session ID, fleet ID, or alias ID. You can filter this request by game session status. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, a 'GameSessionDetail' object is returned for each session matching the request.
+--
+-- Game-session-related operations include:
+--
+--     * 'CreateGameSession'
+--
+--     * 'DescribeGameSessions'
+--
+--     * 'DescribeGameSessionDetails'
+--
+--     * 'SearchGameSessions'
+--
+--     * 'UpdateGameSession'
+--
+--     * 'GetGameSessionLogUrl'
+--
+--     * Game session placements
+--
+--     * 'StartGameSessionPlacement'
+--
+--     * 'DescribeGameSessionPlacement'
+--
+--     * 'StopGameSessionPlacement'
+--
+--
+--
+--
 --
 module Network.AWS.GameLift.DescribeGameSessionDetails
     (
@@ -74,9 +100,9 @@ data DescribeGameSessionDetails = DescribeGameSessionDetails'
 --
 -- * 'dgsdAliasId' - Unique identifier for an alias associated with the fleet to retrieve all game sessions for.
 --
--- * 'dgsdNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- * 'dgsdNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 --
--- * 'dgsdStatusFilter' - Game session status to filter results on. Possible game session statuses include ACTIVE, @TERMINATED@ , @ACTIVATING@ and @TERMINATING@ (the last two are transitory).
+-- * 'dgsdStatusFilter' - Game session status to filter results on. Possible game session statuses include @ACTIVE@ , @TERMINATED@ , @ACTIVATING@ and @TERMINATING@ (the last two are transitory).
 --
 -- * 'dgsdLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 --
@@ -101,11 +127,11 @@ dgsdGameSessionId = lens _dgsdGameSessionId (\ s a -> s{_dgsdGameSessionId = a})
 dgsdAliasId :: Lens' DescribeGameSessionDetails (Maybe Text)
 dgsdAliasId = lens _dgsdAliasId (\ s a -> s{_dgsdAliasId = a});
 
--- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 dgsdNextToken :: Lens' DescribeGameSessionDetails (Maybe Text)
 dgsdNextToken = lens _dgsdNextToken (\ s a -> s{_dgsdNextToken = a});
 
--- | Game session status to filter results on. Possible game session statuses include ACTIVE, @TERMINATED@ , @ACTIVATING@ and @TERMINATING@ (the last two are transitory).
+-- | Game session status to filter results on. Possible game session statuses include @ACTIVE@ , @TERMINATED@ , @ACTIVATING@ and @TERMINATING@ (the last two are transitory).
 dgsdStatusFilter :: Lens' DescribeGameSessionDetails (Maybe Text)
 dgsdStatusFilter = lens _dgsdStatusFilter (\ s a -> s{_dgsdStatusFilter = a});
 

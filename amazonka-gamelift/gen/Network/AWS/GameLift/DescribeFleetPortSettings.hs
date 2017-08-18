@@ -21,6 +21,58 @@
 -- Retrieves the inbound connection permissions for a fleet. Connection permissions include a range of IP addresses and port settings that incoming traffic can use to access server processes in the fleet. To get a fleet's inbound connection permissions, specify a fleet ID. If successful, a collection of 'IpPermission' objects is returned for the requested fleet ID. If the requested fleet has been deleted, the result set is empty.
 --
 --
+-- Fleet-related operations include:
+--
+--     * 'CreateFleet'
+--
+--     * 'ListFleets'
+--
+--     * Describe fleets:
+--
+--     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetPortSettings'
+--
+--     * 'DescribeFleetUtilization'
+--
+--     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeFleetEvents'
+--
+--
+--
+--     * Update fleets:
+--
+--     * 'UpdateFleetAttributes'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'UpdateFleetPortSettings'
+--
+--     * 'UpdateRuntimeConfiguration'
+--
+--
+--
+--     * Manage fleet capacity:
+--
+--     * 'DescribeFleetCapacity'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'PutScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeScalingPolicies' (automatic scaling)
+--
+--     * 'DeleteScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeEC2InstanceLimits'
+--
+--
+--
+--     * 'DeleteFleet'
+--
+--
+--
 module Network.AWS.GameLift.DescribeFleetPortSettings
     (
     -- * Creating a Request

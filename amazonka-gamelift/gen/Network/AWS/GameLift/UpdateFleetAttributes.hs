@@ -18,7 +18,59 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates fleet properties, including name and description, for a fleet. To update metadata, specify the fleet ID and the property values you want to change. If successful, the fleet ID for the updated fleet is returned.
+-- Updates fleet properties, including name and description, for a fleet. To update metadata, specify the fleet ID and the property values that you want to change. If successful, the fleet ID for the updated fleet is returned.
+--
+--
+-- Fleet-related operations include:
+--
+--     * 'CreateFleet'
+--
+--     * 'ListFleets'
+--
+--     * Describe fleets:
+--
+--     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetPortSettings'
+--
+--     * 'DescribeFleetUtilization'
+--
+--     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeFleetEvents'
+--
+--
+--
+--     * Update fleets:
+--
+--     * 'UpdateFleetAttributes'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'UpdateFleetPortSettings'
+--
+--     * 'UpdateRuntimeConfiguration'
+--
+--
+--
+--     * Manage fleet capacity:
+--
+--     * 'DescribeFleetCapacity'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'PutScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeScalingPolicies' (automatic scaling)
+--
+--     * 'DeleteScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeEC2InstanceLimits'
+--
+--
+--
+--     * 'DeleteFleet'
+--
 --
 --
 module Network.AWS.GameLift.UpdateFleetAttributes
@@ -29,6 +81,7 @@ module Network.AWS.GameLift.UpdateFleetAttributes
     -- * Request Lenses
     , ufaNewGameSessionProtectionPolicy
     , ufaName
+    , ufaMetricGroups
     , ufaDescription
     , ufaResourceCreationLimitPolicy
     , ufaFleetId
@@ -56,6 +109,7 @@ import           Network.AWS.Response
 data UpdateFleetAttributes = UpdateFleetAttributes'
     { _ufaNewGameSessionProtectionPolicy :: !(Maybe ProtectionPolicy)
     , _ufaName                           :: !(Maybe Text)
+    , _ufaMetricGroups                   :: !(Maybe [Text])
     , _ufaDescription                    :: !(Maybe Text)
     , _ufaResourceCreationLimitPolicy    :: !(Maybe ResourceCreationLimitPolicy)
     , _ufaFleetId                        :: !Text
@@ -69,6 +123,8 @@ data UpdateFleetAttributes = UpdateFleetAttributes'
 --
 -- * 'ufaName' - Descriptive label that is associated with a fleet. Fleet names do not need to be unique.
 --
+-- * 'ufaMetricGroups' - Names of metric groups to include this fleet in. Amazon CloudWatch uses a fleet metric group is to aggregate metrics from multiple fleets. Use an existing metric group name to add this fleet to the group. Or use a new name to create a new metric group. A fleet can only be included in one metric group at a time.
+--
 -- * 'ufaDescription' - Human-readable description of a fleet.
 --
 -- * 'ufaResourceCreationLimitPolicy' - Policy that limits the number of game sessions an individual player can create over a span of time.
@@ -81,6 +137,7 @@ updateFleetAttributes pFleetId_ =
     UpdateFleetAttributes'
     { _ufaNewGameSessionProtectionPolicy = Nothing
     , _ufaName = Nothing
+    , _ufaMetricGroups = Nothing
     , _ufaDescription = Nothing
     , _ufaResourceCreationLimitPolicy = Nothing
     , _ufaFleetId = pFleetId_
@@ -93,6 +150,10 @@ ufaNewGameSessionProtectionPolicy = lens _ufaNewGameSessionProtectionPolicy (\ s
 -- | Descriptive label that is associated with a fleet. Fleet names do not need to be unique.
 ufaName :: Lens' UpdateFleetAttributes (Maybe Text)
 ufaName = lens _ufaName (\ s a -> s{_ufaName = a});
+
+-- | Names of metric groups to include this fleet in. Amazon CloudWatch uses a fleet metric group is to aggregate metrics from multiple fleets. Use an existing metric group name to add this fleet to the group. Or use a new name to create a new metric group. A fleet can only be included in one metric group at a time.
+ufaMetricGroups :: Lens' UpdateFleetAttributes [Text]
+ufaMetricGroups = lens _ufaMetricGroups (\ s a -> s{_ufaMetricGroups = a}) . _Default . _Coerce;
 
 -- | Human-readable description of a fleet.
 ufaDescription :: Lens' UpdateFleetAttributes (Maybe Text)
@@ -136,6 +197,7 @@ instance ToJSON UpdateFleetAttributes where
                  [("NewGameSessionProtectionPolicy" .=) <$>
                     _ufaNewGameSessionProtectionPolicy,
                   ("Name" .=) <$> _ufaName,
+                  ("MetricGroups" .=) <$> _ufaMetricGroups,
                   ("Description" .=) <$> _ufaDescription,
                   ("ResourceCreationLimitPolicy" .=) <$>
                     _ufaResourceCreationLimitPolicy,

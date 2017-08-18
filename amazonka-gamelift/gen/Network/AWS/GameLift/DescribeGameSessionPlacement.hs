@@ -21,6 +21,32 @@
 -- Retrieves properties and current status of a game session placement request. To get game session placement details, specify the placement ID. If successful, a 'GameSessionPlacement' object is returned.
 --
 --
+-- Game-session-related operations include:
+--
+--     * 'CreateGameSession'
+--
+--     * 'DescribeGameSessions'
+--
+--     * 'DescribeGameSessionDetails'
+--
+--     * 'SearchGameSessions'
+--
+--     * 'UpdateGameSession'
+--
+--     * 'GetGameSessionLogUrl'
+--
+--     * Game session placements
+--
+--     * 'StartGameSessionPlacement'
+--
+--     * 'DescribeGameSessionPlacement'
+--
+--     * 'StopGameSessionPlacement'
+--
+--
+--
+--
+--
 module Network.AWS.GameLift.DescribeGameSessionPlacement
     (
     -- * Creating a Request
@@ -44,7 +70,11 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeGameSessionPlacement' smart constructor.
+-- | Represents the input for a request action.
+--
+--
+--
+-- /See:/ 'describeGameSessionPlacement' smart constructor.
 newtype DescribeGameSessionPlacement = DescribeGameSessionPlacement'
     { _dgspPlacementId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -104,7 +134,11 @@ instance ToPath DescribeGameSessionPlacement where
 instance ToQuery DescribeGameSessionPlacement where
         toQuery = const mempty
 
--- | /See:/ 'describeGameSessionPlacementResponse' smart constructor.
+-- | Represents the returned data in response to a request action.
+--
+--
+--
+-- /See:/ 'describeGameSessionPlacementResponse' smart constructor.
 data DescribeGameSessionPlacementResponse = DescribeGameSessionPlacementResponse'
     { _dgsprsGameSessionPlacement :: !(Maybe GameSessionPlacement)
     , _dgsprsResponseStatus       :: !Int

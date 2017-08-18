@@ -31,6 +31,58 @@
 --
 -- To create or update a scaling policy, specify a unique combination of name and fleet ID, and set the rule values. All parameters for this action are required. If successful, the policy name is returned. Scaling policies cannot be suspended or made inactive. To stop enforcing a scaling policy, call 'DeleteScalingPolicy' .
 --
+-- Fleet-related operations include:
+--
+--     * 'CreateFleet'
+--
+--     * 'ListFleets'
+--
+--     * Describe fleets:
+--
+--     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetPortSettings'
+--
+--     * 'DescribeFleetUtilization'
+--
+--     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeFleetEvents'
+--
+--
+--
+--     * Update fleets:
+--
+--     * 'UpdateFleetAttributes'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'UpdateFleetPortSettings'
+--
+--     * 'UpdateRuntimeConfiguration'
+--
+--
+--
+--     * Manage fleet capacity:
+--
+--     * 'DescribeFleetCapacity'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'PutScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeScalingPolicies' (automatic scaling)
+--
+--     * 'DeleteScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeEC2InstanceLimits'
+--
+--
+--
+--     * 'DeleteFleet'
+--
+--
+--
 module Network.AWS.GameLift.PutScalingPolicy
     (
     -- * Creating a Request

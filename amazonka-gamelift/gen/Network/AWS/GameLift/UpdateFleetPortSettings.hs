@@ -21,6 +21,58 @@
 -- Updates port settings for a fleet. To update settings, specify the fleet ID to be updated and list the permissions you want to update. List the permissions you want to add in @InboundPermissionAuthorizations@ , and permissions you want to remove in @InboundPermissionRevocations@ . Permissions to be removed must match existing fleet permissions. If successful, the fleet ID for the updated fleet is returned.
 --
 --
+-- Fleet-related operations include:
+--
+--     * 'CreateFleet'
+--
+--     * 'ListFleets'
+--
+--     * Describe fleets:
+--
+--     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetPortSettings'
+--
+--     * 'DescribeFleetUtilization'
+--
+--     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeFleetEvents'
+--
+--
+--
+--     * Update fleets:
+--
+--     * 'UpdateFleetAttributes'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'UpdateFleetPortSettings'
+--
+--     * 'UpdateRuntimeConfiguration'
+--
+--
+--
+--     * Manage fleet capacity:
+--
+--     * 'DescribeFleetCapacity'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'PutScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeScalingPolicies' (automatic scaling)
+--
+--     * 'DeleteScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeEC2InstanceLimits'
+--
+--
+--
+--     * 'DeleteFleet'
+--
+--
+--
 module Network.AWS.GameLift.UpdateFleetPortSettings
     (
     -- * Creating a Request

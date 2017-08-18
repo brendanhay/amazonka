@@ -21,13 +21,13 @@
 -- Returns information about all provisioned cache clusters if no cache cluster identifier is specified, or about a specific cache cluster if a cache cluster identifier is supplied.
 --
 --
--- By default, abbreviated information about the cache clusters are returned. You can use the optional @ShowDetails@ flag to retrieve detailed information about the cache nodes associated with the cache clusters. These details include the DNS address and port for the cache node endpoint.
+-- By default, abbreviated information about the cache clusters is returned. You can use the optional /ShowCacheNodeInfo/ flag to retrieve detailed information about the cache nodes associated with the cache clusters. These details include the DNS address and port for the cache node endpoint.
 --
--- If the cluster is in the CREATING state, only cluster-level information is displayed until all of the nodes are successfully provisioned.
+-- If the cluster is in the /creating/ state, only cluster-level information is displayed until all of the nodes are successfully provisioned.
 --
--- If the cluster is in the DELETING state, only cluster-level information is displayed.
+-- If the cluster is in the /deleting/ state, only cluster-level information is displayed.
 --
--- If cache nodes are currently being added to the cache cluster, node endpoint information and creation time for the additional nodes are not displayed until they are completely provisioned. When the cache cluster state is @available@ , the cluster is ready for use.
+-- If cache nodes are currently being added to the cache cluster, node endpoint information and creation time for the additional nodes are not displayed until they are completely provisioned. When the cache cluster state is /available/ , the cluster is ready for use.
 --
 -- If cache nodes are currently being removed from the cache cluster, no endpoint information for the removed nodes is displayed.
 --
@@ -39,6 +39,7 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
       describeCacheClusters
     , DescribeCacheClusters
     -- * Request Lenses
+    , dShowCacheClustersNotInReplicationGroups
     , dCacheClusterId
     , dMarker
     , dMaxRecords
@@ -67,15 +68,18 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeCacheClusters' smart constructor.
 data DescribeCacheClusters = DescribeCacheClusters'
-    { _dCacheClusterId    :: !(Maybe Text)
-    , _dMarker            :: !(Maybe Text)
-    , _dMaxRecords        :: !(Maybe Int)
-    , _dShowCacheNodeInfo :: !(Maybe Bool)
+    { _dShowCacheClustersNotInReplicationGroups :: !(Maybe Bool)
+    , _dCacheClusterId                          :: !(Maybe Text)
+    , _dMarker                                  :: !(Maybe Text)
+    , _dMaxRecords                              :: !(Maybe Int)
+    , _dShowCacheNodeInfo                       :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCacheClusters' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dShowCacheClustersNotInReplicationGroups' - An optional flag that can be included in the @DescribeCacheCluster@ request to show only nodes (API/CLI: clusters) that are not members of a replication group. In practice, this mean Memcached and single node Redis clusters.
 --
 -- * 'dCacheClusterId' - The user-supplied cluster identifier. If this parameter is specified, only information about that specific cache cluster is returned. This parameter isn't case sensitive.
 --
@@ -83,16 +87,21 @@ data DescribeCacheClusters = DescribeCacheClusters'
 --
 -- * 'dMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
 --
--- * 'dShowCacheNodeInfo' - An optional flag that can be included in the DescribeCacheCluster request to retrieve information about the individual cache nodes.
+-- * 'dShowCacheNodeInfo' - An optional flag that can be included in the @DescribeCacheCluster@ request to retrieve information about the individual cache nodes.
 describeCacheClusters
     :: DescribeCacheClusters
 describeCacheClusters =
     DescribeCacheClusters'
-    { _dCacheClusterId = Nothing
+    { _dShowCacheClustersNotInReplicationGroups = Nothing
+    , _dCacheClusterId = Nothing
     , _dMarker = Nothing
     , _dMaxRecords = Nothing
     , _dShowCacheNodeInfo = Nothing
     }
+
+-- | An optional flag that can be included in the @DescribeCacheCluster@ request to show only nodes (API/CLI: clusters) that are not members of a replication group. In practice, this mean Memcached and single node Redis clusters.
+dShowCacheClustersNotInReplicationGroups :: Lens' DescribeCacheClusters (Maybe Bool)
+dShowCacheClustersNotInReplicationGroups = lens _dShowCacheClustersNotInReplicationGroups (\ s a -> s{_dShowCacheClustersNotInReplicationGroups = a});
 
 -- | The user-supplied cluster identifier. If this parameter is specified, only information about that specific cache cluster is returned. This parameter isn't case sensitive.
 dCacheClusterId :: Lens' DescribeCacheClusters (Maybe Text)
@@ -106,7 +115,7 @@ dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
 dMaxRecords :: Lens' DescribeCacheClusters (Maybe Int)
 dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
 
--- | An optional flag that can be included in the DescribeCacheCluster request to retrieve information about the individual cache nodes.
+-- | An optional flag that can be included in the @DescribeCacheCluster@ request to retrieve information about the individual cache nodes.
 dShowCacheNodeInfo :: Lens' DescribeCacheClusters (Maybe Bool)
 dShowCacheNodeInfo = lens _dShowCacheNodeInfo (\ s a -> s{_dShowCacheNodeInfo = a});
 
@@ -144,6 +153,8 @@ instance ToQuery DescribeCacheClusters where
           = mconcat
               ["Action" =: ("DescribeCacheClusters" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
+               "ShowCacheClustersNotInReplicationGroups" =:
+                 _dShowCacheClustersNotInReplicationGroups,
                "CacheClusterId" =: _dCacheClusterId,
                "Marker" =: _dMarker, "MaxRecords" =: _dMaxRecords,
                "ShowCacheNodeInfo" =: _dShowCacheNodeInfo]

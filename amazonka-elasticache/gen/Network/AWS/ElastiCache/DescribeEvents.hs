@@ -75,7 +75,7 @@ data DescribeEvents = DescribeEvents'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'deStartTime' - The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
+-- * 'deStartTime' - The beginning of the time interval to retrieve events for, specified in ISO 8601 format. __Example:__ 2017-03-30T07:03:49.555Z
 --
 -- * 'deSourceType' - The event source to retrieve events for. If no value is specified, all events are returned.
 --
@@ -85,9 +85,9 @@ data DescribeEvents = DescribeEvents'
 --
 -- * 'deMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
 --
--- * 'deEndTime' - The end of the time interval for which to retrieve events, specified in ISO 8601 format.
+-- * 'deEndTime' - The end of the time interval for which to retrieve events, specified in ISO 8601 format. __Example:__ 2017-03-30T07:03:49.555Z
 --
--- * 'deDuration' - The number of minutes' worth of events to retrieve.
+-- * 'deDuration' - The number of minutes worth of events to retrieve.
 describeEvents
     :: DescribeEvents
 describeEvents =
@@ -101,7 +101,7 @@ describeEvents =
     , _deDuration = Nothing
     }
 
--- | The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
+-- | The beginning of the time interval to retrieve events for, specified in ISO 8601 format. __Example:__ 2017-03-30T07:03:49.555Z
 deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
 deStartTime = lens _deStartTime (\ s a -> s{_deStartTime = a}) . mapping _Time;
 
@@ -121,11 +121,11 @@ deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
 deMaxRecords :: Lens' DescribeEvents (Maybe Int)
 deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a});
 
--- | The end of the time interval for which to retrieve events, specified in ISO 8601 format.
+-- | The end of the time interval for which to retrieve events, specified in ISO 8601 format. __Example:__ 2017-03-30T07:03:49.555Z
 deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
 deEndTime = lens _deEndTime (\ s a -> s{_deEndTime = a}) . mapping _Time;
 
--- | The number of minutes' worth of events to retrieve.
+-- | The number of minutes worth of events to retrieve.
 deDuration :: Lens' DescribeEvents (Maybe Int)
 deDuration = lens _deDuration (\ s a -> s{_deDuration = a});
 

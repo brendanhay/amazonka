@@ -116,7 +116,11 @@ instance ToQuery ListAllowedNodeTypeModifications
                "CacheClusterId" =: _lantmCacheClusterId,
                "ReplicationGroupId" =: _lantmReplicationGroupId]
 
--- | /See:/ 'listAllowedNodeTypeModificationsResponse' smart constructor.
+-- | Represents the allowed node types you can use to modify your cache cluster or replication group.
+--
+--
+--
+-- /See:/ 'listAllowedNodeTypeModificationsResponse' smart constructor.
 data ListAllowedNodeTypeModificationsResponse = ListAllowedNodeTypeModificationsResponse'
     { _lantmrsScaleUpModifications :: !(Maybe [Text])
     , _lantmrsResponseStatus       :: !Int
@@ -126,7 +130,7 @@ data ListAllowedNodeTypeModificationsResponse = ListAllowedNodeTypeModifications
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lantmrsScaleUpModifications' - Undocumented member.
+-- * 'lantmrsScaleUpModifications' - A string list, each element of which specifies a cache node type which you can use to scale your cache cluster or replication group. When scaling up a Redis cluster or replication group using @ModifyCacheCluster@ or @ModifyReplicationGroup@ , use a value from this list for the @CacheNodeType@ parameter.
 --
 -- * 'lantmrsResponseStatus' - -- | The response status code.
 listAllowedNodeTypeModificationsResponse
@@ -138,7 +142,7 @@ listAllowedNodeTypeModificationsResponse pResponseStatus_ =
     , _lantmrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | A string list, each element of which specifies a cache node type which you can use to scale your cache cluster or replication group. When scaling up a Redis cluster or replication group using @ModifyCacheCluster@ or @ModifyReplicationGroup@ , use a value from this list for the @CacheNodeType@ parameter.
 lantmrsScaleUpModifications :: Lens' ListAllowedNodeTypeModificationsResponse [Text]
 lantmrsScaleUpModifications = lens _lantmrsScaleUpModifications (\ s a -> s{_lantmrsScaleUpModifications = a}) . _Default . _Coerce;
 

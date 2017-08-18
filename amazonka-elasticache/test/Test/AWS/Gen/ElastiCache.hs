@@ -55,6 +55,9 @@ import Test.AWS.ElastiCache.Internal
 --         , requestModifyCacheParameterGroup $
 --             modifyCacheParameterGroup
 --
+--         , requestTestFailover $
+--             testFailover
+--
 --         , requestDeleteReplicationGroup $
 --             deleteReplicationGroup
 --
@@ -171,6 +174,9 @@ import Test.AWS.ElastiCache.Internal
 --
 --         , responseModifyCacheParameterGroup $
 --             cacheParameterGroupNameMessage
+--
+--         , responseTestFailover $
+--             testFailoverResponse
 --
 --         , responseDeleteReplicationGroup $
 --             deleteReplicationGroupResponse
@@ -308,6 +314,11 @@ requestModifyCacheParameterGroup :: ModifyCacheParameterGroup -> TestTree
 requestModifyCacheParameterGroup = req
     "ModifyCacheParameterGroup"
     "fixture/ModifyCacheParameterGroup.yaml"
+
+requestTestFailover :: TestFailover -> TestTree
+requestTestFailover = req
+    "TestFailover"
+    "fixture/TestFailover.yaml"
 
 requestDeleteReplicationGroup :: DeleteReplicationGroup -> TestTree
 requestDeleteReplicationGroup = req
@@ -518,6 +529,13 @@ responseModifyCacheParameterGroup = res
     "fixture/ModifyCacheParameterGroupResponse.proto"
     elastiCache
     (Proxy :: Proxy ModifyCacheParameterGroup)
+
+responseTestFailover :: TestFailoverResponse -> TestTree
+responseTestFailover = res
+    "TestFailoverResponse"
+    "fixture/TestFailoverResponse.proto"
+    elastiCache
+    (Proxy :: Proxy TestFailover)
 
 responseDeleteReplicationGroup :: DeleteReplicationGroupResponse -> TestTree
 responseDeleteReplicationGroup = res

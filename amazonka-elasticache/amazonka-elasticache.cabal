@@ -78,6 +78,7 @@ library
         , Network.AWS.ElastiCache.RemoveTagsFromResource
         , Network.AWS.ElastiCache.ResetCacheParameterGroup
         , Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
+        , Network.AWS.ElastiCache.TestFailover
         , Network.AWS.ElastiCache.Types
         , Network.AWS.ElastiCache.Waiters
 

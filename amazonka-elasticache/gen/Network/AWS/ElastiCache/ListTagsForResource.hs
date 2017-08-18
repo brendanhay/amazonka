@@ -21,7 +21,7 @@
 -- Lists all cost allocation tags currently on the named resource. A @cost allocation tag@ is a key-value pair where the key is case-sensitive and the value is optional. You can use cost allocation tags to categorize and track your AWS costs.
 --
 --
--- You can have a maximum of 10 cost allocation tags on an ElastiCache resource. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/BestPractices.html Using Cost Allocation Tags in Amazon ElastiCache> .
+-- You can have a maximum of 50 cost allocation tags on an ElastiCache resource. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/BestPractices.html Using Cost Allocation Tags in Amazon ElastiCache> .
 --
 module Network.AWS.ElastiCache.ListTagsForResource
     (

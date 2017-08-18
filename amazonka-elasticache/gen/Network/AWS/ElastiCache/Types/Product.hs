@@ -105,7 +105,7 @@ data CacheCluster = CacheCluster'
 --
 -- * 'ccCacheClusterId' - The user-supplied identifier of the cache cluster. This identifier is a unique key that identifies a cache cluster.
 --
--- * 'ccConfigurationEndpoint' - Undocumented member.
+-- * 'ccConfigurationEndpoint' - Represents a Memcached cluster endpoint which, if Automatic Discovery is enabled on the cluster, can be used by an application to connect to any node in the cluster. The configuration endpoint will always have @.cfg@ in it. Example: @mem-3.9dvc4r/.cfg/ .usw2.cache.amazonaws.com:11211@
 --
 -- * 'ccEngine' - The name of the cache engine (@memcached@ or @redis@ ) to be used for this cache cluster.
 --
@@ -194,7 +194,7 @@ ccSnapshotWindow = lens _ccSnapshotWindow (\ s a -> s{_ccSnapshotWindow = a});
 ccCacheClusterId :: Lens' CacheCluster (Maybe Text)
 ccCacheClusterId = lens _ccCacheClusterId (\ s a -> s{_ccCacheClusterId = a});
 
--- | Undocumented member.
+-- | Represents a Memcached cluster endpoint which, if Automatic Discovery is enabled on the cluster, can be used by an application to connect to any node in the cluster. The configuration endpoint will always have @.cfg@ in it. Example: @mem-3.9dvc4r/.cfg/ .usw2.cache.amazonaws.com:11211@
 ccConfigurationEndpoint :: Lens' CacheCluster (Maybe Endpoint)
 ccConfigurationEndpoint = lens _ccConfigurationEndpoint (\ s a -> s{_ccConfigurationEndpoint = a});
 
@@ -1253,7 +1253,7 @@ data NodeGroupConfiguration = NodeGroupConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ngcSlots' - A string that specifies the keyspaces as a series of comma separated values. Keyspaces are 0 to 16,383. The string is in the format @startkey-endkey@ . Example: @"0-3999"@
+-- * 'ngcSlots' - A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is in the format @startkey-endkey@ . Example: @"0-3999"@
 --
 -- * 'ngcReplicaCount' - The number of read replica nodes in this node group (shard).
 --
@@ -1270,7 +1270,7 @@ nodeGroupConfiguration =
     , _ngcReplicaAvailabilityZones = Nothing
     }
 
--- | A string that specifies the keyspaces as a series of comma separated values. Keyspaces are 0 to 16,383. The string is in the format @startkey-endkey@ . Example: @"0-3999"@
+-- | A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is in the format @startkey-endkey@ . Example: @"0-3999"@
 ngcSlots :: Lens' NodeGroupConfiguration (Maybe Text)
 ngcSlots = lens _ngcSlots (\ s a -> s{_ngcSlots = a});
 
@@ -1771,8 +1771,10 @@ instance NFData RecurringCharge
 -- /See:/ 'replicationGroup' smart constructor.
 data ReplicationGroup = ReplicationGroup'
     { _rgStatus                 :: !(Maybe Text)
+    , _rgCacheNodeType          :: !(Maybe Text)
     , _rgNodeGroups             :: !(Maybe [NodeGroup])
     , _rgSnapshottingClusterId  :: !(Maybe Text)
+    , _rgClusterEnabled         :: !(Maybe Bool)
     , _rgSnapshotWindow         :: !(Maybe Text)
     , _rgConfigurationEndpoint  :: !(Maybe Endpoint)
     , _rgMemberClusters         :: !(Maybe [Text])
@@ -1789,9 +1791,13 @@ data ReplicationGroup = ReplicationGroup'
 --
 -- * 'rgStatus' - The current state of this replication group - @creating@ , @available@ , @modifying@ , @deleting@ , @create-failed@ , @snapshotting@ .
 --
+-- * 'rgCacheNodeType' - The name of the compute and memory capacity node type for each node in the replication group.
+--
 -- * 'rgNodeGroups' - A single element list with information about the nodes in the replication group.
 --
 -- * 'rgSnapshottingClusterId' - The cache cluster ID that is used as the daily snapshot source for the replication group.
+--
+-- * 'rgClusterEnabled' - A flag indicating whether or not this replication group is cluster enabled; i.e., whether its data can be partitioned across multiple shards (API/CLI: node groups). Valid values: @true@ | @false@
 --
 -- * 'rgSnapshotWindow' - The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard). Example: @05:00-09:00@  If you do not specify this parameter, ElastiCache automatically chooses an appropriate time range. __Note:__ This parameter is only valid if the @Engine@ parameter is @redis@ .
 --
@@ -1813,8 +1819,10 @@ replicationGroup
 replicationGroup =
     ReplicationGroup'
     { _rgStatus = Nothing
+    , _rgCacheNodeType = Nothing
     , _rgNodeGroups = Nothing
     , _rgSnapshottingClusterId = Nothing
+    , _rgClusterEnabled = Nothing
     , _rgSnapshotWindow = Nothing
     , _rgConfigurationEndpoint = Nothing
     , _rgMemberClusters = Nothing
@@ -1829,6 +1837,10 @@ replicationGroup =
 rgStatus :: Lens' ReplicationGroup (Maybe Text)
 rgStatus = lens _rgStatus (\ s a -> s{_rgStatus = a});
 
+-- | The name of the compute and memory capacity node type for each node in the replication group.
+rgCacheNodeType :: Lens' ReplicationGroup (Maybe Text)
+rgCacheNodeType = lens _rgCacheNodeType (\ s a -> s{_rgCacheNodeType = a});
+
 -- | A single element list with information about the nodes in the replication group.
 rgNodeGroups :: Lens' ReplicationGroup [NodeGroup]
 rgNodeGroups = lens _rgNodeGroups (\ s a -> s{_rgNodeGroups = a}) . _Default . _Coerce;
@@ -1836,6 +1848,10 @@ rgNodeGroups = lens _rgNodeGroups (\ s a -> s{_rgNodeGroups = a}) . _Default . _
 -- | The cache cluster ID that is used as the daily snapshot source for the replication group.
 rgSnapshottingClusterId :: Lens' ReplicationGroup (Maybe Text)
 rgSnapshottingClusterId = lens _rgSnapshottingClusterId (\ s a -> s{_rgSnapshottingClusterId = a});
+
+-- | A flag indicating whether or not this replication group is cluster enabled; i.e., whether its data can be partitioned across multiple shards (API/CLI: node groups). Valid values: @true@ | @false@
+rgClusterEnabled :: Lens' ReplicationGroup (Maybe Bool)
+rgClusterEnabled = lens _rgClusterEnabled (\ s a -> s{_rgClusterEnabled = a});
 
 -- | The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard). Example: @05:00-09:00@  If you do not specify this parameter, ElastiCache automatically chooses an appropriate time range. __Note:__ This parameter is only valid if the @Engine@ parameter is @redis@ .
 rgSnapshotWindow :: Lens' ReplicationGroup (Maybe Text)
@@ -1872,10 +1888,11 @@ rgAutomaticFailover = lens _rgAutomaticFailover (\ s a -> s{_rgAutomaticFailover
 instance FromXML ReplicationGroup where
         parseXML x
           = ReplicationGroup' <$>
-              (x .@? "Status") <*>
+              (x .@? "Status") <*> (x .@? "CacheNodeType") <*>
                 (x .@? "NodeGroups" .!@ mempty >>=
                    may (parseXMLList "NodeGroup"))
                 <*> (x .@? "SnapshottingClusterId")
+                <*> (x .@? "ClusterEnabled")
                 <*> (x .@? "SnapshotWindow")
                 <*> (x .@? "ConfigurationEndpoint")
                 <*>
@@ -2510,9 +2527,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagValue' - The tag's value. May not be null.
+-- * 'tagValue' - The tag's value. May be null.
 --
--- * 'tagKey' - The key for the tag.
+-- * 'tagKey' - The key for the tag. May not be null.
 tag
     :: Tag
 tag =
@@ -2521,11 +2538,11 @@ tag =
     , _tagKey = Nothing
     }
 
--- | The tag's value. May not be null.
+-- | The tag's value. May be null.
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
--- | The key for the tag.
+-- | The key for the tag. May not be null.
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
@@ -2541,7 +2558,7 @@ instance ToQuery Tag where
         toQuery Tag'{..}
           = mconcat ["Value" =: _tagValue, "Key" =: _tagKey]
 
--- | Represents the output from the @AddTagsToResource@ , @ListTagsOnResource@ , and @RemoveTagsFromResource@ operations.
+-- | Represents the output from the @AddTagsToResource@ , @ListTagsForResource@ , and @RemoveTagsFromResource@ operations.
 --
 --
 --

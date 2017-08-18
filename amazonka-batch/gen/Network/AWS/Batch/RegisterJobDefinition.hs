@@ -27,6 +27,7 @@ module Network.AWS.Batch.RegisterJobDefinition
       registerJobDefinition
     , RegisterJobDefinition
     -- * Request Lenses
+    , rjdRetryStrategy
     , rjdParameters
     , rjdContainerProperties
     , rjdJobDefinitionName
@@ -51,7 +52,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'registerJobDefinition' smart constructor.
 data RegisterJobDefinition = RegisterJobDefinition'
-    { _rjdParameters          :: !(Maybe (Map Text Text))
+    { _rjdRetryStrategy       :: !(Maybe RetryStrategy)
+    , _rjdParameters          :: !(Maybe (Map Text Text))
     , _rjdContainerProperties :: !(Maybe ContainerProperties)
     , _rjdJobDefinitionName   :: !Text
     , _rjdType                :: !JobDefinitionType
@@ -60,6 +62,8 @@ data RegisterJobDefinition = RegisterJobDefinition'
 -- | Creates a value of 'RegisterJobDefinition' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rjdRetryStrategy' - The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that is specified during a 'SubmitJob' operation overrides the retry strategy defined here.
 --
 -- * 'rjdParameters' - Default parameter substitution placeholders to set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a @SubmitJob@ request override any corresponding parameter defaults from the job definition.
 --
@@ -74,11 +78,16 @@ registerJobDefinition
     -> RegisterJobDefinition
 registerJobDefinition pJobDefinitionName_ pType_ =
     RegisterJobDefinition'
-    { _rjdParameters = Nothing
+    { _rjdRetryStrategy = Nothing
+    , _rjdParameters = Nothing
     , _rjdContainerProperties = Nothing
     , _rjdJobDefinitionName = pJobDefinitionName_
     , _rjdType = pType_
     }
+
+-- | The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that is specified during a 'SubmitJob' operation overrides the retry strategy defined here.
+rjdRetryStrategy :: Lens' RegisterJobDefinition (Maybe RetryStrategy)
+rjdRetryStrategy = lens _rjdRetryStrategy (\ s a -> s{_rjdRetryStrategy = a});
 
 -- | Default parameter substitution placeholders to set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a @SubmitJob@ request override any corresponding parameter defaults from the job definition.
 rjdParameters :: Lens' RegisterJobDefinition (HashMap Text Text)
@@ -123,7 +132,8 @@ instance ToJSON RegisterJobDefinition where
         toJSON RegisterJobDefinition'{..}
           = object
               (catMaybes
-                 [("parameters" .=) <$> _rjdParameters,
+                 [("retryStrategy" .=) <$> _rjdRetryStrategy,
+                  ("parameters" .=) <$> _rjdParameters,
                   ("containerProperties" .=) <$>
                     _rjdContainerProperties,
                   Just ("jobDefinitionName" .= _rjdJobDefinitionName),

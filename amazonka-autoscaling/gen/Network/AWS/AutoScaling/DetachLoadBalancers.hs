@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Detaches one or more Classic load balancers from the specified Auto Scaling group.
+-- Detaches one or more Classic Load Balancers from the specified Auto Scaling group.
 --
 --
--- Note that this operation detaches only Classic load balancers. If you have Application load balancers, use 'DetachLoadBalancerTargetGroups' instead.
+-- Note that this operation detaches only Classic Load Balancers. If you have Application Load Balancers, use 'DetachLoadBalancerTargetGroups' instead.
 --
 -- When you detach a load balancer, it enters the @Removing@ state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using 'DescribeLoadBalancers' . Note that the instances remain running.
 --

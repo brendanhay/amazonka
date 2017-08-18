@@ -208,6 +208,12 @@ module Network.AWS.AutoScaling
     -- ** LifecycleState
     , LifecycleState (..)
 
+    -- ** MetricStatistic
+    , MetricStatistic (..)
+
+    -- ** MetricType
+    , MetricType (..)
+
     -- ** ScalingActivityStatusCode
     , ScalingActivityStatusCode (..)
 
@@ -280,6 +286,15 @@ module Network.AWS.AutoScaling
     , bdmNoDevice
     , bdmEBS
     , bdmDeviceName
+
+    -- ** CustomizedMetricSpecification
+    , CustomizedMetricSpecification
+    , customizedMetricSpecification
+    , cmsDimensions
+    , cmsUnit
+    , cmsMetricName
+    , cmsNamespace
+    , cmsStatistic
 
     -- ** EBS
     , EBS
@@ -371,6 +386,12 @@ module Network.AWS.AutoScaling
     , metricCollectionType
     , mctMetric
 
+    -- ** MetricDimension
+    , MetricDimension
+    , metricDimension
+    , mdName
+    , mdValue
+
     -- ** MetricGranularityType
     , MetricGranularityType
     , metricGranularityType
@@ -382,6 +403,12 @@ module Network.AWS.AutoScaling
     , ncTopicARN
     , ncAutoScalingGroupName
     , ncNotificationType
+
+    -- ** PredefinedMetricSpecification
+    , PredefinedMetricSpecification
+    , predefinedMetricSpecification
+    , pmsResourceLabel
+    , pmsPredefinedMetricType
 
     -- ** ProcessType
     , ProcessType
@@ -396,6 +423,7 @@ module Network.AWS.AutoScaling
     , sPolicyName
     , sPolicyType
     , sStepAdjustments
+    , sTargetTrackingConfiguration
     , sAdjustmentType
     , sAutoScalingGroupName
     , sScalingAdjustment
@@ -455,6 +483,14 @@ module Network.AWS.AutoScaling
     , tdKey
     , tdPropagateAtLaunch
     , tdValue
+
+    -- ** TargetTrackingConfiguration
+    , TargetTrackingConfiguration
+    , targetTrackingConfiguration
+    , ttcPredefinedMetricSpecification
+    , ttcCustomizedMetricSpecification
+    , ttcDisableScaleIn
+    , ttcTargetValue
     ) where
 
 import           Network.AWS.AutoScaling.AttachInstances

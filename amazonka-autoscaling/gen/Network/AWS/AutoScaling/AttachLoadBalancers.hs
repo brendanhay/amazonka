@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches one or more Classic load balancers to the specified Auto Scaling group.
+-- Attaches one or more Classic Load Balancers to the specified Auto Scaling group.
 --
 --
--- To attach an Application load balancer instead, see 'AttachLoadBalancerTargetGroups' .
+-- To attach an Application Load Balancer instead, see 'AttachLoadBalancerTargetGroups' .
 --
 -- To describe the load balancers for an Auto Scaling group, use 'DescribeLoadBalancers' . To detach the load balancer from the Auto Scaling group, use 'DetachLoadBalancers' .
 --

@@ -69,7 +69,7 @@ data DescribeNotificationConfigurations = DescribeNotificationConfigurations'
 --
 -- * 'dncNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dncMaxRecords' - The maximum number of items to return with this call.
+-- * 'dncMaxRecords' - The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 describeNotificationConfigurations
     :: DescribeNotificationConfigurations
 describeNotificationConfigurations =
@@ -87,7 +87,7 @@ dncAutoScalingGroupNames = lens _dncAutoScalingGroupNames (\ s a -> s{_dncAutoSc
 dncNextToken :: Lens' DescribeNotificationConfigurations (Maybe Text)
 dncNextToken = lens _dncNextToken (\ s a -> s{_dncNextToken = a});
 
--- | The maximum number of items to return with this call.
+-- | The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 dncMaxRecords :: Lens' DescribeNotificationConfigurations (Maybe Int)
 dncMaxRecords = lens _dncMaxRecords (\ s a -> s{_dncMaxRecords = a});
 

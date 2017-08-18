@@ -69,7 +69,7 @@ data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
 --
 -- * 'dlcNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dlcMaxRecords' - The maximum number of items to return with this call. The default is 100.
+-- * 'dlcMaxRecords' - The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 describeLaunchConfigurations
     :: DescribeLaunchConfigurations
 describeLaunchConfigurations =
@@ -87,7 +87,7 @@ dlcLaunchConfigurationNames = lens _dlcLaunchConfigurationNames (\ s a -> s{_dlc
 dlcNextToken :: Lens' DescribeLaunchConfigurations (Maybe Text)
 dlcNextToken = lens _dlcNextToken (\ s a -> s{_dlcNextToken = a});
 
--- | The maximum number of items to return with this call. The default is 100.
+-- | The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 dlcMaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Int)
 dlcMaxRecords = lens _dlcMaxRecords (\ s a -> s{_dlcMaxRecords = a});
 

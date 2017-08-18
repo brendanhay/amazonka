@@ -75,7 +75,7 @@ data DescribePolicies = DescribePolicies'
 --
 -- * 'dpsAutoScalingGroupName' - The name of the group.
 --
--- * 'dpsMaxRecords' - The maximum number of items to be returned with each call.
+-- * 'dpsMaxRecords' - The maximum number of items to be returned with each call. The default value is 50 and the maximum value is 100.
 --
 -- * 'dpsPolicyTypes' - One or more policy types. Valid values are @SimpleScaling@ and @StepScaling@ .
 describePolicies
@@ -101,7 +101,7 @@ dpsNextToken = lens _dpsNextToken (\ s a -> s{_dpsNextToken = a});
 dpsAutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
 dpsAutoScalingGroupName = lens _dpsAutoScalingGroupName (\ s a -> s{_dpsAutoScalingGroupName = a});
 
--- | The maximum number of items to be returned with each call.
+-- | The maximum number of items to be returned with each call. The default value is 50 and the maximum value is 100.
 dpsMaxRecords :: Lens' DescribePolicies (Maybe Int)
 dpsMaxRecords = lens _dpsMaxRecords (\ s a -> s{_dpsMaxRecords = a});
 

@@ -69,7 +69,7 @@ data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
 --
 -- * 'dasgNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dasgMaxRecords' - The maximum number of items to return with this call.
+-- * 'dasgMaxRecords' - The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 describeAutoScalingGroups
     :: DescribeAutoScalingGroups
 describeAutoScalingGroups =
@@ -87,7 +87,7 @@ dasgAutoScalingGroupNames = lens _dasgAutoScalingGroupNames (\ s a -> s{_dasgAut
 dasgNextToken :: Lens' DescribeAutoScalingGroups (Maybe Text)
 dasgNextToken = lens _dasgNextToken (\ s a -> s{_dasgNextToken = a});
 
--- | The maximum number of items to return with this call.
+-- | The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 dasgMaxRecords :: Lens' DescribeAutoScalingGroups (Maybe Int)
 dasgMaxRecords = lens _dasgMaxRecords (\ s a -> s{_dasgMaxRecords = a});
 

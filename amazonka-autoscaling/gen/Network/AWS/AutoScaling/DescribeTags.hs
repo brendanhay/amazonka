@@ -73,7 +73,7 @@ data DescribeTags = DescribeTags'
 --
 -- * 'dtNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dtMaxRecords' - The maximum number of items to return with this call.
+-- * 'dtMaxRecords' - The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 describeTags
     :: DescribeTags
 describeTags =
@@ -91,7 +91,7 @@ dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default . _Coerce;
 dtNextToken :: Lens' DescribeTags (Maybe Text)
 dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a});
 
--- | The maximum number of items to return with this call.
+-- | The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 dtMaxRecords :: Lens' DescribeTags (Maybe Int)
 dtMaxRecords = lens _dtMaxRecords (\ s a -> s{_dtMaxRecords = a});
 

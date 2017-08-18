@@ -27,6 +27,8 @@ module Network.AWS.AppStream.UpdateStack
       updateStack
     , UpdateStack
     -- * Request Lenses
+    , usDeleteStorageConnectors
+    , usStorageConnectors
     , usDisplayName
     , usDescription
     , usName
@@ -48,14 +50,20 @@ import           Network.AWS.Response
 
 -- | /See:/ 'updateStack' smart constructor.
 data UpdateStack = UpdateStack'
-    { _usDisplayName :: !(Maybe Text)
-    , _usDescription :: !(Maybe Text)
-    , _usName        :: !Text
+    { _usDeleteStorageConnectors :: !(Maybe Bool)
+    , _usStorageConnectors       :: !(Maybe [StorageConnector])
+    , _usDisplayName             :: !(Maybe Text)
+    , _usDescription             :: !(Maybe Text)
+    , _usName                    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateStack' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'usDeleteStorageConnectors' - Remove all the storage connectors currently enabled for the stack.
+--
+-- * 'usStorageConnectors' - The storage connectors to be enabled for the stack.
 --
 -- * 'usDisplayName' - The name displayed to end users on the AppStream 2.0 portal.
 --
@@ -67,10 +75,20 @@ updateStack
     -> UpdateStack
 updateStack pName_ =
     UpdateStack'
-    { _usDisplayName = Nothing
+    { _usDeleteStorageConnectors = Nothing
+    , _usStorageConnectors = Nothing
+    , _usDisplayName = Nothing
     , _usDescription = Nothing
     , _usName = pName_
     }
+
+-- | Remove all the storage connectors currently enabled for the stack.
+usDeleteStorageConnectors :: Lens' UpdateStack (Maybe Bool)
+usDeleteStorageConnectors = lens _usDeleteStorageConnectors (\ s a -> s{_usDeleteStorageConnectors = a});
+
+-- | The storage connectors to be enabled for the stack.
+usStorageConnectors :: Lens' UpdateStack [StorageConnector]
+usStorageConnectors = lens _usStorageConnectors (\ s a -> s{_usStorageConnectors = a}) . _Default . _Coerce;
 
 -- | The name displayed to end users on the AppStream 2.0 portal.
 usDisplayName :: Lens' UpdateStack (Maybe Text)
@@ -111,7 +129,10 @@ instance ToJSON UpdateStack where
         toJSON UpdateStack'{..}
           = object
               (catMaybes
-                 [("DisplayName" .=) <$> _usDisplayName,
+                 [("DeleteStorageConnectors" .=) <$>
+                    _usDeleteStorageConnectors,
+                  ("StorageConnectors" .=) <$> _usStorageConnectors,
+                  ("DisplayName" .=) <$> _usDisplayName,
                   ("Description" .=) <$> _usDescription,
                   Just ("Name" .= _usName)])
 

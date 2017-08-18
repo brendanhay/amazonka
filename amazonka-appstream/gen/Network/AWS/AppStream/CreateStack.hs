@@ -27,6 +27,7 @@ module Network.AWS.AppStream.CreateStack
       createStack
     , CreateStack
     -- * Request Lenses
+    , csStorageConnectors
     , csDisplayName
     , csDescription
     , csName
@@ -48,14 +49,17 @@ import           Network.AWS.Response
 
 -- | /See:/ 'createStack' smart constructor.
 data CreateStack = CreateStack'
-    { _csDisplayName :: !(Maybe Text)
-    , _csDescription :: !(Maybe Text)
-    , _csName        :: !Text
+    { _csStorageConnectors :: !(Maybe [StorageConnector])
+    , _csDisplayName       :: !(Maybe Text)
+    , _csDescription       :: !(Maybe Text)
+    , _csName              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateStack' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csStorageConnectors' - The storage connectors to be enabled for the stack.
 --
 -- * 'csDisplayName' - The name displayed to end users on the AppStream 2.0 portal.
 --
@@ -67,10 +71,15 @@ createStack
     -> CreateStack
 createStack pName_ =
     CreateStack'
-    { _csDisplayName = Nothing
+    { _csStorageConnectors = Nothing
+    , _csDisplayName = Nothing
     , _csDescription = Nothing
     , _csName = pName_
     }
+
+-- | The storage connectors to be enabled for the stack.
+csStorageConnectors :: Lens' CreateStack [StorageConnector]
+csStorageConnectors = lens _csStorageConnectors (\ s a -> s{_csStorageConnectors = a}) . _Default . _Coerce;
 
 -- | The name displayed to end users on the AppStream 2.0 portal.
 csDisplayName :: Lens' CreateStack (Maybe Text)
@@ -111,7 +120,8 @@ instance ToJSON CreateStack where
         toJSON CreateStack'{..}
           = object
               (catMaybes
-                 [("DisplayName" .=) <$> _csDisplayName,
+                 [("StorageConnectors" .=) <$> _csStorageConnectors,
+                  ("DisplayName" .=) <$> _csDisplayName,
                   ("Description" .=) <$> _csDescription,
                   Just ("Name" .= _csName)])
 

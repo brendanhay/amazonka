@@ -40,7 +40,7 @@ data Application = Application'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aEnabled' - An application can be disabled after image creation if there is a problem.
+-- * 'aEnabled' - If there is a problem, an application can be disabled after image creation.
 --
 -- * 'aLaunchPath' - The path to the application executable in the instance.
 --
@@ -50,7 +50,7 @@ data Application = Application'
 --
 -- * 'aDisplayName' - The name of the application shown to the end users.
 --
--- * 'aMetadata' - Additional attributes that describes the application.
+-- * 'aMetadata' - Additional attributes that describe the application.
 --
 -- * 'aIconURL' - The URL for the application icon. This URL may be time-limited.
 application
@@ -66,7 +66,7 @@ application =
     , _aIconURL = Nothing
     }
 
--- | An application can be disabled after image creation if there is a problem.
+-- | If there is a problem, an application can be disabled after image creation.
 aEnabled :: Lens' Application (Maybe Bool)
 aEnabled = lens _aEnabled (\ s a -> s{_aEnabled = a});
 
@@ -86,7 +86,7 @@ aName = lens _aName (\ s a -> s{_aName = a});
 aDisplayName :: Lens' Application (Maybe Text)
 aDisplayName = lens _aDisplayName (\ s a -> s{_aDisplayName = a});
 
--- | Additional attributes that describes the application.
+-- | Additional attributes that describe the application.
 aMetadata :: Lens' Application (HashMap Text Text)
 aMetadata = lens _aMetadata (\ s a -> s{_aMetadata = a}) . _Default . _Map;
 
@@ -209,34 +209,157 @@ instance Hashable ComputeCapacityStatus
 
 instance NFData ComputeCapacityStatus
 
+-- | Full directory configuration details, which are used to join domains for the AppStream 2.0 streaming instances.
+--
+--
+--
+-- /See:/ 'directoryConfig' smart constructor.
+data DirectoryConfig = DirectoryConfig'
+    { _dcCreatedTime                          :: !(Maybe POSIX)
+    , _dcServiceAccountCredentials            :: !(Maybe ServiceAccountCredentials)
+    , _dcOrganizationalUnitDistinguishedNames :: !(Maybe [Text])
+    , _dcDirectoryName                        :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DirectoryConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcCreatedTime' - The time stamp when the directory configuration was created within AppStream 2.0.
+--
+-- * 'dcServiceAccountCredentials' - The /AccountName/ and /AccountPassword/ of the service account, to be used by the streaming instance to connect to the directory.
+--
+-- * 'dcOrganizationalUnitDistinguishedNames' - The list of the distinguished names of organizational units in which to place computer accounts.
+--
+-- * 'dcDirectoryName' - The fully qualified name of the directory, such as corp.example.com
+directoryConfig
+    :: Text -- ^ 'dcDirectoryName'
+    -> DirectoryConfig
+directoryConfig pDirectoryName_ =
+    DirectoryConfig'
+    { _dcCreatedTime = Nothing
+    , _dcServiceAccountCredentials = Nothing
+    , _dcOrganizationalUnitDistinguishedNames = Nothing
+    , _dcDirectoryName = pDirectoryName_
+    }
+
+-- | The time stamp when the directory configuration was created within AppStream 2.0.
+dcCreatedTime :: Lens' DirectoryConfig (Maybe UTCTime)
+dcCreatedTime = lens _dcCreatedTime (\ s a -> s{_dcCreatedTime = a}) . mapping _Time;
+
+-- | The /AccountName/ and /AccountPassword/ of the service account, to be used by the streaming instance to connect to the directory.
+dcServiceAccountCredentials :: Lens' DirectoryConfig (Maybe ServiceAccountCredentials)
+dcServiceAccountCredentials = lens _dcServiceAccountCredentials (\ s a -> s{_dcServiceAccountCredentials = a});
+
+-- | The list of the distinguished names of organizational units in which to place computer accounts.
+dcOrganizationalUnitDistinguishedNames :: Lens' DirectoryConfig [Text]
+dcOrganizationalUnitDistinguishedNames = lens _dcOrganizationalUnitDistinguishedNames (\ s a -> s{_dcOrganizationalUnitDistinguishedNames = a}) . _Default . _Coerce;
+
+-- | The fully qualified name of the directory, such as corp.example.com
+dcDirectoryName :: Lens' DirectoryConfig Text
+dcDirectoryName = lens _dcDirectoryName (\ s a -> s{_dcDirectoryName = a});
+
+instance FromJSON DirectoryConfig where
+        parseJSON
+          = withObject "DirectoryConfig"
+              (\ x ->
+                 DirectoryConfig' <$>
+                   (x .:? "CreatedTime") <*>
+                     (x .:? "ServiceAccountCredentials")
+                     <*>
+                     (x .:? "OrganizationalUnitDistinguishedNames" .!=
+                        mempty)
+                     <*> (x .: "DirectoryName"))
+
+instance Hashable DirectoryConfig
+
+instance NFData DirectoryConfig
+
+-- | The /DirectoryName/ and /OrganizationalUnitDistinguishedName/ values, which are used to join domains for the AppStream 2.0 streaming instances.
+--
+--
+--
+-- /See:/ 'domainJoinInfo' smart constructor.
+data DomainJoinInfo = DomainJoinInfo'
+    { _djiOrganizationalUnitDistinguishedName :: !(Maybe Text)
+    , _djiDirectoryName                       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DomainJoinInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'djiOrganizationalUnitDistinguishedName' - The distinguished name of the organizational unit to place the computer account in.
+--
+-- * 'djiDirectoryName' - The fully qualified name of the directory, such as corp.example.com
+domainJoinInfo
+    :: DomainJoinInfo
+domainJoinInfo =
+    DomainJoinInfo'
+    { _djiOrganizationalUnitDistinguishedName = Nothing
+    , _djiDirectoryName = Nothing
+    }
+
+-- | The distinguished name of the organizational unit to place the computer account in.
+djiOrganizationalUnitDistinguishedName :: Lens' DomainJoinInfo (Maybe Text)
+djiOrganizationalUnitDistinguishedName = lens _djiOrganizationalUnitDistinguishedName (\ s a -> s{_djiOrganizationalUnitDistinguishedName = a});
+
+-- | The fully qualified name of the directory, such as corp.example.com
+djiDirectoryName :: Lens' DomainJoinInfo (Maybe Text)
+djiDirectoryName = lens _djiDirectoryName (\ s a -> s{_djiDirectoryName = a});
+
+instance FromJSON DomainJoinInfo where
+        parseJSON
+          = withObject "DomainJoinInfo"
+              (\ x ->
+                 DomainJoinInfo' <$>
+                   (x .:? "OrganizationalUnitDistinguishedName") <*>
+                     (x .:? "DirectoryName"))
+
+instance Hashable DomainJoinInfo
+
+instance NFData DomainJoinInfo
+
+instance ToJSON DomainJoinInfo where
+        toJSON DomainJoinInfo'{..}
+          = object
+              (catMaybes
+                 [("OrganizationalUnitDistinguishedName" .=) <$>
+                    _djiOrganizationalUnitDistinguishedName,
+                  ("DirectoryName" .=) <$> _djiDirectoryName])
+
 -- | Contains the parameters for a fleet.
 --
 --
 --
 -- /See:/ 'fleet' smart constructor.
 data Fleet = Fleet'
-    { _fDisconnectTimeoutInSeconds :: !(Maybe Int)
-    , _fMaxUserDurationInSeconds   :: !(Maybe Int)
-    , _fCreatedTime                :: !(Maybe POSIX)
-    , _fVPCConfig                  :: !(Maybe VPCConfig)
-    , _fFleetErrors                :: !(Maybe [FleetError])
-    , _fDisplayName                :: !(Maybe Text)
-    , _fDescription                :: !(Maybe Text)
-    , _fARN                        :: !Text
-    , _fName                       :: !Text
-    , _fImageName                  :: !Text
-    , _fInstanceType               :: !Text
-    , _fComputeCapacityStatus      :: !ComputeCapacityStatus
-    , _fState                      :: !FleetState
+    { _fDomainJoinInfo              :: !(Maybe DomainJoinInfo)
+    , _fDisconnectTimeoutInSeconds  :: !(Maybe Int)
+    , _fMaxUserDurationInSeconds    :: !(Maybe Int)
+    , _fCreatedTime                 :: !(Maybe POSIX)
+    , _fVPCConfig                   :: !(Maybe VPCConfig)
+    , _fFleetErrors                 :: !(Maybe [FleetError])
+    , _fDisplayName                 :: !(Maybe Text)
+    , _fEnableDefaultInternetAccess :: !(Maybe Bool)
+    , _fDescription                 :: !(Maybe Text)
+    , _fARN                         :: !Text
+    , _fName                        :: !Text
+    , _fImageName                   :: !Text
+    , _fInstanceType                :: !Text
+    , _fComputeCapacityStatus       :: !ComputeCapacityStatus
+    , _fState                       :: !FleetState
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Fleet' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fDisconnectTimeoutInSeconds' - The time after disconnection when a session is considered to have ended. When a user reconnects after a disconnection, the user is connected to the same session and instance within this time interval.
+-- * 'fDomainJoinInfo' - The /DirectoryName/ and /OrganizationalUnitDistinguishedName/ values, which are used to join domains for the AppStream 2.0 streaming instances.
 --
--- * 'fMaxUserDurationInSeconds' - The maximum time during which a streaming session can run.
+-- * 'fDisconnectTimeoutInSeconds' - The time after disconnection when a session is considered to have ended. If a user who got disconnected reconnects within this timeout interval, the user is connected back to their previous session. The input can be any numeric value in seconds between 60 and 57600.
+--
+-- * 'fMaxUserDurationInSeconds' - The maximum time for which a streaming session can run. The value can be any numeric value in seconds between 600 and 57600.
 --
 -- * 'fCreatedTime' - The time at which the fleet was created.
 --
@@ -245,6 +368,8 @@ data Fleet = Fleet'
 -- * 'fFleetErrors' - The list of fleet errors is appended to this list.
 --
 -- * 'fDisplayName' - The name displayed to end users on the AppStream 2.0 portal.
+--
+-- * 'fEnableDefaultInternetAccess' - Whether default internet access is enabled for the fleet.
 --
 -- * 'fDescription' - The description displayed to end users on the AppStream 2.0 portal.
 --
@@ -269,12 +394,14 @@ fleet
     -> Fleet
 fleet pARN_ pName_ pImageName_ pInstanceType_ pComputeCapacityStatus_ pState_ =
     Fleet'
-    { _fDisconnectTimeoutInSeconds = Nothing
+    { _fDomainJoinInfo = Nothing
+    , _fDisconnectTimeoutInSeconds = Nothing
     , _fMaxUserDurationInSeconds = Nothing
     , _fCreatedTime = Nothing
     , _fVPCConfig = Nothing
     , _fFleetErrors = Nothing
     , _fDisplayName = Nothing
+    , _fEnableDefaultInternetAccess = Nothing
     , _fDescription = Nothing
     , _fARN = pARN_
     , _fName = pName_
@@ -284,11 +411,15 @@ fleet pARN_ pName_ pImageName_ pInstanceType_ pComputeCapacityStatus_ pState_ =
     , _fState = pState_
     }
 
--- | The time after disconnection when a session is considered to have ended. When a user reconnects after a disconnection, the user is connected to the same session and instance within this time interval.
+-- | The /DirectoryName/ and /OrganizationalUnitDistinguishedName/ values, which are used to join domains for the AppStream 2.0 streaming instances.
+fDomainJoinInfo :: Lens' Fleet (Maybe DomainJoinInfo)
+fDomainJoinInfo = lens _fDomainJoinInfo (\ s a -> s{_fDomainJoinInfo = a});
+
+-- | The time after disconnection when a session is considered to have ended. If a user who got disconnected reconnects within this timeout interval, the user is connected back to their previous session. The input can be any numeric value in seconds between 60 and 57600.
 fDisconnectTimeoutInSeconds :: Lens' Fleet (Maybe Int)
 fDisconnectTimeoutInSeconds = lens _fDisconnectTimeoutInSeconds (\ s a -> s{_fDisconnectTimeoutInSeconds = a});
 
--- | The maximum time during which a streaming session can run.
+-- | The maximum time for which a streaming session can run. The value can be any numeric value in seconds between 600 and 57600.
 fMaxUserDurationInSeconds :: Lens' Fleet (Maybe Int)
 fMaxUserDurationInSeconds = lens _fMaxUserDurationInSeconds (\ s a -> s{_fMaxUserDurationInSeconds = a});
 
@@ -307,6 +438,10 @@ fFleetErrors = lens _fFleetErrors (\ s a -> s{_fFleetErrors = a}) . _Default . _
 -- | The name displayed to end users on the AppStream 2.0 portal.
 fDisplayName :: Lens' Fleet (Maybe Text)
 fDisplayName = lens _fDisplayName (\ s a -> s{_fDisplayName = a});
+
+-- | Whether default internet access is enabled for the fleet.
+fEnableDefaultInternetAccess :: Lens' Fleet (Maybe Bool)
+fEnableDefaultInternetAccess = lens _fEnableDefaultInternetAccess (\ s a -> s{_fEnableDefaultInternetAccess = a});
 
 -- | The description displayed to end users on the AppStream 2.0 portal.
 fDescription :: Lens' Fleet (Maybe Text)
@@ -341,12 +476,14 @@ instance FromJSON Fleet where
           = withObject "Fleet"
               (\ x ->
                  Fleet' <$>
-                   (x .:? "DisconnectTimeoutInSeconds") <*>
-                     (x .:? "MaxUserDurationInSeconds")
+                   (x .:? "DomainJoinInfo") <*>
+                     (x .:? "DisconnectTimeoutInSeconds")
+                     <*> (x .:? "MaxUserDurationInSeconds")
                      <*> (x .:? "CreatedTime")
                      <*> (x .:? "VpcConfig")
                      <*> (x .:? "FleetErrors" .!= mempty)
                      <*> (x .:? "DisplayName")
+                     <*> (x .:? "EnableDefaultInternetAccess")
                      <*> (x .:? "Description")
                      <*> (x .: "Arn")
                      <*> (x .: "Name")
@@ -409,32 +546,38 @@ instance NFData FleetError
 --
 -- /See:/ 'image' smart constructor.
 data Image = Image'
-    { _iState             :: !(Maybe ImageState)
-    , _iPlatform          :: !(Maybe PlatformType)
-    , _iStateChangeReason :: !(Maybe ImageStateChangeReason)
-    , _iARN               :: !(Maybe Text)
-    , _iCreatedTime       :: !(Maybe POSIX)
-    , _iVisibility        :: !(Maybe VisibilityType)
-    , _iBaseImageARN      :: !(Maybe Text)
-    , _iDisplayName       :: !(Maybe Text)
-    , _iDescription       :: !(Maybe Text)
-    , _iApplications      :: !(Maybe [Application])
-    , _iName              :: !Text
+    { _iState                       :: !(Maybe ImageState)
+    , _iPlatform                    :: !(Maybe PlatformType)
+    , _iPublicBaseImageReleasedDate :: !(Maybe POSIX)
+    , _iStateChangeReason           :: !(Maybe ImageStateChangeReason)
+    , _iARN                         :: !(Maybe Text)
+    , _iCreatedTime                 :: !(Maybe POSIX)
+    , _iImageBuilderSupported       :: !(Maybe Bool)
+    , _iVisibility                  :: !(Maybe VisibilityType)
+    , _iBaseImageARN                :: !(Maybe Text)
+    , _iDisplayName                 :: !(Maybe Text)
+    , _iDescription                 :: !(Maybe Text)
+    , _iApplications                :: !(Maybe [Application])
+    , _iName                        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Image' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iState' - The image starts in the __PENDING__ state, and then moves to __AVAILABLE__ if image creation succeeds and __FAILED__ if image creation has failed.
+-- * 'iState' - The image starts in the __PENDING__ state. If image creation succeeds, it moves to __AVAILABLE__ . If image creation fails, it moves to __FAILED__ .
 --
 -- * 'iPlatform' - The operating system platform of the image.
+--
+-- * 'iPublicBaseImageReleasedDate' - The AWS release date of the public base image. For private images, this date is the release date of the base image from which the image was created.
 --
 -- * 'iStateChangeReason' - The reason why the last state change occurred.
 --
 -- * 'iARN' - The ARN for the image.
 --
--- * 'iCreatedTime' - The timestamp when the image was created.
+-- * 'iCreatedTime' - The time stamp when the image was created.
+--
+-- * 'iImageBuilderSupported' - Whether an image builder can be launched from this image.
 --
 -- * 'iVisibility' - The visibility of an image to the user; images can be public or private.
 --
@@ -454,9 +597,11 @@ image pName_ =
     Image'
     { _iState = Nothing
     , _iPlatform = Nothing
+    , _iPublicBaseImageReleasedDate = Nothing
     , _iStateChangeReason = Nothing
     , _iARN = Nothing
     , _iCreatedTime = Nothing
+    , _iImageBuilderSupported = Nothing
     , _iVisibility = Nothing
     , _iBaseImageARN = Nothing
     , _iDisplayName = Nothing
@@ -465,13 +610,17 @@ image pName_ =
     , _iName = pName_
     }
 
--- | The image starts in the __PENDING__ state, and then moves to __AVAILABLE__ if image creation succeeds and __FAILED__ if image creation has failed.
+-- | The image starts in the __PENDING__ state. If image creation succeeds, it moves to __AVAILABLE__ . If image creation fails, it moves to __FAILED__ .
 iState :: Lens' Image (Maybe ImageState)
 iState = lens _iState (\ s a -> s{_iState = a});
 
 -- | The operating system platform of the image.
 iPlatform :: Lens' Image (Maybe PlatformType)
 iPlatform = lens _iPlatform (\ s a -> s{_iPlatform = a});
+
+-- | The AWS release date of the public base image. For private images, this date is the release date of the base image from which the image was created.
+iPublicBaseImageReleasedDate :: Lens' Image (Maybe UTCTime)
+iPublicBaseImageReleasedDate = lens _iPublicBaseImageReleasedDate (\ s a -> s{_iPublicBaseImageReleasedDate = a}) . mapping _Time;
 
 -- | The reason why the last state change occurred.
 iStateChangeReason :: Lens' Image (Maybe ImageStateChangeReason)
@@ -481,9 +630,13 @@ iStateChangeReason = lens _iStateChangeReason (\ s a -> s{_iStateChangeReason = 
 iARN :: Lens' Image (Maybe Text)
 iARN = lens _iARN (\ s a -> s{_iARN = a});
 
--- | The timestamp when the image was created.
+-- | The time stamp when the image was created.
 iCreatedTime :: Lens' Image (Maybe UTCTime)
 iCreatedTime = lens _iCreatedTime (\ s a -> s{_iCreatedTime = a}) . mapping _Time;
+
+-- | Whether an image builder can be launched from this image.
+iImageBuilderSupported :: Lens' Image (Maybe Bool)
+iImageBuilderSupported = lens _iImageBuilderSupported (\ s a -> s{_iImageBuilderSupported = a});
 
 -- | The visibility of an image to the user; images can be public or private.
 iVisibility :: Lens' Image (Maybe VisibilityType)
@@ -515,9 +668,11 @@ instance FromJSON Image where
               (\ x ->
                  Image' <$>
                    (x .:? "State") <*> (x .:? "Platform") <*>
-                     (x .:? "StateChangeReason")
+                     (x .:? "PublicBaseImageReleasedDate")
+                     <*> (x .:? "StateChangeReason")
                      <*> (x .:? "Arn")
                      <*> (x .:? "CreatedTime")
+                     <*> (x .:? "ImageBuilderSupported")
                      <*> (x .:? "Visibility")
                      <*> (x .:? "BaseImageArn")
                      <*> (x .:? "DisplayName")
@@ -573,22 +728,78 @@ instance Hashable ImageStateChangeReason
 
 instance NFData ImageStateChangeReason
 
+-- | The /AccountName/ and /AccountPassword/ of the service account, to be used by the streaming instance to connect to the directory.
+--
+--
+--
+-- /See:/ 'serviceAccountCredentials' smart constructor.
+data ServiceAccountCredentials = ServiceAccountCredentials'
+    { _sacAccountName     :: !(Sensitive Text)
+    , _sacAccountPassword :: !(Sensitive Text)
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ServiceAccountCredentials' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sacAccountName' - The user name of an account in the directory that is used by AppStream 2.0 streaming instances to connect to the directory. This account must have the following privileges: create computer objects, join computers to the domain, change/reset the password on descendant computer objects for the organizational units specified.
+--
+-- * 'sacAccountPassword' - The password for the user account for directory actions.
+serviceAccountCredentials
+    :: Text -- ^ 'sacAccountName'
+    -> Text -- ^ 'sacAccountPassword'
+    -> ServiceAccountCredentials
+serviceAccountCredentials pAccountName_ pAccountPassword_ =
+    ServiceAccountCredentials'
+    { _sacAccountName = _Sensitive # pAccountName_
+    , _sacAccountPassword = _Sensitive # pAccountPassword_
+    }
+
+-- | The user name of an account in the directory that is used by AppStream 2.0 streaming instances to connect to the directory. This account must have the following privileges: create computer objects, join computers to the domain, change/reset the password on descendant computer objects for the organizational units specified.
+sacAccountName :: Lens' ServiceAccountCredentials Text
+sacAccountName = lens _sacAccountName (\ s a -> s{_sacAccountName = a}) . _Sensitive;
+
+-- | The password for the user account for directory actions.
+sacAccountPassword :: Lens' ServiceAccountCredentials Text
+sacAccountPassword = lens _sacAccountPassword (\ s a -> s{_sacAccountPassword = a}) . _Sensitive;
+
+instance FromJSON ServiceAccountCredentials where
+        parseJSON
+          = withObject "ServiceAccountCredentials"
+              (\ x ->
+                 ServiceAccountCredentials' <$>
+                   (x .: "AccountName") <*> (x .: "AccountPassword"))
+
+instance Hashable ServiceAccountCredentials
+
+instance NFData ServiceAccountCredentials
+
+instance ToJSON ServiceAccountCredentials where
+        toJSON ServiceAccountCredentials'{..}
+          = object
+              (catMaybes
+                 [Just ("AccountName" .= _sacAccountName),
+                  Just ("AccountPassword" .= _sacAccountPassword)])
+
 -- | Contains the parameters for a streaming session.
 --
 --
 --
 -- /See:/ 'session' smart constructor.
 data Session = Session'
-    { _sId        :: !Text
-    , _sUserId    :: !Text
-    , _sStackName :: !Text
-    , _sFleetName :: !Text
-    , _sState     :: !SessionState
+    { _sAuthenticationType :: !(Maybe AuthenticationType)
+    , _sId                 :: !Text
+    , _sUserId             :: !Text
+    , _sStackName          :: !Text
+    , _sFleetName          :: !Text
+    , _sState              :: !SessionState
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Session' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sAuthenticationType' - The authentication method of the user for whom the session was created. It can be @API@ for a user authenticated using a streaming URL or @SAML@ for a SAML federated user.
 --
 -- * 'sId' - The unique ID for a streaming session.
 --
@@ -608,12 +819,17 @@ session
     -> Session
 session pId_ pUserId_ pStackName_ pFleetName_ pState_ =
     Session'
-    { _sId = pId_
+    { _sAuthenticationType = Nothing
+    , _sId = pId_
     , _sUserId = pUserId_
     , _sStackName = pStackName_
     , _sFleetName = pFleetName_
     , _sState = pState_
     }
+
+-- | The authentication method of the user for whom the session was created. It can be @API@ for a user authenticated using a streaming URL or @SAML@ for a SAML federated user.
+sAuthenticationType :: Lens' Session (Maybe AuthenticationType)
+sAuthenticationType = lens _sAuthenticationType (\ s a -> s{_sAuthenticationType = a});
 
 -- | The unique ID for a streaming session.
 sId :: Lens' Session Text
@@ -640,8 +856,9 @@ instance FromJSON Session where
           = withObject "Session"
               (\ x ->
                  Session' <$>
-                   (x .: "Id") <*> (x .: "UserId") <*>
-                     (x .: "StackName")
+                   (x .:? "AuthenticationType") <*> (x .: "Id") <*>
+                     (x .: "UserId")
+                     <*> (x .: "StackName")
                      <*> (x .: "FleetName")
                      <*> (x .: "State"))
 
@@ -655,11 +872,13 @@ instance NFData Session
 --
 -- /See:/ 'stack' smart constructor.
 data Stack = Stack'
-    { _sARN         :: !(Maybe Text)
-    , _sCreatedTime :: !(Maybe POSIX)
-    , _sDisplayName :: !(Maybe Text)
-    , _sDescription :: !(Maybe Text)
-    , _sName        :: !Text
+    { _sARN               :: !(Maybe Text)
+    , _sCreatedTime       :: !(Maybe POSIX)
+    , _sStorageConnectors :: !(Maybe [StorageConnector])
+    , _sDisplayName       :: !(Maybe Text)
+    , _sStackErrors       :: !(Maybe [StackError])
+    , _sDescription       :: !(Maybe Text)
+    , _sName              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Stack' with the minimum fields required to make a request.
@@ -668,9 +887,13 @@ data Stack = Stack'
 --
 -- * 'sARN' - The ARN of the stack.
 --
--- * 'sCreatedTime' - The timestamp when the stack was created.
+-- * 'sCreatedTime' - The time stamp when the stack was created.
+--
+-- * 'sStorageConnectors' - The storage connectors to be enabled for the stack.
 --
 -- * 'sDisplayName' - A display name for the stack.
+--
+-- * 'sStackErrors' - The list of errors associated with the stack.
 --
 -- * 'sDescription' - A meaningful description for the stack.
 --
@@ -682,7 +905,9 @@ stack pName_ =
     Stack'
     { _sARN = Nothing
     , _sCreatedTime = Nothing
+    , _sStorageConnectors = Nothing
     , _sDisplayName = Nothing
+    , _sStackErrors = Nothing
     , _sDescription = Nothing
     , _sName = pName_
     }
@@ -691,13 +916,21 @@ stack pName_ =
 sARN :: Lens' Stack (Maybe Text)
 sARN = lens _sARN (\ s a -> s{_sARN = a});
 
--- | The timestamp when the stack was created.
+-- | The time stamp when the stack was created.
 sCreatedTime :: Lens' Stack (Maybe UTCTime)
 sCreatedTime = lens _sCreatedTime (\ s a -> s{_sCreatedTime = a}) . mapping _Time;
+
+-- | The storage connectors to be enabled for the stack.
+sStorageConnectors :: Lens' Stack [StorageConnector]
+sStorageConnectors = lens _sStorageConnectors (\ s a -> s{_sStorageConnectors = a}) . _Default . _Coerce;
 
 -- | A display name for the stack.
 sDisplayName :: Lens' Stack (Maybe Text)
 sDisplayName = lens _sDisplayName (\ s a -> s{_sDisplayName = a});
+
+-- | The list of errors associated with the stack.
+sStackErrors :: Lens' Stack [StackError]
+sStackErrors = lens _sStackErrors (\ s a -> s{_sStackErrors = a}) . _Default . _Coerce;
 
 -- | A meaningful description for the stack.
 sDescription :: Lens' Stack (Maybe Text)
@@ -713,7 +946,9 @@ instance FromJSON Stack where
               (\ x ->
                  Stack' <$>
                    (x .:? "Arn") <*> (x .:? "CreatedTime") <*>
-                     (x .:? "DisplayName")
+                     (x .:? "StorageConnectors" .!= mempty)
+                     <*> (x .:? "DisplayName")
+                     <*> (x .:? "StackErrors" .!= mempty)
                      <*> (x .:? "Description")
                      <*> (x .: "Name"))
 
@@ -721,36 +956,143 @@ instance Hashable Stack
 
 instance NFData Stack
 
--- | The VPC in which the fleet is launched.
+-- | Contains the parameters for a stack error.
+--
+--
+--
+-- /See:/ 'stackError' smart constructor.
+data StackError = StackError'
+    { _seErrorCode    :: !(Maybe StackErrorCode)
+    , _seErrorMessage :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StackError' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'seErrorCode' - The error code of a stack error.
+--
+-- * 'seErrorMessage' - The error message of a stack error.
+stackError
+    :: StackError
+stackError =
+    StackError'
+    { _seErrorCode = Nothing
+    , _seErrorMessage = Nothing
+    }
+
+-- | The error code of a stack error.
+seErrorCode :: Lens' StackError (Maybe StackErrorCode)
+seErrorCode = lens _seErrorCode (\ s a -> s{_seErrorCode = a});
+
+-- | The error message of a stack error.
+seErrorMessage :: Lens' StackError (Maybe Text)
+seErrorMessage = lens _seErrorMessage (\ s a -> s{_seErrorMessage = a});
+
+instance FromJSON StackError where
+        parseJSON
+          = withObject "StackError"
+              (\ x ->
+                 StackError' <$>
+                   (x .:? "ErrorCode") <*> (x .:? "ErrorMessage"))
+
+instance Hashable StackError
+
+instance NFData StackError
+
+-- | Contains the parameters for a storage connector.
+--
+--
+--
+-- /See:/ 'storageConnector' smart constructor.
+data StorageConnector = StorageConnector'
+    { _scResourceIdentifier :: !(Maybe Text)
+    , _scConnectorType      :: !StorageConnectorType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StorageConnector' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scResourceIdentifier' - The ARN associated with the storage connector.
+--
+-- * 'scConnectorType' - The type of storage connector. The possible values include: HOMEFOLDERS.
+storageConnector
+    :: StorageConnectorType -- ^ 'scConnectorType'
+    -> StorageConnector
+storageConnector pConnectorType_ =
+    StorageConnector'
+    { _scResourceIdentifier = Nothing
+    , _scConnectorType = pConnectorType_
+    }
+
+-- | The ARN associated with the storage connector.
+scResourceIdentifier :: Lens' StorageConnector (Maybe Text)
+scResourceIdentifier = lens _scResourceIdentifier (\ s a -> s{_scResourceIdentifier = a});
+
+-- | The type of storage connector. The possible values include: HOMEFOLDERS.
+scConnectorType :: Lens' StorageConnector StorageConnectorType
+scConnectorType = lens _scConnectorType (\ s a -> s{_scConnectorType = a});
+
+instance FromJSON StorageConnector where
+        parseJSON
+          = withObject "StorageConnector"
+              (\ x ->
+                 StorageConnector' <$>
+                   (x .:? "ResourceIdentifier") <*>
+                     (x .: "ConnectorType"))
+
+instance Hashable StorageConnector
+
+instance NFData StorageConnector
+
+instance ToJSON StorageConnector where
+        toJSON StorageConnector'{..}
+          = object
+              (catMaybes
+                 [("ResourceIdentifier" .=) <$> _scResourceIdentifier,
+                  Just ("ConnectorType" .= _scConnectorType)])
+
+-- | VPC configuration information.
 --
 --
 --
 -- /See:/ 'vpcConfig' smart constructor.
-newtype VPCConfig = VPCConfig'
-    { _vcSubnetIds :: List1 Text
+data VPCConfig = VPCConfig'
+    { _vcSecurityGroupIds :: !(Maybe [Text])
+    , _vcSubnetIds        :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VPCConfig' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'vcSecurityGroupIds' - Security groups associated with the fleet.
+--
 -- * 'vcSubnetIds' - The list of subnets to which a network interface is established from the fleet instance.
 vpcConfig
-    :: NonEmpty Text -- ^ 'vcSubnetIds'
-    -> VPCConfig
-vpcConfig pSubnetIds_ =
+    :: VPCConfig
+vpcConfig =
     VPCConfig'
-    { _vcSubnetIds = _List1 # pSubnetIds_
+    { _vcSecurityGroupIds = Nothing
+    , _vcSubnetIds = Nothing
     }
 
+-- | Security groups associated with the fleet.
+vcSecurityGroupIds :: Lens' VPCConfig [Text]
+vcSecurityGroupIds = lens _vcSecurityGroupIds (\ s a -> s{_vcSecurityGroupIds = a}) . _Default . _Coerce;
+
 -- | The list of subnets to which a network interface is established from the fleet instance.
-vcSubnetIds :: Lens' VPCConfig (NonEmpty Text)
-vcSubnetIds = lens _vcSubnetIds (\ s a -> s{_vcSubnetIds = a}) . _List1;
+vcSubnetIds :: Lens' VPCConfig [Text]
+vcSubnetIds = lens _vcSubnetIds (\ s a -> s{_vcSubnetIds = a}) . _Default . _Coerce;
 
 instance FromJSON VPCConfig where
         parseJSON
           = withObject "VPCConfig"
-              (\ x -> VPCConfig' <$> (x .: "SubnetIds"))
+              (\ x ->
+                 VPCConfig' <$>
+                   (x .:? "SecurityGroupIds" .!= mempty) <*>
+                     (x .:? "SubnetIds" .!= mempty))
 
 instance Hashable VPCConfig
 
@@ -759,4 +1101,6 @@ instance NFData VPCConfig
 instance ToJSON VPCConfig where
         toJSON VPCConfig'{..}
           = object
-              (catMaybes [Just ("SubnetIds" .= _vcSubnetIds)])
+              (catMaybes
+                 [("SecurityGroupIds" .=) <$> _vcSecurityGroupIds,
+                  ("SubnetIds" .=) <$> _vcSubnetIds])

@@ -19,8 +19,85 @@ module Network.AWS.AppStream.Types.Sum where
 
 import           Network.AWS.Prelude
 
+data AuthenticationType
+    = API
+    | Saml
+    | Userpool
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText AuthenticationType where
+    parser = takeLowerText >>= \case
+        "api" -> pure API
+        "saml" -> pure Saml
+        "userpool" -> pure Userpool
+        e -> fromTextError $ "Failure parsing AuthenticationType from value: '" <> e
+           <> "'. Accepted values: api, saml, userpool"
+
+instance ToText AuthenticationType where
+    toText = \case
+        API -> "API"
+        Saml -> "SAML"
+        Userpool -> "USERPOOL"
+
+instance Hashable     AuthenticationType
+instance NFData       AuthenticationType
+instance ToByteString AuthenticationType
+instance ToQuery      AuthenticationType
+instance ToHeader     AuthenticationType
+
+instance ToJSON AuthenticationType where
+    toJSON = toJSONText
+
+instance FromJSON AuthenticationType where
+    parseJSON = parseJSONText "AuthenticationType"
+
+-- | Fleet attribute.
+--
+--
+data FleetAttribute
+    = DomainJoinInfo
+    | VPCConfiguration
+    | VPCConfigurationSecurityGroupIds
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText FleetAttribute where
+    parser = takeLowerText >>= \case
+        "domain_join_info" -> pure DomainJoinInfo
+        "vpc_configuration" -> pure VPCConfiguration
+        "vpc_configuration_security_group_ids" -> pure VPCConfigurationSecurityGroupIds
+        e -> fromTextError $ "Failure parsing FleetAttribute from value: '" <> e
+           <> "'. Accepted values: domain_join_info, vpc_configuration, vpc_configuration_security_group_ids"
+
+instance ToText FleetAttribute where
+    toText = \case
+        DomainJoinInfo -> "DOMAIN_JOIN_INFO"
+        VPCConfiguration -> "VPC_CONFIGURATION"
+        VPCConfigurationSecurityGroupIds -> "VPC_CONFIGURATION_SECURITY_GROUP_IDS"
+
+instance Hashable     FleetAttribute
+instance NFData       FleetAttribute
+instance ToByteString FleetAttribute
+instance ToQuery      FleetAttribute
+instance ToHeader     FleetAttribute
+
+instance ToJSON FleetAttribute where
+    toJSON = toJSONText
+
 data FleetErrorCode
-    = IAMServiceRoleIsMissing
+    = DomainJoinErrorAccessDenied
+    | DomainJoinErrorDsMachineAccountQuotaExceeded
+    | DomainJoinErrorFileNotFound
+    | DomainJoinErrorInvalidParameter
+    | DomainJoinErrorLogonFailure
+    | DomainJoinErrorMoreData
+    | DomainJoinErrorNoSuchDomain
+    | DomainJoinErrorNotSupported
+    | DomainJoinInternalServiceError
+    | DomainJoinNerrInvalidWorkgroupName
+    | DomainJoinNerrPasswordExpired
+    | DomainJoinNerrWorkstationNotStarted
+    | IAMServiceRoleIsMissing
+    | IAMServiceRoleMissingDescribeSecurityGroupsAction
     | IAMServiceRoleMissingDescribeSubnetAction
     | IAMServiceRoleMissingEniCreateAction
     | IAMServiceRoleMissingEniDeleteAction
@@ -29,13 +106,27 @@ data FleetErrorCode
     | InternalServiceError
     | InvalidSubnetConfiguration
     | NetworkInterfaceLimitExceeded
+    | SecurityGroupsNotFound
     | SubnetHasInsufficientIPAddresses
     | SubnetNotFound
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText FleetErrorCode where
     parser = takeLowerText >>= \case
+        "domain_join_error_access_denied" -> pure DomainJoinErrorAccessDenied
+        "domain_join_error_ds_machine_account_quota_exceeded" -> pure DomainJoinErrorDsMachineAccountQuotaExceeded
+        "domain_join_error_file_not_found" -> pure DomainJoinErrorFileNotFound
+        "domain_join_error_invalid_parameter" -> pure DomainJoinErrorInvalidParameter
+        "domain_join_error_logon_failure" -> pure DomainJoinErrorLogonFailure
+        "domain_join_error_more_data" -> pure DomainJoinErrorMoreData
+        "domain_join_error_no_such_domain" -> pure DomainJoinErrorNoSuchDomain
+        "domain_join_error_not_supported" -> pure DomainJoinErrorNotSupported
+        "domain_join_internal_service_error" -> pure DomainJoinInternalServiceError
+        "domain_join_nerr_invalid_workgroup_name" -> pure DomainJoinNerrInvalidWorkgroupName
+        "domain_join_nerr_password_expired" -> pure DomainJoinNerrPasswordExpired
+        "domain_join_nerr_workstation_not_started" -> pure DomainJoinNerrWorkstationNotStarted
         "iam_service_role_is_missing" -> pure IAMServiceRoleIsMissing
+        "iam_service_role_missing_describe_security_groups_action" -> pure IAMServiceRoleMissingDescribeSecurityGroupsAction
         "iam_service_role_missing_describe_subnet_action" -> pure IAMServiceRoleMissingDescribeSubnetAction
         "iam_service_role_missing_eni_create_action" -> pure IAMServiceRoleMissingEniCreateAction
         "iam_service_role_missing_eni_delete_action" -> pure IAMServiceRoleMissingEniDeleteAction
@@ -44,14 +135,28 @@ instance FromText FleetErrorCode where
         "internal_service_error" -> pure InternalServiceError
         "invalid_subnet_configuration" -> pure InvalidSubnetConfiguration
         "network_interface_limit_exceeded" -> pure NetworkInterfaceLimitExceeded
+        "security_groups_not_found" -> pure SecurityGroupsNotFound
         "subnet_has_insufficient_ip_addresses" -> pure SubnetHasInsufficientIPAddresses
         "subnet_not_found" -> pure SubnetNotFound
         e -> fromTextError $ "Failure parsing FleetErrorCode from value: '" <> e
-           <> "'. Accepted values: iam_service_role_is_missing, iam_service_role_missing_describe_subnet_action, iam_service_role_missing_eni_create_action, iam_service_role_missing_eni_delete_action, iam_service_role_missing_eni_describe_action, image_not_found, internal_service_error, invalid_subnet_configuration, network_interface_limit_exceeded, subnet_has_insufficient_ip_addresses, subnet_not_found"
+           <> "'. Accepted values: domain_join_error_access_denied, domain_join_error_ds_machine_account_quota_exceeded, domain_join_error_file_not_found, domain_join_error_invalid_parameter, domain_join_error_logon_failure, domain_join_error_more_data, domain_join_error_no_such_domain, domain_join_error_not_supported, domain_join_internal_service_error, domain_join_nerr_invalid_workgroup_name, domain_join_nerr_password_expired, domain_join_nerr_workstation_not_started, iam_service_role_is_missing, iam_service_role_missing_describe_security_groups_action, iam_service_role_missing_describe_subnet_action, iam_service_role_missing_eni_create_action, iam_service_role_missing_eni_delete_action, iam_service_role_missing_eni_describe_action, image_not_found, internal_service_error, invalid_subnet_configuration, network_interface_limit_exceeded, security_groups_not_found, subnet_has_insufficient_ip_addresses, subnet_not_found"
 
 instance ToText FleetErrorCode where
     toText = \case
+        DomainJoinErrorAccessDenied -> "DOMAIN_JOIN_ERROR_ACCESS_DENIED"
+        DomainJoinErrorDsMachineAccountQuotaExceeded -> "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED"
+        DomainJoinErrorFileNotFound -> "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND"
+        DomainJoinErrorInvalidParameter -> "DOMAIN_JOIN_ERROR_INVALID_PARAMETER"
+        DomainJoinErrorLogonFailure -> "DOMAIN_JOIN_ERROR_LOGON_FAILURE"
+        DomainJoinErrorMoreData -> "DOMAIN_JOIN_ERROR_MORE_DATA"
+        DomainJoinErrorNoSuchDomain -> "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN"
+        DomainJoinErrorNotSupported -> "DOMAIN_JOIN_ERROR_NOT_SUPPORTED"
+        DomainJoinInternalServiceError -> "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR"
+        DomainJoinNerrInvalidWorkgroupName -> "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME"
+        DomainJoinNerrPasswordExpired -> "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED"
+        DomainJoinNerrWorkstationNotStarted -> "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED"
         IAMServiceRoleIsMissing -> "IAM_SERVICE_ROLE_IS_MISSING"
+        IAMServiceRoleMissingDescribeSecurityGroupsAction -> "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION"
         IAMServiceRoleMissingDescribeSubnetAction -> "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION"
         IAMServiceRoleMissingEniCreateAction -> "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION"
         IAMServiceRoleMissingEniDeleteAction -> "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION"
@@ -60,6 +165,7 @@ instance ToText FleetErrorCode where
         InternalServiceError -> "INTERNAL_SERVICE_ERROR"
         InvalidSubnetConfiguration -> "INVALID_SUBNET_CONFIGURATION"
         NetworkInterfaceLimitExceeded -> "NETWORK_INTERFACE_LIMIT_EXCEEDED"
+        SecurityGroupsNotFound -> "SECURITY_GROUPS_NOT_FOUND"
         SubnetHasInsufficientIPAddresses -> "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES"
         SubnetNotFound -> "SUBNET_NOT_FOUND"
 
@@ -216,6 +322,61 @@ instance ToHeader     SessionState
 
 instance FromJSON SessionState where
     parseJSON = parseJSONText "SessionState"
+
+data StackErrorCode
+    = SECInternalServiceError
+    | SECStorageConnectorError
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText StackErrorCode where
+    parser = takeLowerText >>= \case
+        "internal_service_error" -> pure SECInternalServiceError
+        "storage_connector_error" -> pure SECStorageConnectorError
+        e -> fromTextError $ "Failure parsing StackErrorCode from value: '" <> e
+           <> "'. Accepted values: internal_service_error, storage_connector_error"
+
+instance ToText StackErrorCode where
+    toText = \case
+        SECInternalServiceError -> "INTERNAL_SERVICE_ERROR"
+        SECStorageConnectorError -> "STORAGE_CONNECTOR_ERROR"
+
+instance Hashable     StackErrorCode
+instance NFData       StackErrorCode
+instance ToByteString StackErrorCode
+instance ToQuery      StackErrorCode
+instance ToHeader     StackErrorCode
+
+instance FromJSON StackErrorCode where
+    parseJSON = parseJSONText "StackErrorCode"
+
+-- | The type of storage connector. The possible values include: HOMEFOLDERS.
+--
+--
+data StorageConnectorType =
+    Homefolders
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText StorageConnectorType where
+    parser = takeLowerText >>= \case
+        "homefolders" -> pure Homefolders
+        e -> fromTextError $ "Failure parsing StorageConnectorType from value: '" <> e
+           <> "'. Accepted values: homefolders"
+
+instance ToText StorageConnectorType where
+    toText = \case
+        Homefolders -> "HOMEFOLDERS"
+
+instance Hashable     StorageConnectorType
+instance NFData       StorageConnectorType
+instance ToByteString StorageConnectorType
+instance ToQuery      StorageConnectorType
+instance ToHeader     StorageConnectorType
+
+instance ToJSON StorageConnectorType where
+    toJSON = toJSONText
+
+instance FromJSON StorageConnectorType where
+    parseJSON = parseJSONText "StorageConnectorType"
 
 data VisibilityType
     = Private

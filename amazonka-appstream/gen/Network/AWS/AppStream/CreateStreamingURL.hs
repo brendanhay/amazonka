@@ -68,7 +68,7 @@ data CreateStreamingURL = CreateStreamingURL'
 --
 -- * 'csuApplicationId' - The ID of the application that must be launched after the session starts.
 --
--- * 'csuValidity' - The validity duration of the URL in seconds. After this duration, the URL returned by this operation becomes invalid.
+-- * 'csuValidity' - The duration up to which the URL returned by this action is valid. The input can be any numeric value in seconds between 1 and 604800 seconds.
 --
 -- * 'csuStackName' - The stack for which the URL is generated.
 --
@@ -98,7 +98,7 @@ csuSessionContext = lens _csuSessionContext (\ s a -> s{_csuSessionContext = a})
 csuApplicationId :: Lens' CreateStreamingURL (Maybe Text)
 csuApplicationId = lens _csuApplicationId (\ s a -> s{_csuApplicationId = a});
 
--- | The validity duration of the URL in seconds. After this duration, the URL returned by this operation becomes invalid.
+-- | The duration up to which the URL returned by this action is valid. The input can be any numeric value in seconds between 1 and 604800 seconds.
 csuValidity :: Lens' CreateStreamingURL (Maybe Integer)
 csuValidity = lens _csuValidity (\ s a -> s{_csuValidity = a});
 
@@ -169,7 +169,7 @@ data CreateStreamingURLResponse = CreateStreamingURLResponse'
 --
 -- * 'csursStreamingURL' - The URL to start the AppStream 2.0 streaming session.
 --
--- * 'csursExpires' - Elapsed seconds after the Unix epoch, at which time this URL expires.
+-- * 'csursExpires' - Elapsed seconds after the Unix epoch, when this URL expires.
 --
 -- * 'csursResponseStatus' - -- | The response status code.
 createStreamingURLResponse
@@ -186,7 +186,7 @@ createStreamingURLResponse pResponseStatus_ =
 csursStreamingURL :: Lens' CreateStreamingURLResponse (Maybe Text)
 csursStreamingURL = lens _csursStreamingURL (\ s a -> s{_csursStreamingURL = a});
 
--- | Elapsed seconds after the Unix epoch, at which time this URL expires.
+-- | Elapsed seconds after the Unix epoch, when this URL expires.
 csursExpires :: Lens' CreateStreamingURLResponse (Maybe UTCTime)
 csursExpires = lens _csursExpires (\ s a -> s{_csursExpires = a}) . mapping _Time;
 

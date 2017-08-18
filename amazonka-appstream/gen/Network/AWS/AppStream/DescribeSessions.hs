@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the streaming sessions for a stack and a fleet. If a user ID is provided, this operation returns streaming sessions for only that user. Pass this value for the @nextToken@ parameter in a subsequent call to this operation to retrieve the next set of items.
+-- Describes the streaming sessions for a stack and a fleet. If a user ID is provided, this operation returns streaming sessions for only that user. To retrieve the next set of items, pass this value for the @nextToken@ parameter in a subsequent call to this operation. If an authentication type is not provided, the operation defaults to users authenticated using a streaming URL.
 --
 --
 module Network.AWS.AppStream.DescribeSessions
@@ -30,6 +30,7 @@ module Network.AWS.AppStream.DescribeSessions
     , dsUserId
     , dsNextToken
     , dsLimit
+    , dsAuthenticationType
     , dsStackName
     , dsFleetName
 
@@ -51,11 +52,12 @@ import           Network.AWS.Response
 
 -- | /See:/ 'describeSessions' smart constructor.
 data DescribeSessions = DescribeSessions'
-    { _dsUserId    :: !(Maybe Text)
-    , _dsNextToken :: !(Maybe Text)
-    , _dsLimit     :: !(Maybe Int)
-    , _dsStackName :: !Text
-    , _dsFleetName :: !Text
+    { _dsUserId             :: !(Maybe Text)
+    , _dsNextToken          :: !(Maybe Text)
+    , _dsLimit              :: !(Maybe Int)
+    , _dsAuthenticationType :: !(Maybe AuthenticationType)
+    , _dsStackName          :: !Text
+    , _dsFleetName          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeSessions' with the minimum fields required to make a request.
@@ -67,6 +69,8 @@ data DescribeSessions = DescribeSessions'
 -- * 'dsNextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 --
 -- * 'dsLimit' - The size of each page of results. The default value is 20 and the maximum supported value is 50.
+--
+-- * 'dsAuthenticationType' - The authentication method of the user. It can be @API@ for a user authenticated using a streaming URL, or @SAML@ for a SAML federated user. If an authentication type is not provided, the operation defaults to users authenticated using a streaming URL.
 --
 -- * 'dsStackName' - The name of the stack for which to list sessions.
 --
@@ -80,6 +84,7 @@ describeSessions pStackName_ pFleetName_ =
     { _dsUserId = Nothing
     , _dsNextToken = Nothing
     , _dsLimit = Nothing
+    , _dsAuthenticationType = Nothing
     , _dsStackName = pStackName_
     , _dsFleetName = pFleetName_
     }
@@ -95,6 +100,10 @@ dsNextToken = lens _dsNextToken (\ s a -> s{_dsNextToken = a});
 -- | The size of each page of results. The default value is 20 and the maximum supported value is 50.
 dsLimit :: Lens' DescribeSessions (Maybe Int)
 dsLimit = lens _dsLimit (\ s a -> s{_dsLimit = a});
+
+-- | The authentication method of the user. It can be @API@ for a user authenticated using a streaming URL, or @SAML@ for a SAML federated user. If an authentication type is not provided, the operation defaults to users authenticated using a streaming URL.
+dsAuthenticationType :: Lens' DescribeSessions (Maybe AuthenticationType)
+dsAuthenticationType = lens _dsAuthenticationType (\ s a -> s{_dsAuthenticationType = a});
 
 -- | The name of the stack for which to list sessions.
 dsStackName :: Lens' DescribeSessions Text
@@ -135,6 +144,7 @@ instance ToJSON DescribeSessions where
                  [("UserId" .=) <$> _dsUserId,
                   ("NextToken" .=) <$> _dsNextToken,
                   ("Limit" .=) <$> _dsLimit,
+                  ("AuthenticationType" .=) <$> _dsAuthenticationType,
                   Just ("StackName" .= _dsStackName),
                   Just ("FleetName" .= _dsFleetName)])
 

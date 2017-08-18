@@ -87,7 +87,7 @@ data InputTransformer = InputTransformer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'itInputPathsMap' - Map of JSON paths to be extracted from the event. These are key-value pairs, where each value is a JSON path.
+-- * 'itInputPathsMap' - Map of JSON paths to be extracted from the event. These are key-value pairs, where each value is a JSON path. You must use JSON dot notation, not bracket notation.
 --
 -- * 'itInputTemplate' - Input template where you can use the values of the keys from @InputPathsMap@ to customize the data sent to the target.
 inputTransformer
@@ -99,7 +99,7 @@ inputTransformer pInputTemplate_ =
     , _itInputTemplate = pInputTemplate_
     }
 
--- | Map of JSON paths to be extracted from the event. These are key-value pairs, where each value is a JSON path.
+-- | Map of JSON paths to be extracted from the event. These are key-value pairs, where each value is a JSON path. You must use JSON dot notation, not bracket notation.
 itInputPathsMap :: Lens' InputTransformer (HashMap Text Text)
 itInputPathsMap = lens _itInputPathsMap (\ s a -> s{_itInputPathsMap = a}) . _Default . _Map;
 
@@ -309,7 +309,7 @@ data PutTargetsResultEntry = PutTargetsResultEntry'
 --
 -- * 'ptreTargetId' - The ID of the target.
 --
--- * 'ptreErrorCode' - The error code that indicates why the target addition failed.
+-- * 'ptreErrorCode' - The error code that indicates why the target addition failed. If the value is @ConcurrentModificationException@ , too many requests were made at the same time.
 --
 -- * 'ptreErrorMessage' - The error message that explains why the target addition failed.
 putTargetsResultEntry
@@ -325,7 +325,7 @@ putTargetsResultEntry =
 ptreTargetId :: Lens' PutTargetsResultEntry (Maybe Text)
 ptreTargetId = lens _ptreTargetId (\ s a -> s{_ptreTargetId = a});
 
--- | The error code that indicates why the target addition failed.
+-- | The error code that indicates why the target addition failed. If the value is @ConcurrentModificationException@ , too many requests were made at the same time.
 ptreErrorCode :: Lens' PutTargetsResultEntry (Maybe Text)
 ptreErrorCode = lens _ptreErrorCode (\ s a -> s{_ptreErrorCode = a});
 
@@ -362,7 +362,7 @@ data RemoveTargetsResultEntry = RemoveTargetsResultEntry'
 --
 -- * 'rtreTargetId' - The ID of the target.
 --
--- * 'rtreErrorCode' - The error code that indicates why the target removal failed.
+-- * 'rtreErrorCode' - The error code that indicates why the target removal failed. If the value is @ConcurrentModificationException@ , too many requests were made at the same time.
 --
 -- * 'rtreErrorMessage' - The error message that explains why the target removal failed.
 removeTargetsResultEntry
@@ -378,7 +378,7 @@ removeTargetsResultEntry =
 rtreTargetId :: Lens' RemoveTargetsResultEntry (Maybe Text)
 rtreTargetId = lens _rtreTargetId (\ s a -> s{_rtreTargetId = a});
 
--- | The error code that indicates why the target removal failed.
+-- | The error code that indicates why the target removal failed. If the value is @ConcurrentModificationException@ , too many requests were made at the same time.
 rtreErrorCode :: Lens' RemoveTargetsResultEntry (Maybe Text)
 rtreErrorCode = lens _rtreErrorCode (\ s a -> s{_rtreErrorCode = a});
 
@@ -417,7 +417,7 @@ data Rule = Rule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rEventPattern' - The event pattern of the rule.
+-- * 'rEventPattern' - The event pattern of the rule. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
 --
 -- * 'rState' - The state of the rule.
 --
@@ -443,7 +443,7 @@ rule =
     , _rRoleARN = Nothing
     }
 
--- | The event pattern of the rule.
+-- | The event pattern of the rule. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
 rEventPattern :: Lens' Rule (Maybe Text)
 rEventPattern = lens _rEventPattern (\ s a -> s{_rEventPattern = a});
 
@@ -610,11 +610,11 @@ data Target = Target'
 --
 -- * 'tInputTransformer' - Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.
 --
--- * 'tInput' - Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format> .
+-- * 'tInput' - Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. You must use JSON dot notation, not bracket notation. For more information, see <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format> .
 --
 -- * 'tEcsParameters' - Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Task Definitions > in the /Amazon EC2 Container Service Developer Guide/ .
 --
--- * 'tInputPath' - The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. For more information about JSON paths, see <http://goessner.net/articles/JsonPath/ JSONPath> .
+-- * 'tInputPath' - The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. You must use JSON dot notation, not bracket notation. For more information about JSON paths, see <http://goessner.net/articles/JsonPath/ JSONPath> .
 --
 -- * 'tRoleARN' - The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.
 --
@@ -650,7 +650,7 @@ tKinesisParameters = lens _tKinesisParameters (\ s a -> s{_tKinesisParameters = 
 tInputTransformer :: Lens' Target (Maybe InputTransformer)
 tInputTransformer = lens _tInputTransformer (\ s a -> s{_tInputTransformer = a});
 
--- | Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format> .
+-- | Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. You must use JSON dot notation, not bracket notation. For more information, see <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format> .
 tInput :: Lens' Target (Maybe Text)
 tInput = lens _tInput (\ s a -> s{_tInput = a});
 
@@ -658,7 +658,7 @@ tInput = lens _tInput (\ s a -> s{_tInput = a});
 tEcsParameters :: Lens' Target (Maybe EcsParameters)
 tEcsParameters = lens _tEcsParameters (\ s a -> s{_tEcsParameters = a});
 
--- | The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. For more information about JSON paths, see <http://goessner.net/articles/JsonPath/ JSONPath> .
+-- | The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. You must use JSON dot notation, not bracket notation. For more information about JSON paths, see <http://goessner.net/articles/JsonPath/ JSONPath> .
 tInputPath :: Lens' Target (Maybe Text)
 tInputPath = lens _tInputPath (\ s a -> s{_tInputPath = a});
 

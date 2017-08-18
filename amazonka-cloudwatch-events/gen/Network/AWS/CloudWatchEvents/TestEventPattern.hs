@@ -57,7 +57,7 @@ data TestEventPattern = TestEventPattern'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tepEventPattern' - The event pattern.
+-- * 'tepEventPattern' - The event pattern. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
 --
 -- * 'tepEvent' - The event, in JSON format, to test against the event pattern.
 testEventPattern
@@ -70,7 +70,7 @@ testEventPattern pEventPattern_ pEvent_ =
     , _tepEvent = pEvent_
     }
 
--- | The event pattern.
+-- | The event pattern. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
 tepEventPattern :: Lens' TestEventPattern Text
 tepEventPattern = lens _tepEventPattern (\ s a -> s{_tepEventPattern = a});
 

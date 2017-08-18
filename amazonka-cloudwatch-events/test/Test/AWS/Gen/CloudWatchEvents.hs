@@ -43,8 +43,14 @@ import Test.AWS.CloudWatchEvents.Internal
 --         , requestDisableRule $
 --             disableRule
 --
+--         , requestPutPermission $
+--             putPermission
+--
 --         , requestListTargetsByRule $
 --             listTargetsByRule
+--
+--         , requestRemovePermission $
+--             removePermission
 --
 --         , requestDescribeRule $
 --             describeRule
@@ -57,6 +63,9 @@ import Test.AWS.CloudWatchEvents.Internal
 --
 --         , requestTestEventPattern $
 --             testEventPattern
+--
+--         , requestDescribeEventBus $
+--             describeEventBus
 --
 --         , requestPutTargets $
 --             putTargets
@@ -82,8 +91,14 @@ import Test.AWS.CloudWatchEvents.Internal
 --         , responseDisableRule $
 --             disableRuleResponse
 --
+--         , responsePutPermission $
+--             putPermissionResponse
+--
 --         , responseListTargetsByRule $
 --             listTargetsByRuleResponse
+--
+--         , responseRemovePermission $
+--             removePermissionResponse
 --
 --         , responseDescribeRule $
 --             describeRuleResponse
@@ -96,6 +111,9 @@ import Test.AWS.CloudWatchEvents.Internal
 --
 --         , responseTestEventPattern $
 --             testEventPatternResponse
+--
+--         , responseDescribeEventBus $
+--             describeEventBusResponse
 --
 --         , responsePutTargets $
 --             putTargetsResponse
@@ -133,10 +151,20 @@ requestDisableRule = req
     "DisableRule"
     "fixture/DisableRule.yaml"
 
+requestPutPermission :: PutPermission -> TestTree
+requestPutPermission = req
+    "PutPermission"
+    "fixture/PutPermission.yaml"
+
 requestListTargetsByRule :: ListTargetsByRule -> TestTree
 requestListTargetsByRule = req
     "ListTargetsByRule"
     "fixture/ListTargetsByRule.yaml"
+
+requestRemovePermission :: RemovePermission -> TestTree
+requestRemovePermission = req
+    "RemovePermission"
+    "fixture/RemovePermission.yaml"
 
 requestDescribeRule :: DescribeRule -> TestTree
 requestDescribeRule = req
@@ -157,6 +185,11 @@ requestTestEventPattern :: TestEventPattern -> TestTree
 requestTestEventPattern = req
     "TestEventPattern"
     "fixture/TestEventPattern.yaml"
+
+requestDescribeEventBus :: DescribeEventBus -> TestTree
+requestDescribeEventBus = req
+    "DescribeEventBus"
+    "fixture/DescribeEventBus.yaml"
 
 requestPutTargets :: PutTargets -> TestTree
 requestPutTargets = req
@@ -205,12 +238,26 @@ responseDisableRule = res
     cloudWatchEvents
     (Proxy :: Proxy DisableRule)
 
+responsePutPermission :: PutPermissionResponse -> TestTree
+responsePutPermission = res
+    "PutPermissionResponse"
+    "fixture/PutPermissionResponse.proto"
+    cloudWatchEvents
+    (Proxy :: Proxy PutPermission)
+
 responseListTargetsByRule :: ListTargetsByRuleResponse -> TestTree
 responseListTargetsByRule = res
     "ListTargetsByRuleResponse"
     "fixture/ListTargetsByRuleResponse.proto"
     cloudWatchEvents
     (Proxy :: Proxy ListTargetsByRule)
+
+responseRemovePermission :: RemovePermissionResponse -> TestTree
+responseRemovePermission = res
+    "RemovePermissionResponse"
+    "fixture/RemovePermissionResponse.proto"
+    cloudWatchEvents
+    (Proxy :: Proxy RemovePermission)
 
 responseDescribeRule :: DescribeRuleResponse -> TestTree
 responseDescribeRule = res
@@ -239,6 +286,13 @@ responseTestEventPattern = res
     "fixture/TestEventPatternResponse.proto"
     cloudWatchEvents
     (Proxy :: Proxy TestEventPattern)
+
+responseDescribeEventBus :: DescribeEventBusResponse -> TestTree
+responseDescribeEventBus = res
+    "DescribeEventBusResponse"
+    "fixture/DescribeEventBusResponse.proto"
+    cloudWatchEvents
+    (Proxy :: Proxy DescribeEventBus)
 
 responsePutTargets :: PutTargetsResponse -> TestTree
 responsePutTargets = res

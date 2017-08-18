@@ -21,11 +21,35 @@
 -- Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
 --
 --
--- Targets are the resources that are invoked when a rule is triggered. Example targets include EC2 instances, AWS Lambda functions, Amazon Kinesis streams, Amazon ECS tasks, AWS Step Functions state machines, and built-in targets. Note that creating rules with built-in targets is supported only in the AWS Management Console.
+-- Targets are the resources that are invoked when a rule is triggered.
+--
+-- You can configure the following as targets for CloudWatch Events:
+--
+--     * EC2 instances
+--
+--     * AWS Lambda functions
+--
+--     * Streams in Amazon Kinesis Streams
+--
+--     * Delivery streams in Amazon Kinesis Firehose
+--
+--     * Amazon ECS tasks
+--
+--     * AWS Step Functions state machines
+--
+--     * Amazon SNS topics
+--
+--     * Amazon SQS queues
+--
+--
+--
+-- Note that creating rules with built-in targets is supported only in the AWS Management Console.
 --
 -- For some target types, @PutTargets@ provides target-specific parameters. If the target is an Amazon Kinesis stream, you can optionally specify which shard the event goes to by using the @KinesisParameters@ argument. To invoke a command on multiple EC2 instances with one rule, you can use the @RunCommandParameters@ field.
 --
--- To be able to make API calls against the resources that you own, Amazon CloudWatch Events needs the appropriate permissions. For AWS Lambda and Amazon SNS resources, CloudWatch Events relies on resource-based policies. For EC2 instances, Amazon Kinesis streams, and AWS Step Functions state machines, CloudWatch Events relies on IAM roles that you specify in the @RoleARN@ argument in @PutTarget@ . For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/auth-and-access-control-cwe.html Authentication and Access Control> in the /Amazon CloudWatch Events User Guide/ .
+-- To be able to make API calls against the resources that you own, Amazon CloudWatch Events needs the appropriate permissions. For AWS Lambda and Amazon SNS resources, CloudWatch Events relies on resource-based policies. For EC2 instances, Amazon Kinesis streams, and AWS Step Functions state machines, CloudWatch Events relies on IAM roles that you specify in the @RoleARN@ argument in @PutTargets@ . For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/auth-and-access-control-cwe.html Authentication and Access Control> in the /Amazon CloudWatch Events User Guide/ .
+--
+-- If another AWS account is in the same region and has granted you permission (using @PutPermission@ ), you can set that account's event bus as a target of the rules in your account. To send the matched events to the other account, specify that account's event bus as the @Arn@ when you run @PutTargets@ . For more information about enabling cross-account events, see 'PutPermission' .
 --
 -- __Input__ , __InputPath__ and __InputTransformer__ are mutually exclusive and optional parameters of a target. When a rule is triggered due to a matched event:
 --
@@ -39,7 +63,11 @@
 --
 --
 --
+-- When you specify @Input@ , @InputPath@ , or @InputTransformer@ , you must use JSON dot notation, not bracket notation.
+--
 -- When you add targets to a rule and the associated rule triggers soon after, new or updated targets might not be immediately invoked. Please allow a short period of time for changes to take effect.
+--
+-- This action can partially fail if too many requests are made at the same time. If that happens, @FailedEntryCount@ is non-zero in the response and each entry in @FailedEntries@ provides the ID of the failed target and the error code.
 --
 module Network.AWS.CloudWatchEvents.PutTargets
     (

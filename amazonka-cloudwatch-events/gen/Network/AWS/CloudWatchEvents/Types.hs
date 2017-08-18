@@ -16,6 +16,7 @@ module Network.AWS.CloudWatchEvents.Types
       cloudWatchEvents
 
     -- * Errors
+    , _PolicyLengthExceededException
     , _ConcurrentModificationException
     , _InvalidEventPatternException
     , _InternalException
@@ -137,6 +138,8 @@ cloudWatchEvents =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -147,6 +150,13 @@ cloudWatchEvents =
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
+
+-- | The event bus policy is too long. For more information, see the limits.
+--
+--
+_PolicyLengthExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_PolicyLengthExceededException =
+    _MatchServiceError cloudWatchEvents "PolicyLengthExceededException"
 
 -- | There is concurrent modification on a rule or target.
 --
@@ -168,7 +178,7 @@ _InvalidEventPatternException =
 _InternalException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalException = _MatchServiceError cloudWatchEvents "InternalException"
 
--- | The rule does not exist.
+-- | An entity that you specified does not exist.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError

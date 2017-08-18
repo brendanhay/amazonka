@@ -126,7 +126,7 @@ data DescribeRuleResponse = DescribeRuleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drrsEventPattern' - The event pattern.
+-- * 'drrsEventPattern' - The event pattern. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
 --
 -- * 'drrsState' - Specifies whether the rule is enabled or disabled.
 --
@@ -156,7 +156,7 @@ describeRuleResponse pResponseStatus_ =
     , _drrsResponseStatus = pResponseStatus_
     }
 
--- | The event pattern.
+-- | The event pattern. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
 drrsEventPattern :: Lens' DescribeRuleResponse (Maybe Text)
 drrsEventPattern = lens _drrsEventPattern (\ s a -> s{_drrsEventPattern = a});
 

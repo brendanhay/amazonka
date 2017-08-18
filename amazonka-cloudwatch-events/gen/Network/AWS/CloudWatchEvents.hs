@@ -32,6 +32,9 @@ module Network.AWS.CloudWatchEvents
     -- * Errors
     -- $errors
 
+    -- ** PolicyLengthExceededException
+    , _PolicyLengthExceededException
+
     -- ** ConcurrentModificationException
     , _ConcurrentModificationException
 
@@ -68,8 +71,14 @@ module Network.AWS.CloudWatchEvents
     -- ** DisableRule
     , module Network.AWS.CloudWatchEvents.DisableRule
 
+    -- ** PutPermission
+    , module Network.AWS.CloudWatchEvents.PutPermission
+
     -- ** ListTargetsByRule
     , module Network.AWS.CloudWatchEvents.ListTargetsByRule
+
+    -- ** RemovePermission
+    , module Network.AWS.CloudWatchEvents.RemovePermission
 
     -- ** DescribeRule
     , module Network.AWS.CloudWatchEvents.DescribeRule
@@ -82,6 +91,9 @@ module Network.AWS.CloudWatchEvents
 
     -- ** TestEventPattern
     , module Network.AWS.CloudWatchEvents.TestEventPattern
+
+    -- ** DescribeEventBus
+    , module Network.AWS.CloudWatchEvents.DescribeEventBus
 
     -- ** PutTargets
     , module Network.AWS.CloudWatchEvents.PutTargets
@@ -178,6 +190,7 @@ module Network.AWS.CloudWatchEvents
     ) where
 
 import           Network.AWS.CloudWatchEvents.DeleteRule
+import           Network.AWS.CloudWatchEvents.DescribeEventBus
 import           Network.AWS.CloudWatchEvents.DescribeRule
 import           Network.AWS.CloudWatchEvents.DisableRule
 import           Network.AWS.CloudWatchEvents.EnableRule
@@ -185,8 +198,10 @@ import           Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
 import           Network.AWS.CloudWatchEvents.ListRules
 import           Network.AWS.CloudWatchEvents.ListTargetsByRule
 import           Network.AWS.CloudWatchEvents.PutEvents
+import           Network.AWS.CloudWatchEvents.PutPermission
 import           Network.AWS.CloudWatchEvents.PutRule
 import           Network.AWS.CloudWatchEvents.PutTargets
+import           Network.AWS.CloudWatchEvents.RemovePermission
 import           Network.AWS.CloudWatchEvents.RemoveTargets
 import           Network.AWS.CloudWatchEvents.TestEventPattern
 import           Network.AWS.CloudWatchEvents.Types

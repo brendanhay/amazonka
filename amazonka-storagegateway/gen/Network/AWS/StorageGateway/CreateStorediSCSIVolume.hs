@@ -18,12 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a volume on a specified gateway. This operation is supported only for the gateway-stored volume architecture.
+-- Creates a volume on a specified gateway. This operation is only supported in the stored volume gateway architecture.
 --
 --
 -- The size of the volume to create is inferred from the disk size. You can choose to preserve existing data on the disk, create volume from an existing snapshot, or create an empty volume. If you choose to create an empty gateway volume, then any existing data on the disk is erased.
 --
--- In the request you must specify the gateway and the disk information on which you are creating the volume. In response, AWS Storage Gateway creates the volume and returns volume information such as the volume Amazon Resource Name (ARN), its size, and the iSCSI target ARN that initiators can use to connect to the volume target.
+-- In the request you must specify the gateway and the disk information on which you are creating the volume. In response, the gateway creates the volume and returns volume information such as the volume Amazon Resource Name (ARN), its size, and the iSCSI target ARN that initiators can use to connect to the volume target.
 --
 module Network.AWS.StorageGateway.CreateStorediSCSIVolume
     (
@@ -93,7 +93,7 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
 --
 -- * 'csscsivPreserveExistingData' - Specify this field as true if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume. Valid Values: true, false
 --
--- * 'csscsivTargetName' - The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume. The target name must be unique across all volumes of a gateway.
+-- * 'csscsivTargetName' - The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume. The target name must be unique across all volumes of a gateway.
 --
 -- * 'csscsivNetworkInterfaceId' - The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted. Use 'DescribeGatewayInformation' to get a list of the network interfaces available on a gateway. Valid Values: A valid IP address.
 createStorediSCSIVolume
@@ -129,7 +129,7 @@ csscsivDiskId = lens _csscsivDiskId (\ s a -> s{_csscsivDiskId = a});
 csscsivPreserveExistingData :: Lens' CreateStorediSCSIVolume Bool
 csscsivPreserveExistingData = lens _csscsivPreserveExistingData (\ s a -> s{_csscsivPreserveExistingData = a});
 
--- | The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume. The target name must be unique across all volumes of a gateway.
+-- | The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume. The target name must be unique across all volumes of a gateway.
 csscsivTargetName :: Lens' CreateStorediSCSIVolume Text
 csscsivTargetName = lens _csscsivTargetName (\ s a -> s{_csscsivTargetName = a});
 

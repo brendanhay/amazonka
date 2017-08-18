@@ -18,8 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a file share on an existing file gateway. In Storage Gateway, a file share is a file system mount point backed by Amazon S3 cloud storage. Storage Gateway exposes file shares using a Network File System (NFS) interface.
+-- Creates a file share on an existing file gateway. In Storage Gateway, a file share is a file system mount point backed by Amazon S3 cloud storage. Storage Gateway exposes file shares using a Network File System (NFS) interface. This operation is only supported in the file gateway architecture.
 --
+--
+-- /Important:/ File gateway requires AWS Security Token Service (AWS STS) to be activated to enable you create a file share. Make sure AWS STS is activated in the region you are creating your file gateway in. If AWS STS is not activated in the region, activate it. For information about how to activate AWS STS, see Activating and Deactivating AWS STS in an AWS Region in the AWS Identity and Access Management User Guide.
+--
+-- File gateway does not support creating hard or symbolic links on a file share.
 --
 module Network.AWS.StorageGateway.CreateNFSFileShare
     (
@@ -30,8 +34,10 @@ module Network.AWS.StorageGateway.CreateNFSFileShare
     , cnfsfsKMSKey
     , cnfsfsKMSEncrypted
     , cnfsfsDefaultStorageClass
+    , cnfsfsSquash
     , cnfsfsNFSFileShareDefaults
     , cnfsfsClientList
+    , cnfsfsReadOnly
     , cnfsfsClientToken
     , cnfsfsGatewayARN
     , cnfsfsRole
@@ -61,8 +67,10 @@ data CreateNFSFileShare = CreateNFSFileShare'
     { _cnfsfsKMSKey               :: !(Maybe Text)
     , _cnfsfsKMSEncrypted         :: !(Maybe Bool)
     , _cnfsfsDefaultStorageClass  :: !(Maybe Text)
+    , _cnfsfsSquash               :: !(Maybe Text)
     , _cnfsfsNFSFileShareDefaults :: !(Maybe NFSFileShareDefaults)
     , _cnfsfsClientList           :: !(Maybe (List1 Text))
+    , _cnfsfsReadOnly             :: !(Maybe Bool)
     , _cnfsfsClientToken          :: !Text
     , _cnfsfsGatewayARN           :: !Text
     , _cnfsfsRole                 :: !Text
@@ -79,9 +87,13 @@ data CreateNFSFileShare = CreateNFSFileShare'
 --
 -- * 'cnfsfsDefaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by file gateway. Possible values are S3_STANDARD or S3_STANDARD_IA. If this field is not populated, the default value S3_STANDARD is used. Optional.
 --
+-- * 'cnfsfsSquash' - Maps a user to anonymous user. Valid options are the following:      * "RootSquash" - Only root is mapped to anonymous user.     * "NoSquash" - No one is mapped to anonymous user.     * "AllSquash" - Everyone is mapped to anonymous user.
+--
 -- * 'cnfsfsNFSFileShareDefaults' - File share default values. Optional.
 --
 -- * 'cnfsfsClientList' - The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks.
+--
+-- * 'cnfsfsReadOnly' - Sets the write status of a file share: "true" if the write status is read-only, and otherwise "false".
 --
 -- * 'cnfsfsClientToken' - A unique string value that you supply that is used by file gateway to ensure idempotent file share creation.
 --
@@ -89,7 +101,7 @@ data CreateNFSFileShare = CreateNFSFileShare'
 --
 -- * 'cnfsfsRole' - The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
 --
--- * 'cnfsfsLocationARN' - The ARN of the backend storage used for storing file data.
+-- * 'cnfsfsLocationARN' - The ARN of the backed storage used for storing file data.
 createNFSFileShare
     :: Text -- ^ 'cnfsfsClientToken'
     -> Text -- ^ 'cnfsfsGatewayARN'
@@ -101,8 +113,10 @@ createNFSFileShare pClientToken_ pGatewayARN_ pRole_ pLocationARN_ =
     { _cnfsfsKMSKey = Nothing
     , _cnfsfsKMSEncrypted = Nothing
     , _cnfsfsDefaultStorageClass = Nothing
+    , _cnfsfsSquash = Nothing
     , _cnfsfsNFSFileShareDefaults = Nothing
     , _cnfsfsClientList = Nothing
+    , _cnfsfsReadOnly = Nothing
     , _cnfsfsClientToken = pClientToken_
     , _cnfsfsGatewayARN = pGatewayARN_
     , _cnfsfsRole = pRole_
@@ -121,6 +135,10 @@ cnfsfsKMSEncrypted = lens _cnfsfsKMSEncrypted (\ s a -> s{_cnfsfsKMSEncrypted = 
 cnfsfsDefaultStorageClass :: Lens' CreateNFSFileShare (Maybe Text)
 cnfsfsDefaultStorageClass = lens _cnfsfsDefaultStorageClass (\ s a -> s{_cnfsfsDefaultStorageClass = a});
 
+-- | Maps a user to anonymous user. Valid options are the following:      * "RootSquash" - Only root is mapped to anonymous user.     * "NoSquash" - No one is mapped to anonymous user.     * "AllSquash" - Everyone is mapped to anonymous user.
+cnfsfsSquash :: Lens' CreateNFSFileShare (Maybe Text)
+cnfsfsSquash = lens _cnfsfsSquash (\ s a -> s{_cnfsfsSquash = a});
+
 -- | File share default values. Optional.
 cnfsfsNFSFileShareDefaults :: Lens' CreateNFSFileShare (Maybe NFSFileShareDefaults)
 cnfsfsNFSFileShareDefaults = lens _cnfsfsNFSFileShareDefaults (\ s a -> s{_cnfsfsNFSFileShareDefaults = a});
@@ -128,6 +146,10 @@ cnfsfsNFSFileShareDefaults = lens _cnfsfsNFSFileShareDefaults (\ s a -> s{_cnfsf
 -- | The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks.
 cnfsfsClientList :: Lens' CreateNFSFileShare (Maybe (NonEmpty Text))
 cnfsfsClientList = lens _cnfsfsClientList (\ s a -> s{_cnfsfsClientList = a}) . mapping _List1;
+
+-- | Sets the write status of a file share: "true" if the write status is read-only, and otherwise "false".
+cnfsfsReadOnly :: Lens' CreateNFSFileShare (Maybe Bool)
+cnfsfsReadOnly = lens _cnfsfsReadOnly (\ s a -> s{_cnfsfsReadOnly = a});
 
 -- | A unique string value that you supply that is used by file gateway to ensure idempotent file share creation.
 cnfsfsClientToken :: Lens' CreateNFSFileShare Text
@@ -141,7 +163,7 @@ cnfsfsGatewayARN = lens _cnfsfsGatewayARN (\ s a -> s{_cnfsfsGatewayARN = a});
 cnfsfsRole :: Lens' CreateNFSFileShare Text
 cnfsfsRole = lens _cnfsfsRole (\ s a -> s{_cnfsfsRole = a});
 
--- | The ARN of the backend storage used for storing file data.
+-- | The ARN of the backed storage used for storing file data.
 cnfsfsLocationARN :: Lens' CreateNFSFileShare Text
 cnfsfsLocationARN = lens _cnfsfsLocationARN (\ s a -> s{_cnfsfsLocationARN = a});
 
@@ -177,9 +199,11 @@ instance ToJSON CreateNFSFileShare where
                   ("KMSEncrypted" .=) <$> _cnfsfsKMSEncrypted,
                   ("DefaultStorageClass" .=) <$>
                     _cnfsfsDefaultStorageClass,
+                  ("Squash" .=) <$> _cnfsfsSquash,
                   ("NFSFileShareDefaults" .=) <$>
                     _cnfsfsNFSFileShareDefaults,
                   ("ClientList" .=) <$> _cnfsfsClientList,
+                  ("ReadOnly" .=) <$> _cnfsfsReadOnly,
                   Just ("ClientToken" .= _cnfsfsClientToken),
                   Just ("GatewayARN" .= _cnfsfsGatewayARN),
                   Just ("Role" .= _cnfsfsRole),

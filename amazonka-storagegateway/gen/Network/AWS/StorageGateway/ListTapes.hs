@@ -21,7 +21,7 @@
 -- Lists virtual tapes in your virtual tape library (VTL) and your virtual tape shelf (VTS). You specify the tapes to list by specifying one or more tape Amazon Resource Names (ARNs). If you don't specify a tape ARN, the operation lists all virtual tapes in both your VTL and VTS.
 --
 --
--- This operation supports pagination. By default, the operation returns a maximum of up to 100 tapes. You can optionally specify the @Limit@ parameter in the body to limit the number of tapes in the response. If the number of tapes returned in the response is truncated, the response includes a @Marker@ element that you can use in your subsequent request to retrieve the next set of tapes.
+-- This operation supports pagination. By default, the operation returns a maximum of up to 100 tapes. You can optionally specify the @Limit@ parameter in the body to limit the number of tapes in the response. If the number of tapes returned in the response is truncated, the response includes a @Marker@ element that you can use in your subsequent request to retrieve the next set of tapes. This operation is only supported in the tape gateway architecture.
 --
 module Network.AWS.StorageGateway.ListTapes
     (

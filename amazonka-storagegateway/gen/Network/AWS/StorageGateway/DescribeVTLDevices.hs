@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a description of virtual tape library (VTL) devices for the specified gateway. In the response, AWS Storage Gateway returns VTL device information.
+-- Returns a description of virtual tape library (VTL) devices for the specified tape gateway. In the response, AWS Storage Gateway returns VTL device information.
 --
 --
--- The list of VTL devices must be from one gateway.
+-- This operation is only supported in the tape gateway architecture.
 --
 --
 -- This operation returns paginated results.

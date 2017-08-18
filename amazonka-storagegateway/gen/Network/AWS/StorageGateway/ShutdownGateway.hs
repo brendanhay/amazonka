@@ -21,7 +21,7 @@
 -- Shuts down a gateway. To specify which gateway to shut down, use the Amazon Resource Name (ARN) of the gateway in the body of your request.
 --
 --
--- The operation shuts down the gateway service component running in the storage gateway's virtual machine (VM) and not the VM.
+-- The operation shuts down the gateway service component running in the gateway's virtual machine (VM) and not the host VM.
 --
 -- After the gateway is shutdown, you cannot call any other API except 'StartGateway' , 'DescribeGatewayInformation' , and 'ListGateways' . For more information, see 'ActivateGateway' . Your applications cannot read from or write to the gateway's storage volumes, and there are no snapshots taken.
 --

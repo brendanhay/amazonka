@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a snapshot schedule configured for a gateway volume.
+-- Updates a snapshot schedule configured for a gateway volume. This operation is only supported in the cached volume and stored volume gateway architectures.
 --
 --
 -- The default snapshot schedule for volume is once every 24 hours, starting at the creation time of the volume. You can use this API to change the snapshot schedule configured for the volume.

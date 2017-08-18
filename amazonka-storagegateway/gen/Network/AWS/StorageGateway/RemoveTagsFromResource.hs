@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes one or more tags from the specified resource.
+-- Removes one or more tags from the specified resource. This operation is only supported in the cached volume, stored volume and tape gateway architectures.
 --
 --
 module Network.AWS.StorageGateway.RemoveTagsFromResource

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a file share from a file gateway.
+-- Deletes a file share from a file gateway. This operation is only supported in the file gateway architecture.
 --
 --
 module Network.AWS.StorageGateway.DeleteFileShare
@@ -27,6 +27,7 @@ module Network.AWS.StorageGateway.DeleteFileShare
       deleteFileShare
     , DeleteFileShare
     -- * Request Lenses
+    , dfsForceDelete
     , dfsFileShareARN
 
     -- * Destructuring the Response
@@ -49,13 +50,16 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 --
 -- /See:/ 'deleteFileShare' smart constructor.
-newtype DeleteFileShare = DeleteFileShare'
-    { _dfsFileShareARN :: Text
+data DeleteFileShare = DeleteFileShare'
+    { _dfsForceDelete  :: !(Maybe Bool)
+    , _dfsFileShareARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteFileShare' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dfsForceDelete' - If set to true, deletes a file share immediately and aborts all data uploads to AWS. Otherwise the file share is not deleted until all data is uploaded to AWS. This process aborts the data upload process and the file share enters the FORCE_DELETING status.
 --
 -- * 'dfsFileShareARN' - The Amazon Resource Name (ARN) of the file share to be deleted.
 deleteFileShare
@@ -63,8 +67,13 @@ deleteFileShare
     -> DeleteFileShare
 deleteFileShare pFileShareARN_ =
     DeleteFileShare'
-    { _dfsFileShareARN = pFileShareARN_
+    { _dfsForceDelete = Nothing
+    , _dfsFileShareARN = pFileShareARN_
     }
+
+-- | If set to true, deletes a file share immediately and aborts all data uploads to AWS. Otherwise the file share is not deleted until all data is uploaded to AWS. This process aborts the data upload process and the file share enters the FORCE_DELETING status.
+dfsForceDelete :: Lens' DeleteFileShare (Maybe Bool)
+dfsForceDelete = lens _dfsForceDelete (\ s a -> s{_dfsForceDelete = a});
 
 -- | The Amazon Resource Name (ARN) of the file share to be deleted.
 dfsFileShareARN :: Lens' DeleteFileShare Text
@@ -97,7 +106,8 @@ instance ToJSON DeleteFileShare where
         toJSON DeleteFileShare'{..}
           = object
               (catMaybes
-                 [Just ("FileShareARN" .= _dfsFileShareARN)])
+                 [("ForceDelete" .=) <$> _dfsForceDelete,
+                  Just ("FileShareARN" .= _dfsFileShareARN)])
 
 instance ToPath DeleteFileShare where
         toPath = const "/"

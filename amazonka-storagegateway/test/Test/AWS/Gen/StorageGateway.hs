@@ -127,6 +127,9 @@ import Test.AWS.StorageGateway.Internal
 --         , requestDescribeGatewayInformation $
 --             describeGatewayInformation
 --
+--         , requestRefreshCache $
+--             refreshCache
+--
 --         , requestUpdateNFSFileShare $
 --             updateNFSFileShare
 --
@@ -312,6 +315,9 @@ import Test.AWS.StorageGateway.Internal
 --
 --         , responseDescribeGatewayInformation $
 --             describeGatewayInformationResponse
+--
+--         , responseRefreshCache $
+--             refreshCacheResponse
 --
 --         , responseUpdateNFSFileShare $
 --             updateNFSFileShareResponse
@@ -566,6 +572,11 @@ requestDescribeGatewayInformation :: DescribeGatewayInformation -> TestTree
 requestDescribeGatewayInformation = req
     "DescribeGatewayInformation"
     "fixture/DescribeGatewayInformation.yaml"
+
+requestRefreshCache :: RefreshCache -> TestTree
+requestRefreshCache = req
+    "RefreshCache"
+    "fixture/RefreshCache.yaml"
 
 requestUpdateNFSFileShare :: UpdateNFSFileShare -> TestTree
 requestUpdateNFSFileShare = req
@@ -939,6 +950,13 @@ responseDescribeGatewayInformation = res
     "fixture/DescribeGatewayInformationResponse.proto"
     storageGateway
     (Proxy :: Proxy DescribeGatewayInformation)
+
+responseRefreshCache :: RefreshCacheResponse -> TestTree
+responseRefreshCache = res
+    "RefreshCacheResponse"
+    "fixture/RefreshCacheResponse.proto"
+    storageGateway
+    (Proxy :: Proxy RefreshCache)
 
 responseUpdateNFSFileShare :: UpdateNFSFileShareResponse -> TestTree
 responseUpdateNFSFileShare = res

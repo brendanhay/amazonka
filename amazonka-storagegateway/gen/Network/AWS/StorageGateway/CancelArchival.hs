@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving process is initiated.
+-- Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving process is initiated. This operation is only supported in the tape gateway architecture.
 --
 --
 module Network.AWS.StorageGateway.CancelArchival

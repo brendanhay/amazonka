@@ -1,0 +1,96 @@
+name:                  amazonka-migrationhub
+version:               1.4.5
+synopsis:              Amazon Migration Hub SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2016 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+cabal-version:         >= 1.10
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+description:
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.MigrationHub" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.MigrationHub
+        , Network.AWS.MigrationHub.AssociateCreatedArtifact
+        , Network.AWS.MigrationHub.AssociateDiscoveredResource
+        , Network.AWS.MigrationHub.CreateProgressUpdateStream
+        , Network.AWS.MigrationHub.DeleteProgressUpdateStream
+        , Network.AWS.MigrationHub.DescribeApplicationState
+        , Network.AWS.MigrationHub.DescribeMigrationTask
+        , Network.AWS.MigrationHub.DisassociateCreatedArtifact
+        , Network.AWS.MigrationHub.DisassociateDiscoveredResource
+        , Network.AWS.MigrationHub.ImportMigrationTask
+        , Network.AWS.MigrationHub.ListCreatedArtifacts
+        , Network.AWS.MigrationHub.ListDiscoveredResources
+        , Network.AWS.MigrationHub.ListMigrationTasks
+        , Network.AWS.MigrationHub.ListProgressUpdateStreams
+        , Network.AWS.MigrationHub.NotifyApplicationState
+        , Network.AWS.MigrationHub.NotifyMigrationTaskState
+        , Network.AWS.MigrationHub.PutResourceAttributes
+        , Network.AWS.MigrationHub.Types
+        , Network.AWS.MigrationHub.Waiters
+
+    other-modules:
+          Network.AWS.MigrationHub.Types.Product
+        , Network.AWS.MigrationHub.Types.Sum
+
+    build-depends:
+          amazonka-core == 1.4.5.*
+        , base          >= 4.7     && < 5
+
+test-suite amazonka-migrationhub-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.MigrationHub
+        , Test.AWS.Gen.MigrationHub
+        , Test.AWS.MigrationHub.Internal
+
+    build-depends:
+          amazonka-core == 1.4.5.*
+        , amazonka-test == 1.4.5.*
+        , amazonka-migrationhub == 1.4.5.*
+        , base
+        , bytestring
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

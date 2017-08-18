@@ -21,6 +21,7 @@ module Network.AWS.Snowball.Types
     , _KMSRequestFailedException
     , _InvalidJobStateException
     , _InvalidInputCombinationException
+    , _InvalidNextTokenException
     , _InvalidAddressException
     , _ClusterLimitExceededException
 
@@ -45,6 +46,7 @@ module Network.AWS.Snowball.Types
     -- * Address
     , Address
     , address
+    , aIsRestricted
     , aStreet3
     , aLandmark
     , aPostalCode
@@ -74,6 +76,7 @@ module Network.AWS.Snowball.Types
     , cmKMSKeyARN
     , cmClusterState
     , cmNotification
+    , cmForwardingAddressId
     , cmAddressId
     , cmSnowballType
     , cmShippingOption
@@ -123,6 +126,7 @@ module Network.AWS.Snowball.Types
     , jmJobLogInfo
     , jmNotification
     , jmJobState
+    , jmForwardingAddressId
     , jmShippingDetails
     , jmAddressId
     , jmSnowballType
@@ -208,6 +212,8 @@ snowball =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -253,6 +259,13 @@ _InvalidJobStateException =
 _InvalidInputCombinationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidInputCombinationException =
     _MatchServiceError snowball "InvalidInputCombinationException"
+
+-- | The @NextToken@ string was altered unexpectedly, and the operation has stopped. Run the operation without changing the @NextToken@ string, and try again.
+--
+--
+_InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidNextTokenException =
+    _MatchServiceError snowball "InvalidNextTokenException"
 
 -- | The address provided was invalid. Check the address with your region's carrier, and try again.
 --

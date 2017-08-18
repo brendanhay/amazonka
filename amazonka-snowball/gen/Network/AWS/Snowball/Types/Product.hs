@@ -27,7 +27,8 @@ import           Network.AWS.Snowball.Types.Sum
 --
 -- /See:/ 'address' smart constructor.
 data Address = Address'
-    { _aStreet3              :: !(Maybe Text)
+    { _aIsRestricted         :: !(Maybe Bool)
+    , _aStreet3              :: !(Maybe Text)
     , _aLandmark             :: !(Maybe Text)
     , _aPostalCode           :: !(Maybe Text)
     , _aCountry              :: !(Maybe Text)
@@ -46,9 +47,11 @@ data Address = Address'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'aIsRestricted' - If the address you are creating is a primary address, then set this option to true. This field is not supported in most regions.
+--
 -- * 'aStreet3' - The third line in a street address that a Snowball is to be delivered to.
 --
--- * 'aLandmark' - The landmark identifying the address that the appliance will be shipped to.
+-- * 'aLandmark' - This field is no longer used and the value is ignored.
 --
 -- * 'aPostalCode' - The postal code in an address that a Snowball is to be delivered to.
 --
@@ -68,14 +71,15 @@ data Address = Address'
 --
 -- * 'aName' - The name of a person to receive a Snowball at an address.
 --
--- * 'aPrefectureOrDistrict' - The prefecture or district that the appliance will be shipped to.
+-- * 'aPrefectureOrDistrict' - This field is no longer used and the value is ignored.
 --
 -- * 'aStreet1' - The first line in a street address that a Snowball is to be delivered to.
 address
     :: Address
 address =
     Address'
-    { _aStreet3 = Nothing
+    { _aIsRestricted = Nothing
+    , _aStreet3 = Nothing
     , _aLandmark = Nothing
     , _aPostalCode = Nothing
     , _aCountry = Nothing
@@ -90,11 +94,15 @@ address =
     , _aStreet1 = Nothing
     }
 
+-- | If the address you are creating is a primary address, then set this option to true. This field is not supported in most regions.
+aIsRestricted :: Lens' Address (Maybe Bool)
+aIsRestricted = lens _aIsRestricted (\ s a -> s{_aIsRestricted = a});
+
 -- | The third line in a street address that a Snowball is to be delivered to.
 aStreet3 :: Lens' Address (Maybe Text)
 aStreet3 = lens _aStreet3 (\ s a -> s{_aStreet3 = a});
 
--- | The landmark identifying the address that the appliance will be shipped to.
+-- | This field is no longer used and the value is ignored.
 aLandmark :: Lens' Address (Maybe Text)
 aLandmark = lens _aLandmark (\ s a -> s{_aLandmark = a});
 
@@ -134,7 +142,7 @@ aCompany = lens _aCompany (\ s a -> s{_aCompany = a});
 aName :: Lens' Address (Maybe Text)
 aName = lens _aName (\ s a -> s{_aName = a});
 
--- | The prefecture or district that the appliance will be shipped to.
+-- | This field is no longer used and the value is ignored.
 aPrefectureOrDistrict :: Lens' Address (Maybe Text)
 aPrefectureOrDistrict = lens _aPrefectureOrDistrict (\ s a -> s{_aPrefectureOrDistrict = a});
 
@@ -147,8 +155,9 @@ instance FromJSON Address where
           = withObject "Address"
               (\ x ->
                  Address' <$>
-                   (x .:? "Street3") <*> (x .:? "Landmark") <*>
-                     (x .:? "PostalCode")
+                   (x .:? "IsRestricted") <*> (x .:? "Street3") <*>
+                     (x .:? "Landmark")
+                     <*> (x .:? "PostalCode")
                      <*> (x .:? "Country")
                      <*> (x .:? "StateOrProvince")
                      <*> (x .:? "Street2")
@@ -168,7 +177,8 @@ instance ToJSON Address where
         toJSON Address'{..}
           = object
               (catMaybes
-                 [("Street3" .=) <$> _aStreet3,
+                 [("IsRestricted" .=) <$> _aIsRestricted,
+                  ("Street3" .=) <$> _aStreet3,
                   ("Landmark" .=) <$> _aLandmark,
                   ("PostalCode" .=) <$> _aPostalCode,
                   ("Country" .=) <$> _aCountry,
@@ -250,18 +260,19 @@ instance NFData ClusterListEntry
 --
 -- /See:/ 'clusterMetadata' smart constructor.
 data ClusterMetadata = ClusterMetadata'
-    { _cmJobType        :: !(Maybe JobType)
-    , _cmKMSKeyARN      :: !(Maybe Text)
-    , _cmClusterState   :: !(Maybe ClusterState)
-    , _cmNotification   :: !(Maybe Notification)
-    , _cmAddressId      :: !(Maybe Text)
-    , _cmSnowballType   :: !(Maybe SnowballType)
-    , _cmShippingOption :: !(Maybe ShippingOption)
-    , _cmResources      :: !(Maybe JobResource)
-    , _cmClusterId      :: !(Maybe Text)
-    , _cmCreationDate   :: !(Maybe POSIX)
-    , _cmDescription    :: !(Maybe Text)
-    , _cmRoleARN        :: !(Maybe Text)
+    { _cmJobType             :: !(Maybe JobType)
+    , _cmKMSKeyARN           :: !(Maybe Text)
+    , _cmClusterState        :: !(Maybe ClusterState)
+    , _cmNotification        :: !(Maybe Notification)
+    , _cmForwardingAddressId :: !(Maybe Text)
+    , _cmAddressId           :: !(Maybe Text)
+    , _cmSnowballType        :: !(Maybe SnowballType)
+    , _cmShippingOption      :: !(Maybe ShippingOption)
+    , _cmResources           :: !(Maybe JobResource)
+    , _cmClusterId           :: !(Maybe Text)
+    , _cmCreationDate        :: !(Maybe POSIX)
+    , _cmDescription         :: !(Maybe Text)
+    , _cmRoleARN             :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ClusterMetadata' with the minimum fields required to make a request.
@@ -275,6 +286,8 @@ data ClusterMetadata = ClusterMetadata'
 -- * 'cmClusterState' - The current status of the cluster.
 --
 -- * 'cmNotification' - The Amazon Simple Notification Service (Amazon SNS) notification settings for this cluster.
+--
+-- * 'cmForwardingAddressId' - The ID of the address that you want a cluster shipped to, after it will be shipped to its primary address. This field is not supported in most regions.
 --
 -- * 'cmAddressId' - The automatically generated ID for a specific address.
 --
@@ -299,6 +312,7 @@ clusterMetadata =
     , _cmKMSKeyARN = Nothing
     , _cmClusterState = Nothing
     , _cmNotification = Nothing
+    , _cmForwardingAddressId = Nothing
     , _cmAddressId = Nothing
     , _cmSnowballType = Nothing
     , _cmShippingOption = Nothing
@@ -324,6 +338,10 @@ cmClusterState = lens _cmClusterState (\ s a -> s{_cmClusterState = a});
 -- | The Amazon Simple Notification Service (Amazon SNS) notification settings for this cluster.
 cmNotification :: Lens' ClusterMetadata (Maybe Notification)
 cmNotification = lens _cmNotification (\ s a -> s{_cmNotification = a});
+
+-- | The ID of the address that you want a cluster shipped to, after it will be shipped to its primary address. This field is not supported in most regions.
+cmForwardingAddressId :: Lens' ClusterMetadata (Maybe Text)
+cmForwardingAddressId = lens _cmForwardingAddressId (\ s a -> s{_cmForwardingAddressId = a});
 
 -- | The automatically generated ID for a specific address.
 cmAddressId :: Lens' ClusterMetadata (Maybe Text)
@@ -365,6 +383,7 @@ instance FromJSON ClusterMetadata where
                    (x .:? "JobType") <*> (x .:? "KmsKeyARN") <*>
                      (x .:? "ClusterState")
                      <*> (x .:? "Notification")
+                     <*> (x .:? "ForwardingAddressId")
                      <*> (x .:? "AddressId")
                      <*> (x .:? "SnowballType")
                      <*> (x .:? "ShippingOption")
@@ -643,6 +662,7 @@ data JobMetadata = JobMetadata'
     , _jmJobLogInfo                 :: !(Maybe JobLogs)
     , _jmNotification               :: !(Maybe Notification)
     , _jmJobState                   :: !(Maybe JobState)
+    , _jmForwardingAddressId        :: !(Maybe Text)
     , _jmShippingDetails            :: !(Maybe ShippingDetails)
     , _jmAddressId                  :: !(Maybe Text)
     , _jmSnowballType               :: !(Maybe SnowballType)
@@ -661,7 +681,7 @@ data JobMetadata = JobMetadata'
 --
 -- * 'jmJobType' - The type of job.
 --
--- * 'jmKMSKeyARN' - The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS) key associated with this job. This ARN was created using the @CreateKey@ API action in AWS KMS.
+-- * 'jmKMSKeyARN' - The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS) key associated with this job. This ARN was created using the <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey> API action in AWS KMS.
 --
 -- * 'jmJobId' - The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 --
@@ -670,6 +690,8 @@ data JobMetadata = JobMetadata'
 -- * 'jmNotification' - The Amazon Simple Notification Service (Amazon SNS) notification settings associated with a specific job. The @Notification@ object is returned as a part of the response syntax of the @DescribeJob@ action in the @JobMetadata@ data type.
 --
 -- * 'jmJobState' - The current status of the jobs.
+--
+-- * 'jmForwardingAddressId' - The ID of the address that you want a job shipped to, after it will be shipped to its primary address. This field is not supported in most regions.
 --
 -- * 'jmShippingDetails' - A job's shipping information, including inbound and outbound tracking numbers and shipping speed options.
 --
@@ -687,7 +709,7 @@ data JobMetadata = JobMetadata'
 --
 -- * 'jmDescription' - The description of the job, provided at job creation.
 --
--- * 'jmRoleARN' - The role ARN associated with this job. This ARN was created using the @CreateRole@ API action in AWS Identity and Access Management (IAM).
+-- * 'jmRoleARN' - The role ARN associated with this job. This ARN was created using the <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
 --
 -- * 'jmSnowballCapacityPreference' - The Snowball capacity preference for this job, specified at job creation. In US regions, you can choose between 50 TB and 80 TB Snowballs. All other regions use 80 TB capacity Snowballs.
 jobMetadata
@@ -700,6 +722,7 @@ jobMetadata =
     , _jmJobLogInfo = Nothing
     , _jmNotification = Nothing
     , _jmJobState = Nothing
+    , _jmForwardingAddressId = Nothing
     , _jmShippingDetails = Nothing
     , _jmAddressId = Nothing
     , _jmSnowballType = Nothing
@@ -716,7 +739,7 @@ jobMetadata =
 jmJobType :: Lens' JobMetadata (Maybe JobType)
 jmJobType = lens _jmJobType (\ s a -> s{_jmJobType = a});
 
--- | The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS) key associated with this job. This ARN was created using the @CreateKey@ API action in AWS KMS.
+-- | The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS) key associated with this job. This ARN was created using the <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey> API action in AWS KMS.
 jmKMSKeyARN :: Lens' JobMetadata (Maybe Text)
 jmKMSKeyARN = lens _jmKMSKeyARN (\ s a -> s{_jmKMSKeyARN = a});
 
@@ -735,6 +758,10 @@ jmNotification = lens _jmNotification (\ s a -> s{_jmNotification = a});
 -- | The current status of the jobs.
 jmJobState :: Lens' JobMetadata (Maybe JobState)
 jmJobState = lens _jmJobState (\ s a -> s{_jmJobState = a});
+
+-- | The ID of the address that you want a job shipped to, after it will be shipped to its primary address. This field is not supported in most regions.
+jmForwardingAddressId :: Lens' JobMetadata (Maybe Text)
+jmForwardingAddressId = lens _jmForwardingAddressId (\ s a -> s{_jmForwardingAddressId = a});
 
 -- | A job's shipping information, including inbound and outbound tracking numbers and shipping speed options.
 jmShippingDetails :: Lens' JobMetadata (Maybe ShippingDetails)
@@ -768,7 +795,7 @@ jmCreationDate = lens _jmCreationDate (\ s a -> s{_jmCreationDate = a}) . mappin
 jmDescription :: Lens' JobMetadata (Maybe Text)
 jmDescription = lens _jmDescription (\ s a -> s{_jmDescription = a});
 
--- | The role ARN associated with this job. This ARN was created using the @CreateRole@ API action in AWS Identity and Access Management (IAM).
+-- | The role ARN associated with this job. This ARN was created using the <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
 jmRoleARN :: Lens' JobMetadata (Maybe Text)
 jmRoleARN = lens _jmRoleARN (\ s a -> s{_jmRoleARN = a});
 
@@ -786,6 +813,7 @@ instance FromJSON JobMetadata where
                      <*> (x .:? "JobLogInfo")
                      <*> (x .:? "Notification")
                      <*> (x .:? "JobState")
+                     <*> (x .:? "ForwardingAddressId")
                      <*> (x .:? "ShippingDetails")
                      <*> (x .:? "AddressId")
                      <*> (x .:? "SnowballType")
@@ -1084,7 +1112,7 @@ data Shipment = Shipment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sStatus' - Status information for a shipment. Valid statuses include @NEW@ , @IN_TRANSIT@ , and @DELIVERED@ .
+-- * 'sStatus' - Status information for a shipment.
 --
 -- * 'sTrackingNumber' - The tracking number for this job. Using this tracking number with your region's carrier's website, you can track a Snowball as the carrier transports it. For India, the carrier is Amazon Logistics. For all other regions, UPS is the carrier.
 shipment
@@ -1095,7 +1123,7 @@ shipment =
     , _sTrackingNumber = Nothing
     }
 
--- | Status information for a shipment. Valid statuses include @NEW@ , @IN_TRANSIT@ , and @DELIVERED@ .
+-- | Status information for a shipment.
 sStatus :: Lens' Shipment (Maybe Text)
 sStatus = lens _sStatus (\ s a -> s{_sStatus = a});
 

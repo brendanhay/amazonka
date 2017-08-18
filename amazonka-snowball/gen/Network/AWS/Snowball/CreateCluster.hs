@@ -29,6 +29,7 @@ module Network.AWS.Snowball.CreateCluster
     -- * Request Lenses
     , ccKMSKeyARN
     , ccNotification
+    , ccForwardingAddressId
     , ccSnowballType
     , ccDescription
     , ccJobType
@@ -54,15 +55,16 @@ import           Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'createCluster' smart constructor.
 data CreateCluster = CreateCluster'
-    { _ccKMSKeyARN      :: !(Maybe Text)
-    , _ccNotification   :: !(Maybe Notification)
-    , _ccSnowballType   :: !(Maybe SnowballType)
-    , _ccDescription    :: !(Maybe Text)
-    , _ccJobType        :: !JobType
-    , _ccResources      :: !JobResource
-    , _ccAddressId      :: !Text
-    , _ccRoleARN        :: !Text
-    , _ccShippingOption :: !ShippingOption
+    { _ccKMSKeyARN           :: !(Maybe Text)
+    , _ccNotification        :: !(Maybe Notification)
+    , _ccForwardingAddressId :: !(Maybe Text)
+    , _ccSnowballType        :: !(Maybe SnowballType)
+    , _ccDescription         :: !(Maybe Text)
+    , _ccJobType             :: !JobType
+    , _ccResources           :: !JobResource
+    , _ccAddressId           :: !Text
+    , _ccRoleARN             :: !Text
+    , _ccShippingOption      :: !ShippingOption
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateCluster' with the minimum fields required to make a request.
@@ -72,6 +74,8 @@ data CreateCluster = CreateCluster'
 -- * 'ccKMSKeyARN' - The @KmsKeyARN@ value that you want to associate with this cluster. @KmsKeyARN@ values are created by using the <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey> API action in AWS Key Management Service (AWS KMS).
 --
 -- * 'ccNotification' - The Amazon Simple Notification Service (Amazon SNS) notification settings for this cluster.
+--
+-- * 'ccForwardingAddressId' - The forwarding address ID for a cluster. This field is not supported in most regions.
 --
 -- * 'ccSnowballType' - The type of AWS Snowball appliance to use for this cluster. Currently, the only supported appliance type for cluster jobs is @EDGE@ .
 --
@@ -97,6 +101,7 @@ createCluster pJobType_ pResources_ pAddressId_ pRoleARN_ pShippingOption_ =
     CreateCluster'
     { _ccKMSKeyARN = Nothing
     , _ccNotification = Nothing
+    , _ccForwardingAddressId = Nothing
     , _ccSnowballType = Nothing
     , _ccDescription = Nothing
     , _ccJobType = pJobType_
@@ -113,6 +118,10 @@ ccKMSKeyARN = lens _ccKMSKeyARN (\ s a -> s{_ccKMSKeyARN = a});
 -- | The Amazon Simple Notification Service (Amazon SNS) notification settings for this cluster.
 ccNotification :: Lens' CreateCluster (Maybe Notification)
 ccNotification = lens _ccNotification (\ s a -> s{_ccNotification = a});
+
+-- | The forwarding address ID for a cluster. This field is not supported in most regions.
+ccForwardingAddressId :: Lens' CreateCluster (Maybe Text)
+ccForwardingAddressId = lens _ccForwardingAddressId (\ s a -> s{_ccForwardingAddressId = a});
 
 -- | The type of AWS Snowball appliance to use for this cluster. Currently, the only supported appliance type for cluster jobs is @EDGE@ .
 ccSnowballType :: Lens' CreateCluster (Maybe SnowballType)
@@ -171,6 +180,8 @@ instance ToJSON CreateCluster where
               (catMaybes
                  [("KmsKeyARN" .=) <$> _ccKMSKeyARN,
                   ("Notification" .=) <$> _ccNotification,
+                  ("ForwardingAddressId" .=) <$>
+                    _ccForwardingAddressId,
                   ("SnowballType" .=) <$> _ccSnowballType,
                   ("Description" .=) <$> _ccDescription,
                   Just ("JobType" .= _ccJobType),

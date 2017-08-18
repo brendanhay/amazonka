@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a job to import or export data between Amazon S3 and your on-premises data center. Your AWS account must have the right trust policies and permissions in place to create a job for Snowball. If you're creating a job for a node in a cluster, you only need to provide the @clusterId@ value; the other job attributes are inherited from the cluster. .
+-- Creates a job to import or export data between Amazon S3 and your on-premises data center. Your AWS account must have the right trust policies and permissions in place to create a job for Snowball. If you're creating a job for a node in a cluster, you only need to provide the @clusterId@ value; the other job attributes are inherited from the cluster.
 --
 --
 module Network.AWS.Snowball.CreateJob
@@ -30,6 +30,7 @@ module Network.AWS.Snowball.CreateJob
     , cjJobType
     , cjKMSKeyARN
     , cjNotification
+    , cjForwardingAddressId
     , cjAddressId
     , cjSnowballType
     , cjShippingOption
@@ -59,6 +60,7 @@ data CreateJob = CreateJob'
     { _cjJobType                    :: !(Maybe JobType)
     , _cjKMSKeyARN                  :: !(Maybe Text)
     , _cjNotification               :: !(Maybe Notification)
+    , _cjForwardingAddressId        :: !(Maybe Text)
     , _cjAddressId                  :: !(Maybe Text)
     , _cjSnowballType               :: !(Maybe SnowballType)
     , _cjShippingOption             :: !(Maybe ShippingOption)
@@ -78,6 +80,8 @@ data CreateJob = CreateJob'
 -- * 'cjKMSKeyARN' - The @KmsKeyARN@ that you want to associate with this job. @KmsKeyARN@ s are created using the <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey> AWS Key Management Service (KMS) API action.
 --
 -- * 'cjNotification' - Defines the Amazon Simple Notification Service (Amazon SNS) notification settings for this job.
+--
+-- * 'cjForwardingAddressId' - The forwarding address ID for a job. This field is not supported in most regions.
 --
 -- * 'cjAddressId' - The ID for the address that you want the Snowball shipped to.
 --
@@ -101,6 +105,7 @@ createJob =
     { _cjJobType = Nothing
     , _cjKMSKeyARN = Nothing
     , _cjNotification = Nothing
+    , _cjForwardingAddressId = Nothing
     , _cjAddressId = Nothing
     , _cjSnowballType = Nothing
     , _cjShippingOption = Nothing
@@ -122,6 +127,10 @@ cjKMSKeyARN = lens _cjKMSKeyARN (\ s a -> s{_cjKMSKeyARN = a});
 -- | Defines the Amazon Simple Notification Service (Amazon SNS) notification settings for this job.
 cjNotification :: Lens' CreateJob (Maybe Notification)
 cjNotification = lens _cjNotification (\ s a -> s{_cjNotification = a});
+
+-- | The forwarding address ID for a job. This field is not supported in most regions.
+cjForwardingAddressId :: Lens' CreateJob (Maybe Text)
+cjForwardingAddressId = lens _cjForwardingAddressId (\ s a -> s{_cjForwardingAddressId = a});
 
 -- | The ID for the address that you want the Snowball shipped to.
 cjAddressId :: Lens' CreateJob (Maybe Text)
@@ -185,6 +194,8 @@ instance ToJSON CreateJob where
                  [("JobType" .=) <$> _cjJobType,
                   ("KmsKeyARN" .=) <$> _cjKMSKeyARN,
                   ("Notification" .=) <$> _cjNotification,
+                  ("ForwardingAddressId" .=) <$>
+                    _cjForwardingAddressId,
                   ("AddressId" .=) <$> _cjAddressId,
                   ("SnowballType" .=) <$> _cjSnowballType,
                   ("ShippingOption" .=) <$> _cjShippingOption,

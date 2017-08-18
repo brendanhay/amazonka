@@ -14,9 +14,9 @@
 -- Amazon Lightsail is the easiest way to get started with AWS for developers who just need virtual private servers. Lightsail includes everything you need to launch your project quickly - a virtual machine, SSD-based storage, data transfer, DNS management, and a static IP - for a low, predictable price. You manage those Lightsail servers through the Lightsail console or by using the API or command-line interface (CLI).
 --
 --
--- For more information about Lightsail concepts and tasks, see the <http://lightsail.aws.amazon.com/ls/docs Lightsail Dev Guide> .
+-- For more information about Lightsail concepts and tasks, see the <https://lightsail.aws.amazon.com/ls/docs/all Lightsail Dev Guide> .
 --
--- To use the Lightsail API or the CLI, you will need to use AWS Identity and Access Management (IAM) to generate access keys. For details about how to set this up, see the <http://lightsail.aws.amazon.com/ls/docs/how-to/articles/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli Lightsail Dev Guide> .
+-- To use the Lightsail API or the CLI, you will need to use AWS Identity and Access Management (IAM) to generate access keys. For details about how to set this up, see the <http://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli Lightsail Dev Guide> .
 --
 module Network.AWS.Lightsail
     (
@@ -169,6 +169,9 @@ module Network.AWS.Lightsail
 
     -- ** GetKeyPair
     , module Network.AWS.Lightsail.GetKeyPair
+
+    -- ** PutInstancePublicPorts
+    , module Network.AWS.Lightsail.PutInstancePublicPorts
 
     -- ** DetachStaticIP
     , module Network.AWS.Lightsail.DetachStaticIP
@@ -369,6 +372,14 @@ module Network.AWS.Lightsail
     , ipiToPort
     , ipiAccessFrom
 
+    -- ** InstancePortState
+    , InstancePortState
+    , instancePortState
+    , ipsFromPort
+    , ipsState
+    , ipsProtocol
+    , ipsToPort
+
     -- ** InstanceSnapshot
     , InstanceSnapshot
     , instanceSnapshot
@@ -512,6 +523,7 @@ import           Network.AWS.Lightsail.ImportKeyPair
 import           Network.AWS.Lightsail.IsVPCPeered
 import           Network.AWS.Lightsail.OpenInstancePublicPorts
 import           Network.AWS.Lightsail.PeerVPC
+import           Network.AWS.Lightsail.PutInstancePublicPorts
 import           Network.AWS.Lightsail.RebootInstance
 import           Network.AWS.Lightsail.ReleaseStaticIP
 import           Network.AWS.Lightsail.StartInstance

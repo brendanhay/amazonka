@@ -65,7 +65,7 @@ data CreateInstances = CreateInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ciCustomImageName' - The name for your custom image.
+-- * 'ciCustomImageName' - (Deprecated) The name for your custom image.
 --
 -- * 'ciUserData' - A launch script you can create that configures a server with additional user data. For example, you might want to run @apt-get –y update@ .
 --
@@ -73,7 +73,7 @@ data CreateInstances = CreateInstances'
 --
 -- * 'ciInstanceNames' - The names to use for your new Lightsail instances. Separate multiple values using quotation marks and commas, for example: @["MyFirstInstance","MySecondInstance"]@
 --
--- * 'ciAvailabilityZone' - The Availability Zone in which to create your instance. Use the following format: @us-east-1a@ (case sensitive).
+-- * 'ciAvailabilityZone' - The Availability Zone in which to create your instance. Use the following format: @us-east-1a@ (case sensitive). You can get a list of availability zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include availability zones@ parameter to your request.
 --
 -- * 'ciBlueprintId' - The ID for a virtual private server image (e.g., @app_wordpress_4_4@ or @app_lamp_7_0@ ). Use the get blueprints operation to return a list of available images (or /blueprints/ ).
 --
@@ -94,7 +94,7 @@ createInstances pAvailabilityZone_ pBlueprintId_ pBundleId_ =
     , _ciBundleId = pBundleId_
     }
 
--- | The name for your custom image.
+-- | (Deprecated) The name for your custom image.
 ciCustomImageName :: Lens' CreateInstances (Maybe Text)
 ciCustomImageName = lens _ciCustomImageName (\ s a -> s{_ciCustomImageName = a});
 
@@ -110,7 +110,7 @@ ciKeyPairName = lens _ciKeyPairName (\ s a -> s{_ciKeyPairName = a});
 ciInstanceNames :: Lens' CreateInstances [Text]
 ciInstanceNames = lens _ciInstanceNames (\ s a -> s{_ciInstanceNames = a}) . _Coerce;
 
--- | The Availability Zone in which to create your instance. Use the following format: @us-east-1a@ (case sensitive).
+-- | The Availability Zone in which to create your instance. Use the following format: @us-east-1a@ (case sensitive). You can get a list of availability zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include availability zones@ parameter to your request.
 ciAvailabilityZone :: Lens' CreateInstances Text
 ciAvailabilityZone = lens _ciAvailabilityZone (\ s a -> s{_ciAvailabilityZone = a});
 

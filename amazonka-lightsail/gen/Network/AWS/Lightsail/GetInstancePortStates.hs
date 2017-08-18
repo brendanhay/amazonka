@@ -105,7 +105,7 @@ instance ToQuery GetInstancePortStates where
 
 -- | /See:/ 'getInstancePortStatesResponse' smart constructor.
 data GetInstancePortStatesResponse = GetInstancePortStatesResponse'
-    { _gipsrsPortStates     :: !(Maybe [PortState])
+    { _gipsrsPortStates     :: !(Maybe [InstancePortState])
     , _gipsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -126,7 +126,7 @@ getInstancePortStatesResponse pResponseStatus_ =
     }
 
 -- | Information about the port states resulting from your request.
-gipsrsPortStates :: Lens' GetInstancePortStatesResponse [PortState]
+gipsrsPortStates :: Lens' GetInstancePortStatesResponse [InstancePortState]
 gipsrsPortStates = lens _gipsrsPortStates (\ s a -> s{_gipsrsPortStates = a}) . _Default . _Coerce;
 
 -- | -- | The response status code.

@@ -145,6 +145,9 @@ import Test.AWS.Lightsail.Internal
 --         , requestGetKeyPair $
 --             getKeyPair
 --
+--         , requestPutInstancePublicPorts $
+--             putInstancePublicPorts
+--
 --         , requestDetachStaticIP $
 --             detachStaticIP
 --
@@ -288,6 +291,9 @@ import Test.AWS.Lightsail.Internal
 --
 --         , responseGetKeyPair $
 --             getKeyPairResponse
+--
+--         , responsePutInstancePublicPorts $
+--             putInstancePublicPortsResponse
 --
 --         , responseDetachStaticIP $
 --             detachStaticIPResponse
@@ -512,6 +518,11 @@ requestGetKeyPair :: GetKeyPair -> TestTree
 requestGetKeyPair = req
     "GetKeyPair"
     "fixture/GetKeyPair.yaml"
+
+requestPutInstancePublicPorts :: PutInstancePublicPorts -> TestTree
+requestPutInstancePublicPorts = req
+    "PutInstancePublicPorts"
+    "fixture/PutInstancePublicPorts.yaml"
 
 requestDetachStaticIP :: DetachStaticIP -> TestTree
 requestDetachStaticIP = req
@@ -827,6 +838,13 @@ responseGetKeyPair = res
     "fixture/GetKeyPairResponse.proto"
     lightsail
     (Proxy :: Proxy GetKeyPair)
+
+responsePutInstancePublicPorts :: PutInstancePublicPortsResponse -> TestTree
+responsePutInstancePublicPorts = res
+    "PutInstancePublicPortsResponse"
+    "fixture/PutInstancePublicPortsResponse.proto"
+    lightsail
+    (Proxy :: Proxy PutInstancePublicPorts)
 
 responseDetachStaticIP :: DetachStaticIPResponse -> TestTree
 responseDetachStaticIP = res

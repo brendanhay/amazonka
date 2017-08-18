@@ -81,6 +81,7 @@ library
         , Network.AWS.Lightsail.IsVPCPeered
         , Network.AWS.Lightsail.OpenInstancePublicPorts
         , Network.AWS.Lightsail.PeerVPC
+        , Network.AWS.Lightsail.PutInstancePublicPorts
         , Network.AWS.Lightsail.RebootInstance
         , Network.AWS.Lightsail.ReleaseStaticIP
         , Network.AWS.Lightsail.StartInstance

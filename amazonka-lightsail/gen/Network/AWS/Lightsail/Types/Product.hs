@@ -37,7 +37,7 @@ data AvailabilityZone = AvailabilityZone'
 --
 -- * 'azState' - The state of the Availability Zone.
 --
--- * 'azZoneName' - The name of the Availability Zone.
+-- * 'azZoneName' - The name of the Availability Zone. The format is @us-east-1a@ (case-sensitive).
 availabilityZone
     :: AvailabilityZone
 availabilityZone =
@@ -50,7 +50,7 @@ availabilityZone =
 azState :: Lens' AvailabilityZone (Maybe Text)
 azState = lens _azState (\ s a -> s{_azState = a});
 
--- | The name of the Availability Zone.
+-- | The name of the Availability Zone. The format is @us-east-1a@ (case-sensitive).
 azZoneName :: Lens' AvailabilityZone (Maybe Text)
 azZoneName = lens _azZoneName (\ s a -> s{_azZoneName = a});
 
@@ -1035,7 +1035,7 @@ data InstancePortInfo = InstancePortInfo'
 --
 -- * 'ipiCommonName' - The common name.
 --
--- * 'ipiProtocol' - The protocol.
+-- * 'ipiProtocol' - The protocol being used. Can be one of the following.     * @tcp@ - Transmission Control Protocol (TCP) provides reliable, ordered, and error-checked delivery of streamed data between applications running on hosts communicating by an IP network. If you have an application that doesn't require reliable data stream service, use UDP instead.     * @all@ - All transport layer protocol types. For more general information, see <https://en.wikipedia.org/wiki/Transport_layer Transport layer> on Wikipedia.     * @udp@ - With User Datagram Protocol (UDP), computer applications can send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior communications are not required to set up transmission channels or data paths. Applications that don't require reliable data stream service can use UDP, which provides a connectionless datagram service that emphasizes reduced latency over reliability. If you do require reliable data stream service, use TCP instead.
 --
 -- * 'ipiAccessDirection' - The access direction (@inbound@ or @outbound@ ).
 --
@@ -1065,7 +1065,7 @@ ipiFromPort = lens _ipiFromPort (\ s a -> s{_ipiFromPort = a}) . mapping _Nat;
 ipiCommonName :: Lens' InstancePortInfo (Maybe Text)
 ipiCommonName = lens _ipiCommonName (\ s a -> s{_ipiCommonName = a});
 
--- | The protocol.
+-- | The protocol being used. Can be one of the following.     * @tcp@ - Transmission Control Protocol (TCP) provides reliable, ordered, and error-checked delivery of streamed data between applications running on hosts communicating by an IP network. If you have an application that doesn't require reliable data stream service, use UDP instead.     * @all@ - All transport layer protocol types. For more general information, see <https://en.wikipedia.org/wiki/Transport_layer Transport layer> on Wikipedia.     * @udp@ - With User Datagram Protocol (UDP), computer applications can send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior communications are not required to set up transmission channels or data paths. Applications that don't require reliable data stream service can use UDP, which provides a connectionless datagram service that emphasizes reduced latency over reliability. If you do require reliable data stream service, use TCP instead.
 ipiProtocol :: Lens' InstancePortInfo (Maybe NetworkProtocol)
 ipiProtocol = lens _ipiProtocol (\ s a -> s{_ipiProtocol = a});
 
@@ -1100,6 +1100,68 @@ instance FromJSON InstancePortInfo where
 instance Hashable InstancePortInfo
 
 instance NFData InstancePortInfo
+
+-- | Describes the port state.
+--
+--
+--
+-- /See:/ 'instancePortState' smart constructor.
+data InstancePortState = InstancePortState'
+    { _ipsFromPort :: !(Maybe Nat)
+    , _ipsState    :: !(Maybe PortState)
+    , _ipsProtocol :: !(Maybe NetworkProtocol)
+    , _ipsToPort   :: !(Maybe Nat)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstancePortState' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ipsFromPort' - The first port in the range.
+--
+-- * 'ipsState' - Specifies whether the instance port is @open@ or @closed@ .
+--
+-- * 'ipsProtocol' - The protocol being used. Can be one of the following.     * @tcp@ - Transmission Control Protocol (TCP) provides reliable, ordered, and error-checked delivery of streamed data between applications running on hosts communicating by an IP network. If you have an application that doesn't require reliable data stream service, use UDP instead.     * @all@ - All transport layer protocol types. For more general information, see <https://en.wikipedia.org/wiki/Transport_layer Transport layer> on Wikipedia.     * @udp@ - With User Datagram Protocol (UDP), computer applications can send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior communications are not required to set up transmission channels or data paths. Applications that don't require reliable data stream service can use UDP, which provides a connectionless datagram service that emphasizes reduced latency over reliability. If you do require reliable data stream service, use TCP instead.
+--
+-- * 'ipsToPort' - The last port in the range.
+instancePortState
+    :: InstancePortState
+instancePortState =
+    InstancePortState'
+    { _ipsFromPort = Nothing
+    , _ipsState = Nothing
+    , _ipsProtocol = Nothing
+    , _ipsToPort = Nothing
+    }
+
+-- | The first port in the range.
+ipsFromPort :: Lens' InstancePortState (Maybe Natural)
+ipsFromPort = lens _ipsFromPort (\ s a -> s{_ipsFromPort = a}) . mapping _Nat;
+
+-- | Specifies whether the instance port is @open@ or @closed@ .
+ipsState :: Lens' InstancePortState (Maybe PortState)
+ipsState = lens _ipsState (\ s a -> s{_ipsState = a});
+
+-- | The protocol being used. Can be one of the following.     * @tcp@ - Transmission Control Protocol (TCP) provides reliable, ordered, and error-checked delivery of streamed data between applications running on hosts communicating by an IP network. If you have an application that doesn't require reliable data stream service, use UDP instead.     * @all@ - All transport layer protocol types. For more general information, see <https://en.wikipedia.org/wiki/Transport_layer Transport layer> on Wikipedia.     * @udp@ - With User Datagram Protocol (UDP), computer applications can send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior communications are not required to set up transmission channels or data paths. Applications that don't require reliable data stream service can use UDP, which provides a connectionless datagram service that emphasizes reduced latency over reliability. If you do require reliable data stream service, use TCP instead.
+ipsProtocol :: Lens' InstancePortState (Maybe NetworkProtocol)
+ipsProtocol = lens _ipsProtocol (\ s a -> s{_ipsProtocol = a});
+
+-- | The last port in the range.
+ipsToPort :: Lens' InstancePortState (Maybe Natural)
+ipsToPort = lens _ipsToPort (\ s a -> s{_ipsToPort = a}) . mapping _Nat;
+
+instance FromJSON InstancePortState where
+        parseJSON
+          = withObject "InstancePortState"
+              (\ x ->
+                 InstancePortState' <$>
+                   (x .:? "fromPort") <*> (x .:? "state") <*>
+                     (x .:? "protocol")
+                     <*> (x .:? "toPort"))
+
+instance Hashable InstancePortState
+
+instance NFData InstancePortState
 
 -- | Describes the snapshot of the virtual private server, or /instance/ .
 --
@@ -1704,7 +1766,7 @@ data RegionInfo = RegionInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'riAvailabilityZones' - The Availability Zones.
+-- * 'riAvailabilityZones' - The Availability Zones. Follows the format @us-east-1a@ (case-sensitive).
 --
 -- * 'riName' - The region name (e.g., @us-east-1@ ).
 --
@@ -1724,7 +1786,7 @@ regionInfo =
     , _riDescription = Nothing
     }
 
--- | The Availability Zones.
+-- | The Availability Zones. Follows the format @us-east-1a@ (case-sensitive).
 riAvailabilityZones :: Lens' RegionInfo [AvailabilityZone]
 riAvailabilityZones = lens _riAvailabilityZones (\ s a -> s{_riAvailabilityZones = a}) . _Default . _Coerce;
 
@@ -1775,7 +1837,7 @@ data ResourceLocation = ResourceLocation'
 --
 -- * 'rlRegionName' - The AWS Region name.
 --
--- * 'rlAvailabilityZone' - The Availability Zone.
+-- * 'rlAvailabilityZone' - The Availability Zone. Follows the format @us-east-1a@ (case-sensitive).
 resourceLocation
     :: ResourceLocation
 resourceLocation =
@@ -1788,7 +1850,7 @@ resourceLocation =
 rlRegionName :: Lens' ResourceLocation (Maybe RegionName)
 rlRegionName = lens _rlRegionName (\ s a -> s{_rlRegionName = a});
 
--- | The Availability Zone.
+-- | The Availability Zone. Follows the format @us-east-1a@ (case-sensitive).
 rlAvailabilityZone :: Lens' ResourceLocation (Maybe Text)
 rlAvailabilityZone = lens _rlAvailabilityZone (\ s a -> s{_rlAvailabilityZone = a});
 

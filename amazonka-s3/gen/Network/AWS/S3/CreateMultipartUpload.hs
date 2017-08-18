@@ -42,6 +42,7 @@ module Network.AWS.S3.CreateMultipartUpload
     , cmuSSEKMSKeyId
     , cmuGrantFullControl
     , cmuContentEncoding
+    , cmuTagging
     , cmuMetadata
     , cmuCacheControl
     , cmuContentLanguage
@@ -91,6 +92,7 @@ data CreateMultipartUpload = CreateMultipartUpload'
     , _cmuSSEKMSKeyId             :: !(Maybe (Sensitive Text))
     , _cmuGrantFullControl        :: !(Maybe Text)
     , _cmuContentEncoding         :: !(Maybe Text)
+    , _cmuTagging                 :: !(Maybe Text)
     , _cmuMetadata                :: !(Map Text Text)
     , _cmuCacheControl            :: !(Maybe Text)
     , _cmuContentLanguage         :: !(Maybe Text)
@@ -132,6 +134,8 @@ data CreateMultipartUpload = CreateMultipartUpload'
 --
 -- * 'cmuContentEncoding' - Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 --
+-- * 'cmuTagging' - The tag-set for the object. The tag-set must be encoded as URL Query parameters
+--
 -- * 'cmuMetadata' - A map of metadata to store with the object in S3.
 --
 -- * 'cmuCacheControl' - Specifies caching behavior along the request/reply chain.
@@ -168,6 +172,7 @@ createMultipartUpload pBucket_ pKey_ =
     , _cmuSSEKMSKeyId = Nothing
     , _cmuGrantFullControl = Nothing
     , _cmuContentEncoding = Nothing
+    , _cmuTagging = Nothing
     , _cmuMetadata = mempty
     , _cmuCacheControl = Nothing
     , _cmuContentLanguage = Nothing
@@ -230,6 +235,10 @@ cmuGrantFullControl = lens _cmuGrantFullControl (\ s a -> s{_cmuGrantFullControl
 -- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 cmuContentEncoding :: Lens' CreateMultipartUpload (Maybe Text)
 cmuContentEncoding = lens _cmuContentEncoding (\ s a -> s{_cmuContentEncoding = a});
+
+-- | The tag-set for the object. The tag-set must be encoded as URL Query parameters
+cmuTagging :: Lens' CreateMultipartUpload (Maybe Text)
+cmuTagging = lens _cmuTagging (\ s a -> s{_cmuTagging = a});
 
 -- | A map of metadata to store with the object in S3.
 cmuMetadata :: Lens' CreateMultipartUpload (HashMap Text Text)
@@ -316,6 +325,7 @@ instance ToHeaders CreateMultipartUpload where
                  _cmuSSEKMSKeyId,
                "x-amz-grant-full-control" =# _cmuGrantFullControl,
                "Content-Encoding" =# _cmuContentEncoding,
+               "x-amz-tagging" =# _cmuTagging,
                "x-amz-meta-" =# _cmuMetadata,
                "Cache-Control" =# _cmuCacheControl,
                "Content-Language" =# _cmuContentLanguage,

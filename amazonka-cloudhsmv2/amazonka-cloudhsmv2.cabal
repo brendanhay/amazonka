@@ -1,0 +1,90 @@
+name:                  amazonka-cloudhsmv2
+version:               1.4.5
+synopsis:              Amazon CloudHSM V2 SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2016 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+cabal-version:         >= 1.10
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+description:
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.CloudHSMv2" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.CloudHSMv2
+        , Network.AWS.CloudHSMv2.CreateCluster
+        , Network.AWS.CloudHSMv2.CreateHSM
+        , Network.AWS.CloudHSMv2.DeleteCluster
+        , Network.AWS.CloudHSMv2.DeleteHSM
+        , Network.AWS.CloudHSMv2.DescribeBackups
+        , Network.AWS.CloudHSMv2.DescribeClusters
+        , Network.AWS.CloudHSMv2.InitializeCluster
+        , Network.AWS.CloudHSMv2.ListTags
+        , Network.AWS.CloudHSMv2.TagResource
+        , Network.AWS.CloudHSMv2.Types
+        , Network.AWS.CloudHSMv2.UntagResource
+        , Network.AWS.CloudHSMv2.Waiters
+
+    other-modules:
+          Network.AWS.CloudHSMv2.Types.Product
+        , Network.AWS.CloudHSMv2.Types.Sum
+
+    build-depends:
+          amazonka-core == 1.4.5.*
+        , base          >= 4.7     && < 5
+
+test-suite amazonka-cloudhsmv2-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.CloudHSMv2
+        , Test.AWS.Gen.CloudHSMv2
+        , Test.AWS.CloudHSMv2.Internal
+
+    build-depends:
+          amazonka-core == 1.4.5.*
+        , amazonka-test == 1.4.5.*
+        , amazonka-cloudhsmv2 == 1.4.5.*
+        , base
+        , bytestring
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

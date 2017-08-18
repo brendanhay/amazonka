@@ -27,7 +27,7 @@
 --
 --     * The message body.
 --
---     * An MD5 digest of the message body. For information on MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
+--     * An MD5 digest of the message body. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
 --
 --     * The @MessageId@ you received when you sent the message to the queue.
 --

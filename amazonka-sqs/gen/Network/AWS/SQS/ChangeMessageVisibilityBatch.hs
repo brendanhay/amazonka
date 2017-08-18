@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes the visibility timeout of multiple messages. This is a batch version of @'ChangeMessageVisibility' @ . The result of the action on each message is reported individually in the response. You can send up to 10 @'ChangeMessageVisibility' @ requests with each @ChangeMessageVisibilityBatch@ action.
+-- Changes the visibility timeout of multiple messages. This is a batch version of @'ChangeMessageVisibility' .@ The result of the action on each message is reported individually in the response. You can send up to 10 @'ChangeMessageVisibility' @ requests with each @ChangeMessageVisibilityBatch@ action.
 --
 --
 -- /Important:/ Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of @200@ .

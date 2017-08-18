@@ -63,6 +63,8 @@ data QueueAttributeName
     | QANCreatedTimestamp
     | QANDelaySeconds
     | QANFifoQueue
+    | QANKMSDataKeyReusePeriodSeconds
+    | QANKMSMasterKeyId
     | QANLastModifiedTimestamp
     | QANMaximumMessageSize
     | QANMessageRetentionPeriod
@@ -83,6 +85,8 @@ instance FromText QueueAttributeName where
         "createdtimestamp" -> pure QANCreatedTimestamp
         "delayseconds" -> pure QANDelaySeconds
         "fifoqueue" -> pure QANFifoQueue
+        "kmsdatakeyreuseperiodseconds" -> pure QANKMSDataKeyReusePeriodSeconds
+        "kmsmasterkeyid" -> pure QANKMSMasterKeyId
         "lastmodifiedtimestamp" -> pure QANLastModifiedTimestamp
         "maximummessagesize" -> pure QANMaximumMessageSize
         "messageretentionperiod" -> pure QANMessageRetentionPeriod
@@ -92,7 +96,7 @@ instance FromText QueueAttributeName where
         "redrivepolicy" -> pure QANRedrivePolicy
         "visibilitytimeout" -> pure QANVisibilityTimeout
         e -> fromTextError $ "Failure parsing QueueAttributeName from value: '" <> e
-           <> "'. Accepted values: all, approximatenumberofmessages, approximatenumberofmessagesdelayed, approximatenumberofmessagesnotvisible, contentbaseddeduplication, createdtimestamp, delayseconds, fifoqueue, lastmodifiedtimestamp, maximummessagesize, messageretentionperiod, policy, queuearn, receivemessagewaittimeseconds, redrivepolicy, visibilitytimeout"
+           <> "'. Accepted values: all, approximatenumberofmessages, approximatenumberofmessagesdelayed, approximatenumberofmessagesnotvisible, contentbaseddeduplication, createdtimestamp, delayseconds, fifoqueue, kmsdatakeyreuseperiodseconds, kmsmasterkeyid, lastmodifiedtimestamp, maximummessagesize, messageretentionperiod, policy, queuearn, receivemessagewaittimeseconds, redrivepolicy, visibilitytimeout"
 
 instance ToText QueueAttributeName where
     toText = \case
@@ -104,6 +108,8 @@ instance ToText QueueAttributeName where
         QANCreatedTimestamp -> "CreatedTimestamp"
         QANDelaySeconds -> "DelaySeconds"
         QANFifoQueue -> "FifoQueue"
+        QANKMSDataKeyReusePeriodSeconds -> "KmsDataKeyReusePeriodSeconds"
+        QANKMSMasterKeyId -> "KmsMasterKeyId"
         QANLastModifiedTimestamp -> "LastModifiedTimestamp"
         QANMaximumMessageSize -> "MaximumMessageSize"
         QANMessageRetentionPeriod -> "MessageRetentionPeriod"

@@ -49,6 +49,12 @@ import Test.AWS.ServiceCatalog.Internal
 --         , requestListRecordHistory $
 --             listRecordHistory
 --
+--         , requestAssociateTagOptionWithResource $
+--             associateTagOptionWithResource
+--
+--         , requestCreateTagOption $
+--             createTagOption
+--
 --         , requestDisassociateProductFromPortfolio $
 --             disassociateProductFromPortfolio
 --
@@ -91,6 +97,12 @@ import Test.AWS.ServiceCatalog.Internal
 --         , requestDisassociatePrincipalFromPortfolio $
 --             disassociatePrincipalFromPortfolio
 --
+--         , requestDescribeTagOption $
+--             describeTagOption
+--
+--         , requestDisassociateTagOptionFromResource $
+--             disassociateTagOptionFromResource
+--
 --         , requestDescribePortfolio $
 --             describePortfolio
 --
@@ -121,6 +133,12 @@ import Test.AWS.ServiceCatalog.Internal
 --         , requestRejectPortfolioShare $
 --             rejectPortfolioShare
 --
+--         , requestUpdateTagOption $
+--             updateTagOption
+--
+--         , requestListTagOptions $
+--             listTagOptions
+--
 --         , requestSearchProductsAsAdmin $
 --             searchProductsAsAdmin
 --
@@ -142,6 +160,9 @@ import Test.AWS.ServiceCatalog.Internal
 --         , requestAssociatePrincipalWithPortfolio $
 --             associatePrincipalWithPortfolio
 --
+--         , requestDescribeProvisionedProduct $
+--             describeProvisionedProduct
+--
 --         , requestUpdateProvisioningArtifact $
 --             updateProvisioningArtifact
 --
@@ -156,6 +177,9 @@ import Test.AWS.ServiceCatalog.Internal
 --
 --         , requestListLaunchPaths $
 --             listLaunchPaths
+--
+--         , requestListResourcesForTagOption $
+--             listResourcesForTagOption
 --
 --           ]
 
@@ -180,6 +204,12 @@ import Test.AWS.ServiceCatalog.Internal
 --
 --         , responseListRecordHistory $
 --             listRecordHistoryResponse
+--
+--         , responseAssociateTagOptionWithResource $
+--             associateTagOptionWithResourceResponse
+--
+--         , responseCreateTagOption $
+--             createTagOptionResponse
 --
 --         , responseDisassociateProductFromPortfolio $
 --             disassociateProductFromPortfolioResponse
@@ -223,6 +253,12 @@ import Test.AWS.ServiceCatalog.Internal
 --         , responseDisassociatePrincipalFromPortfolio $
 --             disassociatePrincipalFromPortfolioResponse
 --
+--         , responseDescribeTagOption $
+--             describeTagOptionResponse
+--
+--         , responseDisassociateTagOptionFromResource $
+--             disassociateTagOptionFromResourceResponse
+--
 --         , responseDescribePortfolio $
 --             describePortfolioResponse
 --
@@ -253,6 +289,12 @@ import Test.AWS.ServiceCatalog.Internal
 --         , responseRejectPortfolioShare $
 --             rejectPortfolioShareResponse
 --
+--         , responseUpdateTagOption $
+--             updateTagOptionResponse
+--
+--         , responseListTagOptions $
+--             listTagOptionsResponse
+--
 --         , responseSearchProductsAsAdmin $
 --             searchProductsAsAdminResponse
 --
@@ -274,6 +316,9 @@ import Test.AWS.ServiceCatalog.Internal
 --         , responseAssociatePrincipalWithPortfolio $
 --             associatePrincipalWithPortfolioResponse
 --
+--         , responseDescribeProvisionedProduct $
+--             describeProvisionedProductResponse
+--
 --         , responseUpdateProvisioningArtifact $
 --             updateProvisioningArtifactResponse
 --
@@ -288,6 +333,9 @@ import Test.AWS.ServiceCatalog.Internal
 --
 --         , responseListLaunchPaths $
 --             listLaunchPathsResponse
+--
+--         , responseListResourcesForTagOption $
+--             listResourcesForTagOptionResponse
 --
 --           ]
 --     ]
@@ -328,6 +376,16 @@ requestListRecordHistory :: ListRecordHistory -> TestTree
 requestListRecordHistory = req
     "ListRecordHistory"
     "fixture/ListRecordHistory.yaml"
+
+requestAssociateTagOptionWithResource :: AssociateTagOptionWithResource -> TestTree
+requestAssociateTagOptionWithResource = req
+    "AssociateTagOptionWithResource"
+    "fixture/AssociateTagOptionWithResource.yaml"
+
+requestCreateTagOption :: CreateTagOption -> TestTree
+requestCreateTagOption = req
+    "CreateTagOption"
+    "fixture/CreateTagOption.yaml"
 
 requestDisassociateProductFromPortfolio :: DisassociateProductFromPortfolio -> TestTree
 requestDisassociateProductFromPortfolio = req
@@ -399,6 +457,16 @@ requestDisassociatePrincipalFromPortfolio = req
     "DisassociatePrincipalFromPortfolio"
     "fixture/DisassociatePrincipalFromPortfolio.yaml"
 
+requestDescribeTagOption :: DescribeTagOption -> TestTree
+requestDescribeTagOption = req
+    "DescribeTagOption"
+    "fixture/DescribeTagOption.yaml"
+
+requestDisassociateTagOptionFromResource :: DisassociateTagOptionFromResource -> TestTree
+requestDisassociateTagOptionFromResource = req
+    "DisassociateTagOptionFromResource"
+    "fixture/DisassociateTagOptionFromResource.yaml"
+
 requestDescribePortfolio :: DescribePortfolio -> TestTree
 requestDescribePortfolio = req
     "DescribePortfolio"
@@ -449,6 +517,16 @@ requestRejectPortfolioShare = req
     "RejectPortfolioShare"
     "fixture/RejectPortfolioShare.yaml"
 
+requestUpdateTagOption :: UpdateTagOption -> TestTree
+requestUpdateTagOption = req
+    "UpdateTagOption"
+    "fixture/UpdateTagOption.yaml"
+
+requestListTagOptions :: ListTagOptions -> TestTree
+requestListTagOptions = req
+    "ListTagOptions"
+    "fixture/ListTagOptions.yaml"
+
 requestSearchProductsAsAdmin :: SearchProductsAsAdmin -> TestTree
 requestSearchProductsAsAdmin = req
     "SearchProductsAsAdmin"
@@ -484,6 +562,11 @@ requestAssociatePrincipalWithPortfolio = req
     "AssociatePrincipalWithPortfolio"
     "fixture/AssociatePrincipalWithPortfolio.yaml"
 
+requestDescribeProvisionedProduct :: DescribeProvisionedProduct -> TestTree
+requestDescribeProvisionedProduct = req
+    "DescribeProvisionedProduct"
+    "fixture/DescribeProvisionedProduct.yaml"
+
 requestUpdateProvisioningArtifact :: UpdateProvisioningArtifact -> TestTree
 requestUpdateProvisioningArtifact = req
     "UpdateProvisioningArtifact"
@@ -508,6 +591,11 @@ requestListLaunchPaths :: ListLaunchPaths -> TestTree
 requestListLaunchPaths = req
     "ListLaunchPaths"
     "fixture/ListLaunchPaths.yaml"
+
+requestListResourcesForTagOption :: ListResourcesForTagOption -> TestTree
+requestListResourcesForTagOption = req
+    "ListResourcesForTagOption"
+    "fixture/ListResourcesForTagOption.yaml"
 
 -- Responses
 
@@ -559,6 +647,20 @@ responseListRecordHistory = res
     "fixture/ListRecordHistoryResponse.proto"
     serviceCatalog
     (Proxy :: Proxy ListRecordHistory)
+
+responseAssociateTagOptionWithResource :: AssociateTagOptionWithResourceResponse -> TestTree
+responseAssociateTagOptionWithResource = res
+    "AssociateTagOptionWithResourceResponse"
+    "fixture/AssociateTagOptionWithResourceResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy AssociateTagOptionWithResource)
+
+responseCreateTagOption :: CreateTagOptionResponse -> TestTree
+responseCreateTagOption = res
+    "CreateTagOptionResponse"
+    "fixture/CreateTagOptionResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy CreateTagOption)
 
 responseDisassociateProductFromPortfolio :: DisassociateProductFromPortfolioResponse -> TestTree
 responseDisassociateProductFromPortfolio = res
@@ -658,6 +760,20 @@ responseDisassociatePrincipalFromPortfolio = res
     serviceCatalog
     (Proxy :: Proxy DisassociatePrincipalFromPortfolio)
 
+responseDescribeTagOption :: DescribeTagOptionResponse -> TestTree
+responseDescribeTagOption = res
+    "DescribeTagOptionResponse"
+    "fixture/DescribeTagOptionResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy DescribeTagOption)
+
+responseDisassociateTagOptionFromResource :: DisassociateTagOptionFromResourceResponse -> TestTree
+responseDisassociateTagOptionFromResource = res
+    "DisassociateTagOptionFromResourceResponse"
+    "fixture/DisassociateTagOptionFromResourceResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy DisassociateTagOptionFromResource)
+
 responseDescribePortfolio :: DescribePortfolioResponse -> TestTree
 responseDescribePortfolio = res
     "DescribePortfolioResponse"
@@ -728,6 +844,20 @@ responseRejectPortfolioShare = res
     serviceCatalog
     (Proxy :: Proxy RejectPortfolioShare)
 
+responseUpdateTagOption :: UpdateTagOptionResponse -> TestTree
+responseUpdateTagOption = res
+    "UpdateTagOptionResponse"
+    "fixture/UpdateTagOptionResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy UpdateTagOption)
+
+responseListTagOptions :: ListTagOptionsResponse -> TestTree
+responseListTagOptions = res
+    "ListTagOptionsResponse"
+    "fixture/ListTagOptionsResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy ListTagOptions)
+
 responseSearchProductsAsAdmin :: SearchProductsAsAdminResponse -> TestTree
 responseSearchProductsAsAdmin = res
     "SearchProductsAsAdminResponse"
@@ -777,6 +907,13 @@ responseAssociatePrincipalWithPortfolio = res
     serviceCatalog
     (Proxy :: Proxy AssociatePrincipalWithPortfolio)
 
+responseDescribeProvisionedProduct :: DescribeProvisionedProductResponse -> TestTree
+responseDescribeProvisionedProduct = res
+    "DescribeProvisionedProductResponse"
+    "fixture/DescribeProvisionedProductResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy DescribeProvisionedProduct)
+
 responseUpdateProvisioningArtifact :: UpdateProvisioningArtifactResponse -> TestTree
 responseUpdateProvisioningArtifact = res
     "UpdateProvisioningArtifactResponse"
@@ -811,3 +948,10 @@ responseListLaunchPaths = res
     "fixture/ListLaunchPathsResponse.proto"
     serviceCatalog
     (Proxy :: Proxy ListLaunchPaths)
+
+responseListResourcesForTagOption :: ListResourcesForTagOptionResponse -> TestTree
+responseListResourcesForTagOption = res
+    "ListResourcesForTagOptionResponse"
+    "fixture/ListResourcesForTagOptionResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy ListResourcesForTagOption)

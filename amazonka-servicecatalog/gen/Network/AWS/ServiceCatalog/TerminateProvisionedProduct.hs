@@ -65,13 +65,13 @@ data TerminateProvisionedProduct = TerminateProvisionedProduct'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tppProvisionedProductName' - The name of the ProvisionedProduct object to terminate. You must specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
+-- * 'tppProvisionedProductName' - The name of the ProvisionedProduct object to terminate. Specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
 --
 -- * 'tppAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 --
 -- * 'tppIgnoreErrors' - If set to true, AWS Service Catalog stops managing the specified ProvisionedProduct object even if it cannot delete the underlying resources.
 --
--- * 'tppProvisionedProductId' - The identifier of the ProvisionedProduct object to terminate. You must specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
+-- * 'tppProvisionedProductId' - The identifier of the ProvisionedProduct object to terminate. Specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
 --
 -- * 'tppTerminateToken' - An idempotency token that uniquely identifies the termination request. This token is only valid during the termination process. After the ProvisionedProduct object is terminated, further requests to terminate the same ProvisionedProduct object always return __ResourceNotFound__ regardless of the value of @TerminateToken@ .
 terminateProvisionedProduct
@@ -86,7 +86,7 @@ terminateProvisionedProduct pTerminateToken_ =
     , _tppTerminateToken = pTerminateToken_
     }
 
--- | The name of the ProvisionedProduct object to terminate. You must specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
+-- | The name of the ProvisionedProduct object to terminate. Specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
 tppProvisionedProductName :: Lens' TerminateProvisionedProduct (Maybe Text)
 tppProvisionedProductName = lens _tppProvisionedProductName (\ s a -> s{_tppProvisionedProductName = a});
 
@@ -98,7 +98,7 @@ tppAcceptLanguage = lens _tppAcceptLanguage (\ s a -> s{_tppAcceptLanguage = a})
 tppIgnoreErrors :: Lens' TerminateProvisionedProduct (Maybe Bool)
 tppIgnoreErrors = lens _tppIgnoreErrors (\ s a -> s{_tppIgnoreErrors = a});
 
--- | The identifier of the ProvisionedProduct object to terminate. You must specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
+-- | The identifier of the ProvisionedProduct object to terminate. Specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
 tppProvisionedProductId :: Lens' TerminateProvisionedProduct (Maybe Text)
 tppProvisionedProductId = lens _tppProvisionedProductId (\ s a -> s{_tppProvisionedProductId = a});
 

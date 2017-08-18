@@ -18,7 +18,9 @@ module Network.AWS.ServiceCatalog.Types
     -- * Errors
     , _InvalidParametersException
     , _DuplicateResourceException
+    , _TagOptionNotMigratedException
     , _ResourceNotFoundException
+    , _InvalidStateException
     , _LimitExceededException
     , _ResourceInUseException
 
@@ -39,6 +41,9 @@ module Network.AWS.ServiceCatalog.Types
 
     -- * ProductViewSortBy
     , ProductViewSortBy (..)
+
+    -- * ProvisionedProductStatus
+    , ProvisionedProductStatus (..)
 
     -- * ProvisioningArtifactType
     , ProvisioningArtifactType (..)
@@ -85,6 +90,13 @@ module Network.AWS.ServiceCatalog.Types
     , listRecordHistorySearchFilter
     , lrhsfValue
     , lrhsfKey
+
+    -- * ListTagOptionsFilters
+    , ListTagOptionsFilters
+    , listTagOptionsFilters
+    , ltofValue
+    , ltofActive
+    , ltofKey
 
     -- * ParameterConstraints
     , ParameterConstraints
@@ -184,6 +196,15 @@ module Network.AWS.ServiceCatalog.Types
     , papDescription
     , papInfo
 
+    -- * ProvisioningArtifactSummary
+    , ProvisioningArtifactSummary
+    , provisioningArtifactSummary
+    , pasProvisioningArtifactMetadata
+    , pasCreatedTime
+    , pasName
+    , pasId
+    , pasDescription
+
     -- * ProvisioningParameter
     , ProvisioningParameter
     , provisioningParameter
@@ -226,11 +247,34 @@ module Network.AWS.ServiceCatalog.Types
     , rtValue
     , rtKey
 
+    -- * ResourceDetail
+    , ResourceDetail
+    , resourceDetail
+    , rARN
+    , rCreatedTime
+    , rName
+    , rId
+    , rDescription
+
     -- * Tag
     , Tag
     , tag
     , tagKey
     , tagValue
+
+    -- * TagOptionDetail
+    , TagOptionDetail
+    , tagOptionDetail
+    , todValue
+    , todActive
+    , todKey
+    , todId
+
+    -- * TagOptionSummary
+    , TagOptionSummary
+    , tagOptionSummary
+    , tosValues
+    , tosKey
 
     -- * UpdateProvisioningParameter
     , UpdateProvisioningParameter
@@ -275,6 +319,8 @@ serviceCatalog =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -300,12 +346,26 @@ _DuplicateResourceException :: AsError a => Getting (First ServiceError) a Servi
 _DuplicateResourceException =
     _MatchServiceError serviceCatalog "DuplicateResourceException"
 
+-- | An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Please use the AWS console to perform the migration process before retrying the operation.
+--
+--
+_TagOptionNotMigratedException :: AsError a => Getting (First ServiceError) a ServiceError
+_TagOptionNotMigratedException =
+    _MatchServiceError serviceCatalog "TagOptionNotMigratedException"
+
 -- | The specified resource was not found.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _MatchServiceError serviceCatalog "ResourceNotFoundException"
+
+-- | An attempt was made to modify a resource that is in an invalid state. Inspect the resource you are using for this operation to ensure that all resource states are valid before retrying the operation.
+--
+--
+_InvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidStateException =
+    _MatchServiceError serviceCatalog "InvalidStateException"
 
 -- | The current limits of the service would have been exceeded by this operation. Reduce the resource use or increase the service limits and retry the operation.
 --

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing provisioning artifact's information. This operation will not work on a provisioning artifact associated with a product that has been shared with you.
+-- Updates an existing provisioning artifact's information. This operation does not work on a provisioning artifact associated with a product that has been shared with you.
 --
 --
 module Network.AWS.ServiceCatalog.UpdateProvisioningArtifact
@@ -71,7 +71,7 @@ data UpdateProvisioningArtifact = UpdateProvisioningArtifact'
 --
 -- * 'upaProductId' - The product identifier.
 --
--- * 'upaProvisioningArtifactId' - The identifier of the provisioning artifact for the update request.
+-- * 'upaProvisioningArtifactId' - The identifier of the provisioning artifact for the update request. This is sometimes referred to as the product version.
 updateProvisioningArtifact
     :: Text -- ^ 'upaProductId'
     -> Text -- ^ 'upaProvisioningArtifactId'
@@ -101,7 +101,7 @@ upaDescription = lens _upaDescription (\ s a -> s{_upaDescription = a});
 upaProductId :: Lens' UpdateProvisioningArtifact Text
 upaProductId = lens _upaProductId (\ s a -> s{_upaProductId = a});
 
--- | The identifier of the provisioning artifact for the update request.
+-- | The identifier of the provisioning artifact for the update request. This is sometimes referred to as the product version.
 upaProvisioningArtifactId :: Lens' UpdateProvisioningArtifact Text
 upaProvisioningArtifactId = lens _upaProvisioningArtifactId (\ s a -> s{_upaProvisioningArtifactId = a});
 

@@ -43,11 +43,13 @@ library
         , Network.AWS.ServiceCatalog.AcceptPortfolioShare
         , Network.AWS.ServiceCatalog.AssociatePrincipalWithPortfolio
         , Network.AWS.ServiceCatalog.AssociateProductWithPortfolio
+        , Network.AWS.ServiceCatalog.AssociateTagOptionWithResource
         , Network.AWS.ServiceCatalog.CreateConstraint
         , Network.AWS.ServiceCatalog.CreatePortfolio
         , Network.AWS.ServiceCatalog.CreatePortfolioShare
         , Network.AWS.ServiceCatalog.CreateProduct
         , Network.AWS.ServiceCatalog.CreateProvisioningArtifact
+        , Network.AWS.ServiceCatalog.CreateTagOption
         , Network.AWS.ServiceCatalog.DeleteConstraint
         , Network.AWS.ServiceCatalog.DeletePortfolio
         , Network.AWS.ServiceCatalog.DeletePortfolioShare
@@ -58,11 +60,14 @@ library
         , Network.AWS.ServiceCatalog.DescribeProduct
         , Network.AWS.ServiceCatalog.DescribeProductAsAdmin
         , Network.AWS.ServiceCatalog.DescribeProductView
+        , Network.AWS.ServiceCatalog.DescribeProvisionedProduct
         , Network.AWS.ServiceCatalog.DescribeProvisioningArtifact
         , Network.AWS.ServiceCatalog.DescribeProvisioningParameters
         , Network.AWS.ServiceCatalog.DescribeRecord
+        , Network.AWS.ServiceCatalog.DescribeTagOption
         , Network.AWS.ServiceCatalog.DisassociatePrincipalFromPortfolio
         , Network.AWS.ServiceCatalog.DisassociateProductFromPortfolio
+        , Network.AWS.ServiceCatalog.DisassociateTagOptionFromResource
         , Network.AWS.ServiceCatalog.ListAcceptedPortfolioShares
         , Network.AWS.ServiceCatalog.ListConstraintsForPortfolio
         , Network.AWS.ServiceCatalog.ListLaunchPaths
@@ -72,6 +77,8 @@ library
         , Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio
         , Network.AWS.ServiceCatalog.ListProvisioningArtifacts
         , Network.AWS.ServiceCatalog.ListRecordHistory
+        , Network.AWS.ServiceCatalog.ListResourcesForTagOption
+        , Network.AWS.ServiceCatalog.ListTagOptions
         , Network.AWS.ServiceCatalog.ProvisionProduct
         , Network.AWS.ServiceCatalog.RejectPortfolioShare
         , Network.AWS.ServiceCatalog.ScanProvisionedProducts
@@ -84,6 +91,7 @@ library
         , Network.AWS.ServiceCatalog.UpdateProduct
         , Network.AWS.ServiceCatalog.UpdateProvisionedProduct
         , Network.AWS.ServiceCatalog.UpdateProvisioningArtifact
+        , Network.AWS.ServiceCatalog.UpdateTagOption
         , Network.AWS.ServiceCatalog.Waiters
 
     other-modules:

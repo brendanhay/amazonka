@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified provisioning artifact. This operation will not work on a provisioning artifact associated with a product that has been shared with you, or on the last provisioning artifact associated with a product (a product must have at least one provisioning artifact).
+-- Deletes the specified provisioning artifact. This operation does not work on a provisioning artifact associated with a product that has been shared with you, or on the last provisioning artifact associated with a product (a product must have at least one provisioning artifact).
 --
 --
 module Network.AWS.ServiceCatalog.DeleteProvisioningArtifact
@@ -60,7 +60,7 @@ data DeleteProvisioningArtifact = DeleteProvisioningArtifact'
 --
 -- * 'dpapProductId' - The product identifier.
 --
--- * 'dpapProvisioningArtifactId' - The identifier of the provisioning artifact for the delete request.
+-- * 'dpapProvisioningArtifactId' - The identifier of the provisioning artifact for the delete request. This is sometimes referred to as the product version.
 deleteProvisioningArtifact
     :: Text -- ^ 'dpapProductId'
     -> Text -- ^ 'dpapProvisioningArtifactId'
@@ -80,7 +80,7 @@ dpapAcceptLanguage = lens _dpapAcceptLanguage (\ s a -> s{_dpapAcceptLanguage = 
 dpapProductId :: Lens' DeleteProvisioningArtifact Text
 dpapProductId = lens _dpapProductId (\ s a -> s{_dpapProductId = a});
 
--- | The identifier of the provisioning artifact for the delete request.
+-- | The identifier of the provisioning artifact for the delete request. This is sometimes referred to as the product version.
 dpapProvisioningArtifactId :: Lens' DeleteProvisioningArtifact Text
 dpapProvisioningArtifactId = lens _dpapProvisioningArtifactId (\ s a -> s{_dpapProvisioningArtifactId = a});
 

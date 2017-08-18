@@ -27,6 +27,7 @@ module Network.AWS.ServiceCatalog.DescribeProvisioningArtifact
       describeProvisioningArtifact
     , DescribeProvisioningArtifact
     -- * Request Lenses
+    , dpaVerbose
     , dpaAcceptLanguage
     , dpaProvisioningArtifactId
     , dpaProductId
@@ -35,10 +36,10 @@ module Network.AWS.ServiceCatalog.DescribeProvisioningArtifact
     , describeProvisioningArtifactResponse
     , DescribeProvisioningArtifactResponse
     -- * Response Lenses
-    , desrsStatus
-    , desrsInfo
-    , desrsProvisioningArtifactDetail
-    , desrsResponseStatus
+    , dpaprsStatus
+    , dpaprsInfo
+    , dpaprsProvisioningArtifactDetail
+    , dpaprsResponseStatus
     ) where
 
 import           Network.AWS.Lens
@@ -50,7 +51,8 @@ import           Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'describeProvisioningArtifact' smart constructor.
 data DescribeProvisioningArtifact = DescribeProvisioningArtifact'
-    { _dpaAcceptLanguage         :: !(Maybe Text)
+    { _dpaVerbose                :: !(Maybe Bool)
+    , _dpaAcceptLanguage         :: !(Maybe Text)
     , _dpaProvisioningArtifactId :: !Text
     , _dpaProductId              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -59,9 +61,11 @@ data DescribeProvisioningArtifact = DescribeProvisioningArtifact'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'dpaVerbose' - Enable a verbose level of details for the provisioning artifact.
+--
 -- * 'dpaAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 --
--- * 'dpaProvisioningArtifactId' - The identifier of the provisioning artifact.
+-- * 'dpaProvisioningArtifactId' - The identifier of the provisioning artifact. This is sometimes referred to as the product version.
 --
 -- * 'dpaProductId' - The product identifier.
 describeProvisioningArtifact
@@ -70,16 +74,21 @@ describeProvisioningArtifact
     -> DescribeProvisioningArtifact
 describeProvisioningArtifact pProvisioningArtifactId_ pProductId_ =
     DescribeProvisioningArtifact'
-    { _dpaAcceptLanguage = Nothing
+    { _dpaVerbose = Nothing
+    , _dpaAcceptLanguage = Nothing
     , _dpaProvisioningArtifactId = pProvisioningArtifactId_
     , _dpaProductId = pProductId_
     }
+
+-- | Enable a verbose level of details for the provisioning artifact.
+dpaVerbose :: Lens' DescribeProvisioningArtifact (Maybe Bool)
+dpaVerbose = lens _dpaVerbose (\ s a -> s{_dpaVerbose = a});
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 dpaAcceptLanguage :: Lens' DescribeProvisioningArtifact (Maybe Text)
 dpaAcceptLanguage = lens _dpaAcceptLanguage (\ s a -> s{_dpaAcceptLanguage = a});
 
--- | The identifier of the provisioning artifact.
+-- | The identifier of the provisioning artifact. This is sometimes referred to as the product version.
 dpaProvisioningArtifactId :: Lens' DescribeProvisioningArtifact Text
 dpaProvisioningArtifactId = lens _dpaProvisioningArtifactId (\ s a -> s{_dpaProvisioningArtifactId = a});
 
@@ -118,7 +127,8 @@ instance ToJSON DescribeProvisioningArtifact where
         toJSON DescribeProvisioningArtifact'{..}
           = object
               (catMaybes
-                 [("AcceptLanguage" .=) <$> _dpaAcceptLanguage,
+                 [("Verbose" .=) <$> _dpaVerbose,
+                  ("AcceptLanguage" .=) <$> _dpaAcceptLanguage,
                   Just
                     ("ProvisioningArtifactId" .=
                        _dpaProvisioningArtifactId),
@@ -132,48 +142,48 @@ instance ToQuery DescribeProvisioningArtifact where
 
 -- | /See:/ 'describeProvisioningArtifactResponse' smart constructor.
 data DescribeProvisioningArtifactResponse = DescribeProvisioningArtifactResponse'
-    { _desrsStatus                     :: !(Maybe RequestStatus)
-    , _desrsInfo                       :: !(Maybe (Map Text Text))
-    , _desrsProvisioningArtifactDetail :: !(Maybe ProvisioningArtifactDetail)
-    , _desrsResponseStatus             :: !Int
+    { _dpaprsStatus                     :: !(Maybe RequestStatus)
+    , _dpaprsInfo                       :: !(Maybe (Map Text Text))
+    , _dpaprsProvisioningArtifactDetail :: !(Maybe ProvisioningArtifactDetail)
+    , _dpaprsResponseStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeProvisioningArtifactResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desrsStatus' - The status of the current request.
+-- * 'dpaprsStatus' - The status of the current request.
 --
--- * 'desrsInfo' - Additional information about the provisioning artifact.
+-- * 'dpaprsInfo' - Additional information about the provisioning artifact.
 --
--- * 'desrsProvisioningArtifactDetail' - Detailed provisioning artifact information.
+-- * 'dpaprsProvisioningArtifactDetail' - Detailed provisioning artifact information.
 --
--- * 'desrsResponseStatus' - -- | The response status code.
+-- * 'dpaprsResponseStatus' - -- | The response status code.
 describeProvisioningArtifactResponse
-    :: Int -- ^ 'desrsResponseStatus'
+    :: Int -- ^ 'dpaprsResponseStatus'
     -> DescribeProvisioningArtifactResponse
 describeProvisioningArtifactResponse pResponseStatus_ =
     DescribeProvisioningArtifactResponse'
-    { _desrsStatus = Nothing
-    , _desrsInfo = Nothing
-    , _desrsProvisioningArtifactDetail = Nothing
-    , _desrsResponseStatus = pResponseStatus_
+    { _dpaprsStatus = Nothing
+    , _dpaprsInfo = Nothing
+    , _dpaprsProvisioningArtifactDetail = Nothing
+    , _dpaprsResponseStatus = pResponseStatus_
     }
 
 -- | The status of the current request.
-desrsStatus :: Lens' DescribeProvisioningArtifactResponse (Maybe RequestStatus)
-desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});
+dpaprsStatus :: Lens' DescribeProvisioningArtifactResponse (Maybe RequestStatus)
+dpaprsStatus = lens _dpaprsStatus (\ s a -> s{_dpaprsStatus = a});
 
 -- | Additional information about the provisioning artifact.
-desrsInfo :: Lens' DescribeProvisioningArtifactResponse (HashMap Text Text)
-desrsInfo = lens _desrsInfo (\ s a -> s{_desrsInfo = a}) . _Default . _Map;
+dpaprsInfo :: Lens' DescribeProvisioningArtifactResponse (HashMap Text Text)
+dpaprsInfo = lens _dpaprsInfo (\ s a -> s{_dpaprsInfo = a}) . _Default . _Map;
 
 -- | Detailed provisioning artifact information.
-desrsProvisioningArtifactDetail :: Lens' DescribeProvisioningArtifactResponse (Maybe ProvisioningArtifactDetail)
-desrsProvisioningArtifactDetail = lens _desrsProvisioningArtifactDetail (\ s a -> s{_desrsProvisioningArtifactDetail = a});
+dpaprsProvisioningArtifactDetail :: Lens' DescribeProvisioningArtifactResponse (Maybe ProvisioningArtifactDetail)
+dpaprsProvisioningArtifactDetail = lens _dpaprsProvisioningArtifactDetail (\ s a -> s{_dpaprsProvisioningArtifactDetail = a});
 
 -- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeProvisioningArtifactResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+dpaprsResponseStatus :: Lens' DescribeProvisioningArtifactResponse Int
+dpaprsResponseStatus = lens _dpaprsResponseStatus (\ s a -> s{_dpaprsResponseStatus = a});
 
 instance NFData DescribeProvisioningArtifactResponse

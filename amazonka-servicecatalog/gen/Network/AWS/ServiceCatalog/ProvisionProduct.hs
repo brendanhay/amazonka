@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Requests a /Provision/ of a specified product. A /ProvisionedProduct/ is a resourced instance for a product. For example, provisioning a CloudFormation-template-backed product results in launching a CloudFormation stack and all the underlying resources that come with it.
+-- Requests a /provision/ of a specified product. A /provisioned product/ is a resourced instance for a product. For example, provisioning a CloudFormation-template-backed product results in launching a CloudFormation stack and all the underlying resources that come with it.
 --
 --
--- You can check the status of this request using the 'DescribeRecord' operation.
+-- You can check the status of this request using the 'DescribeRecord' operation. The error "Parameter validation failed: Missing required parameter in Tags[/N/ ]:/Value/ " indicates that your request contains a tag which has a tag key but no corresponding tag value (value is empty or null). Your call may have included values returned from a @DescribeProvisioningParameters@ call that resulted in a TagOption key with an empty list. This happens when TagOption keys are in conflict. For more information, see 'DescribeProvisioningParameters' .
 --
 module Network.AWS.ServiceCatalog.ProvisionProduct
     (
@@ -83,7 +83,7 @@ data ProvisionProduct = ProvisionProduct'
 --
 -- * 'ppProductId' - The product identifier.
 --
--- * 'ppProvisioningArtifactId' - The provisioning artifact identifier for this product.
+-- * 'ppProvisioningArtifactId' - The provisioning artifact identifier for this product. This is sometimes referred to as the product version.
 --
 -- * 'ppProvisionedProductName' - A user-friendly name to identify the ProvisionedProduct object. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
 --
@@ -131,7 +131,7 @@ ppTags = lens _ppTags (\ s a -> s{_ppTags = a}) . _Default . _Coerce;
 ppProductId :: Lens' ProvisionProduct Text
 ppProductId = lens _ppProductId (\ s a -> s{_ppProductId = a});
 
--- | The provisioning artifact identifier for this product.
+-- | The provisioning artifact identifier for this product. This is sometimes referred to as the product version.
 ppProvisioningArtifactId :: Lens' ProvisionProduct Text
 ppProvisioningArtifactId = lens _ppProvisioningArtifactId (\ s a -> s{_ppProvisioningArtifactId = a});
 

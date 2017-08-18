@@ -97,19 +97,22 @@ instance ToHeader     ProductSource
 instance ToJSON ProductSource where
     toJSON = toJSONText
 
-data ProductType =
-    CloudFormationTemplate
+data ProductType
+    = CloudFormationTemplate
+    | Marketplace
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ProductType where
     parser = takeLowerText >>= \case
         "cloud_formation_template" -> pure CloudFormationTemplate
+        "marketplace" -> pure Marketplace
         e -> fromTextError $ "Failure parsing ProductType from value: '" <> e
-           <> "'. Accepted values: cloud_formation_template"
+           <> "'. Accepted values: cloud_formation_template, marketplace"
 
 instance ToText ProductType where
     toText = \case
         CloudFormationTemplate -> "CLOUD_FORMATION_TEMPLATE"
+        Marketplace -> "MARKETPLACE"
 
 instance Hashable     ProductType
 instance NFData       ProductType
@@ -127,6 +130,7 @@ data ProductViewFilterBy
     = FullTextSearch
     | Owner
     | ProductType
+    | SourceProductId
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ProductViewFilterBy where
@@ -134,14 +138,16 @@ instance FromText ProductViewFilterBy where
         "fulltextsearch" -> pure FullTextSearch
         "owner" -> pure Owner
         "producttype" -> pure ProductType
+        "sourceproductid" -> pure SourceProductId
         e -> fromTextError $ "Failure parsing ProductViewFilterBy from value: '" <> e
-           <> "'. Accepted values: fulltextsearch, owner, producttype"
+           <> "'. Accepted values: fulltextsearch, owner, producttype, sourceproductid"
 
 instance ToText ProductViewFilterBy where
     toText = \case
         FullTextSearch -> "FullTextSearch"
         Owner -> "Owner"
         ProductType -> "ProductType"
+        SourceProductId -> "SourceProductId"
 
 instance Hashable     ProductViewFilterBy
 instance NFData       ProductViewFilterBy
@@ -181,19 +187,57 @@ instance ToHeader     ProductViewSortBy
 instance ToJSON ProductViewSortBy where
     toJSON = toJSONText
 
-data ProvisioningArtifactType =
-    PATCloudFormationTemplate
+data ProvisionedProductStatus
+    = PPSAvailable
+    | PPSError'
+    | PPSTainted
+    | PPSUnderChange
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ProvisionedProductStatus where
+    parser = takeLowerText >>= \case
+        "available" -> pure PPSAvailable
+        "error" -> pure PPSError'
+        "tainted" -> pure PPSTainted
+        "under_change" -> pure PPSUnderChange
+        e -> fromTextError $ "Failure parsing ProvisionedProductStatus from value: '" <> e
+           <> "'. Accepted values: available, error, tainted, under_change"
+
+instance ToText ProvisionedProductStatus where
+    toText = \case
+        PPSAvailable -> "AVAILABLE"
+        PPSError' -> "ERROR"
+        PPSTainted -> "TAINTED"
+        PPSUnderChange -> "UNDER_CHANGE"
+
+instance Hashable     ProvisionedProductStatus
+instance NFData       ProvisionedProductStatus
+instance ToByteString ProvisionedProductStatus
+instance ToQuery      ProvisionedProductStatus
+instance ToHeader     ProvisionedProductStatus
+
+instance FromJSON ProvisionedProductStatus where
+    parseJSON = parseJSONText "ProvisionedProductStatus"
+
+data ProvisioningArtifactType
+    = PATCloudFormationTemplate
+    | PATMarketplaceAMI
+    | PATMarketplaceCar
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ProvisioningArtifactType where
     parser = takeLowerText >>= \case
         "cloud_formation_template" -> pure PATCloudFormationTemplate
+        "marketplace_ami" -> pure PATMarketplaceAMI
+        "marketplace_car" -> pure PATMarketplaceCar
         e -> fromTextError $ "Failure parsing ProvisioningArtifactType from value: '" <> e
-           <> "'. Accepted values: cloud_formation_template"
+           <> "'. Accepted values: cloud_formation_template, marketplace_ami, marketplace_car"
 
 instance ToText ProvisioningArtifactType where
     toText = \case
         PATCloudFormationTemplate -> "CLOUD_FORMATION_TEMPLATE"
+        PATMarketplaceAMI -> "MARKETPLACE_AMI"
+        PATMarketplaceCar -> "MARKETPLACE_CAR"
 
 instance Hashable     ProvisioningArtifactType
 instance NFData       ProvisioningArtifactType
@@ -208,24 +252,30 @@ instance FromJSON ProvisioningArtifactType where
     parseJSON = parseJSONText "ProvisioningArtifactType"
 
 data RecordStatus
-    = Error'
-    | InProgress
-    | Succeeded
+    = RSCreated
+    | RSFailed
+    | RSInProgress
+    | RSInProgressInError
+    | RSSucceeded
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RecordStatus where
     parser = takeLowerText >>= \case
-        "error" -> pure Error'
-        "in_progress" -> pure InProgress
-        "succeeded" -> pure Succeeded
+        "created" -> pure RSCreated
+        "failed" -> pure RSFailed
+        "in_progress" -> pure RSInProgress
+        "in_progress_in_error" -> pure RSInProgressInError
+        "succeeded" -> pure RSSucceeded
         e -> fromTextError $ "Failure parsing RecordStatus from value: '" <> e
-           <> "'. Accepted values: error, in_progress, succeeded"
+           <> "'. Accepted values: created, failed, in_progress, in_progress_in_error, succeeded"
 
 instance ToText RecordStatus where
     toText = \case
-        Error' -> "ERROR"
-        InProgress -> "IN_PROGRESS"
-        Succeeded -> "SUCCEEDED"
+        RSCreated -> "CREATED"
+        RSFailed -> "FAILED"
+        RSInProgress -> "IN_PROGRESS"
+        RSInProgressInError -> "IN_PROGRESS_IN_ERROR"
+        RSSucceeded -> "SUCCEEDED"
 
 instance Hashable     RecordStatus
 instance NFData       RecordStatus

@@ -66,7 +66,7 @@ data ListLaunchPaths = ListLaunchPaths'
 --
 -- * 'llpPageSize' - The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
 --
--- * 'llpProductId' - The product identifier.. Identifies the product for which to retrieve @LaunchPathSummaries@ information.
+-- * 'llpProductId' - The product identifier. Identifies the product for which to retrieve @LaunchPathSummaries@ information.
 listLaunchPaths
     :: Text -- ^ 'llpProductId'
     -> ListLaunchPaths
@@ -90,7 +90,7 @@ llpPageToken = lens _llpPageToken (\ s a -> s{_llpPageToken = a});
 llpPageSize :: Lens' ListLaunchPaths (Maybe Natural)
 llpPageSize = lens _llpPageSize (\ s a -> s{_llpPageSize = a}) . mapping _Nat;
 
--- | The product identifier.. Identifies the product for which to retrieve @LaunchPathSummaries@ information.
+-- | The product identifier. Identifies the product for which to retrieve @LaunchPathSummaries@ information.
 llpProductId :: Lens' ListLaunchPaths Text
 llpProductId = lens _llpProductId (\ s a -> s{_llpProductId = a});
 

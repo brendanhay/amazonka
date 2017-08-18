@@ -69,9 +69,9 @@ data UpdateProvisionedProduct = UpdateProvisionedProduct'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uppProvisionedProductName' - The updated name of the ProvisionedProduct object . You must specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
+-- * 'uppProvisionedProductName' - The updated name of the ProvisionedProduct object. Specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
 --
--- * 'uppProvisioningArtifactId' - The provisioning artifact identifier for this product.
+-- * 'uppProvisioningArtifactId' - The provisioning artifact identifier for this product. This is sometimes referred to as the product version.
 --
 -- * 'uppAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 --
@@ -79,7 +79,7 @@ data UpdateProvisionedProduct = UpdateProvisionedProduct'
 --
 -- * 'uppProvisioningParameters' - A list of @ProvisioningParameter@ objects used to update the ProvisionedProduct object.
 --
--- * 'uppProvisionedProductId' - The identifier of the ProvisionedProduct object to update. You must specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
+-- * 'uppProvisionedProductId' - The identifier of the ProvisionedProduct object to update. Specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
 --
 -- * 'uppProductId' - The identifier of the ProvisionedProduct object.
 --
@@ -99,11 +99,11 @@ updateProvisionedProduct pUpdateToken_ =
     , _uppUpdateToken = pUpdateToken_
     }
 
--- | The updated name of the ProvisionedProduct object . You must specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
+-- | The updated name of the ProvisionedProduct object. Specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
 uppProvisionedProductName :: Lens' UpdateProvisionedProduct (Maybe Text)
 uppProvisionedProductName = lens _uppProvisionedProductName (\ s a -> s{_uppProvisionedProductName = a});
 
--- | The provisioning artifact identifier for this product.
+-- | The provisioning artifact identifier for this product. This is sometimes referred to as the product version.
 uppProvisioningArtifactId :: Lens' UpdateProvisionedProduct (Maybe Text)
 uppProvisioningArtifactId = lens _uppProvisioningArtifactId (\ s a -> s{_uppProvisioningArtifactId = a});
 
@@ -119,7 +119,7 @@ uppPathId = lens _uppPathId (\ s a -> s{_uppPathId = a});
 uppProvisioningParameters :: Lens' UpdateProvisionedProduct [UpdateProvisioningParameter]
 uppProvisioningParameters = lens _uppProvisioningParameters (\ s a -> s{_uppProvisioningParameters = a}) . _Default . _Coerce;
 
--- | The identifier of the ProvisionedProduct object to update. You must specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
+-- | The identifier of the ProvisionedProduct object to update. Specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
 uppProvisionedProductId :: Lens' UpdateProvisionedProduct (Maybe Text)
 uppProvisionedProductId = lens _uppProvisionedProductId (\ s a -> s{_uppProvisionedProductId = a});
 

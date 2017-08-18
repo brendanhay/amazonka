@@ -35,6 +35,7 @@ module Network.AWS.ServiceCatalog.DescribePortfolio
     , DescribePortfolioResponse
     -- * Response Lenses
     , dprsPortfolioDetail
+    , dprsTagOptions
     , dprsTags
     , dprsResponseStatus
     ) where
@@ -84,7 +85,8 @@ instance AWSRequest DescribePortfolio where
               (\ s h x ->
                  DescribePortfolioResponse' <$>
                    (x .?> "PortfolioDetail") <*>
-                     (x .?> "Tags" .!@ mempty)
+                     (x .?> "TagOptions" .!@ mempty)
+                     <*> (x .?> "Tags" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribePortfolio
@@ -117,6 +119,7 @@ instance ToQuery DescribePortfolio where
 -- | /See:/ 'describePortfolioResponse' smart constructor.
 data DescribePortfolioResponse = DescribePortfolioResponse'
     { _dprsPortfolioDetail :: !(Maybe PortfolioDetail)
+    , _dprsTagOptions      :: !(Maybe [TagOptionDetail])
     , _dprsTags            :: !(Maybe [Tag])
     , _dprsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -127,6 +130,8 @@ data DescribePortfolioResponse = DescribePortfolioResponse'
 --
 -- * 'dprsPortfolioDetail' - Detailed portfolio information.
 --
+-- * 'dprsTagOptions' - TagOptions associated with the portfolio.
+--
 -- * 'dprsTags' - Tags associated with the portfolio.
 --
 -- * 'dprsResponseStatus' - -- | The response status code.
@@ -136,6 +141,7 @@ describePortfolioResponse
 describePortfolioResponse pResponseStatus_ =
     DescribePortfolioResponse'
     { _dprsPortfolioDetail = Nothing
+    , _dprsTagOptions = Nothing
     , _dprsTags = Nothing
     , _dprsResponseStatus = pResponseStatus_
     }
@@ -143,6 +149,10 @@ describePortfolioResponse pResponseStatus_ =
 -- | Detailed portfolio information.
 dprsPortfolioDetail :: Lens' DescribePortfolioResponse (Maybe PortfolioDetail)
 dprsPortfolioDetail = lens _dprsPortfolioDetail (\ s a -> s{_dprsPortfolioDetail = a});
+
+-- | TagOptions associated with the portfolio.
+dprsTagOptions :: Lens' DescribePortfolioResponse [TagOptionDetail]
+dprsTagOptions = lens _dprsTagOptions (\ s a -> s{_dprsTagOptions = a}) . _Default . _Coerce;
 
 -- | Tags associated with the portfolio.
 dprsTags :: Lens' DescribePortfolioResponse [Tag]

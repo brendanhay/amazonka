@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new constraint.
+-- Creates a new constraint. For more information, see <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints.html Using Constraints> .
 --
 --
 module Network.AWS.ServiceCatalog.CreateConstraint
@@ -75,9 +75,9 @@ data CreateConstraint = CreateConstraint'
 --
 -- * 'ccProductId' - The product identifier.
 --
--- * 'ccParameters' - The constraint parameters.
+-- * 'ccParameters' - The constraint parameters. Expected values vary depending on which __Type__ is specified. For examples, see the bottom of this topic. For Type @LAUNCH@ , the @RoleArn@ property is required.  For Type @NOTIFICATION@ , the @NotificationArns@ property is required. For Type @TEMPLATE@ , the @Rules@ property is required.
 --
--- * 'ccType' - The type of the constraint.
+-- * 'ccType' - The type of the constraint. Case-sensitive valid values are: @LAUNCH@ , @NOTIFICATION@ , or @TEMPLATE@ .
 --
 -- * 'ccIdempotencyToken' - A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request.
 createConstraint
@@ -114,11 +114,11 @@ ccPortfolioId = lens _ccPortfolioId (\ s a -> s{_ccPortfolioId = a});
 ccProductId :: Lens' CreateConstraint Text
 ccProductId = lens _ccProductId (\ s a -> s{_ccProductId = a});
 
--- | The constraint parameters.
+-- | The constraint parameters. Expected values vary depending on which __Type__ is specified. For examples, see the bottom of this topic. For Type @LAUNCH@ , the @RoleArn@ property is required.  For Type @NOTIFICATION@ , the @NotificationArns@ property is required. For Type @TEMPLATE@ , the @Rules@ property is required.
 ccParameters :: Lens' CreateConstraint Text
 ccParameters = lens _ccParameters (\ s a -> s{_ccParameters = a});
 
--- | The type of the constraint.
+-- | The type of the constraint. Case-sensitive valid values are: @LAUNCH@ , @NOTIFICATION@ , or @TEMPLATE@ .
 ccType :: Lens' CreateConstraint Text
 ccType = lens _ccType (\ s a -> s{_ccType = a});
 

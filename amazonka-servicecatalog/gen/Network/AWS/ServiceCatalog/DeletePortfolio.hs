@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified portfolio. This operation will not work with a portfolio that has been shared with you or if it has products, users, constraints, or shared accounts associated with it.
+-- Deletes the specified portfolio. This operation does not work with a portfolio that has been shared with you or if it has products, users, constraints, or shared accounts associated with it.
 --
 --
 module Network.AWS.ServiceCatalog.DeletePortfolio

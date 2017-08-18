@@ -29,11 +29,20 @@ module Network.AWS.AppStream
     -- ** ResourceAlreadyExistsException
     , _ResourceAlreadyExistsException
 
+    -- ** IncompatibleImageException
+    , _IncompatibleImageException
+
+    -- ** ConcurrentModificationException
+    , _ConcurrentModificationException
+
     -- ** OperationNotPermittedException
     , _OperationNotPermittedException
 
     -- ** ResourceNotFoundException
     , _ResourceNotFoundException
+
+    -- ** InvalidParameterCombinationException
+    , _InvalidParameterCombinationException
 
     -- ** ResourceNotAvailableException
     , _ResourceNotAvailableException
@@ -62,6 +71,9 @@ module Network.AWS.AppStream
     -- ** UpdateStack
     , module Network.AWS.AppStream.UpdateStack
 
+    -- ** CreateDirectoryConfig
+    , module Network.AWS.AppStream.CreateDirectoryConfig
+
     -- ** ListAssociatedStacks
     , module Network.AWS.AppStream.ListAssociatedStacks
 
@@ -74,6 +86,9 @@ module Network.AWS.AppStream
     -- ** AssociateFleet
     , module Network.AWS.AppStream.AssociateFleet
 
+    -- ** DescribeDirectoryConfigs
+    , module Network.AWS.AppStream.DescribeDirectoryConfigs
+
     -- ** DescribeSessions
     , module Network.AWS.AppStream.DescribeSessions
 
@@ -85,6 +100,12 @@ module Network.AWS.AppStream
 
     -- ** StopFleet
     , module Network.AWS.AppStream.StopFleet
+
+    -- ** DeleteDirectoryConfig
+    , module Network.AWS.AppStream.DeleteDirectoryConfig
+
+    -- ** UpdateDirectoryConfig
+    , module Network.AWS.AppStream.UpdateDirectoryConfig
 
     -- ** CreateFleet
     , module Network.AWS.AppStream.CreateFleet
@@ -106,6 +127,12 @@ module Network.AWS.AppStream
 
     -- * Types
 
+    -- ** AuthenticationType
+    , AuthenticationType (..)
+
+    -- ** FleetAttribute
+    , FleetAttribute (..)
+
     -- ** FleetErrorCode
     , FleetErrorCode (..)
 
@@ -123,6 +150,12 @@ module Network.AWS.AppStream
 
     -- ** SessionState
     , SessionState (..)
+
+    -- ** StackErrorCode
+    , StackErrorCode (..)
+
+    -- ** StorageConnectorType
+    , StorageConnectorType (..)
 
     -- ** VisibilityType
     , VisibilityType (..)
@@ -151,15 +184,31 @@ module Network.AWS.AppStream
     , ccsAvailable
     , ccsDesired
 
+    -- ** DirectoryConfig
+    , DirectoryConfig
+    , directoryConfig
+    , dcCreatedTime
+    , dcServiceAccountCredentials
+    , dcOrganizationalUnitDistinguishedNames
+    , dcDirectoryName
+
+    -- ** DomainJoinInfo
+    , DomainJoinInfo
+    , domainJoinInfo
+    , djiOrganizationalUnitDistinguishedName
+    , djiDirectoryName
+
     -- ** Fleet
     , Fleet
     , fleet
+    , fDomainJoinInfo
     , fDisconnectTimeoutInSeconds
     , fMaxUserDurationInSeconds
     , fCreatedTime
     , fVPCConfig
     , fFleetErrors
     , fDisplayName
+    , fEnableDefaultInternetAccess
     , fDescription
     , fARN
     , fName
@@ -179,9 +228,11 @@ module Network.AWS.AppStream
     , image
     , iState
     , iPlatform
+    , iPublicBaseImageReleasedDate
     , iStateChangeReason
     , iARN
     , iCreatedTime
+    , iImageBuilderSupported
     , iVisibility
     , iBaseImageARN
     , iDisplayName
@@ -195,9 +246,16 @@ module Network.AWS.AppStream
     , iscrCode
     , iscrMessage
 
+    -- ** ServiceAccountCredentials
+    , ServiceAccountCredentials
+    , serviceAccountCredentials
+    , sacAccountName
+    , sacAccountPassword
+
     -- ** Session
     , Session
     , session
+    , sAuthenticationType
     , sId
     , sUserId
     , sStackName
@@ -209,22 +267,40 @@ module Network.AWS.AppStream
     , stack
     , sARN
     , sCreatedTime
+    , sStorageConnectors
     , sDisplayName
+    , sStackErrors
     , sDescription
     , sName
+
+    -- ** StackError
+    , StackError
+    , stackError
+    , seErrorCode
+    , seErrorMessage
+
+    -- ** StorageConnector
+    , StorageConnector
+    , storageConnector
+    , scResourceIdentifier
+    , scConnectorType
 
     -- ** VPCConfig
     , VPCConfig
     , vpcConfig
+    , vcSecurityGroupIds
     , vcSubnetIds
     ) where
 
 import           Network.AWS.AppStream.AssociateFleet
+import           Network.AWS.AppStream.CreateDirectoryConfig
 import           Network.AWS.AppStream.CreateFleet
 import           Network.AWS.AppStream.CreateStack
 import           Network.AWS.AppStream.CreateStreamingURL
+import           Network.AWS.AppStream.DeleteDirectoryConfig
 import           Network.AWS.AppStream.DeleteFleet
 import           Network.AWS.AppStream.DeleteStack
+import           Network.AWS.AppStream.DescribeDirectoryConfigs
 import           Network.AWS.AppStream.DescribeFleets
 import           Network.AWS.AppStream.DescribeImages
 import           Network.AWS.AppStream.DescribeSessions
@@ -236,6 +312,7 @@ import           Network.AWS.AppStream.ListAssociatedStacks
 import           Network.AWS.AppStream.StartFleet
 import           Network.AWS.AppStream.StopFleet
 import           Network.AWS.AppStream.Types
+import           Network.AWS.AppStream.UpdateDirectoryConfig
 import           Network.AWS.AppStream.UpdateFleet
 import           Network.AWS.AppStream.UpdateStack
 import           Network.AWS.AppStream.Waiters

@@ -40,6 +40,9 @@ import Test.AWS.AppStream.Internal
 --         , requestUpdateStack $
 --             updateStack
 --
+--         , requestCreateDirectoryConfig $
+--             createDirectoryConfig
+--
 --         , requestListAssociatedStacks $
 --             listAssociatedStacks
 --
@@ -52,6 +55,9 @@ import Test.AWS.AppStream.Internal
 --         , requestAssociateFleet $
 --             associateFleet
 --
+--         , requestDescribeDirectoryConfigs $
+--             describeDirectoryConfigs
+--
 --         , requestDescribeSessions $
 --             describeSessions
 --
@@ -63,6 +69,12 @@ import Test.AWS.AppStream.Internal
 --
 --         , requestStopFleet $
 --             stopFleet
+--
+--         , requestDeleteDirectoryConfig $
+--             deleteDirectoryConfig
+--
+--         , requestUpdateDirectoryConfig $
+--             updateDirectoryConfig
 --
 --         , requestCreateFleet $
 --             createFleet
@@ -97,6 +109,9 @@ import Test.AWS.AppStream.Internal
 --         , responseUpdateStack $
 --             updateStackResponse
 --
+--         , responseCreateDirectoryConfig $
+--             createDirectoryConfigResponse
+--
 --         , responseListAssociatedStacks $
 --             listAssociatedStacksResponse
 --
@@ -109,6 +124,9 @@ import Test.AWS.AppStream.Internal
 --         , responseAssociateFleet $
 --             associateFleetResponse
 --
+--         , responseDescribeDirectoryConfigs $
+--             describeDirectoryConfigsResponse
+--
 --         , responseDescribeSessions $
 --             describeSessionsResponse
 --
@@ -120,6 +138,12 @@ import Test.AWS.AppStream.Internal
 --
 --         , responseStopFleet $
 --             stopFleetResponse
+--
+--         , responseDeleteDirectoryConfig $
+--             deleteDirectoryConfigResponse
+--
+--         , responseUpdateDirectoryConfig $
+--             updateDirectoryConfigResponse
 --
 --         , responseCreateFleet $
 --             createFleetResponse
@@ -164,6 +188,11 @@ requestUpdateStack = req
     "UpdateStack"
     "fixture/UpdateStack.yaml"
 
+requestCreateDirectoryConfig :: CreateDirectoryConfig -> TestTree
+requestCreateDirectoryConfig = req
+    "CreateDirectoryConfig"
+    "fixture/CreateDirectoryConfig.yaml"
+
 requestListAssociatedStacks :: ListAssociatedStacks -> TestTree
 requestListAssociatedStacks = req
     "ListAssociatedStacks"
@@ -184,6 +213,11 @@ requestAssociateFleet = req
     "AssociateFleet"
     "fixture/AssociateFleet.yaml"
 
+requestDescribeDirectoryConfigs :: DescribeDirectoryConfigs -> TestTree
+requestDescribeDirectoryConfigs = req
+    "DescribeDirectoryConfigs"
+    "fixture/DescribeDirectoryConfigs.yaml"
+
 requestDescribeSessions :: DescribeSessions -> TestTree
 requestDescribeSessions = req
     "DescribeSessions"
@@ -203,6 +237,16 @@ requestStopFleet :: StopFleet -> TestTree
 requestStopFleet = req
     "StopFleet"
     "fixture/StopFleet.yaml"
+
+requestDeleteDirectoryConfig :: DeleteDirectoryConfig -> TestTree
+requestDeleteDirectoryConfig = req
+    "DeleteDirectoryConfig"
+    "fixture/DeleteDirectoryConfig.yaml"
+
+requestUpdateDirectoryConfig :: UpdateDirectoryConfig -> TestTree
+requestUpdateDirectoryConfig = req
+    "UpdateDirectoryConfig"
+    "fixture/UpdateDirectoryConfig.yaml"
 
 requestCreateFleet :: CreateFleet -> TestTree
 requestCreateFleet = req
@@ -264,6 +308,13 @@ responseUpdateStack = res
     appStream
     (Proxy :: Proxy UpdateStack)
 
+responseCreateDirectoryConfig :: CreateDirectoryConfigResponse -> TestTree
+responseCreateDirectoryConfig = res
+    "CreateDirectoryConfigResponse"
+    "fixture/CreateDirectoryConfigResponse.proto"
+    appStream
+    (Proxy :: Proxy CreateDirectoryConfig)
+
 responseListAssociatedStacks :: ListAssociatedStacksResponse -> TestTree
 responseListAssociatedStacks = res
     "ListAssociatedStacksResponse"
@@ -292,6 +343,13 @@ responseAssociateFleet = res
     appStream
     (Proxy :: Proxy AssociateFleet)
 
+responseDescribeDirectoryConfigs :: DescribeDirectoryConfigsResponse -> TestTree
+responseDescribeDirectoryConfigs = res
+    "DescribeDirectoryConfigsResponse"
+    "fixture/DescribeDirectoryConfigsResponse.proto"
+    appStream
+    (Proxy :: Proxy DescribeDirectoryConfigs)
+
 responseDescribeSessions :: DescribeSessionsResponse -> TestTree
 responseDescribeSessions = res
     "DescribeSessionsResponse"
@@ -319,6 +377,20 @@ responseStopFleet = res
     "fixture/StopFleetResponse.proto"
     appStream
     (Proxy :: Proxy StopFleet)
+
+responseDeleteDirectoryConfig :: DeleteDirectoryConfigResponse -> TestTree
+responseDeleteDirectoryConfig = res
+    "DeleteDirectoryConfigResponse"
+    "fixture/DeleteDirectoryConfigResponse.proto"
+    appStream
+    (Proxy :: Proxy DeleteDirectoryConfig)
+
+responseUpdateDirectoryConfig :: UpdateDirectoryConfigResponse -> TestTree
+responseUpdateDirectoryConfig = res
+    "UpdateDirectoryConfigResponse"
+    "fixture/UpdateDirectoryConfigResponse.proto"
+    appStream
+    (Proxy :: Proxy UpdateDirectoryConfig)
 
 responseCreateFleet :: CreateFleetResponse -> TestTree
 responseCreateFleet = res

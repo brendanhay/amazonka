@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- If stack names are not provided, this operation describes the specified stacks; otherwise, all stacks in the account are described. Pass the @nextToken@ value in a subsequent call to this operation to retrieve the next set of items.
+-- If stack names are not provided, this operation describes the specified stacks; otherwise, all stacks in the account are described. To retrieve the next set of items, pass the @nextToken@ value in a subsequent call to this operation.
 --
 --
 module Network.AWS.AppStream.DescribeStacks

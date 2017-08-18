@@ -18,11 +18,20 @@ module Network.AWS.AppStream.Types
     -- * Errors
     , _InvalidRoleException
     , _ResourceAlreadyExistsException
+    , _IncompatibleImageException
+    , _ConcurrentModificationException
     , _OperationNotPermittedException
     , _ResourceNotFoundException
+    , _InvalidParameterCombinationException
     , _ResourceNotAvailableException
     , _LimitExceededException
     , _ResourceInUseException
+
+    -- * AuthenticationType
+    , AuthenticationType (..)
+
+    -- * FleetAttribute
+    , FleetAttribute (..)
 
     -- * FleetErrorCode
     , FleetErrorCode (..)
@@ -41,6 +50,12 @@ module Network.AWS.AppStream.Types
 
     -- * SessionState
     , SessionState (..)
+
+    -- * StackErrorCode
+    , StackErrorCode (..)
+
+    -- * StorageConnectorType
+    , StorageConnectorType (..)
 
     -- * VisibilityType
     , VisibilityType (..)
@@ -69,15 +84,31 @@ module Network.AWS.AppStream.Types
     , ccsAvailable
     , ccsDesired
 
+    -- * DirectoryConfig
+    , DirectoryConfig
+    , directoryConfig
+    , dcCreatedTime
+    , dcServiceAccountCredentials
+    , dcOrganizationalUnitDistinguishedNames
+    , dcDirectoryName
+
+    -- * DomainJoinInfo
+    , DomainJoinInfo
+    , domainJoinInfo
+    , djiOrganizationalUnitDistinguishedName
+    , djiDirectoryName
+
     -- * Fleet
     , Fleet
     , fleet
+    , fDomainJoinInfo
     , fDisconnectTimeoutInSeconds
     , fMaxUserDurationInSeconds
     , fCreatedTime
     , fVPCConfig
     , fFleetErrors
     , fDisplayName
+    , fEnableDefaultInternetAccess
     , fDescription
     , fARN
     , fName
@@ -97,9 +128,11 @@ module Network.AWS.AppStream.Types
     , image
     , iState
     , iPlatform
+    , iPublicBaseImageReleasedDate
     , iStateChangeReason
     , iARN
     , iCreatedTime
+    , iImageBuilderSupported
     , iVisibility
     , iBaseImageARN
     , iDisplayName
@@ -113,9 +146,16 @@ module Network.AWS.AppStream.Types
     , iscrCode
     , iscrMessage
 
+    -- * ServiceAccountCredentials
+    , ServiceAccountCredentials
+    , serviceAccountCredentials
+    , sacAccountName
+    , sacAccountPassword
+
     -- * Session
     , Session
     , session
+    , sAuthenticationType
     , sId
     , sUserId
     , sStackName
@@ -127,13 +167,28 @@ module Network.AWS.AppStream.Types
     , stack
     , sARN
     , sCreatedTime
+    , sStorageConnectors
     , sDisplayName
+    , sStackErrors
     , sDescription
     , sName
+
+    -- * StackError
+    , StackError
+    , stackError
+    , seErrorCode
+    , seErrorMessage
+
+    -- * StorageConnector
+    , StorageConnector
+    , storageConnector
+    , scResourceIdentifier
+    , scConnectorType
 
     -- * VPCConfig
     , VPCConfig
     , vpcConfig
+    , vcSecurityGroupIds
     , vcSubnetIds
     ) where
 
@@ -166,6 +221,8 @@ appStream =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -190,6 +247,20 @@ _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a S
 _ResourceAlreadyExistsException =
     _MatchServiceError appStream "ResourceAlreadyExistsException"
 
+-- | The image does not support storage connectors.
+--
+--
+_IncompatibleImageException :: AsError a => Getting (First ServiceError) a ServiceError
+_IncompatibleImageException =
+    _MatchServiceError appStream "IncompatibleImageException"
+
+-- | An API error occurred. Wait a few minutes and try again.
+--
+--
+_ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
+_ConcurrentModificationException =
+    _MatchServiceError appStream "ConcurrentModificationException"
+
 -- | The attempted operation is not permitted.
 --
 --
@@ -203,6 +274,13 @@ _OperationNotPermittedException =
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _MatchServiceError appStream "ResourceNotFoundException"
+
+-- | Indicates an incorrect combination of parameters, or a missing parameter.
+--
+--
+_InvalidParameterCombinationException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterCombinationException =
+    _MatchServiceError appStream "InvalidParameterCombinationException"
 
 -- | The specified resource exists and is not in use, but isn't available.
 --

@@ -28,7 +28,10 @@ import Test.AWS.CloudDirectory.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDeleteObject $
+--         [ requestListTypedLinkFacetAttributes $
+--             listTypedLinkFacetAttributes
+--
+--         , requestDeleteObject $
 --             deleteObject
 --
 --         , requestListIndex $
@@ -58,6 +61,9 @@ import Test.AWS.CloudDirectory.Internal
 --         , requestListDirectories $
 --             listDirectories
 --
+--         , requestCreateTypedLinkFacet $
+--             createTypedLinkFacet
+--
 --         , requestListObjectParentPaths $
 --             listObjectParentPaths
 --
@@ -69,6 +75,12 @@ import Test.AWS.CloudDirectory.Internal
 --
 --         , requestListFacetAttributes $
 --             listFacetAttributes
+--
+--         , requestUpdateTypedLinkFacet $
+--             updateTypedLinkFacet
+--
+--         , requestDeleteTypedLinkFacet $
+--             deleteTypedLinkFacet
 --
 --         , requestRemoveFacetFromObject $
 --             removeFacetFromObject
@@ -82,8 +94,14 @@ import Test.AWS.CloudDirectory.Internal
 --         , requestListAppliedSchemaARNs $
 --             listAppliedSchemaARNs
 --
+--         , requestListIncomingTypedLinks $
+--             listIncomingTypedLinks
+--
 --         , requestGetFacet $
 --             getFacet
+--
+--         , requestGetTypedLinkFacetInformation $
+--             getTypedLinkFacetInformation
 --
 --         , requestListDevelopmentSchemaARNs $
 --             listDevelopmentSchemaARNs
@@ -108,6 +126,12 @@ import Test.AWS.CloudDirectory.Internal
 --
 --         , requestListObjectChildren $
 --             listObjectChildren
+--
+--         , requestListTypedLinkFacetNames $
+--             listTypedLinkFacetNames
+--
+--         , requestAttachTypedLink $
+--             attachTypedLink
 --
 --         , requestDetachPolicy $
 --             detachPolicy
@@ -151,11 +175,17 @@ import Test.AWS.CloudDirectory.Internal
 --         , requestDeleteSchema $
 --             deleteSchema
 --
+--         , requestDetachTypedLink $
+--             detachTypedLink
+--
 --         , requestListFacetNames $
 --             listFacetNames
 --
 --         , requestUntagResource $
 --             untagResource
+--
+--         , requestListOutgoingTypedLinks $
+--             listOutgoingTypedLinks
 --
 --         , requestUpdateObjectAttributes $
 --             updateObjectAttributes
@@ -178,7 +208,10 @@ import Test.AWS.CloudDirectory.Internal
 --           ]
 
 --     , testGroup "response"
---         [ responseDeleteObject $
+--         [ responseListTypedLinkFacetAttributes $
+--             listTypedLinkFacetAttributesResponse
+--
+--         , responseDeleteObject $
 --             deleteObjectResponse
 --
 --         , responseListIndex $
@@ -208,6 +241,9 @@ import Test.AWS.CloudDirectory.Internal
 --         , responseListDirectories $
 --             listDirectoriesResponse
 --
+--         , responseCreateTypedLinkFacet $
+--             createTypedLinkFacetResponse
+--
 --         , responseListObjectParentPaths $
 --             listObjectParentPathsResponse
 --
@@ -219,6 +255,12 @@ import Test.AWS.CloudDirectory.Internal
 --
 --         , responseListFacetAttributes $
 --             listFacetAttributesResponse
+--
+--         , responseUpdateTypedLinkFacet $
+--             updateTypedLinkFacetResponse
+--
+--         , responseDeleteTypedLinkFacet $
+--             deleteTypedLinkFacetResponse
 --
 --         , responseRemoveFacetFromObject $
 --             removeFacetFromObjectResponse
@@ -232,8 +274,14 @@ import Test.AWS.CloudDirectory.Internal
 --         , responseListAppliedSchemaARNs $
 --             listAppliedSchemaARNsResponse
 --
+--         , responseListIncomingTypedLinks $
+--             listIncomingTypedLinksResponse
+--
 --         , responseGetFacet $
 --             getFacetResponse
+--
+--         , responseGetTypedLinkFacetInformation $
+--             getTypedLinkFacetInformationResponse
 --
 --         , responseListDevelopmentSchemaARNs $
 --             listDevelopmentSchemaARNsResponse
@@ -258,6 +306,12 @@ import Test.AWS.CloudDirectory.Internal
 --
 --         , responseListObjectChildren $
 --             listObjectChildrenResponse
+--
+--         , responseListTypedLinkFacetNames $
+--             listTypedLinkFacetNamesResponse
+--
+--         , responseAttachTypedLink $
+--             attachTypedLinkResponse
 --
 --         , responseDetachPolicy $
 --             detachPolicyResponse
@@ -301,11 +355,17 @@ import Test.AWS.CloudDirectory.Internal
 --         , responseDeleteSchema $
 --             deleteSchemaResponse
 --
+--         , responseDetachTypedLink $
+--             detachTypedLinkResponse
+--
 --         , responseListFacetNames $
 --             listFacetNamesResponse
 --
 --         , responseUntagResource $
 --             untagResourceResponse
+--
+--         , responseListOutgoingTypedLinks $
+--             listOutgoingTypedLinksResponse
 --
 --         , responseUpdateObjectAttributes $
 --             updateObjectAttributesResponse
@@ -329,6 +389,11 @@ import Test.AWS.CloudDirectory.Internal
 --     ]
 
 -- Requests
+
+requestListTypedLinkFacetAttributes :: ListTypedLinkFacetAttributes -> TestTree
+requestListTypedLinkFacetAttributes = req
+    "ListTypedLinkFacetAttributes"
+    "fixture/ListTypedLinkFacetAttributes.yaml"
 
 requestDeleteObject :: DeleteObject -> TestTree
 requestDeleteObject = req
@@ -380,6 +445,11 @@ requestListDirectories = req
     "ListDirectories"
     "fixture/ListDirectories.yaml"
 
+requestCreateTypedLinkFacet :: CreateTypedLinkFacet -> TestTree
+requestCreateTypedLinkFacet = req
+    "CreateTypedLinkFacet"
+    "fixture/CreateTypedLinkFacet.yaml"
+
 requestListObjectParentPaths :: ListObjectParentPaths -> TestTree
 requestListObjectParentPaths = req
     "ListObjectParentPaths"
@@ -399,6 +469,16 @@ requestListFacetAttributes :: ListFacetAttributes -> TestTree
 requestListFacetAttributes = req
     "ListFacetAttributes"
     "fixture/ListFacetAttributes.yaml"
+
+requestUpdateTypedLinkFacet :: UpdateTypedLinkFacet -> TestTree
+requestUpdateTypedLinkFacet = req
+    "UpdateTypedLinkFacet"
+    "fixture/UpdateTypedLinkFacet.yaml"
+
+requestDeleteTypedLinkFacet :: DeleteTypedLinkFacet -> TestTree
+requestDeleteTypedLinkFacet = req
+    "DeleteTypedLinkFacet"
+    "fixture/DeleteTypedLinkFacet.yaml"
 
 requestRemoveFacetFromObject :: RemoveFacetFromObject -> TestTree
 requestRemoveFacetFromObject = req
@@ -420,10 +500,20 @@ requestListAppliedSchemaARNs = req
     "ListAppliedSchemaARNs"
     "fixture/ListAppliedSchemaARNs.yaml"
 
+requestListIncomingTypedLinks :: ListIncomingTypedLinks -> TestTree
+requestListIncomingTypedLinks = req
+    "ListIncomingTypedLinks"
+    "fixture/ListIncomingTypedLinks.yaml"
+
 requestGetFacet :: GetFacet -> TestTree
 requestGetFacet = req
     "GetFacet"
     "fixture/GetFacet.yaml"
+
+requestGetTypedLinkFacetInformation :: GetTypedLinkFacetInformation -> TestTree
+requestGetTypedLinkFacetInformation = req
+    "GetTypedLinkFacetInformation"
+    "fixture/GetTypedLinkFacetInformation.yaml"
 
 requestListDevelopmentSchemaARNs :: ListDevelopmentSchemaARNs -> TestTree
 requestListDevelopmentSchemaARNs = req
@@ -464,6 +554,16 @@ requestListObjectChildren :: ListObjectChildren -> TestTree
 requestListObjectChildren = req
     "ListObjectChildren"
     "fixture/ListObjectChildren.yaml"
+
+requestListTypedLinkFacetNames :: ListTypedLinkFacetNames -> TestTree
+requestListTypedLinkFacetNames = req
+    "ListTypedLinkFacetNames"
+    "fixture/ListTypedLinkFacetNames.yaml"
+
+requestAttachTypedLink :: AttachTypedLink -> TestTree
+requestAttachTypedLink = req
+    "AttachTypedLink"
+    "fixture/AttachTypedLink.yaml"
 
 requestDetachPolicy :: DetachPolicy -> TestTree
 requestDetachPolicy = req
@@ -535,6 +635,11 @@ requestDeleteSchema = req
     "DeleteSchema"
     "fixture/DeleteSchema.yaml"
 
+requestDetachTypedLink :: DetachTypedLink -> TestTree
+requestDetachTypedLink = req
+    "DetachTypedLink"
+    "fixture/DetachTypedLink.yaml"
+
 requestListFacetNames :: ListFacetNames -> TestTree
 requestListFacetNames = req
     "ListFacetNames"
@@ -544,6 +649,11 @@ requestUntagResource :: UntagResource -> TestTree
 requestUntagResource = req
     "UntagResource"
     "fixture/UntagResource.yaml"
+
+requestListOutgoingTypedLinks :: ListOutgoingTypedLinks -> TestTree
+requestListOutgoingTypedLinks = req
+    "ListOutgoingTypedLinks"
+    "fixture/ListOutgoingTypedLinks.yaml"
 
 requestUpdateObjectAttributes :: UpdateObjectAttributes -> TestTree
 requestUpdateObjectAttributes = req
@@ -576,6 +686,13 @@ requestListObjectPolicies = req
     "fixture/ListObjectPolicies.yaml"
 
 -- Responses
+
+responseListTypedLinkFacetAttributes :: ListTypedLinkFacetAttributesResponse -> TestTree
+responseListTypedLinkFacetAttributes = res
+    "ListTypedLinkFacetAttributesResponse"
+    "fixture/ListTypedLinkFacetAttributesResponse.proto"
+    cloudDirectory
+    (Proxy :: Proxy ListTypedLinkFacetAttributes)
 
 responseDeleteObject :: DeleteObjectResponse -> TestTree
 responseDeleteObject = res
@@ -647,6 +764,13 @@ responseListDirectories = res
     cloudDirectory
     (Proxy :: Proxy ListDirectories)
 
+responseCreateTypedLinkFacet :: CreateTypedLinkFacetResponse -> TestTree
+responseCreateTypedLinkFacet = res
+    "CreateTypedLinkFacetResponse"
+    "fixture/CreateTypedLinkFacetResponse.proto"
+    cloudDirectory
+    (Proxy :: Proxy CreateTypedLinkFacet)
+
 responseListObjectParentPaths :: ListObjectParentPathsResponse -> TestTree
 responseListObjectParentPaths = res
     "ListObjectParentPathsResponse"
@@ -674,6 +798,20 @@ responseListFacetAttributes = res
     "fixture/ListFacetAttributesResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListFacetAttributes)
+
+responseUpdateTypedLinkFacet :: UpdateTypedLinkFacetResponse -> TestTree
+responseUpdateTypedLinkFacet = res
+    "UpdateTypedLinkFacetResponse"
+    "fixture/UpdateTypedLinkFacetResponse.proto"
+    cloudDirectory
+    (Proxy :: Proxy UpdateTypedLinkFacet)
+
+responseDeleteTypedLinkFacet :: DeleteTypedLinkFacetResponse -> TestTree
+responseDeleteTypedLinkFacet = res
+    "DeleteTypedLinkFacetResponse"
+    "fixture/DeleteTypedLinkFacetResponse.proto"
+    cloudDirectory
+    (Proxy :: Proxy DeleteTypedLinkFacet)
 
 responseRemoveFacetFromObject :: RemoveFacetFromObjectResponse -> TestTree
 responseRemoveFacetFromObject = res
@@ -703,12 +841,26 @@ responseListAppliedSchemaARNs = res
     cloudDirectory
     (Proxy :: Proxy ListAppliedSchemaARNs)
 
+responseListIncomingTypedLinks :: ListIncomingTypedLinksResponse -> TestTree
+responseListIncomingTypedLinks = res
+    "ListIncomingTypedLinksResponse"
+    "fixture/ListIncomingTypedLinksResponse.proto"
+    cloudDirectory
+    (Proxy :: Proxy ListIncomingTypedLinks)
+
 responseGetFacet :: GetFacetResponse -> TestTree
 responseGetFacet = res
     "GetFacetResponse"
     "fixture/GetFacetResponse.proto"
     cloudDirectory
     (Proxy :: Proxy GetFacet)
+
+responseGetTypedLinkFacetInformation :: GetTypedLinkFacetInformationResponse -> TestTree
+responseGetTypedLinkFacetInformation = res
+    "GetTypedLinkFacetInformationResponse"
+    "fixture/GetTypedLinkFacetInformationResponse.proto"
+    cloudDirectory
+    (Proxy :: Proxy GetTypedLinkFacetInformation)
 
 responseListDevelopmentSchemaARNs :: ListDevelopmentSchemaARNsResponse -> TestTree
 responseListDevelopmentSchemaARNs = res
@@ -765,6 +917,20 @@ responseListObjectChildren = res
     "fixture/ListObjectChildrenResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListObjectChildren)
+
+responseListTypedLinkFacetNames :: ListTypedLinkFacetNamesResponse -> TestTree
+responseListTypedLinkFacetNames = res
+    "ListTypedLinkFacetNamesResponse"
+    "fixture/ListTypedLinkFacetNamesResponse.proto"
+    cloudDirectory
+    (Proxy :: Proxy ListTypedLinkFacetNames)
+
+responseAttachTypedLink :: AttachTypedLinkResponse -> TestTree
+responseAttachTypedLink = res
+    "AttachTypedLinkResponse"
+    "fixture/AttachTypedLinkResponse.proto"
+    cloudDirectory
+    (Proxy :: Proxy AttachTypedLink)
 
 responseDetachPolicy :: DetachPolicyResponse -> TestTree
 responseDetachPolicy = res
@@ -864,6 +1030,13 @@ responseDeleteSchema = res
     cloudDirectory
     (Proxy :: Proxy DeleteSchema)
 
+responseDetachTypedLink :: DetachTypedLinkResponse -> TestTree
+responseDetachTypedLink = res
+    "DetachTypedLinkResponse"
+    "fixture/DetachTypedLinkResponse.proto"
+    cloudDirectory
+    (Proxy :: Proxy DetachTypedLink)
+
 responseListFacetNames :: ListFacetNamesResponse -> TestTree
 responseListFacetNames = res
     "ListFacetNamesResponse"
@@ -877,6 +1050,13 @@ responseUntagResource = res
     "fixture/UntagResourceResponse.proto"
     cloudDirectory
     (Proxy :: Proxy UntagResource)
+
+responseListOutgoingTypedLinks :: ListOutgoingTypedLinksResponse -> TestTree
+responseListOutgoingTypedLinks = res
+    "ListOutgoingTypedLinksResponse"
+    "fixture/ListOutgoingTypedLinksResponse.proto"
+    cloudDirectory
+    (Proxy :: Proxy ListOutgoingTypedLinks)
 
 responseUpdateObjectAttributes :: UpdateObjectAttributesResponse -> TestTree
 responseUpdateObjectAttributes = res

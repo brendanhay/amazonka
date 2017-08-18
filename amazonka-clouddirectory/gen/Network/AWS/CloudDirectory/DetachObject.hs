@@ -57,11 +57,11 @@ data DetachObject = DetachObject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'detDirectoryARN' - ARN associated with the 'Directory' where objects reside. For more information, see 'arns' .
+-- * 'detDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where objects reside. For more information, see 'arns' .
 --
--- * 'detParentReference' - Parent reference from which the object with the specified link name is detached.
+-- * 'detParentReference' - The parent reference from which the object with the specified link name is detached.
 --
--- * 'detLinkName' - Link name associated with the object that needs to be detached.
+-- * 'detLinkName' - The link name associated with the object that needs to be detached.
 detachObject
     :: Text -- ^ 'detDirectoryARN'
     -> ObjectReference -- ^ 'detParentReference'
@@ -74,15 +74,15 @@ detachObject pDirectoryARN_ pParentReference_ pLinkName_ =
     , _detLinkName = pLinkName_
     }
 
--- | ARN associated with the 'Directory' where objects reside. For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where objects reside. For more information, see 'arns' .
 detDirectoryARN :: Lens' DetachObject Text
 detDirectoryARN = lens _detDirectoryARN (\ s a -> s{_detDirectoryARN = a});
 
--- | Parent reference from which the object with the specified link name is detached.
+-- | The parent reference from which the object with the specified link name is detached.
 detParentReference :: Lens' DetachObject ObjectReference
 detParentReference = lens _detParentReference (\ s a -> s{_detParentReference = a});
 
--- | Link name associated with the object that needs to be detached.
+-- | The link name associated with the object that needs to be detached.
 detLinkName :: Lens' DetachObject Text
 detLinkName = lens _detLinkName (\ s a -> s{_detLinkName = a});
 

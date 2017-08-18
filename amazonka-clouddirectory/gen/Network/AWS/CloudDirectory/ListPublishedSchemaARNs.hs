@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves published schema ARNs.
+-- Retrieves each published schema Amazon Resource Name (ARN).
 --
 --
 module Network.AWS.CloudDirectory.ListPublishedSchemaARNs

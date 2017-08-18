@@ -58,9 +58,9 @@ data CreateDirectory = CreateDirectory'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdName' - Name of the 'Directory' . Should be unique per account, per region.
+-- * 'cdName' - The name of the 'Directory' . Should be unique per account, per region.
 --
--- * 'cdSchemaARN' - ARN of the published schema that will be copied into the data 'Directory' . For more information, see 'arns' .
+-- * 'cdSchemaARN' - The Amazon Resource Name (ARN) of the published schema that will be copied into the data 'Directory' . For more information, see 'arns' .
 createDirectory
     :: Text -- ^ 'cdName'
     -> Text -- ^ 'cdSchemaARN'
@@ -71,11 +71,11 @@ createDirectory pName_ pSchemaARN_ =
     , _cdSchemaARN = pSchemaARN_
     }
 
--- | Name of the 'Directory' . Should be unique per account, per region.
+-- | The name of the 'Directory' . Should be unique per account, per region.
 cdName :: Lens' CreateDirectory Text
 cdName = lens _cdName (\ s a -> s{_cdName = a});
 
--- | ARN of the published schema that will be copied into the data 'Directory' . For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) of the published schema that will be copied into the data 'Directory' . For more information, see 'arns' .
 cdSchemaARN :: Lens' CreateDirectory Text
 cdSchemaARN = lens _cdSchemaARN (\ s a -> s{_cdSchemaARN = a});
 
@@ -126,13 +126,13 @@ data CreateDirectoryResponse = CreateDirectoryResponse'
 --
 -- * 'cdrsResponseStatus' - -- | The response status code.
 --
--- * 'cdrsDirectoryARN' - ARN associated with the 'Directory' . For more information, see 'arns' .
+-- * 'cdrsDirectoryARN' - The ARN that is associated with the 'Directory' . For more information, see 'arns' .
 --
--- * 'cdrsName' - Name of the 'Directory' .
+-- * 'cdrsName' - The name of the 'Directory' .
 --
 -- * 'cdrsObjectIdentifier' - The root object node of the created directory.
 --
--- * 'cdrsAppliedSchemaARN' - ARN of the published schema in the 'Directory' . Once a published schema is copied into the directory, it has its own ARN which is referred to applied schema ARN. For more information, see 'arns' .
+-- * 'cdrsAppliedSchemaARN' - The ARN of the published schema in the 'Directory' . Once a published schema is copied into the directory, it has its own ARN, which is referred to applied schema ARN. For more information, see 'arns' .
 createDirectoryResponse
     :: Int -- ^ 'cdrsResponseStatus'
     -> Text -- ^ 'cdrsDirectoryARN'
@@ -153,11 +153,11 @@ createDirectoryResponse pResponseStatus_ pDirectoryARN_ pName_ pObjectIdentifier
 cdrsResponseStatus :: Lens' CreateDirectoryResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
 
--- | ARN associated with the 'Directory' . For more information, see 'arns' .
+-- | The ARN that is associated with the 'Directory' . For more information, see 'arns' .
 cdrsDirectoryARN :: Lens' CreateDirectoryResponse Text
 cdrsDirectoryARN = lens _cdrsDirectoryARN (\ s a -> s{_cdrsDirectoryARN = a});
 
--- | Name of the 'Directory' .
+-- | The name of the 'Directory' .
 cdrsName :: Lens' CreateDirectoryResponse Text
 cdrsName = lens _cdrsName (\ s a -> s{_cdrsName = a});
 
@@ -165,7 +165,7 @@ cdrsName = lens _cdrsName (\ s a -> s{_cdrsName = a});
 cdrsObjectIdentifier :: Lens' CreateDirectoryResponse Text
 cdrsObjectIdentifier = lens _cdrsObjectIdentifier (\ s a -> s{_cdrsObjectIdentifier = a});
 
--- | ARN of the published schema in the 'Directory' . Once a published schema is copied into the directory, it has its own ARN which is referred to applied schema ARN. For more information, see 'arns' .
+-- | The ARN of the published schema in the 'Directory' . Once a published schema is copied into the directory, it has its own ARN, which is referred to applied schema ARN. For more information, see 'arns' .
 cdrsAppliedSchemaARN :: Lens' CreateDirectoryResponse Text
 cdrsAppliedSchemaARN = lens _cdrsAppliedSchemaARN (\ s a -> s{_cdrsAppliedSchemaARN = a});
 

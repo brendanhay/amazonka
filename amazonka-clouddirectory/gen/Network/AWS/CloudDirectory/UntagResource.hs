@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- API for removing tags from a resource.
+-- An API operation for removing tags from a resource.
 --
 --
 module Network.AWS.CloudDirectory.UntagResource
@@ -54,9 +54,9 @@ data UntagResource = UntagResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urResourceARN' - ARN of the resource. Tagging is only supported for directories.
+-- * 'urResourceARN' - The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.
 --
--- * 'urTagKeys' - Keys of the tag that needs to be removed from the resource.
+-- * 'urTagKeys' - Keys of the tag that need to be removed from the resource.
 untagResource
     :: Text -- ^ 'urResourceARN'
     -> UntagResource
@@ -66,11 +66,11 @@ untagResource pResourceARN_ =
     , _urTagKeys = mempty
     }
 
--- | ARN of the resource. Tagging is only supported for directories.
+-- | The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.
 urResourceARN :: Lens' UntagResource Text
 urResourceARN = lens _urResourceARN (\ s a -> s{_urResourceARN = a});
 
--- | Keys of the tag that needs to be removed from the resource.
+-- | Keys of the tag that need to be removed from the resource.
 urTagKeys :: Lens' UntagResource [Text]
 urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _Coerce;
 

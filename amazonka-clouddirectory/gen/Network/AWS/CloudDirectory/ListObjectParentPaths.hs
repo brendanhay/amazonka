@@ -21,7 +21,7 @@
 -- Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#dirstructure Directory Structure> .
 --
 --
--- Use this API to evaluate all parents for an object. The call returns all objects from the root of the directory up to the requested object. The API returns the number of paths based on user-defined @MaxResults@ , in case there are multiple paths to the parent. The order of the paths and nodes returned is consistent among multiple API calls unless the objects are deleted or moved. Paths not leading to directory root are ignored from the target object.
+-- Use this API to evaluate all parents for an object. The call returns all objects from the root of the directory up to the requested object. The API returns the number of paths based on user-defined @MaxResults@ , in case there are multiple paths to the parent. The order of the paths and nodes returned is consistent among multiple API calls unless the objects are deleted or moved. Paths not leading to the directory root are ignored from the target object.
 --
 module Network.AWS.CloudDirectory.ListObjectParentPaths
     (
@@ -64,11 +64,11 @@ data ListObjectParentPaths = ListObjectParentPaths'
 --
 -- * 'loppNextToken' - The pagination token.
 --
--- * 'loppMaxResults' - Maximum number of items to be retrieved in a single call. This is an approximate number.
+-- * 'loppMaxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
 --
 -- * 'loppDirectoryARN' - The ARN of the directory to which the parent path applies.
 --
--- * 'loppObjectReference' - Reference that identifies the object whose parent paths are listed.
+-- * 'loppObjectReference' - The reference that identifies the object whose parent paths are listed.
 listObjectParentPaths
     :: Text -- ^ 'loppDirectoryARN'
     -> ObjectReference -- ^ 'loppObjectReference'
@@ -85,7 +85,7 @@ listObjectParentPaths pDirectoryARN_ pObjectReference_ =
 loppNextToken :: Lens' ListObjectParentPaths (Maybe Text)
 loppNextToken = lens _loppNextToken (\ s a -> s{_loppNextToken = a});
 
--- | Maximum number of items to be retrieved in a single call. This is an approximate number.
+-- | The maximum number of items to be retrieved in a single call. This is an approximate number.
 loppMaxResults :: Lens' ListObjectParentPaths (Maybe Natural)
 loppMaxResults = lens _loppMaxResults (\ s a -> s{_loppMaxResults = a}) . mapping _Nat;
 
@@ -93,7 +93,7 @@ loppMaxResults = lens _loppMaxResults (\ s a -> s{_loppMaxResults = a}) . mappin
 loppDirectoryARN :: Lens' ListObjectParentPaths Text
 loppDirectoryARN = lens _loppDirectoryARN (\ s a -> s{_loppDirectoryARN = a});
 
--- | Reference that identifies the object whose parent paths are listed.
+-- | The reference that identifies the object whose parent paths are listed.
 loppObjectReference :: Lens' ListObjectParentPaths ObjectReference
 loppObjectReference = lens _loppObjectReference (\ s a -> s{_loppObjectReference = a});
 
@@ -145,7 +145,7 @@ data ListObjectParentPathsResponse = ListObjectParentPathsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lopprsPathToObjectIdentifiersList' - Returns the path to the @ObjectIdentifiers@ associated with the directory.
+-- * 'lopprsPathToObjectIdentifiersList' - Returns the path to the @ObjectIdentifiers@ that are associated with the directory.
 --
 -- * 'lopprsNextToken' - The pagination token.
 --
@@ -160,7 +160,7 @@ listObjectParentPathsResponse pResponseStatus_ =
     , _lopprsResponseStatus = pResponseStatus_
     }
 
--- | Returns the path to the @ObjectIdentifiers@ associated with the directory.
+-- | Returns the path to the @ObjectIdentifiers@ that are associated with the directory.
 lopprsPathToObjectIdentifiersList :: Lens' ListObjectParentPathsResponse [PathToObjectIdentifiers]
 lopprsPathToObjectIdentifiersList = lens _lopprsPathToObjectIdentifiersList (\ s a -> s{_lopprsPathToObjectIdentifiersList = a}) . _Default . _Coerce;
 

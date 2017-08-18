@@ -91,6 +91,12 @@ module Network.AWS.CloudDirectory.Types
     , akavKey
     , akavValue
 
+    -- * AttributeNameAndValue
+    , AttributeNameAndValue
+    , attributeNameAndValue
+    , anavAttributeName
+    , anavValue
+
     -- * BatchAddFacetToObject
     , BatchAddFacetToObject
     , batchAddFacetToObject
@@ -113,6 +119,54 @@ module Network.AWS.CloudDirectory.Types
     , BatchAttachObjectResponse
     , batchAttachObjectResponse
     , baoAttachedObjectIdentifier
+
+    -- * BatchAttachPolicy
+    , BatchAttachPolicy
+    , batchAttachPolicy
+    , bapPolicyReference
+    , bapObjectReference
+
+    -- * BatchAttachPolicyResponse
+    , BatchAttachPolicyResponse
+    , batchAttachPolicyResponse
+
+    -- * BatchAttachToIndex
+    , BatchAttachToIndex
+    , batchAttachToIndex
+    , batiIndexReference
+    , batiTargetReference
+
+    -- * BatchAttachToIndexResponse
+    , BatchAttachToIndexResponse
+    , batchAttachToIndexResponse
+    , batiAttachedObjectIdentifier
+
+    -- * BatchAttachTypedLink
+    , BatchAttachTypedLink
+    , batchAttachTypedLink
+    , batlSourceObjectReference
+    , batlTargetObjectReference
+    , batlTypedLinkFacet
+    , batlAttributes
+
+    -- * BatchAttachTypedLinkResponse
+    , BatchAttachTypedLinkResponse
+    , batchAttachTypedLinkResponse
+    , batlTypedLinkSpecifier
+
+    -- * BatchCreateIndex
+    , BatchCreateIndex
+    , batchCreateIndex
+    , bciParentReference
+    , bciLinkName
+    , bciBatchReferenceName
+    , bciOrderedIndexedAttributeList
+    , bciIsUnique
+
+    -- * BatchCreateIndexResponse
+    , BatchCreateIndexResponse
+    , batchCreateIndexResponse
+    , bciObjectIdentifier
 
     -- * BatchCreateObject
     , BatchCreateObject
@@ -137,6 +191,17 @@ module Network.AWS.CloudDirectory.Types
     , BatchDeleteObjectResponse
     , batchDeleteObjectResponse
 
+    -- * BatchDetachFromIndex
+    , BatchDetachFromIndex
+    , batchDetachFromIndex
+    , bdfiIndexReference
+    , bdfiTargetReference
+
+    -- * BatchDetachFromIndexResponse
+    , BatchDetachFromIndexResponse
+    , batchDetachFromIndexResponse
+    , bdfiDetachedObjectIdentifier
+
     -- * BatchDetachObject
     , BatchDetachObject
     , batchDetachObject
@@ -149,9 +214,82 @@ module Network.AWS.CloudDirectory.Types
     , batchDetachObjectResponse
     , bdoDetachedObjectIdentifier
 
+    -- * BatchDetachPolicy
+    , BatchDetachPolicy
+    , batchDetachPolicy
+    , bdpPolicyReference
+    , bdpObjectReference
+
+    -- * BatchDetachPolicyResponse
+    , BatchDetachPolicyResponse
+    , batchDetachPolicyResponse
+
+    -- * BatchDetachTypedLink
+    , BatchDetachTypedLink
+    , batchDetachTypedLink
+    , bdtlTypedLinkSpecifier
+
+    -- * BatchDetachTypedLinkResponse
+    , BatchDetachTypedLinkResponse
+    , batchDetachTypedLinkResponse
+
+    -- * BatchGetObjectInformation
+    , BatchGetObjectInformation
+    , batchGetObjectInformation
+    , bgoiObjectReference
+
+    -- * BatchGetObjectInformationResponse
+    , BatchGetObjectInformationResponse
+    , batchGetObjectInformationResponse
+    , bgoiObjectIdentifier
+    , bgoiSchemaFacets
+
+    -- * BatchListAttachedIndices
+    , BatchListAttachedIndices
+    , batchListAttachedIndices
+    , blaisNextToken
+    , blaisMaxResults
+    , blaisTargetReference
+
+    -- * BatchListAttachedIndicesResponse
+    , BatchListAttachedIndicesResponse
+    , batchListAttachedIndicesResponse
+    , blaiIndexAttachments
+    , blaiNextToken
+
+    -- * BatchListIncomingTypedLinks
+    , BatchListIncomingTypedLinks
+    , batchListIncomingTypedLinks
+    , blitlsFilterAttributeRanges
+    , blitlsNextToken
+    , blitlsFilterTypedLink
+    , blitlsMaxResults
+    , blitlsObjectReference
+
+    -- * BatchListIncomingTypedLinksResponse
+    , BatchListIncomingTypedLinksResponse
+    , batchListIncomingTypedLinksResponse
+    , blitlLinkSpecifiers
+    , blitlNextToken
+
+    -- * BatchListIndex
+    , BatchListIndex
+    , batchListIndex
+    , batRangesOnIndexedValues
+    , batNextToken
+    , batMaxResults
+    , batIndexReference
+
+    -- * BatchListIndexResponse
+    , BatchListIndexResponse
+    , batchListIndexResponse
+    , bliIndexAttachments
+    , bliNextToken
+
     -- * BatchListObjectAttributes
     , BatchListObjectAttributes
     , batchListObjectAttributes
+    , bloaFacetFilter
     , bloaNextToken
     , bloaMaxResults
     , bloaObjectReference
@@ -165,15 +303,82 @@ module Network.AWS.CloudDirectory.Types
     -- * BatchListObjectChildren
     , BatchListObjectChildren
     , batchListObjectChildren
-    , batNextToken
-    , batMaxResults
-    , batObjectReference
+    , bloclNextToken
+    , bloclMaxResults
+    , bloclObjectReference
 
     -- * BatchListObjectChildrenResponse
     , BatchListObjectChildrenResponse
     , batchListObjectChildrenResponse
     , blocChildren
     , blocNextToken
+
+    -- * BatchListObjectParentPaths
+    , BatchListObjectParentPaths
+    , batchListObjectParentPaths
+    , bloppsNextToken
+    , bloppsMaxResults
+    , bloppsObjectReference
+
+    -- * BatchListObjectParentPathsResponse
+    , BatchListObjectParentPathsResponse
+    , batchListObjectParentPathsResponse
+    , bloppPathToObjectIdentifiersList
+    , bloppNextToken
+
+    -- * BatchListObjectPolicies
+    , BatchListObjectPolicies
+    , batchListObjectPolicies
+    , blopsNextToken
+    , blopsMaxResults
+    , blopsObjectReference
+
+    -- * BatchListObjectPoliciesResponse
+    , BatchListObjectPoliciesResponse
+    , batchListObjectPoliciesResponse
+    , blopNextToken
+    , blopAttachedPolicyIds
+
+    -- * BatchListOutgoingTypedLinks
+    , BatchListOutgoingTypedLinks
+    , batchListOutgoingTypedLinks
+    , blotlsFilterAttributeRanges
+    , blotlsNextToken
+    , blotlsFilterTypedLink
+    , blotlsMaxResults
+    , blotlsObjectReference
+
+    -- * BatchListOutgoingTypedLinksResponse
+    , BatchListOutgoingTypedLinksResponse
+    , batchListOutgoingTypedLinksResponse
+    , blotlTypedLinkSpecifiers
+    , blotlNextToken
+
+    -- * BatchListPolicyAttachments
+    , BatchListPolicyAttachments
+    , batchListPolicyAttachments
+    , blpasNextToken
+    , blpasMaxResults
+    , blpasPolicyReference
+
+    -- * BatchListPolicyAttachmentsResponse
+    , BatchListPolicyAttachmentsResponse
+    , batchListPolicyAttachmentsResponse
+    , blpaObjectIdentifiers
+    , blpaNextToken
+
+    -- * BatchLookupPolicy
+    , BatchLookupPolicy
+    , batchLookupPolicy
+    , blplNextToken
+    , blplMaxResults
+    , blplObjectReference
+
+    -- * BatchLookupPolicyResponse
+    , BatchLookupPolicyResponse
+    , batchLookupPolicyResponse
+    , blpNextToken
+    , blpPolicyToPathList
 
     -- * BatchReadException
     , BatchReadException
@@ -184,8 +389,17 @@ module Network.AWS.CloudDirectory.Types
     -- * BatchReadOperation
     , BatchReadOperation
     , batchReadOperation
+    , broListIndex
+    , broGetObjectInformation
+    , broListAttachedIndices
+    , broLookupPolicy
+    , broListObjectParentPaths
     , broListObjectAttributes
+    , broListIncomingTypedLinks
     , broListObjectChildren
+    , broListPolicyAttachments
+    , broListOutgoingTypedLinks
+    , broListObjectPolicies
 
     -- * BatchReadOperationResponse
     , BatchReadOperationResponse
@@ -196,8 +410,17 @@ module Network.AWS.CloudDirectory.Types
     -- * BatchReadSuccessfulResponse
     , BatchReadSuccessfulResponse
     , batchReadSuccessfulResponse
+    , brsListIndex
+    , brsGetObjectInformation
+    , brsListAttachedIndices
+    , brsLookupPolicy
+    , brsListObjectParentPaths
     , brsListObjectAttributes
+    , brsListIncomingTypedLinks
     , brsListObjectChildren
+    , brsListPolicyAttachments
+    , brsListOutgoingTypedLinks
+    , brsListObjectPolicies
 
     -- * BatchRemoveFacetFromObject
     , BatchRemoveFacetFromObject
@@ -224,23 +447,37 @@ module Network.AWS.CloudDirectory.Types
     , BatchWriteOperation
     , batchWriteOperation
     , bDeleteObject
+    , bDetachFromIndex
     , bRemoveFacetFromObject
     , bAttachObject
     , bCreateObject
+    , bAttachTypedLink
+    , bDetachPolicy
+    , bCreateIndex
     , bDetachObject
     , bAddFacetToObject
+    , bDetachTypedLink
     , bUpdateObjectAttributes
+    , bAttachPolicy
+    , bAttachToIndex
 
     -- * BatchWriteOperationResponse
     , BatchWriteOperationResponse
     , batchWriteOperationResponse
     , bwoDeleteObject
+    , bwoDetachFromIndex
     , bwoRemoveFacetFromObject
     , bwoAttachObject
     , bwoCreateObject
+    , bwoAttachTypedLink
+    , bwoDetachPolicy
+    , bwoCreateIndex
     , bwoDetachObject
     , bwoAddFacetToObject
+    , bwoDetachTypedLink
     , bwoUpdateObjectAttributes
+    , bwoAttachPolicy
+    , bwoAttachToIndex
 
     -- * Directory
     , Directory
@@ -366,6 +603,49 @@ module Network.AWS.CloudDirectory.Types
     , tavrStartValue
     , tavrStartMode
     , tavrEndMode
+
+    -- * TypedLinkAttributeDefinition
+    , TypedLinkAttributeDefinition
+    , typedLinkAttributeDefinition
+    , tladRules
+    , tladDefaultValue
+    , tladIsImmutable
+    , tladName
+    , tladType
+    , tladRequiredBehavior
+
+    -- * TypedLinkAttributeRange
+    , TypedLinkAttributeRange
+    , typedLinkAttributeRange
+    , tlarAttributeName
+    , tlarRange
+
+    -- * TypedLinkFacet
+    , TypedLinkFacet
+    , typedLinkFacet
+    , tlfName
+    , tlfAttributes
+    , tlfIdentityAttributeOrder
+
+    -- * TypedLinkFacetAttributeUpdate
+    , TypedLinkFacetAttributeUpdate
+    , typedLinkFacetAttributeUpdate
+    , tlfauAttribute
+    , tlfauAction
+
+    -- * TypedLinkSchemaAndFacetName
+    , TypedLinkSchemaAndFacetName
+    , typedLinkSchemaAndFacetName
+    , tlsafnSchemaARN
+    , tlsafnTypedLinkName
+
+    -- * TypedLinkSpecifier
+    , TypedLinkSpecifier
+    , typedLinkSpecifier
+    , tlsTypedLinkFacet
+    , tlsSourceObjectReference
+    , tlsTargetObjectReference
+    , tlsIdentityAttributeValues
     ) where
 
 import           Network.AWS.CloudDirectory.Types.Product
@@ -397,6 +677,8 @@ cloudDirectory =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -408,7 +690,7 @@ cloudDirectory =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Indicates the requested index type is not supported.
+-- | Indicates that the requested index type is not supported.
 --
 --
 _UnsupportedIndexTypeException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -416,14 +698,14 @@ _UnsupportedIndexTypeException =
     _MatchServiceError cloudDirectory "UnsupportedIndexTypeException" .
     hasStatus 400
 
--- | Indicates the requested operation can only operate on index objects.
+-- | Indicates that the requested operation can only operate on index objects.
 --
 --
 _NotIndexException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotIndexException =
     _MatchServiceError cloudDirectory "NotIndexException" . hasStatus 400
 
--- | Indicates your request is malformed in some manner. See the exception message.
+-- | Indicates that your request is malformed in some manner. See the exception message.
 --
 --
 _ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -453,7 +735,7 @@ _InvalidSchemaDocException =
     _MatchServiceError cloudDirectory "InvalidSchemaDocException" .
     hasStatus 400
 
--- | Indicates that an attempt to attach an object with the same link name or to apply a schema with same name has occurred. Rename the link or the schema and then try again.
+-- | Indicates that an attempt to attach an object with the same link name or to apply a schema with the same name has occurred. Rename the link or the schema and then try again.
 --
 --
 _InvalidAttachmentException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -469,7 +751,7 @@ _CannotListParentOfRootException =
     _MatchServiceError cloudDirectory "CannotListParentOfRootException" .
     hasStatus 400
 
--- | Indicates the requested operation can only operate on policy objects.
+-- | Indicates that the requested operation can only operate on policy objects.
 --
 --
 _NotPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -499,7 +781,7 @@ _InvalidRuleException :: AsError a => Getting (First ServiceError) a ServiceErro
 _InvalidRuleException =
     _MatchServiceError cloudDirectory "InvalidRuleException" . hasStatus 400
 
--- | Indicates a schema is already published.
+-- | Indicates that a schema is already published.
 --
 --
 _SchemaAlreadyPublishedException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -537,14 +819,14 @@ _DirectoryNotEnabledException =
     _MatchServiceError cloudDirectory "DirectoryNotEnabledException" .
     hasStatus 400
 
--- | Occurs when deleting a facet that contains an attribute which is a target to an attribute reference in a different facet.
+-- | Occurs when deleting a facet that contains an attribute that is a target to an attribute reference in a different facet.
 --
 --
 _FacetInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _FacetInUseException =
     _MatchServiceError cloudDirectory "FacetInUseException" . hasStatus 400
 
--- | The 'Facet' you provided was not well formed or could not be validated with the schema.
+-- | The 'Facet' that you provided was not well formed or could not be validated with the schema.
 --
 --
 _FacetValidationException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -560,7 +842,7 @@ _StillContainsLinksException =
     _MatchServiceError cloudDirectory "StillContainsLinksException" .
     hasStatus 400
 
--- | Occurs when any invalid operations are performed on an object which is not a node, such as calling @ListObjectChildren@ for a leaf node object.
+-- | Occurs when any invalid operations are performed on an object that is not a node, such as calling @ListObjectChildren@ for a leaf node object.
 --
 --
 _NotNodeException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -575,7 +857,7 @@ _InvalidNextTokenException =
     _MatchServiceError cloudDirectory "InvalidNextTokenException" .
     hasStatus 400
 
--- | Indicates the object is not attached to the index.
+-- | Indicates that the object is not attached to the index.
 --
 --
 _ObjectAlreadyDetachedException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -615,7 +897,7 @@ _IndexedAttributeMissingException =
     _MatchServiceError cloudDirectory "IndexedAttributeMissingException" .
     hasStatus 400
 
--- | A directory that has been deleted has been attempted to be accessed. Note: The requested resource will eventually cease to exist.
+-- | A directory that has been deleted and to which access has been attempted. Note: The requested resource will eventually cease to exist.
 --
 --
 _DirectoryDeletedException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -653,14 +935,14 @@ _FacetNotFoundException :: AsError a => Getting (First ServiceError) a ServiceEr
 _FacetNotFoundException =
     _MatchServiceError cloudDirectory "FacetNotFoundException" . hasStatus 400
 
--- | Indicates limits are exceeded. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/limits.html Limits> for more information.
+-- | Indicates that limits are exceeded. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/limits.html Limits> for more information.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
     _MatchServiceError cloudDirectory "LimitExceededException" . hasStatus 400
 
--- | Indicates the requested operation cannot be completed because the object has not been detached from the tree.
+-- | Indicates that the requested operation cannot be completed because the object has not been detached from the tree.
 --
 --
 _ObjectNotDetachedException :: AsError a => Getting (First ServiceError) a ServiceError

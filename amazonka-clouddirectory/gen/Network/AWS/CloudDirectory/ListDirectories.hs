@@ -132,7 +132,7 @@ data ListDirectoriesResponse = ListDirectoriesResponse'
 --
 -- * 'ldrsResponseStatus' - -- | The response status code.
 --
--- * 'ldrsDirectories' - Lists all directories associated with your account in pagination fashion.
+-- * 'ldrsDirectories' - Lists all directories that are associated with your account in pagination fashion.
 listDirectoriesResponse
     :: Int -- ^ 'ldrsResponseStatus'
     -> ListDirectoriesResponse
@@ -151,7 +151,7 @@ ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 ldrsResponseStatus :: Lens' ListDirectoriesResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
 
--- | Lists all directories associated with your account in pagination fashion.
+-- | Lists all directories that are associated with your account in pagination fashion.
 ldrsDirectories :: Lens' ListDirectoriesResponse [Directory]
 ldrsDirectories = lens _ldrsDirectories (\ s a -> s{_ldrsDirectories = a}) . _Coerce;
 

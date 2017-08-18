@@ -70,7 +70,7 @@ data ListAttachedIndices = ListAttachedIndices'
 --
 -- * 'laiDirectoryARN' - The ARN of the directory.
 --
--- * 'laiTargetReference' - A reference to the object to that has indices attached.
+-- * 'laiTargetReference' - A reference to the object that has indices attached.
 listAttachedIndices
     :: Text -- ^ 'laiDirectoryARN'
     -> ObjectReference -- ^ 'laiTargetReference'
@@ -100,7 +100,7 @@ laiMaxResults = lens _laiMaxResults (\ s a -> s{_laiMaxResults = a}) . mapping _
 laiDirectoryARN :: Lens' ListAttachedIndices Text
 laiDirectoryARN = lens _laiDirectoryARN (\ s a -> s{_laiDirectoryARN = a});
 
--- | A reference to the object to that has indices attached.
+-- | A reference to the object that has indices attached.
 laiTargetReference :: Lens' ListAttachedIndices ObjectReference
 laiTargetReference = lens _laiTargetReference (\ s a -> s{_laiTargetReference = a});
 

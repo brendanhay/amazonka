@@ -60,9 +60,9 @@ data ListTagsForResource = ListTagsForResource'
 --
 -- * 'ltfrNextToken' - The pagination token. This is for future use. Currently pagination is not supported for tagging.
 --
--- * 'ltfrMaxResults' - The MaxResults parameter sets the maximum number of results returned in a single page. This is for future use and is not supported currently.
+-- * 'ltfrMaxResults' - The @MaxResults@ parameter sets the maximum number of results returned in a single page. This is for future use and is not supported currently.
 --
--- * 'ltfrResourceARN' - ARN of the resource. Tagging is only supported for directories.
+-- * 'ltfrResourceARN' - The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.
 listTagsForResource
     :: Text -- ^ 'ltfrResourceARN'
     -> ListTagsForResource
@@ -77,11 +77,11 @@ listTagsForResource pResourceARN_ =
 ltfrNextToken :: Lens' ListTagsForResource (Maybe Text)
 ltfrNextToken = lens _ltfrNextToken (\ s a -> s{_ltfrNextToken = a});
 
--- | The MaxResults parameter sets the maximum number of results returned in a single page. This is for future use and is not supported currently.
+-- | The @MaxResults@ parameter sets the maximum number of results returned in a single page. This is for future use and is not supported currently.
 ltfrMaxResults :: Lens' ListTagsForResource (Maybe Natural)
 ltfrMaxResults = lens _ltfrMaxResults (\ s a -> s{_ltfrMaxResults = a}) . mapping _Nat;
 
--- | ARN of the resource. Tagging is only supported for directories.
+-- | The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.
 ltfrResourceARN :: Lens' ListTagsForResource Text
 ltfrResourceARN = lens _ltfrResourceARN (\ s a -> s{_ltfrResourceARN = a});
 
@@ -131,7 +131,7 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 --
 -- * 'ltfrrsNextToken' - The token to use to retrieve the next page of results. This value is null when there are no more results to return.
 --
--- * 'ltfrrsTags' - List of tag key value pairs associated with the response.
+-- * 'ltfrrsTags' - A list of tag key value pairs that are associated with the response.
 --
 -- * 'ltfrrsResponseStatus' - -- | The response status code.
 listTagsForResourceResponse
@@ -148,7 +148,7 @@ listTagsForResourceResponse pResponseStatus_ =
 ltfrrsNextToken :: Lens' ListTagsForResourceResponse (Maybe Text)
 ltfrrsNextToken = lens _ltfrrsNextToken (\ s a -> s{_ltfrrsNextToken = a});
 
--- | List of tag key value pairs associated with the response.
+-- | A list of tag key value pairs that are associated with the response.
 ltfrrsTags :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrsTags = lens _ltfrrsTags (\ s a -> s{_ltfrrsTags = a}) . _Default . _Coerce;
 

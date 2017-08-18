@@ -57,11 +57,11 @@ data UpdateObjectAttributes = UpdateObjectAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uoaDirectoryARN' - ARN associated with the 'Directory' where the object resides. For more information, see 'arns' .
+-- * 'uoaDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
 --
--- * 'uoaObjectReference' - Reference that identifies the object.
+-- * 'uoaObjectReference' - The reference that identifies the object.
 --
--- * 'uoaAttributeUpdates' - Attributes update structure.
+-- * 'uoaAttributeUpdates' - The attributes update structure.
 updateObjectAttributes
     :: Text -- ^ 'uoaDirectoryARN'
     -> ObjectReference -- ^ 'uoaObjectReference'
@@ -73,15 +73,15 @@ updateObjectAttributes pDirectoryARN_ pObjectReference_ =
     , _uoaAttributeUpdates = mempty
     }
 
--- | ARN associated with the 'Directory' where the object resides. For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
 uoaDirectoryARN :: Lens' UpdateObjectAttributes Text
 uoaDirectoryARN = lens _uoaDirectoryARN (\ s a -> s{_uoaDirectoryARN = a});
 
--- | Reference that identifies the object.
+-- | The reference that identifies the object.
 uoaObjectReference :: Lens' UpdateObjectAttributes ObjectReference
 uoaObjectReference = lens _uoaObjectReference (\ s a -> s{_uoaObjectReference = a});
 
--- | Attributes update structure.
+-- | The attributes update structure.
 uoaAttributeUpdates :: Lens' UpdateObjectAttributes [ObjectAttributeUpdate]
 uoaAttributeUpdates = lens _uoaAttributeUpdates (\ s a -> s{_uoaAttributeUpdates = a}) . _Coerce;
 
@@ -129,7 +129,7 @@ data UpdateObjectAttributesResponse = UpdateObjectAttributesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uoarsObjectIdentifier' - @ObjectIdentifier@ of the updated object.
+-- * 'uoarsObjectIdentifier' - The @ObjectIdentifier@ of the updated object.
 --
 -- * 'uoarsResponseStatus' - -- | The response status code.
 updateObjectAttributesResponse
@@ -141,7 +141,7 @@ updateObjectAttributesResponse pResponseStatus_ =
     , _uoarsResponseStatus = pResponseStatus_
     }
 
--- | @ObjectIdentifier@ of the updated object.
+-- | The @ObjectIdentifier@ of the updated object.
 uoarsObjectIdentifier :: Lens' UpdateObjectAttributesResponse (Maybe Text)
 uoarsObjectIdentifier = lens _uoarsObjectIdentifier (\ s a -> s{_uoarsObjectIdentifier = a});
 

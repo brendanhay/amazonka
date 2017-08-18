@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all policies from the root of the 'Directory' to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the @ObjectIdentifier@ for such objects. If policies are present, it returns @ObjectIdentifier@ , @policyId@ , and @policyType@ . Paths that don't lead to the root from the target object are ignored.
+-- Lists all policies from the root of the 'Directory' to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the @ObjectIdentifier@ for such objects. If policies are present, it returns @ObjectIdentifier@ , @policyId@ , and @policyType@ . Paths that don't lead to the root from the target object are ignored. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies Policies> .
 --
 --
 module Network.AWS.CloudDirectory.LookupPolicy
@@ -62,9 +62,9 @@ data LookupPolicy = LookupPolicy'
 --
 -- * 'lpNextToken' - The token to request the next page of results.
 --
--- * 'lpMaxResults' - Maximum number of items to be retrieved in a single call. This is an approximate number.
+-- * 'lpMaxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
 --
--- * 'lpDirectoryARN' - ARN associated with the 'Directory' . For more information, see 'arns' .
+-- * 'lpDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
 --
 -- * 'lpObjectReference' - Reference that identifies the object whose policies will be looked up.
 lookupPolicy
@@ -83,11 +83,11 @@ lookupPolicy pDirectoryARN_ pObjectReference_ =
 lpNextToken :: Lens' LookupPolicy (Maybe Text)
 lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a});
 
--- | Maximum number of items to be retrieved in a single call. This is an approximate number.
+-- | The maximum number of items to be retrieved in a single call. This is an approximate number.
 lpMaxResults :: Lens' LookupPolicy (Maybe Natural)
 lpMaxResults = lens _lpMaxResults (\ s a -> s{_lpMaxResults = a}) . mapping _Nat;
 
--- | ARN associated with the 'Directory' . For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
 lpDirectoryARN :: Lens' LookupPolicy Text
 lpDirectoryARN = lens _lpDirectoryARN (\ s a -> s{_lpDirectoryARN = a});
 
@@ -143,7 +143,7 @@ data LookupPolicyResponse = LookupPolicyResponse'
 --
 -- * 'lprsNextToken' - The pagination token.
 --
--- * 'lprsPolicyToPathList' - Provides list of path to policies. Policies contain @PolicyId@ , @ObjectIdentifier@ , and @PolicyType@ .
+-- * 'lprsPolicyToPathList' - Provides list of path to policies. Policies contain @PolicyId@ , @ObjectIdentifier@ , and @PolicyType@ . For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies Policies> .
 --
 -- * 'lprsResponseStatus' - -- | The response status code.
 lookupPolicyResponse
@@ -160,7 +160,7 @@ lookupPolicyResponse pResponseStatus_ =
 lprsNextToken :: Lens' LookupPolicyResponse (Maybe Text)
 lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
 
--- | Provides list of path to policies. Policies contain @PolicyId@ , @ObjectIdentifier@ , and @PolicyType@ .
+-- | Provides list of path to policies. Policies contain @PolicyId@ , @ObjectIdentifier@ , and @PolicyType@ . For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies Policies> .
 lprsPolicyToPathList :: Lens' LookupPolicyResponse [PolicyToPath]
 lprsPolicyToPathList = lens _lprsPolicyToPathList (\ s a -> s{_lprsPolicyToPathList = a}) . _Default . _Coerce;
 

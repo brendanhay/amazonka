@@ -55,9 +55,9 @@ data UpdateSchema = UpdateSchema'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usSchemaARN' - ARN of the development schema. For more information, see 'arns' .
+-- * 'usSchemaARN' - The Amazon Resource Name (ARN) of the development schema. For more information, see 'arns' .
 --
--- * 'usName' - Name of the schema.
+-- * 'usName' - The name of the schema.
 updateSchema
     :: Text -- ^ 'usSchemaARN'
     -> Text -- ^ 'usName'
@@ -68,11 +68,11 @@ updateSchema pSchemaARN_ pName_ =
     , _usName = pName_
     }
 
--- | ARN of the development schema. For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) of the development schema. For more information, see 'arns' .
 usSchemaARN :: Lens' UpdateSchema Text
 usSchemaARN = lens _usSchemaARN (\ s a -> s{_usSchemaARN = a});
 
--- | Name of the schema.
+-- | The name of the schema.
 usName :: Lens' UpdateSchema Text
 usName = lens _usName (\ s a -> s{_usName = a});
 
@@ -115,7 +115,7 @@ data UpdateSchemaResponse = UpdateSchemaResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usrsSchemaARN' - ARN associated with the updated schema. For more information, see 'arns' .
+-- * 'usrsSchemaARN' - The ARN that is associated with the updated schema. For more information, see 'arns' .
 --
 -- * 'usrsResponseStatus' - -- | The response status code.
 updateSchemaResponse
@@ -127,7 +127,7 @@ updateSchemaResponse pResponseStatus_ =
     , _usrsResponseStatus = pResponseStatus_
     }
 
--- | ARN associated with the updated schema. For more information, see 'arns' .
+-- | The ARN that is associated with the updated schema. For more information, see 'arns' .
 usrsSchemaARN :: Lens' UpdateSchemaResponse (Maybe Text)
 usrsSchemaARN = lens _usrsSchemaARN (\ s a -> s{_usrsSchemaARN = a});
 

@@ -45,6 +45,7 @@ library
         , Network.AWS.CloudDirectory.AttachObject
         , Network.AWS.CloudDirectory.AttachPolicy
         , Network.AWS.CloudDirectory.AttachToIndex
+        , Network.AWS.CloudDirectory.AttachTypedLink
         , Network.AWS.CloudDirectory.BatchRead
         , Network.AWS.CloudDirectory.BatchWrite
         , Network.AWS.CloudDirectory.CreateDirectory
@@ -52,34 +53,42 @@ library
         , Network.AWS.CloudDirectory.CreateIndex
         , Network.AWS.CloudDirectory.CreateObject
         , Network.AWS.CloudDirectory.CreateSchema
+        , Network.AWS.CloudDirectory.CreateTypedLinkFacet
         , Network.AWS.CloudDirectory.DeleteDirectory
         , Network.AWS.CloudDirectory.DeleteFacet
         , Network.AWS.CloudDirectory.DeleteObject
         , Network.AWS.CloudDirectory.DeleteSchema
+        , Network.AWS.CloudDirectory.DeleteTypedLinkFacet
         , Network.AWS.CloudDirectory.DetachFromIndex
         , Network.AWS.CloudDirectory.DetachObject
         , Network.AWS.CloudDirectory.DetachPolicy
+        , Network.AWS.CloudDirectory.DetachTypedLink
         , Network.AWS.CloudDirectory.DisableDirectory
         , Network.AWS.CloudDirectory.EnableDirectory
         , Network.AWS.CloudDirectory.GetDirectory
         , Network.AWS.CloudDirectory.GetFacet
         , Network.AWS.CloudDirectory.GetObjectInformation
         , Network.AWS.CloudDirectory.GetSchemaAsJSON
+        , Network.AWS.CloudDirectory.GetTypedLinkFacetInformation
         , Network.AWS.CloudDirectory.ListAppliedSchemaARNs
         , Network.AWS.CloudDirectory.ListAttachedIndices
         , Network.AWS.CloudDirectory.ListDevelopmentSchemaARNs
         , Network.AWS.CloudDirectory.ListDirectories
         , Network.AWS.CloudDirectory.ListFacetAttributes
         , Network.AWS.CloudDirectory.ListFacetNames
+        , Network.AWS.CloudDirectory.ListIncomingTypedLinks
         , Network.AWS.CloudDirectory.ListIndex
         , Network.AWS.CloudDirectory.ListObjectAttributes
         , Network.AWS.CloudDirectory.ListObjectChildren
         , Network.AWS.CloudDirectory.ListObjectParentPaths
         , Network.AWS.CloudDirectory.ListObjectParents
         , Network.AWS.CloudDirectory.ListObjectPolicies
+        , Network.AWS.CloudDirectory.ListOutgoingTypedLinks
         , Network.AWS.CloudDirectory.ListPolicyAttachments
         , Network.AWS.CloudDirectory.ListPublishedSchemaARNs
         , Network.AWS.CloudDirectory.ListTagsForResource
+        , Network.AWS.CloudDirectory.ListTypedLinkFacetAttributes
+        , Network.AWS.CloudDirectory.ListTypedLinkFacetNames
         , Network.AWS.CloudDirectory.LookupPolicy
         , Network.AWS.CloudDirectory.PublishSchema
         , Network.AWS.CloudDirectory.PutSchemaFromJSON
@@ -90,6 +99,7 @@ library
         , Network.AWS.CloudDirectory.UpdateFacet
         , Network.AWS.CloudDirectory.UpdateObjectAttributes
         , Network.AWS.CloudDirectory.UpdateSchema
+        , Network.AWS.CloudDirectory.UpdateTypedLinkFacet
         , Network.AWS.CloudDirectory.Waiters
 
     other-modules:

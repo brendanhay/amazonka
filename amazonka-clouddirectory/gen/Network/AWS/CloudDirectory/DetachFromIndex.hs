@@ -57,7 +57,7 @@ data DetachFromIndex = DetachFromIndex'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfiDirectoryARN' - The ARN of the directory the index and object exist in.
+-- * 'dfiDirectoryARN' - The Amazon Resource Name (ARN) of the directory the index and object exist in.
 --
 -- * 'dfiIndexReference' - A reference to the index object.
 --
@@ -74,7 +74,7 @@ detachFromIndex pDirectoryARN_ pIndexReference_ pTargetReference_ =
     , _dfiTargetReference = pTargetReference_
     }
 
--- | The ARN of the directory the index and object exist in.
+-- | The Amazon Resource Name (ARN) of the directory the index and object exist in.
 dfiDirectoryARN :: Lens' DetachFromIndex Text
 dfiDirectoryARN = lens _dfiDirectoryARN (\ s a -> s{_dfiDirectoryARN = a});
 

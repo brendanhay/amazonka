@@ -53,7 +53,7 @@ newtype DeleteSchema = DeleteSchema'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsSchemaARN' - ARN of the development schema. For more information, see 'arns' .
+-- * 'dsSchemaARN' - The Amazon Resource Name (ARN) of the development schema. For more information, see 'arns' .
 deleteSchema
     :: Text -- ^ 'dsSchemaARN'
     -> DeleteSchema
@@ -62,7 +62,7 @@ deleteSchema pSchemaARN_ =
     { _dsSchemaARN = pSchemaARN_
     }
 
--- | ARN of the development schema. For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) of the development schema. For more information, see 'arns' .
 dsSchemaARN :: Lens' DeleteSchema Text
 dsSchemaARN = lens _dsSchemaARN (\ s a -> s{_dsSchemaARN = a});
 
@@ -103,7 +103,7 @@ data DeleteSchemaResponse = DeleteSchemaResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrsSchemaARN' - Input ARN that is returned as part of the response. For more information, see 'arns' .
+-- * 'dsrsSchemaARN' - The input ARN that is returned as part of the response. For more information, see 'arns' .
 --
 -- * 'dsrsResponseStatus' - -- | The response status code.
 deleteSchemaResponse
@@ -115,7 +115,7 @@ deleteSchemaResponse pResponseStatus_ =
     , _dsrsResponseStatus = pResponseStatus_
     }
 
--- | Input ARN that is returned as part of the response. For more information, see 'arns' .
+-- | The input ARN that is returned as part of the response. For more information, see 'arns' .
 dsrsSchemaARN :: Lens' DeleteSchemaResponse (Maybe Text)
 dsrsSchemaARN = lens _dsrsSchemaARN (\ s a -> s{_dsrsSchemaARN = a});
 

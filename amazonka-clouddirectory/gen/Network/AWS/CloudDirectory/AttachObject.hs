@@ -65,13 +65,13 @@ data AttachObject = AttachObject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aoDirectoryARN' - ARN associated with the 'Directory' where both objects reside. For more information, see 'arns' .
+-- * 'aoDirectoryARN' - Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
 --
--- * 'aoParentReference' - Parent object reference.
+-- * 'aoParentReference' - The parent object reference.
 --
--- * 'aoChildReference' - Child object reference to be attached to the object.
+-- * 'aoChildReference' - The child object reference to be attached to the object.
 --
--- * 'aoLinkName' - Link name with which the child object is attached to the parent.
+-- * 'aoLinkName' - The link name with which the child object is attached to the parent.
 attachObject
     :: Text -- ^ 'aoDirectoryARN'
     -> ObjectReference -- ^ 'aoParentReference'
@@ -86,19 +86,19 @@ attachObject pDirectoryARN_ pParentReference_ pChildReference_ pLinkName_ =
     , _aoLinkName = pLinkName_
     }
 
--- | ARN associated with the 'Directory' where both objects reside. For more information, see 'arns' .
+-- | Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
 aoDirectoryARN :: Lens' AttachObject Text
 aoDirectoryARN = lens _aoDirectoryARN (\ s a -> s{_aoDirectoryARN = a});
 
--- | Parent object reference.
+-- | The parent object reference.
 aoParentReference :: Lens' AttachObject ObjectReference
 aoParentReference = lens _aoParentReference (\ s a -> s{_aoParentReference = a});
 
--- | Child object reference to be attached to the object.
+-- | The child object reference to be attached to the object.
 aoChildReference :: Lens' AttachObject ObjectReference
 aoChildReference = lens _aoChildReference (\ s a -> s{_aoChildReference = a});
 
--- | Link name with which the child object is attached to the parent.
+-- | The link name with which the child object is attached to the parent.
 aoLinkName :: Lens' AttachObject Text
 aoLinkName = lens _aoLinkName (\ s a -> s{_aoLinkName = a});
 
@@ -146,7 +146,7 @@ data AttachObjectResponse = AttachObjectResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aorsAttachedObjectIdentifier' - Attached @ObjectIdentifier@ , which is the child @ObjectIdentifier@ .
+-- * 'aorsAttachedObjectIdentifier' - The attached @ObjectIdentifier@ , which is the child @ObjectIdentifier@ .
 --
 -- * 'aorsResponseStatus' - -- | The response status code.
 attachObjectResponse
@@ -158,7 +158,7 @@ attachObjectResponse pResponseStatus_ =
     , _aorsResponseStatus = pResponseStatus_
     }
 
--- | Attached @ObjectIdentifier@ , which is the child @ObjectIdentifier@ .
+-- | The attached @ObjectIdentifier@ , which is the child @ObjectIdentifier@ .
 aorsAttachedObjectIdentifier :: Lens' AttachObjectResponse (Maybe Text)
 aorsAttachedObjectIdentifier = lens _aorsAttachedObjectIdentifier (\ s a -> s{_aorsAttachedObjectIdentifier = a});
 

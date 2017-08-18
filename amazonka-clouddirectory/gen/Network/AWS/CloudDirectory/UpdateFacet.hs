@@ -66,13 +66,13 @@ data UpdateFacet = UpdateFacet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufObjectType' - Object type associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
+-- * 'ufObjectType' - The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
 --
--- * 'ufAttributeUpdates' - List of attributes that need to be updated in a given schema 'Facet' . Each attribute is followed by AttributeAction, which specifies the type of update operation to perform.
+-- * 'ufAttributeUpdates' - List of attributes that need to be updated in a given schema 'Facet' . Each attribute is followed by @AttributeAction@ , which specifies the type of update operation to perform.
 --
--- * 'ufSchemaARN' - ARN associated with the 'Facet' . For more information, see 'arns' .
+-- * 'ufSchemaARN' - The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
 --
--- * 'ufName' -
+-- * 'ufName' - The name of the facet.
 updateFacet
     :: Text -- ^ 'ufSchemaARN'
     -> Text -- ^ 'ufName'
@@ -85,19 +85,19 @@ updateFacet pSchemaARN_ pName_ =
     , _ufName = pName_
     }
 
--- | Object type associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
+-- | The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
 ufObjectType :: Lens' UpdateFacet (Maybe ObjectType)
 ufObjectType = lens _ufObjectType (\ s a -> s{_ufObjectType = a});
 
--- | List of attributes that need to be updated in a given schema 'Facet' . Each attribute is followed by AttributeAction, which specifies the type of update operation to perform.
+-- | List of attributes that need to be updated in a given schema 'Facet' . Each attribute is followed by @AttributeAction@ , which specifies the type of update operation to perform.
 ufAttributeUpdates :: Lens' UpdateFacet [FacetAttributeUpdate]
 ufAttributeUpdates = lens _ufAttributeUpdates (\ s a -> s{_ufAttributeUpdates = a}) . _Default . _Coerce;
 
--- | ARN associated with the 'Facet' . For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
 ufSchemaARN :: Lens' UpdateFacet Text
 ufSchemaARN = lens _ufSchemaARN (\ s a -> s{_ufSchemaARN = a});
 
--- |
+-- | The name of the facet.
 ufName :: Lens' UpdateFacet Text
 ufName = lens _ufName (\ s a -> s{_ufName = a});
 

@@ -56,7 +56,7 @@ data DetachPolicy = DetachPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpDirectoryARN' - ARN associated with the 'Directory' where both objects reside. For more information, see 'arns' .
+-- * 'dpDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
 --
 -- * 'dpPolicyReference' - Reference that identifies the policy object.
 --
@@ -73,7 +73,7 @@ detachPolicy pDirectoryARN_ pPolicyReference_ pObjectReference_ =
     , _dpObjectReference = pObjectReference_
     }
 
--- | ARN associated with the 'Directory' where both objects reside. For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
 dpDirectoryARN :: Lens' DetachPolicy Text
 dpDirectoryARN = lens _dpDirectoryARN (\ s a -> s{_dpDirectoryARN = a});
 

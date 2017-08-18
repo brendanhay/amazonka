@@ -55,9 +55,9 @@ data BatchWrite = BatchWrite'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bwDirectoryARN' - ARN associated with the 'Directory' . For more information, see 'arns' .
+-- * 'bwDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
 --
--- * 'bwOperations' - List of operations that are part of the batch.
+-- * 'bwOperations' - A list of operations that are part of the batch.
 batchWrite
     :: Text -- ^ 'bwDirectoryARN'
     -> BatchWrite
@@ -67,11 +67,11 @@ batchWrite pDirectoryARN_ =
     , _bwOperations = mempty
     }
 
--- | ARN associated with the 'Directory' . For more information, see 'arns' .
+-- | The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
 bwDirectoryARN :: Lens' BatchWrite Text
 bwDirectoryARN = lens _bwDirectoryARN (\ s a -> s{_bwDirectoryARN = a});
 
--- | List of operations that are part of the batch.
+-- | A list of operations that are part of the batch.
 bwOperations :: Lens' BatchWrite [BatchWriteOperation]
 bwOperations = lens _bwOperations (\ s a -> s{_bwOperations = a}) . _Coerce;
 
@@ -115,7 +115,7 @@ data BatchWriteResponse = BatchWriteResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bwrsResponses' - List of all the responses for each batch write.
+-- * 'bwrsResponses' - A list of all the responses for each batch write.
 --
 -- * 'bwrsResponseStatus' - -- | The response status code.
 batchWriteResponse
@@ -127,7 +127,7 @@ batchWriteResponse pResponseStatus_ =
     , _bwrsResponseStatus = pResponseStatus_
     }
 
--- | List of all the responses for each batch write.
+-- | A list of all the responses for each batch write.
 bwrsResponses :: Lens' BatchWriteResponse [BatchWriteOperationResponse]
 bwrsResponses = lens _bwrsResponses (\ s a -> s{_bwrsResponses = a}) . _Default . _Coerce;
 

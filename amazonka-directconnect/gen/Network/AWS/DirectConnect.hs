@@ -64,9 +64,6 @@ module Network.AWS.DirectConnect
     -- ** DescribeConnections
     , module Network.AWS.DirectConnect.DescribeConnections
 
-    -- ** DescribeConnectionsOnInterconnect
-    , module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
-
     -- ** DeleteInterconnect
     , module Network.AWS.DirectConnect.DeleteInterconnect
 
@@ -103,17 +100,11 @@ module Network.AWS.DirectConnect
     -- ** DeleteVirtualInterface
     , module Network.AWS.DirectConnect.DeleteVirtualInterface
 
-    -- ** DescribeInterconnectLoa
-    , module Network.AWS.DirectConnect.DescribeInterconnectLoa
-
     -- ** CreatePrivateVirtualInterface
     , module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
 
     -- ** AllocatePublicVirtualInterface
     , module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
-
-    -- ** AllocateConnectionOnInterconnect
-    , module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
 
     -- ** DisassociateConnectionFromLag
     , module Network.AWS.DirectConnect.DisassociateConnectionFromLag
@@ -144,9 +135,6 @@ module Network.AWS.DirectConnect
 
     -- ** CreateLag
     , module Network.AWS.DirectConnect.CreateLag
-
-    -- ** DescribeConnectionLoa
-    , module Network.AWS.DirectConnect.DescribeConnectionLoa
 
     -- ** DescribeHostedConnections
     , module Network.AWS.DirectConnect.DescribeHostedConnections
@@ -237,12 +225,6 @@ module Network.AWS.DirectConnect
     , lagLagState
     , lagOwnerAccount
     , lagRegion
-
-    -- ** Loa
-    , Loa
-    , loa
-    , loaLoaContent
-    , loaLoaContentType
 
     -- ** Location
     , Location
@@ -351,7 +333,6 @@ module Network.AWS.DirectConnect
     , viVirtualInterfaceId
     ) where
 
-import           Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
 import           Network.AWS.DirectConnect.AllocateHostedConnection
 import           Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
 import           Network.AWS.DirectConnect.AllocatePublicVirtualInterface
@@ -372,11 +353,8 @@ import           Network.AWS.DirectConnect.DeleteConnection
 import           Network.AWS.DirectConnect.DeleteInterconnect
 import           Network.AWS.DirectConnect.DeleteLag
 import           Network.AWS.DirectConnect.DeleteVirtualInterface
-import           Network.AWS.DirectConnect.DescribeConnectionLoa
 import           Network.AWS.DirectConnect.DescribeConnections
-import           Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
 import           Network.AWS.DirectConnect.DescribeHostedConnections
-import           Network.AWS.DirectConnect.DescribeInterconnectLoa
 import           Network.AWS.DirectConnect.DescribeInterconnects
 import           Network.AWS.DirectConnect.DescribeLags
 import           Network.AWS.DirectConnect.DescribeLoa

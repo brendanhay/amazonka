@@ -40,7 +40,6 @@ library
 
     exposed-modules:
           Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
         , Network.AWS.DirectConnect.AllocateHostedConnection
         , Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
         , Network.AWS.DirectConnect.AllocatePublicVirtualInterface
@@ -61,11 +60,8 @@ library
         , Network.AWS.DirectConnect.DeleteInterconnect
         , Network.AWS.DirectConnect.DeleteLag
         , Network.AWS.DirectConnect.DeleteVirtualInterface
-        , Network.AWS.DirectConnect.DescribeConnectionLoa
         , Network.AWS.DirectConnect.DescribeConnections
-        , Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
         , Network.AWS.DirectConnect.DescribeHostedConnections
-        , Network.AWS.DirectConnect.DescribeInterconnectLoa
         , Network.AWS.DirectConnect.DescribeInterconnects
         , Network.AWS.DirectConnect.DescribeLags
         , Network.AWS.DirectConnect.DescribeLoa

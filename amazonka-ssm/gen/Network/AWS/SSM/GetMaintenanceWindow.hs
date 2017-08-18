@@ -40,6 +40,7 @@ module Network.AWS.SSM.GetMaintenanceWindow
     , gmwrsModifiedDate
     , gmwrsCutoff
     , gmwrsAllowUnassociatedTargets
+    , gmwrsDescription
     , gmwrsDuration
     , gmwrsWindowId
     , gmwrsResponseStatus
@@ -88,6 +89,7 @@ instance AWSRequest GetMaintenanceWindow where
                      <*> (x .?> "ModifiedDate")
                      <*> (x .?> "Cutoff")
                      <*> (x .?> "AllowUnassociatedTargets")
+                     <*> (x .?> "Description")
                      <*> (x .?> "Duration")
                      <*> (x .?> "WindowId")
                      <*> (pure (fromEnum s)))
@@ -125,10 +127,11 @@ data GetMaintenanceWindowResponse = GetMaintenanceWindowResponse'
     , _gmwrsModifiedDate             :: !(Maybe POSIX)
     , _gmwrsCutoff                   :: !(Maybe Nat)
     , _gmwrsAllowUnassociatedTargets :: !(Maybe Bool)
+    , _gmwrsDescription              :: !(Maybe (Sensitive Text))
     , _gmwrsDuration                 :: !(Maybe Nat)
     , _gmwrsWindowId                 :: !(Maybe Text)
     , _gmwrsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetMaintenanceWindowResponse' with the minimum fields required to make a request.
 --
@@ -148,6 +151,8 @@ data GetMaintenanceWindowResponse = GetMaintenanceWindowResponse'
 --
 -- * 'gmwrsAllowUnassociatedTargets' - Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
 --
+-- * 'gmwrsDescription' - The description of the Maintenance Window.
+--
 -- * 'gmwrsDuration' - The duration of the Maintenance Window in hours.
 --
 -- * 'gmwrsWindowId' - The ID of the created Maintenance Window.
@@ -165,6 +170,7 @@ getMaintenanceWindowResponse pResponseStatus_ =
     , _gmwrsModifiedDate = Nothing
     , _gmwrsCutoff = Nothing
     , _gmwrsAllowUnassociatedTargets = Nothing
+    , _gmwrsDescription = Nothing
     , _gmwrsDuration = Nothing
     , _gmwrsWindowId = Nothing
     , _gmwrsResponseStatus = pResponseStatus_
@@ -197,6 +203,10 @@ gmwrsCutoff = lens _gmwrsCutoff (\ s a -> s{_gmwrsCutoff = a}) . mapping _Nat;
 -- | Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
 gmwrsAllowUnassociatedTargets :: Lens' GetMaintenanceWindowResponse (Maybe Bool)
 gmwrsAllowUnassociatedTargets = lens _gmwrsAllowUnassociatedTargets (\ s a -> s{_gmwrsAllowUnassociatedTargets = a});
+
+-- | The description of the Maintenance Window.
+gmwrsDescription :: Lens' GetMaintenanceWindowResponse (Maybe Text)
+gmwrsDescription = lens _gmwrsDescription (\ s a -> s{_gmwrsDescription = a}) . mapping _Sensitive;
 
 -- | The duration of the Maintenance Window in hours.
 gmwrsDuration :: Lens' GetMaintenanceWindowResponse (Maybe Natural)

@@ -58,7 +58,7 @@ data DescribePatchBaselines = DescribePatchBaselines'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpbFilters' - Each element in the array is a structure containing:  Key: (string, “NAME_PREFIX” or “OWNER”) Value: (array of strings, exactly 1 entry, 1 ≤ length ≤ 255)
+-- * 'dpbFilters' - Each element in the array is a structure containing:  Key: (string, "NAME_PREFIX" or "OWNER") Value: (array of strings, exactly 1 entry, between 1 and 255 characters)
 --
 -- * 'dpbNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
@@ -72,7 +72,7 @@ describePatchBaselines =
     , _dpbMaxResults = Nothing
     }
 
--- | Each element in the array is a structure containing:  Key: (string, “NAME_PREFIX” or “OWNER”) Value: (array of strings, exactly 1 entry, 1 ≤ length ≤ 255)
+-- | Each element in the array is a structure containing:  Key: (string, "NAME_PREFIX" or "OWNER") Value: (array of strings, exactly 1 entry, between 1 and 255 characters)
 dpbFilters :: Lens' DescribePatchBaselines [PatchOrchestratorFilter]
 dpbFilters = lens _dpbFilters (\ s a -> s{_dpbFilters = a}) . _Default . _Coerce;
 

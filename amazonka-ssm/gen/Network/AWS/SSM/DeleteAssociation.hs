@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates the specified SSM document from the specified instance.
+-- Disassociates the specified Systems Manager document from the specified instance.
 --
 --
--- When you disassociate an SSM document from an instance, it does not change the configuration of the instance. To change the configuration state of an instance after you disassociate a document, you must create a new document with the desired configuration and associate it with the instance.
+-- When you disassociate a document from an instance, it does not change the configuration of the instance. To change the configuration state of an instance after you disassociate a document, you must create a new document with the desired configuration and associate it with the instance.
 --
 module Network.AWS.SSM.DeleteAssociation
     (
@@ -62,7 +62,7 @@ data DeleteAssociation = DeleteAssociation'
 --
 -- * 'daaInstanceId' - The ID of the instance.
 --
--- * 'daaName' - The name of the SSM document.
+-- * 'daaName' - The name of the Systems Manager document.
 deleteAssociation
     :: DeleteAssociation
 deleteAssociation =
@@ -80,7 +80,7 @@ daaAssociationId = lens _daaAssociationId (\ s a -> s{_daaAssociationId = a});
 daaInstanceId :: Lens' DeleteAssociation (Maybe Text)
 daaInstanceId = lens _daaInstanceId (\ s a -> s{_daaInstanceId = a});
 
--- | The name of the SSM document.
+-- | The name of the Systems Manager document.
 daaName :: Lens' DeleteAssociation (Maybe Text)
 daaName = lens _daaName (\ s a -> s{_daaName = a});
 

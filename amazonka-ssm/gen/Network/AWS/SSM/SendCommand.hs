@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Executes commands on one or more remote instances.
+-- Executes commands on one or more managed instances.
 --
 --
 module Network.AWS.SSM.SendCommand
@@ -89,15 +89,15 @@ data SendCommand = SendCommand'
 --
 -- * 'scOutputS3KeyPrefix' - The directory structure within the S3 bucket where the responses should be stored.
 --
--- * 'scMaxErrors' - The maximum number of errors allowed without the command failing. When the command fails one more time beyond the value of @MaxErrors@ , the systems stops sending the command to additional targets. You can specify a number like “10” or a percentage like “10%”. The default value is 50. For more information about how to use @MaxErrors@ , see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Windows).
+-- * 'scMaxErrors' - The maximum number of errors allowed without the command failing. When the command fails one more time beyond the value of MaxErrors, the systems stops sending the command to additional targets. You can specify a number like 10 or a percentage like 10%. The default value is 50. For more information about how to use MaxErrors, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-maxerrors.html Using Error Controls> .
 --
--- * 'scInstanceIds' - Required. The instance IDs where the command should execute. You can specify a maximum of 50 IDs.
+-- * 'scInstanceIds' - The instance IDs where the command should execute. You can specify a maximum of 50 IDs. If you prefer not to list individual instance IDs, you can instead send commands to a fleet of instances using the Targets parameter, which accepts EC2 tags. For more information about how to use Targets, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending Commands to a Fleet> .
 --
--- * 'scOutputS3Region' - (Optional) The region where the Amazon Simple Storage Service (Amazon S3) output bucket is located. The default value is the region where Run Command is being called.
+-- * 'scOutputS3Region' - (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Amazon S3 bucket region.
 --
--- * 'scTargets' - (Optional) An array of search criteria that targets instances using a @Key@ ;@Value@ combination that you specify. @Targets@ is required if you don't provide one or more instance IDs in the call. For more information about how to use @Targets@ , see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Windows).
+-- * 'scTargets' - (Optional) An array of search criteria that targets instances using a Key,Value combination that you specify. Targets is required if you don't provide one or more instance IDs in the call. For more information about how to use Targets, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending Commands to a Fleet> .
 --
--- * 'scParameters' - The required and optional parameters specified in the SSM document being executed.
+-- * 'scParameters' - The required and optional parameters specified in the document being executed.
 --
 -- * 'scDocumentHash' - The Sha256 or Sha1 hash created by the system when the document was created.
 --
@@ -107,9 +107,9 @@ data SendCommand = SendCommand'
 --
 -- * 'scOutputS3BucketName' - The name of the S3 bucket where command execution responses should be stored.
 --
--- * 'scMaxConcurrency' - (Optional) The maximum number of instances that are allowed to execute the command at the same time. You can specify a number such as “10” or a percentage such as “10%”. The default value is 50. For more information about how to use @MaxConcurrency@ , see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Windows).
+-- * 'scMaxConcurrency' - (Optional) The maximum number of instances that are allowed to execute the command at the same time. You can specify a number such as 10 or a percentage such as 10%. The default value is 50. For more information about how to use MaxConcurrency, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-velocity.html Using Concurrency Controls> .
 --
--- * 'scDocumentName' - Required. The name of the SSM document to execute. This can be an SSM public document or a custom document.
+-- * 'scDocumentName' - Required. The name of the Systems Manager document to execute. This can be a public document or a custom document.
 sendCommand
     :: Text -- ^ 'scDocumentName'
     -> SendCommand
@@ -148,23 +148,23 @@ scDocumentHashType = lens _scDocumentHashType (\ s a -> s{_scDocumentHashType = 
 scOutputS3KeyPrefix :: Lens' SendCommand (Maybe Text)
 scOutputS3KeyPrefix = lens _scOutputS3KeyPrefix (\ s a -> s{_scOutputS3KeyPrefix = a});
 
--- | The maximum number of errors allowed without the command failing. When the command fails one more time beyond the value of @MaxErrors@ , the systems stops sending the command to additional targets. You can specify a number like “10” or a percentage like “10%”. The default value is 50. For more information about how to use @MaxErrors@ , see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Windows).
+-- | The maximum number of errors allowed without the command failing. When the command fails one more time beyond the value of MaxErrors, the systems stops sending the command to additional targets. You can specify a number like 10 or a percentage like 10%. The default value is 50. For more information about how to use MaxErrors, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-maxerrors.html Using Error Controls> .
 scMaxErrors :: Lens' SendCommand (Maybe Text)
 scMaxErrors = lens _scMaxErrors (\ s a -> s{_scMaxErrors = a});
 
--- | Required. The instance IDs where the command should execute. You can specify a maximum of 50 IDs.
+-- | The instance IDs where the command should execute. You can specify a maximum of 50 IDs. If you prefer not to list individual instance IDs, you can instead send commands to a fleet of instances using the Targets parameter, which accepts EC2 tags. For more information about how to use Targets, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending Commands to a Fleet> .
 scInstanceIds :: Lens' SendCommand [Text]
 scInstanceIds = lens _scInstanceIds (\ s a -> s{_scInstanceIds = a}) . _Default . _Coerce;
 
--- | (Optional) The region where the Amazon Simple Storage Service (Amazon S3) output bucket is located. The default value is the region where Run Command is being called.
+-- | (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Amazon S3 bucket region.
 scOutputS3Region :: Lens' SendCommand (Maybe Text)
 scOutputS3Region = lens _scOutputS3Region (\ s a -> s{_scOutputS3Region = a});
 
--- | (Optional) An array of search criteria that targets instances using a @Key@ ;@Value@ combination that you specify. @Targets@ is required if you don't provide one or more instance IDs in the call. For more information about how to use @Targets@ , see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Windows).
+-- | (Optional) An array of search criteria that targets instances using a Key,Value combination that you specify. Targets is required if you don't provide one or more instance IDs in the call. For more information about how to use Targets, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending Commands to a Fleet> .
 scTargets :: Lens' SendCommand [Target]
 scTargets = lens _scTargets (\ s a -> s{_scTargets = a}) . _Default . _Coerce;
 
--- | The required and optional parameters specified in the SSM document being executed.
+-- | The required and optional parameters specified in the document being executed.
 scParameters :: Lens' SendCommand (HashMap Text [Text])
 scParameters = lens _scParameters (\ s a -> s{_scParameters = a}) . _Default . _Map;
 
@@ -184,11 +184,11 @@ scComment = lens _scComment (\ s a -> s{_scComment = a});
 scOutputS3BucketName :: Lens' SendCommand (Maybe Text)
 scOutputS3BucketName = lens _scOutputS3BucketName (\ s a -> s{_scOutputS3BucketName = a});
 
--- | (Optional) The maximum number of instances that are allowed to execute the command at the same time. You can specify a number such as “10” or a percentage such as “10%”. The default value is 50. For more information about how to use @MaxConcurrency@ , see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Windows).
+-- | (Optional) The maximum number of instances that are allowed to execute the command at the same time. You can specify a number such as 10 or a percentage such as 10%. The default value is 50. For more information about how to use MaxConcurrency, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-velocity.html Using Concurrency Controls> .
 scMaxConcurrency :: Lens' SendCommand (Maybe Text)
 scMaxConcurrency = lens _scMaxConcurrency (\ s a -> s{_scMaxConcurrency = a});
 
--- | Required. The name of the SSM document to execute. This can be an SSM public document or a custom document.
+-- | Required. The name of the Systems Manager document to execute. This can be a public document or a custom document.
 scDocumentName :: Lens' SendCommand Text
 scDocumentName = lens _scDocumentName (\ s a -> s{_scDocumentName = a});
 

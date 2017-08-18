@@ -29,6 +29,8 @@ module Network.AWS.SSM.RegisterTargetWithMaintenanceWindow
     -- * Request Lenses
     , rClientToken
     , rOwnerInformation
+    , rName
+    , rDescription
     , rWindowId
     , rResourceType
     , rTargets
@@ -52,6 +54,8 @@ import           Network.AWS.SSM.Types.Product
 data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
     { _rClientToken      :: !(Maybe Text)
     , _rOwnerInformation :: !(Maybe (Sensitive Text))
+    , _rName             :: !(Maybe Text)
+    , _rDescription      :: !(Maybe (Sensitive Text))
     , _rWindowId         :: !Text
     , _rResourceType     :: !MaintenanceWindowResourceType
     , _rTargets          :: ![Target]
@@ -64,6 +68,10 @@ data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
 -- * 'rClientToken' - User-provided idempotency token.
 --
 -- * 'rOwnerInformation' - User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
+--
+-- * 'rName' - An optional name for the target.
+--
+-- * 'rDescription' - An optional description for the target.
 --
 -- * 'rWindowId' - The ID of the Maintenance Window the target should be registered with.
 --
@@ -78,6 +86,8 @@ registerTargetWithMaintenanceWindow pWindowId_ pResourceType_ =
     RegisterTargetWithMaintenanceWindow'
     { _rClientToken = Nothing
     , _rOwnerInformation = Nothing
+    , _rName = Nothing
+    , _rDescription = Nothing
     , _rWindowId = pWindowId_
     , _rResourceType = pResourceType_
     , _rTargets = mempty
@@ -90,6 +100,14 @@ rClientToken = lens _rClientToken (\ s a -> s{_rClientToken = a});
 -- | User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
 rOwnerInformation :: Lens' RegisterTargetWithMaintenanceWindow (Maybe Text)
 rOwnerInformation = lens _rOwnerInformation (\ s a -> s{_rOwnerInformation = a}) . mapping _Sensitive;
+
+-- | An optional name for the target.
+rName :: Lens' RegisterTargetWithMaintenanceWindow (Maybe Text)
+rName = lens _rName (\ s a -> s{_rName = a});
+
+-- | An optional description for the target.
+rDescription :: Lens' RegisterTargetWithMaintenanceWindow (Maybe Text)
+rDescription = lens _rDescription (\ s a -> s{_rDescription = a}) . mapping _Sensitive;
 
 -- | The ID of the Maintenance Window the target should be registered with.
 rWindowId :: Lens' RegisterTargetWithMaintenanceWindow Text
@@ -136,6 +154,8 @@ instance ToJSON RegisterTargetWithMaintenanceWindow
               (catMaybes
                  [("ClientToken" .=) <$> _rClientToken,
                   ("OwnerInformation" .=) <$> _rOwnerInformation,
+                  ("Name" .=) <$> _rName,
+                  ("Description" .=) <$> _rDescription,
                   Just ("WindowId" .= _rWindowId),
                   Just ("ResourceType" .= _rResourceType),
                   Just ("Targets" .= _rTargets)])

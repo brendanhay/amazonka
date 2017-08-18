@@ -58,7 +58,7 @@ data DescribeMaintenanceWindows = DescribeMaintenanceWindows'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmwFilters' - Optional filters used to narrow down the scope of the returned Maintenance Windows. Supported filter keys are @Name@ and @Enabled@ .
+-- * 'dmwFilters' - Optional filters used to narrow down the scope of the returned Maintenance Windows. Supported filter keys are Name and Enabled.
 --
 -- * 'dmwNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
@@ -72,7 +72,7 @@ describeMaintenanceWindows =
     , _dmwMaxResults = Nothing
     }
 
--- | Optional filters used to narrow down the scope of the returned Maintenance Windows. Supported filter keys are @Name@ and @Enabled@ .
+-- | Optional filters used to narrow down the scope of the returned Maintenance Windows. Supported filter keys are Name and Enabled.
 dmwFilters :: Lens' DescribeMaintenanceWindows [MaintenanceWindowFilter]
 dmwFilters = lens _dmwFilters (\ s a -> s{_dmwFilters = a}) . _Default . _Coerce;
 
@@ -129,7 +129,7 @@ data DescribeMaintenanceWindowsResponse = DescribeMaintenanceWindowsResponse'
     { _dmwsrsWindowIdentities :: !(Maybe [MaintenanceWindowIdentity])
     , _dmwsrsNextToken        :: !(Maybe Text)
     , _dmwsrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeMaintenanceWindowsResponse' with the minimum fields required to make a request.
 --

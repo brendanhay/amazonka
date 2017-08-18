@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the current snapshot for the patch baseline the instance uses. This API is primarily used by the AWS-ApplyPatchBaseline Systems Manager document.
+-- Retrieves the current snapshot for the patch baseline the instance uses. This API is primarily used by the AWS-RunPatchBaseline Systems Manager document.
 --
 --
 module Network.AWS.SSM.GetDeployablePatchSnapshotForInstance
@@ -35,6 +35,7 @@ module Network.AWS.SSM.GetDeployablePatchSnapshotForInstance
     , GetDeployablePatchSnapshotForInstanceResponse
     -- * Response Lenses
     , gdpsfirsInstanceId
+    , gdpsfirsProduct
     , gdpsfirsSnapshotDownloadURL
     , gdpsfirsSnapshotId
     , gdpsfirsResponseStatus
@@ -87,7 +88,7 @@ instance AWSRequest
           = receiveJSON
               (\ s h x ->
                  GetDeployablePatchSnapshotForInstanceResponse' <$>
-                   (x .?> "InstanceId") <*>
+                   (x .?> "InstanceId") <*> (x .?> "Product") <*>
                      (x .?> "SnapshotDownloadUrl")
                      <*> (x .?> "SnapshotId")
                      <*> (pure (fromEnum s)))
@@ -127,6 +128,7 @@ instance ToQuery
 -- | /See:/ 'getDeployablePatchSnapshotForInstanceResponse' smart constructor.
 data GetDeployablePatchSnapshotForInstanceResponse = GetDeployablePatchSnapshotForInstanceResponse'
     { _gdpsfirsInstanceId          :: !(Maybe Text)
+    , _gdpsfirsProduct             :: !(Maybe Text)
     , _gdpsfirsSnapshotDownloadURL :: !(Maybe Text)
     , _gdpsfirsSnapshotId          :: !(Maybe Text)
     , _gdpsfirsResponseStatus      :: !Int
@@ -137,6 +139,8 @@ data GetDeployablePatchSnapshotForInstanceResponse = GetDeployablePatchSnapshotF
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gdpsfirsInstanceId' - The ID of the instance.
+--
+-- * 'gdpsfirsProduct' - Returns the specific operating system (for example Windows Server 2012 or Amazon Linux 2015.09) on the instance for the specified patch snapshot.
 --
 -- * 'gdpsfirsSnapshotDownloadURL' - A pre-signed Amazon S3 URL that can be used to download the patch snapshot.
 --
@@ -149,6 +153,7 @@ getDeployablePatchSnapshotForInstanceResponse
 getDeployablePatchSnapshotForInstanceResponse pResponseStatus_ =
     GetDeployablePatchSnapshotForInstanceResponse'
     { _gdpsfirsInstanceId = Nothing
+    , _gdpsfirsProduct = Nothing
     , _gdpsfirsSnapshotDownloadURL = Nothing
     , _gdpsfirsSnapshotId = Nothing
     , _gdpsfirsResponseStatus = pResponseStatus_
@@ -157,6 +162,10 @@ getDeployablePatchSnapshotForInstanceResponse pResponseStatus_ =
 -- | The ID of the instance.
 gdpsfirsInstanceId :: Lens' GetDeployablePatchSnapshotForInstanceResponse (Maybe Text)
 gdpsfirsInstanceId = lens _gdpsfirsInstanceId (\ s a -> s{_gdpsfirsInstanceId = a});
+
+-- | Returns the specific operating system (for example Windows Server 2012 or Amazon Linux 2015.09) on the instance for the specified patch snapshot.
+gdpsfirsProduct :: Lens' GetDeployablePatchSnapshotForInstanceResponse (Maybe Text)
+gdpsfirsProduct = lens _gdpsfirsProduct (\ s a -> s{_gdpsfirsProduct = a});
 
 -- | A pre-signed Amazon S3 URL that can be used to download the patch snapshot.
 gdpsfirsSnapshotDownloadURL :: Lens' GetDeployablePatchSnapshotForInstanceResponse (Maybe Text)

@@ -29,7 +29,9 @@ module Network.AWS.SSM.CreatePatchBaseline
     -- * Request Lenses
     , cpbApprovalRules
     , cpbClientToken
+    , cpbOperatingSystem
     , cpbGlobalFilters
+    , cpbApprovedPatchesComplianceLevel
     , cpbApprovedPatches
     , cpbRejectedPatches
     , cpbDescription
@@ -52,13 +54,15 @@ import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createPatchBaseline' smart constructor.
 data CreatePatchBaseline = CreatePatchBaseline'
-    { _cpbApprovalRules   :: !(Maybe PatchRuleGroup)
-    , _cpbClientToken     :: !(Maybe Text)
-    , _cpbGlobalFilters   :: !(Maybe PatchFilterGroup)
-    , _cpbApprovedPatches :: !(Maybe [Text])
-    , _cpbRejectedPatches :: !(Maybe [Text])
-    , _cpbDescription     :: !(Maybe Text)
-    , _cpbName            :: !Text
+    { _cpbApprovalRules                  :: !(Maybe PatchRuleGroup)
+    , _cpbClientToken                    :: !(Maybe Text)
+    , _cpbOperatingSystem                :: !(Maybe OperatingSystem)
+    , _cpbGlobalFilters                  :: !(Maybe PatchFilterGroup)
+    , _cpbApprovedPatchesComplianceLevel :: !(Maybe PatchComplianceLevel)
+    , _cpbApprovedPatches                :: !(Maybe [Text])
+    , _cpbRejectedPatches                :: !(Maybe [Text])
+    , _cpbDescription                    :: !(Maybe Text)
+    , _cpbName                           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreatePatchBaseline' with the minimum fields required to make a request.
@@ -67,9 +71,13 @@ data CreatePatchBaseline = CreatePatchBaseline'
 --
 -- * 'cpbApprovalRules' - A set of rules used to include patches in the baseline.
 --
--- * 'cpbClientToken' - Caller-provided idempotency token.
+-- * 'cpbClientToken' - User-provided idempotency token.
+--
+-- * 'cpbOperatingSystem' - Defines the operating system the patch baseline applies to. Supported operating systems include WINDOWS, AMAZON_LINUX, UBUNTU and REDHAT_ENTERPRISE_LINUX. The Default value is WINDOWS.
 --
 -- * 'cpbGlobalFilters' - A set of global filters used to exclude patches from the baseline.
+--
+-- * 'cpbApprovedPatchesComplianceLevel' - Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance severity levels include the following: CRITICAL, HIGH, MEDIUM, LOW, INFORMATIONAL, UNSPECIFIED. The default value is UNSPECIFIED.
 --
 -- * 'cpbApprovedPatches' - A list of explicitly approved patches for the baseline.
 --
@@ -85,7 +93,9 @@ createPatchBaseline pName_ =
     CreatePatchBaseline'
     { _cpbApprovalRules = Nothing
     , _cpbClientToken = Nothing
+    , _cpbOperatingSystem = Nothing
     , _cpbGlobalFilters = Nothing
+    , _cpbApprovedPatchesComplianceLevel = Nothing
     , _cpbApprovedPatches = Nothing
     , _cpbRejectedPatches = Nothing
     , _cpbDescription = Nothing
@@ -96,13 +106,21 @@ createPatchBaseline pName_ =
 cpbApprovalRules :: Lens' CreatePatchBaseline (Maybe PatchRuleGroup)
 cpbApprovalRules = lens _cpbApprovalRules (\ s a -> s{_cpbApprovalRules = a});
 
--- | Caller-provided idempotency token.
+-- | User-provided idempotency token.
 cpbClientToken :: Lens' CreatePatchBaseline (Maybe Text)
 cpbClientToken = lens _cpbClientToken (\ s a -> s{_cpbClientToken = a});
+
+-- | Defines the operating system the patch baseline applies to. Supported operating systems include WINDOWS, AMAZON_LINUX, UBUNTU and REDHAT_ENTERPRISE_LINUX. The Default value is WINDOWS.
+cpbOperatingSystem :: Lens' CreatePatchBaseline (Maybe OperatingSystem)
+cpbOperatingSystem = lens _cpbOperatingSystem (\ s a -> s{_cpbOperatingSystem = a});
 
 -- | A set of global filters used to exclude patches from the baseline.
 cpbGlobalFilters :: Lens' CreatePatchBaseline (Maybe PatchFilterGroup)
 cpbGlobalFilters = lens _cpbGlobalFilters (\ s a -> s{_cpbGlobalFilters = a});
+
+-- | Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance severity levels include the following: CRITICAL, HIGH, MEDIUM, LOW, INFORMATIONAL, UNSPECIFIED. The default value is UNSPECIFIED.
+cpbApprovedPatchesComplianceLevel :: Lens' CreatePatchBaseline (Maybe PatchComplianceLevel)
+cpbApprovedPatchesComplianceLevel = lens _cpbApprovedPatchesComplianceLevel (\ s a -> s{_cpbApprovedPatchesComplianceLevel = a});
 
 -- | A list of explicitly approved patches for the baseline.
 cpbApprovedPatches :: Lens' CreatePatchBaseline [Text]
@@ -149,7 +167,10 @@ instance ToJSON CreatePatchBaseline where
               (catMaybes
                  [("ApprovalRules" .=) <$> _cpbApprovalRules,
                   ("ClientToken" .=) <$> _cpbClientToken,
+                  ("OperatingSystem" .=) <$> _cpbOperatingSystem,
                   ("GlobalFilters" .=) <$> _cpbGlobalFilters,
+                  ("ApprovedPatchesComplianceLevel" .=) <$>
+                    _cpbApprovedPatchesComplianceLevel,
                   ("ApprovedPatches" .=) <$> _cpbApprovedPatches,
                   ("RejectedPatches" .=) <$> _cpbRejectedPatches,
                   ("Description" .=) <$> _cpbDescription,

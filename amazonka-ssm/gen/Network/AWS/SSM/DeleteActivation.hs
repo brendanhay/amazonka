@@ -33,7 +33,7 @@ module Network.AWS.SSM.DeleteActivation
     , deleteActivationResponse
     , DeleteActivationResponse
     -- * Response Lenses
-    , daarsResponseStatus
+    , delersResponseStatus
     ) where
 
 import           Network.AWS.Lens
@@ -100,24 +100,24 @@ instance ToQuery DeleteActivation where
 
 -- | /See:/ 'deleteActivationResponse' smart constructor.
 newtype DeleteActivationResponse = DeleteActivationResponse'
-    { _daarsResponseStatus :: Int
+    { _delersResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteActivationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daarsResponseStatus' - -- | The response status code.
+-- * 'delersResponseStatus' - -- | The response status code.
 deleteActivationResponse
-    :: Int -- ^ 'daarsResponseStatus'
+    :: Int -- ^ 'delersResponseStatus'
     -> DeleteActivationResponse
 deleteActivationResponse pResponseStatus_ =
     DeleteActivationResponse'
-    { _daarsResponseStatus = pResponseStatus_
+    { _delersResponseStatus = pResponseStatus_
     }
 
 -- | -- | The response status code.
-daarsResponseStatus :: Lens' DeleteActivationResponse Int
-daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a});
+delersResponseStatus :: Lens' DeleteActivationResponse Int
+delersResponseStatus = lens _delersResponseStatus (\ s a -> s{_delersResponseStatus = a});
 
 instance NFData DeleteActivationResponse

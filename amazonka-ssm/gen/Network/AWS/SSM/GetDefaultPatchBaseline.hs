@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the default patch baseline.
+-- Retrieves the default patch baseline. Note that Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
 --
 --
 module Network.AWS.SSM.GetDefaultPatchBaseline
@@ -26,11 +26,14 @@ module Network.AWS.SSM.GetDefaultPatchBaseline
     -- * Creating a Request
       getDefaultPatchBaseline
     , GetDefaultPatchBaseline
+    -- * Request Lenses
+    , gdpbOperatingSystem
 
     -- * Destructuring the Response
     , getDefaultPatchBaselineResponse
     , GetDefaultPatchBaselineResponse
     -- * Response Lenses
+    , gdpbrsOperatingSystem
     , gdpbrsBaselineId
     , gdpbrsResponseStatus
     ) where
@@ -43,15 +46,25 @@ import           Network.AWS.SSM.Types
 import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getDefaultPatchBaseline' smart constructor.
-data GetDefaultPatchBaseline =
-    GetDefaultPatchBaseline'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+newtype GetDefaultPatchBaseline = GetDefaultPatchBaseline'
+    { _gdpbOperatingSystem :: Maybe OperatingSystem
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetDefaultPatchBaseline' with the minimum fields required to make a request.
 --
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdpbOperatingSystem' - Returns the default patch baseline for the specified operating system.
 getDefaultPatchBaseline
     :: GetDefaultPatchBaseline
-getDefaultPatchBaseline = GetDefaultPatchBaseline'
+getDefaultPatchBaseline =
+    GetDefaultPatchBaseline'
+    { _gdpbOperatingSystem = Nothing
+    }
+
+-- | Returns the default patch baseline for the specified operating system.
+gdpbOperatingSystem :: Lens' GetDefaultPatchBaseline (Maybe OperatingSystem)
+gdpbOperatingSystem = lens _gdpbOperatingSystem (\ s a -> s{_gdpbOperatingSystem = a});
 
 instance AWSRequest GetDefaultPatchBaseline where
         type Rs GetDefaultPatchBaseline =
@@ -61,7 +74,8 @@ instance AWSRequest GetDefaultPatchBaseline where
           = receiveJSON
               (\ s h x ->
                  GetDefaultPatchBaselineResponse' <$>
-                   (x .?> "BaselineId") <*> (pure (fromEnum s)))
+                   (x .?> "OperatingSystem") <*> (x .?> "BaselineId")
+                     <*> (pure (fromEnum s)))
 
 instance Hashable GetDefaultPatchBaseline
 
@@ -77,7 +91,10 @@ instance ToHeaders GetDefaultPatchBaseline where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetDefaultPatchBaseline where
-        toJSON = const (Object mempty)
+        toJSON GetDefaultPatchBaseline'{..}
+          = object
+              (catMaybes
+                 [("OperatingSystem" .=) <$> _gdpbOperatingSystem])
 
 instance ToPath GetDefaultPatchBaseline where
         toPath = const "/"
@@ -87,13 +104,16 @@ instance ToQuery GetDefaultPatchBaseline where
 
 -- | /See:/ 'getDefaultPatchBaselineResponse' smart constructor.
 data GetDefaultPatchBaselineResponse = GetDefaultPatchBaselineResponse'
-    { _gdpbrsBaselineId     :: !(Maybe Text)
-    , _gdpbrsResponseStatus :: !Int
+    { _gdpbrsOperatingSystem :: !(Maybe OperatingSystem)
+    , _gdpbrsBaselineId      :: !(Maybe Text)
+    , _gdpbrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetDefaultPatchBaselineResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdpbrsOperatingSystem' - The operating system for the returned patch baseline.
 --
 -- * 'gdpbrsBaselineId' - The ID of the default patch baseline.
 --
@@ -103,9 +123,14 @@ getDefaultPatchBaselineResponse
     -> GetDefaultPatchBaselineResponse
 getDefaultPatchBaselineResponse pResponseStatus_ =
     GetDefaultPatchBaselineResponse'
-    { _gdpbrsBaselineId = Nothing
+    { _gdpbrsOperatingSystem = Nothing
+    , _gdpbrsBaselineId = Nothing
     , _gdpbrsResponseStatus = pResponseStatus_
     }
+
+-- | The operating system for the returned patch baseline.
+gdpbrsOperatingSystem :: Lens' GetDefaultPatchBaselineResponse (Maybe OperatingSystem)
+gdpbrsOperatingSystem = lens _gdpbrsOperatingSystem (\ s a -> s{_gdpbrsOperatingSystem = a});
 
 -- | The ID of the default patch baseline.
 gdpbrsBaselineId :: Lens' GetDefaultPatchBaselineResponse (Maybe Text)

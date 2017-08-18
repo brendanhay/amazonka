@@ -21,12 +21,17 @@
 -- Get information about a parameter.
 --
 --
+-- Request results are returned on a best-effort basis. If you specify @MaxResults@ in the request, the response includes information up to the limit specified. The number of items returned, however, can be between zero and the value of @MaxResults@ . If the service reaches an internal limit while processing the results, it stops the operation and returns the matching values up to that point and a @NextToken@ . You can specify the @NextToken@ in a subsequent call to get the next set of results.
+--
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribeParameters
     (
     -- * Creating a Request
       describeParameters
     , DescribeParameters
     -- * Request Lenses
+    , dpParameterFilters
     , dpFilters
     , dpNextToken
     , dpMaxResults
@@ -41,6 +46,7 @@ module Network.AWS.SSM.DescribeParameters
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -49,14 +55,17 @@ import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeParameters' smart constructor.
 data DescribeParameters = DescribeParameters'
-    { _dpFilters    :: !(Maybe [ParametersFilter])
-    , _dpNextToken  :: !(Maybe Text)
-    , _dpMaxResults :: !(Maybe Nat)
+    { _dpParameterFilters :: !(Maybe [ParameterStringFilter])
+    , _dpFilters          :: !(Maybe [ParametersFilter])
+    , _dpNextToken        :: !(Maybe Text)
+    , _dpMaxResults       :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeParameters' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpParameterFilters' - Filters to limit the request results.
 --
 -- * 'dpFilters' - One or more filters. Use a filter to return a more specific list of results.
 --
@@ -67,10 +76,15 @@ describeParameters
     :: DescribeParameters
 describeParameters =
     DescribeParameters'
-    { _dpFilters = Nothing
+    { _dpParameterFilters = Nothing
+    , _dpFilters = Nothing
     , _dpNextToken = Nothing
     , _dpMaxResults = Nothing
     }
+
+-- | Filters to limit the request results.
+dpParameterFilters :: Lens' DescribeParameters [ParameterStringFilter]
+dpParameterFilters = lens _dpParameterFilters (\ s a -> s{_dpParameterFilters = a}) . _Default . _Coerce;
 
 -- | One or more filters. Use a filter to return a more specific list of results.
 dpFilters :: Lens' DescribeParameters [ParametersFilter]
@@ -83,6 +97,13 @@ dpNextToken = lens _dpNextToken (\ s a -> s{_dpNextToken = a});
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 dpMaxResults :: Lens' DescribeParameters (Maybe Natural)
 dpMaxResults = lens _dpMaxResults (\ s a -> s{_dpMaxResults = a}) . mapping _Nat;
+
+instance AWSPager DescribeParameters where
+        page rq rs
+          | stop (rs ^. dprsNextToken) = Nothing
+          | stop (rs ^. dprsParameters) = Nothing
+          | otherwise =
+            Just $ rq & dpNextToken .~ rs ^. dprsNextToken
 
 instance AWSRequest DescribeParameters where
         type Rs DescribeParameters =
@@ -113,7 +134,8 @@ instance ToJSON DescribeParameters where
         toJSON DescribeParameters'{..}
           = object
               (catMaybes
-                 [("Filters" .=) <$> _dpFilters,
+                 [("ParameterFilters" .=) <$> _dpParameterFilters,
+                  ("Filters" .=) <$> _dpFilters,
                   ("NextToken" .=) <$> _dpNextToken,
                   ("MaxResults" .=) <$> _dpMaxResults])
 

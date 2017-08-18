@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the SSM document and all instance associations to the document.
+-- Deletes the Systems Manager document and all instance associations to the document.
 --
 --
--- Before you delete the SSM document, we recommend that you use DeleteAssociation to disassociate all instances that are associated with the document.
+-- Before you delete the document, we recommend that you use 'DeleteAssociation' to disassociate all instances that are associated with the document.
 --
 module Network.AWS.SSM.DeleteDocument
     (
@@ -54,7 +54,7 @@ newtype DeleteDocument = DeleteDocument'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dddName' - The name of the SSM document.
+-- * 'dddName' - The name of the document.
 deleteDocument
     :: Text -- ^ 'dddName'
     -> DeleteDocument
@@ -63,7 +63,7 @@ deleteDocument pName_ =
     { _dddName = pName_
     }
 
--- | The name of the SSM document.
+-- | The name of the document.
 dddName :: Lens' DeleteDocument Text
 dddName = lens _dddName (\ s a -> s{_dddName = a});
 

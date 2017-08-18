@@ -40,9 +40,9 @@ module Network.AWS.SSM.ListCommandInvocations
     , listCommandInvocationsResponse
     , ListCommandInvocationsResponse
     -- * Response Lenses
-    , lcirsNextToken
-    , lcirsCommandInvocations
-    , lcirsResponseStatus
+    , lrsNextToken
+    , lrsCommandInvocations
+    , lrsResponseStatus
     ) where
 
 import           Network.AWS.Lens
@@ -116,10 +116,10 @@ lciMaxResults = lens _lciMaxResults (\ s a -> s{_lciMaxResults = a}) . mapping _
 
 instance AWSPager ListCommandInvocations where
         page rq rs
-          | stop (rs ^. lcirsNextToken) = Nothing
-          | stop (rs ^. lcirsCommandInvocations) = Nothing
+          | stop (rs ^. lrsNextToken) = Nothing
+          | stop (rs ^. lrsCommandInvocations) = Nothing
           | otherwise =
-            Just $ rq & lciNextToken .~ rs ^. lcirsNextToken
+            Just $ rq & lciNextToken .~ rs ^. lrsNextToken
 
 instance AWSRequest ListCommandInvocations where
         type Rs ListCommandInvocations =
@@ -165,40 +165,40 @@ instance ToQuery ListCommandInvocations where
 
 -- | /See:/ 'listCommandInvocationsResponse' smart constructor.
 data ListCommandInvocationsResponse = ListCommandInvocationsResponse'
-    { _lcirsNextToken          :: !(Maybe Text)
-    , _lcirsCommandInvocations :: !(Maybe [CommandInvocation])
-    , _lcirsResponseStatus     :: !Int
+    { _lrsNextToken          :: !(Maybe Text)
+    , _lrsCommandInvocations :: !(Maybe [CommandInvocation])
+    , _lrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListCommandInvocationsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcirsNextToken' - (Optional) The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'lrsNextToken' - (Optional) The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'lcirsCommandInvocations' - (Optional) A list of all invocations.
+-- * 'lrsCommandInvocations' - (Optional) A list of all invocations.
 --
--- * 'lcirsResponseStatus' - -- | The response status code.
+-- * 'lrsResponseStatus' - -- | The response status code.
 listCommandInvocationsResponse
-    :: Int -- ^ 'lcirsResponseStatus'
+    :: Int -- ^ 'lrsResponseStatus'
     -> ListCommandInvocationsResponse
 listCommandInvocationsResponse pResponseStatus_ =
     ListCommandInvocationsResponse'
-    { _lcirsNextToken = Nothing
-    , _lcirsCommandInvocations = Nothing
-    , _lcirsResponseStatus = pResponseStatus_
+    { _lrsNextToken = Nothing
+    , _lrsCommandInvocations = Nothing
+    , _lrsResponseStatus = pResponseStatus_
     }
 
 -- | (Optional) The token for the next set of items to return. (You received this token from a previous call.)
-lcirsNextToken :: Lens' ListCommandInvocationsResponse (Maybe Text)
-lcirsNextToken = lens _lcirsNextToken (\ s a -> s{_lcirsNextToken = a});
+lrsNextToken :: Lens' ListCommandInvocationsResponse (Maybe Text)
+lrsNextToken = lens _lrsNextToken (\ s a -> s{_lrsNextToken = a});
 
 -- | (Optional) A list of all invocations.
-lcirsCommandInvocations :: Lens' ListCommandInvocationsResponse [CommandInvocation]
-lcirsCommandInvocations = lens _lcirsCommandInvocations (\ s a -> s{_lcirsCommandInvocations = a}) . _Default . _Coerce;
+lrsCommandInvocations :: Lens' ListCommandInvocationsResponse [CommandInvocation]
+lrsCommandInvocations = lens _lrsCommandInvocations (\ s a -> s{_lrsCommandInvocations = a}) . _Default . _Coerce;
 
 -- | -- | The response status code.
-lcirsResponseStatus :: Lens' ListCommandInvocationsResponse Int
-lcirsResponseStatus = lens _lcirsResponseStatus (\ s a -> s{_lcirsResponseStatus = a});
+lrsResponseStatus :: Lens' ListCommandInvocationsResponse Int
+lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
 
 instance NFData ListCommandInvocationsResponse

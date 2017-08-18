@@ -27,6 +27,7 @@ module Network.AWS.SSM.DescribePatchGroups
       describePatchGroups
     , DescribePatchGroups
     -- * Request Lenses
+    , dpgFilters
     , dpgNextToken
     , dpgMaxResults
 
@@ -48,13 +49,16 @@ import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describePatchGroups' smart constructor.
 data DescribePatchGroups = DescribePatchGroups'
-    { _dpgNextToken  :: !(Maybe Text)
+    { _dpgFilters    :: !(Maybe [PatchOrchestratorFilter])
+    , _dpgNextToken  :: !(Maybe Text)
     , _dpgMaxResults :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribePatchGroups' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpgFilters' - One or more filters. Use a filter to return a more specific list of results.
 --
 -- * 'dpgNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
@@ -63,9 +67,14 @@ describePatchGroups
     :: DescribePatchGroups
 describePatchGroups =
     DescribePatchGroups'
-    { _dpgNextToken = Nothing
+    { _dpgFilters = Nothing
+    , _dpgNextToken = Nothing
     , _dpgMaxResults = Nothing
     }
+
+-- | One or more filters. Use a filter to return a more specific list of results.
+dpgFilters :: Lens' DescribePatchGroups [PatchOrchestratorFilter]
+dpgFilters = lens _dpgFilters (\ s a -> s{_dpgFilters = a}) . _Default . _Coerce;
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dpgNextToken :: Lens' DescribePatchGroups (Maybe Text)
@@ -103,7 +112,8 @@ instance ToJSON DescribePatchGroups where
         toJSON DescribePatchGroups'{..}
           = object
               (catMaybes
-                 [("NextToken" .=) <$> _dpgNextToken,
+                 [("Filters" .=) <$> _dpgFilters,
+                  ("NextToken" .=) <$> _dpgNextToken,
                   ("MaxResults" .=) <$> _dpgMaxResults])
 
 instance ToPath DescribePatchGroups where
@@ -123,7 +133,7 @@ data DescribePatchGroupsResponse = DescribePatchGroupsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpgrsMappings' - Each entry in the array contains: PatchGroup: string (1 ≤ length ≤ 256, Regex: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$) PatchBaselineIdentity: A PatchBaselineIdentity element.
+-- * 'dpgrsMappings' - Each entry in the array contains: PatchGroup: string (between 1 and 256 characters, Regex: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$) PatchBaselineIdentity: A PatchBaselineIdentity element.
 --
 -- * 'dpgrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
@@ -138,7 +148,7 @@ describePatchGroupsResponse pResponseStatus_ =
     , _dpgrsResponseStatus = pResponseStatus_
     }
 
--- | Each entry in the array contains: PatchGroup: string (1 ≤ length ≤ 256, Regex: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$) PatchBaselineIdentity: A PatchBaselineIdentity element.
+-- | Each entry in the array contains: PatchGroup: string (between 1 and 256 characters, Regex: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$) PatchBaselineIdentity: A PatchBaselineIdentity element.
 dpgrsMappings :: Lens' DescribePatchGroupsResponse [PatchGroupPatchBaselineMapping]
 dpgrsMappings = lens _dpgrsMappings (\ s a -> s{_dpgrsMappings = a}) . _Default . _Coerce;
 

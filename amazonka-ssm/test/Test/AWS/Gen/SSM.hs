@@ -43,8 +43,14 @@ import Test.AWS.SSM.Internal
 --         , requestUpdatePatchBaseline $
 --             updatePatchBaseline
 --
+--         , requestGetParameter $
+--             getParameter
+--
 --         , requestUpdateDocumentDefaultVersion $
 --             updateDocumentDefaultVersion
+--
+--         , requestListResourceDataSync $
+--             listResourceDataSync
 --
 --         , requestGetDeployablePatchSnapshotForInstance $
 --             getDeployablePatchSnapshotForInstance
@@ -52,8 +58,17 @@ import Test.AWS.SSM.Internal
 --         , requestDescribeParameters $
 --             describeParameters
 --
+--         , requestGetParametersByPath $
+--             getParametersByPath
+--
+--         , requestPutComplianceItems $
+--             putComplianceItems
+--
 --         , requestDescribeActivations $
 --             describeActivations
+--
+--         , requestGetMaintenanceWindowTask $
+--             getMaintenanceWindowTask
 --
 --         , requestListTagsForResource $
 --             listTagsForResource
@@ -72,6 +87,9 @@ import Test.AWS.SSM.Internal
 --
 --         , requestGetInventorySchema $
 --             getInventorySchema
+--
+--         , requestListComplianceSummaries $
+--             listComplianceSummaries
 --
 --         , requestStartAutomationExecution $
 --             startAutomationExecution
@@ -99,6 +117,9 @@ import Test.AWS.SSM.Internal
 --
 --         , requestRemoveTagsFromResource $
 --             removeTagsFromResource
+--
+--         , requestDeleteParameters $
+--             deleteParameters
 --
 --         , requestDescribePatchGroupState $
 --             describePatchGroupState
@@ -130,6 +151,9 @@ import Test.AWS.SSM.Internal
 --         , requestUpdateManagedInstanceRole $
 --             updateManagedInstanceRole
 --
+--         , requestListComplianceItems $
+--             listComplianceItems
+--
 --         , requestGetDocument $
 --             getDocument
 --
@@ -153,6 +177,9 @@ import Test.AWS.SSM.Internal
 --
 --         , requestModifyDocumentPermission $
 --             modifyDocumentPermission
+--
+--         , requestDeleteResourceDataSync $
+--             deleteResourceDataSync
 --
 --         , requestUpdateAssociationStatus $
 --             updateAssociationStatus
@@ -181,6 +208,9 @@ import Test.AWS.SSM.Internal
 --         , requestRegisterDefaultPatchBaseline $
 --             registerDefaultPatchBaseline
 --
+--         , requestListResourceComplianceSummaries $
+--             listResourceComplianceSummaries
+--
 --         , requestDescribeMaintenanceWindowTasks $
 --             describeMaintenanceWindowTasks
 --
@@ -192,6 +222,9 @@ import Test.AWS.SSM.Internal
 --
 --         , requestListInventoryEntries $
 --             listInventoryEntries
+--
+--         , requestUpdateMaintenanceWindowTask $
+--             updateMaintenanceWindowTask
 --
 --         , requestGetParameterHistory $
 --             getParameterHistory
@@ -205,11 +238,17 @@ import Test.AWS.SSM.Internal
 --         , requestGetMaintenanceWindowExecution $
 --             getMaintenanceWindowExecution
 --
+--         , requestSendAutomationSignal $
+--             sendAutomationSignal
+--
 --         , requestPutParameter $
 --             putParameter
 --
 --         , requestDescribeMaintenanceWindowExecutionTaskInvocations $
 --             describeMaintenanceWindowExecutionTaskInvocations
+--
+--         , requestGetMaintenanceWindowExecutionTaskInvocation $
+--             getMaintenanceWindowExecutionTaskInvocation
 --
 --         , requestDeleteParameter $
 --             deleteParameter
@@ -265,6 +304,12 @@ import Test.AWS.SSM.Internal
 --         , requestCreateAssociationBatch $
 --             createAssociationBatch
 --
+--         , requestUpdateMaintenanceWindowTarget $
+--             updateMaintenanceWindowTarget
+--
+--         , requestCreateResourceDataSync $
+--             createResourceDataSync
+--
 --         , requestCreatePatchBaseline $
 --             createPatchBaseline
 --
@@ -286,8 +331,14 @@ import Test.AWS.SSM.Internal
 --         , responseUpdatePatchBaseline $
 --             updatePatchBaselineResponse
 --
+--         , responseGetParameter $
+--             getParameterResponse
+--
 --         , responseUpdateDocumentDefaultVersion $
 --             updateDocumentDefaultVersionResponse
+--
+--         , responseListResourceDataSync $
+--             listResourceDataSyncResponse
 --
 --         , responseGetDeployablePatchSnapshotForInstance $
 --             getDeployablePatchSnapshotForInstanceResponse
@@ -295,8 +346,17 @@ import Test.AWS.SSM.Internal
 --         , responseDescribeParameters $
 --             describeParametersResponse
 --
+--         , responseGetParametersByPath $
+--             getParametersByPathResponse
+--
+--         , responsePutComplianceItems $
+--             putComplianceItemsResponse
+--
 --         , responseDescribeActivations $
 --             describeActivationsResponse
+--
+--         , responseGetMaintenanceWindowTask $
+--             getMaintenanceWindowTaskResponse
 --
 --         , responseListTagsForResource $
 --             listTagsForResourceResponse
@@ -315,6 +375,9 @@ import Test.AWS.SSM.Internal
 --
 --         , responseGetInventorySchema $
 --             getInventorySchemaResponse
+--
+--         , responseListComplianceSummaries $
+--             listComplianceSummariesResponse
 --
 --         , responseStartAutomationExecution $
 --             startAutomationExecutionResponse
@@ -342,6 +405,9 @@ import Test.AWS.SSM.Internal
 --
 --         , responseRemoveTagsFromResource $
 --             removeTagsFromResourceResponse
+--
+--         , responseDeleteParameters $
+--             deleteParametersResponse
 --
 --         , responseDescribePatchGroupState $
 --             describePatchGroupStateResponse
@@ -373,6 +439,9 @@ import Test.AWS.SSM.Internal
 --         , responseUpdateManagedInstanceRole $
 --             updateManagedInstanceRoleResponse
 --
+--         , responseListComplianceItems $
+--             listComplianceItemsResponse
+--
 --         , responseGetDocument $
 --             getDocumentResponse
 --
@@ -396,6 +465,9 @@ import Test.AWS.SSM.Internal
 --
 --         , responseModifyDocumentPermission $
 --             modifyDocumentPermissionResponse
+--
+--         , responseDeleteResourceDataSync $
+--             deleteResourceDataSyncResponse
 --
 --         , responseUpdateAssociationStatus $
 --             updateAssociationStatusResponse
@@ -424,6 +496,9 @@ import Test.AWS.SSM.Internal
 --         , responseRegisterDefaultPatchBaseline $
 --             registerDefaultPatchBaselineResponse
 --
+--         , responseListResourceComplianceSummaries $
+--             listResourceComplianceSummariesResponse
+--
 --         , responseDescribeMaintenanceWindowTasks $
 --             describeMaintenanceWindowTasksResponse
 --
@@ -435,6 +510,9 @@ import Test.AWS.SSM.Internal
 --
 --         , responseListInventoryEntries $
 --             listInventoryEntriesResponse
+--
+--         , responseUpdateMaintenanceWindowTask $
+--             updateMaintenanceWindowTaskResponse
 --
 --         , responseGetParameterHistory $
 --             getParameterHistoryResponse
@@ -448,11 +526,17 @@ import Test.AWS.SSM.Internal
 --         , responseGetMaintenanceWindowExecution $
 --             getMaintenanceWindowExecutionResponse
 --
+--         , responseSendAutomationSignal $
+--             sendAutomationSignalResponse
+--
 --         , responsePutParameter $
 --             putParameterResponse
 --
 --         , responseDescribeMaintenanceWindowExecutionTaskInvocations $
 --             describeMaintenanceWindowExecutionTaskInvocationsResponse
+--
+--         , responseGetMaintenanceWindowExecutionTaskInvocation $
+--             getMaintenanceWindowExecutionTaskInvocationResponse
 --
 --         , responseDeleteParameter $
 --             deleteParameterResponse
@@ -508,6 +592,12 @@ import Test.AWS.SSM.Internal
 --         , responseCreateAssociationBatch $
 --             createAssociationBatchResponse
 --
+--         , responseUpdateMaintenanceWindowTarget $
+--             updateMaintenanceWindowTargetResponse
+--
+--         , responseCreateResourceDataSync $
+--             createResourceDataSyncResponse
+--
 --         , responseCreatePatchBaseline $
 --             createPatchBaselineResponse
 --
@@ -541,10 +631,20 @@ requestUpdatePatchBaseline = req
     "UpdatePatchBaseline"
     "fixture/UpdatePatchBaseline.yaml"
 
+requestGetParameter :: GetParameter -> TestTree
+requestGetParameter = req
+    "GetParameter"
+    "fixture/GetParameter.yaml"
+
 requestUpdateDocumentDefaultVersion :: UpdateDocumentDefaultVersion -> TestTree
 requestUpdateDocumentDefaultVersion = req
     "UpdateDocumentDefaultVersion"
     "fixture/UpdateDocumentDefaultVersion.yaml"
+
+requestListResourceDataSync :: ListResourceDataSync -> TestTree
+requestListResourceDataSync = req
+    "ListResourceDataSync"
+    "fixture/ListResourceDataSync.yaml"
 
 requestGetDeployablePatchSnapshotForInstance :: GetDeployablePatchSnapshotForInstance -> TestTree
 requestGetDeployablePatchSnapshotForInstance = req
@@ -556,10 +656,25 @@ requestDescribeParameters = req
     "DescribeParameters"
     "fixture/DescribeParameters.yaml"
 
+requestGetParametersByPath :: GetParametersByPath -> TestTree
+requestGetParametersByPath = req
+    "GetParametersByPath"
+    "fixture/GetParametersByPath.yaml"
+
+requestPutComplianceItems :: PutComplianceItems -> TestTree
+requestPutComplianceItems = req
+    "PutComplianceItems"
+    "fixture/PutComplianceItems.yaml"
+
 requestDescribeActivations :: DescribeActivations -> TestTree
 requestDescribeActivations = req
     "DescribeActivations"
     "fixture/DescribeActivations.yaml"
+
+requestGetMaintenanceWindowTask :: GetMaintenanceWindowTask -> TestTree
+requestGetMaintenanceWindowTask = req
+    "GetMaintenanceWindowTask"
+    "fixture/GetMaintenanceWindowTask.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource = req
@@ -590,6 +705,11 @@ requestGetInventorySchema :: GetInventorySchema -> TestTree
 requestGetInventorySchema = req
     "GetInventorySchema"
     "fixture/GetInventorySchema.yaml"
+
+requestListComplianceSummaries :: ListComplianceSummaries -> TestTree
+requestListComplianceSummaries = req
+    "ListComplianceSummaries"
+    "fixture/ListComplianceSummaries.yaml"
 
 requestStartAutomationExecution :: StartAutomationExecution -> TestTree
 requestStartAutomationExecution = req
@@ -635,6 +755,11 @@ requestRemoveTagsFromResource :: RemoveTagsFromResource -> TestTree
 requestRemoveTagsFromResource = req
     "RemoveTagsFromResource"
     "fixture/RemoveTagsFromResource.yaml"
+
+requestDeleteParameters :: DeleteParameters -> TestTree
+requestDeleteParameters = req
+    "DeleteParameters"
+    "fixture/DeleteParameters.yaml"
 
 requestDescribePatchGroupState :: DescribePatchGroupState -> TestTree
 requestDescribePatchGroupState = req
@@ -686,6 +811,11 @@ requestUpdateManagedInstanceRole = req
     "UpdateManagedInstanceRole"
     "fixture/UpdateManagedInstanceRole.yaml"
 
+requestListComplianceItems :: ListComplianceItems -> TestTree
+requestListComplianceItems = req
+    "ListComplianceItems"
+    "fixture/ListComplianceItems.yaml"
+
 requestGetDocument :: GetDocument -> TestTree
 requestGetDocument = req
     "GetDocument"
@@ -725,6 +855,11 @@ requestModifyDocumentPermission :: ModifyDocumentPermission -> TestTree
 requestModifyDocumentPermission = req
     "ModifyDocumentPermission"
     "fixture/ModifyDocumentPermission.yaml"
+
+requestDeleteResourceDataSync :: DeleteResourceDataSync -> TestTree
+requestDeleteResourceDataSync = req
+    "DeleteResourceDataSync"
+    "fixture/DeleteResourceDataSync.yaml"
 
 requestUpdateAssociationStatus :: UpdateAssociationStatus -> TestTree
 requestUpdateAssociationStatus = req
@@ -771,6 +906,11 @@ requestRegisterDefaultPatchBaseline = req
     "RegisterDefaultPatchBaseline"
     "fixture/RegisterDefaultPatchBaseline.yaml"
 
+requestListResourceComplianceSummaries :: ListResourceComplianceSummaries -> TestTree
+requestListResourceComplianceSummaries = req
+    "ListResourceComplianceSummaries"
+    "fixture/ListResourceComplianceSummaries.yaml"
+
 requestDescribeMaintenanceWindowTasks :: DescribeMaintenanceWindowTasks -> TestTree
 requestDescribeMaintenanceWindowTasks = req
     "DescribeMaintenanceWindowTasks"
@@ -790,6 +930,11 @@ requestListInventoryEntries :: ListInventoryEntries -> TestTree
 requestListInventoryEntries = req
     "ListInventoryEntries"
     "fixture/ListInventoryEntries.yaml"
+
+requestUpdateMaintenanceWindowTask :: UpdateMaintenanceWindowTask -> TestTree
+requestUpdateMaintenanceWindowTask = req
+    "UpdateMaintenanceWindowTask"
+    "fixture/UpdateMaintenanceWindowTask.yaml"
 
 requestGetParameterHistory :: GetParameterHistory -> TestTree
 requestGetParameterHistory = req
@@ -811,6 +956,11 @@ requestGetMaintenanceWindowExecution = req
     "GetMaintenanceWindowExecution"
     "fixture/GetMaintenanceWindowExecution.yaml"
 
+requestSendAutomationSignal :: SendAutomationSignal -> TestTree
+requestSendAutomationSignal = req
+    "SendAutomationSignal"
+    "fixture/SendAutomationSignal.yaml"
+
 requestPutParameter :: PutParameter -> TestTree
 requestPutParameter = req
     "PutParameter"
@@ -820,6 +970,11 @@ requestDescribeMaintenanceWindowExecutionTaskInvocations :: DescribeMaintenanceW
 requestDescribeMaintenanceWindowExecutionTaskInvocations = req
     "DescribeMaintenanceWindowExecutionTaskInvocations"
     "fixture/DescribeMaintenanceWindowExecutionTaskInvocations.yaml"
+
+requestGetMaintenanceWindowExecutionTaskInvocation :: GetMaintenanceWindowExecutionTaskInvocation -> TestTree
+requestGetMaintenanceWindowExecutionTaskInvocation = req
+    "GetMaintenanceWindowExecutionTaskInvocation"
+    "fixture/GetMaintenanceWindowExecutionTaskInvocation.yaml"
 
 requestDeleteParameter :: DeleteParameter -> TestTree
 requestDeleteParameter = req
@@ -911,6 +1066,16 @@ requestCreateAssociationBatch = req
     "CreateAssociationBatch"
     "fixture/CreateAssociationBatch.yaml"
 
+requestUpdateMaintenanceWindowTarget :: UpdateMaintenanceWindowTarget -> TestTree
+requestUpdateMaintenanceWindowTarget = req
+    "UpdateMaintenanceWindowTarget"
+    "fixture/UpdateMaintenanceWindowTarget.yaml"
+
+requestCreateResourceDataSync :: CreateResourceDataSync -> TestTree
+requestCreateResourceDataSync = req
+    "CreateResourceDataSync"
+    "fixture/CreateResourceDataSync.yaml"
+
 requestCreatePatchBaseline :: CreatePatchBaseline -> TestTree
 requestCreatePatchBaseline = req
     "CreatePatchBaseline"
@@ -953,12 +1118,26 @@ responseUpdatePatchBaseline = res
     ssm
     (Proxy :: Proxy UpdatePatchBaseline)
 
+responseGetParameter :: GetParameterResponse -> TestTree
+responseGetParameter = res
+    "GetParameterResponse"
+    "fixture/GetParameterResponse.proto"
+    ssm
+    (Proxy :: Proxy GetParameter)
+
 responseUpdateDocumentDefaultVersion :: UpdateDocumentDefaultVersionResponse -> TestTree
 responseUpdateDocumentDefaultVersion = res
     "UpdateDocumentDefaultVersionResponse"
     "fixture/UpdateDocumentDefaultVersionResponse.proto"
     ssm
     (Proxy :: Proxy UpdateDocumentDefaultVersion)
+
+responseListResourceDataSync :: ListResourceDataSyncResponse -> TestTree
+responseListResourceDataSync = res
+    "ListResourceDataSyncResponse"
+    "fixture/ListResourceDataSyncResponse.proto"
+    ssm
+    (Proxy :: Proxy ListResourceDataSync)
 
 responseGetDeployablePatchSnapshotForInstance :: GetDeployablePatchSnapshotForInstanceResponse -> TestTree
 responseGetDeployablePatchSnapshotForInstance = res
@@ -974,12 +1153,33 @@ responseDescribeParameters = res
     ssm
     (Proxy :: Proxy DescribeParameters)
 
+responseGetParametersByPath :: GetParametersByPathResponse -> TestTree
+responseGetParametersByPath = res
+    "GetParametersByPathResponse"
+    "fixture/GetParametersByPathResponse.proto"
+    ssm
+    (Proxy :: Proxy GetParametersByPath)
+
+responsePutComplianceItems :: PutComplianceItemsResponse -> TestTree
+responsePutComplianceItems = res
+    "PutComplianceItemsResponse"
+    "fixture/PutComplianceItemsResponse.proto"
+    ssm
+    (Proxy :: Proxy PutComplianceItems)
+
 responseDescribeActivations :: DescribeActivationsResponse -> TestTree
 responseDescribeActivations = res
     "DescribeActivationsResponse"
     "fixture/DescribeActivationsResponse.proto"
     ssm
     (Proxy :: Proxy DescribeActivations)
+
+responseGetMaintenanceWindowTask :: GetMaintenanceWindowTaskResponse -> TestTree
+responseGetMaintenanceWindowTask = res
+    "GetMaintenanceWindowTaskResponse"
+    "fixture/GetMaintenanceWindowTaskResponse.proto"
+    ssm
+    (Proxy :: Proxy GetMaintenanceWindowTask)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource = res
@@ -1022,6 +1222,13 @@ responseGetInventorySchema = res
     "fixture/GetInventorySchemaResponse.proto"
     ssm
     (Proxy :: Proxy GetInventorySchema)
+
+responseListComplianceSummaries :: ListComplianceSummariesResponse -> TestTree
+responseListComplianceSummaries = res
+    "ListComplianceSummariesResponse"
+    "fixture/ListComplianceSummariesResponse.proto"
+    ssm
+    (Proxy :: Proxy ListComplianceSummaries)
 
 responseStartAutomationExecution :: StartAutomationExecutionResponse -> TestTree
 responseStartAutomationExecution = res
@@ -1085,6 +1292,13 @@ responseRemoveTagsFromResource = res
     "fixture/RemoveTagsFromResourceResponse.proto"
     ssm
     (Proxy :: Proxy RemoveTagsFromResource)
+
+responseDeleteParameters :: DeleteParametersResponse -> TestTree
+responseDeleteParameters = res
+    "DeleteParametersResponse"
+    "fixture/DeleteParametersResponse.proto"
+    ssm
+    (Proxy :: Proxy DeleteParameters)
 
 responseDescribePatchGroupState :: DescribePatchGroupStateResponse -> TestTree
 responseDescribePatchGroupState = res
@@ -1156,6 +1370,13 @@ responseUpdateManagedInstanceRole = res
     ssm
     (Proxy :: Proxy UpdateManagedInstanceRole)
 
+responseListComplianceItems :: ListComplianceItemsResponse -> TestTree
+responseListComplianceItems = res
+    "ListComplianceItemsResponse"
+    "fixture/ListComplianceItemsResponse.proto"
+    ssm
+    (Proxy :: Proxy ListComplianceItems)
+
 responseGetDocument :: GetDocumentResponse -> TestTree
 responseGetDocument = res
     "GetDocumentResponse"
@@ -1211,6 +1432,13 @@ responseModifyDocumentPermission = res
     "fixture/ModifyDocumentPermissionResponse.proto"
     ssm
     (Proxy :: Proxy ModifyDocumentPermission)
+
+responseDeleteResourceDataSync :: DeleteResourceDataSyncResponse -> TestTree
+responseDeleteResourceDataSync = res
+    "DeleteResourceDataSyncResponse"
+    "fixture/DeleteResourceDataSyncResponse.proto"
+    ssm
+    (Proxy :: Proxy DeleteResourceDataSync)
 
 responseUpdateAssociationStatus :: UpdateAssociationStatusResponse -> TestTree
 responseUpdateAssociationStatus = res
@@ -1275,6 +1503,13 @@ responseRegisterDefaultPatchBaseline = res
     ssm
     (Proxy :: Proxy RegisterDefaultPatchBaseline)
 
+responseListResourceComplianceSummaries :: ListResourceComplianceSummariesResponse -> TestTree
+responseListResourceComplianceSummaries = res
+    "ListResourceComplianceSummariesResponse"
+    "fixture/ListResourceComplianceSummariesResponse.proto"
+    ssm
+    (Proxy :: Proxy ListResourceComplianceSummaries)
+
 responseDescribeMaintenanceWindowTasks :: DescribeMaintenanceWindowTasksResponse -> TestTree
 responseDescribeMaintenanceWindowTasks = res
     "DescribeMaintenanceWindowTasksResponse"
@@ -1302,6 +1537,13 @@ responseListInventoryEntries = res
     "fixture/ListInventoryEntriesResponse.proto"
     ssm
     (Proxy :: Proxy ListInventoryEntries)
+
+responseUpdateMaintenanceWindowTask :: UpdateMaintenanceWindowTaskResponse -> TestTree
+responseUpdateMaintenanceWindowTask = res
+    "UpdateMaintenanceWindowTaskResponse"
+    "fixture/UpdateMaintenanceWindowTaskResponse.proto"
+    ssm
+    (Proxy :: Proxy UpdateMaintenanceWindowTask)
 
 responseGetParameterHistory :: GetParameterHistoryResponse -> TestTree
 responseGetParameterHistory = res
@@ -1331,6 +1573,13 @@ responseGetMaintenanceWindowExecution = res
     ssm
     (Proxy :: Proxy GetMaintenanceWindowExecution)
 
+responseSendAutomationSignal :: SendAutomationSignalResponse -> TestTree
+responseSendAutomationSignal = res
+    "SendAutomationSignalResponse"
+    "fixture/SendAutomationSignalResponse.proto"
+    ssm
+    (Proxy :: Proxy SendAutomationSignal)
+
 responsePutParameter :: PutParameterResponse -> TestTree
 responsePutParameter = res
     "PutParameterResponse"
@@ -1344,6 +1593,13 @@ responseDescribeMaintenanceWindowExecutionTaskInvocations = res
     "fixture/DescribeMaintenanceWindowExecutionTaskInvocationsResponse.proto"
     ssm
     (Proxy :: Proxy DescribeMaintenanceWindowExecutionTaskInvocations)
+
+responseGetMaintenanceWindowExecutionTaskInvocation :: GetMaintenanceWindowExecutionTaskInvocationResponse -> TestTree
+responseGetMaintenanceWindowExecutionTaskInvocation = res
+    "GetMaintenanceWindowExecutionTaskInvocationResponse"
+    "fixture/GetMaintenanceWindowExecutionTaskInvocationResponse.proto"
+    ssm
+    (Proxy :: Proxy GetMaintenanceWindowExecutionTaskInvocation)
 
 responseDeleteParameter :: DeleteParameterResponse -> TestTree
 responseDeleteParameter = res
@@ -1470,6 +1726,20 @@ responseCreateAssociationBatch = res
     "fixture/CreateAssociationBatchResponse.proto"
     ssm
     (Proxy :: Proxy CreateAssociationBatch)
+
+responseUpdateMaintenanceWindowTarget :: UpdateMaintenanceWindowTargetResponse -> TestTree
+responseUpdateMaintenanceWindowTarget = res
+    "UpdateMaintenanceWindowTargetResponse"
+    "fixture/UpdateMaintenanceWindowTargetResponse.proto"
+    ssm
+    (Proxy :: Proxy UpdateMaintenanceWindowTarget)
+
+responseCreateResourceDataSync :: CreateResourceDataSyncResponse -> TestTree
+responseCreateResourceDataSync = res
+    "CreateResourceDataSyncResponse"
+    "fixture/CreateResourceDataSyncResponse.proto"
+    ssm
+    (Proxy :: Proxy CreateResourceDataSync)
 
 responseCreatePatchBaseline :: CreatePatchBaselineResponse -> TestTree
 responseCreatePatchBaseline = res

@@ -60,7 +60,7 @@ data DescribeMaintenanceWindowTasks = DescribeMaintenanceWindowTasks'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dFilters' - Optional filters used to narrow down the scope of the returned tasks. The supported filter keys are @WindowTaskId@ , @TaskArn@ , @Priority@ , and @TaskType@ .
+-- * 'dFilters' - Optional filters used to narrow down the scope of the returned tasks. The supported filter keys are WindowTaskId, TaskArn, Priority, and TaskType.
 --
 -- * 'dNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
@@ -78,7 +78,7 @@ describeMaintenanceWindowTasks pWindowId_ =
     , _dWindowId = pWindowId_
     }
 
--- | Optional filters used to narrow down the scope of the returned tasks. The supported filter keys are @WindowTaskId@ , @TaskArn@ , @Priority@ , and @TaskType@ .
+-- | Optional filters used to narrow down the scope of the returned tasks. The supported filter keys are WindowTaskId, TaskArn, Priority, and TaskType.
 dFilters :: Lens' DescribeMaintenanceWindowTasks [MaintenanceWindowFilter]
 dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default . _Coerce;
 

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the executions of a Maintenance Window (meaning, information about when the Maintenance Window was scheduled to be active and information about tasks registered and run with the Maintenance Window).
+-- Lists the executions of a Maintenance Window. This includes information about when the Maintenance Window was scheduled to be active, and information about tasks registered and run with the Maintenance Window.
 --
 --
 module Network.AWS.SSM.DescribeMaintenanceWindowExecutions
@@ -60,7 +60,7 @@ data DescribeMaintenanceWindowExecutions = DescribeMaintenanceWindowExecutions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmweFilters' - Each entry in the array is a structure containing: Key (string, 1 ≤ length ≤ 128) Values (array of strings 1 ≤ length ≤ 256) The supported Keys are @ExecutedBefore@ and @ExecutedAfter@ with the value being a date/time string such as 2016-11-04T05:00:00Z.
+-- * 'dmweFilters' - Each entry in the array is a structure containing: Key (string, between 1 and 128 characters) Values (array of strings, each string is between 1 and 256 characters) The supported Keys are ExecutedBefore and ExecutedAfter with the value being a date/time string such as 2016-11-04T05:00:00Z.
 --
 -- * 'dmweNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
@@ -78,7 +78,7 @@ describeMaintenanceWindowExecutions pWindowId_ =
     , _dmweWindowId = pWindowId_
     }
 
--- | Each entry in the array is a structure containing: Key (string, 1 ≤ length ≤ 128) Values (array of strings 1 ≤ length ≤ 256) The supported Keys are @ExecutedBefore@ and @ExecutedAfter@ with the value being a date/time string such as 2016-11-04T05:00:00Z.
+-- | Each entry in the array is a structure containing: Key (string, between 1 and 128 characters) Values (array of strings, each string is between 1 and 256 characters) The supported Keys are ExecutedBefore and ExecutedAfter with the value being a date/time string such as 2016-11-04T05:00:00Z.
 dmweFilters :: Lens' DescribeMaintenanceWindowExecutions [MaintenanceWindowFilter]
 dmweFilters = lens _dmweFilters (\ s a -> s{_dmweFilters = a}) . _Default . _Coerce;
 

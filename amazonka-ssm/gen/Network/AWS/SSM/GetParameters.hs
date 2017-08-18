@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get a list of parameters used by the AWS account.>
+-- Get details of a parameter.
 --
 --
 module Network.AWS.SSM.GetParameters
@@ -34,9 +34,9 @@ module Network.AWS.SSM.GetParameters
     , getParametersResponse
     , GetParametersResponse
     -- * Response Lenses
-    , gprsParameters
-    , gprsInvalidParameters
-    , gprsResponseStatus
+    , grsParameters
+    , grsInvalidParameters
+    , grsResponseStatus
     ) where
 
 import           Network.AWS.Lens
@@ -115,40 +115,40 @@ instance ToQuery GetParameters where
 
 -- | /See:/ 'getParametersResponse' smart constructor.
 data GetParametersResponse = GetParametersResponse'
-    { _gprsParameters        :: !(Maybe [Parameter])
-    , _gprsInvalidParameters :: !(Maybe [Text])
-    , _gprsResponseStatus    :: !Int
+    { _grsParameters        :: !(Maybe [Parameter])
+    , _grsInvalidParameters :: !(Maybe [Text])
+    , _grsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetParametersResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gprsParameters' - A list of parameters used by the AWS account.
+-- * 'grsParameters' - A list of details for a parameter.
 --
--- * 'gprsInvalidParameters' - A list of parameters that are not formatted correctly or do not run when executed.
+-- * 'grsInvalidParameters' - A list of parameters that are not formatted correctly or do not run when executed.
 --
--- * 'gprsResponseStatus' - -- | The response status code.
+-- * 'grsResponseStatus' - -- | The response status code.
 getParametersResponse
-    :: Int -- ^ 'gprsResponseStatus'
+    :: Int -- ^ 'grsResponseStatus'
     -> GetParametersResponse
 getParametersResponse pResponseStatus_ =
     GetParametersResponse'
-    { _gprsParameters = Nothing
-    , _gprsInvalidParameters = Nothing
-    , _gprsResponseStatus = pResponseStatus_
+    { _grsParameters = Nothing
+    , _grsInvalidParameters = Nothing
+    , _grsResponseStatus = pResponseStatus_
     }
 
--- | A list of parameters used by the AWS account.
-gprsParameters :: Lens' GetParametersResponse [Parameter]
-gprsParameters = lens _gprsParameters (\ s a -> s{_gprsParameters = a}) . _Default . _Coerce;
+-- | A list of details for a parameter.
+grsParameters :: Lens' GetParametersResponse [Parameter]
+grsParameters = lens _grsParameters (\ s a -> s{_grsParameters = a}) . _Default . _Coerce;
 
 -- | A list of parameters that are not formatted correctly or do not run when executed.
-gprsInvalidParameters :: Lens' GetParametersResponse [Text]
-gprsInvalidParameters = lens _gprsInvalidParameters (\ s a -> s{_gprsInvalidParameters = a}) . _Default . _Coerce;
+grsInvalidParameters :: Lens' GetParametersResponse [Text]
+grsInvalidParameters = lens _grsInvalidParameters (\ s a -> s{_grsInvalidParameters = a}) . _Default . _Coerce;
 
 -- | -- | The response status code.
-gprsResponseStatus :: Lens' GetParametersResponse Int
-gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
+grsResponseStatus :: Lens' GetParametersResponse Int
+grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
 
 instance NFData GetParametersResponse

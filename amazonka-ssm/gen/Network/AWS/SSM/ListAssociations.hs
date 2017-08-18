@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the associations for the specified SSM document or instance.
+-- Lists the associations for the specified Systems Manager document or instance.
 --
 --
 --

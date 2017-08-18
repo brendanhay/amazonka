@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates the specified SSM document with the specified instances or targets.
+-- Associates the specified Systems Manager document with the specified instances or targets.
 --
 --
--- When you associate an SSM document with one or more instances using instance IDs or tags, the SSM agent running on the instance processes the document and configures the instance as specified.
+-- When you associate a document with one or more instances using instance IDs or tags, the SSM Agent running on the instance processes the document and configures the instance as specified.
 --
 -- If you associate a document with an instance that already has an associated document, the system throws the AssociationAlreadyExists exception.
 --
@@ -71,17 +71,17 @@ data CreateAssociation = CreateAssociation'
 --
 -- * 'caInstanceId' - The instance ID.
 --
--- * 'caScheduleExpression' - A cron expression when the association will be applied to the target(s). Supported expressions are every half, 1, 2, 4, 8 or 12 hour(s); every specified day and time of the week. For example: cron(0 0/30 * 1/1 * ? *) to run every thirty minutes; cron(0 0 0/4 1/1 * ? *) to run every four hours; and cron(0 0 10 ? * SUN *) to run every Sunday at 10 a.m.
+-- * 'caScheduleExpression' - A cron expression when the association will be applied to the target(s).
 --
--- * 'caOutputLocation' - An Amazon S3 bucket where you want to store the output details of the request. For example: @"{ \"S3Location\": { \"OutputS3Region\": \"<region>\", \"OutputS3BucketName\": \"bucket name\", \"OutputS3KeyPrefix\": \"folder name\" } }"@
+-- * 'caOutputLocation' - An Amazon S3 bucket where you want to store the output details of the request.
 --
--- * 'caTargets' - The targets (either instances or tags) for the association. Instances are specified using Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using Key=<tag name>,Values=<tag value>.
+-- * 'caTargets' - The targets (either instances or tags) for the association.
 --
 -- * 'caParameters' - The parameters for the documents runtime configuration.
 --
 -- * 'caDocumentVersion' - The document version you want to associate with the target(s). Can be a specific version or the default version.
 --
--- * 'caName' - The name of the SSM document.
+-- * 'caName' - The name of the Systems Manager document.
 createAssociation
     :: Text -- ^ 'caName'
     -> CreateAssociation
@@ -100,15 +100,15 @@ createAssociation pName_ =
 caInstanceId :: Lens' CreateAssociation (Maybe Text)
 caInstanceId = lens _caInstanceId (\ s a -> s{_caInstanceId = a});
 
--- | A cron expression when the association will be applied to the target(s). Supported expressions are every half, 1, 2, 4, 8 or 12 hour(s); every specified day and time of the week. For example: cron(0 0/30 * 1/1 * ? *) to run every thirty minutes; cron(0 0 0/4 1/1 * ? *) to run every four hours; and cron(0 0 10 ? * SUN *) to run every Sunday at 10 a.m.
+-- | A cron expression when the association will be applied to the target(s).
 caScheduleExpression :: Lens' CreateAssociation (Maybe Text)
 caScheduleExpression = lens _caScheduleExpression (\ s a -> s{_caScheduleExpression = a});
 
--- | An Amazon S3 bucket where you want to store the output details of the request. For example: @"{ \"S3Location\": { \"OutputS3Region\": \"<region>\", \"OutputS3BucketName\": \"bucket name\", \"OutputS3KeyPrefix\": \"folder name\" } }"@
+-- | An Amazon S3 bucket where you want to store the output details of the request.
 caOutputLocation :: Lens' CreateAssociation (Maybe InstanceAssociationOutputLocation)
 caOutputLocation = lens _caOutputLocation (\ s a -> s{_caOutputLocation = a});
 
--- | The targets (either instances or tags) for the association. Instances are specified using Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using Key=<tag name>,Values=<tag value>.
+-- | The targets (either instances or tags) for the association.
 caTargets :: Lens' CreateAssociation [Target]
 caTargets = lens _caTargets (\ s a -> s{_caTargets = a}) . _Default . _Coerce;
 
@@ -120,7 +120,7 @@ caParameters = lens _caParameters (\ s a -> s{_caParameters = a}) . _Default . _
 caDocumentVersion :: Lens' CreateAssociation (Maybe Text)
 caDocumentVersion = lens _caDocumentVersion (\ s a -> s{_caDocumentVersion = a});
 
--- | The name of the SSM document.
+-- | The name of the Systems Manager document.
 caName :: Lens' CreateAssociation Text
 caName = lens _caName (\ s a -> s{_caName = a});
 

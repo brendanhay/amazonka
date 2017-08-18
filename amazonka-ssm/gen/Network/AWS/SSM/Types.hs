@@ -18,14 +18,21 @@ module Network.AWS.SSM.Types
     -- * Errors
     , _AutomationDefinitionVersionNotFoundException
     , _InvalidDocumentVersion
+    , _HierarchyTypeMismatchException
     , _InvalidSchedule
     , _UnsupportedParameterType
     , _InvalidPluginName
+    , _FeatureNotAvailableException
+    , _InvalidAutomationSignalException
+    , _ResourceDataSyncCountExceededException
     , _UnsupportedPlatformType
     , _InvalidFilterValue
     , _InvalidItemContentException
+    , _InvalidFilterOption
+    , _ParameterPatternMismatchException
     , _InvalidPermissionType
     , _AssociatedInstances
+    , _UnsupportedOperatingSystem
     , _InvalidInstanceId
     , _StatusUnchanged
     , _InvalidNextToken
@@ -33,6 +40,7 @@ module Network.AWS.SSM.Types
     , _InvalidActivationId
     , _InvalidResultAttributeException
     , _ResourceLimitExceededException
+    , _ResourceDataSyncInvalidConfigurationException
     , _InvalidCommandId
     , _DuplicateInstanceId
     , _InvalidResourceType
@@ -43,7 +51,9 @@ module Network.AWS.SSM.Types
     , _InvalidAutomationExecutionParametersException
     , _AutomationExecutionNotFoundException
     , _InvalidTypeNameException
+    , _ResourceDataSyncNotFoundException
     , _ItemSizeLimitExceededException
+    , _ResourceDataSyncAlreadyExistsException
     , _DoesNotExistException
     , _AutomationExecutionLimitExceededException
     , _IdempotentParameterMismatch
@@ -51,12 +61,15 @@ module Network.AWS.SSM.Types
     , _ItemContentMismatchException
     , _ParameterAlreadyExists
     , _AssociationAlreadyExists
+    , _ComplianceTypeCountLimitExceededException
     , _InvalidDocumentContent
     , _ParameterLimitExceeded
     , _AssociationLimitExceeded
     , _AssociationDoesNotExist
     , _ParameterNotFound
+    , _TargetInUseException
     , _InternalServerError
+    , _UnsupportedInventoryItemContextException
     , _InvalidRole
     , _TooManyUpdates
     , _InvalidActivation
@@ -65,6 +78,7 @@ module Network.AWS.SSM.Types
     , _InvalidUpdate
     , _CustomSchemaCountLimitExceededException
     , _InvalidTarget
+    , _HierarchyLevelLimitExceededException
     , _InvalidDocumentOperation
     , _InvocationDoesNotExist
     , _DocumentVersionLimitExceeded
@@ -72,8 +86,11 @@ module Network.AWS.SSM.Types
     , _InvalidKeyId
     , _InvalidParameters
     , _InvalidResourceId
+    , _InvalidAllowedPatternException
     , _InvalidNotificationConfig
+    , _InvalidInventoryItemContextException
     , _TotalSizeLimitExceededException
+    , _SubTypeCountLimitExceededException
     , _TooManyTagsError
     , _DocumentPermissionLimit
     , _DuplicateDocumentContent
@@ -106,6 +123,15 @@ module Network.AWS.SSM.Types
 
     -- * CommandStatus
     , CommandStatus (..)
+
+    -- * ComplianceQueryOperatorType
+    , ComplianceQueryOperatorType (..)
+
+    -- * ComplianceSeverity
+    , ComplianceSeverity (..)
+
+    -- * ComplianceStatus
+    , ComplianceStatus (..)
 
     -- * DescribeActivationsFilterKeys
     , DescribeActivationsFilterKeys (..)
@@ -143,6 +169,9 @@ module Network.AWS.SSM.Types
     -- * InventoryQueryOperatorType
     , InventoryQueryOperatorType (..)
 
+    -- * LastResourceDataSyncStatus
+    , LastResourceDataSyncStatus (..)
+
     -- * MaintenanceWindowExecutionStatus
     , MaintenanceWindowExecutionStatus (..)
 
@@ -158,6 +187,9 @@ module Network.AWS.SSM.Types
     -- * NotificationType
     , NotificationType (..)
 
+    -- * OperatingSystem
+    , OperatingSystem (..)
+
     -- * ParameterType
     , ParameterType (..)
 
@@ -166,6 +198,9 @@ module Network.AWS.SSM.Types
 
     -- * PatchComplianceDataState
     , PatchComplianceDataState (..)
+
+    -- * PatchComplianceLevel
+    , PatchComplianceLevel (..)
 
     -- * PatchDeploymentStatus
     , PatchDeploymentStatus (..)
@@ -182,11 +217,17 @@ module Network.AWS.SSM.Types
     -- * PlatformType
     , PlatformType (..)
 
+    -- * ResourceDataSyncS3Format
+    , ResourceDataSyncS3Format (..)
+
     -- * ResourceType
     , ResourceType (..)
 
     -- * ResourceTypeForTagging
     , ResourceTypeForTagging (..)
+
+    -- * SignalType
+    , SignalType (..)
 
     -- * Activation
     , Activation
@@ -318,20 +359,20 @@ module Network.AWS.SSM.Types
     -- * CommandInvocation
     , CommandInvocation
     , commandInvocation
-    , ciInstanceId
-    , ciStatus
-    , ciNotificationConfig
-    , ciCommandPlugins
-    , ciDocumentName
-    , ciStandardErrorURL
-    , ciStatusDetails
-    , ciStandardOutputURL
-    , ciCommandId
-    , ciComment
-    , ciTraceOutput
-    , ciInstanceName
-    , ciRequestedDateTime
-    , ciServiceRole
+    , comInstanceId
+    , comStatus
+    , comNotificationConfig
+    , comCommandPlugins
+    , comDocumentName
+    , comStandardErrorURL
+    , comStatusDetails
+    , comStandardOutputURL
+    , comCommandId
+    , comComment
+    , comTraceOutput
+    , comInstanceName
+    , comRequestedDateTime
+    , comServiceRole
 
     -- * CommandPlugin
     , CommandPlugin
@@ -348,6 +389,55 @@ module Network.AWS.SSM.Types
     , cpOutputS3Region
     , cpOutputS3BucketName
     , cpResponseFinishDateTime
+
+    -- * ComplianceExecutionSummary
+    , ComplianceExecutionSummary
+    , complianceExecutionSummary
+    , cesExecutionId
+    , cesExecutionType
+    , cesExecutionTime
+
+    -- * ComplianceItem
+    , ComplianceItem
+    , complianceItem
+    , ciStatus
+    , ciResourceId
+    , ciResourceType
+    , ciSeverity
+    , ciExecutionSummary
+    , ciDetails
+    , ciId
+    , ciComplianceType
+    , ciTitle
+
+    -- * ComplianceItemEntry
+    , ComplianceItemEntry
+    , complianceItemEntry
+    , cieDetails
+    , cieId
+    , cieTitle
+    , cieSeverity
+    , cieStatus
+
+    -- * ComplianceStringFilter
+    , ComplianceStringFilter
+    , complianceStringFilter
+    , csfValues
+    , csfKey
+    , csfType
+
+    -- * ComplianceSummaryItem
+    , ComplianceSummaryItem
+    , complianceSummaryItem
+    , csiNonCompliantSummary
+    , csiCompliantSummary
+    , csiComplianceType
+
+    -- * CompliantSummary
+    , CompliantSummary
+    , compliantSummary
+    , csCompliantCount
+    , csSeveritySummary
 
     -- * CreateAssociationBatchRequestEntry
     , CreateAssociationBatchRequestEntry
@@ -435,6 +525,13 @@ module Network.AWS.SSM.Types
     , fcaEntry
     , fcaFault
     , fcaMessage
+
+    -- * FailureDetails
+    , FailureDetails
+    , failureDetails
+    , fdFailureType
+    , fdFailureStage
+    , fdDetails
 
     -- * InstanceAggregatedAssociationOverview
     , InstanceAggregatedAssociationOverview
@@ -542,6 +639,7 @@ module Network.AWS.SSM.Types
     -- * InventoryItem
     , InventoryItem
     , inventoryItem
+    , iiContext
     , iiContentHash
     , iiContent
     , iiTypeName
@@ -583,6 +681,12 @@ module Network.AWS.SSM.Types
     , liS3BucketName
     , liS3Region
 
+    -- * MaintenanceWindowAutomationParameters
+    , MaintenanceWindowAutomationParameters
+    , maintenanceWindowAutomationParameters
+    , mwapParameters
+    , mwapDocumentVersion
+
     -- * MaintenanceWindowExecution
     , MaintenanceWindowExecution
     , maintenanceWindowExecution
@@ -614,6 +718,7 @@ module Network.AWS.SSM.Types
     , mwetiiStartTime
     , mwetiiInvocationId
     , mwetiiOwnerInformation
+    , mwetiiTaskType
     , mwetiiWindowTargetId
     , mwetiiWindowExecutionId
     , mwetiiStatusDetails
@@ -632,8 +737,35 @@ module Network.AWS.SSM.Types
     , mwiEnabled
     , mwiName
     , mwiCutoff
+    , mwiDescription
     , mwiDuration
     , mwiWindowId
+
+    -- * MaintenanceWindowLambdaParameters
+    , MaintenanceWindowLambdaParameters
+    , maintenanceWindowLambdaParameters
+    , mwlpPayload
+    , mwlpQualifier
+    , mwlpClientContext
+
+    -- * MaintenanceWindowRunCommandParameters
+    , MaintenanceWindowRunCommandParameters
+    , maintenanceWindowRunCommandParameters
+    , mwrcpServiceRoleARN
+    , mwrcpNotificationConfig
+    , mwrcpDocumentHashType
+    , mwrcpOutputS3KeyPrefix
+    , mwrcpParameters
+    , mwrcpDocumentHash
+    , mwrcpTimeoutSeconds
+    , mwrcpComment
+    , mwrcpOutputS3BucketName
+
+    -- * MaintenanceWindowStepFunctionsParameters
+    , MaintenanceWindowStepFunctionsParameters
+    , maintenanceWindowStepFunctionsParameters
+    , mwsfpInput
+    , mwsfpName
 
     -- * MaintenanceWindowTarget
     , MaintenanceWindowTarget
@@ -641,7 +773,9 @@ module Network.AWS.SSM.Types
     , mResourceType
     , mOwnerInformation
     , mWindowTargetId
+    , mName
     , mTargets
+    , mDescription
     , mWindowId
 
     -- * MaintenanceWindowTask
@@ -653,16 +787,32 @@ module Network.AWS.SSM.Types
     , mwtPriority
     , mwtTaskARN
     , mwtMaxErrors
+    , mwtName
     , mwtTargets
     , mwtLoggingInfo
     , mwtType
+    , mwtDescription
     , mwtMaxConcurrency
     , mwtWindowId
+
+    -- * MaintenanceWindowTaskInvocationParameters
+    , MaintenanceWindowTaskInvocationParameters
+    , maintenanceWindowTaskInvocationParameters
+    , mwtipAutomation
+    , mwtipStepFunctions
+    , mwtipRunCommand
+    , mwtipLambda
 
     -- * MaintenanceWindowTaskParameterValueExpression
     , MaintenanceWindowTaskParameterValueExpression
     , maintenanceWindowTaskParameterValueExpression
     , mwtpveValues
+
+    -- * NonCompliantSummary
+    , NonCompliantSummary
+    , nonCompliantSummary
+    , ncsNonCompliantCount
+    , ncsSeveritySummary
 
     -- * NotificationConfig
     , NotificationConfig
@@ -686,6 +836,7 @@ module Network.AWS.SSM.Types
     , phValue
     , phName
     , phLastModifiedUser
+    , phAllowedPattern
     , phType
     , phDescription
 
@@ -696,8 +847,16 @@ module Network.AWS.SSM.Types
     , pmKeyId
     , pmName
     , pmLastModifiedUser
+    , pmAllowedPattern
     , pmType
     , pmDescription
+
+    -- * ParameterStringFilter
+    , ParameterStringFilter
+    , parameterStringFilter
+    , psfValues
+    , psfOption
+    , psfKey
 
     -- * ParametersFilter
     , ParametersFilter
@@ -727,6 +886,7 @@ module Network.AWS.SSM.Types
     , patchBaselineIdentity
     , pbiBaselineName
     , pbiBaselineDescription
+    , pbiOperatingSystem
     , pbiDefaultBaseline
     , pbiBaselineId
 
@@ -766,6 +926,7 @@ module Network.AWS.SSM.Types
     -- * PatchRule
     , PatchRule
     , patchRule
+    , prComplianceLevel
     , prPatchFilterGroup
     , prApproveAfterDays
 
@@ -779,6 +940,37 @@ module Network.AWS.SSM.Types
     , patchStatus
     , psApprovalDate
     , psDeploymentStatus
+    , psComplianceLevel
+
+    -- * ResourceComplianceSummaryItem
+    , ResourceComplianceSummaryItem
+    , resourceComplianceSummaryItem
+    , rcsiNonCompliantSummary
+    , rcsiStatus
+    , rcsiResourceId
+    , rcsiResourceType
+    , rcsiCompliantSummary
+    , rcsiExecutionSummary
+    , rcsiOverallSeverity
+    , rcsiComplianceType
+
+    -- * ResourceDataSyncItem
+    , ResourceDataSyncItem
+    , resourceDataSyncItem
+    , rdsiSyncCreatedTime
+    , rdsiLastSyncTime
+    , rdsiSyncName
+    , rdsiLastStatus
+    , rdsiS3Destination
+    , rdsiLastSuccessfulSyncTime
+
+    -- * ResourceDataSyncS3Destination
+    , ResourceDataSyncS3Destination
+    , resourceDataSyncS3Destination
+    , rdssdPrefix
+    , rdssdBucketName
+    , rdssdSyncFormat
+    , rdssdRegion
 
     -- * ResultAttribute
     , ResultAttribute
@@ -797,9 +989,20 @@ module Network.AWS.SSM.Types
     , s3OutputURL
     , souOutputURL
 
+    -- * SeveritySummary
+    , SeveritySummary
+    , severitySummary
+    , ssLowCount
+    , ssUnspecifiedCount
+    , ssHighCount
+    , ssMediumCount
+    , ssInformationalCount
+    , ssCriticalCount
+
     -- * StepExecution
     , StepExecution
     , stepExecution
+    , seFailureDetails
     , seInputs
     , seStepName
     , seExecutionEndTime
@@ -853,6 +1056,8 @@ ssm =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -877,6 +1082,13 @@ _AutomationDefinitionVersionNotFoundException =
 _InvalidDocumentVersion :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDocumentVersion = _MatchServiceError ssm "InvalidDocumentVersion"
 
+-- | Parameter Store does not support changing a parameter type in a hierarchy. For example, you can't change a parameter from a String type to a SecureString type. You must create a new, unique parameter.
+--
+--
+_HierarchyTypeMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
+_HierarchyTypeMismatchException =
+    _MatchServiceError ssm "HierarchyTypeMismatchException"
+
 -- | The schedule is invalid. Verify your cron or rate expression and try again.
 --
 --
@@ -895,7 +1107,28 @@ _UnsupportedParameterType = _MatchServiceError ssm "UnsupportedParameterType"
 _InvalidPluginName :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidPluginName = _MatchServiceError ssm "InvalidPluginName"
 
--- | The document does not support the platform type of the given instance ID(s). For example, you sent an SSM document for a Windows instance to a Linux instance.
+-- | You attempted to register a LAMBDA or STEP_FUNCTION task in a region where there corresponding service is not available.
+--
+--
+_FeatureNotAvailableException :: AsError a => Getting (First ServiceError) a ServiceError
+_FeatureNotAvailableException =
+    _MatchServiceError ssm "FeatureNotAvailableException"
+
+-- | The signal is not valid for the current Automation execution.
+--
+--
+_InvalidAutomationSignalException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidAutomationSignalException =
+    _MatchServiceError ssm "InvalidAutomationSignalException"
+
+-- | You have exceeded the allowed maximum sync configurations.
+--
+--
+_ResourceDataSyncCountExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceDataSyncCountExceededException =
+    _MatchServiceError ssm "ResourceDataSyncCountExceededException"
+
+-- | The document does not support the platform type of the given instance ID(s). For example, you sent an document for a Windows instance to a Linux instance.
 --
 --
 _UnsupportedPlatformType :: AsError a => Getting (First ServiceError) a ServiceError
@@ -914,26 +1147,46 @@ _InvalidItemContentException :: AsError a => Getting (First ServiceError) a Serv
 _InvalidItemContentException =
     _MatchServiceError ssm "InvalidItemContentException"
 
+-- | The specified filter option is not valid. Valid options are Equals and BeginsWith. For Path filter, valid options are Recursive and OneLevel.
+--
+--
+_InvalidFilterOption :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidFilterOption = _MatchServiceError ssm "InvalidFilterOption"
+
+-- | The parameter name is not valid.
+--
+--
+_ParameterPatternMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
+_ParameterPatternMismatchException =
+    _MatchServiceError ssm "ParameterPatternMismatchException"
+
 -- | The permission type is not supported. /Share/ is the only supported permission type.
 --
 --
 _InvalidPermissionType :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidPermissionType = _MatchServiceError ssm "InvalidPermissionType"
 
--- | You must disassociate an SSM document from all instances before you can delete it.
+-- | You must disassociate a document from all instances before you can delete it.
 --
 --
 _AssociatedInstances :: AsError a => Getting (First ServiceError) a ServiceError
 _AssociatedInstances = _MatchServiceError ssm "AssociatedInstances"
+
+-- | The operating systems you specified is not supported, or the operation is not supported for the operating system. Valid operating systems include: Windows, AmazonLinux, RedhatEnterpriseLinux, and Ubuntu.
+--
+--
+_UnsupportedOperatingSystem :: AsError a => Getting (First ServiceError) a ServiceError
+_UnsupportedOperatingSystem =
+    _MatchServiceError ssm "UnsupportedOperatingSystem"
 
 -- | The following problems can cause this exception:
 --
 --
 -- You do not have permission to access the instance.
 --
--- The SSM agent is not running. On managed instances and Linux instances, verify that the SSM agent is running. On EC2 Windows instances, verify that the EC2Config service is running.
+-- The SSM Agent is not running. On managed instances and Linux instances, verify that the SSM Agent is running. On EC2 Windows instances, verify that the EC2Config service is running.
 --
--- The SSM agent or EC2Config service is not registered to the SSM endpoint. Try reinstalling the SSM agent or EC2Config service.
+-- The SSM Agent or EC2Config service is not registered to the SSM endpoint. Try reinstalling the SSM Agent or EC2Config service.
 --
 -- The instance is not in valid state. Valid states are: Running, Pending, Stopped, Stopping. Invalid states are: Shutting-down and Terminated.
 --
@@ -978,6 +1231,13 @@ _ResourceLimitExceededException :: AsError a => Getting (First ServiceError) a S
 _ResourceLimitExceededException =
     _MatchServiceError ssm "ResourceLimitExceededException"
 
+-- | The specified sync configuration is invalid.
+--
+--
+_ResourceDataSyncInvalidConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceDataSyncInvalidConfigurationException =
+    _MatchServiceError ssm "ResourceDataSyncInvalidConfigurationException"
+
 -- | Prism for InvalidCommandId' errors.
 _InvalidCommandId :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidCommandId = _MatchServiceError ssm "InvalidCommandId"
@@ -994,7 +1254,7 @@ _DuplicateInstanceId = _MatchServiceError ssm "DuplicateInstanceId"
 _InvalidResourceType :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidResourceType = _MatchServiceError ssm "InvalidResourceType"
 
--- | Inventory item type schema version has to match supported versions in the service. Check output of @GetInventorySchema@ to see the available schema version for each type.
+-- | Inventory item type schema version has to match supported versions in the service. Check output of GetInventorySchema to see the available schema version for each type.
 --
 --
 _UnsupportedInventorySchemaVersionException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1040,6 +1300,13 @@ _AutomationExecutionNotFoundException =
 _InvalidTypeNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTypeNameException = _MatchServiceError ssm "InvalidTypeNameException"
 
+-- | The specified sync name was not found.
+--
+--
+_ResourceDataSyncNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceDataSyncNotFoundException =
+    _MatchServiceError ssm "ResourceDataSyncNotFoundException"
+
 -- | The inventory item size has exceeded the size limit.
 --
 --
@@ -1047,7 +1314,14 @@ _ItemSizeLimitExceededException :: AsError a => Getting (First ServiceError) a S
 _ItemSizeLimitExceededException =
     _MatchServiceError ssm "ItemSizeLimitExceededException"
 
--- | Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn’t exist.
+-- | A sync configuration with the same name already exists.
+--
+--
+_ResourceDataSyncAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceDataSyncAlreadyExistsException =
+    _MatchServiceError ssm "ResourceDataSyncAlreadyExistsException"
+
+-- | Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't exist.
 --
 --
 _DoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1060,7 +1334,7 @@ _AutomationExecutionLimitExceededException :: AsError a => Getting (First Servic
 _AutomationExecutionLimitExceededException =
     _MatchServiceError ssm "AutomationExecutionLimitExceededException"
 
--- | Error returned when an idempotent operation is retried and the parameters don’t match the original call to the API with the same idempotency token.
+-- | Error returned when an idempotent operation is retried and the parameters don't match the original call to the API with the same idempotency token.
 --
 --
 _IdempotentParameterMismatch :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1093,7 +1367,14 @@ _ParameterAlreadyExists = _MatchServiceError ssm "ParameterAlreadyExists"
 _AssociationAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _AssociationAlreadyExists = _MatchServiceError ssm "AssociationAlreadyExists"
 
--- | The content for the SSM document is not valid.
+-- | You specified too many custom compliance types. You can specify a maximum of 10 different types.
+--
+--
+_ComplianceTypeCountLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_ComplianceTypeCountLimitExceededException =
+    _MatchServiceError ssm "ComplianceTypeCountLimitExceededException"
+
+-- | The content for the document is not valid.
 --
 --
 _InvalidDocumentContent :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1123,13 +1404,26 @@ _AssociationDoesNotExist = _MatchServiceError ssm "AssociationDoesNotExist"
 _ParameterNotFound :: AsError a => Getting (First ServiceError) a ServiceError
 _ParameterNotFound = _MatchServiceError ssm "ParameterNotFound"
 
+-- | You specified the @Safe@ option for the DeregisterTargetFromMaintenanceWindow operation, but the target is still referenced in a task.
+--
+--
+_TargetInUseException :: AsError a => Getting (First ServiceError) a ServiceError
+_TargetInUseException = _MatchServiceError ssm "TargetInUseException"
+
 -- | An error occurred on the server side.
 --
 --
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError = _MatchServiceError ssm "InternalServerError"
 
--- | The role name can't contain invalid characters. Also verify that you specified an IAM role for notifications that includes the required trust policy. For information about configuring the IAM role for Run Command notifications, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/rc-sns.html Getting Amazon SNS Notifications When a Command Changes Status> in the /Amazon Elastic Compute Cloud User Guide / .
+-- | The @Context@ attribute you specified for the @InventoryItem@ is not allowed for this inventory type. You can only use the @Context@ attribute with inventory types like @AWS:ComplianceItem@ .
+--
+--
+_UnsupportedInventoryItemContextException :: AsError a => Getting (First ServiceError) a ServiceError
+_UnsupportedInventoryItemContextException =
+    _MatchServiceError ssm "UnsupportedInventoryItemContextException"
+
+-- | The role name can't contain invalid characters. Also verify that you specified an IAM role for notifications that includes the required trust policy. For information about configuring the IAM role for Run Command notifications, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html Configuring Amazon SNS Notifications for Run Command> in the /Amazon EC2 Systems Manager User Guide/ .
 --
 --
 _InvalidRole :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1154,7 +1448,7 @@ _InvalidDocumentSchemaVersion :: AsError a => Getting (First ServiceError) a Ser
 _InvalidDocumentSchemaVersion =
     _MatchServiceError ssm "InvalidDocumentSchemaVersion"
 
--- | The size limit of an SSM document is 64 KB.
+-- | The size limit of a document is 64 KB.
 --
 --
 _MaxDocumentSizeExceeded :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1178,6 +1472,17 @@ _CustomSchemaCountLimitExceededException =
 --
 _InvalidTarget :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTarget = _MatchServiceError ssm "InvalidTarget"
+
+-- | A hierarchy can have a maximum of five levels. For example:
+--
+--
+-- /Finance/Prod/IAD/OS/WinServ2016/license15
+--
+-- For more information, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html Working with Systems Manager Parameters> .
+--
+_HierarchyLevelLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_HierarchyLevelLimitExceededException =
+    _MatchServiceError ssm "HierarchyLevelLimitExceededException"
 
 -- | You attempted to delete a document while it is still shared. You must stop sharing the document before you can delete it.
 --
@@ -1222,11 +1527,25 @@ _InvalidParameters = _MatchServiceError ssm "InvalidParameters"
 _InvalidResourceId :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidResourceId = _MatchServiceError ssm "InvalidResourceId"
 
+-- | The request does not meet the regular expression requirement.
+--
+--
+_InvalidAllowedPatternException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidAllowedPatternException =
+    _MatchServiceError ssm "InvalidAllowedPatternException"
+
 -- | One or more configuration items is not valid. Verify that a valid Amazon Resource Name (ARN) was provided for an Amazon SNS topic.
 --
 --
 _InvalidNotificationConfig :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNotificationConfig = _MatchServiceError ssm "InvalidNotificationConfig"
+
+-- | You specified invalid keys or values in the @Context@ attribute for @InventoryItem@ . Verify the keys and values, and try again.
+--
+--
+_InvalidInventoryItemContextException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidInventoryItemContextException =
+    _MatchServiceError ssm "InvalidInventoryItemContextException"
 
 -- | The size of inventory data has exceeded the total size limit for the resource.
 --
@@ -1235,7 +1554,14 @@ _TotalSizeLimitExceededException :: AsError a => Getting (First ServiceError) a 
 _TotalSizeLimitExceededException =
     _MatchServiceError ssm "TotalSizeLimitExceededException"
 
--- | The @Targets@ parameter includes too many tags. Remove one or more tags and try the command again.
+-- | The sub-type count exceeded the limit for the inventory type.
+--
+--
+_SubTypeCountLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_SubTypeCountLimitExceededException =
+    _MatchServiceError ssm "SubTypeCountLimitExceededException"
+
+-- | The Targets parameter includes too many tags. Remove one or more tags and try the command again.
 --
 --
 _TooManyTagsError :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1253,7 +1579,7 @@ _DocumentPermissionLimit = _MatchServiceError ssm "DocumentPermissionLimit"
 _DuplicateDocumentContent :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateDocumentContent = _MatchServiceError ssm "DuplicateDocumentContent"
 
--- | The specified SSM document already exists.
+-- | The specified document already exists.
 --
 --
 _DocumentAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError

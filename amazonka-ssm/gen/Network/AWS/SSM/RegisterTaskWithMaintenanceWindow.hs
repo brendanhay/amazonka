@@ -30,7 +30,10 @@ module Network.AWS.SSM.RegisterTaskWithMaintenanceWindow
     , rtwmwTaskParameters
     , rtwmwPriority
     , rtwmwClientToken
+    , rtwmwTaskInvocationParameters
+    , rtwmwName
     , rtwmwLoggingInfo
+    , rtwmwDescription
     , rtwmwWindowId
     , rtwmwTargets
     , rtwmwTaskARN
@@ -56,17 +59,20 @@ import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'registerTaskWithMaintenanceWindow' smart constructor.
 data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
-    { _rtwmwTaskParameters :: !(Maybe (Sensitive (Map Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
-    , _rtwmwPriority       :: !(Maybe Nat)
-    , _rtwmwClientToken    :: !(Maybe Text)
-    , _rtwmwLoggingInfo    :: !(Maybe LoggingInfo)
-    , _rtwmwWindowId       :: !Text
-    , _rtwmwTargets        :: ![Target]
-    , _rtwmwTaskARN        :: !Text
-    , _rtwmwServiceRoleARN :: !Text
-    , _rtwmwTaskType       :: !MaintenanceWindowTaskType
-    , _rtwmwMaxConcurrency :: !Text
-    , _rtwmwMaxErrors      :: !Text
+    { _rtwmwTaskParameters           :: !(Maybe (Sensitive (Map Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
+    , _rtwmwPriority                 :: !(Maybe Nat)
+    , _rtwmwClientToken              :: !(Maybe Text)
+    , _rtwmwTaskInvocationParameters :: !(Maybe MaintenanceWindowTaskInvocationParameters)
+    , _rtwmwName                     :: !(Maybe Text)
+    , _rtwmwLoggingInfo              :: !(Maybe LoggingInfo)
+    , _rtwmwDescription              :: !(Maybe (Sensitive Text))
+    , _rtwmwWindowId                 :: !Text
+    , _rtwmwTargets                  :: ![Target]
+    , _rtwmwTaskARN                  :: !Text
+    , _rtwmwServiceRoleARN           :: !Text
+    , _rtwmwTaskType                 :: !MaintenanceWindowTaskType
+    , _rtwmwMaxConcurrency           :: !Text
+    , _rtwmwMaxErrors                :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegisterTaskWithMaintenanceWindow' with the minimum fields required to make a request.
@@ -79,7 +85,13 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
 --
 -- * 'rtwmwClientToken' - User-provided idempotency token.
 --
+-- * 'rtwmwTaskInvocationParameters' - Parameters the task should use during execution. Populate only the fields that match the task type. All other fields should be empty.
+--
+-- * 'rtwmwName' - An optional name for the task.
+--
 -- * 'rtwmwLoggingInfo' - A structure containing information about an Amazon S3 bucket to write instance-level logs to.
+--
+-- * 'rtwmwDescription' - An optional description for the task.
 --
 -- * 'rtwmwWindowId' - The id of the Maintenance Window the task should be added to.
 --
@@ -107,7 +119,10 @@ registerTaskWithMaintenanceWindow pWindowId_ pTaskARN_ pServiceRoleARN_ pTaskTyp
     { _rtwmwTaskParameters = Nothing
     , _rtwmwPriority = Nothing
     , _rtwmwClientToken = Nothing
+    , _rtwmwTaskInvocationParameters = Nothing
+    , _rtwmwName = Nothing
     , _rtwmwLoggingInfo = Nothing
+    , _rtwmwDescription = Nothing
     , _rtwmwWindowId = pWindowId_
     , _rtwmwTargets = mempty
     , _rtwmwTaskARN = pTaskARN_
@@ -129,9 +144,21 @@ rtwmwPriority = lens _rtwmwPriority (\ s a -> s{_rtwmwPriority = a}) . mapping _
 rtwmwClientToken :: Lens' RegisterTaskWithMaintenanceWindow (Maybe Text)
 rtwmwClientToken = lens _rtwmwClientToken (\ s a -> s{_rtwmwClientToken = a});
 
+-- | Parameters the task should use during execution. Populate only the fields that match the task type. All other fields should be empty.
+rtwmwTaskInvocationParameters :: Lens' RegisterTaskWithMaintenanceWindow (Maybe MaintenanceWindowTaskInvocationParameters)
+rtwmwTaskInvocationParameters = lens _rtwmwTaskInvocationParameters (\ s a -> s{_rtwmwTaskInvocationParameters = a});
+
+-- | An optional name for the task.
+rtwmwName :: Lens' RegisterTaskWithMaintenanceWindow (Maybe Text)
+rtwmwName = lens _rtwmwName (\ s a -> s{_rtwmwName = a});
+
 -- | A structure containing information about an Amazon S3 bucket to write instance-level logs to.
 rtwmwLoggingInfo :: Lens' RegisterTaskWithMaintenanceWindow (Maybe LoggingInfo)
 rtwmwLoggingInfo = lens _rtwmwLoggingInfo (\ s a -> s{_rtwmwLoggingInfo = a});
+
+-- | An optional description for the task.
+rtwmwDescription :: Lens' RegisterTaskWithMaintenanceWindow (Maybe Text)
+rtwmwDescription = lens _rtwmwDescription (\ s a -> s{_rtwmwDescription = a}) . mapping _Sensitive;
 
 -- | The id of the Maintenance Window the task should be added to.
 rtwmwWindowId :: Lens' RegisterTaskWithMaintenanceWindow Text
@@ -195,7 +222,11 @@ instance ToJSON RegisterTaskWithMaintenanceWindow
                  [("TaskParameters" .=) <$> _rtwmwTaskParameters,
                   ("Priority" .=) <$> _rtwmwPriority,
                   ("ClientToken" .=) <$> _rtwmwClientToken,
+                  ("TaskInvocationParameters" .=) <$>
+                    _rtwmwTaskInvocationParameters,
+                  ("Name" .=) <$> _rtwmwName,
                   ("LoggingInfo" .=) <$> _rtwmwLoggingInfo,
+                  ("Description" .=) <$> _rtwmwDescription,
                   Just ("WindowId" .= _rtwmwWindowId),
                   Just ("Targets" .= _rtwmwTargets),
                   Just ("TaskArn" .= _rtwmwTaskARN),

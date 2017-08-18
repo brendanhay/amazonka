@@ -27,12 +27,14 @@ module Network.AWS.SSM.GetPatchBaselineForPatchGroup
       getPatchBaselineForPatchGroup
     , GetPatchBaselineForPatchGroup
     -- * Request Lenses
+    , gpbfpgOperatingSystem
     , gpbfpgPatchGroup
 
     -- * Destructuring the Response
     , getPatchBaselineForPatchGroupResponse
     , GetPatchBaselineForPatchGroupResponse
     -- * Response Lenses
+    , gpbfpgrsOperatingSystem
     , gpbfpgrsBaselineId
     , gpbfpgrsPatchGroup
     , gpbfpgrsResponseStatus
@@ -46,13 +48,16 @@ import           Network.AWS.SSM.Types
 import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getPatchBaselineForPatchGroup' smart constructor.
-newtype GetPatchBaselineForPatchGroup = GetPatchBaselineForPatchGroup'
-    { _gpbfpgPatchGroup :: Text
+data GetPatchBaselineForPatchGroup = GetPatchBaselineForPatchGroup'
+    { _gpbfpgOperatingSystem :: !(Maybe OperatingSystem)
+    , _gpbfpgPatchGroup      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetPatchBaselineForPatchGroup' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gpbfpgOperatingSystem' - Returns he operating system rule specified for patch groups using the patch baseline.
 --
 -- * 'gpbfpgPatchGroup' - The name of the patch group whose patch baseline should be retrieved.
 getPatchBaselineForPatchGroup
@@ -60,8 +65,13 @@ getPatchBaselineForPatchGroup
     -> GetPatchBaselineForPatchGroup
 getPatchBaselineForPatchGroup pPatchGroup_ =
     GetPatchBaselineForPatchGroup'
-    { _gpbfpgPatchGroup = pPatchGroup_
+    { _gpbfpgOperatingSystem = Nothing
+    , _gpbfpgPatchGroup = pPatchGroup_
     }
+
+-- | Returns he operating system rule specified for patch groups using the patch baseline.
+gpbfpgOperatingSystem :: Lens' GetPatchBaselineForPatchGroup (Maybe OperatingSystem)
+gpbfpgOperatingSystem = lens _gpbfpgOperatingSystem (\ s a -> s{_gpbfpgOperatingSystem = a});
 
 -- | The name of the patch group whose patch baseline should be retrieved.
 gpbfpgPatchGroup :: Lens' GetPatchBaselineForPatchGroup Text
@@ -76,8 +86,9 @@ instance AWSRequest GetPatchBaselineForPatchGroup
           = receiveJSON
               (\ s h x ->
                  GetPatchBaselineForPatchGroupResponse' <$>
-                   (x .?> "BaselineId") <*> (x .?> "PatchGroup") <*>
-                     (pure (fromEnum s)))
+                   (x .?> "OperatingSystem") <*> (x .?> "BaselineId")
+                     <*> (x .?> "PatchGroup")
+                     <*> (pure (fromEnum s)))
 
 instance Hashable GetPatchBaselineForPatchGroup
 
@@ -98,7 +109,8 @@ instance ToJSON GetPatchBaselineForPatchGroup where
         toJSON GetPatchBaselineForPatchGroup'{..}
           = object
               (catMaybes
-                 [Just ("PatchGroup" .= _gpbfpgPatchGroup)])
+                 [("OperatingSystem" .=) <$> _gpbfpgOperatingSystem,
+                  Just ("PatchGroup" .= _gpbfpgPatchGroup)])
 
 instance ToPath GetPatchBaselineForPatchGroup where
         toPath = const "/"
@@ -108,14 +120,17 @@ instance ToQuery GetPatchBaselineForPatchGroup where
 
 -- | /See:/ 'getPatchBaselineForPatchGroupResponse' smart constructor.
 data GetPatchBaselineForPatchGroupResponse = GetPatchBaselineForPatchGroupResponse'
-    { _gpbfpgrsBaselineId     :: !(Maybe Text)
-    , _gpbfpgrsPatchGroup     :: !(Maybe Text)
-    , _gpbfpgrsResponseStatus :: !Int
+    { _gpbfpgrsOperatingSystem :: !(Maybe OperatingSystem)
+    , _gpbfpgrsBaselineId      :: !(Maybe Text)
+    , _gpbfpgrsPatchGroup      :: !(Maybe Text)
+    , _gpbfpgrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetPatchBaselineForPatchGroupResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gpbfpgrsOperatingSystem' - The operating system rule specified for patch groups using the patch baseline.
 --
 -- * 'gpbfpgrsBaselineId' - The ID of the patch baseline that should be used for the patch group.
 --
@@ -127,10 +142,15 @@ getPatchBaselineForPatchGroupResponse
     -> GetPatchBaselineForPatchGroupResponse
 getPatchBaselineForPatchGroupResponse pResponseStatus_ =
     GetPatchBaselineForPatchGroupResponse'
-    { _gpbfpgrsBaselineId = Nothing
+    { _gpbfpgrsOperatingSystem = Nothing
+    , _gpbfpgrsBaselineId = Nothing
     , _gpbfpgrsPatchGroup = Nothing
     , _gpbfpgrsResponseStatus = pResponseStatus_
     }
+
+-- | The operating system rule specified for patch groups using the patch baseline.
+gpbfpgrsOperatingSystem :: Lens' GetPatchBaselineForPatchGroupResponse (Maybe OperatingSystem)
+gpbfpgrsOperatingSystem = lens _gpbfpgrsOperatingSystem (\ s a -> s{_gpbfpgrsOperatingSystem = a});
 
 -- | The ID of the patch baseline that should be used for the patch group.
 gpbfpgrsBaselineId :: Lens' GetPatchBaselineForPatchGroupResponse (Maybe Text)

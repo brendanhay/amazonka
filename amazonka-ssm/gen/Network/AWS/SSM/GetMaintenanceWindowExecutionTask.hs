@@ -168,7 +168,7 @@ data GetMaintenanceWindowExecutionTaskResponse = GetMaintenanceWindowExecutionTa
 --
 -- * 'gmwetrsStatus' - The status of the task.
 --
--- * 'gmwetrsTaskParameters' - The parameters passed to the task when it was executed. The map has the following format: Key: string, 1 ≤ length ≤ 255 Value: an array of strings where each string 1 ≤ length ≤ 255
+-- * 'gmwetrsTaskParameters' - The parameters passed to the task when it was executed. The map has the following format: Key: string, between 1 and 255 characters Value: an array of strings, each string is between 1 and 255 characters
 --
 -- * 'gmwetrsTaskExecutionId' - The ID of the specific task execution in the Maintenance Window task that was retrieved.
 --
@@ -218,7 +218,7 @@ getMaintenanceWindowExecutionTaskResponse pResponseStatus_ =
 gmwetrsStatus :: Lens' GetMaintenanceWindowExecutionTaskResponse (Maybe MaintenanceWindowExecutionStatus)
 gmwetrsStatus = lens _gmwetrsStatus (\ s a -> s{_gmwetrsStatus = a});
 
--- | The parameters passed to the task when it was executed. The map has the following format: Key: string, 1 ≤ length ≤ 255 Value: an array of strings where each string 1 ≤ length ≤ 255
+-- | The parameters passed to the task when it was executed. The map has the following format: Key: string, between 1 and 255 characters Value: an array of strings, each string is between 1 and 255 characters
 gmwetrsTaskParameters :: Lens' GetMaintenanceWindowExecutionTaskResponse (Maybe [HashMap Text MaintenanceWindowTaskParameterValueExpression])
 gmwetrsTaskParameters = lens _gmwetrsTaskParameters (\ s a -> s{_gmwetrsTaskParameters = a}) . mapping (_Sensitive . _Coerce);
 

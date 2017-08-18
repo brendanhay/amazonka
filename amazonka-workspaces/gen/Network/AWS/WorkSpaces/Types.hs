@@ -207,6 +207,8 @@ workSpaces =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -218,7 +220,9 @@ workSpaces =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Prism for AccessDeniedException' errors.
+-- | The user is not authorized to access a resource.
+--
+--
 _AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
 _AccessDeniedException = _MatchServiceError workSpaces "AccessDeniedException"
 
@@ -250,14 +254,14 @@ _ResourceLimitExceededException :: AsError a => Getting (First ServiceError) a S
 _ResourceLimitExceededException =
     _MatchServiceError workSpaces "ResourceLimitExceededException"
 
--- | The specified WorkSpace has an invalid state for this operation.
+-- | The state of the WorkSpace is not valid for this operation.
 --
 --
 _InvalidResourceStateException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidResourceStateException =
     _MatchServiceError workSpaces "InvalidResourceStateException"
 
--- | The WorkSpace does not have the supported configuration for this operation. For more information, see the <http://docs.aws.amazon.com/workspaces/latest/adminguide Amazon WorkSpaces Administration Guide> .
+-- | The configuration of this WorkSpace is not supported for this operation. For more information, see the <http://docs.aws.amazon.com/workspaces/latest/adminguide/ Amazon WorkSpaces Administration Guide> .
 --
 --
 _UnsupportedWorkspaceConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError

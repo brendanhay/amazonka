@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the WorkSpace properties, including the RunningMode and AutoStop time.
+-- Modifies the WorkSpace properties, including the running mode and AutoStop time.
 --
 --
 module Network.AWS.WorkSpaces.ModifyWorkspaceProperties

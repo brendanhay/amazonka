@@ -19,22 +19,25 @@ module Network.AWS.Budgets.Types.Sum where
 
 import           Network.AWS.Prelude
 
--- | The type of a budget. Can be COST or USAGE.
+-- | The type of a budget. It should be COST, USAGE, or RI_UTILIZATION.
 data BudgetType
     = Cost
+    | RiUtilization
     | Usage
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText BudgetType where
     parser = takeLowerText >>= \case
         "cost" -> pure Cost
+        "ri_utilization" -> pure RiUtilization
         "usage" -> pure Usage
         e -> fromTextError $ "Failure parsing BudgetType from value: '" <> e
-           <> "'. Accepted values: cost, usage"
+           <> "'. Accepted values: cost, ri_utilization, usage"
 
 instance ToText BudgetType where
     toText = \case
         Cost -> "COST"
+        RiUtilization -> "RI_UTILIZATION"
         Usage -> "USAGE"
 
 instance Hashable     BudgetType
@@ -142,9 +145,10 @@ instance ToJSON SubscriptionType where
 instance FromJSON SubscriptionType where
     parseJSON = parseJSONText "SubscriptionType"
 
--- | The time unit of the budget. e.g. weekly, monthly, etc.
+-- | The time unit of the budget. e.g. MONTHLY, QUARTERLY, etc.
 data TimeUnit
     = Annually
+    | Daily
     | Monthly
     | Quarterly
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -152,14 +156,16 @@ data TimeUnit
 instance FromText TimeUnit where
     parser = takeLowerText >>= \case
         "annually" -> pure Annually
+        "daily" -> pure Daily
         "monthly" -> pure Monthly
         "quarterly" -> pure Quarterly
         e -> fromTextError $ "Failure parsing TimeUnit from value: '" <> e
-           <> "'. Accepted values: annually, monthly, quarterly"
+           <> "'. Accepted values: annually, daily, monthly, quarterly"
 
 instance ToText TimeUnit where
     toText = \case
         Annually -> "ANNUALLY"
+        Daily -> "DAILY"
         Monthly -> "MONTHLY"
         Quarterly -> "QUARTERLY"
 

@@ -28,6 +28,7 @@ module Network.AWS.DirectoryService.Types
     , _InvalidNextTokenException
     , _ServiceException
     , _SnapshotLimitExceededException
+    , _DomainControllerLimitExceededException
     , _TagLimitExceededException
     , _ClientException
 
@@ -39,6 +40,9 @@ module Network.AWS.DirectoryService.Types
 
     -- * DirectoryType
     , DirectoryType (..)
+
+    -- * DomainControllerStatus
+    , DomainControllerStatus (..)
 
     -- * IPRouteStatusMsg
     , IPRouteStatusMsg (..)
@@ -120,6 +124,7 @@ module Network.AWS.DirectoryService.Types
     , ddAccessURL
     , ddShortName
     , ddSize
+    , ddDesiredNumberOfDomainControllers
     , ddRadiusSettings
     , ddLaunchTime
     , ddAlias
@@ -159,6 +164,20 @@ module Network.AWS.DirectoryService.Types
     , dvsdVPCId
     , dvsdSecurityGroupId
     , dvsdAvailabilityZones
+
+    -- * DomainController
+    , DomainController
+    , domainController
+    , dcStatus
+    , dcDirectoryId
+    , dcVPCId
+    , dcLaunchTime
+    , dcSubnetId
+    , dcAvailabilityZone
+    , dcStatusLastUpdatedDateTime
+    , dcStatusReason
+    , dcDNSIPAddr
+    , dcDomainControllerId
 
     -- * EventTopic
     , EventTopic
@@ -275,6 +294,8 @@ directoryService =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -368,6 +389,15 @@ _ServiceException = _MatchServiceError directoryService "ServiceException"
 _SnapshotLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _SnapshotLimitExceededException =
     _MatchServiceError directoryService "SnapshotLimitExceededException"
+
+-- | The maximum allowed number of domain controllers per directory was exceeded. The default limit per directory is 20 domain controllers.
+--
+--
+_DomainControllerLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_DomainControllerLimitExceededException =
+    _MatchServiceError
+        directoryService
+        "DomainControllerLimitExceededException"
 
 -- | The maximum allowed number of tags was exceeded.
 --

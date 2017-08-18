@@ -58,6 +58,7 @@ library
         , Network.AWS.DirectoryService.DeregisterEventTopic
         , Network.AWS.DirectoryService.DescribeConditionalForwarders
         , Network.AWS.DirectoryService.DescribeDirectories
+        , Network.AWS.DirectoryService.DescribeDomainControllers
         , Network.AWS.DirectoryService.DescribeEventTopics
         , Network.AWS.DirectoryService.DescribeSnapshots
         , Network.AWS.DirectoryService.DescribeTrusts
@@ -77,6 +78,7 @@ library
         , Network.AWS.DirectoryService.StartSchemaExtension
         , Network.AWS.DirectoryService.Types
         , Network.AWS.DirectoryService.UpdateConditionalForwarder
+        , Network.AWS.DirectoryService.UpdateNumberOfDomainControllers
         , Network.AWS.DirectoryService.UpdateRadius
         , Network.AWS.DirectoryService.VerifyTrust
         , Network.AWS.DirectoryService.Waiters

@@ -28,7 +28,10 @@ import Test.AWS.DirectoryService.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribeConditionalForwarders $
+--         [ requestUpdateNumberOfDomainControllers $
+--             updateNumberOfDomainControllers
+--
+--         , requestDescribeConditionalForwarders $
 --             describeConditionalForwarders
 --
 --         , requestGetSnapshotLimits $
@@ -103,6 +106,9 @@ import Test.AWS.DirectoryService.Internal
 --         , requestRestoreFromSnapshot $
 --             restoreFromSnapshot
 --
+--         , requestDescribeDomainControllers $
+--             describeDomainControllers
+--
 --         , requestDescribeSnapshots $
 --             describeSnapshots
 --
@@ -145,7 +151,10 @@ import Test.AWS.DirectoryService.Internal
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribeConditionalForwarders $
+--         [ responseUpdateNumberOfDomainControllers $
+--             updateNumberOfDomainControllersResponse
+--
+--         , responseDescribeConditionalForwarders $
 --             describeConditionalForwardersResponse
 --
 --         , responseGetSnapshotLimits $
@@ -220,6 +229,9 @@ import Test.AWS.DirectoryService.Internal
 --         , responseRestoreFromSnapshot $
 --             restoreFromSnapshotResponse
 --
+--         , responseDescribeDomainControllers $
+--             describeDomainControllersResponse
+--
 --         , responseDescribeSnapshots $
 --             describeSnapshotsResponse
 --
@@ -263,6 +275,11 @@ import Test.AWS.DirectoryService.Internal
 --     ]
 
 -- Requests
+
+requestUpdateNumberOfDomainControllers :: UpdateNumberOfDomainControllers -> TestTree
+requestUpdateNumberOfDomainControllers = req
+    "UpdateNumberOfDomainControllers"
+    "fixture/UpdateNumberOfDomainControllers.yaml"
 
 requestDescribeConditionalForwarders :: DescribeConditionalForwarders -> TestTree
 requestDescribeConditionalForwarders = req
@@ -389,6 +406,11 @@ requestRestoreFromSnapshot = req
     "RestoreFromSnapshot"
     "fixture/RestoreFromSnapshot.yaml"
 
+requestDescribeDomainControllers :: DescribeDomainControllers -> TestTree
+requestDescribeDomainControllers = req
+    "DescribeDomainControllers"
+    "fixture/DescribeDomainControllers.yaml"
+
 requestDescribeSnapshots :: DescribeSnapshots -> TestTree
 requestDescribeSnapshots = req
     "DescribeSnapshots"
@@ -455,6 +477,13 @@ requestUpdateRadius = req
     "fixture/UpdateRadius.yaml"
 
 -- Responses
+
+responseUpdateNumberOfDomainControllers :: UpdateNumberOfDomainControllersResponse -> TestTree
+responseUpdateNumberOfDomainControllers = res
+    "UpdateNumberOfDomainControllersResponse"
+    "fixture/UpdateNumberOfDomainControllersResponse.proto"
+    directoryService
+    (Proxy :: Proxy UpdateNumberOfDomainControllers)
 
 responseDescribeConditionalForwarders :: DescribeConditionalForwardersResponse -> TestTree
 responseDescribeConditionalForwarders = res
@@ -630,6 +659,13 @@ responseRestoreFromSnapshot = res
     "fixture/RestoreFromSnapshotResponse.proto"
     directoryService
     (Proxy :: Proxy RestoreFromSnapshot)
+
+responseDescribeDomainControllers :: DescribeDomainControllersResponse -> TestTree
+responseDescribeDomainControllers = res
+    "DescribeDomainControllersResponse"
+    "fixture/DescribeDomainControllersResponse.proto"
+    directoryService
+    (Proxy :: Proxy DescribeDomainControllers)
 
 responseDescribeSnapshots :: DescribeSnapshotsResponse -> TestTree
 responseDescribeSnapshots = res

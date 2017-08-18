@@ -130,6 +130,47 @@ instance ToHeader     DirectoryType
 instance FromJSON DirectoryType where
     parseJSON = parseJSONText "DirectoryType"
 
+data DomainControllerStatus
+    = Active
+    | Creating
+    | Deleted
+    | Deleting
+    | Failed
+    | Impaired
+    | Restoring
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText DomainControllerStatus where
+    parser = takeLowerText >>= \case
+        "active" -> pure Active
+        "creating" -> pure Creating
+        "deleted" -> pure Deleted
+        "deleting" -> pure Deleting
+        "failed" -> pure Failed
+        "impaired" -> pure Impaired
+        "restoring" -> pure Restoring
+        e -> fromTextError $ "Failure parsing DomainControllerStatus from value: '" <> e
+           <> "'. Accepted values: active, creating, deleted, deleting, failed, impaired, restoring"
+
+instance ToText DomainControllerStatus where
+    toText = \case
+        Active -> "Active"
+        Creating -> "Creating"
+        Deleted -> "Deleted"
+        Deleting -> "Deleting"
+        Failed -> "Failed"
+        Impaired -> "Impaired"
+        Restoring -> "Restoring"
+
+instance Hashable     DomainControllerStatus
+instance NFData       DomainControllerStatus
+instance ToByteString DomainControllerStatus
+instance ToQuery      DomainControllerStatus
+instance ToHeader     DomainControllerStatus
+
+instance FromJSON DomainControllerStatus where
+    parseJSON = parseJSONText "DomainControllerStatus"
+
 data IPRouteStatusMsg
     = AddFailed
     | Added
@@ -204,24 +245,24 @@ instance FromJSON RadiusAuthenticationProtocol where
     parseJSON = parseJSONText "RadiusAuthenticationProtocol"
 
 data RadiusStatus
-    = Completed
-    | Creating
-    | Failed
+    = RSCompleted
+    | RSCreating
+    | RSFailed
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RadiusStatus where
     parser = takeLowerText >>= \case
-        "completed" -> pure Completed
-        "creating" -> pure Creating
-        "failed" -> pure Failed
+        "completed" -> pure RSCompleted
+        "creating" -> pure RSCreating
+        "failed" -> pure RSFailed
         e -> fromTextError $ "Failure parsing RadiusStatus from value: '" <> e
            <> "'. Accepted values: completed, creating, failed"
 
 instance ToText RadiusStatus where
     toText = \case
-        Completed -> "Completed"
-        Creating -> "Creating"
-        Failed -> "Failed"
+        RSCompleted -> "Completed"
+        RSCreating -> "Creating"
+        RSFailed -> "Failed"
 
 instance Hashable     RadiusStatus
 instance NFData       RadiusStatus

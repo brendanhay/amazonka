@@ -38,6 +38,9 @@ module Network.AWS.KinesisAnalytics
     -- ** ConcurrentModificationException
     , _ConcurrentModificationException
 
+    -- ** ServiceUnavailableException
+    , _ServiceUnavailableException
+
     -- ** UnableToDetectSchemaException
     , _UnableToDetectSchemaException
 
@@ -77,6 +80,9 @@ module Network.AWS.KinesisAnalytics
     -- ** UpdateApplication
     , module Network.AWS.KinesisAnalytics.UpdateApplication
 
+    -- ** DeleteApplicationCloudWatchLoggingOption
+    , module Network.AWS.KinesisAnalytics.DeleteApplicationCloudWatchLoggingOption
+
     -- ** CreateApplication
     , module Network.AWS.KinesisAnalytics.CreateApplication
 
@@ -91,6 +97,9 @@ module Network.AWS.KinesisAnalytics
 
     -- ** AddApplicationInput
     , module Network.AWS.KinesisAnalytics.AddApplicationInput
+
+    -- ** AddApplicationCloudWatchLoggingOption
+    , module Network.AWS.KinesisAnalytics.AddApplicationCloudWatchLoggingOption
 
     -- ** ListApplications
     , module Network.AWS.KinesisAnalytics.ListApplications
@@ -111,6 +120,7 @@ module Network.AWS.KinesisAnalytics
     , applicationDetail
     , adApplicationDescription
     , adOutputDescriptions
+    , adCloudWatchLoggingOptionDescriptions
     , adReferenceDataSourceDescriptions
     , adInputDescriptions
     , adApplicationCode
@@ -133,6 +143,7 @@ module Network.AWS.KinesisAnalytics
     , applicationUpdate
     , auReferenceDataSourceUpdates
     , auInputUpdates
+    , auCloudWatchLoggingOptionUpdates
     , auOutputUpdates
     , auApplicationCodeUpdate
 
@@ -141,6 +152,26 @@ module Network.AWS.KinesisAnalytics
     , csvMappingParameters
     , cmpRecordRowDelimiter
     , cmpRecordColumnDelimiter
+
+    -- ** CloudWatchLoggingOption
+    , CloudWatchLoggingOption
+    , cloudWatchLoggingOption
+    , cwloLogStreamARN
+    , cwloRoleARN
+
+    -- ** CloudWatchLoggingOptionDescription
+    , CloudWatchLoggingOptionDescription
+    , cloudWatchLoggingOptionDescription
+    , cwlodCloudWatchLoggingOptionId
+    , cwlodLogStreamARN
+    , cwlodRoleARN
+
+    -- ** CloudWatchLoggingOptionUpdate
+    , CloudWatchLoggingOptionUpdate
+    , cloudWatchLoggingOptionUpdate
+    , cwlouRoleARNUpdate
+    , cwlouLogStreamARNUpdate
+    , cwlouCloudWatchLoggingOptionId
 
     -- ** DestinationSchema
     , DestinationSchema
@@ -380,11 +411,13 @@ module Network.AWS.KinesisAnalytics
     , ssRecordColumns
     ) where
 
+import           Network.AWS.KinesisAnalytics.AddApplicationCloudWatchLoggingOption
 import           Network.AWS.KinesisAnalytics.AddApplicationInput
 import           Network.AWS.KinesisAnalytics.AddApplicationOutput
 import           Network.AWS.KinesisAnalytics.AddApplicationReferenceDataSource
 import           Network.AWS.KinesisAnalytics.CreateApplication
 import           Network.AWS.KinesisAnalytics.DeleteApplication
+import           Network.AWS.KinesisAnalytics.DeleteApplicationCloudWatchLoggingOption
 import           Network.AWS.KinesisAnalytics.DeleteApplicationOutput
 import           Network.AWS.KinesisAnalytics.DeleteApplicationReferenceDataSource
 import           Network.AWS.KinesisAnalytics.DescribeApplication

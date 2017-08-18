@@ -27,17 +27,18 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'applicationDetail' smart constructor.
 data ApplicationDetail = ApplicationDetail'
-    { _adApplicationDescription          :: !(Maybe Text)
-    , _adOutputDescriptions              :: !(Maybe [OutputDescription])
-    , _adReferenceDataSourceDescriptions :: !(Maybe [ReferenceDataSourceDescription])
-    , _adInputDescriptions               :: !(Maybe [InputDescription])
-    , _adApplicationCode                 :: !(Maybe Text)
-    , _adCreateTimestamp                 :: !(Maybe POSIX)
-    , _adLastUpdateTimestamp             :: !(Maybe POSIX)
-    , _adApplicationName                 :: !Text
-    , _adApplicationARN                  :: !Text
-    , _adApplicationStatus               :: !ApplicationStatus
-    , _adApplicationVersionId            :: !Nat
+    { _adApplicationDescription              :: !(Maybe Text)
+    , _adOutputDescriptions                  :: !(Maybe [OutputDescription])
+    , _adCloudWatchLoggingOptionDescriptions :: !(Maybe [CloudWatchLoggingOptionDescription])
+    , _adReferenceDataSourceDescriptions     :: !(Maybe [ReferenceDataSourceDescription])
+    , _adInputDescriptions                   :: !(Maybe [InputDescription])
+    , _adApplicationCode                     :: !(Maybe Text)
+    , _adCreateTimestamp                     :: !(Maybe POSIX)
+    , _adLastUpdateTimestamp                 :: !(Maybe POSIX)
+    , _adApplicationName                     :: !Text
+    , _adApplicationARN                      :: !Text
+    , _adApplicationStatus                   :: !ApplicationStatus
+    , _adApplicationVersionId                :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ApplicationDetail' with the minimum fields required to make a request.
@@ -47,6 +48,8 @@ data ApplicationDetail = ApplicationDetail'
 -- * 'adApplicationDescription' - Description of the application.
 --
 -- * 'adOutputDescriptions' - Describes the application output configuration. For more information, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output> .
+--
+-- * 'adCloudWatchLoggingOptionDescriptions' - Describes the CloudWatch log streams that are configured to receive application messages. For more information about using CloudWatch log streams with Amazon Kinesis Analytics applications, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs> .
 --
 -- * 'adReferenceDataSourceDescriptions' - Describes reference data sources configured for the application. For more information, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input> .
 --
@@ -75,6 +78,7 @@ applicationDetail pApplicationName_ pApplicationARN_ pApplicationStatus_ pApplic
     ApplicationDetail'
     { _adApplicationDescription = Nothing
     , _adOutputDescriptions = Nothing
+    , _adCloudWatchLoggingOptionDescriptions = Nothing
     , _adReferenceDataSourceDescriptions = Nothing
     , _adInputDescriptions = Nothing
     , _adApplicationCode = Nothing
@@ -93,6 +97,10 @@ adApplicationDescription = lens _adApplicationDescription (\ s a -> s{_adApplica
 -- | Describes the application output configuration. For more information, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output> .
 adOutputDescriptions :: Lens' ApplicationDetail [OutputDescription]
 adOutputDescriptions = lens _adOutputDescriptions (\ s a -> s{_adOutputDescriptions = a}) . _Default . _Coerce;
+
+-- | Describes the CloudWatch log streams that are configured to receive application messages. For more information about using CloudWatch log streams with Amazon Kinesis Analytics applications, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs> .
+adCloudWatchLoggingOptionDescriptions :: Lens' ApplicationDetail [CloudWatchLoggingOptionDescription]
+adCloudWatchLoggingOptionDescriptions = lens _adCloudWatchLoggingOptionDescriptions (\ s a -> s{_adCloudWatchLoggingOptionDescriptions = a}) . _Default . _Coerce;
 
 -- | Describes reference data sources configured for the application. For more information, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input> .
 adReferenceDataSourceDescriptions :: Lens' ApplicationDetail [ReferenceDataSourceDescription]
@@ -137,6 +145,9 @@ instance FromJSON ApplicationDetail where
                  ApplicationDetail' <$>
                    (x .:? "ApplicationDescription") <*>
                      (x .:? "OutputDescriptions" .!= mempty)
+                     <*>
+                     (x .:? "CloudWatchLoggingOptionDescriptions" .!=
+                        mempty)
                      <*>
                      (x .:? "ReferenceDataSourceDescriptions" .!= mempty)
                      <*> (x .:? "InputDescriptions" .!= mempty)
@@ -208,16 +219,17 @@ instance Hashable ApplicationSummary
 
 instance NFData ApplicationSummary
 
--- | Describes updates to apply to an existing Kinesis Analytics application.
+-- | Describes updates to apply to an existing Amazon Kinesis Analytics application.
 --
 --
 --
 -- /See:/ 'applicationUpdate' smart constructor.
 data ApplicationUpdate = ApplicationUpdate'
-    { _auReferenceDataSourceUpdates :: !(Maybe [ReferenceDataSourceUpdate])
-    , _auInputUpdates               :: !(Maybe [InputUpdate])
-    , _auOutputUpdates              :: !(Maybe [OutputUpdate])
-    , _auApplicationCodeUpdate      :: !(Maybe Text)
+    { _auReferenceDataSourceUpdates     :: !(Maybe [ReferenceDataSourceUpdate])
+    , _auInputUpdates                   :: !(Maybe [InputUpdate])
+    , _auCloudWatchLoggingOptionUpdates :: !(Maybe [CloudWatchLoggingOptionUpdate])
+    , _auOutputUpdates                  :: !(Maybe [OutputUpdate])
+    , _auApplicationCodeUpdate          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ApplicationUpdate' with the minimum fields required to make a request.
@@ -228,6 +240,8 @@ data ApplicationUpdate = ApplicationUpdate'
 --
 -- * 'auInputUpdates' - Describes application input configuration updates.
 --
+-- * 'auCloudWatchLoggingOptionUpdates' - Describes application CloudWatch logging option updates.
+--
 -- * 'auOutputUpdates' - Describes application output configuration updates.
 --
 -- * 'auApplicationCodeUpdate' - Describes application code updates.
@@ -237,6 +251,7 @@ applicationUpdate =
     ApplicationUpdate'
     { _auReferenceDataSourceUpdates = Nothing
     , _auInputUpdates = Nothing
+    , _auCloudWatchLoggingOptionUpdates = Nothing
     , _auOutputUpdates = Nothing
     , _auApplicationCodeUpdate = Nothing
     }
@@ -248,6 +263,10 @@ auReferenceDataSourceUpdates = lens _auReferenceDataSourceUpdates (\ s a -> s{_a
 -- | Describes application input configuration updates.
 auInputUpdates :: Lens' ApplicationUpdate [InputUpdate]
 auInputUpdates = lens _auInputUpdates (\ s a -> s{_auInputUpdates = a}) . _Default . _Coerce;
+
+-- | Describes application CloudWatch logging option updates.
+auCloudWatchLoggingOptionUpdates :: Lens' ApplicationUpdate [CloudWatchLoggingOptionUpdate]
+auCloudWatchLoggingOptionUpdates = lens _auCloudWatchLoggingOptionUpdates (\ s a -> s{_auCloudWatchLoggingOptionUpdates = a}) . _Default . _Coerce;
 
 -- | Describes application output configuration updates.
 auOutputUpdates :: Lens' ApplicationUpdate [OutputUpdate]
@@ -268,6 +287,8 @@ instance ToJSON ApplicationUpdate where
                  [("ReferenceDataSourceUpdates" .=) <$>
                     _auReferenceDataSourceUpdates,
                   ("InputUpdates" .=) <$> _auInputUpdates,
+                  ("CloudWatchLoggingOptionUpdates" .=) <$>
+                    _auCloudWatchLoggingOptionUpdates,
                   ("OutputUpdates" .=) <$> _auOutputUpdates,
                   ("ApplicationCodeUpdate" .=) <$>
                     _auApplicationCodeUpdate])
@@ -333,6 +354,166 @@ instance ToJSON CSVMappingParameters where
                     ("RecordColumnDelimiter" .=
                        _cmpRecordColumnDelimiter)])
 
+-- | Provides a description of CloudWatch logging options, including the log stream Amazon Resource Name (ARN) and the role ARN.
+--
+--
+--
+-- /See:/ 'cloudWatchLoggingOption' smart constructor.
+data CloudWatchLoggingOption = CloudWatchLoggingOption'
+    { _cwloLogStreamARN :: !Text
+    , _cwloRoleARN      :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CloudWatchLoggingOption' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cwloLogStreamARN' - ARN of the CloudWatch log to receive application messages.
+--
+-- * 'cwloRoleARN' - IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role that is used must have the @PutLogEvents@ policy action enabled.
+cloudWatchLoggingOption
+    :: Text -- ^ 'cwloLogStreamARN'
+    -> Text -- ^ 'cwloRoleARN'
+    -> CloudWatchLoggingOption
+cloudWatchLoggingOption pLogStreamARN_ pRoleARN_ =
+    CloudWatchLoggingOption'
+    { _cwloLogStreamARN = pLogStreamARN_
+    , _cwloRoleARN = pRoleARN_
+    }
+
+-- | ARN of the CloudWatch log to receive application messages.
+cwloLogStreamARN :: Lens' CloudWatchLoggingOption Text
+cwloLogStreamARN = lens _cwloLogStreamARN (\ s a -> s{_cwloLogStreamARN = a});
+
+-- | IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role that is used must have the @PutLogEvents@ policy action enabled.
+cwloRoleARN :: Lens' CloudWatchLoggingOption Text
+cwloRoleARN = lens _cwloRoleARN (\ s a -> s{_cwloRoleARN = a});
+
+instance Hashable CloudWatchLoggingOption
+
+instance NFData CloudWatchLoggingOption
+
+instance ToJSON CloudWatchLoggingOption where
+        toJSON CloudWatchLoggingOption'{..}
+          = object
+              (catMaybes
+                 [Just ("LogStreamARN" .= _cwloLogStreamARN),
+                  Just ("RoleARN" .= _cwloRoleARN)])
+
+-- | Description of the CloudWatch logging option.
+--
+--
+--
+-- /See:/ 'cloudWatchLoggingOptionDescription' smart constructor.
+data CloudWatchLoggingOptionDescription = CloudWatchLoggingOptionDescription'
+    { _cwlodCloudWatchLoggingOptionId :: !(Maybe Text)
+    , _cwlodLogStreamARN              :: !Text
+    , _cwlodRoleARN                   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CloudWatchLoggingOptionDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cwlodCloudWatchLoggingOptionId' - ID of the CloudWatch logging option description.
+--
+-- * 'cwlodLogStreamARN' - ARN of the CloudWatch log to receive application messages.
+--
+-- * 'cwlodRoleARN' - IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the @PutLogEvents@ policy action enabled.
+cloudWatchLoggingOptionDescription
+    :: Text -- ^ 'cwlodLogStreamARN'
+    -> Text -- ^ 'cwlodRoleARN'
+    -> CloudWatchLoggingOptionDescription
+cloudWatchLoggingOptionDescription pLogStreamARN_ pRoleARN_ =
+    CloudWatchLoggingOptionDescription'
+    { _cwlodCloudWatchLoggingOptionId = Nothing
+    , _cwlodLogStreamARN = pLogStreamARN_
+    , _cwlodRoleARN = pRoleARN_
+    }
+
+-- | ID of the CloudWatch logging option description.
+cwlodCloudWatchLoggingOptionId :: Lens' CloudWatchLoggingOptionDescription (Maybe Text)
+cwlodCloudWatchLoggingOptionId = lens _cwlodCloudWatchLoggingOptionId (\ s a -> s{_cwlodCloudWatchLoggingOptionId = a});
+
+-- | ARN of the CloudWatch log to receive application messages.
+cwlodLogStreamARN :: Lens' CloudWatchLoggingOptionDescription Text
+cwlodLogStreamARN = lens _cwlodLogStreamARN (\ s a -> s{_cwlodLogStreamARN = a});
+
+-- | IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the @PutLogEvents@ policy action enabled.
+cwlodRoleARN :: Lens' CloudWatchLoggingOptionDescription Text
+cwlodRoleARN = lens _cwlodRoleARN (\ s a -> s{_cwlodRoleARN = a});
+
+instance FromJSON CloudWatchLoggingOptionDescription
+         where
+        parseJSON
+          = withObject "CloudWatchLoggingOptionDescription"
+              (\ x ->
+                 CloudWatchLoggingOptionDescription' <$>
+                   (x .:? "CloudWatchLoggingOptionId") <*>
+                     (x .: "LogStreamARN")
+                     <*> (x .: "RoleARN"))
+
+instance Hashable CloudWatchLoggingOptionDescription
+
+instance NFData CloudWatchLoggingOptionDescription
+
+-- | Describes CloudWatch logging option updates.
+--
+--
+--
+-- /See:/ 'cloudWatchLoggingOptionUpdate' smart constructor.
+data CloudWatchLoggingOptionUpdate = CloudWatchLoggingOptionUpdate'
+    { _cwlouRoleARNUpdate             :: !(Maybe Text)
+    , _cwlouLogStreamARNUpdate        :: !(Maybe Text)
+    , _cwlouCloudWatchLoggingOptionId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CloudWatchLoggingOptionUpdate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cwlouRoleARNUpdate' - IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the @PutLogEvents@ policy action enabled.
+--
+-- * 'cwlouLogStreamARNUpdate' - ARN of the CloudWatch log to receive application messages.
+--
+-- * 'cwlouCloudWatchLoggingOptionId' - ID of the CloudWatch logging option to update
+cloudWatchLoggingOptionUpdate
+    :: Text -- ^ 'cwlouCloudWatchLoggingOptionId'
+    -> CloudWatchLoggingOptionUpdate
+cloudWatchLoggingOptionUpdate pCloudWatchLoggingOptionId_ =
+    CloudWatchLoggingOptionUpdate'
+    { _cwlouRoleARNUpdate = Nothing
+    , _cwlouLogStreamARNUpdate = Nothing
+    , _cwlouCloudWatchLoggingOptionId = pCloudWatchLoggingOptionId_
+    }
+
+-- | IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the @PutLogEvents@ policy action enabled.
+cwlouRoleARNUpdate :: Lens' CloudWatchLoggingOptionUpdate (Maybe Text)
+cwlouRoleARNUpdate = lens _cwlouRoleARNUpdate (\ s a -> s{_cwlouRoleARNUpdate = a});
+
+-- | ARN of the CloudWatch log to receive application messages.
+cwlouLogStreamARNUpdate :: Lens' CloudWatchLoggingOptionUpdate (Maybe Text)
+cwlouLogStreamARNUpdate = lens _cwlouLogStreamARNUpdate (\ s a -> s{_cwlouLogStreamARNUpdate = a});
+
+-- | ID of the CloudWatch logging option to update
+cwlouCloudWatchLoggingOptionId :: Lens' CloudWatchLoggingOptionUpdate Text
+cwlouCloudWatchLoggingOptionId = lens _cwlouCloudWatchLoggingOptionId (\ s a -> s{_cwlouCloudWatchLoggingOptionId = a});
+
+instance Hashable CloudWatchLoggingOptionUpdate
+
+instance NFData CloudWatchLoggingOptionUpdate
+
+instance ToJSON CloudWatchLoggingOptionUpdate where
+        toJSON CloudWatchLoggingOptionUpdate'{..}
+          = object
+              (catMaybes
+                 [("RoleARNUpdate" .=) <$> _cwlouRoleARNUpdate,
+                  ("LogStreamARNUpdate" .=) <$>
+                    _cwlouLogStreamARNUpdate,
+                  Just
+                    ("CloudWatchLoggingOptionId" .=
+                       _cwlouCloudWatchLoggingOptionId)])
+
 -- | Describes the data format when records are written to the destination. For more information, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output> .
 --
 --
@@ -393,11 +574,11 @@ data Input = Input'
 --
 -- * 'iInputParallelism' - Describes the number of in-application streams to create.  Data from your source will be routed to these in-application input streams. (see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input> .
 --
--- * 'iKinesisStreamsInput' - If the streaming source is an Amazon Kinesis stream, identifies the stream's Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
+-- * 'iKinesisStreamsInput' - If the streaming source is an Amazon Kinesis stream, identifies the stream's Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf. Note: Either @KinesisStreamsInput@ or @KinesisFirehoseInput@ is required.
 --
--- * 'iKinesisFirehoseInput' - If the streaming source is an Amazon Kinesis Firehose delivery stream, identifies the Firehose delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
+-- * 'iKinesisFirehoseInput' - If the streaming source is an Amazon Kinesis Firehose delivery stream, identifies the Firehose delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf. Note: Either @KinesisStreamsInput@ or @KinesisFirehoseInput@ is required.
 --
--- * 'iNamePrefix' - Name prefix to use when creating in-application stream. Suppose you specify a prefix "MyInApplicationStream". Kinesis Analytics will then create one or more (as per the @InputParallelism@ count you specified) in-application streams with names "MyInApplicationStream_001", "MyInApplicationStream_002" and so on.
+-- * 'iNamePrefix' - Name prefix to use when creating in-application stream. Suppose you specify a prefix "MyInApplicationStream". Amazon Kinesis Analytics will then create one or more (as per the @InputParallelism@ count you specified) in-application streams with names "MyInApplicationStream_001", "MyInApplicationStream_002" and so on.
 --
 -- * 'iInputSchema' - Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created. Also used to describe the format of the reference data source.
 input
@@ -417,15 +598,15 @@ input pNamePrefix_ pInputSchema_ =
 iInputParallelism :: Lens' Input (Maybe InputParallelism)
 iInputParallelism = lens _iInputParallelism (\ s a -> s{_iInputParallelism = a});
 
--- | If the streaming source is an Amazon Kinesis stream, identifies the stream's Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
+-- | If the streaming source is an Amazon Kinesis stream, identifies the stream's Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf. Note: Either @KinesisStreamsInput@ or @KinesisFirehoseInput@ is required.
 iKinesisStreamsInput :: Lens' Input (Maybe KinesisStreamsInput)
 iKinesisStreamsInput = lens _iKinesisStreamsInput (\ s a -> s{_iKinesisStreamsInput = a});
 
--- | If the streaming source is an Amazon Kinesis Firehose delivery stream, identifies the Firehose delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
+-- | If the streaming source is an Amazon Kinesis Firehose delivery stream, identifies the Firehose delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf. Note: Either @KinesisStreamsInput@ or @KinesisFirehoseInput@ is required.
 iKinesisFirehoseInput :: Lens' Input (Maybe KinesisFirehoseInput)
 iKinesisFirehoseInput = lens _iKinesisFirehoseInput (\ s a -> s{_iKinesisFirehoseInput = a});
 
--- | Name prefix to use when creating in-application stream. Suppose you specify a prefix "MyInApplicationStream". Kinesis Analytics will then create one or more (as per the @InputParallelism@ count you specified) in-application streams with names "MyInApplicationStream_001", "MyInApplicationStream_002" and so on.
+-- | Name prefix to use when creating in-application stream. Suppose you specify a prefix "MyInApplicationStream". Amazon Kinesis Analytics will then create one or more (as per the @InputParallelism@ count you specified) in-application streams with names "MyInApplicationStream_001", "MyInApplicationStream_002" and so on.
 iNamePrefix :: Lens' Input Text
 iNamePrefix = lens _iNamePrefix (\ s a -> s{_iNamePrefix = a});
 
@@ -595,7 +776,7 @@ instance Hashable InputDescription
 
 instance NFData InputDescription
 
--- | Describes the number of in-application streams to create for a given streaming source. For information about parallellism, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input> .
+-- | Describes the number of in-application streams to create for a given streaming source. For information about parallelism, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input> .
 --
 --
 --
@@ -736,7 +917,7 @@ newtype InputStartingPositionConfiguration = InputStartingPositionConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ispcInputStartingPosition' - The starting position on the stream.     * @LATEST@ - Start reading just after the most recent record in the stream.     * @TRIM_HORIZON@ - Start reading at the last untrimmed record in the stream, which is the oldest record available in the stream. This option is not available for an Amazon Kinesis Firehose delivery stream.     * @LAST_STOPPED_POINT@ - Resume reading from where the application last stopped reading.
+-- * 'ispcInputStartingPosition' - The starting position on the stream.     * @NOW@ - Start reading just after the most recent record in the stream, start at the request timestamp that the customer issued.     * @TRIM_HORIZON@ - Start reading at the last untrimmed record in the stream, which is the oldest record available in the stream. This option is not available for an Amazon Kinesis Firehose delivery stream.     * @LAST_STOPPED_POINT@ - Resume reading from where the application last stopped reading.
 inputStartingPositionConfiguration
     :: InputStartingPositionConfiguration
 inputStartingPositionConfiguration =
@@ -744,7 +925,7 @@ inputStartingPositionConfiguration =
     { _ispcInputStartingPosition = Nothing
     }
 
--- | The starting position on the stream.     * @LATEST@ - Start reading just after the most recent record in the stream.     * @TRIM_HORIZON@ - Start reading at the last untrimmed record in the stream, which is the oldest record available in the stream. This option is not available for an Amazon Kinesis Firehose delivery stream.     * @LAST_STOPPED_POINT@ - Resume reading from where the application last stopped reading.
+-- | The starting position on the stream.     * @NOW@ - Start reading just after the most recent record in the stream, start at the request timestamp that the customer issued.     * @TRIM_HORIZON@ - Start reading at the last untrimmed record in the stream, which is the oldest record available in the stream. This option is not available for an Amazon Kinesis Firehose delivery stream.     * @LAST_STOPPED_POINT@ - Resume reading from where the application last stopped reading.
 ispcInputStartingPosition :: Lens' InputStartingPositionConfiguration (Maybe InputStartingPosition)
 ispcInputStartingPosition = lens _ispcInputStartingPosition (\ s a -> s{_ispcInputStartingPosition = a});
 
@@ -788,9 +969,9 @@ data InputUpdate = InputUpdate'
 --
 -- * 'iuKinesisStreamsInputUpdate' - If a Amazon Kinesis stream is the streaming source to be updated, provides an updated stream ARN and IAM role ARN.
 --
--- * 'iuInputParallelismUpdate' - Describes the parallelism updates (the number in-application streams Kinesis Analytics creates for the specific streaming source).
+-- * 'iuInputParallelismUpdate' - Describes the parallelism updates (the number in-application streams Amazon Kinesis Analytics creates for the specific streaming source).
 --
--- * 'iuNamePrefixUpdate' - Name prefix for in-application stream(s) that Kinesis Analytics creates for the specific streaming source.
+-- * 'iuNamePrefixUpdate' - Name prefix for in-application streams that Amazon Kinesis Analytics creates for the specific streaming source.
 --
 -- * 'iuInputSchemaUpdate' - Describes the data format on the streaming source, and how record elements on the streaming source map to columns of the in-application stream that is created.
 --
@@ -814,11 +995,11 @@ inputUpdate pInputId_ =
 iuKinesisStreamsInputUpdate :: Lens' InputUpdate (Maybe KinesisStreamsInputUpdate)
 iuKinesisStreamsInputUpdate = lens _iuKinesisStreamsInputUpdate (\ s a -> s{_iuKinesisStreamsInputUpdate = a});
 
--- | Describes the parallelism updates (the number in-application streams Kinesis Analytics creates for the specific streaming source).
+-- | Describes the parallelism updates (the number in-application streams Amazon Kinesis Analytics creates for the specific streaming source).
 iuInputParallelismUpdate :: Lens' InputUpdate (Maybe InputParallelismUpdate)
 iuInputParallelismUpdate = lens _iuInputParallelismUpdate (\ s a -> s{_iuInputParallelismUpdate = a});
 
--- | Name prefix for in-application stream(s) that Kinesis Analytics creates for the specific streaming source.
+-- | Name prefix for in-application streams that Amazon Kinesis Analytics creates for the specific streaming source.
 iuNamePrefixUpdate :: Lens' InputUpdate (Maybe Text)
 iuNamePrefixUpdate = lens _iuNamePrefixUpdate (\ s a -> s{_iuNamePrefixUpdate = a});
 
@@ -865,7 +1046,7 @@ newtype JSONMappingParameters = JSONMappingParameters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'jmpRecordRowPath' - Path to the top-level parent that contains the records. For example, consider the following JSON record: In the @RecordRowPath@ , @"$"@ refers to the root and path @"$.vehicle.Model"@ refers to the specific @"Model"@ key in the JSON.
+-- * 'jmpRecordRowPath' - Path to the top-level parent that contains the records.
 jsonMappingParameters
     :: Text -- ^ 'jmpRecordRowPath'
     -> JSONMappingParameters
@@ -874,7 +1055,7 @@ jsonMappingParameters pRecordRowPath_ =
     { _jmpRecordRowPath = pRecordRowPath_
     }
 
--- | Path to the top-level parent that contains the records. For example, consider the following JSON record: In the @RecordRowPath@ , @"$"@ refers to the root and path @"$.vehicle.Model"@ refers to the specific @"Model"@ key in the JSON.
+-- | Path to the top-level parent that contains the records.
 jmpRecordRowPath :: Lens' JSONMappingParameters Text
 jmpRecordRowPath = lens _jmpRecordRowPath (\ s a -> s{_jmpRecordRowPath = a});
 
@@ -1493,7 +1674,7 @@ instance ToJSON MappingParameters where
 --
 --
 --
--- You can configure your application to write output to up to five destinations.
+-- For limits on how many destinations an application can write and other limitations, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html Limits> .
 --
 --
 -- /See:/ 'output' smart constructor.

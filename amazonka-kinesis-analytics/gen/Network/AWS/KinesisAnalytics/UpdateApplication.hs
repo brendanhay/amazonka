@@ -18,12 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing Kinesis Analytics application. Using this API, you can update application code, input configuration, and output configuration.
+-- Updates an existing Amazon Kinesis Analytics application. Using this API, you can update application code, input configuration, and output configuration.
 --
 --
--- Note that Kinesis Analytics updates the @CurrentApplicationVersionId@ each time you update your application.
+-- Note that Amazon Kinesis Analytics updates the @CurrentApplicationVersionId@ each time you update your application.
 --
--- This opeation requires permission for the @kinesisanalytics:UpdateApplication@ action.
+-- This operation requires permission for the @kinesisanalytics:UpdateApplication@ action.
 --
 module Network.AWS.KinesisAnalytics.UpdateApplication
     (
@@ -60,7 +60,7 @@ data UpdateApplication = UpdateApplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uaApplicationName' - Name of the Kinesis Analytics application to update.
+-- * 'uaApplicationName' - Name of the Amazon Kinesis Analytics application to update.
 --
 -- * 'uaCurrentApplicationVersionId' - The current application version ID. You can use the 'DescribeApplication' operation to get this value.
 --
@@ -77,7 +77,7 @@ updateApplication pApplicationName_ pCurrentApplicationVersionId_ pApplicationUp
     , _uaApplicationUpdate = pApplicationUpdate_
     }
 
--- | Name of the Kinesis Analytics application to update.
+-- | Name of the Amazon Kinesis Analytics application to update.
 uaApplicationName :: Lens' UpdateApplication Text
 uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a});
 

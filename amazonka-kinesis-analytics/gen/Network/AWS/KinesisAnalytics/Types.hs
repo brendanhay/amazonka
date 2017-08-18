@@ -21,6 +21,7 @@ module Network.AWS.KinesisAnalytics.Types
     , _InvalidArgumentException
     , _CodeValidationException
     , _ConcurrentModificationException
+    , _ServiceUnavailableException
     , _UnableToDetectSchemaException
     , _ResourceNotFoundException
     , _LimitExceededException
@@ -40,6 +41,7 @@ module Network.AWS.KinesisAnalytics.Types
     , applicationDetail
     , adApplicationDescription
     , adOutputDescriptions
+    , adCloudWatchLoggingOptionDescriptions
     , adReferenceDataSourceDescriptions
     , adInputDescriptions
     , adApplicationCode
@@ -62,6 +64,7 @@ module Network.AWS.KinesisAnalytics.Types
     , applicationUpdate
     , auReferenceDataSourceUpdates
     , auInputUpdates
+    , auCloudWatchLoggingOptionUpdates
     , auOutputUpdates
     , auApplicationCodeUpdate
 
@@ -70,6 +73,26 @@ module Network.AWS.KinesisAnalytics.Types
     , csvMappingParameters
     , cmpRecordRowDelimiter
     , cmpRecordColumnDelimiter
+
+    -- * CloudWatchLoggingOption
+    , CloudWatchLoggingOption
+    , cloudWatchLoggingOption
+    , cwloLogStreamARN
+    , cwloRoleARN
+
+    -- * CloudWatchLoggingOptionDescription
+    , CloudWatchLoggingOptionDescription
+    , cloudWatchLoggingOptionDescription
+    , cwlodCloudWatchLoggingOptionId
+    , cwlodLogStreamARN
+    , cwlodRoleARN
+
+    -- * CloudWatchLoggingOptionUpdate
+    , CloudWatchLoggingOptionUpdate
+    , cloudWatchLoggingOptionUpdate
+    , cwlouRoleARNUpdate
+    , cwlouLogStreamARNUpdate
+    , cwlouCloudWatchLoggingOptionId
 
     -- * DestinationSchema
     , DestinationSchema
@@ -338,6 +361,8 @@ kinesisAnalytics =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -358,7 +383,7 @@ _InvalidApplicationConfigurationException =
         kinesisAnalytics
         "InvalidApplicationConfigurationException"
 
--- | Discovery failed to get a record from the streaming source because of the Kinesis Streams ProvisionedThroughputExceededException.
+-- | Discovery failed to get a record from the streaming source because of the Amazon Kinesis Streams ProvisionedThroughputExceededException. For more information, see <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html GetRecords> in the Amazon Kinesis Streams API Reference.
 --
 --
 _ResourceProvisionedThroughputExceededException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -388,7 +413,14 @@ _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a 
 _ConcurrentModificationException =
     _MatchServiceError kinesisAnalytics "ConcurrentModificationException"
 
--- | Data format is not valid, Kinesis Analytics is not able to detect schema for the given streaming source.
+-- | The service is unavailable, back off and retry the operation.
+--
+--
+_ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
+_ServiceUnavailableException =
+    _MatchServiceError kinesisAnalytics "ServiceUnavailableException"
+
+-- | Data format is not valid, Amazon Kinesis Analytics is not able to detect schema for the given streaming source.
 --
 --
 _UnableToDetectSchemaException :: AsError a => Getting (First ServiceError) a ServiceError

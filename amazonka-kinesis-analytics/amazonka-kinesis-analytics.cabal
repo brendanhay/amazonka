@@ -40,11 +40,13 @@ library
 
     exposed-modules:
           Network.AWS.KinesisAnalytics
+        , Network.AWS.KinesisAnalytics.AddApplicationCloudWatchLoggingOption
         , Network.AWS.KinesisAnalytics.AddApplicationInput
         , Network.AWS.KinesisAnalytics.AddApplicationOutput
         , Network.AWS.KinesisAnalytics.AddApplicationReferenceDataSource
         , Network.AWS.KinesisAnalytics.CreateApplication
         , Network.AWS.KinesisAnalytics.DeleteApplication
+        , Network.AWS.KinesisAnalytics.DeleteApplicationCloudWatchLoggingOption
         , Network.AWS.KinesisAnalytics.DeleteApplicationOutput
         , Network.AWS.KinesisAnalytics.DeleteApplicationReferenceDataSource
         , Network.AWS.KinesisAnalytics.DescribeApplication

@@ -23,6 +23,8 @@
 --
 -- This operation can be called only from the organization's master account.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Organizations.ListTargetsForPolicy
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.Organizations.ListTargetsForPolicy
 import           Network.AWS.Lens
 import           Network.AWS.Organizations.Types
 import           Network.AWS.Organizations.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -86,6 +89,13 @@ ltfpMaxResults = lens _ltfpMaxResults (\ s a -> s{_ltfpMaxResults = a}) . mappin
 -- | The unique identifier (ID) of the policy for which you want to know its attachments. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
 ltfpPolicyId :: Lens' ListTargetsForPolicy Text
 ltfpPolicyId = lens _ltfpPolicyId (\ s a -> s{_ltfpPolicyId = a});
+
+instance AWSPager ListTargetsForPolicy where
+        page rq rs
+          | stop (rs ^. ltfprsNextToken) = Nothing
+          | stop (rs ^. ltfprsTargets) = Nothing
+          | otherwise =
+            Just $ rq & ltfpNextToken .~ rs ^. ltfprsNextToken
 
 instance AWSRequest ListTargetsForPolicy where
         type Rs ListTargetsForPolicy =

@@ -23,6 +23,8 @@
 --
 -- This operation can be called only from the organization's master account.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Organizations.ListParents
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.Organizations.ListParents
 import           Network.AWS.Lens
 import           Network.AWS.Organizations.Types
 import           Network.AWS.Organizations.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -86,6 +89,13 @@ lMaxResults = lens _lMaxResults (\ s a -> s{_lMaxResults = a}) . mapping _Nat;
 -- | The unique identifier (ID) of the OU or account whose parent containers you want to list. Do not specify a root. The <http://wikipedia.org/wiki/regex regex pattern> for a child ID string requires one of the following:     * Account: a string that consists of exactly 12 digits.     * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
 lChildId :: Lens' ListParents Text
 lChildId = lens _lChildId (\ s a -> s{_lChildId = a});
+
+instance AWSPager ListParents where
+        page rq rs
+          | stop (rs ^. lrsNextToken) = Nothing
+          | stop (rs ^. lrsParents) = Nothing
+          | otherwise =
+            Just $ rq & lNextToken .~ rs ^. lrsNextToken
 
 instance AWSRequest ListParents where
         type Rs ListParents = ListParentsResponse

@@ -21,6 +21,8 @@
 -- Lists all of the OUs or accounts that are contained in the specified parent OU or root. This operation, along with 'ListParents' enables you to traverse the tree structure that makes up this root.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Organizations.ListChildren
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.Organizations.ListChildren
 import           Network.AWS.Lens
 import           Network.AWS.Organizations.Types
 import           Network.AWS.Organizations.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -94,6 +97,13 @@ lcParentId = lens _lcParentId (\ s a -> s{_lcParentId = a});
 -- | Filters the output to include only the specified child type.
 lcChildType :: Lens' ListChildren ChildType
 lcChildType = lens _lcChildType (\ s a -> s{_lcChildType = a});
+
+instance AWSPager ListChildren where
+        page rq rs
+          | stop (rs ^. lcrsNextToken) = Nothing
+          | stop (rs ^. lcrsChildren) = Nothing
+          | otherwise =
+            Just $ rq & lcNextToken .~ rs ^. lcrsNextToken
 
 instance AWSRequest ListChildren where
         type Rs ListChildren = ListChildrenResponse

@@ -21,6 +21,8 @@
 -- Retrieves information about a previously requested handshake. The handshake ID comes from the response to the original 'InviteAccountToOrganization' operation that generated the handshake.
 --
 --
+-- You can access handshakes that are ACCEPTED, DECLINED, or CANCELED for only 30 days after they change to that state. They are then deleted and no longer accessible.
+--
 -- This operation can be called from any account in the organization.
 --
 module Network.AWS.Organizations.DescribeHandshake

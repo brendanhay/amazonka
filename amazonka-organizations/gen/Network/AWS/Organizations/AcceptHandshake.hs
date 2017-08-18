@@ -31,6 +31,8 @@
 --
 --
 --
+-- After you accept a handshake, it continues to appear in the results of relevant APIs for only 30 days. After that it is deleted.
+--
 module Network.AWS.Organizations.AcceptHandshake
     (
     -- * Creating a Request

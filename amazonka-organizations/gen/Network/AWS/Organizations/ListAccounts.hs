@@ -23,6 +23,8 @@
 --
 -- This operation can be called only from the organization's master account.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Organizations.ListAccounts
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.Organizations.ListAccounts
 import           Network.AWS.Lens
 import           Network.AWS.Organizations.Types
 import           Network.AWS.Organizations.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -76,6 +79,13 @@ laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 -- | (Optional) Use this to limit the number of results you want included in the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
 laMaxResults :: Lens' ListAccounts (Maybe Natural)
 laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a}) . mapping _Nat;
+
+instance AWSPager ListAccounts where
+        page rq rs
+          | stop (rs ^. larsNextToken) = Nothing
+          | stop (rs ^. larsAccounts) = Nothing
+          | otherwise =
+            Just $ rq & laNextToken .~ rs ^. larsNextToken
 
 instance AWSRequest ListAccounts where
         type Rs ListAccounts = ListAccountsResponse

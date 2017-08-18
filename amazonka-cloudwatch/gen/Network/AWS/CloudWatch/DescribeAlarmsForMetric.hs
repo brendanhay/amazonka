@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the alarms for the specified metric. Specify a statistic, period, or unit to filter the results.
+-- Retrieves the alarms for the specified metric. To filter the results, specify a statistic, period, or unit.
 --
 --
 module Network.AWS.CloudWatch.DescribeAlarmsForMetric

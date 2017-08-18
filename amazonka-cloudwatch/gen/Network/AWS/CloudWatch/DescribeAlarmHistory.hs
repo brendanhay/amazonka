@@ -21,7 +21,7 @@
 -- Retrieves the history for the specified alarm. You can filter the results by date range or item type. If an alarm name is not specified, the histories for all alarms are returned.
 --
 --
--- Note that Amazon CloudWatch retains the history of an alarm even if you delete the alarm.
+-- CloudWatch retains the history of an alarm even if you delete the alarm.
 --
 --
 -- This operation returns paginated results.

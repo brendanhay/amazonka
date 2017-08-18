@@ -18,14 +18,24 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Publishes metric data points to Amazon CloudWatch. Amazon CloudWatch associates the data points with the specified metric. If the specified metric does not exist, Amazon CloudWatch creates the metric. When Amazon CloudWatch creates a metric, it can take up to fifteen minutes for the metric to appear in calls to 'ListMetrics' .
+-- Publishes metric data points to Amazon CloudWatch. CloudWatch associates the data points with the specified metric. If the specified metric does not exist, CloudWatch creates the metric. When CloudWatch creates a metric, it can take up to fifteen minutes for the metric to appear in calls to 'ListMetrics' .
 --
 --
--- Each @PutMetricData@ request is limited to 8 KB in size for HTTP GET requests and is limited to 40 KB in size for HTTP POST requests.
+-- Each @PutMetricData@ request is limited to 40 KB in size for HTTP POST requests.
 --
--- Although the @Value@ parameter accepts numbers of type @Double@ , Amazon CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (e.g., NaN, +Infinity, -Infinity) are not supported.
+-- Although the @Value@ parameter accepts numbers of type @Double@ , CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported.
+--
+-- You can use up to 10 dimensions per metric to further clarify what data the metric collects. For more information about specifying dimensions, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publishing Metrics> in the /Amazon CloudWatch User Guide/ .
 --
 -- Data points with time stamps from 24 hours ago or longer can take at least 48 hours to become available for 'GetMetricStatistics' from the time they are submitted.
+--
+-- CloudWatch needs raw data points to calculate percentile statistics. If you publish data using a statistic set instead, you can only retrieve percentile statistics for this data if one of the following conditions is true:
+--
+--     * The SampleCount value of the statistic set is 1
+--
+--     * The Min and the Max values of the statistic set are equal
+--
+--
 --
 module Network.AWS.CloudWatch.PutMetricData
     (

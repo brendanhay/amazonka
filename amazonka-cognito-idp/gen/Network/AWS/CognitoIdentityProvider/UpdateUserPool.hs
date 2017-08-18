@@ -28,6 +28,7 @@ module Network.AWS.CognitoIdentityProvider.UpdateUserPool
     , UpdateUserPool
     -- * Request Lenses
     , uupUserPoolTags
+    , uupVerificationMessageTemplate
     , uupEmailVerificationMessage
     , uupSmsAuthenticationMessage
     , uupEmailVerificationSubject
@@ -62,20 +63,21 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateUserPool' smart constructor.
 data UpdateUserPool = UpdateUserPool'
-    { _uupUserPoolTags             :: !(Maybe (Map Text Text))
-    , _uupEmailVerificationMessage :: !(Maybe Text)
-    , _uupSmsAuthenticationMessage :: !(Maybe Text)
-    , _uupEmailVerificationSubject :: !(Maybe Text)
-    , _uupEmailConfiguration       :: !(Maybe EmailConfigurationType)
-    , _uupSmsVerificationMessage   :: !(Maybe Text)
-    , _uupMFAConfiguration         :: !(Maybe UserPoolMFAType)
-    , _uupLambdaConfig             :: !(Maybe LambdaConfigType)
-    , _uupSmsConfiguration         :: !(Maybe SmsConfigurationType)
-    , _uupAdminCreateUserConfig    :: !(Maybe AdminCreateUserConfigType)
-    , _uupDeviceConfiguration      :: !(Maybe DeviceConfigurationType)
-    , _uupAutoVerifiedAttributes   :: !(Maybe [VerifiedAttributeType])
-    , _uupPolicies                 :: !(Maybe UserPoolPolicyType)
-    , _uupUserPoolId               :: !Text
+    { _uupUserPoolTags                :: !(Maybe (Map Text Text))
+    , _uupVerificationMessageTemplate :: !(Maybe VerificationMessageTemplateType)
+    , _uupEmailVerificationMessage    :: !(Maybe Text)
+    , _uupSmsAuthenticationMessage    :: !(Maybe Text)
+    , _uupEmailVerificationSubject    :: !(Maybe Text)
+    , _uupEmailConfiguration          :: !(Maybe EmailConfigurationType)
+    , _uupSmsVerificationMessage      :: !(Maybe Text)
+    , _uupMFAConfiguration            :: !(Maybe UserPoolMFAType)
+    , _uupLambdaConfig                :: !(Maybe LambdaConfigType)
+    , _uupSmsConfiguration            :: !(Maybe SmsConfigurationType)
+    , _uupAdminCreateUserConfig       :: !(Maybe AdminCreateUserConfigType)
+    , _uupDeviceConfiguration         :: !(Maybe DeviceConfigurationType)
+    , _uupAutoVerifiedAttributes      :: !(Maybe [VerifiedAttributeType])
+    , _uupPolicies                    :: !(Maybe UserPoolPolicyType)
+    , _uupUserPoolId                  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateUserPool' with the minimum fields required to make a request.
@@ -84,11 +86,13 @@ data UpdateUserPool = UpdateUserPool'
 --
 -- * 'uupUserPoolTags' - The cost allocation tags for the user pool. For more information, see <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html Adding Cost Allocation Tags to Your User Pool>
 --
+-- * 'uupVerificationMessageTemplate' - The template for verification messages.
+--
 -- * 'uupEmailVerificationMessage' - The contents of the email verification message.
 --
 -- * 'uupSmsAuthenticationMessage' - The contents of the SMS authentication message.
 --
--- * 'uupEmailVerificationSubject' - The subject of the email verfication message.
+-- * 'uupEmailVerificationSubject' - The subject of the email verification message.
 --
 -- * 'uupEmailConfiguration' - Email configuration.
 --
@@ -100,7 +104,7 @@ data UpdateUserPool = UpdateUserPool'
 --
 -- * 'uupSmsConfiguration' - SMS configuration.
 --
--- * 'uupAdminCreateUserConfig' - The configuration for AdminCreateUser requests.
+-- * 'uupAdminCreateUserConfig' - The configuration for @AdminCreateUser@ requests.
 --
 -- * 'uupDeviceConfiguration' - Device configuration.
 --
@@ -115,6 +119,7 @@ updateUserPool
 updateUserPool pUserPoolId_ =
     UpdateUserPool'
     { _uupUserPoolTags = Nothing
+    , _uupVerificationMessageTemplate = Nothing
     , _uupEmailVerificationMessage = Nothing
     , _uupSmsAuthenticationMessage = Nothing
     , _uupEmailVerificationSubject = Nothing
@@ -134,6 +139,10 @@ updateUserPool pUserPoolId_ =
 uupUserPoolTags :: Lens' UpdateUserPool (HashMap Text Text)
 uupUserPoolTags = lens _uupUserPoolTags (\ s a -> s{_uupUserPoolTags = a}) . _Default . _Map;
 
+-- | The template for verification messages.
+uupVerificationMessageTemplate :: Lens' UpdateUserPool (Maybe VerificationMessageTemplateType)
+uupVerificationMessageTemplate = lens _uupVerificationMessageTemplate (\ s a -> s{_uupVerificationMessageTemplate = a});
+
 -- | The contents of the email verification message.
 uupEmailVerificationMessage :: Lens' UpdateUserPool (Maybe Text)
 uupEmailVerificationMessage = lens _uupEmailVerificationMessage (\ s a -> s{_uupEmailVerificationMessage = a});
@@ -142,7 +151,7 @@ uupEmailVerificationMessage = lens _uupEmailVerificationMessage (\ s a -> s{_uup
 uupSmsAuthenticationMessage :: Lens' UpdateUserPool (Maybe Text)
 uupSmsAuthenticationMessage = lens _uupSmsAuthenticationMessage (\ s a -> s{_uupSmsAuthenticationMessage = a});
 
--- | The subject of the email verfication message.
+-- | The subject of the email verification message.
 uupEmailVerificationSubject :: Lens' UpdateUserPool (Maybe Text)
 uupEmailVerificationSubject = lens _uupEmailVerificationSubject (\ s a -> s{_uupEmailVerificationSubject = a});
 
@@ -166,7 +175,7 @@ uupLambdaConfig = lens _uupLambdaConfig (\ s a -> s{_uupLambdaConfig = a});
 uupSmsConfiguration :: Lens' UpdateUserPool (Maybe SmsConfigurationType)
 uupSmsConfiguration = lens _uupSmsConfiguration (\ s a -> s{_uupSmsConfiguration = a});
 
--- | The configuration for AdminCreateUser requests.
+-- | The configuration for @AdminCreateUser@ requests.
 uupAdminCreateUserConfig :: Lens' UpdateUserPool (Maybe AdminCreateUserConfigType)
 uupAdminCreateUserConfig = lens _uupAdminCreateUserConfig (\ s a -> s{_uupAdminCreateUserConfig = a});
 
@@ -213,6 +222,8 @@ instance ToJSON UpdateUserPool where
           = object
               (catMaybes
                  [("UserPoolTags" .=) <$> _uupUserPoolTags,
+                  ("VerificationMessageTemplate" .=) <$>
+                    _uupVerificationMessageTemplate,
                   ("EmailVerificationMessage" .=) <$>
                     _uupEmailVerificationMessage,
                   ("SmsAuthenticationMessage" .=) <$>

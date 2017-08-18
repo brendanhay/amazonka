@@ -11,10 +11,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Using the Amazon Cognito Your User Pools API, you can create a user pool to manage directories and users. You can authenticate a user to obtain tokens related to user identity and access policies.
+-- Using the Amazon Cognito User Pools API, you can create a user pool to manage directories and users. You can authenticate a user to obtain tokens related to user identity and access policies.
 --
 --
--- This API reference provides information about user pools in Amazon Cognito Your User Pools.
+-- This API reference provides information about user pools in Amazon Cognito User Pools.
 --
 -- For more information, see the Amazon Cognito Documentation.
 --
@@ -41,6 +41,9 @@ module Network.AWS.CognitoIdentityProvider
     -- ** InvalidEmailRoleAccessPolicyException
     , _InvalidEmailRoleAccessPolicyException
 
+    -- ** UnsupportedIdentityProviderException
+    , _UnsupportedIdentityProviderException
+
     -- ** UserNotFoundException
     , _UserNotFoundException
 
@@ -58,6 +61,9 @@ module Network.AWS.CognitoIdentityProvider
 
     -- ** InvalidSmsRoleAccessPolicyException
     , _InvalidSmsRoleAccessPolicyException
+
+    -- ** InvalidOAuthFlowException
+    , _InvalidOAuthFlowException
 
     -- ** CodeMismatchException
     , _CodeMismatchException
@@ -98,6 +104,9 @@ module Network.AWS.CognitoIdentityProvider
     -- ** CodeDeliveryFailureException
     , _CodeDeliveryFailureException
 
+    -- ** ScopeDoesNotExistException
+    , _ScopeDoesNotExistException
+
     -- ** ResourceNotFoundException
     , _ResourceNotFoundException
 
@@ -106,6 +115,9 @@ module Network.AWS.CognitoIdentityProvider
 
     -- ** AliasExistsException
     , _AliasExistsException
+
+    -- ** DuplicateProviderException
+    , _DuplicateProviderException
 
     -- ** LimitExceededException
     , _LimitExceededException
@@ -128,8 +140,14 @@ module Network.AWS.CognitoIdentityProvider
     -- ** UpdateUserPool
     , module Network.AWS.CognitoIdentityProvider.UpdateUserPool
 
+    -- ** DeleteUserPoolDomain
+    , module Network.AWS.CognitoIdentityProvider.DeleteUserPoolDomain
+
     -- ** AdminInitiateAuth
     , module Network.AWS.CognitoIdentityProvider.AdminInitiateAuth
+
+    -- ** AdminLinkProviderForUser
+    , module Network.AWS.CognitoIdentityProvider.AdminLinkProviderForUser
 
     -- ** AdminEnableUser
     , module Network.AWS.CognitoIdentityProvider.AdminEnableUser
@@ -158,11 +176,17 @@ module Network.AWS.CognitoIdentityProvider
     -- ** ListUserImportJobs
     , module Network.AWS.CognitoIdentityProvider.ListUserImportJobs
 
+    -- ** DescribeIdentityProvider
+    , module Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider
+
     -- ** ListUsers
     , module Network.AWS.CognitoIdentityProvider.ListUsers
 
     -- ** AdminDeleteUserAttributes
     , module Network.AWS.CognitoIdentityProvider.AdminDeleteUserAttributes
+
+    -- ** DescribeUserPoolDomain
+    , module Network.AWS.CognitoIdentityProvider.DescribeUserPoolDomain
 
     -- ** AdminUpdateUserAttributes
     , module Network.AWS.CognitoIdentityProvider.AdminUpdateUserAttributes
@@ -175,6 +199,9 @@ module Network.AWS.CognitoIdentityProvider
 
     -- ** ListUsersInGroup
     , module Network.AWS.CognitoIdentityProvider.ListUsersInGroup
+
+    -- ** AdminDisableProviderForUser
+    , module Network.AWS.CognitoIdentityProvider.AdminDisableProviderForUser
 
     -- ** ForgotPassword
     , module Network.AWS.CognitoIdentityProvider.ForgotPassword
@@ -194,14 +221,32 @@ module Network.AWS.CognitoIdentityProvider
     -- ** StartUserImportJob
     , module Network.AWS.CognitoIdentityProvider.StartUserImportJob
 
+    -- ** CreateIdentityProvider
+    , module Network.AWS.CognitoIdentityProvider.CreateIdentityProvider
+
+    -- ** SetUICustomization
+    , module Network.AWS.CognitoIdentityProvider.SetUICustomization
+
+    -- ** ListIdentityProviders
+    , module Network.AWS.CognitoIdentityProvider.ListIdentityProviders
+
     -- ** GetDevice
     , module Network.AWS.CognitoIdentityProvider.GetDevice
 
     -- ** SignUp
     , module Network.AWS.CognitoIdentityProvider.SignUp
 
+    -- ** DeleteResourceServer
+    , module Network.AWS.CognitoIdentityProvider.DeleteResourceServer
+
+    -- ** UpdateResourceServer
+    , module Network.AWS.CognitoIdentityProvider.UpdateResourceServer
+
     -- ** ChangePassword
     , module Network.AWS.CognitoIdentityProvider.ChangePassword
+
+    -- ** CreateUserPoolDomain
+    , module Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain
 
     -- ** RespondToAuthChallenge
     , module Network.AWS.CognitoIdentityProvider.RespondToAuthChallenge
@@ -211,6 +256,9 @@ module Network.AWS.CognitoIdentityProvider
 
     -- ** AdminGetDevice
     , module Network.AWS.CognitoIdentityProvider.AdminGetDevice
+
+    -- ** GetIdentityProviderByIdentifier
+    , module Network.AWS.CognitoIdentityProvider.GetIdentityProviderByIdentifier
 
     -- ** AdminRemoveUserFromGroup
     , module Network.AWS.CognitoIdentityProvider.AdminRemoveUserFromGroup
@@ -230,6 +278,9 @@ module Network.AWS.CognitoIdentityProvider
     -- ** GetUser
     , module Network.AWS.CognitoIdentityProvider.GetUser
 
+    -- ** GetUICustomization
+    , module Network.AWS.CognitoIdentityProvider.GetUICustomization
+
     -- ** GetCSVHeader
     , module Network.AWS.CognitoIdentityProvider.GetCSVHeader
 
@@ -238,6 +289,9 @@ module Network.AWS.CognitoIdentityProvider
 
     -- ** AdminForgetDevice
     , module Network.AWS.CognitoIdentityProvider.AdminForgetDevice
+
+    -- ** DescribeResourceServer
+    , module Network.AWS.CognitoIdentityProvider.DescribeResourceServer
 
     -- ** AdminUpdateDeviceStatus
     , module Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus
@@ -269,6 +323,9 @@ module Network.AWS.CognitoIdentityProvider
     -- ** CreateUserPoolClient
     , module Network.AWS.CognitoIdentityProvider.CreateUserPoolClient
 
+    -- ** CreateResourceServer
+    , module Network.AWS.CognitoIdentityProvider.CreateResourceServer
+
     -- ** CreateGroup
     , module Network.AWS.CognitoIdentityProvider.CreateGroup
 
@@ -292,6 +349,15 @@ module Network.AWS.CognitoIdentityProvider
 
     -- ** ListGroups
     , module Network.AWS.CognitoIdentityProvider.ListGroups
+
+    -- ** UpdateIdentityProvider
+    , module Network.AWS.CognitoIdentityProvider.UpdateIdentityProvider
+
+    -- ** DeleteIdentityProvider
+    , module Network.AWS.CognitoIdentityProvider.DeleteIdentityProvider
+
+    -- ** ListResourceServers
+    , module Network.AWS.CognitoIdentityProvider.ListResourceServers
 
     -- ** AdminRespondToAuthChallenge
     , module Network.AWS.CognitoIdentityProvider.AdminRespondToAuthChallenge
@@ -331,17 +397,29 @@ module Network.AWS.CognitoIdentityProvider
     -- ** ChallengeNameType
     , ChallengeNameType (..)
 
+    -- ** DefaultEmailOptionType
+    , DefaultEmailOptionType (..)
+
     -- ** DeliveryMediumType
     , DeliveryMediumType (..)
 
     -- ** DeviceRememberedStatusType
     , DeviceRememberedStatusType (..)
 
+    -- ** DomainStatusType
+    , DomainStatusType (..)
+
     -- ** ExplicitAuthFlowsType
     , ExplicitAuthFlowsType (..)
 
+    -- ** IdentityProviderTypeType
+    , IdentityProviderTypeType (..)
+
     -- ** MessageActionType
     , MessageActionType (..)
+
+    -- ** OAuthFlowType
+    , OAuthFlowType (..)
 
     -- ** StatusType
     , StatusType (..)
@@ -354,6 +432,9 @@ module Network.AWS.CognitoIdentityProvider
 
     -- ** UserStatusType
     , UserStatusType (..)
+
+    -- ** UsernameAttributeType
+    , UsernameAttributeType (..)
 
     -- ** VerifiedAttributeType
     , VerifiedAttributeType (..)
@@ -409,6 +490,17 @@ module Network.AWS.CognitoIdentityProvider
     , dtDeviceKey
     , dtDeviceLastAuthenticatedDate
 
+    -- ** DomainDescriptionType
+    , DomainDescriptionType
+    , domainDescriptionType
+    , ddtStatus
+    , ddtCloudFrontDistribution
+    , ddtUserPoolId
+    , ddtDomain
+    , ddtAWSAccountId
+    , ddtVersion
+    , ddtS3Bucket
+
     -- ** EmailConfigurationType
     , EmailConfigurationType
     , emailConfigurationType
@@ -425,6 +517,18 @@ module Network.AWS.CognitoIdentityProvider
     , gtGroupName
     , gtDescription
     , gtRoleARN
+
+    -- ** IdentityProviderType
+    , IdentityProviderType
+    , identityProviderType
+    , iptLastModifiedDate
+    , iptUserPoolId
+    , iptProviderType
+    , iptCreationDate
+    , iptIdpIdentifiers
+    , iptAttributeMapping
+    , iptProviderDetails
+    , iptProviderName
 
     -- ** LambdaConfigType
     , LambdaConfigType
@@ -472,6 +576,35 @@ module Network.AWS.CognitoIdentityProvider
     , pptMinimumLength
     , pptRequireSymbols
 
+    -- ** ProviderDescription
+    , ProviderDescription
+    , providerDescription
+    , pdLastModifiedDate
+    , pdProviderType
+    , pdCreationDate
+    , pdProviderName
+
+    -- ** ProviderUserIdentifierType
+    , ProviderUserIdentifierType
+    , providerUserIdentifierType
+    , puitProviderAttributeValue
+    , puitProviderAttributeName
+    , puitProviderName
+
+    -- ** ResourceServerScopeType
+    , ResourceServerScopeType
+    , resourceServerScopeType
+    , rsstScopeName
+    , rsstScopeDescription
+
+    -- ** ResourceServerType
+    , ResourceServerType
+    , resourceServerType
+    , rstUserPoolId
+    , rstIdentifier
+    , rstScopes
+    , rstName
+
     -- ** SchemaAttributeType
     , SchemaAttributeType
     , schemaAttributeType
@@ -494,6 +627,17 @@ module Network.AWS.CognitoIdentityProvider
     , stringAttributeConstraintsType
     , sactMaxLength
     , sactMinLength
+
+    -- ** UICustomizationType
+    , UICustomizationType
+    , uICustomizationType
+    , uictClientId
+    , uictLastModifiedDate
+    , uictUserPoolId
+    , uictCSS
+    , uictCSSVersion
+    , uictImageURL
+    , uictCreationDate
 
     -- ** UserImportJobType
     , UserImportJobType
@@ -527,11 +671,18 @@ module Network.AWS.CognitoIdentityProvider
     , upctExplicitAuthFlows
     , upctClientSecret
     , upctLastModifiedDate
+    , upctSupportedIdentityProviders
+    , upctLogoutURLs
+    , upctAllowedOAuthFlowsUserPoolClient
     , upctUserPoolId
+    , upctDefaultRedirectURI
     , upctWriteAttributes
     , upctCreationDate
     , upctReadAttributes
+    , upctAllowedOAuthScopes
+    , upctAllowedOAuthFlows
     , upctClientName
+    , upctCallbackURLs
 
     -- ** UserPoolDescriptionType
     , UserPoolDescriptionType
@@ -555,11 +706,13 @@ module Network.AWS.CognitoIdentityProvider
     , uptUserPoolTags
     , uptEmailConfigurationFailure
     , uptLastModifiedDate
+    , uptVerificationMessageTemplate
     , uptEstimatedNumberOfUsers
     , uptEmailVerificationMessage
     , uptSmsAuthenticationMessage
     , uptSchemaAttributes
     , uptEmailVerificationSubject
+    , uptUsernameAttributes
     , uptAliasAttributes
     , uptEmailConfiguration
     , uptSmsVerificationMessage
@@ -585,6 +738,16 @@ module Network.AWS.CognitoIdentityProvider
     , utAttributes
     , utMFAOptions
     , utUserLastModifiedDate
+
+    -- ** VerificationMessageTemplateType
+    , VerificationMessageTemplateType
+    , verificationMessageTemplateType
+    , vmttDefaultEmailOption
+    , vmttEmailSubject
+    , vmttEmailSubjectByLink
+    , vmttSmsMessage
+    , vmttEmailMessageByLink
+    , vmttEmailMessage
     ) where
 
 import           Network.AWS.CognitoIdentityProvider.AddCustomAttributes
@@ -593,12 +756,14 @@ import           Network.AWS.CognitoIdentityProvider.AdminConfirmSignUp
 import           Network.AWS.CognitoIdentityProvider.AdminCreateUser
 import           Network.AWS.CognitoIdentityProvider.AdminDeleteUser
 import           Network.AWS.CognitoIdentityProvider.AdminDeleteUserAttributes
+import           Network.AWS.CognitoIdentityProvider.AdminDisableProviderForUser
 import           Network.AWS.CognitoIdentityProvider.AdminDisableUser
 import           Network.AWS.CognitoIdentityProvider.AdminEnableUser
 import           Network.AWS.CognitoIdentityProvider.AdminForgetDevice
 import           Network.AWS.CognitoIdentityProvider.AdminGetDevice
 import           Network.AWS.CognitoIdentityProvider.AdminGetUser
 import           Network.AWS.CognitoIdentityProvider.AdminInitiateAuth
+import           Network.AWS.CognitoIdentityProvider.AdminLinkProviderForUser
 import           Network.AWS.CognitoIdentityProvider.AdminListDevices
 import           Network.AWS.CognitoIdentityProvider.AdminListGroupsForUser
 import           Network.AWS.CognitoIdentityProvider.AdminRemoveUserFromGroup
@@ -613,28 +778,41 @@ import           Network.AWS.CognitoIdentityProvider.ConfirmDevice
 import           Network.AWS.CognitoIdentityProvider.ConfirmForgotPassword
 import           Network.AWS.CognitoIdentityProvider.ConfirmSignUp
 import           Network.AWS.CognitoIdentityProvider.CreateGroup
+import           Network.AWS.CognitoIdentityProvider.CreateIdentityProvider
+import           Network.AWS.CognitoIdentityProvider.CreateResourceServer
 import           Network.AWS.CognitoIdentityProvider.CreateUserImportJob
 import           Network.AWS.CognitoIdentityProvider.CreateUserPool
 import           Network.AWS.CognitoIdentityProvider.CreateUserPoolClient
+import           Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain
 import           Network.AWS.CognitoIdentityProvider.DeleteGroup
+import           Network.AWS.CognitoIdentityProvider.DeleteIdentityProvider
+import           Network.AWS.CognitoIdentityProvider.DeleteResourceServer
 import           Network.AWS.CognitoIdentityProvider.DeleteUser
 import           Network.AWS.CognitoIdentityProvider.DeleteUserAttributes
 import           Network.AWS.CognitoIdentityProvider.DeleteUserPool
 import           Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient
+import           Network.AWS.CognitoIdentityProvider.DeleteUserPoolDomain
+import           Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider
+import           Network.AWS.CognitoIdentityProvider.DescribeResourceServer
 import           Network.AWS.CognitoIdentityProvider.DescribeUserImportJob
 import           Network.AWS.CognitoIdentityProvider.DescribeUserPool
 import           Network.AWS.CognitoIdentityProvider.DescribeUserPoolClient
+import           Network.AWS.CognitoIdentityProvider.DescribeUserPoolDomain
 import           Network.AWS.CognitoIdentityProvider.ForgetDevice
 import           Network.AWS.CognitoIdentityProvider.ForgotPassword
 import           Network.AWS.CognitoIdentityProvider.GetCSVHeader
 import           Network.AWS.CognitoIdentityProvider.GetDevice
 import           Network.AWS.CognitoIdentityProvider.GetGroup
+import           Network.AWS.CognitoIdentityProvider.GetIdentityProviderByIdentifier
+import           Network.AWS.CognitoIdentityProvider.GetUICustomization
 import           Network.AWS.CognitoIdentityProvider.GetUser
 import           Network.AWS.CognitoIdentityProvider.GetUserAttributeVerificationCode
 import           Network.AWS.CognitoIdentityProvider.GlobalSignOut
 import           Network.AWS.CognitoIdentityProvider.InitiateAuth
 import           Network.AWS.CognitoIdentityProvider.ListDevices
 import           Network.AWS.CognitoIdentityProvider.ListGroups
+import           Network.AWS.CognitoIdentityProvider.ListIdentityProviders
+import           Network.AWS.CognitoIdentityProvider.ListResourceServers
 import           Network.AWS.CognitoIdentityProvider.ListUserImportJobs
 import           Network.AWS.CognitoIdentityProvider.ListUserPoolClients
 import           Network.AWS.CognitoIdentityProvider.ListUserPools
@@ -642,6 +820,7 @@ import           Network.AWS.CognitoIdentityProvider.ListUsers
 import           Network.AWS.CognitoIdentityProvider.ListUsersInGroup
 import           Network.AWS.CognitoIdentityProvider.ResendConfirmationCode
 import           Network.AWS.CognitoIdentityProvider.RespondToAuthChallenge
+import           Network.AWS.CognitoIdentityProvider.SetUICustomization
 import           Network.AWS.CognitoIdentityProvider.SetUserSettings
 import           Network.AWS.CognitoIdentityProvider.SignUp
 import           Network.AWS.CognitoIdentityProvider.StartUserImportJob
@@ -649,6 +828,8 @@ import           Network.AWS.CognitoIdentityProvider.StopUserImportJob
 import           Network.AWS.CognitoIdentityProvider.Types
 import           Network.AWS.CognitoIdentityProvider.UpdateDeviceStatus
 import           Network.AWS.CognitoIdentityProvider.UpdateGroup
+import           Network.AWS.CognitoIdentityProvider.UpdateIdentityProvider
+import           Network.AWS.CognitoIdentityProvider.UpdateResourceServer
 import           Network.AWS.CognitoIdentityProvider.UpdateUserAttributes
 import           Network.AWS.CognitoIdentityProvider.UpdateUserPool
 import           Network.AWS.CognitoIdentityProvider.UpdateUserPoolClient

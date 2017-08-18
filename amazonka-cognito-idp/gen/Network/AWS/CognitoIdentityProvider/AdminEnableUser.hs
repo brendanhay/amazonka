@@ -62,7 +62,7 @@ data AdminEnableUser = AdminEnableUser'
 --
 -- * 'aeuUserPoolId' - The user pool ID for the user pool where you want to enable the user.
 --
--- * 'aeuUsername' - The user name of the user you wish to ebable.
+-- * 'aeuUsername' - The user name of the user you wish to enable.
 adminEnableUser
     :: Text -- ^ 'aeuUserPoolId'
     -> Text -- ^ 'aeuUsername'
@@ -77,7 +77,7 @@ adminEnableUser pUserPoolId_ pUsername_ =
 aeuUserPoolId :: Lens' AdminEnableUser Text
 aeuUserPoolId = lens _aeuUserPoolId (\ s a -> s{_aeuUserPoolId = a});
 
--- | The user name of the user you wish to ebable.
+-- | The user name of the user you wish to enable.
 aeuUsername :: Lens' AdminEnableUser Text
 aeuUsername = lens _aeuUsername (\ s a -> s{_aeuUsername = a}) . _Sensitive;
 

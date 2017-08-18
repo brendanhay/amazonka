@@ -21,6 +21,10 @@
 -- Updates the specified user's attributes, including developer attributes, as an administrator. Works on any user.
 --
 --
+-- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
+--
+-- In addition to updating user attributes, this API can also be used to mark phone and email as verified.
+--
 -- Requires developer credentials.
 --
 module Network.AWS.CognitoIdentityProvider.AdminUpdateUserAttributes
@@ -66,7 +70,7 @@ data AdminUpdateUserAttributes = AdminUpdateUserAttributes'
 --
 -- * 'auuaUsername' - The user name of the user for whom you want to update user attributes.
 --
--- * 'auuaUserAttributes' - An array of name-value pairs representing user attributes.
+-- * 'auuaUserAttributes' - An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 adminUpdateUserAttributes
     :: Text -- ^ 'auuaUserPoolId'
     -> Text -- ^ 'auuaUsername'
@@ -86,7 +90,7 @@ auuaUserPoolId = lens _auuaUserPoolId (\ s a -> s{_auuaUserPoolId = a});
 auuaUsername :: Lens' AdminUpdateUserAttributes Text
 auuaUsername = lens _auuaUsername (\ s a -> s{_auuaUsername = a}) . _Sensitive;
 
--- | An array of name-value pairs representing user attributes.
+-- | An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 auuaUserAttributes :: Lens' AdminUpdateUserAttributes [AttributeType]
 auuaUserAttributes = lens _auuaUserAttributes (\ s a -> s{_auuaUserAttributes = a}) . _Coerce;
 

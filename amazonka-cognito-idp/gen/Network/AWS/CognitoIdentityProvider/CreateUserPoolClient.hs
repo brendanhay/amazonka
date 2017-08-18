@@ -29,9 +29,16 @@ module Network.AWS.CognitoIdentityProvider.CreateUserPoolClient
     -- * Request Lenses
     , cupcRefreshTokenValidity
     , cupcExplicitAuthFlows
+    , cupcSupportedIdentityProviders
+    , cupcLogoutURLs
+    , cupcAllowedOAuthFlowsUserPoolClient
     , cupcGenerateSecret
+    , cupcDefaultRedirectURI
     , cupcWriteAttributes
     , cupcReadAttributes
+    , cupcAllowedOAuthScopes
+    , cupcAllowedOAuthFlows
+    , cupcCallbackURLs
     , cupcUserPoolId
     , cupcClientName
 
@@ -56,28 +63,49 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createUserPoolClient' smart constructor.
 data CreateUserPoolClient = CreateUserPoolClient'
-    { _cupcRefreshTokenValidity :: !(Maybe Nat)
-    , _cupcExplicitAuthFlows    :: !(Maybe [ExplicitAuthFlowsType])
-    , _cupcGenerateSecret       :: !(Maybe Bool)
-    , _cupcWriteAttributes      :: !(Maybe [Text])
-    , _cupcReadAttributes       :: !(Maybe [Text])
-    , _cupcUserPoolId           :: !Text
-    , _cupcClientName           :: !Text
+    { _cupcRefreshTokenValidity            :: !(Maybe Nat)
+    , _cupcExplicitAuthFlows               :: !(Maybe [ExplicitAuthFlowsType])
+    , _cupcSupportedIdentityProviders      :: !(Maybe [Text])
+    , _cupcLogoutURLs                      :: !(Maybe [Text])
+    , _cupcAllowedOAuthFlowsUserPoolClient :: !(Maybe Bool)
+    , _cupcGenerateSecret                  :: !(Maybe Bool)
+    , _cupcDefaultRedirectURI              :: !(Maybe Text)
+    , _cupcWriteAttributes                 :: !(Maybe [Text])
+    , _cupcReadAttributes                  :: !(Maybe [Text])
+    , _cupcAllowedOAuthScopes              :: !(Maybe [Text])
+    , _cupcAllowedOAuthFlows               :: !(Maybe [OAuthFlowType])
+    , _cupcCallbackURLs                    :: !(Maybe [Text])
+    , _cupcUserPoolId                      :: !Text
+    , _cupcClientName                      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateUserPoolClient' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cupcRefreshTokenValidity' - The validity of the refresh token, in days.
+-- * 'cupcRefreshTokenValidity' - The time limit, in days, after which the refresh token is no longer valid and cannot be used.
 --
 -- * 'cupcExplicitAuthFlows' - The explicit authentication flows.
 --
+-- * 'cupcSupportedIdentityProviders' - A list of provider names for the identity providers that are supported on this client.
+--
+-- * 'cupcLogoutURLs' - A list of allowed logout URLs for the identity providers.
+--
+-- * 'cupcAllowedOAuthFlowsUserPoolClient' - Set to @True@ if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
+--
 -- * 'cupcGenerateSecret' - Boolean to specify whether you want to generate a secret for the user pool client being created.
+--
+-- * 'cupcDefaultRedirectURI' - The default redirect URI. Must be in the @CallbackURLs@ list.
 --
 -- * 'cupcWriteAttributes' - The write attributes.
 --
 -- * 'cupcReadAttributes' - The read attributes.
+--
+-- * 'cupcAllowedOAuthScopes' - A list of allowed @OAuth@ scopes. Currently supported values are @"phone"@ , @"email"@ , @"openid"@ , and @"Cognito"@ .
+--
+-- * 'cupcAllowedOAuthFlows' - Set to @code@ to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint. Set to @token@ to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.
+--
+-- * 'cupcCallbackURLs' - A list of allowed callback URLs for the identity providers.
 --
 -- * 'cupcUserPoolId' - The user pool ID for the user pool where you want to create a user pool client.
 --
@@ -90,14 +118,21 @@ createUserPoolClient pUserPoolId_ pClientName_ =
     CreateUserPoolClient'
     { _cupcRefreshTokenValidity = Nothing
     , _cupcExplicitAuthFlows = Nothing
+    , _cupcSupportedIdentityProviders = Nothing
+    , _cupcLogoutURLs = Nothing
+    , _cupcAllowedOAuthFlowsUserPoolClient = Nothing
     , _cupcGenerateSecret = Nothing
+    , _cupcDefaultRedirectURI = Nothing
     , _cupcWriteAttributes = Nothing
     , _cupcReadAttributes = Nothing
+    , _cupcAllowedOAuthScopes = Nothing
+    , _cupcAllowedOAuthFlows = Nothing
+    , _cupcCallbackURLs = Nothing
     , _cupcUserPoolId = pUserPoolId_
     , _cupcClientName = pClientName_
     }
 
--- | The validity of the refresh token, in days.
+-- | The time limit, in days, after which the refresh token is no longer valid and cannot be used.
 cupcRefreshTokenValidity :: Lens' CreateUserPoolClient (Maybe Natural)
 cupcRefreshTokenValidity = lens _cupcRefreshTokenValidity (\ s a -> s{_cupcRefreshTokenValidity = a}) . mapping _Nat;
 
@@ -105,9 +140,25 @@ cupcRefreshTokenValidity = lens _cupcRefreshTokenValidity (\ s a -> s{_cupcRefre
 cupcExplicitAuthFlows :: Lens' CreateUserPoolClient [ExplicitAuthFlowsType]
 cupcExplicitAuthFlows = lens _cupcExplicitAuthFlows (\ s a -> s{_cupcExplicitAuthFlows = a}) . _Default . _Coerce;
 
+-- | A list of provider names for the identity providers that are supported on this client.
+cupcSupportedIdentityProviders :: Lens' CreateUserPoolClient [Text]
+cupcSupportedIdentityProviders = lens _cupcSupportedIdentityProviders (\ s a -> s{_cupcSupportedIdentityProviders = a}) . _Default . _Coerce;
+
+-- | A list of allowed logout URLs for the identity providers.
+cupcLogoutURLs :: Lens' CreateUserPoolClient [Text]
+cupcLogoutURLs = lens _cupcLogoutURLs (\ s a -> s{_cupcLogoutURLs = a}) . _Default . _Coerce;
+
+-- | Set to @True@ if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
+cupcAllowedOAuthFlowsUserPoolClient :: Lens' CreateUserPoolClient (Maybe Bool)
+cupcAllowedOAuthFlowsUserPoolClient = lens _cupcAllowedOAuthFlowsUserPoolClient (\ s a -> s{_cupcAllowedOAuthFlowsUserPoolClient = a});
+
 -- | Boolean to specify whether you want to generate a secret for the user pool client being created.
 cupcGenerateSecret :: Lens' CreateUserPoolClient (Maybe Bool)
 cupcGenerateSecret = lens _cupcGenerateSecret (\ s a -> s{_cupcGenerateSecret = a});
+
+-- | The default redirect URI. Must be in the @CallbackURLs@ list.
+cupcDefaultRedirectURI :: Lens' CreateUserPoolClient (Maybe Text)
+cupcDefaultRedirectURI = lens _cupcDefaultRedirectURI (\ s a -> s{_cupcDefaultRedirectURI = a});
 
 -- | The write attributes.
 cupcWriteAttributes :: Lens' CreateUserPoolClient [Text]
@@ -116,6 +167,18 @@ cupcWriteAttributes = lens _cupcWriteAttributes (\ s a -> s{_cupcWriteAttributes
 -- | The read attributes.
 cupcReadAttributes :: Lens' CreateUserPoolClient [Text]
 cupcReadAttributes = lens _cupcReadAttributes (\ s a -> s{_cupcReadAttributes = a}) . _Default . _Coerce;
+
+-- | A list of allowed @OAuth@ scopes. Currently supported values are @"phone"@ , @"email"@ , @"openid"@ , and @"Cognito"@ .
+cupcAllowedOAuthScopes :: Lens' CreateUserPoolClient [Text]
+cupcAllowedOAuthScopes = lens _cupcAllowedOAuthScopes (\ s a -> s{_cupcAllowedOAuthScopes = a}) . _Default . _Coerce;
+
+-- | Set to @code@ to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint. Set to @token@ to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.
+cupcAllowedOAuthFlows :: Lens' CreateUserPoolClient [OAuthFlowType]
+cupcAllowedOAuthFlows = lens _cupcAllowedOAuthFlows (\ s a -> s{_cupcAllowedOAuthFlows = a}) . _Default . _Coerce;
+
+-- | A list of allowed callback URLs for the identity providers.
+cupcCallbackURLs :: Lens' CreateUserPoolClient [Text]
+cupcCallbackURLs = lens _cupcCallbackURLs (\ s a -> s{_cupcCallbackURLs = a}) . _Default . _Coerce;
 
 -- | The user pool ID for the user pool where you want to create a user pool client.
 cupcUserPoolId :: Lens' CreateUserPoolClient Text
@@ -156,9 +219,20 @@ instance ToJSON CreateUserPoolClient where
                  [("RefreshTokenValidity" .=) <$>
                     _cupcRefreshTokenValidity,
                   ("ExplicitAuthFlows" .=) <$> _cupcExplicitAuthFlows,
+                  ("SupportedIdentityProviders" .=) <$>
+                    _cupcSupportedIdentityProviders,
+                  ("LogoutURLs" .=) <$> _cupcLogoutURLs,
+                  ("AllowedOAuthFlowsUserPoolClient" .=) <$>
+                    _cupcAllowedOAuthFlowsUserPoolClient,
                   ("GenerateSecret" .=) <$> _cupcGenerateSecret,
+                  ("DefaultRedirectURI" .=) <$>
+                    _cupcDefaultRedirectURI,
                   ("WriteAttributes" .=) <$> _cupcWriteAttributes,
                   ("ReadAttributes" .=) <$> _cupcReadAttributes,
+                  ("AllowedOAuthScopes" .=) <$>
+                    _cupcAllowedOAuthScopes,
+                  ("AllowedOAuthFlows" .=) <$> _cupcAllowedOAuthFlows,
+                  ("CallbackURLs" .=) <$> _cupcCallbackURLs,
                   Just ("UserPoolId" .= _cupcUserPoolId),
                   Just ("ClientName" .= _cupcClientName)])
 

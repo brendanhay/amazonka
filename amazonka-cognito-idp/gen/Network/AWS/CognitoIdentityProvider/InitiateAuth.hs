@@ -66,13 +66,13 @@ data InitiateAuth = InitiateAuth'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iaClientMetadata' - The client app's metadata.
+-- * 'iaClientMetadata' - This is a random key-value pair map which can contain any key and will be passed to your PreAuthentication Lambda trigger as-is. It can be used to implement additional validations around authentication.
 --
--- * 'iaAuthParameters' - The authentication parameters.
+-- * 'iaAuthParameters' - The authentication parameters. These are inputs corresponding to the @AuthFlow@ that you are invoking. The required values depend on the value of @AuthFlow@ :     * For @USER_SRP_AUTH@ : @USERNAME@ (required), @SRP_A@ (required), @SECRET_HASH@ (required if the app client is configured with a client secret), @DEVICE_KEY@      * For @REFRESH_TOKEN_AUTH/REFRESH_TOKEN@ : @USERNAME@ (required), @SECRET_HASH@ (required if the app client is configured with a client secret), @REFRESH_TOKEN@ (required), @DEVICE_KEY@      * For @CUSTOM_AUTH@ : @USERNAME@ (required), @SECRET_HASH@ (if app client is configured with client secret), @DEVICE_KEY@
 --
--- * 'iaAuthFlow' - The authentication flow.
+-- * 'iaAuthFlow' - The authentication flow for this call to execute. The API action will depend on this value. For example:      * @REFRESH_TOKEN_AUTH@ will take in a valid refresh token and return new tokens.     * @USER_SRP_AUTH@ will take in @USERNAME@ and @SRP_A@ and return the SRP variables to be used for next challenge execution. Valid values include:     * @USER_SRP_AUTH@ : Authentication flow for the Secure Remote Password (SRP) protocol.     * @REFRESH_TOKEN_AUTH@ /@REFRESH_TOKEN@ : Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.     * @CUSTOM_AUTH@ : Custom authentication flow. @ADMIN_NO_SRP_AUTH@ is not a valid value.
 --
--- * 'iaClientId' - The client ID.
+-- * 'iaClientId' - The app client ID.
 initiateAuth
     :: AuthFlowType -- ^ 'iaAuthFlow'
     -> Text -- ^ 'iaClientId'
@@ -85,19 +85,19 @@ initiateAuth pAuthFlow_ pClientId_ =
     , _iaClientId = _Sensitive # pClientId_
     }
 
--- | The client app's metadata.
+-- | This is a random key-value pair map which can contain any key and will be passed to your PreAuthentication Lambda trigger as-is. It can be used to implement additional validations around authentication.
 iaClientMetadata :: Lens' InitiateAuth (HashMap Text Text)
 iaClientMetadata = lens _iaClientMetadata (\ s a -> s{_iaClientMetadata = a}) . _Default . _Map;
 
--- | The authentication parameters.
+-- | The authentication parameters. These are inputs corresponding to the @AuthFlow@ that you are invoking. The required values depend on the value of @AuthFlow@ :     * For @USER_SRP_AUTH@ : @USERNAME@ (required), @SRP_A@ (required), @SECRET_HASH@ (required if the app client is configured with a client secret), @DEVICE_KEY@      * For @REFRESH_TOKEN_AUTH/REFRESH_TOKEN@ : @USERNAME@ (required), @SECRET_HASH@ (required if the app client is configured with a client secret), @REFRESH_TOKEN@ (required), @DEVICE_KEY@      * For @CUSTOM_AUTH@ : @USERNAME@ (required), @SECRET_HASH@ (if app client is configured with client secret), @DEVICE_KEY@
 iaAuthParameters :: Lens' InitiateAuth (HashMap Text Text)
 iaAuthParameters = lens _iaAuthParameters (\ s a -> s{_iaAuthParameters = a}) . _Default . _Map;
 
--- | The authentication flow.
+-- | The authentication flow for this call to execute. The API action will depend on this value. For example:      * @REFRESH_TOKEN_AUTH@ will take in a valid refresh token and return new tokens.     * @USER_SRP_AUTH@ will take in @USERNAME@ and @SRP_A@ and return the SRP variables to be used for next challenge execution. Valid values include:     * @USER_SRP_AUTH@ : Authentication flow for the Secure Remote Password (SRP) protocol.     * @REFRESH_TOKEN_AUTH@ /@REFRESH_TOKEN@ : Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.     * @CUSTOM_AUTH@ : Custom authentication flow. @ADMIN_NO_SRP_AUTH@ is not a valid value.
 iaAuthFlow :: Lens' InitiateAuth AuthFlowType
 iaAuthFlow = lens _iaAuthFlow (\ s a -> s{_iaAuthFlow = a});
 
--- | The client ID.
+-- | The app client ID.
 iaClientId :: Lens' InitiateAuth Text
 iaClientId = lens _iaClientId (\ s a -> s{_iaClientId = a}) . _Sensitive;
 
@@ -160,13 +160,13 @@ data InitiateAuthResponse = InitiateAuthResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iarsChallengeName' - The name of the challenge.
+-- * 'iarsChallengeName' - The name of the challenge which you are responding to with this call. This is returned to you in the @AdminInitiateAuth@ response if you need to pass another challenge. Valid values include the following. Note that all of these challenges require @USERNAME@ and @SECRET_HASH@ (if applicable) in the parameters.     * @SMS_MFA@ : Next challenge is to supply an @SMS_MFA_CODE@ , delivered via SMS.     * @PASSWORD_VERIFIER@ : Next challenge is to supply @PASSWORD_CLAIM_SIGNATURE@ , @PASSWORD_CLAIM_SECRET_BLOCK@ , and @TIMESTAMP@ after the client-side SRP calculations.     * @CUSTOM_CHALLENGE@ : This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.     * @DEVICE_SRP_AUTH@ : If device tracking was enabled on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking this device.     * @DEVICE_PASSWORD_VERIFIER@ : Similar to @PASSWORD_VERIFIER@ , but for devices only.     * @NEW_PASSWORD_REQUIRED@ : For users which are required to change their passwords after successful first login. This challenge should be passed with @NEW_PASSWORD@ and any other required attributes.
 --
--- * 'iarsChallengeParameters' - The challenge parameters.
+-- * 'iarsChallengeParameters' - The challenge parameters. These are returned to you in the @InitiateAuth@ response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (@RespondToAuthChallenge@ ).  All challenges require @USERNAME@ and @SECRET_HASH@ (if applicable).
 --
--- * 'iarsAuthenticationResult' - The result returned by the server in response to the request to initiate authentication.
+-- * 'iarsAuthenticationResult' - The result of the authentication response. This is only returned if the caller does not need to pass another challenge. If the caller does need to pass another challenge before it gets tokens, @ChallengeName@ , @ChallengeParameters@ , and @Session@ are returned.
 --
--- * 'iarsSession' - The session.
+-- * 'iarsSession' - The session which should be passed both ways in challenge-response calls to the service. If the <API_InitiateAuth.html InitiateAuth> or <API_RespondToAuthChallenge.html RespondToAuthChallenge> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
 --
 -- * 'iarsResponseStatus' - -- | The response status code.
 initiateAuthResponse
@@ -181,19 +181,19 @@ initiateAuthResponse pResponseStatus_ =
     , _iarsResponseStatus = pResponseStatus_
     }
 
--- | The name of the challenge.
+-- | The name of the challenge which you are responding to with this call. This is returned to you in the @AdminInitiateAuth@ response if you need to pass another challenge. Valid values include the following. Note that all of these challenges require @USERNAME@ and @SECRET_HASH@ (if applicable) in the parameters.     * @SMS_MFA@ : Next challenge is to supply an @SMS_MFA_CODE@ , delivered via SMS.     * @PASSWORD_VERIFIER@ : Next challenge is to supply @PASSWORD_CLAIM_SIGNATURE@ , @PASSWORD_CLAIM_SECRET_BLOCK@ , and @TIMESTAMP@ after the client-side SRP calculations.     * @CUSTOM_CHALLENGE@ : This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.     * @DEVICE_SRP_AUTH@ : If device tracking was enabled on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking this device.     * @DEVICE_PASSWORD_VERIFIER@ : Similar to @PASSWORD_VERIFIER@ , but for devices only.     * @NEW_PASSWORD_REQUIRED@ : For users which are required to change their passwords after successful first login. This challenge should be passed with @NEW_PASSWORD@ and any other required attributes.
 iarsChallengeName :: Lens' InitiateAuthResponse (Maybe ChallengeNameType)
 iarsChallengeName = lens _iarsChallengeName (\ s a -> s{_iarsChallengeName = a});
 
--- | The challenge parameters.
+-- | The challenge parameters. These are returned to you in the @InitiateAuth@ response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (@RespondToAuthChallenge@ ).  All challenges require @USERNAME@ and @SECRET_HASH@ (if applicable).
 iarsChallengeParameters :: Lens' InitiateAuthResponse (HashMap Text Text)
 iarsChallengeParameters = lens _iarsChallengeParameters (\ s a -> s{_iarsChallengeParameters = a}) . _Default . _Map;
 
--- | The result returned by the server in response to the request to initiate authentication.
+-- | The result of the authentication response. This is only returned if the caller does not need to pass another challenge. If the caller does need to pass another challenge before it gets tokens, @ChallengeName@ , @ChallengeParameters@ , and @Session@ are returned.
 iarsAuthenticationResult :: Lens' InitiateAuthResponse (Maybe AuthenticationResultType)
 iarsAuthenticationResult = lens _iarsAuthenticationResult (\ s a -> s{_iarsAuthenticationResult = a});
 
--- | The session.
+-- | The session which should be passed both ways in challenge-response calls to the service. If the <API_InitiateAuth.html InitiateAuth> or <API_RespondToAuthChallenge.html RespondToAuthChallenge> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
 iarsSession :: Lens' InitiateAuthResponse (Maybe Text)
 iarsSession = lens _iarsSession (\ s a -> s{_iarsSession = a});
 

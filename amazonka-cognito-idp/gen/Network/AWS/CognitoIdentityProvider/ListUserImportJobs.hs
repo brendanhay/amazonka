@@ -62,7 +62,7 @@ data ListUserImportJobs = ListUserImportJobs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'luijPaginationToken' - An identifier that was returned from the previous call to ListUserImportJobs, which can be used to return the next set of import jobs in the list.
+-- * 'luijPaginationToken' - An identifier that was returned from the previous call to @ListUserImportJobs@ , which can be used to return the next set of import jobs in the list.
 --
 -- * 'luijUserPoolId' - The user pool ID for the user pool that the users are being imported into.
 --
@@ -78,7 +78,7 @@ listUserImportJobs pUserPoolId_ pMaxResults_ =
     , _luijMaxResults = _Nat # pMaxResults_
     }
 
--- | An identifier that was returned from the previous call to ListUserImportJobs, which can be used to return the next set of import jobs in the list.
+-- | An identifier that was returned from the previous call to @ListUserImportJobs@ , which can be used to return the next set of import jobs in the list.
 luijPaginationToken :: Lens' ListUserImportJobs (Maybe Text)
 luijPaginationToken = lens _luijPaginationToken (\ s a -> s{_luijPaginationToken = a});
 

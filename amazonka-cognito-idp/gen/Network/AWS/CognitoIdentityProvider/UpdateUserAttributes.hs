@@ -27,8 +27,8 @@ module Network.AWS.CognitoIdentityProvider.UpdateUserAttributes
       updateUserAttributes
     , UpdateUserAttributes
     -- * Request Lenses
-    , uuaAccessToken
     , uuaUserAttributes
+    , uuaAccessToken
 
     -- * Destructuring the Response
     , updateUserAttributesResponse
@@ -51,32 +51,33 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateUserAttributes' smart constructor.
 data UpdateUserAttributes = UpdateUserAttributes'
-    { _uuaAccessToken    :: !(Maybe (Sensitive Text))
-    , _uuaUserAttributes :: ![AttributeType]
+    { _uuaUserAttributes :: ![AttributeType]
+    , _uuaAccessToken    :: !(Sensitive Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateUserAttributes' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uuaAccessToken' - The access token for the request to update user attributes.
+-- * 'uuaUserAttributes' - An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 --
--- * 'uuaUserAttributes' - An array of name-value pairs representing user attributes.
+-- * 'uuaAccessToken' - The access token for the request to update user attributes.
 updateUserAttributes
-    :: UpdateUserAttributes
-updateUserAttributes =
+    :: Text -- ^ 'uuaAccessToken'
+    -> UpdateUserAttributes
+updateUserAttributes pAccessToken_ =
     UpdateUserAttributes'
-    { _uuaAccessToken = Nothing
-    , _uuaUserAttributes = mempty
+    { _uuaUserAttributes = mempty
+    , _uuaAccessToken = _Sensitive # pAccessToken_
     }
 
--- | The access token for the request to update user attributes.
-uuaAccessToken :: Lens' UpdateUserAttributes (Maybe Text)
-uuaAccessToken = lens _uuaAccessToken (\ s a -> s{_uuaAccessToken = a}) . mapping _Sensitive;
-
--- | An array of name-value pairs representing user attributes.
+-- | An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 uuaUserAttributes :: Lens' UpdateUserAttributes [AttributeType]
 uuaUserAttributes = lens _uuaUserAttributes (\ s a -> s{_uuaUserAttributes = a}) . _Coerce;
+
+-- | The access token for the request to update user attributes.
+uuaAccessToken :: Lens' UpdateUserAttributes Text
+uuaAccessToken = lens _uuaAccessToken (\ s a -> s{_uuaAccessToken = a}) . _Sensitive;
 
 instance AWSRequest UpdateUserAttributes where
         type Rs UpdateUserAttributes =
@@ -107,8 +108,8 @@ instance ToJSON UpdateUserAttributes where
         toJSON UpdateUserAttributes'{..}
           = object
               (catMaybes
-                 [("AccessToken" .=) <$> _uuaAccessToken,
-                  Just ("UserAttributes" .= _uuaUserAttributes)])
+                 [Just ("UserAttributes" .= _uuaUserAttributes),
+                  Just ("AccessToken" .= _uuaAccessToken)])
 
 instance ToPath UpdateUserAttributes where
         toPath = const "/"

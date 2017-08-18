@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Allows a user to enter a code provided when they reset their password to update their password.
+-- Allows a user to enter a confirmation code to reset a forgotten password.
 --
 --
 module Network.AWS.CognitoIdentityProvider.ConfirmForgotPassword
@@ -66,13 +66,13 @@ data ConfirmForgotPassword = ConfirmForgotPassword'
 --
 -- * 'cfpSecretHash' - A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 --
--- * 'cfpClientId' - The ID of the client associated with the user pool.
+-- * 'cfpClientId' - The app client ID of the app associated with the user pool.
 --
 -- * 'cfpUsername' - The user name of the user for whom you want to enter a code to retrieve a forgotten password.
 --
--- * 'cfpConfirmationCode' - The confirmation code sent by a user's request to retrieve a forgotten password.
+-- * 'cfpConfirmationCode' - The confirmation code sent by a user's request to retrieve a forgotten password. For more information, see <API_ForgotPassword.html ForgotPassword>
 --
--- * 'cfpPassword' - The password sent by sent by a user's request to retrieve a forgotten password.
+-- * 'cfpPassword' - The password sent by a user's request to retrieve a forgotten password.
 confirmForgotPassword
     :: Text -- ^ 'cfpClientId'
     -> Text -- ^ 'cfpUsername'
@@ -92,7 +92,7 @@ confirmForgotPassword pClientId_ pUsername_ pConfirmationCode_ pPassword_ =
 cfpSecretHash :: Lens' ConfirmForgotPassword (Maybe Text)
 cfpSecretHash = lens _cfpSecretHash (\ s a -> s{_cfpSecretHash = a}) . mapping _Sensitive;
 
--- | The ID of the client associated with the user pool.
+-- | The app client ID of the app associated with the user pool.
 cfpClientId :: Lens' ConfirmForgotPassword Text
 cfpClientId = lens _cfpClientId (\ s a -> s{_cfpClientId = a}) . _Sensitive;
 
@@ -100,11 +100,11 @@ cfpClientId = lens _cfpClientId (\ s a -> s{_cfpClientId = a}) . _Sensitive;
 cfpUsername :: Lens' ConfirmForgotPassword Text
 cfpUsername = lens _cfpUsername (\ s a -> s{_cfpUsername = a}) . _Sensitive;
 
--- | The confirmation code sent by a user's request to retrieve a forgotten password.
+-- | The confirmation code sent by a user's request to retrieve a forgotten password. For more information, see <API_ForgotPassword.html ForgotPassword>
 cfpConfirmationCode :: Lens' ConfirmForgotPassword Text
 cfpConfirmationCode = lens _cfpConfirmationCode (\ s a -> s{_cfpConfirmationCode = a});
 
--- | The password sent by sent by a user's request to retrieve a forgotten password.
+-- | The password sent by a user's request to retrieve a forgotten password.
 cfpPassword :: Lens' ConfirmForgotPassword Text
 cfpPassword = lens _cfpPassword (\ s a -> s{_cfpPassword = a}) . _Sensitive;
 

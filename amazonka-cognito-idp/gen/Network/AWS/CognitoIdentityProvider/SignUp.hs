@@ -38,9 +38,10 @@ module Network.AWS.CognitoIdentityProvider.SignUp
     , signUpResponse
     , SignUpResponse
     -- * Response Lenses
-    , sursUserConfirmed
     , sursCodeDeliveryDetails
     , sursResponseStatus
+    , sursUserConfirmed
+    , sursUserSub
     ) where
 
 import           Network.AWS.CognitoIdentityProvider.Types
@@ -68,7 +69,7 @@ data SignUp = SignUp'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'suUserAttributes' - An array of name-value pairs representing user attributes.
+-- * 'suUserAttributes' - An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 --
 -- * 'suSecretHash' - A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 --
@@ -94,7 +95,7 @@ signUp pClientId_ pUsername_ pPassword_ =
     , _suPassword = _Sensitive # pPassword_
     }
 
--- | An array of name-value pairs representing user attributes.
+-- | An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 suUserAttributes :: Lens' SignUp [AttributeType]
 suUserAttributes = lens _suUserAttributes (\ s a -> s{_suUserAttributes = a}) . _Default . _Coerce;
 
@@ -125,9 +126,9 @@ instance AWSRequest SignUp where
           = receiveJSON
               (\ s h x ->
                  SignUpResponse' <$>
-                   (x .?> "UserConfirmed") <*>
-                     (x .?> "CodeDeliveryDetails")
-                     <*> (pure (fromEnum s)))
+                   (x .?> "CodeDeliveryDetails") <*> (pure (fromEnum s))
+                     <*> (x .:> "UserConfirmed")
+                     <*> (x .:> "UserSub"))
 
 instance Hashable SignUp
 
@@ -166,33 +167,35 @@ instance ToQuery SignUp where
 --
 -- /See:/ 'signUpResponse' smart constructor.
 data SignUpResponse = SignUpResponse'
-    { _sursUserConfirmed       :: !(Maybe Bool)
-    , _sursCodeDeliveryDetails :: !(Maybe CodeDeliveryDetailsType)
+    { _sursCodeDeliveryDetails :: !(Maybe CodeDeliveryDetailsType)
     , _sursResponseStatus      :: !Int
+    , _sursUserConfirmed       :: !Bool
+    , _sursUserSub             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SignUpResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sursUserConfirmed' - A response from the server indicating that a user registration has been confirmed.
---
 -- * 'sursCodeDeliveryDetails' - The code delivery details returned by the server response to the user registration request.
 --
 -- * 'sursResponseStatus' - -- | The response status code.
+--
+-- * 'sursUserConfirmed' - A response from the server indicating that a user registration has been confirmed.
+--
+-- * 'sursUserSub' - The UUID of the authenticated user. This is not the same as @username@ .
 signUpResponse
     :: Int -- ^ 'sursResponseStatus'
+    -> Bool -- ^ 'sursUserConfirmed'
+    -> Text -- ^ 'sursUserSub'
     -> SignUpResponse
-signUpResponse pResponseStatus_ =
+signUpResponse pResponseStatus_ pUserConfirmed_ pUserSub_ =
     SignUpResponse'
-    { _sursUserConfirmed = Nothing
-    , _sursCodeDeliveryDetails = Nothing
+    { _sursCodeDeliveryDetails = Nothing
     , _sursResponseStatus = pResponseStatus_
+    , _sursUserConfirmed = pUserConfirmed_
+    , _sursUserSub = pUserSub_
     }
-
--- | A response from the server indicating that a user registration has been confirmed.
-sursUserConfirmed :: Lens' SignUpResponse (Maybe Bool)
-sursUserConfirmed = lens _sursUserConfirmed (\ s a -> s{_sursUserConfirmed = a});
 
 -- | The code delivery details returned by the server response to the user registration request.
 sursCodeDeliveryDetails :: Lens' SignUpResponse (Maybe CodeDeliveryDetailsType)
@@ -201,5 +204,13 @@ sursCodeDeliveryDetails = lens _sursCodeDeliveryDetails (\ s a -> s{_sursCodeDel
 -- | -- | The response status code.
 sursResponseStatus :: Lens' SignUpResponse Int
 sursResponseStatus = lens _sursResponseStatus (\ s a -> s{_sursResponseStatus = a});
+
+-- | A response from the server indicating that a user registration has been confirmed.
+sursUserConfirmed :: Lens' SignUpResponse Bool
+sursUserConfirmed = lens _sursUserConfirmed (\ s a -> s{_sursUserConfirmed = a});
+
+-- | The UUID of the authenticated user. This is not the same as @username@ .
+sursUserSub :: Lens' SignUpResponse Text
+sursUserSub = lens _sursUserSub (\ s a -> s{_sursUserSub = a});
 
 instance NFData SignUpResponse

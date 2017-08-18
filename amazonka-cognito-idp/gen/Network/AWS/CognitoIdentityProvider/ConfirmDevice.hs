@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Confirms tracking of the device. This API call is the call that beings device tracking.
+-- Confirms tracking of the device. This API call is the call that begins device tracking.
 --
 --
 module Network.AWS.CognitoIdentityProvider.ConfirmDevice

@@ -27,8 +27,8 @@ module Network.AWS.CognitoIdentityProvider.DescribeUserPoolClient
       describeUserPoolClient
     , DescribeUserPoolClient
     -- * Request Lenses
-    , desUserPoolId
-    , desClientId
+    , dupcuUserPoolId
+    , dupcuClientId
 
     -- * Destructuring the Response
     , describeUserPoolClientResponse
@@ -51,34 +51,34 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeUserPoolClient' smart constructor.
 data DescribeUserPoolClient = DescribeUserPoolClient'
-    { _desUserPoolId :: !Text
-    , _desClientId   :: !(Sensitive Text)
+    { _dupcuUserPoolId :: !Text
+    , _dupcuClientId   :: !(Sensitive Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeUserPoolClient' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desUserPoolId' - The user pool ID for the user pool you want to describe.
+-- * 'dupcuUserPoolId' - The user pool ID for the user pool you want to describe.
 --
--- * 'desClientId' - The ID of the client associated with the user pool.
+-- * 'dupcuClientId' - The app client ID of the app associated with the user pool.
 describeUserPoolClient
-    :: Text -- ^ 'desUserPoolId'
-    -> Text -- ^ 'desClientId'
+    :: Text -- ^ 'dupcuUserPoolId'
+    -> Text -- ^ 'dupcuClientId'
     -> DescribeUserPoolClient
 describeUserPoolClient pUserPoolId_ pClientId_ =
     DescribeUserPoolClient'
-    { _desUserPoolId = pUserPoolId_
-    , _desClientId = _Sensitive # pClientId_
+    { _dupcuUserPoolId = pUserPoolId_
+    , _dupcuClientId = _Sensitive # pClientId_
     }
 
 -- | The user pool ID for the user pool you want to describe.
-desUserPoolId :: Lens' DescribeUserPoolClient Text
-desUserPoolId = lens _desUserPoolId (\ s a -> s{_desUserPoolId = a});
+dupcuUserPoolId :: Lens' DescribeUserPoolClient Text
+dupcuUserPoolId = lens _dupcuUserPoolId (\ s a -> s{_dupcuUserPoolId = a});
 
--- | The ID of the client associated with the user pool.
-desClientId :: Lens' DescribeUserPoolClient Text
-desClientId = lens _desClientId (\ s a -> s{_desClientId = a}) . _Sensitive;
+-- | The app client ID of the app associated with the user pool.
+dupcuClientId :: Lens' DescribeUserPoolClient Text
+dupcuClientId = lens _dupcuClientId (\ s a -> s{_dupcuClientId = a}) . _Sensitive;
 
 instance AWSRequest DescribeUserPoolClient where
         type Rs DescribeUserPoolClient =
@@ -108,8 +108,8 @@ instance ToJSON DescribeUserPoolClient where
         toJSON DescribeUserPoolClient'{..}
           = object
               (catMaybes
-                 [Just ("UserPoolId" .= _desUserPoolId),
-                  Just ("ClientId" .= _desClientId)])
+                 [Just ("UserPoolId" .= _dupcuUserPoolId),
+                  Just ("ClientId" .= _dupcuClientId)])
 
 instance ToPath DescribeUserPoolClient where
         toPath = const "/"

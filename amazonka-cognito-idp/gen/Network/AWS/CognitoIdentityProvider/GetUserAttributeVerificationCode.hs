@@ -51,7 +51,7 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getUserAttributeVerificationCode' smart constructor.
 data GetUserAttributeVerificationCode = GetUserAttributeVerificationCode'
-    { _guavcAccessToken   :: !(Maybe (Sensitive Text))
+    { _guavcAccessToken   :: !(Sensitive Text)
     , _guavcAttributeName :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -63,17 +63,18 @@ data GetUserAttributeVerificationCode = GetUserAttributeVerificationCode'
 --
 -- * 'guavcAttributeName' - The attribute name returned by the server response to get the user attribute verification code.
 getUserAttributeVerificationCode
-    :: Text -- ^ 'guavcAttributeName'
+    :: Text -- ^ 'guavcAccessToken'
+    -> Text -- ^ 'guavcAttributeName'
     -> GetUserAttributeVerificationCode
-getUserAttributeVerificationCode pAttributeName_ =
+getUserAttributeVerificationCode pAccessToken_ pAttributeName_ =
     GetUserAttributeVerificationCode'
-    { _guavcAccessToken = Nothing
+    { _guavcAccessToken = _Sensitive # pAccessToken_
     , _guavcAttributeName = pAttributeName_
     }
 
 -- | The access token returned by the server response to get the user attribute verification code.
-guavcAccessToken :: Lens' GetUserAttributeVerificationCode (Maybe Text)
-guavcAccessToken = lens _guavcAccessToken (\ s a -> s{_guavcAccessToken = a}) . mapping _Sensitive;
+guavcAccessToken :: Lens' GetUserAttributeVerificationCode Text
+guavcAccessToken = lens _guavcAccessToken (\ s a -> s{_guavcAccessToken = a}) . _Sensitive;
 
 -- | The attribute name returned by the server response to get the user attribute verification code.
 guavcAttributeName :: Lens' GetUserAttributeVerificationCode Text
@@ -111,7 +112,7 @@ instance ToJSON GetUserAttributeVerificationCode
         toJSON GetUserAttributeVerificationCode'{..}
           = object
               (catMaybes
-                 [("AccessToken" .=) <$> _guavcAccessToken,
+                 [Just ("AccessToken" .= _guavcAccessToken),
                   Just ("AttributeName" .= _guavcAttributeName)])
 
 instance ToPath GetUserAttributeVerificationCode

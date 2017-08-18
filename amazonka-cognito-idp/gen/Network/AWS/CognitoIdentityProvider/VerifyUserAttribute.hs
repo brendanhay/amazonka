@@ -51,7 +51,7 @@ import           Network.AWS.Response
 --
 -- /See:/ 'verifyUserAttribute' smart constructor.
 data VerifyUserAttribute = VerifyUserAttribute'
-    { _vuaAccessToken   :: !(Maybe (Sensitive Text))
+    { _vuaAccessToken   :: !(Sensitive Text)
     , _vuaAttributeName :: !Text
     , _vuaCode          :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -66,19 +66,20 @@ data VerifyUserAttribute = VerifyUserAttribute'
 --
 -- * 'vuaCode' - The verification code in the request to verify user attributes.
 verifyUserAttribute
-    :: Text -- ^ 'vuaAttributeName'
+    :: Text -- ^ 'vuaAccessToken'
+    -> Text -- ^ 'vuaAttributeName'
     -> Text -- ^ 'vuaCode'
     -> VerifyUserAttribute
-verifyUserAttribute pAttributeName_ pCode_ =
+verifyUserAttribute pAccessToken_ pAttributeName_ pCode_ =
     VerifyUserAttribute'
-    { _vuaAccessToken = Nothing
+    { _vuaAccessToken = _Sensitive # pAccessToken_
     , _vuaAttributeName = pAttributeName_
     , _vuaCode = pCode_
     }
 
 -- | Represents the access token of the request to verify user attributes.
-vuaAccessToken :: Lens' VerifyUserAttribute (Maybe Text)
-vuaAccessToken = lens _vuaAccessToken (\ s a -> s{_vuaAccessToken = a}) . mapping _Sensitive;
+vuaAccessToken :: Lens' VerifyUserAttribute Text
+vuaAccessToken = lens _vuaAccessToken (\ s a -> s{_vuaAccessToken = a}) . _Sensitive;
 
 -- | The attribute name in the request to verify user attributes.
 vuaAttributeName :: Lens' VerifyUserAttribute Text
@@ -115,7 +116,7 @@ instance ToJSON VerifyUserAttribute where
         toJSON VerifyUserAttribute'{..}
           = object
               (catMaybes
-                 [("AccessToken" .=) <$> _vuaAccessToken,
+                 [Just ("AccessToken" .= _vuaAccessToken),
                   Just ("AttributeName" .= _vuaAttributeName),
                   Just ("Code" .= _vuaCode)])
 

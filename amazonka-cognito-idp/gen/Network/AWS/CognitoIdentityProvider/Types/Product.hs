@@ -36,9 +36,9 @@ data AdminCreateUserConfigType = AdminCreateUserConfigType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acuctAllowAdminCreateUserOnly' - Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
+-- * 'acuctAllowAdminCreateUserOnly' - Set to @True@ if only the administrator is allowed to create user profiles. Set to @False@ if users can sign themselves up via an app.
 --
--- * 'acuctUnusedAccountValidityDays' - The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call AdminCreateUser again, specifying "RESEND" for the MessageAction parameter. The default value for this paameter is 7.
+-- * 'acuctUnusedAccountValidityDays' - The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call @AdminCreateUser@ again, specifying @"RESEND"@ for the @MessageAction@ parameter. The default value for this parameter is 7.
 --
 -- * 'acuctInviteMessageTemplate' - The message template to be used for the welcome message to new users.
 adminCreateUserConfigType
@@ -50,11 +50,11 @@ adminCreateUserConfigType =
     , _acuctInviteMessageTemplate = Nothing
     }
 
--- | Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
+-- | Set to @True@ if only the administrator is allowed to create user profiles. Set to @False@ if users can sign themselves up via an app.
 acuctAllowAdminCreateUserOnly :: Lens' AdminCreateUserConfigType (Maybe Bool)
 acuctAllowAdminCreateUserOnly = lens _acuctAllowAdminCreateUserOnly (\ s a -> s{_acuctAllowAdminCreateUserOnly = a});
 
--- | The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call AdminCreateUser again, specifying "RESEND" for the MessageAction parameter. The default value for this paameter is 7.
+-- | The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call @AdminCreateUser@ again, specifying @"RESEND"@ for the @MessageAction@ parameter. The default value for this parameter is 7.
 acuctUnusedAccountValidityDays :: Lens' AdminCreateUserConfigType (Maybe Natural)
 acuctUnusedAccountValidityDays = lens _acuctUnusedAccountValidityDays (\ s a -> s{_acuctUnusedAccountValidityDays = a}) . mapping _Nat;
 
@@ -440,6 +440,95 @@ instance Hashable DeviceType
 
 instance NFData DeviceType
 
+-- | A container for information about a domain.
+--
+--
+--
+-- /See:/ 'domainDescriptionType' smart constructor.
+data DomainDescriptionType = DomainDescriptionType'
+    { _ddtStatus                 :: !(Maybe DomainStatusType)
+    , _ddtCloudFrontDistribution :: !(Maybe Text)
+    , _ddtUserPoolId             :: !(Maybe Text)
+    , _ddtDomain                 :: !(Maybe Text)
+    , _ddtAWSAccountId           :: !(Maybe Text)
+    , _ddtVersion                :: !(Maybe Text)
+    , _ddtS3Bucket               :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DomainDescriptionType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddtStatus' - The domain status.
+--
+-- * 'ddtCloudFrontDistribution' - The ARN of the CloudFront distribution.
+--
+-- * 'ddtUserPoolId' - The user pool ID.
+--
+-- * 'ddtDomain' - The domain string.
+--
+-- * 'ddtAWSAccountId' - The AWS account ID for the user pool owner.
+--
+-- * 'ddtVersion' - The app version.
+--
+-- * 'ddtS3Bucket' - The S3 bucket where the static files for this domain are stored.
+domainDescriptionType
+    :: DomainDescriptionType
+domainDescriptionType =
+    DomainDescriptionType'
+    { _ddtStatus = Nothing
+    , _ddtCloudFrontDistribution = Nothing
+    , _ddtUserPoolId = Nothing
+    , _ddtDomain = Nothing
+    , _ddtAWSAccountId = Nothing
+    , _ddtVersion = Nothing
+    , _ddtS3Bucket = Nothing
+    }
+
+-- | The domain status.
+ddtStatus :: Lens' DomainDescriptionType (Maybe DomainStatusType)
+ddtStatus = lens _ddtStatus (\ s a -> s{_ddtStatus = a});
+
+-- | The ARN of the CloudFront distribution.
+ddtCloudFrontDistribution :: Lens' DomainDescriptionType (Maybe Text)
+ddtCloudFrontDistribution = lens _ddtCloudFrontDistribution (\ s a -> s{_ddtCloudFrontDistribution = a});
+
+-- | The user pool ID.
+ddtUserPoolId :: Lens' DomainDescriptionType (Maybe Text)
+ddtUserPoolId = lens _ddtUserPoolId (\ s a -> s{_ddtUserPoolId = a});
+
+-- | The domain string.
+ddtDomain :: Lens' DomainDescriptionType (Maybe Text)
+ddtDomain = lens _ddtDomain (\ s a -> s{_ddtDomain = a});
+
+-- | The AWS account ID for the user pool owner.
+ddtAWSAccountId :: Lens' DomainDescriptionType (Maybe Text)
+ddtAWSAccountId = lens _ddtAWSAccountId (\ s a -> s{_ddtAWSAccountId = a});
+
+-- | The app version.
+ddtVersion :: Lens' DomainDescriptionType (Maybe Text)
+ddtVersion = lens _ddtVersion (\ s a -> s{_ddtVersion = a});
+
+-- | The S3 bucket where the static files for this domain are stored.
+ddtS3Bucket :: Lens' DomainDescriptionType (Maybe Text)
+ddtS3Bucket = lens _ddtS3Bucket (\ s a -> s{_ddtS3Bucket = a});
+
+instance FromJSON DomainDescriptionType where
+        parseJSON
+          = withObject "DomainDescriptionType"
+              (\ x ->
+                 DomainDescriptionType' <$>
+                   (x .:? "Status") <*> (x .:? "CloudFrontDistribution")
+                     <*> (x .:? "UserPoolId")
+                     <*> (x .:? "Domain")
+                     <*> (x .:? "AWSAccountId")
+                     <*> (x .:? "Version")
+                     <*> (x .:? "S3Bucket"))
+
+instance Hashable DomainDescriptionType
+
+instance NFData DomainDescriptionType
+
 -- | The email configuration type.
 --
 --
@@ -581,6 +670,104 @@ instance FromJSON GroupType where
 instance Hashable GroupType
 
 instance NFData GroupType
+
+-- | A container for information about an identity provider.
+--
+--
+--
+-- /See:/ 'identityProviderType' smart constructor.
+data IdentityProviderType = IdentityProviderType'
+    { _iptLastModifiedDate :: !(Maybe POSIX)
+    , _iptUserPoolId       :: !(Maybe Text)
+    , _iptProviderType     :: !(Maybe IdentityProviderTypeType)
+    , _iptCreationDate     :: !(Maybe POSIX)
+    , _iptIdpIdentifiers   :: !(Maybe [Text])
+    , _iptAttributeMapping :: !(Maybe (Map Text Text))
+    , _iptProviderDetails  :: !(Maybe (Map Text Text))
+    , _iptProviderName     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'IdentityProviderType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iptLastModifiedDate' - The date the identity provider was last modified.
+--
+-- * 'iptUserPoolId' - The user pool ID.
+--
+-- * 'iptProviderType' - The identity provider type.
+--
+-- * 'iptCreationDate' - The date the identity provider was created.
+--
+-- * 'iptIdpIdentifiers' - A list of identity provider identifiers.
+--
+-- * 'iptAttributeMapping' - A mapping of identity provider attributes to standard and custom user pool attributes.
+--
+-- * 'iptProviderDetails' - The identity provider details, such as @MetadataURL@ and @MetadataFile@ .
+--
+-- * 'iptProviderName' - The identity provider name.
+identityProviderType
+    :: IdentityProviderType
+identityProviderType =
+    IdentityProviderType'
+    { _iptLastModifiedDate = Nothing
+    , _iptUserPoolId = Nothing
+    , _iptProviderType = Nothing
+    , _iptCreationDate = Nothing
+    , _iptIdpIdentifiers = Nothing
+    , _iptAttributeMapping = Nothing
+    , _iptProviderDetails = Nothing
+    , _iptProviderName = Nothing
+    }
+
+-- | The date the identity provider was last modified.
+iptLastModifiedDate :: Lens' IdentityProviderType (Maybe UTCTime)
+iptLastModifiedDate = lens _iptLastModifiedDate (\ s a -> s{_iptLastModifiedDate = a}) . mapping _Time;
+
+-- | The user pool ID.
+iptUserPoolId :: Lens' IdentityProviderType (Maybe Text)
+iptUserPoolId = lens _iptUserPoolId (\ s a -> s{_iptUserPoolId = a});
+
+-- | The identity provider type.
+iptProviderType :: Lens' IdentityProviderType (Maybe IdentityProviderTypeType)
+iptProviderType = lens _iptProviderType (\ s a -> s{_iptProviderType = a});
+
+-- | The date the identity provider was created.
+iptCreationDate :: Lens' IdentityProviderType (Maybe UTCTime)
+iptCreationDate = lens _iptCreationDate (\ s a -> s{_iptCreationDate = a}) . mapping _Time;
+
+-- | A list of identity provider identifiers.
+iptIdpIdentifiers :: Lens' IdentityProviderType [Text]
+iptIdpIdentifiers = lens _iptIdpIdentifiers (\ s a -> s{_iptIdpIdentifiers = a}) . _Default . _Coerce;
+
+-- | A mapping of identity provider attributes to standard and custom user pool attributes.
+iptAttributeMapping :: Lens' IdentityProviderType (HashMap Text Text)
+iptAttributeMapping = lens _iptAttributeMapping (\ s a -> s{_iptAttributeMapping = a}) . _Default . _Map;
+
+-- | The identity provider details, such as @MetadataURL@ and @MetadataFile@ .
+iptProviderDetails :: Lens' IdentityProviderType (HashMap Text Text)
+iptProviderDetails = lens _iptProviderDetails (\ s a -> s{_iptProviderDetails = a}) . _Default . _Map;
+
+-- | The identity provider name.
+iptProviderName :: Lens' IdentityProviderType (Maybe Text)
+iptProviderName = lens _iptProviderName (\ s a -> s{_iptProviderName = a});
+
+instance FromJSON IdentityProviderType where
+        parseJSON
+          = withObject "IdentityProviderType"
+              (\ x ->
+                 IdentityProviderType' <$>
+                   (x .:? "LastModifiedDate") <*> (x .:? "UserPoolId")
+                     <*> (x .:? "ProviderType")
+                     <*> (x .:? "CreationDate")
+                     <*> (x .:? "IdpIdentifiers" .!= mempty)
+                     <*> (x .:? "AttributeMapping" .!= mempty)
+                     <*> (x .:? "ProviderDetails" .!= mempty)
+                     <*> (x .:? "ProviderName"))
+
+instance Hashable IdentityProviderType
+
+instance NFData IdentityProviderType
 
 -- | Specifies the type of configuration for AWS Lambda triggers.
 --
@@ -987,6 +1174,238 @@ instance ToJSON PasswordPolicyType where
                   ("MinimumLength" .=) <$> _pptMinimumLength,
                   ("RequireSymbols" .=) <$> _pptRequireSymbols])
 
+-- | A container for identity provider details.
+--
+--
+--
+-- /See:/ 'providerDescription' smart constructor.
+data ProviderDescription = ProviderDescription'
+    { _pdLastModifiedDate :: !(Maybe POSIX)
+    , _pdProviderType     :: !(Maybe IdentityProviderTypeType)
+    , _pdCreationDate     :: !(Maybe POSIX)
+    , _pdProviderName     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ProviderDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pdLastModifiedDate' - The date the provider was last modified.
+--
+-- * 'pdProviderType' - The identity provider type.
+--
+-- * 'pdCreationDate' - The date the provider was added to the user pool.
+--
+-- * 'pdProviderName' - The identity provider name.
+providerDescription
+    :: ProviderDescription
+providerDescription =
+    ProviderDescription'
+    { _pdLastModifiedDate = Nothing
+    , _pdProviderType = Nothing
+    , _pdCreationDate = Nothing
+    , _pdProviderName = Nothing
+    }
+
+-- | The date the provider was last modified.
+pdLastModifiedDate :: Lens' ProviderDescription (Maybe UTCTime)
+pdLastModifiedDate = lens _pdLastModifiedDate (\ s a -> s{_pdLastModifiedDate = a}) . mapping _Time;
+
+-- | The identity provider type.
+pdProviderType :: Lens' ProviderDescription (Maybe IdentityProviderTypeType)
+pdProviderType = lens _pdProviderType (\ s a -> s{_pdProviderType = a});
+
+-- | The date the provider was added to the user pool.
+pdCreationDate :: Lens' ProviderDescription (Maybe UTCTime)
+pdCreationDate = lens _pdCreationDate (\ s a -> s{_pdCreationDate = a}) . mapping _Time;
+
+-- | The identity provider name.
+pdProviderName :: Lens' ProviderDescription (Maybe Text)
+pdProviderName = lens _pdProviderName (\ s a -> s{_pdProviderName = a});
+
+instance FromJSON ProviderDescription where
+        parseJSON
+          = withObject "ProviderDescription"
+              (\ x ->
+                 ProviderDescription' <$>
+                   (x .:? "LastModifiedDate") <*> (x .:? "ProviderType")
+                     <*> (x .:? "CreationDate")
+                     <*> (x .:? "ProviderName"))
+
+instance Hashable ProviderDescription
+
+instance NFData ProviderDescription
+
+-- | A container for information about an identity provider for a user pool.
+--
+--
+--
+-- /See:/ 'providerUserIdentifierType' smart constructor.
+data ProviderUserIdentifierType = ProviderUserIdentifierType'
+    { _puitProviderAttributeValue :: !(Maybe Text)
+    , _puitProviderAttributeName  :: !(Maybe Text)
+    , _puitProviderName           :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ProviderUserIdentifierType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'puitProviderAttributeValue' - The value of the provider attribute to link to, for example, @xxxxx_account@ .
+--
+-- * 'puitProviderAttributeName' - The name of the provider attribute to link to, for example, @NameID@ .
+--
+-- * 'puitProviderName' - The name of the provider, for example, Facebook, Google, or Login with Amazon.
+providerUserIdentifierType
+    :: ProviderUserIdentifierType
+providerUserIdentifierType =
+    ProviderUserIdentifierType'
+    { _puitProviderAttributeValue = Nothing
+    , _puitProviderAttributeName = Nothing
+    , _puitProviderName = Nothing
+    }
+
+-- | The value of the provider attribute to link to, for example, @xxxxx_account@ .
+puitProviderAttributeValue :: Lens' ProviderUserIdentifierType (Maybe Text)
+puitProviderAttributeValue = lens _puitProviderAttributeValue (\ s a -> s{_puitProviderAttributeValue = a});
+
+-- | The name of the provider attribute to link to, for example, @NameID@ .
+puitProviderAttributeName :: Lens' ProviderUserIdentifierType (Maybe Text)
+puitProviderAttributeName = lens _puitProviderAttributeName (\ s a -> s{_puitProviderAttributeName = a});
+
+-- | The name of the provider, for example, Facebook, Google, or Login with Amazon.
+puitProviderName :: Lens' ProviderUserIdentifierType (Maybe Text)
+puitProviderName = lens _puitProviderName (\ s a -> s{_puitProviderName = a});
+
+instance Hashable ProviderUserIdentifierType
+
+instance NFData ProviderUserIdentifierType
+
+instance ToJSON ProviderUserIdentifierType where
+        toJSON ProviderUserIdentifierType'{..}
+          = object
+              (catMaybes
+                 [("ProviderAttributeValue" .=) <$>
+                    _puitProviderAttributeValue,
+                  ("ProviderAttributeName" .=) <$>
+                    _puitProviderAttributeName,
+                  ("ProviderName" .=) <$> _puitProviderName])
+
+-- | A resource server scope.
+--
+--
+--
+-- /See:/ 'resourceServerScopeType' smart constructor.
+data ResourceServerScopeType = ResourceServerScopeType'
+    { _rsstScopeName        :: !Text
+    , _rsstScopeDescription :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ResourceServerScopeType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rsstScopeName' - The name of the scope.
+--
+-- * 'rsstScopeDescription' - A description of the scope.
+resourceServerScopeType
+    :: Text -- ^ 'rsstScopeName'
+    -> Text -- ^ 'rsstScopeDescription'
+    -> ResourceServerScopeType
+resourceServerScopeType pScopeName_ pScopeDescription_ =
+    ResourceServerScopeType'
+    { _rsstScopeName = pScopeName_
+    , _rsstScopeDescription = pScopeDescription_
+    }
+
+-- | The name of the scope.
+rsstScopeName :: Lens' ResourceServerScopeType Text
+rsstScopeName = lens _rsstScopeName (\ s a -> s{_rsstScopeName = a});
+
+-- | A description of the scope.
+rsstScopeDescription :: Lens' ResourceServerScopeType Text
+rsstScopeDescription = lens _rsstScopeDescription (\ s a -> s{_rsstScopeDescription = a});
+
+instance FromJSON ResourceServerScopeType where
+        parseJSON
+          = withObject "ResourceServerScopeType"
+              (\ x ->
+                 ResourceServerScopeType' <$>
+                   (x .: "ScopeName") <*> (x .: "ScopeDescription"))
+
+instance Hashable ResourceServerScopeType
+
+instance NFData ResourceServerScopeType
+
+instance ToJSON ResourceServerScopeType where
+        toJSON ResourceServerScopeType'{..}
+          = object
+              (catMaybes
+                 [Just ("ScopeName" .= _rsstScopeName),
+                  Just ("ScopeDescription" .= _rsstScopeDescription)])
+
+-- | A container for information about a resource server for a user pool.
+--
+--
+--
+-- /See:/ 'resourceServerType' smart constructor.
+data ResourceServerType = ResourceServerType'
+    { _rstUserPoolId :: !(Maybe Text)
+    , _rstIdentifier :: !(Maybe Text)
+    , _rstScopes     :: !(Maybe [ResourceServerScopeType])
+    , _rstName       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ResourceServerType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rstUserPoolId' - The user pool ID for the user pool that hosts the resource server.
+--
+-- * 'rstIdentifier' - The identifier for the resource server.
+--
+-- * 'rstScopes' - A list of scopes that are defined for the resource server.
+--
+-- * 'rstName' - The name of the resource server.
+resourceServerType
+    :: ResourceServerType
+resourceServerType =
+    ResourceServerType'
+    { _rstUserPoolId = Nothing
+    , _rstIdentifier = Nothing
+    , _rstScopes = Nothing
+    , _rstName = Nothing
+    }
+
+-- | The user pool ID for the user pool that hosts the resource server.
+rstUserPoolId :: Lens' ResourceServerType (Maybe Text)
+rstUserPoolId = lens _rstUserPoolId (\ s a -> s{_rstUserPoolId = a});
+
+-- | The identifier for the resource server.
+rstIdentifier :: Lens' ResourceServerType (Maybe Text)
+rstIdentifier = lens _rstIdentifier (\ s a -> s{_rstIdentifier = a});
+
+-- | A list of scopes that are defined for the resource server.
+rstScopes :: Lens' ResourceServerType [ResourceServerScopeType]
+rstScopes = lens _rstScopes (\ s a -> s{_rstScopes = a}) . _Default . _Coerce;
+
+-- | The name of the resource server.
+rstName :: Lens' ResourceServerType (Maybe Text)
+rstName = lens _rstName (\ s a -> s{_rstName = a});
+
+instance FromJSON ResourceServerType where
+        parseJSON
+          = withObject "ResourceServerType"
+              (\ x ->
+                 ResourceServerType' <$>
+                   (x .:? "UserPoolId") <*> (x .:? "Identifier") <*>
+                     (x .:? "Scopes" .!= mempty)
+                     <*> (x .:? "Name"))
+
+instance Hashable ResourceServerType
+
+instance NFData ResourceServerType
+
 -- | Contains information about the schema attribute.
 --
 --
@@ -1092,7 +1511,7 @@ instance ToJSON SchemaAttributeType where
                     _satDeveloperOnlyAttribute,
                   ("Mutable" .=) <$> _satMutable])
 
--- | The SMS configuratoin type.
+-- | The SMS configuration type.
 --
 --
 --
@@ -1196,6 +1615,95 @@ instance ToJSON StringAttributeConstraintsType where
                  [("MaxLength" .=) <$> _sactMaxLength,
                   ("MinLength" .=) <$> _sactMinLength])
 
+-- | A container for the UI customization information for a user pool's built-in app UI.
+--
+--
+--
+-- /See:/ 'uICustomizationType' smart constructor.
+data UICustomizationType = UICustomizationType'
+    { _uictClientId         :: !(Maybe (Sensitive Text))
+    , _uictLastModifiedDate :: !(Maybe POSIX)
+    , _uictUserPoolId       :: !(Maybe Text)
+    , _uictCSS              :: !(Maybe Text)
+    , _uictCSSVersion       :: !(Maybe Text)
+    , _uictImageURL         :: !(Maybe Text)
+    , _uictCreationDate     :: !(Maybe POSIX)
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UICustomizationType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uictClientId' - The client ID for the client app.
+--
+-- * 'uictLastModifiedDate' - The last-modified date for the UI customization.
+--
+-- * 'uictUserPoolId' - The user pool ID for the user pool.
+--
+-- * 'uictCSS' - The CSS values in the UI customization.
+--
+-- * 'uictCSSVersion' - The CSS version number.
+--
+-- * 'uictImageURL' - The logo image for the UI customization.
+--
+-- * 'uictCreationDate' - The creation date for the UI customization.
+uICustomizationType
+    :: UICustomizationType
+uICustomizationType =
+    UICustomizationType'
+    { _uictClientId = Nothing
+    , _uictLastModifiedDate = Nothing
+    , _uictUserPoolId = Nothing
+    , _uictCSS = Nothing
+    , _uictCSSVersion = Nothing
+    , _uictImageURL = Nothing
+    , _uictCreationDate = Nothing
+    }
+
+-- | The client ID for the client app.
+uictClientId :: Lens' UICustomizationType (Maybe Text)
+uictClientId = lens _uictClientId (\ s a -> s{_uictClientId = a}) . mapping _Sensitive;
+
+-- | The last-modified date for the UI customization.
+uictLastModifiedDate :: Lens' UICustomizationType (Maybe UTCTime)
+uictLastModifiedDate = lens _uictLastModifiedDate (\ s a -> s{_uictLastModifiedDate = a}) . mapping _Time;
+
+-- | The user pool ID for the user pool.
+uictUserPoolId :: Lens' UICustomizationType (Maybe Text)
+uictUserPoolId = lens _uictUserPoolId (\ s a -> s{_uictUserPoolId = a});
+
+-- | The CSS values in the UI customization.
+uictCSS :: Lens' UICustomizationType (Maybe Text)
+uictCSS = lens _uictCSS (\ s a -> s{_uictCSS = a});
+
+-- | The CSS version number.
+uictCSSVersion :: Lens' UICustomizationType (Maybe Text)
+uictCSSVersion = lens _uictCSSVersion (\ s a -> s{_uictCSSVersion = a});
+
+-- | The logo image for the UI customization.
+uictImageURL :: Lens' UICustomizationType (Maybe Text)
+uictImageURL = lens _uictImageURL (\ s a -> s{_uictImageURL = a});
+
+-- | The creation date for the UI customization.
+uictCreationDate :: Lens' UICustomizationType (Maybe UTCTime)
+uictCreationDate = lens _uictCreationDate (\ s a -> s{_uictCreationDate = a}) . mapping _Time;
+
+instance FromJSON UICustomizationType where
+        parseJSON
+          = withObject "UICustomizationType"
+              (\ x ->
+                 UICustomizationType' <$>
+                   (x .:? "ClientId") <*> (x .:? "LastModifiedDate") <*>
+                     (x .:? "UserPoolId")
+                     <*> (x .:? "CSS")
+                     <*> (x .:? "CSSVersion")
+                     <*> (x .:? "ImageUrl")
+                     <*> (x .:? "CreationDate"))
+
+instance Hashable UICustomizationType
+
+instance NFData UICustomizationType
+
 -- | The user import job type.
 --
 --
@@ -1221,7 +1729,7 @@ data UserImportJobType = UserImportJobType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uijtStatus' - The status of the user import job. One of the following:     * Created - The job was created but not started.     * Pending - A transition state. You have started the job, but it has not begun importing users yet.     * InProgress - The job has started, and users are being imported.     * Stopping - You have stopped the job, but the job has not stopped importing users yet.     * Stopped - You have stopped the job, and the job has stopped importing users.     * Succeeded - The job has completed successfully.     * Failed - The job has stopped due to an error.     * Expired - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.
+-- * 'uijtStatus' - The status of the user import job. One of the following:     * @Created@ - The job was created but not started.     * @Pending@ - A transition state. You have started the job, but it has not begun importing users yet.     * @InProgress@ - The job has started, and users are being imported.     * @Stopping@ - You have stopped the job, but the job has not stopped importing users yet.     * @Stopped@ - You have stopped the job, and the job has stopped importing users.     * @Succeeded@ - The job has completed successfully.     * @Failed@ - The job has stopped due to an error.     * @Expired@ - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.
 --
 -- * 'uijtSkippedUsers' - The number of users that were skipped.
 --
@@ -1231,7 +1739,7 @@ data UserImportJobType = UserImportJobType'
 --
 -- * 'uijtJobName' - The job name for the user import job.
 --
--- * 'uijtPreSignedURL' - The pre-signed URL to be used to upload the .csv file.
+-- * 'uijtPreSignedURL' - The pre-signed URL to be used to upload the @.csv@ file.
 --
 -- * 'uijtFailedUsers' - The number of users that could not be imported.
 --
@@ -1239,9 +1747,9 @@ data UserImportJobType = UserImportJobType'
 --
 -- * 'uijtCompletionMessage' - The message returned when the user import job is completed.
 --
--- * 'uijtCreationDate' - The date when the user import job was created.
+-- * 'uijtCreationDate' - The date the user import job was created.
 --
--- * 'uijtCompletionDate' - The date when the user imoprt job was completed.
+-- * 'uijtCompletionDate' - The date when the user import job was completed.
 --
 -- * 'uijtCloudWatchLogsRoleARN' - The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see "Creating the CloudWatch Logs IAM Role" in the Amazon Cognito Developer Guide.
 --
@@ -1265,7 +1773,7 @@ userImportJobType =
     , _uijtImportedUsers = Nothing
     }
 
--- | The status of the user import job. One of the following:     * Created - The job was created but not started.     * Pending - A transition state. You have started the job, but it has not begun importing users yet.     * InProgress - The job has started, and users are being imported.     * Stopping - You have stopped the job, but the job has not stopped importing users yet.     * Stopped - You have stopped the job, and the job has stopped importing users.     * Succeeded - The job has completed successfully.     * Failed - The job has stopped due to an error.     * Expired - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.
+-- | The status of the user import job. One of the following:     * @Created@ - The job was created but not started.     * @Pending@ - A transition state. You have started the job, but it has not begun importing users yet.     * @InProgress@ - The job has started, and users are being imported.     * @Stopping@ - You have stopped the job, but the job has not stopped importing users yet.     * @Stopped@ - You have stopped the job, and the job has stopped importing users.     * @Succeeded@ - The job has completed successfully.     * @Failed@ - The job has stopped due to an error.     * @Expired@ - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.
 uijtStatus :: Lens' UserImportJobType (Maybe UserImportJobStatusType)
 uijtStatus = lens _uijtStatus (\ s a -> s{_uijtStatus = a});
 
@@ -1285,7 +1793,7 @@ uijtUserPoolId = lens _uijtUserPoolId (\ s a -> s{_uijtUserPoolId = a});
 uijtJobName :: Lens' UserImportJobType (Maybe Text)
 uijtJobName = lens _uijtJobName (\ s a -> s{_uijtJobName = a});
 
--- | The pre-signed URL to be used to upload the .csv file.
+-- | The pre-signed URL to be used to upload the @.csv@ file.
 uijtPreSignedURL :: Lens' UserImportJobType (Maybe Text)
 uijtPreSignedURL = lens _uijtPreSignedURL (\ s a -> s{_uijtPreSignedURL = a});
 
@@ -1301,11 +1809,11 @@ uijtStartDate = lens _uijtStartDate (\ s a -> s{_uijtStartDate = a}) . mapping _
 uijtCompletionMessage :: Lens' UserImportJobType (Maybe Text)
 uijtCompletionMessage = lens _uijtCompletionMessage (\ s a -> s{_uijtCompletionMessage = a});
 
--- | The date when the user import job was created.
+-- | The date the user import job was created.
 uijtCreationDate :: Lens' UserImportJobType (Maybe UTCTime)
 uijtCreationDate = lens _uijtCreationDate (\ s a -> s{_uijtCreationDate = a}) . mapping _Time;
 
--- | The date when the user imoprt job was completed.
+-- | The date when the user import job was completed.
 uijtCompletionDate :: Lens' UserImportJobType (Maybe UTCTime)
 uijtCompletionDate = lens _uijtCompletionDate (\ s a -> s{_uijtCompletionDate = a}) . mapping _Time;
 
@@ -1392,29 +1900,36 @@ instance Hashable UserPoolClientDescription
 
 instance NFData UserPoolClientDescription
 
--- | A user pool of the client type.
+-- | Contains information about a user pool client.
 --
 --
 --
 -- /See:/ 'userPoolClientType' smart constructor.
 data UserPoolClientType = UserPoolClientType'
-    { _upctRefreshTokenValidity :: !(Maybe Nat)
-    , _upctClientId             :: !(Maybe (Sensitive Text))
-    , _upctExplicitAuthFlows    :: !(Maybe [ExplicitAuthFlowsType])
-    , _upctClientSecret         :: !(Maybe (Sensitive Text))
-    , _upctLastModifiedDate     :: !(Maybe POSIX)
-    , _upctUserPoolId           :: !(Maybe Text)
-    , _upctWriteAttributes      :: !(Maybe [Text])
-    , _upctCreationDate         :: !(Maybe POSIX)
-    , _upctReadAttributes       :: !(Maybe [Text])
-    , _upctClientName           :: !(Maybe Text)
+    { _upctRefreshTokenValidity            :: !(Maybe Nat)
+    , _upctClientId                        :: !(Maybe (Sensitive Text))
+    , _upctExplicitAuthFlows               :: !(Maybe [ExplicitAuthFlowsType])
+    , _upctClientSecret                    :: !(Maybe (Sensitive Text))
+    , _upctLastModifiedDate                :: !(Maybe POSIX)
+    , _upctSupportedIdentityProviders      :: !(Maybe [Text])
+    , _upctLogoutURLs                      :: !(Maybe [Text])
+    , _upctAllowedOAuthFlowsUserPoolClient :: !(Maybe Bool)
+    , _upctUserPoolId                      :: !(Maybe Text)
+    , _upctDefaultRedirectURI              :: !(Maybe Text)
+    , _upctWriteAttributes                 :: !(Maybe [Text])
+    , _upctCreationDate                    :: !(Maybe POSIX)
+    , _upctReadAttributes                  :: !(Maybe [Text])
+    , _upctAllowedOAuthScopes              :: !(Maybe [Text])
+    , _upctAllowedOAuthFlows               :: !(Maybe [OAuthFlowType])
+    , _upctClientName                      :: !(Maybe Text)
+    , _upctCallbackURLs                    :: !(Maybe [Text])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserPoolClientType' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'upctRefreshTokenValidity' - The validity of the refresh token, in days.
+-- * 'upctRefreshTokenValidity' - The time limit, in days, after which the refresh token is no longer valid and cannot be used.
 --
 -- * 'upctClientId' - The ID of the client associated with the user pool.
 --
@@ -1422,17 +1937,31 @@ data UserPoolClientType = UserPoolClientType'
 --
 -- * 'upctClientSecret' - The client secret from the user pool request of the client type.
 --
--- * 'upctLastModifiedDate' - The last modified date from the user pool request of the client type.
+-- * 'upctLastModifiedDate' - The date the user pool client was last modified.
+--
+-- * 'upctSupportedIdentityProviders' - A list of provider names for the identity providers that are supported on this client.
+--
+-- * 'upctLogoutURLs' - A list of allowed logout URLs for the identity providers.
+--
+-- * 'upctAllowedOAuthFlowsUserPoolClient' - Set to TRUE if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
 --
 -- * 'upctUserPoolId' - The user pool ID for the user pool client.
 --
+-- * 'upctDefaultRedirectURI' - The default redirect URI. Must be in the @CallbackURLs@ list.
+--
 -- * 'upctWriteAttributes' - The writeable attributes.
 --
--- * 'upctCreationDate' - The creation date from the user pool request of the client type.
+-- * 'upctCreationDate' - The date the user pool client was created.
 --
 -- * 'upctReadAttributes' - The Read-only attributes.
 --
+-- * 'upctAllowedOAuthScopes' - A list of allowed @OAuth@ scopes. Currently supported values are @"phone"@ , @"email"@ , @"openid"@ , and @"Cognito"@ .
+--
+-- * 'upctAllowedOAuthFlows' - Set to @code@ to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint. Set to @token@ to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.
+--
 -- * 'upctClientName' - The client name from the user pool request of the client type.
+--
+-- * 'upctCallbackURLs' - A list of allowed callback URLs for the identity providers.
 userPoolClientType
     :: UserPoolClientType
 userPoolClientType =
@@ -1442,14 +1971,21 @@ userPoolClientType =
     , _upctExplicitAuthFlows = Nothing
     , _upctClientSecret = Nothing
     , _upctLastModifiedDate = Nothing
+    , _upctSupportedIdentityProviders = Nothing
+    , _upctLogoutURLs = Nothing
+    , _upctAllowedOAuthFlowsUserPoolClient = Nothing
     , _upctUserPoolId = Nothing
+    , _upctDefaultRedirectURI = Nothing
     , _upctWriteAttributes = Nothing
     , _upctCreationDate = Nothing
     , _upctReadAttributes = Nothing
+    , _upctAllowedOAuthScopes = Nothing
+    , _upctAllowedOAuthFlows = Nothing
     , _upctClientName = Nothing
+    , _upctCallbackURLs = Nothing
     }
 
--- | The validity of the refresh token, in days.
+-- | The time limit, in days, after which the refresh token is no longer valid and cannot be used.
 upctRefreshTokenValidity :: Lens' UserPoolClientType (Maybe Natural)
 upctRefreshTokenValidity = lens _upctRefreshTokenValidity (\ s a -> s{_upctRefreshTokenValidity = a}) . mapping _Nat;
 
@@ -1465,19 +2001,35 @@ upctExplicitAuthFlows = lens _upctExplicitAuthFlows (\ s a -> s{_upctExplicitAut
 upctClientSecret :: Lens' UserPoolClientType (Maybe Text)
 upctClientSecret = lens _upctClientSecret (\ s a -> s{_upctClientSecret = a}) . mapping _Sensitive;
 
--- | The last modified date from the user pool request of the client type.
+-- | The date the user pool client was last modified.
 upctLastModifiedDate :: Lens' UserPoolClientType (Maybe UTCTime)
 upctLastModifiedDate = lens _upctLastModifiedDate (\ s a -> s{_upctLastModifiedDate = a}) . mapping _Time;
+
+-- | A list of provider names for the identity providers that are supported on this client.
+upctSupportedIdentityProviders :: Lens' UserPoolClientType [Text]
+upctSupportedIdentityProviders = lens _upctSupportedIdentityProviders (\ s a -> s{_upctSupportedIdentityProviders = a}) . _Default . _Coerce;
+
+-- | A list of allowed logout URLs for the identity providers.
+upctLogoutURLs :: Lens' UserPoolClientType [Text]
+upctLogoutURLs = lens _upctLogoutURLs (\ s a -> s{_upctLogoutURLs = a}) . _Default . _Coerce;
+
+-- | Set to TRUE if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
+upctAllowedOAuthFlowsUserPoolClient :: Lens' UserPoolClientType (Maybe Bool)
+upctAllowedOAuthFlowsUserPoolClient = lens _upctAllowedOAuthFlowsUserPoolClient (\ s a -> s{_upctAllowedOAuthFlowsUserPoolClient = a});
 
 -- | The user pool ID for the user pool client.
 upctUserPoolId :: Lens' UserPoolClientType (Maybe Text)
 upctUserPoolId = lens _upctUserPoolId (\ s a -> s{_upctUserPoolId = a});
 
+-- | The default redirect URI. Must be in the @CallbackURLs@ list.
+upctDefaultRedirectURI :: Lens' UserPoolClientType (Maybe Text)
+upctDefaultRedirectURI = lens _upctDefaultRedirectURI (\ s a -> s{_upctDefaultRedirectURI = a});
+
 -- | The writeable attributes.
 upctWriteAttributes :: Lens' UserPoolClientType [Text]
 upctWriteAttributes = lens _upctWriteAttributes (\ s a -> s{_upctWriteAttributes = a}) . _Default . _Coerce;
 
--- | The creation date from the user pool request of the client type.
+-- | The date the user pool client was created.
 upctCreationDate :: Lens' UserPoolClientType (Maybe UTCTime)
 upctCreationDate = lens _upctCreationDate (\ s a -> s{_upctCreationDate = a}) . mapping _Time;
 
@@ -1485,9 +2037,21 @@ upctCreationDate = lens _upctCreationDate (\ s a -> s{_upctCreationDate = a}) . 
 upctReadAttributes :: Lens' UserPoolClientType [Text]
 upctReadAttributes = lens _upctReadAttributes (\ s a -> s{_upctReadAttributes = a}) . _Default . _Coerce;
 
+-- | A list of allowed @OAuth@ scopes. Currently supported values are @"phone"@ , @"email"@ , @"openid"@ , and @"Cognito"@ .
+upctAllowedOAuthScopes :: Lens' UserPoolClientType [Text]
+upctAllowedOAuthScopes = lens _upctAllowedOAuthScopes (\ s a -> s{_upctAllowedOAuthScopes = a}) . _Default . _Coerce;
+
+-- | Set to @code@ to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint. Set to @token@ to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.
+upctAllowedOAuthFlows :: Lens' UserPoolClientType [OAuthFlowType]
+upctAllowedOAuthFlows = lens _upctAllowedOAuthFlows (\ s a -> s{_upctAllowedOAuthFlows = a}) . _Default . _Coerce;
+
 -- | The client name from the user pool request of the client type.
 upctClientName :: Lens' UserPoolClientType (Maybe Text)
 upctClientName = lens _upctClientName (\ s a -> s{_upctClientName = a});
+
+-- | A list of allowed callback URLs for the identity providers.
+upctCallbackURLs :: Lens' UserPoolClientType [Text]
+upctCallbackURLs = lens _upctCallbackURLs (\ s a -> s{_upctCallbackURLs = a}) . _Default . _Coerce;
 
 instance FromJSON UserPoolClientType where
         parseJSON
@@ -1498,11 +2062,18 @@ instance FromJSON UserPoolClientType where
                      <*> (x .:? "ExplicitAuthFlows" .!= mempty)
                      <*> (x .:? "ClientSecret")
                      <*> (x .:? "LastModifiedDate")
+                     <*> (x .:? "SupportedIdentityProviders" .!= mempty)
+                     <*> (x .:? "LogoutURLs" .!= mempty)
+                     <*> (x .:? "AllowedOAuthFlowsUserPoolClient")
                      <*> (x .:? "UserPoolId")
+                     <*> (x .:? "DefaultRedirectURI")
                      <*> (x .:? "WriteAttributes" .!= mempty)
                      <*> (x .:? "CreationDate")
                      <*> (x .:? "ReadAttributes" .!= mempty)
-                     <*> (x .:? "ClientName"))
+                     <*> (x .:? "AllowedOAuthScopes" .!= mempty)
+                     <*> (x .:? "AllowedOAuthFlows" .!= mempty)
+                     <*> (x .:? "ClientName")
+                     <*> (x .:? "CallbackURLs" .!= mempty))
 
 instance Hashable UserPoolClientType
 
@@ -1528,13 +2099,13 @@ data UserPoolDescriptionType = UserPoolDescriptionType'
 --
 -- * 'updtStatus' - The user pool status in a user pool description.
 --
--- * 'updtLastModifiedDate' - The last modified date in a user pool description.
+-- * 'updtLastModifiedDate' - The date the user pool description was last modified.
 --
 -- * 'updtName' - The name in a user pool description.
 --
 -- * 'updtId' - The ID in a user pool description.
 --
--- * 'updtCreationDate' - The creation date in a user pool description.
+-- * 'updtCreationDate' - The date the user pool description was created.
 --
 -- * 'updtLambdaConfig' - The AWS Lambda configuration information in a user pool description.
 userPoolDescriptionType
@@ -1553,7 +2124,7 @@ userPoolDescriptionType =
 updtStatus :: Lens' UserPoolDescriptionType (Maybe StatusType)
 updtStatus = lens _updtStatus (\ s a -> s{_updtStatus = a});
 
--- | The last modified date in a user pool description.
+-- | The date the user pool description was last modified.
 updtLastModifiedDate :: Lens' UserPoolDescriptionType (Maybe UTCTime)
 updtLastModifiedDate = lens _updtLastModifiedDate (\ s a -> s{_updtLastModifiedDate = a}) . mapping _Time;
 
@@ -1565,7 +2136,7 @@ updtName = lens _updtName (\ s a -> s{_updtName = a});
 updtId :: Lens' UserPoolDescriptionType (Maybe Text)
 updtId = lens _updtId (\ s a -> s{_updtId = a});
 
--- | The creation date in a user pool description.
+-- | The date the user pool description was created.
 updtCreationDate :: Lens' UserPoolDescriptionType (Maybe UTCTime)
 updtCreationDate = lens _updtCreationDate (\ s a -> s{_updtCreationDate = a}) . mapping _Time;
 
@@ -1601,7 +2172,7 @@ newtype UserPoolPolicyType = UserPoolPolicyType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'upptPasswordPolicy' - A container with information about the user pool password policy.
+-- * 'upptPasswordPolicy' - A container for information about the user pool password policy.
 userPoolPolicyType
     :: UserPoolPolicyType
 userPoolPolicyType =
@@ -1609,7 +2180,7 @@ userPoolPolicyType =
     { _upptPasswordPolicy = Nothing
     }
 
--- | A container with information about the user pool password policy.
+-- | A container for information about the user pool password policy.
 upptPasswordPolicy :: Lens' UserPoolPolicyType (Maybe PasswordPolicyType)
 upptPasswordPolicy = lens _upptPasswordPolicy (\ s a -> s{_upptPasswordPolicy = a});
 
@@ -1629,35 +2200,37 @@ instance ToJSON UserPoolPolicyType where
               (catMaybes
                  [("PasswordPolicy" .=) <$> _upptPasswordPolicy])
 
--- | A container with information about the user pool type.
+-- | A container for information about the user pool type.
 --
 --
 --
 -- /See:/ 'userPoolType' smart constructor.
 data UserPoolType = UserPoolType'
-    { _uptStatus                    :: !(Maybe StatusType)
-    , _uptUserPoolTags              :: !(Maybe (Map Text Text))
-    , _uptEmailConfigurationFailure :: !(Maybe Text)
-    , _uptLastModifiedDate          :: !(Maybe POSIX)
-    , _uptEstimatedNumberOfUsers    :: !(Maybe Int)
-    , _uptEmailVerificationMessage  :: !(Maybe Text)
-    , _uptSmsAuthenticationMessage  :: !(Maybe Text)
-    , _uptSchemaAttributes          :: !(Maybe (List1 SchemaAttributeType))
-    , _uptEmailVerificationSubject  :: !(Maybe Text)
-    , _uptAliasAttributes           :: !(Maybe [AliasAttributeType])
-    , _uptEmailConfiguration        :: !(Maybe EmailConfigurationType)
-    , _uptSmsVerificationMessage    :: !(Maybe Text)
-    , _uptName                      :: !(Maybe Text)
-    , _uptMFAConfiguration          :: !(Maybe UserPoolMFAType)
-    , _uptId                        :: !(Maybe Text)
-    , _uptSmsConfigurationFailure   :: !(Maybe Text)
-    , _uptCreationDate              :: !(Maybe POSIX)
-    , _uptLambdaConfig              :: !(Maybe LambdaConfigType)
-    , _uptSmsConfiguration          :: !(Maybe SmsConfigurationType)
-    , _uptAdminCreateUserConfig     :: !(Maybe AdminCreateUserConfigType)
-    , _uptDeviceConfiguration       :: !(Maybe DeviceConfigurationType)
-    , _uptAutoVerifiedAttributes    :: !(Maybe [VerifiedAttributeType])
-    , _uptPolicies                  :: !(Maybe UserPoolPolicyType)
+    { _uptStatus                      :: !(Maybe StatusType)
+    , _uptUserPoolTags                :: !(Maybe (Map Text Text))
+    , _uptEmailConfigurationFailure   :: !(Maybe Text)
+    , _uptLastModifiedDate            :: !(Maybe POSIX)
+    , _uptVerificationMessageTemplate :: !(Maybe VerificationMessageTemplateType)
+    , _uptEstimatedNumberOfUsers      :: !(Maybe Int)
+    , _uptEmailVerificationMessage    :: !(Maybe Text)
+    , _uptSmsAuthenticationMessage    :: !(Maybe Text)
+    , _uptSchemaAttributes            :: !(Maybe (List1 SchemaAttributeType))
+    , _uptEmailVerificationSubject    :: !(Maybe Text)
+    , _uptUsernameAttributes          :: !(Maybe [UsernameAttributeType])
+    , _uptAliasAttributes             :: !(Maybe [AliasAttributeType])
+    , _uptEmailConfiguration          :: !(Maybe EmailConfigurationType)
+    , _uptSmsVerificationMessage      :: !(Maybe Text)
+    , _uptName                        :: !(Maybe Text)
+    , _uptMFAConfiguration            :: !(Maybe UserPoolMFAType)
+    , _uptId                          :: !(Maybe Text)
+    , _uptSmsConfigurationFailure     :: !(Maybe Text)
+    , _uptCreationDate                :: !(Maybe POSIX)
+    , _uptLambdaConfig                :: !(Maybe LambdaConfigType)
+    , _uptSmsConfiguration            :: !(Maybe SmsConfigurationType)
+    , _uptAdminCreateUserConfig       :: !(Maybe AdminCreateUserConfigType)
+    , _uptDeviceConfiguration         :: !(Maybe DeviceConfigurationType)
+    , _uptAutoVerifiedAttributes      :: !(Maybe [VerifiedAttributeType])
+    , _uptPolicies                    :: !(Maybe UserPoolPolicyType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserPoolType' with the minimum fields required to make a request.
@@ -1670,7 +2243,9 @@ data UserPoolType = UserPoolType'
 --
 -- * 'uptEmailConfigurationFailure' - The reason why the email configuration cannot send the messages to your users.
 --
--- * 'uptLastModifiedDate' - The last modified date of a user pool.
+-- * 'uptLastModifiedDate' - The date the user pool was last modified.
+--
+-- * 'uptVerificationMessageTemplate' - The template for verification messages.
 --
 -- * 'uptEstimatedNumberOfUsers' - A number estimating the size of the user pool.
 --
@@ -1681,6 +2256,8 @@ data UserPoolType = UserPoolType'
 -- * 'uptSchemaAttributes' - A container with the schema attributes of a user pool.
 --
 -- * 'uptEmailVerificationSubject' - The subject of the email verification message.
+--
+-- * 'uptUsernameAttributes' - Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.
 --
 -- * 'uptAliasAttributes' - Specifies the attributes that are aliased in a user pool.
 --
@@ -1694,21 +2271,21 @@ data UserPoolType = UserPoolType'
 --
 -- * 'uptId' - The ID of the user pool.
 --
--- * 'uptSmsConfigurationFailure' - The reason why the SMS configuration cannot send the message(s) to your users.
+-- * 'uptSmsConfigurationFailure' - The reason why the SMS configuration cannot send the messages to your users.
 --
--- * 'uptCreationDate' - The creation date of a user pool.
+-- * 'uptCreationDate' - The date the user pool was created.
 --
--- * 'uptLambdaConfig' - A container describing the AWS Lambda triggers associated with a user pool.
+-- * 'uptLambdaConfig' - A container for the AWS Lambda triggers associated with a user pool.
 --
 -- * 'uptSmsConfiguration' - The SMS configuration.
 --
--- * 'uptAdminCreateUserConfig' - The configuration for AdminCreateUser requests.
+-- * 'uptAdminCreateUserConfig' - The configuration for @AdminCreateUser@ requests.
 --
 -- * 'uptDeviceConfiguration' - The device configuration.
 --
 -- * 'uptAutoVerifiedAttributes' - Specifies the attributes that are auto-verified in a user pool.
 --
--- * 'uptPolicies' - A container describing the policies associated with a user pool.
+-- * 'uptPolicies' - A container for the policies associated with a user pool.
 userPoolType
     :: UserPoolType
 userPoolType =
@@ -1717,11 +2294,13 @@ userPoolType =
     , _uptUserPoolTags = Nothing
     , _uptEmailConfigurationFailure = Nothing
     , _uptLastModifiedDate = Nothing
+    , _uptVerificationMessageTemplate = Nothing
     , _uptEstimatedNumberOfUsers = Nothing
     , _uptEmailVerificationMessage = Nothing
     , _uptSmsAuthenticationMessage = Nothing
     , _uptSchemaAttributes = Nothing
     , _uptEmailVerificationSubject = Nothing
+    , _uptUsernameAttributes = Nothing
     , _uptAliasAttributes = Nothing
     , _uptEmailConfiguration = Nothing
     , _uptSmsVerificationMessage = Nothing
@@ -1750,9 +2329,13 @@ uptUserPoolTags = lens _uptUserPoolTags (\ s a -> s{_uptUserPoolTags = a}) . _De
 uptEmailConfigurationFailure :: Lens' UserPoolType (Maybe Text)
 uptEmailConfigurationFailure = lens _uptEmailConfigurationFailure (\ s a -> s{_uptEmailConfigurationFailure = a});
 
--- | The last modified date of a user pool.
+-- | The date the user pool was last modified.
 uptLastModifiedDate :: Lens' UserPoolType (Maybe UTCTime)
 uptLastModifiedDate = lens _uptLastModifiedDate (\ s a -> s{_uptLastModifiedDate = a}) . mapping _Time;
+
+-- | The template for verification messages.
+uptVerificationMessageTemplate :: Lens' UserPoolType (Maybe VerificationMessageTemplateType)
+uptVerificationMessageTemplate = lens _uptVerificationMessageTemplate (\ s a -> s{_uptVerificationMessageTemplate = a});
 
 -- | A number estimating the size of the user pool.
 uptEstimatedNumberOfUsers :: Lens' UserPoolType (Maybe Int)
@@ -1773,6 +2356,10 @@ uptSchemaAttributes = lens _uptSchemaAttributes (\ s a -> s{_uptSchemaAttributes
 -- | The subject of the email verification message.
 uptEmailVerificationSubject :: Lens' UserPoolType (Maybe Text)
 uptEmailVerificationSubject = lens _uptEmailVerificationSubject (\ s a -> s{_uptEmailVerificationSubject = a});
+
+-- | Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.
+uptUsernameAttributes :: Lens' UserPoolType [UsernameAttributeType]
+uptUsernameAttributes = lens _uptUsernameAttributes (\ s a -> s{_uptUsernameAttributes = a}) . _Default . _Coerce;
 
 -- | Specifies the attributes that are aliased in a user pool.
 uptAliasAttributes :: Lens' UserPoolType [AliasAttributeType]
@@ -1798,15 +2385,15 @@ uptMFAConfiguration = lens _uptMFAConfiguration (\ s a -> s{_uptMFAConfiguration
 uptId :: Lens' UserPoolType (Maybe Text)
 uptId = lens _uptId (\ s a -> s{_uptId = a});
 
--- | The reason why the SMS configuration cannot send the message(s) to your users.
+-- | The reason why the SMS configuration cannot send the messages to your users.
 uptSmsConfigurationFailure :: Lens' UserPoolType (Maybe Text)
 uptSmsConfigurationFailure = lens _uptSmsConfigurationFailure (\ s a -> s{_uptSmsConfigurationFailure = a});
 
--- | The creation date of a user pool.
+-- | The date the user pool was created.
 uptCreationDate :: Lens' UserPoolType (Maybe UTCTime)
 uptCreationDate = lens _uptCreationDate (\ s a -> s{_uptCreationDate = a}) . mapping _Time;
 
--- | A container describing the AWS Lambda triggers associated with a user pool.
+-- | A container for the AWS Lambda triggers associated with a user pool.
 uptLambdaConfig :: Lens' UserPoolType (Maybe LambdaConfigType)
 uptLambdaConfig = lens _uptLambdaConfig (\ s a -> s{_uptLambdaConfig = a});
 
@@ -1814,7 +2401,7 @@ uptLambdaConfig = lens _uptLambdaConfig (\ s a -> s{_uptLambdaConfig = a});
 uptSmsConfiguration :: Lens' UserPoolType (Maybe SmsConfigurationType)
 uptSmsConfiguration = lens _uptSmsConfiguration (\ s a -> s{_uptSmsConfiguration = a});
 
--- | The configuration for AdminCreateUser requests.
+-- | The configuration for @AdminCreateUser@ requests.
 uptAdminCreateUserConfig :: Lens' UserPoolType (Maybe AdminCreateUserConfigType)
 uptAdminCreateUserConfig = lens _uptAdminCreateUserConfig (\ s a -> s{_uptAdminCreateUserConfig = a});
 
@@ -1826,7 +2413,7 @@ uptDeviceConfiguration = lens _uptDeviceConfiguration (\ s a -> s{_uptDeviceConf
 uptAutoVerifiedAttributes :: Lens' UserPoolType [VerifiedAttributeType]
 uptAutoVerifiedAttributes = lens _uptAutoVerifiedAttributes (\ s a -> s{_uptAutoVerifiedAttributes = a}) . _Default . _Coerce;
 
--- | A container describing the policies associated with a user pool.
+-- | A container for the policies associated with a user pool.
 uptPolicies :: Lens' UserPoolType (Maybe UserPoolPolicyType)
 uptPolicies = lens _uptPolicies (\ s a -> s{_uptPolicies = a});
 
@@ -1839,11 +2426,13 @@ instance FromJSON UserPoolType where
                      (x .:? "UserPoolTags" .!= mempty)
                      <*> (x .:? "EmailConfigurationFailure")
                      <*> (x .:? "LastModifiedDate")
+                     <*> (x .:? "VerificationMessageTemplate")
                      <*> (x .:? "EstimatedNumberOfUsers")
                      <*> (x .:? "EmailVerificationMessage")
                      <*> (x .:? "SmsAuthenticationMessage")
                      <*> (x .:? "SchemaAttributes")
                      <*> (x .:? "EmailVerificationSubject")
+                     <*> (x .:? "UsernameAttributes" .!= mempty)
                      <*> (x .:? "AliasAttributes" .!= mempty)
                      <*> (x .:? "EmailConfiguration")
                      <*> (x .:? "SmsVerificationMessage")
@@ -1951,3 +2540,99 @@ instance FromJSON UserType where
 instance Hashable UserType
 
 instance NFData UserType
+
+-- | The template for verification messages.
+--
+--
+--
+-- /See:/ 'verificationMessageTemplateType' smart constructor.
+data VerificationMessageTemplateType = VerificationMessageTemplateType'
+    { _vmttDefaultEmailOption :: !(Maybe DefaultEmailOptionType)
+    , _vmttEmailSubject       :: !(Maybe Text)
+    , _vmttEmailSubjectByLink :: !(Maybe Text)
+    , _vmttSmsMessage         :: !(Maybe Text)
+    , _vmttEmailMessageByLink :: !(Maybe Text)
+    , _vmttEmailMessage       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VerificationMessageTemplateType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vmttDefaultEmailOption' - The default email option.
+--
+-- * 'vmttEmailSubject' - The subject line for the email message template.
+--
+-- * 'vmttEmailSubjectByLink' - The subject line for the email message template for sending a confirmation link to the user.
+--
+-- * 'vmttSmsMessage' - The SMS message template.
+--
+-- * 'vmttEmailMessageByLink' - The email message template for sending a confirmation link to the user.
+--
+-- * 'vmttEmailMessage' - The email message template.
+verificationMessageTemplateType
+    :: VerificationMessageTemplateType
+verificationMessageTemplateType =
+    VerificationMessageTemplateType'
+    { _vmttDefaultEmailOption = Nothing
+    , _vmttEmailSubject = Nothing
+    , _vmttEmailSubjectByLink = Nothing
+    , _vmttSmsMessage = Nothing
+    , _vmttEmailMessageByLink = Nothing
+    , _vmttEmailMessage = Nothing
+    }
+
+-- | The default email option.
+vmttDefaultEmailOption :: Lens' VerificationMessageTemplateType (Maybe DefaultEmailOptionType)
+vmttDefaultEmailOption = lens _vmttDefaultEmailOption (\ s a -> s{_vmttDefaultEmailOption = a});
+
+-- | The subject line for the email message template.
+vmttEmailSubject :: Lens' VerificationMessageTemplateType (Maybe Text)
+vmttEmailSubject = lens _vmttEmailSubject (\ s a -> s{_vmttEmailSubject = a});
+
+-- | The subject line for the email message template for sending a confirmation link to the user.
+vmttEmailSubjectByLink :: Lens' VerificationMessageTemplateType (Maybe Text)
+vmttEmailSubjectByLink = lens _vmttEmailSubjectByLink (\ s a -> s{_vmttEmailSubjectByLink = a});
+
+-- | The SMS message template.
+vmttSmsMessage :: Lens' VerificationMessageTemplateType (Maybe Text)
+vmttSmsMessage = lens _vmttSmsMessage (\ s a -> s{_vmttSmsMessage = a});
+
+-- | The email message template for sending a confirmation link to the user.
+vmttEmailMessageByLink :: Lens' VerificationMessageTemplateType (Maybe Text)
+vmttEmailMessageByLink = lens _vmttEmailMessageByLink (\ s a -> s{_vmttEmailMessageByLink = a});
+
+-- | The email message template.
+vmttEmailMessage :: Lens' VerificationMessageTemplateType (Maybe Text)
+vmttEmailMessage = lens _vmttEmailMessage (\ s a -> s{_vmttEmailMessage = a});
+
+instance FromJSON VerificationMessageTemplateType
+         where
+        parseJSON
+          = withObject "VerificationMessageTemplateType"
+              (\ x ->
+                 VerificationMessageTemplateType' <$>
+                   (x .:? "DefaultEmailOption") <*>
+                     (x .:? "EmailSubject")
+                     <*> (x .:? "EmailSubjectByLink")
+                     <*> (x .:? "SmsMessage")
+                     <*> (x .:? "EmailMessageByLink")
+                     <*> (x .:? "EmailMessage"))
+
+instance Hashable VerificationMessageTemplateType
+
+instance NFData VerificationMessageTemplateType
+
+instance ToJSON VerificationMessageTemplateType where
+        toJSON VerificationMessageTemplateType'{..}
+          = object
+              (catMaybes
+                 [("DefaultEmailOption" .=) <$>
+                    _vmttDefaultEmailOption,
+                  ("EmailSubject" .=) <$> _vmttEmailSubject,
+                  ("EmailSubjectByLink" .=) <$>
+                    _vmttEmailSubjectByLink,
+                  ("SmsMessage" .=) <$> _vmttSmsMessage,
+                  ("EmailMessageByLink" .=) <$>
+                    _vmttEmailMessageByLink,
+                  ("EmailMessage" .=) <$> _vmttEmailMessage])

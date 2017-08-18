@@ -27,8 +27,8 @@ module Network.AWS.CognitoIdentityProvider.DeleteUserAttributes
       deleteUserAttributes
     , DeleteUserAttributes
     -- * Request Lenses
-    , duaAccessToken
     , duaUserAttributeNames
+    , duaAccessToken
 
     -- * Destructuring the Response
     , deleteUserAttributesResponse
@@ -50,32 +50,33 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteUserAttributes' smart constructor.
 data DeleteUserAttributes = DeleteUserAttributes'
-    { _duaAccessToken        :: !(Maybe (Sensitive Text))
-    , _duaUserAttributeNames :: ![Text]
+    { _duaUserAttributeNames :: ![Text]
+    , _duaAccessToken        :: !(Sensitive Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteUserAttributes' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'duaAccessToken' - The access token used in the request to delete user attributes.
+-- * 'duaUserAttributeNames' - An array of strings representing the user attribute names you wish to delete. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 --
--- * 'duaUserAttributeNames' - An array of strings representing the user attribute names you wish to delete.
+-- * 'duaAccessToken' - The access token used in the request to delete user attributes.
 deleteUserAttributes
-    :: DeleteUserAttributes
-deleteUserAttributes =
+    :: Text -- ^ 'duaAccessToken'
+    -> DeleteUserAttributes
+deleteUserAttributes pAccessToken_ =
     DeleteUserAttributes'
-    { _duaAccessToken = Nothing
-    , _duaUserAttributeNames = mempty
+    { _duaUserAttributeNames = mempty
+    , _duaAccessToken = _Sensitive # pAccessToken_
     }
 
--- | The access token used in the request to delete user attributes.
-duaAccessToken :: Lens' DeleteUserAttributes (Maybe Text)
-duaAccessToken = lens _duaAccessToken (\ s a -> s{_duaAccessToken = a}) . mapping _Sensitive;
-
--- | An array of strings representing the user attribute names you wish to delete.
+-- | An array of strings representing the user attribute names you wish to delete. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 duaUserAttributeNames :: Lens' DeleteUserAttributes [Text]
 duaUserAttributeNames = lens _duaUserAttributeNames (\ s a -> s{_duaUserAttributeNames = a}) . _Coerce;
+
+-- | The access token used in the request to delete user attributes.
+duaAccessToken :: Lens' DeleteUserAttributes Text
+duaAccessToken = lens _duaAccessToken (\ s a -> s{_duaAccessToken = a}) . _Sensitive;
 
 instance AWSRequest DeleteUserAttributes where
         type Rs DeleteUserAttributes =
@@ -105,9 +106,9 @@ instance ToJSON DeleteUserAttributes where
         toJSON DeleteUserAttributes'{..}
           = object
               (catMaybes
-                 [("AccessToken" .=) <$> _duaAccessToken,
-                  Just
-                    ("UserAttributeNames" .= _duaUserAttributeNames)])
+                 [Just
+                    ("UserAttributeNames" .= _duaUserAttributeNames),
+                  Just ("AccessToken" .= _duaAccessToken)])
 
 instance ToPath DeleteUserAttributes where
         toPath = const "/"

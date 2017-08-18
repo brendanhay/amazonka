@@ -66,7 +66,7 @@ data AdminDeleteUserAttributes = AdminDeleteUserAttributes'
 --
 -- * 'aduaUsername' - The user name of the user from which you would like to delete attributes.
 --
--- * 'aduaUserAttributeNames' - An array of strings representing the user attribute names you wish to delete.
+-- * 'aduaUserAttributeNames' - An array of strings representing the user attribute names you wish to delete. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 adminDeleteUserAttributes
     :: Text -- ^ 'aduaUserPoolId'
     -> Text -- ^ 'aduaUsername'
@@ -86,7 +86,7 @@ aduaUserPoolId = lens _aduaUserPoolId (\ s a -> s{_aduaUserPoolId = a});
 aduaUsername :: Lens' AdminDeleteUserAttributes Text
 aduaUsername = lens _aduaUsername (\ s a -> s{_aduaUsername = a}) . _Sensitive;
 
--- | An array of strings representing the user attribute names you wish to delete.
+-- | An array of strings representing the user attribute names you wish to delete. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 aduaUserAttributeNames :: Lens' AdminDeleteUserAttributes [Text]
 aduaUserAttributeNames = lens _aduaUserAttributeNames (\ s a -> s{_aduaUserAttributeNames = a}) . _Coerce;
 

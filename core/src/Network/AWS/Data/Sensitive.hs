@@ -21,6 +21,7 @@ import           Data.String
 
 import           GHC.Generics                (Generic)
 
+import           Network.AWS.Data.Headers
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.JSON
 import           Network.AWS.Data.Log        (ToLog (..))
@@ -47,6 +48,7 @@ newtype Sensitive a = Sensitive { desensitise :: a }
         , ToQuery
         , ToJSON
         , FromJSON
+        , ToHeader
         )
 
 instance Show  (Sensitive a) where show  = const "******"

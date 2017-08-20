@@ -1,5 +1,7 @@
 sudo: false
+
 language: c
+
 cache:
   directories:
     - $HOME/.ghc
@@ -28,6 +30,7 @@ script:
 
 matrix:
   fast_finish: true
+
   include:
 # GENERATED
 

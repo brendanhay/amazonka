@@ -10,11 +10,6 @@
       "input_token": "ExclusiveStartKey",
       "output_token": "LastEvaluatedKey",
       "limit_key": "Limit",
-      "result_key": [
-        "Items",
-        "Count",
-        "ScannedCount"
-      ],
       "non_aggregate_keys": [
         "ConsumedCapacity"
       ]
@@ -23,11 +18,6 @@
       "input_token": "ExclusiveStartKey",
       "output_token": "LastEvaluatedKey",
       "limit_key": "Limit",
-      "result_key": [
-        "Items",
-        "Count",
-        "ScannedCount"
-      ],
       "non_aggregate_keys": [
         "ConsumedCapacity"
       ]

@@ -30,6 +30,7 @@ mkdir -p $BRANCH
 
 git checkout gh-pages
 
+git config --global push.default simple
 git config user.name "Brendan Hay"
 git config user.email "brendan.g.hay+amazonka@gmail.com"
 
@@ -56,6 +57,6 @@ HTML
 until git push --quiet "https://${TOKEN}@${ref}" || (( retries++ >= 5 )); do
     git reset
     git pull origin gh-pages
-    git add $BRANCH/index.html
+    git add $BRANCH
     git commit -m "$BRANCH index build $BUILD_NUMBER"
 done

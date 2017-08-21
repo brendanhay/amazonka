@@ -16,7 +16,7 @@ if [ -z "$TOKEN" ]; then
     exit 0
 fi
 
-if [ "$LIBRARY" -eq "documentation" ]; then
+if [ "$LIBRARY" == "documentation" ]; then
     echo "Ignoring documentation build for index build job."
     exit 0
 fi

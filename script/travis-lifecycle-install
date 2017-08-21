@@ -2,6 +2,12 @@
 
 set -euo pipefail
 
+BRANCH="${TRAVIS_BRANCH:-}"
+TOKEN="${DOC_TOKEN:-}"
+
+BUILD_ID=${TRAVIS_BUILD_ID:-1}
+BUILD_NUMBER=${TRAVIS_BUILD_NUMBER:-1}
+
 GHCVER=${GHCVER?"GHCVER needs to be set."}
 LIBRARY=${LIBRARY?"LIBRARY needs to be set."}
 
@@ -11,6 +17,44 @@ $path/travis-timeout \
     stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml setup
 
 if [ "$LIBRARY" != "documentation" ]; then
-    $path/travis-timeout \
-        stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml build --test --fast -j1 --only-snapshot $LIBRARY
+    $path/travis-timeout                                                           \
+        stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml build \
+        -j2                                                                        \
+        --fast                                                                     \
+        --only-snapshot                                                            \
+        --test                                                                     \
+        --haddock                                                                  \
+        --no-haddock-deps                                                          \
+        $LIBRARY
 fi
+
+if [ "$BRANCH" != "develop" ]; then
+    echo "Ignoring documentation build for branch '$BRANCH'."
+    exit 0
+fi
+
+if [ -z "$TOKEN" ]; then
+    echo "Ignoring documentation build due to missing token."
+    exit 0
+fi
+
+ref=github.com/brendanhay/amazonka-doc.git
+output=doc
+retries=0
+
+git clone https://$ref $output
+
+cd $output
+
+git checkout gh-pages
+
+git config user.name "Brendan Hay"
+git config user.email "brendan.g.hay@gmail.com"
+
+cp -R $(stack path --local-doc-root)/$LIBRARY-* .
+
+until git push --quiet "https://${TOKEN}@${ref}" || (( retries++ >= 5 )); do
+    git reset
+    git add $LIBRARY-*
+    git commit -m "$LIBRARY documentation build $BUILD_NUMBER"
+done

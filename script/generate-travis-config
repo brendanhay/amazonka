@@ -51,6 +51,7 @@ echo "Updating ${travis}"
 sed -i -e '/# GENERATED/,/# END GENERATED/d' "${travis}"
 
 echo "# GENERATED"                       >> "${travis}"
+matrix "Documentation" ghc_82[@] docs[@] >> "${travis}"
 matrix "Core" ghc_all[@] core[@]         >> "${travis}"
 matrix "Test" ghc_82[@] test[@]          >> "${travis}"
 matrix "Priority" ghc_all[@] priority[@] >> "${travis}"

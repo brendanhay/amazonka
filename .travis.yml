@@ -34,6 +34,10 @@ matrix:
   include:
 # GENERATED
 
+    # Documentation
+    - env: GHCVER=8.2 LIBRARY=documentation
+      addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
+
     # Core
     - env: GHCVER=8.2 LIBRARY=amazonka-core
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }

@@ -2,31 +2,48 @@
 
 set -euo pipefail
 
-if [ "$TRAVIS_BRANCH" != "develop" ]; then
-    echo "Ignoring documentation build for branch '$TRAVIS_BRANCH'."
-    exit 0
-fi
+shopt -s extglob
+
+BRANCH="${TRAVIS_BRANCH:-$(git rev-parse --abbrev-ref HEAD)}"
+TOKEN="${DOC_TOKEN:-}"
+
+BUILD_ID=${TRAVIS_BUILD_ID:-1}
+BUILD_NUMBER=${TRAVIS_BUILD_NUMBER:-1}
+
+GHCVER=${GHCVER?"GHCVER needs to be set."}
 
 if [ -z "$DOC_TOKEN" ]; then
     echo "Ignoring documentation build due to missing token."
     exit 0
 fi
 
-DOC_REF=github.com/brendanhay/amazonka-doc.git
-GHCVER=${GHCVER?"GHCVER needs to be set."}
-BUILD_ID=${TRAVIS_BUILD_ID:-1}
-BUILD_NUMBER=${TRAVIS_BUILD_NUMBER:-1}
-
 path=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
 
-$path/travis-timeout \
-    stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml \
-    build --fast -j2 --haddock --no-haddock-deps \
-    amazonka amazonka-core
+$path/travis-timeout                                                           \
+    stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml build \
+    -j2                                                                        \
+    --fast                                                                     \
+    --only-snapshot                                                            \
+    --test                                                                     \
+    --haddock                                                                  \
+    --no-haddock-deps                                                          \
+    amazonka
 
+ref=github.com/brendanhay/amazonka-doc.git
 output=doc
+retries=0
 
-cp -R $(stack path --local-doc-root) $output
+git clone https://$ref $output
+
+cd $output
+mkdir -p $BRANCH
+
+git checkout gh-pages
+
+git config user.name "Brendan Hay"
+git config user.email "brendan.g.hay@gmail.com"
+
+cp -R $(stack path --local-doc-root)/!(amazonka*) $BRANCH/
 
 {
     cat <<-HTML
@@ -36,7 +53,7 @@ cp -R $(stack path --local-doc-root) $output
     <ul>
 HTML
 
-    for dir in $(ls -d $output/*/); do
+    for dir in $(ls -d $output/amazonka*/); do
         file=$(basename $dir)
         cat <<-HTML
         <li><a href="${file}/index.html">${file}</a></li>
@@ -46,16 +63,11 @@ HTML
     cat <<-HTML
     </ul>
 HTML
-} > $output/index.html
+} > index.html
 
-cd $output
-
-git init
-
-git config user.name "Brendan Hay"
-git config user.email "brendan.g.hay@gmail.com"
-
-git add .
-git commit -m "Travis CI documentation deploy $BUILD_NUMBER"
-
-git push --force --quiet "https://${DOC_TOKEN}@${DOC_REF}" master:gh-pages > /dev/null 2>&1
+until git push --quiet "https://${TOKEN}@${ref}" || (( retries++ >= 5 )); do
+    git reset
+    git pull origin gh-pages
+    git add $BRANCH
+    git commit -m "$BRANCH index build $BUILD_NUMBER"
+done

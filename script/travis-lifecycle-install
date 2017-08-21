@@ -58,5 +58,5 @@ until git push --quiet "https://${TOKEN}@${ref}" || (( retries++ >= 5 )); do
     git reset
     git pull origin gh-pages
     git add $BRANCH
-    git commit -m "$BRANCH/$LIBRARY documentation build $BUILD_NUMBER"
+    git commit -m "$BRANCH/$LIBRARY build $BUILD_NUMBER"
 done

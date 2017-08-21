@@ -11,13 +11,13 @@ BUILD_NUMBER=${TRAVIS_BUILD_NUMBER:-1}
 GHCVER=${GHCVER?"GHCVER needs to be set."}
 LIBRARY=${LIBRARY?"LIBRARY needs to be set."}
 
+path=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
+
 if [ "$LIBRARY" == "documentation" ]; then
     echo "Building documentation..."
     $path/travis-documentation
     exit 0
 fi
-
-path=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
 
 $path/travis-timeout                                                           \
     stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml build \
@@ -56,6 +56,9 @@ echo "Copying built documentation to $output/$BRANCH"
 cp -R $root/$LIBRARY-* $BRANCH/
 
 echo "Committing + pushing to $ref"
+git add $BRANCH
+git commit -m "$BRANCH/$LIBRARY build $BUILD_NUMBER"
+
 until git push --quiet "https://${TOKEN}@${ref}" || (( retries++ >= 5 )); do
     echo "Retrying git push ..."
     git reset

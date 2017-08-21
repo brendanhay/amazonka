@@ -19,16 +19,6 @@ fi
 
 path=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
 
-$path/travis-timeout                                                           \
-    stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml build \
-    -j2                                                                        \
-    --fast                                                                     \
-    --only-snapshot                                                            \
-    --test                                                                     \
-    --haddock                                                                  \
-    --no-haddock-deps                                                          \
-    amazonka
-
 ref=github.com/brendanhay/amazonka-doc.git
 output=doc
 retries=0

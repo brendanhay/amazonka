@@ -48,7 +48,7 @@ mkdir -p $BRANCH
 git checkout gh-pages
 
 git config user.name "Brendan Hay"
-git config user.email "brendan.g.hay@gmail.com"
+git config user.email "brendan.g.hay+amazonka@gmail.com"
 
 cp -R $(stack path --local-doc-root)/$LIBRARY-* $BRANCH/
 

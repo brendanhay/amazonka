@@ -31,9 +31,7 @@ mkdir -p $BRANCH
 git checkout gh-pages
 
 git config user.name "Brendan Hay"
-git config user.email "brendan.g.hay@gmail.com"
-
-cp -R $(stack path --local-doc-root)/!(amazonka*) $BRANCH/
+git config user.email "brendan.g.hay+amazonka@gmail.com"
 
 {
     cat <<-HTML
@@ -43,7 +41,7 @@ cp -R $(stack path --local-doc-root)/!(amazonka*) $BRANCH/
     <ul>
 HTML
 
-    for dir in $(ls -d $output/amazonka*/); do
+    for dir in $(ls -d amazonka*/); do
         file=$(basename $dir)
         cat <<-HTML
         <li><a href="${file}/index.html">${file}</a></li>
@@ -53,11 +51,11 @@ HTML
     cat <<-HTML
     </ul>
 HTML
-} > index.html
+} > $BRANCH/index.html
 
 until git push --quiet "https://${TOKEN}@${ref}" || (( retries++ >= 5 )); do
     git reset
     git pull origin gh-pages
-    git add $BRANCH
+    git add $BRANCH/index.html
     git commit -m "$BRANCH index build $BUILD_NUMBER"
 done

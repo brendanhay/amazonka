@@ -19,6 +19,7 @@ fi
 
 path=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
 
+root=$(stack --stack-yaml stack-$GHCVER.yaml path --local-doc-root)
 ref=github.com/brendanhay/amazonka-doc.git
 output=doc
 retries=0

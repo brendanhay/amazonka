@@ -11,6 +11,11 @@ BUILD_NUMBER=${TRAVIS_BUILD_NUMBER:-1}
 GHCVER=${GHCVER?"GHCVER needs to be set."}
 LIBRARY=${LIBRARY?"LIBRARY needs to be set."}
 
+if [ "$LIBRARY" == "documentation" ]; then
+    echo "Ignoring documentation build for index build job."
+    exit 0
+fi
+
 path=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
 
 $path/travis-timeout \
@@ -30,11 +35,7 @@ if [ -z "$TOKEN" ]; then
     exit 0
 fi
 
-if [ "$LIBRARY" == "documentation" ]; then
-    echo "Ignoring documentation build for index build job."
-    exit 0
-fi
-
+root=$(stack --stack-yaml stack-$GHCVER.yaml path --local-doc-root)
 ref=github.com/brendanhay/amazonka-doc.git
 output=doc
 retries=0
@@ -50,7 +51,7 @@ git config --global push.default simple
 git config user.name "Brendan Hay"
 git config user.email "brendan.g.hay+amazonka@gmail.com"
 
-cp -R "$(stack --stack-yaml stack-$GHCVER.yaml path --local-doc-root)/$LIBRARY-*" $BRANCH/
+cp -R $root/$LIBRARY-* $BRANCH/
 
 until git push --quiet "https://${TOKEN}@${ref}" || (( retries++ >= 5 )); do
     git reset

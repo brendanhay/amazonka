@@ -56,12 +56,11 @@ echo "Copying built documentation to $output/$BRANCH"
 cp -R $root/$LIBRARY-* $BRANCH/
 
 echo "Committing + pushing to $ref"
-git add $BRANCH
-git commit -m "$BRANCH/$LIBRARY build $BUILD_NUMBER"
-
-until git push --quiet "https://${TOKEN}@${ref}" || (( retries++ >= 5 )); do
-    echo "Retrying git push ..."
-    git pull --force-with-lease origin gh-pages
-    git add $BRANCH
+if git add $BRANCH/$LIBRARY-*; then
     git commit -m "$BRANCH/$LIBRARY build $BUILD_NUMBER"
-done
+
+    until git push --force-with-lease --quiet "https://${TOKEN}@${ref}" || (( retries++ >= 5 )); do
+        echo "Retrying git push ..."
+        git pull origin gh-pages
+    done
+fi

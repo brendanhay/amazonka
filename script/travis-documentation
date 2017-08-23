@@ -59,9 +59,7 @@ HTML
 git add $BRANCH/index.html
 git commit -m "$BRANCH index build $BUILD_NUMBER"
 
-until git push --quiet "https://${TOKEN}@${ref}" || (( retries++ >= 5 )); do
+until git push --force-with-lease --quiet "https://${TOKEN}@${ref}" || (( retries++ >= 5 )); do
     echo "Retrying git push ..."
-    git pull --force-with-lease origin gh-pages
-    git add $BRANCH/index.html
-    git commit -m "$BRANCH index build $BUILD_NUMBER"
+    git pull --force origin gh-pages
 done

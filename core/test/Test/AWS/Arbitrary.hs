@@ -28,6 +28,7 @@ import           Test.QuickCheck.Gen     as QC
 import qualified Test.QuickCheck.Unicode as Unicode
 import           Test.Tasty.QuickCheck
 
+
 instance Arbitrary Service where
   arbitrary = svc <$> arbitrary
     where
@@ -39,9 +40,11 @@ instance Arbitrary Service where
         , _svcEndpoint = defaultEndpoint (svc a)
         , _svcTimeout  = Nothing
         , _svcCheck    = const False
-        , _svcError    = error "_svcError not defined."
-        , _svcRetry    = error "_svcRetry not defined."
+        , _svcError    = const $ error "_svcError not defined."
+        , _svcRetry    = rt
         }
+
+      rt = Exponential 1 2 3 (Just . Text.pack . show)
 
 instance Arbitrary (Request ()) where
     arbitrary = Request
@@ -107,11 +110,17 @@ instance Arbitrary RawPath where
         return $! rawPath (BS8.intercalate "/" xs)
 
 instance Arbitrary QueryString where
-    arbitrary = oneof
-        [ QList  <$> arbitrary
-        , QPair  <$> arbitrary <*> arbitrary
-        , QValue <$> arbitrary
-        ]
+    arbitrary = sized arbQs
+
+-- | needs a limit on the recursion depth
+arbQs :: Int -> Gen QueryString
+arbQs 0 = QPair  <$> arbitrary <*> (QValue <$> arbitrary)
+arbQs n = oneof
+    [ QValue <$> arbitrary
+    , QPair  <$> arbitrary <*> next
+    , QList  <$> (take 4 <$> QC.listOf (arbQs (n `div` 2)))
+    ]
+  where next = arbQs (n-1)
 
 instance (Arbitrary a, FoldCase a) => Arbitrary (CI a) where
     arbitrary = CI.mk <$> arbitrary
@@ -135,6 +144,25 @@ instance Arbitrary UTCTime where
            [ u { utctDay     = d } | d <- shrink day     ]
         ++ [ u { utctDayTime = t } | t <- shrink dayTime ]
 
+
 instance Arbitrary Day where
-    arbitrary = ModifiedJulianDay <$> (2000 +) <$> arbitrary
+    arbitrary = ModifiedJulianDay . (2000 +) <$> arbitrary
     shrink    = fmap ModifiedJulianDay . shrink . toModifiedJulianDay
+
+instance Arbitrary (Time a) where
+    arbitrary = Time <$> arbitrary
+
+instance Arbitrary AccessKey where
+    arbitrary = AccessKey <$> arbitrary
+
+instance (Arbitrary a) => Arbitrary (Sensitive a) where
+    arbitrary = Sensitive <$> arbitrary
+
+instance Arbitrary SecretKey where
+    arbitrary = (SecretKey . fromString) <$> suchThat Unicode.string (not . null)
+
+instance Arbitrary SessionToken where
+    arbitrary = SessionToken <$> arbitrary
+
+instance Arbitrary AuthEnv where
+    arbitrary = AuthEnv <$> arbitrary <*> arbitrary <*> arbitrary <*> arbitrary

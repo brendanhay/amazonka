@@ -41,6 +41,7 @@ import           Network.AWS.Lens            ((<>~), (^.))
 import           Network.AWS.Sign.V4.Base    hiding (algorithm)
 import           Network.AWS.Types
 import           Network.HTTP.Types.Header
+import           Numeric (showHex)
 
 import qualified Data.ByteString             as BS
 import qualified Data.ByteString.Char8       as BS8
@@ -108,7 +109,7 @@ metadataLength c =
   where
     chunkLength :: Integral a => a -> Integer
     chunkLength (toInteger -> n) =
-          _chunkedLength c
+          fromIntegral (length (showHex n ""))
         + headerLength
         + signatureLength
         + crlfLength

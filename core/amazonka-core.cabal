@@ -133,6 +133,7 @@ test-suite tests
         , Test.AWS.Error
         , Test.AWS.Sign.V2Header.BaseSpec
         , Test.AWS.Sign.V4
+        , Test.AWS.Sign.V4.Chunked
         , Test.AWS.Util
 
     build-depends:
@@ -141,7 +142,10 @@ test-suite tests
         , base
         , bytestring
         , case-insensitive
+        , conduit
+        , conduit-extra
         , data-ordlist
+        , http-conduit
         , http-types
         , lens
         , QuickCheck

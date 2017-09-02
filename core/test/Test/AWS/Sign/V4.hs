@@ -21,6 +21,7 @@ import qualified Data.Text.Encoding       as Text
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 import           Test.AWS.Arbitrary       ()
+import qualified Test.AWS.Sign.V4.Chunked as Chunked
 import           Test.QuickCheck.Property
 import           Test.Tasty
 import           Test.Tasty.QuickCheck
@@ -36,4 +37,8 @@ import           Test.Tasty.QuickCheck
 --  test empty query
 
 tests :: TestTree
-tests = testGroup "v4" []
+tests = testGroup "v4"
+            [ testGroup "chunked"
+                [ Chunked.tests
+                ]
+            ]

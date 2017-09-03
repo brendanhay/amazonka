@@ -413,6 +413,9 @@ data Signed a = Signed
     , sgRequest :: !ClientRequest
     }
 
+instance Show (Signed a) where
+  show = const "Signed { Meta ClientRequest }"
+
 type Algorithm a = Request a -> AuthEnv -> Region -> UTCTime -> Signed a
 
 data Signer = Signer

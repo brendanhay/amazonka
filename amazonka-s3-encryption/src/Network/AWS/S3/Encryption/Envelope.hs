@@ -13,7 +13,7 @@
 --
 module Network.AWS.S3.Encryption.Envelope where
 
-import           Conduit
+import           Conduit                         as C
 import           Control.Lens
 import           Control.Monad
 import           Crypto.Cipher.AES
@@ -34,6 +34,8 @@ import           Network.AWS.KMS                 as KMS
 import           Network.AWS.Prelude
 import           Network.AWS.S3.Encryption.Body
 import           Network.AWS.S3.Encryption.Types
+import qualified Data.ByteString as BS
+
 
 data V1Envelope = V1Envelope
     { _v1Key         :: !ByteString
@@ -201,21 +203,68 @@ aesKeySize   = 32
 aesBlockSize = 16
 
 bodyEncrypt :: Envelope -> RqBody -> RqBody
-bodyEncrypt (getCipher -> (aes, iv)) x = Chunked $
-    y `fuseChunks` awaitForever (yield . go)
+bodyEncrypt (getCipher -> (aes, iv0)) x =
+    Chunked $ y `fuseChunks` (encryptChunks =$= forceChunkSize (fromIntegral defaultChunkSize)) -- realign body chunks for upload (AWS enforces chunk limits on all but last)
   where
-    go = cbcEncrypt aes iv . pad (PKCS7 aesBlockSize)
+    encryptChunks = aesCbc iv0 nextChunk lastChunk
+
+    nextChunk iv b = let r = cbcEncrypt aes iv b
+                         iv' = fromMaybe iv . makeIV $ BS.drop (BS.length b - aesBlockSize) r
+                      in (iv', r)
+
+    lastChunk iv = cbcEncrypt aes iv . pad (PKCS7 aesBlockSize)
+
     y  = toChunked x & chunkedLength +~ padding
 
     padding = n - (contentLength x `mod` n)
     n       = fromIntegral aesBlockSize
 
+
 bodyDecrypt :: Envelope -> RsBody -> RsBody
-bodyDecrypt (getCipher -> (aes, iv)) x =
-    x `fuseStream` awaitForever (yield . go)
+bodyDecrypt (getCipher -> (aes, iv0)) x =
+    x `fuseStream` decryptChunks
   where
-    go b = let r = cbcDecrypt aes iv b
-            in fromMaybe r (unpad (PKCS7 aesBlockSize) r)
+    decryptChunks = aesCbc iv0 nextChunk lastChunk
+
+    nextChunk iv b = let d = cbcDecrypt aes iv b
+                         iv' = fromMaybe iv . makeIV $ BS.drop (BS.length b - aesBlockSize) b
+                      in (iv', d)
+
+    lastChunk iv b = let r = cbcDecrypt aes iv b
+                      in fromMaybe r (unpad (PKCS7 aesBlockSize) r)
+
+
+aesCbc :: Monad m
+       => IV AES256
+       -> (IV AES256 -> ByteString -> (IV AES256, ByteString))
+       -> (IV AES256 -> ByteString -> ByteString)
+       -> Conduit ByteString m ByteString
+aesCbc iv0 nextChunk lastChunk = blockAlignChunks aesBlockSize =$= goChunk iv0 Nothing
+  where
+    goChunk iv carryChunk =
+       do cs <- C.await
+          case cs
+            of Nothing -> case carryChunk
+                            of Nothing -> return ()
+                               Just b  -> yield $ lastChunk iv b
+               Just c  -> case carryChunk
+                            of Nothing -> goChunk iv (Just c)
+                               Just b  -> do let (iv', b') = nextChunk iv b
+                                             yield b'
+                                             goChunk iv' (Just c)
+
+
+blockAlignChunks :: Monad m => Int -> Conduit ByteString m ByteString
+blockAlignChunks bSize = alignChunksBy splitChunk
+  where
+    splitChunk b | len == 0         = Nothing
+                 | leftoverLen == 0 = Just (b, Nothing)
+                 | len >  bSize     = Just $  (_2 %~ Just) (BS.splitAt alignedLen b)
+                 | otherwise        = Nothing
+                 where len = BS.length b
+                       leftoverLen = len `mod` bSize
+                       alignedLen = len - leftoverLen
+
 
 rsaEncrypt :: (MonadThrow m, MonadRandom m) => KeyPair -> ByteString -> m ByteString
 rsaEncrypt k = RSA.encrypt (toPublicKey k) >=> hoistError PubKeyFailure

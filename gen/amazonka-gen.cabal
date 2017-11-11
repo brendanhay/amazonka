@@ -2,7 +2,7 @@ name:                  amazonka-gen
 version:               1.4.5
 synopsis:              Amazonka Code Generator
 homepage:              https://github.com/brendanhay/amazonka
-license:               OtherLicense
+license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>

@@ -3,7 +3,7 @@ version:               {{ libraryVersion }}
 synopsis:              {{ serviceFullName }}.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               OtherLicense
+license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>

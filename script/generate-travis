@@ -18,9 +18,9 @@ entry() {
     local lib="$2"
 
 cat <<-ENTRY
-    - env: GHCVER=${ver} LIBRARY=${lib} CACHE_NAME=${lib}-${ver}
+    - env: LIBRARY=${lib} GHCVER=${ver} STACK_YAML=stack-${ver}.yaml CACHE_NAME=${lib}-${ver}
       compiler: "GHC-${ver}"
-      addons: { apt: { packages: [ghc-${ver}], sources: [hvr-ghc] } }
+      addons: {apt: {packages: [ghc-${ver}], sources: [hvr-ghc]}}
 ENTRY
 }
 
@@ -42,8 +42,8 @@ TITLE
 }
 
 ghc_802=( 8.0.2 )
-ghc_82=( 8.2 )
-ghc_all=( 8.2 8.0.2 7.10.3 )
+ghc_822=( 8.2.2 )
+ghc_all=( 8.2.2 8.0.2 7.10.3 )
 
 travis=".travis.yml"
 
@@ -52,12 +52,12 @@ echo "Updating ${travis}"
 sed -i -e '/# GENERATED/,/# END GENERATED/d' "${travis}"
 
 echo "# GENERATED"                       >> "${travis}"
-matrix "Generator" ghc_82[@] gen[@]      >> "${travis}"
+matrix "Generator" ghc_822[@] gen[@]      >> "${travis}"
 matrix "Core" ghc_all[@] core[@]         >> "${travis}"
-matrix "Test" ghc_82[@] test[@]          >> "${travis}"
+matrix "Test" ghc_822[@] test[@]          >> "${travis}"
 matrix "Priority" ghc_all[@] priority[@] >> "${travis}"
-matrix "Remainder" ghc_82[@] library[@]  >> "${travis}"
-matrix "Examples" ghc_82[@] examples[@]  >> "${travis}"
+matrix "Remainder" ghc_822[@] library[@]  >> "${travis}"
+matrix "Examples" ghc_822[@] examples[@]  >> "${travis}"
 echo "# END GENERATED"                   >> "${travis}"
 
 echo "Done."

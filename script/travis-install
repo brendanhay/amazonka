@@ -2,8 +2,6 @@
 
 set -euo pipefail
 
-GHCVER=${GHCVER?"GHCVER needs to be set."}
-
 mkdir -p ~/.local/bin
 
 travis_retry() {
@@ -17,7 +15,7 @@ fetch_stack_linux() {
 }
 
 setup_project() {
-    stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml setup
+    stack --no-terminal --skip-ghc-check setup
 }
 
 travis_retry fetch_stack_linux

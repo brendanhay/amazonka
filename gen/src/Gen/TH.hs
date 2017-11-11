@@ -45,10 +45,10 @@ data TH = TH
 
 makeLenses ''TH
 
-gParseJSON' :: (Generic a, GFromJSON (Rep a)) => TH -> Value -> Parser a
+gParseJSON' :: (Generic a, GFromJSON Zero (Rep a)) => TH -> Value -> Parser a
 gParseJSON' th = genericParseJSON (aeson th)
 
-gToJSON' :: (Generic a, GToJSON (Rep a)) => TH -> a -> Value
+gToJSON' :: (Generic a, GToJSON Zero (Rep a)) => TH -> a -> Value
 gToJSON' th = genericToJSON (aeson th)
 
 upper, lower, spinal, camel :: TH

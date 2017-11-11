@@ -20,7 +20,6 @@ import           Gen.Types.Id       as Types
 import           Gen.Types.Map      as Types
 import           Gen.Types.Notation as Types
 import           Gen.Types.NS       as Types
-import           Gen.Types.Orphans  ()
 import           Gen.Types.Pager    as Types
 import           Gen.Types.Retry    as Types
 import           Gen.Types.Service  as Types

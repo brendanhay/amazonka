@@ -23,7 +23,6 @@ import           Data.List.NonEmpty   (NonEmpty (..))
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Gen.Types.Id
-import           Gen.Types.Orphans    ()
 
 data Key a
     = Key  { fromKey :: a }

@@ -1,3 +1,4 @@
+
 {-# LANGUAGE DataKinds              #-}
 {-# LANGUAGE DefaultSignatures      #-}
 {-# LANGUAGE DeriveFoldable         #-}
@@ -46,7 +47,6 @@ import           Gen.Types.Help
 import           Gen.Types.Id
 import           Gen.Types.Map
 import           Gen.Types.NS
-import           Gen.Types.Orphans      ()
 import           Gen.Types.Pager
 import           Gen.Types.Retry
 import           Gen.Types.URI

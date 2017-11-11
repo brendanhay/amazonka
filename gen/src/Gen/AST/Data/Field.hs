@@ -135,8 +135,9 @@ fieldAccessor f = accessorId (_fieldPrefix f) (_fieldId f)
 fieldIsParam :: Field -> Bool
 fieldIsParam f = not (fieldMaybe f) && not (fieldMonoid f)
 
-fieldParamName :: Field -> Name
-fieldParamName = Ident
+fieldParamName :: Field -> Name ()
+fieldParamName =
+      Ident ()
     . Text.unpack
     . Text.cons 'p'
     . flip Text.snoc '_'

@@ -69,6 +69,9 @@ instance Eq Id where
 instance Hashable Id where
     hashWithSalt n (Id x _) = hashWithSalt n x
 
+instance FromJSONKey Id where
+    fromJSONKey = mkId <$> fromJSONKey
+
 instance FromJSON Id where
     parseJSON = withText "id" (pure . mkId)
 

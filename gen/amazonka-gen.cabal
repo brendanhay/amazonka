@@ -40,20 +40,18 @@ executable amazonka-gen
         , Gen.Tree
         , Gen.Types
         , Gen.Types.Ann
+        , Gen.Types.Config
         , Gen.Types.Data
         , Gen.Types.Help
         , Gen.Types.Id
         , Gen.Types.Map
         , Gen.Types.NS
         , Gen.Types.Notation
-        , Gen.Types.Orphans
-        , Gen.Types.Pager
         , Gen.Types.Pager
         , Gen.Types.Retry
         , Gen.Types.Service
         , Gen.Types.TypeOf
         , Gen.Types.URI
-        , Gen.Types.Config
         , Gen.Types.Waiter
 
     ghc-options:       -Wall -threaded
